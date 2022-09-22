@@ -24,7 +24,7 @@ Feature: My Skills in Dashboard
 
 
 
-  Scenario Outline: mis_dashboard_MySkills_update_skills_invalid_data
+  Scenario Outline: Verify My Skills are not updating with InValid Data
     When "<Card>" card is present in dashboard
     Then Verify card is not empty
     When User clicks on "<skill>" skill in My Skill card
@@ -46,12 +46,12 @@ Feature: My Skills in Dashboard
 
 
 
-  Scenario: mis_dashboard_MySkills_minimize_card
+  Scenario: Verify My Skills card is minimizing
     When "My Skills" card is present in dashboard
     Then User clicks on "Minimize" button on "My Skills" card
     And Verify that "My Skills" card is minimized
 
-  Scenario: mis_dashboard_MySkills_maximize_card
+  Scenario: Verify My Skills card is maximizing
     When "My Skills" card is present in dashboard
     Then User clicks on "Maximize" button on "My Skills" card
     And Verify that "My Skills" card is maximized
