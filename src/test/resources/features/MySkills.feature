@@ -2,8 +2,7 @@ Feature: My Skills in Dashboard
 
   Background:
     Given MIS Beta is opened and verify application opens successfully
-    When User enters username "ayush.garg" and password "Gemini@1234"
-    And Clicks "Sign In" Button
+    When User logins into application with username "ayush.garg" and password "Gemini@1234"
     Then Verify Dashboard page opens
 
   Scenario Outline: Verify My Skills are updating with Valid Data

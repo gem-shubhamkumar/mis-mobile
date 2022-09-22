@@ -23,10 +23,11 @@ public class CommonSteps {
 
     }
 
-    @When("^User enters username \"(.*?)\" and password \"(.*?)\"$")
+    @When("^User logins into application with username \"(.*?)\" and password \"(.*?)\"$")
     public void enterUsername(String username, String password) {
         commonPages.enterUsername(username);
         commonPages.enterPassword(password);
+        commonPages.clickButton("Sign In");
     }
 
 
