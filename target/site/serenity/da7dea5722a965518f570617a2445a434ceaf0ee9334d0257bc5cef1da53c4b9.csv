@@ -1,0 +1,4 @@
+"Story","Title","Result","Date","Stability","Duration (s)"
+"MIS Leave Management Activities","Navigate to Leave Management > Apply tab","SUCCESS","2022-09-23T17:13:16.687+05:30[Asia/Calcutta]","0.0","44.0"
+"MIS Leave Management Activities","Verify fields are Auto Populated by default","SUCCESS","2022-09-23T17:14:00.755+05:30[Asia/Calcutta]","0.0","35.93"
+"MIS Leave Management Activities","Verify From,Till and Reason fields are mandatory","SUCCESS","2022-09-23T17:14:36.721+05:30[Asia/Calcutta]","0.0","54.43"

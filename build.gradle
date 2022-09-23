@@ -1,0 +1,89 @@
+defaultTasks 'clean', 'test', 'aggregate'
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'net.serenity-bdd.serenity-gradle-plugin'
+apply plugin: 'test-report-aggregation'
+
+buildscript {
+    repositories {
+        maven{
+            url ="https://plugins.gradle.org/m2/";
+        }
+    }
+    dependencies {
+        classpath "net.serenity-bdd:serenity-gradle-plugin:3.3.2"
+    }
+}
+repositories {
+    mavenCentral()
+    mavenLocal()
+    jcenter()
+}
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+ext {
+    slf4jVersion = '1.7.7'
+    serenityCoreVersion = '3.2.5'
+    serenityCucumberVersion = '3.3.0'
+    junitVersion = '4.13.1'
+    assertJVersion = '3.23.1'
+    logbackVersion = '1.2.10'
+    restAssuredVersion = '5.1.1'
+    jsonVersion = '20210307'
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+    implementation group: 'net.serenity-bdd', name: 'serenity-core', version: '3.3.2'
+    implementation group: 'net.serenity-bdd', name: 'serenity-junit', version: '3.3.2'
+    testImplementation group: 'net.serenity-bdd', name: 'serenity-cucumber', version: '3.3.2'
+    implementation group: 'io.cucumber', name: 'cucumber-java', version: '6.10.4'
+    testImplementation group: 'io.cucumber', name: 'cucumber-junit', version: '6.10.4'
+    testImplementation group: 'junit', name: 'junit', version: '4.13.2'
+    testImplementation group: 'org.assertj', name: 'assertj-core', version: '3.23.1'
+    implementation group: 'org.slf4j', name: 'slf4j-api', version: '2.0.0'
+    testImplementation group: 'org.slf4j', name: 'slf4j-log4j12', version: '2.0.0', ext: 'pom'
+    testImplementation group: 'io.cucumber', name: 'cucumber-junit', version: '4.0.0'
+    //implementation group: 'net.serenity-bdd', name: 'serenity-cucumber6', version: '2.6.0'
+    testImplementation group: 'net.serenity-bdd', name: 'serenity-cucumber', version: '3.3.2'
+    testImplementation group: 'net.serenity-bdd', name:'serenity-screenplay' , version: '3.2.5'
+    testImplementation group: 'net.serenity-bdd', name:'serenity-screenplay-rest' , version: '3.2.5'
+    testImplementation group: 'net.serenity-bdd', name:'serenity-rest-assured' , version: '3.2.5'
+    testImplementation group: 'io.rest-assured', name:'rest-assured' , version: '5.1.1'
+    testImplementation group: 'org.json', name:'json' , version: '20210307'
+}
+reporting
+        {
+            reports {
+                testAggregateTestReport(AggregateTestReport)
+                        {
+                            testType = TestSuiteType.UNIT_TEST;
+                        }
+            }
+        }
+serenity {
+    testRoot = "java"
+    requirementsDir = "src/test/resources/features"
+}
+test
+        {
+            filter
+                    {
+               //         includeTestsMatching "*"
+                    }
+            // useJUnitPlatform()
+            testLogging.showStandardStreams = true
+            systemProperties System.getProperties()
+            maxParallelForks = 8
+        }
+gradle.startParameter.continueOnFailure = true
+
+test.finalizedBy(aggregate)
+
