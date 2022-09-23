@@ -1,10 +1,9 @@
-package com.gemini.mis.stepDefinitions;
+package stepDefinitions;
 
 import com.gemini.mis.pages.LoginPage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import com.gemini.mis.pages.LoginPage;
 import com.gemini.mis.selectors.LocatorLoginPage;
 
 public class MISLogin {
@@ -26,11 +25,6 @@ public class MISLogin {
         steps.enterValues(LocatorLoginPage.inputField("password"),password);
 
     }
-   /* @Given("User verifies Logo")
-    public void user_verifies_logo() {
-      steps.isElementExist(LocatorLoginPage.logo);
-
-    }*/
 
     @Then("User Verifies all elements of Login Page")
     public void user_verifies_all_elements_of_login_page() {

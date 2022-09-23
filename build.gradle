@@ -1,0 +1,75 @@
+defaultTasks 'clean','test','aggregate'
+
+apply plugin: 'java'
+apply plugin: 'net.serenity-bdd.aggregator'
+
+group 'org.serenityexample'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+buildscript {
+    project.ext {
+        serenityVersion = '2.3.12'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath('net.serenity-bdd:serenity-gradle-plugin:' + serenityVersion)
+    }
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+ext {
+    slf4jVersion = '1.7.7'
+    serenityCoreVersion = '3.2.5'
+    junitVersion = '4.13'
+    assertJVersion = '3.8.0'
+    logbackVersion = '1.2.3'
+    restAssuredVersion ='5.1.1'
+    jsonVersion= '20210307'
+}
+
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+    implementation group: 'net.serenity-bdd', name: 'serenity-core', version: '3.3.2'
+    implementation group: 'net.serenity-bdd', name: 'serenity-junit', version: '3.3.2'
+    testImplementation group: 'net.serenity-bdd', name: 'serenity-cucumber', version: '3.3.2'
+    implementation group: 'io.cucumber', name: 'cucumber-java', version: '6.10.4'
+    testImplementation group: 'io.cucumber', name: 'cucumber-junit', version: '6.10.4'
+    testImplementation group: 'junit', name: 'junit', version: '4.13.2'
+    testImplementation group: 'org.assertj', name: 'assertj-core', version: '3.23.1'
+    implementation group: 'org.slf4j', name: 'slf4j-api', version: '2.0.0'
+    testImplementation group: 'org.slf4j', name: 'slf4j-log4j12', version: '2.0.0', ext: 'pom'
+    testImplementation group: 'io.cucumber', name: 'cucumber-junit', version: '4.0.0'
+    //implementation group: 'net.serenity-bdd', name: 'serenity-cucumber6', version: '2.6.0'
+    testImplementation group: 'net.serenity-bdd', name: 'serenity-cucumber', version: '3.3.2'
+}
+
+
+test {
+    filter {
+        //include specific method in any of the tests
+        //includeTestsMatching "*LoginRunner"
+
+        //include all tests from package
+        //includeTestsMatching "com.gemini.serenity.Runner.*"
+
+        //include all integration tests
+        //includeTestsMatching "*IntegTest"
+    }
+    testLogging.showStandardStreams = true
+    systemProperties System.getProperties()
+
+}
+
+gradle.startParameter.continueOnFailure = true
+
+test.finalizedBy(aggregate)
