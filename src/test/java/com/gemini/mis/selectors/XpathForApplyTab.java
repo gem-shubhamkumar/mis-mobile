@@ -7,6 +7,10 @@ public class XpathForApplyTab
     {
         return By.xpath("//input[@id=\""+nameOfElement+"\"]");
     }
+    public static By dropdown(String nameOfElement)
+    {
+        return By.xpath("//select[@id=\""+nameOfElement+"\"]");
+    }
     public static By sideNav(String sideNav)
     {
         return By.xpath("//span[contains(text(),\""+sideNav+"\")]");
@@ -32,11 +36,22 @@ public class XpathForApplyTab
     {
         return By.xpath("//div[@id=\""+id+"\"]/div/span");
     }
-    //div[@id="leaveTillDate"]/div/span
+    public static By labelText(String text)
+    {
+        return By.xpath("//label[contains(text(),\""+text+"\")]");
+    }
+    public static By halfDayOptions(String halfDayOption)
+    {
+        return By.xpath("//input[@id=\""+halfDayOption+"\"]/parent::label");
+    }
+    public static By btnType(String btnName)
+    {
+        return By.xpath("//button[contains(text(),\""+btnName+"\")]");
+    }
     public static By heading = By.xpath("//h5");
     public static By tab = By.xpath("//a[@role='tab']/span");
     public static By submitBtn = By.xpath("//input[@value='Submit']");
 
-
+    public static By tooltip = By.xpath("//a[@data-trigger='hover']");
 
 }

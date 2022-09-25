@@ -50,6 +50,21 @@ public class CommonFunctions extends PageObject {
             case "Submit":
                 tab = XpathForApplyTab.submitBtn;
                 break;
+            case "Total working days":
+                tab = XpathForApplyTab.tooltip;
+                break;
+            case "Leave for half day":
+                tab = XpathForApplyTab.textBox("isLeaveHalfDay");
+                break;
+            case "OK":
+                tab = XpathForApplyTab.btnType("OK");
+                break;
+            case "Mobile":
+                tab = XpathForApplyTab.textBox("avilableOnMobile");
+                break;
+            case "Email":
+                tab = XpathForApplyTab.textBox("avilableOnEmail");
+                break;
             default:
                 elementPresent = false;
         }
@@ -201,4 +216,26 @@ public class CommonFunctions extends PageObject {
     }
 
 
+    public void selectDate(By loc, String dateValue) {
+        if (isElementFoundInGivenTime(loc)) {
+            clickOn(loc);
+            String date = dateValue.split("/")[0];
+            List<WebElementFacade> dates = findAll("//td");
+            for (WebElementFacade elementFacade : dates) {
+                if (elementFacade.getText().equals(date)) {
+                    if (elementFacade.getAttribute("class").contains("disabled"))
+                    {
+                        continue;
+                    } else {
+                        elementFacade.click();
+                        break;
+                    }
+                }
+            }
+        }
+        else
+        {
+            Assert.assertFalse("Unable to click on calendar",false);
+        }
+    }
 }

@@ -1,39 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="MIS Leave Management Activities" tests="3" skipped="0" failures="0" errors="0" timestamp="2022-09-23T11:43:16" hostname="GEMPK-200035" time="134.85">
+<testsuite name="MIS Leave Management Activities" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-09-25T17:37:10" hostname="GEMPK-200035" time="93.658">
   <properties/>
-  <testcase name="Navigate to Leave Management &gt; Apply tab" classname="MIS Leave Management Activities" time="44.391"/>
-  <testcase name="Verify fields are Auto Populated by default" classname="MIS Leave Management Activities" time="35.991"/>
-  <testcase name="Verify From,Till and Reason fields are mandatory" classname="MIS Leave Management Activities" time="54.468"/>
+  <testcase name="Choose Availability" classname="MIS Leave Management Activities" time="93.658"/>
   <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[Starting ChromeDriver 105.0.5195.52 (412c95e518836d8a7d97250d62b29c2ae6a26a85-refs/branch-heads/5195@{#853}) on port 63411
+  <system-err><![CDATA[Starting ChromeDriver 105.0.5195.52 (412c95e518836d8a7d97250d62b29c2ae6a26a85-refs/branch-heads/5195@{#853}) on port 59800
 Only local connections are allowed.
 Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
 ChromeDriver was started successfully.
-Sep 23, 2022 5:13:21 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+Sep 25, 2022 11:07:15 PM org.openqa.selenium.remote.ProtocolHandshake createSession
 INFO: Detected upstream dialect: W3C
-Sep 23, 2022 5:13:22 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+Sep 25, 2022 11:07:15 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 WARNING: Unable to find an exact match for CDP version 105, so returning the closest version found: 104
-Sep 23, 2022 5:13:22 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
-INFO: Found CDP implementation for version 105 of 104
-Starting ChromeDriver 105.0.5195.52 (412c95e518836d8a7d97250d62b29c2ae6a26a85-refs/branch-heads/5195@{#853}) on port 62548
-Only local connections are allowed.
-Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
-ChromeDriver was started successfully.
-Sep 23, 2022 5:14:02 PM org.openqa.selenium.remote.ProtocolHandshake createSession
-INFO: Detected upstream dialect: W3C
-Sep 23, 2022 5:14:02 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
-WARNING: Unable to find an exact match for CDP version 105, so returning the closest version found: 104
-Sep 23, 2022 5:14:02 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
-INFO: Found CDP implementation for version 105 of 104
-Starting ChromeDriver 105.0.5195.52 (412c95e518836d8a7d97250d62b29c2ae6a26a85-refs/branch-heads/5195@{#853}) on port 60219
-Only local connections are allowed.
-Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
-ChromeDriver was started successfully.
-Sep 23, 2022 5:14:38 PM org.openqa.selenium.remote.ProtocolHandshake createSession
-INFO: Detected upstream dialect: W3C
-Sep 23, 2022 5:14:38 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
-WARNING: Unable to find an exact match for CDP version 105, so returning the closest version found: 104
-Sep 23, 2022 5:14:38 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+Sep 25, 2022 11:07:15 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 INFO: Found CDP implementation for version 105 of 104
 ]]></system-err>
 </testsuite>

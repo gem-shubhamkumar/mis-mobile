@@ -6,6 +6,7 @@ import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.Step;
 import org.junit.Assert;
+import org.openqa.selenium.JavascriptExecutor;
 
 import java.util.List;
 
@@ -34,7 +35,7 @@ public class LeaveManagementApplyPage extends PageObject
     @Step
     public void verifyPage(String pageName)
     {
-        waitABit(10000);
+        waitABit(30000);
         String url="";
         if(pageName.equals("Dashboard Page"))
         {
@@ -119,4 +120,116 @@ public class LeaveManagementApplyPage extends PageObject
     {
         genFunc.navigateToTab(tabName);
     }
+
+    @Step
+    public void selectTillDate(String tillDate)
+    {
+        genFunc.selectDate(XpathForApplyTab.calendarBtn("leaveTillDate"),tillDate);
+    }
+
+    @Step
+    public void selectFromDate(String fromDate)
+    {
+        genFunc.selectDate(XpathForApplyTab.calendarBtn("leaveFromDate"),fromDate);
+    }
+
+    @Step
+    public void verifyTooltip(String labelText)
+    {
+        if(isElementVisible(XpathForApplyTab.labelText(labelText)))
+        {
+            WebElementFacade elementFacade = find(XpathForApplyTab.tooltip);
+            genFunc.clickOn(XpathForApplyTab.tooltip);
+            if(elementFacade.getAttribute("aria-describedby").contains("popover"))
+            {
+                String tooltipText = elementFacade.getText();
+                if(tooltipText.equals("For ML total days will be considered as total working days"))
+                {
+                    Assert.assertTrue("Tootlip verified",true);
+                }
+                else
+                {
+                    Assert.assertFalse("Unable to verify tooltip",false);
+                }
+            }
+            else
+            {
+                Assert.assertFalse("Unable to verify tooltip",false);
+            }
+        }
+    }
+
+    @Step
+    public void halfDayOptions(String leaveOptions)
+    {
+        String[] halfDayOption = leaveOptions.split(",");
+        String firstHalf = textOf(XpathForApplyTab.halfDayOptions("isFirstHalfLeave"));
+        String secondHalf =textOf(XpathForApplyTab.halfDayOptions("isSecondHalfLeave"));
+
+        if(firstHalf.equals(halfDayOption[0]) && secondHalf.equals(halfDayOption[1]))
+        {
+            Assert.assertTrue("Half day options verified",true);
+        }
+        else
+        {
+            Assert.assertFalse("Unable to verify half day options",false);
+        }
+    }
+
+    @Step
+    public void selectLeaveType(String leaveType)
+    {
+        leaveType = "1 "+leaveType;
+        WebElementFacade elementFacade = find(XpathForApplyTab.dropdown("leaveType"));
+        genFunc.selectFromDropdown(elementFacade,leaveType);
+    }
+
+    @Step
+    public void enterReason(String enterReason)
+    {
+        if(genFunc.isElementFoundInGivenTime(XpathForApplyTab.textArea("leaveReason")))
+        {
+            WebElementFacade elementFacade= find(XpathForApplyTab.textArea("leaveReason"));
+            typeInto(elementFacade,enterReason);
+        }
+        else
+        {
+            Assert.assertFalse("Unable to type",false);
+        }
+    }
+
+    @Step
+    public void verifyPopup(String popupText)
+    {
+        if(genFunc.isElementFoundInGivenTime(XpathForApplyTab.successAlertPopup("p")))
+        {
+            String popUpText = textOf(XpathForApplyTab.successAlertPopup("p"));
+            if(popUpText.equals(popupText))
+            {
+                Assert.assertTrue("Popup verified",true);
+                clickOnButton("OK");
+            }
+            else
+            {
+                Assert.assertFalse("Unable to verify popUp",false);
+            }
+        }
+    }
+
+    @Step
+    public void availabilityType(String availabilityType)
+    {
+        JavascriptExecutor js = (JavascriptExecutor) getDriver();
+        js.executeScript("window.scrollBy(0,document.body.scrollHeight)");
+        if(availabilityType.equals("Mobile"))
+        {
+            clickOnButton("Mobile");
+        }
+        else
+        {
+            clickOnButton("Email");
+        }
+    }
+
+
 }

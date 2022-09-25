@@ -7,5 +7,10 @@ public class CommonXpath {
     {
         return By.xpath("//span[contains(text(),\""+sideNav+"\")]");
     }
+    public static By dateOnCalendar(String date)
+    {
+        return By.xpath("//td[contains(text(),\""+date+"\")]");
+    }
+    public static By nextCal = By.xpath("//th[@class='next']");
 
 }

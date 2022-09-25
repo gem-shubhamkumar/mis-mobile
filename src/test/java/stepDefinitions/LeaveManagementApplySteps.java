@@ -1,5 +1,6 @@
 package stepDefinitions;
 
+import com.beust.ah.A;
 import com.gemini.mis.pages.LeaveManagementApplyPage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -28,7 +29,7 @@ public class LeaveManagementApplySteps extends PageObject
         ApplyPage.typeIntoElement(text,fieldName);
     }
 
-    @And("Click on {string} button")
+    @Then("Click on {string} button")
     public void clickOnSignInButton(String btnName)
     {
         waitABit(3000);
@@ -41,7 +42,7 @@ public class LeaveManagementApplySteps extends PageObject
         ApplyPage.verifyPage("Dashboard Page");
     }
 
-    @Then("Click on {string} tab")
+    @When("Click on {string} tab")
     public void clickOnTab(String tabName)
     {
         ApplyPage.clickOnSideNavigationOption(tabName);
@@ -99,7 +100,7 @@ public class LeaveManagementApplySteps extends PageObject
     {
     }
 
-    @Then("Click on {string} sub tab of {string} tab")
+    @When("Click on {string} sub tab of {string} tab")
     public void clickOnSubTabOfTab(String childTab, String parentTab)
     {
         ApplyPage.clickOnSubTab(childTab,parentTab);
@@ -110,4 +111,62 @@ public class LeaveManagementApplySteps extends PageObject
     {
         ApplyPage.clickOnTab(tabName);
     }
+
+    @Then("Select {string} From date and {string} till Leave dates from Calendar")
+    public void selectFromDateAndTillLeaveDatesFromCalendar(String fromDate, String tillDate)
+    {
+        ApplyPage.selectFromDate(fromDate);
+        ApplyPage.selectTillDate(tillDate);
+    }
+
+    @And("Verify {string} tooltip text")
+    public void verifyTooltipText(String labelText)
+    {
+        ApplyPage.verifyTooltip(labelText);
+    }
+
+    @Then("Click on {string} info icon")
+    public void clickOnInfoIcon(String labelText)
+    {
+        ApplyPage.clickOnButton(labelText);
+    }
+
+    @When("Click on {string} checkbox")
+    public void clickOnCheckbox(String leaveType)
+    {
+        ApplyPage.clickOnButton(leaveType);
+    }
+
+    @And("Verify {string} half day options are available")
+    public void verifyHalfDayOptionsAreAvailable(String leaveOptions)
+    {
+        ApplyPage.halfDayOptions(leaveOptions);
+    }
+
+    @And("Select {string} from Leave Type dropdown")
+    public void selectFromLeaveTypeDropdown(String leaveType)
+    {
+        waitABit(5000);
+        ApplyPage.selectLeaveType(leaveType);
+    }
+
+    @And("Enter reason {string} for leave")
+    public void enterReasonForLeave(String enterReason)
+    {
+        ApplyPage.enterReason(enterReason);
+    }
+
+    @And("Verify Leave is submitted")
+    public void verifyLeaveIsSubmitted()
+    {
+        ApplyPage.verifyPopup("Leave applied successfully");
+    }
+
+    @And("choose {string} as Availability")
+    public void chooseAsAvailability(String availabilityType)
+    {
+        ApplyPage.availabilityType(availabilityType);
+    }
+
+
 }
