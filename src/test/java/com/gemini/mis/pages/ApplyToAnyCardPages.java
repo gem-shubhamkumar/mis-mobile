@@ -1,18 +1,15 @@
 package com.gemini.mis.pages;
 
 import com.gemini.mis.commonfunctions.Utils;
-import com.gemini.mis.selectors.MySkillsLocators;
+import com.gemini.mis.selectors.ApplyToAnyLocators;
 import net.thucydides.core.annotations.Step;
-import net.thucydides.core.pages.PageObject;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-import javax.xml.xpath.XPath;
-import java.sql.SQLOutput;
 import java.util.List;
 
-public class MySkillsPages {
+public class ApplyToAnyCardPages {
 
      Utils utils = new Utils();
 
@@ -22,7 +19,7 @@ public class MySkillsPages {
 
          utils.customWait(1000);
 
-         List<WebElement> cards = utils.getMultipleElements(By.xpath(MySkillsLocators.cardNames));
+         List<WebElement> cards = utils.getMultipleElements(By.xpath(ApplyToAnyLocators.cardNames));
 
          for (WebElement card : cards
          ) {
@@ -40,18 +37,18 @@ public class MySkillsPages {
 
     @Step("Verify card is not empty")
     public void verifyCardNotEmpty() {
-            Assert.assertFalse(utils.isPresent(By.xpath(MySkillsLocators.tableDiv)));
+            Assert.assertFalse(utils.isPresent(By.xpath(ApplyToAnyLocators.tableDiv)));
     }
 
     @Step("Click on skill {0}")
     public void clickASkill(String skill) {
-         utils.click(By.xpath(MySkillsLocators.skillName.replace("skill", skill)));
+         utils.click(By.xpath(ApplyToAnyLocators.skillName.replace("skill", skill)));
     }
 
     @Step("Verify Modal Opened")
     public void verifySkillModal() {
          utils.switchToActiveElement();
-         Assert.assertTrue(utils.isPresent(By.xpath(MySkillsLocators.modalTitle)));
+         Assert.assertTrue(utils.isPresent(By.xpath(ApplyToAnyLocators.modalTitle)));
     }
 
     @Step("Select Value {1}")
@@ -71,7 +68,7 @@ public class MySkillsPages {
 
     public void verifyData(String skill, String type, String experience) {
          int flag = 0;
-        List<WebElement> tableRow = utils.getMultipleElements(By.xpath(MySkillsLocators.tableRow));
+        List<WebElement> tableRow = utils.getMultipleElements(By.xpath(ApplyToAnyLocators.tableRow));
         for (WebElement row: tableRow
              ) {
             if(row.getText().contains(skill) && row.getText().contains(type) && row.getText().contains(experience)) {
@@ -86,10 +83,10 @@ public class MySkillsPages {
     public void verifyForError(String inputType) {
          switch (inputType) {
              case "skill" :
-                 Assert.assertTrue(utils.isPresent(By.xpath(MySkillsLocators.errorType.replace("ids", "ddlSkillTypeEdit"))));
+                 Assert.assertTrue(utils.isPresent(By.xpath(ApplyToAnyLocators.errorType.replace("ids", "ddlSkillTypeEdit"))));
                     break;
              case "experience" :
-                 String xpath = MySkillsLocators.errorType.replace("select", "input");
+                 String xpath = ApplyToAnyLocators.errorType.replace("select", "input");
                  xpath = xpath.replace("ids", "expinMonthsEdit");
                  Assert.assertTrue(utils.isPresent(By.xpath(xpath)));
                  break;

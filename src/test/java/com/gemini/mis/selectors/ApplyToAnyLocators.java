@@ -1,6 +1,6 @@
 package com.gemini.mis.selectors;
 
-public class MySkillsLocators {
+public class ApplyToAnyLocators {
 
     public static String cardNames = "//h3[@class='panel-title']";
     public static String tableDiv = "//div[@id='tblSkillSet']/table/tbody/tr/td/div";
@@ -13,3 +13,6 @@ public class MySkillsLocators {
     public static String errorType = "//select[contains(@class, 'error-validation') and @id='ids']";
 
 }
+
+
+

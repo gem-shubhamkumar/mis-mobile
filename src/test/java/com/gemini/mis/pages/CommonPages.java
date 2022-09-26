@@ -2,15 +2,12 @@ package com.gemini.mis.pages;
 
 import com.gemini.mis.commonfunctions.Utils;
 import com.gemini.mis.selectors.CommonSelectors;
-import com.gemini.mis.selectors.MySkillsLocators;
-import net.serenitybdd.core.Serenity;
+import com.gemini.mis.selectors.ApplyToAnyLocators;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import javax.xml.xpath.XPath;
 import java.util.List;
 
 public class CommonPages {
@@ -44,7 +41,7 @@ public class CommonPages {
             }
 
             case "update" : {
-                utils.click(By.xpath(MySkillsLocators.genericButton.replace("ids", "btnUpdateSkills")));
+                utils.click(By.xpath(ApplyToAnyLocators.genericButton.replace("ids", "btnUpdateSkills")));
                 break;
             }
 

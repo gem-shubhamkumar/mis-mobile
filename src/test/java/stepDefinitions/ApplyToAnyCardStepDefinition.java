@@ -1,16 +1,16 @@
 package stepDefinitions;
 
+import com.gemini.mis.pages.ApplyToAnyCardPages;
 import com.gemini.mis.pages.CommonPages;
-import com.gemini.mis.pages.MySkillsPages;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import net.thucydides.core.annotations.Steps;
 
-public class MySkillsSteps {
+public class ApplyToAnyCardStepDefinition {
 
     @Steps
-    MySkillsPages skillsPages;
+    ApplyToAnyCardPages skillsPages;
 
     @Steps
     CommonPages commonPages;

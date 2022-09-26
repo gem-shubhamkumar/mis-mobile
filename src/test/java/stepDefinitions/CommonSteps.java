@@ -1,7 +1,7 @@
 package stepDefinitions;
 
 import com.gemini.mis.pages.CommonPages;
-import com.gemini.mis.pages.MySkillsPages;
+import com.gemini.mis.pages.ApplyToAnyCardPages;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -14,9 +14,9 @@ public class CommonSteps {
     CommonPages commonPages;
 
     @Steps
-    MySkillsPages skillsPages;
+    ApplyToAnyCardPages skillsPages;
 
-    @Given("^MIS Beta is opened and verify application opens successfully$")
+    @Given("^Verify beta-mis is open and loaded successfully.$")
     public void misBetaIsOpenedAndVerifyApplicationOpensSuccesfully() {
         commonPages.launchURL("https://mymis.geminisolutions.com/");
         commonPages.verifyLoginMsg();
