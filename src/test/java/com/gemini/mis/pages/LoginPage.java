@@ -34,12 +34,14 @@ public class LoginPage extends PageObject {
         utils.click(Loc);
    }
 
-  @Step("Wait Till element is visible")
+  @Step("Wait Till elementOnLoginPage is visible")
   public void WaitTillElementIsVisible(By element){
+
         utils.WaitTillElementVisible(element);
   }
-  @Step("Verify that element is displayed")
+  @Step("Verify that elementOnLoginPage is displayed")
     public void isElementExist(By Loc){
+
         utils.isElementExist(Loc);
   }
 

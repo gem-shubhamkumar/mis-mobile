@@ -1,17 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Login MIS Application Activities" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-09-23T12:26:21" hostname="GEMGN-210132" time="13.125">
+<testsuite name="Login MIS Application Activities" tests="5" skipped="0" failures="0" errors="0" timestamp="2022-09-26T08:28:13" hostname="GEMGN-210132" time="40.347">
   <properties/>
-  <testcase name="User Login to the Application" classname="Login MIS Application Activities" time="13.125"/>
+  <testcase name="User Clicks on Sign In without entering Credentials" classname="Login MIS Application Activities" time="9.955"/>
+  <testcase name="User Enters only username and Clicks on Sign In" classname="Login MIS Application Activities" time="6.307"/>
+  <testcase name="User Enter only password and Clicks on Sign In" classname="Login MIS Application Activities" time="6.226"/>
+  <testcase name="User Enters Invalid Credentials" classname="Login MIS Application Activities" time="7.166"/>
+  <testcase name="User Login to the Application" classname="Login MIS Application Activities" time="10.693"/>
   <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[Starting ChromeDriver 105.0.5195.52 (412c95e518836d8a7d97250d62b29c2ae6a26a85-refs/branch-heads/5195@{#853}) on port 65535
+  <system-err><![CDATA[Starting ChromeDriver 105.0.5195.52 (412c95e518836d8a7d97250d62b29c2ae6a26a85-refs/branch-heads/5195@{#853}) on port 51245
 Only local connections are allowed.
 Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
 ChromeDriver was started successfully.
-Sep 23, 2022 5:56:23 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+Sep 26, 2022 1:58:15 PM org.openqa.selenium.remote.ProtocolHandshake createSession
 INFO: Detected upstream dialect: W3C
-Sep 23, 2022 5:56:23 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+Sep 26, 2022 1:58:15 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 WARNING: Unable to find an exact match for CDP version 105, so returning the closest version found: 104
-Sep 23, 2022 5:56:23 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+Sep 26, 2022 1:58:15 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+INFO: Found CDP implementation for version 105 of 104
+Starting ChromeDriver 105.0.5195.52 (412c95e518836d8a7d97250d62b29c2ae6a26a85-refs/branch-heads/5195@{#853}) on port 64605
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+ChromeDriver was started successfully.
+Sep 26, 2022 1:58:24 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected upstream dialect: W3C
+Sep 26, 2022 1:58:24 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find an exact match for CDP version 105, so returning the closest version found: 104
+Sep 26, 2022 1:58:24 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+INFO: Found CDP implementation for version 105 of 104
+Starting ChromeDriver 105.0.5195.52 (412c95e518836d8a7d97250d62b29c2ae6a26a85-refs/branch-heads/5195@{#853}) on port 57193
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+ChromeDriver was started successfully.
+Sep 26, 2022 1:58:30 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected upstream dialect: W3C
+Sep 26, 2022 1:58:30 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find an exact match for CDP version 105, so returning the closest version found: 104
+Sep 26, 2022 1:58:30 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+INFO: Found CDP implementation for version 105 of 104
+Starting ChromeDriver 105.0.5195.52 (412c95e518836d8a7d97250d62b29c2ae6a26a85-refs/branch-heads/5195@{#853}) on port 59670
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+ChromeDriver was started successfully.
+Sep 26, 2022 1:58:37 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected upstream dialect: W3C
+Sep 26, 2022 1:58:37 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find an exact match for CDP version 105, so returning the closest version found: 104
+Sep 26, 2022 1:58:37 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+INFO: Found CDP implementation for version 105 of 104
+Starting ChromeDriver 105.0.5195.52 (412c95e518836d8a7d97250d62b29c2ae6a26a85-refs/branch-heads/5195@{#853}) on port 61505
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+ChromeDriver was started successfully.
+Sep 26, 2022 1:58:44 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected upstream dialect: W3C
+Sep 26, 2022 1:58:44 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find an exact match for CDP version 105, so returning the closest version found: 104
+Sep 26, 2022 1:58:44 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 INFO: Found CDP implementation for version 105 of 104
 ]]></system-err>
 </testsuite>

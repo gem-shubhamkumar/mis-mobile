@@ -9,8 +9,9 @@ public class LocatorLoginPage {
     }
     public static org.openqa.selenium.By elementOnLandingPage= By.xpath("//a[text()='Change AD Password']");
 
-    public static org.openqa.selenium.By element(String text){
+    public static org.openqa.selenium.By elementOnLoginPage(String text){
         return By.xpath("//*[text()='"+text+"']");
     }
+    public static org.openqa.selenium.By loginPageMsg=By.xpath("//div[@class='loginMsgDiv']");
     public static org.openqa.selenium.By logo= By.xpath("//img[@src='/img/GeminiLogo-Small-Black.png']");
 }
