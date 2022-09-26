@@ -74,13 +74,11 @@ public class CommonFunctions extends PageObject {
 
             case "next" :
             case "Previous" : {
-                while($(By.xpath(CommonSelectors.paginationButtons.replace("buttonName", buttonName))).isEnabled()) {
+                while(!$(By.xpath(CommonSelectors.paginationButtons.replace("buttonName", buttonName))).getAttribute("class").contains("disabled")) {
                     $(By.xpath(CommonSelectors.paginationButtons.replace("buttonName", buttonName))).waitUntilPresent().click();
                 }
                 break;
             }
-
-
 
             default:
                 Assert.fail("Button " + buttonName + " not found");
@@ -103,6 +101,8 @@ public class CommonFunctions extends PageObject {
                 $(By.xpath(xpath)).waitUntilPresent().click();
                 break;
             }
+
+
             default:
                 Assert.fail("Button " + buttonName + " not found");
 

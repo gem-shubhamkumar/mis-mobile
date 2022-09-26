@@ -5,58 +5,58 @@ Feature: Feedback
     When User logins into application with username "ayush.garg" and password "Gemini@1234"
     Then Verify Dashboard page opens
 
-#
-#  Scenario: Open Submit Feedback Page
-#    When User Clicks on "Submit Feedback" tab of "Feedback" tab
-#    Then Verify Submit Feedback tab opens
-#
-#
-#
-#  Scenario Outline: Submit a Feedback
-#    When User Clicks on "<childTab>" tab of "<parentTab>" tab
-#    Then Verify Submit Feedback tab opens
-#    Then Click on "Provide Feedback" button
-#    And "<childTab>" Modal open
-#    When User enters feedback "<data>"
-#    And Click on "Submit" button
-#    Then Click OK on Success pop-up
-#    Then Click on "Next" button
-#    And Verify feedback data "<data>" is added
-#
-#    Examples:
-#    |childTab| parentTab| data |
-#    | Submit Feedback | Feedback | Feedback |
-#
-#
-#  Scenario Outline: Submit a Blank Feedback
-#    When User Clicks on "<childTab>" tab of "<parentTab>" tab
-#    Then Verify Submit Feedback tab opens
-#    Then Click on "Provide Feedback" button
-#    And "<childTab>" Modal open
-#    When User enters feedback "<data>"
-#    And Click on "Submit" button
-#    Then Verify "<childTab>" input select has error
-#
-#
-#    Examples:
-#      |childTab| parentTab| data |
-#      | Submit Feedback | Feedback | |
+
+  Scenario: Open Submit Feedback Page
+    When User Clicks on "Submit Feedback" tab of "Feedback" tab
+    Then Verify Submit Feedback tab opens
 
 
 
-#  Scenario Outline: Verify Page Navigation
-#    When User Clicks on "<childTab>" tab of "<parentTab>" tab
-#    Then Verify Submit Feedback tab opens
-#    Then Click on "Provide Feedback" button
-#    And "<childTab>" Modal open
-#    When User enters feedback "<data>"
-#    And Click on "Submit" button
-#    Then Verify "<childTab>" input select has error
-#
-#
-#    Examples:
-#      |childTab| parentTab| data |
-#      | Submit Feedback | Feedback | |
+  Scenario Outline: Submit a Feedback
+    When User Clicks on "<childTab>" tab of "<parentTab>" tab
+    Then Verify Submit Feedback tab opens
+    Then Click on "Provide Feedback" button
+    And "<childTab>" Modal open
+    When User enters feedback "<data>"
+    And Click on "Submit" button
+    Then Click OK on Success pop-up
+    Then Click on "Next" button
+    And Verify feedback data "<data>" is added
+
+    Examples:
+    |childTab| parentTab| data |
+    | Submit Feedback | Feedback | Feedback |
+
+
+  Scenario Outline: Submit a Blank Feedback
+    When User Clicks on "<childTab>" tab of "<parentTab>" tab
+    Then Verify Submit Feedback tab opens
+    Then Click on "Provide Feedback" button
+    And "<childTab>" Modal open
+    When User enters feedback "<data>"
+    And Click on "Submit" button
+    Then Verify "<childTab>" input select has error
+
+
+    Examples:
+      |childTab| parentTab| data |
+      | Submit Feedback | Feedback | |
+
+
+
+  Scenario Outline: Verify Page Navigation
+    When User Clicks on "<childTab>" tab of "<parentTab>" tab
+    Then Verify Submit Feedback tab opens
+    Then Click on "Provide Feedback" button
+    And "<childTab>" Modal open
+    When User enters feedback "<data>"
+    And Click on "Submit" button
+    Then Verify "<childTab>" input select has error
+
+
+    Examples:
+      |childTab| parentTab| data |
+      | Submit Feedback | Feedback | |
 
 
 

@@ -44,6 +44,7 @@ public class CommonSteps {
         commonFunctions.clickButton(buttonName);
     }
 
+
     @When("^\"(.*?)\" card is present in dashboard$")
     public void cardIsPresentInDashboard(String cardName) {
         skillsPages.verifyIfCardIsPresent(cardName);
