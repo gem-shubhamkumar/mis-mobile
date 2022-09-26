@@ -48,6 +48,10 @@ public class XpathForApplyTab
     {
         return By.xpath("//button[contains(text(),\""+btnName+"\")]");
     }
+    public static By isTabActive(String tabName)
+    {
+        return By.xpath("//span[contains(text(),\""+tabName+"\")]/parent::a");
+    }
     public static By heading = By.xpath("//h5");
     public static By tab = By.xpath("//a[@role='tab']/span");
     public static By submitBtn = By.xpath("//input[@value='Submit']");

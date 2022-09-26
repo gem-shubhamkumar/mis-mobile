@@ -143,7 +143,7 @@
             <a href="576946480b52ad056d6f5bddf874399c83582ecf90963cc074a14c70580e7d9f.html"><i class="bi bi-chat-text"></i> Features</a>
         </li>
     </ul>
-    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 25-09-2022 22:53</span>
+    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 26-09-2022 11:23</span>
     <br style="clear:left"/>
 </div>
     <div class="clr"></div>
@@ -198,7 +198,7 @@
     <div class="story-title">
         <h3 class="story-header">Scenario Outline</h3>
 
-        <div class="scenario">When User is on MIS Home Page<br>When Click on "&lt;childTab&gt;" sub tab of "&lt;parentTab&gt;" tab<br>And Verify "&lt;childTab&gt;" opens successfully<br>And Verify "&lt;defaultTab&gt;" displays by default<br>Then Select "&lt;fromDate&gt;" From date and "&lt;toDate&gt;" till Leave dates from Calendar<br>And Select "&lt;leaveType&gt;" from Leave Type dropdown<br>And Enter reason "sick leave" for leave<br>Then Click on "Submit" button<br>And Verify Leave is submitted</div>
+        <div class="scenario">When User is on MIS Home Page<br>When Click on "&lt;childTab&gt;" sub tab of "&lt;parentTab&gt;" tab<br>And Verify "&lt;childTab&gt;" opens successfully<br>Then Click on "&lt;tab&gt;" Tab<br>And Verify "&lt;tab&gt;" displays<br>Then Select date from date dropdown<br>And Enter reason "WFH leave" for leave<br>Then Click on "Submit" button<br>And Verify Leave is submitted and "WFH applied successfully" appears</div>
 
     </div>
 
@@ -219,10 +219,7 @@
                     <th>#</th>
                         <th>Parent Tab</th>
                         <th>Child Tab</th>
-                        <th>Default Tab</th>
-                        <th>From Date</th>
-                        <th>To Date</th>
-                        <th>Leave Type</th>
+                        <th>Tab</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -235,16 +232,7 @@
                                         href="#0">Apply</a>
                             </td>
                             <td class="test-SUCCESS"><a
-                                        href="#0">Leave</a>
-                            </td>
-                            <td class="test-SUCCESS"><a
-                                        href="#0">30/09/2022</a>
-                            </td>
-                            <td class="test-SUCCESS"><a
-                                        href="#0">30/09/2022</a>
-                            </td>
-                            <td class="test-SUCCESS"><a
-                                        href="#0">CL</a>
+                                        href="#0">Work From Home</a>
                             </td>
                     </tr>
                 </tbody>
@@ -285,7 +273,7 @@
                             <a href="javaScript:void(0)" onClick="toggleDiv('stepSection0')"
                                style="display:block;">
                                 <span class="top-level-step">
-                                                1: Enter required data and click on Submit leave ({parentTab=Leave Management, childTab=Apply, defaultTab=Leave, fromDate=30/09/2022, toDate=30/09/2022, leaveType=CL})
+                                                1: Enter required data and click on Submit leave ({parentTab=Leave Management, childTab=Apply, tab=Work From Home})
                                         </span>
                             </a>
                             <span class="evidence">
@@ -302,15 +290,15 @@
                                 </a>
                                 <i class="bi bi-arrow-right"></i>
 
-                                <a href="2217dc51c1fcc0be77654923819c61854d45d6caad03f13c12dfb26323f99426_screenshots.html#screenshots?screenshot=49">
-                                    <img src="bc32d663dafcfcf0e630987c67e638dd1a4e4b928ef1fcdf2b56fcc56d1c156e.png"
-                                         href="bc32d663dafcfcf0e630987c67e638dd1a4e4b928ef1fcdf2b56fcc56d1c156e.png"
+                                <a href="2217dc51c1fcc0be77654923819c61854d45d6caad03f13c12dfb26323f99426_screenshots.html#screenshots?screenshot=46">
+                                    <img src="76153ebd65f4f9e451429e9780e016096ea56dce75becdc4c82731d0a73086d1.png"
+                                         href="76153ebd65f4f9e451429e9780e016096ea56dce75becdc4c82731d0a73086d1.png"
                                          class="screenshot"
                                          width="48" height="48"/>
                                 </a>
                         </td>
                     <td width="130"><span class="top-level-step">SUCCESS</span></td>
-                    <td width="100"><span class="top-level-step">1m 16s</span></td>
+                    <td width="100"><span class="top-level-step">1m 10s</span></td>
                 </tr>
                     <tr>
                         <td colspan="5">
@@ -349,14 +337,14 @@
                                 <i class="bi bi-arrow-right"></i>
 
                                 <a href="2217dc51c1fcc0be77654923819c61854d45d6caad03f13c12dfb26323f99426_screenshots.html#screenshots?screenshot=9">
-                                    <img src="073b962128c1336b828a905504b161e17f99945ae962efb0af5dc215193873e0.png"
-                                         href="073b962128c1336b828a905504b161e17f99945ae962efb0af5dc215193873e0.png"
+                                    <img src="db96836a6093f3a470c4cf8838c883da14bbe239c4bc0049624d85fc68aa5d5f.png"
+                                         href="db96836a6093f3a470c4cf8838c883da14bbe239c4bc0049624d85fc68aa5d5f.png"
                                          class="screenshot"
                                          width="48" height="48"/>
                                 </a>
                         </td>
                     <td width="130"><span class="nested-step">SUCCESS</span></td>
-                    <td width="100"><span class="nested-step">6s 687ms</span></td>
+                    <td width="100"><span class="nested-step">7s 057ms</span></td>
                 </tr>
                     <tr>
                         <td colspan="5">
@@ -390,7 +378,7 @@
                                 </a>
                         </td>
                     <td width="130"><span class="nested-group-step">SUCCESS</span></td>
-                    <td width="100"><span class="nested-group-step">2s 614ms</span></td>
+                    <td width="100"><span class="nested-group-step">3s 010ms</span></td>
                 </tr>
                 <tr class="test-SUCCESS">
 
@@ -428,7 +416,7 @@
                                 </a>
                         </td>
                     <td width="130"><span class="nested-group-step">SUCCESS</span></td>
-                    <td width="100"><span class="nested-group-step">285ms</span></td>
+                    <td width="100"><span class="nested-group-step">283ms</span></td>
                 </tr>
                 <tr class="test-SUCCESS">
 
@@ -459,14 +447,14 @@
                                 <i class="bi bi-arrow-right"></i>
 
                                 <a href="2217dc51c1fcc0be77654923819c61854d45d6caad03f13c12dfb26323f99426_screenshots.html#screenshots?screenshot=6">
-                                    <img src="2b69b5e53842707973993f43917d41062380b652647f347fb52537796fe35884.png"
-                                         href="2b69b5e53842707973993f43917d41062380b652647f347fb52537796fe35884.png"
+                                    <img src="38cd7a93d24ea449326dbf1866ba8dcfdd623d7b8469a3756e365bdc7dca8ea2.png"
+                                         href="38cd7a93d24ea449326dbf1866ba8dcfdd623d7b8469a3756e365bdc7dca8ea2.png"
                                          class="screenshot"
                                          width="48" height="48"/>
                                 </a>
                         </td>
                     <td width="130"><span class="nested-group-step">SUCCESS</span></td>
-                    <td width="100"><span class="nested-group-step">306ms</span></td>
+                    <td width="100"><span class="nested-group-step">299ms</span></td>
                 </tr>
                 <tr class="test-SUCCESS">
 
@@ -497,14 +485,14 @@
                                 <i class="bi bi-arrow-right"></i>
 
                                 <a href="2217dc51c1fcc0be77654923819c61854d45d6caad03f13c12dfb26323f99426_screenshots.html#screenshots?screenshot=8">
-                                    <img src="073b962128c1336b828a905504b161e17f99945ae962efb0af5dc215193873e0.png"
-                                         href="073b962128c1336b828a905504b161e17f99945ae962efb0af5dc215193873e0.png"
+                                    <img src="db96836a6093f3a470c4cf8838c883da14bbe239c4bc0049624d85fc68aa5d5f.png"
+                                         href="db96836a6093f3a470c4cf8838c883da14bbe239c4bc0049624d85fc68aa5d5f.png"
                                          class="screenshot"
                                          width="48" height="48"/>
                                 </a>
                         </td>
                     <td width="130"><span class="nested-group-step">SUCCESS</span></td>
-                    <td width="100"><span class="nested-group-step">442ms</span></td>
+                    <td width="100"><span class="nested-group-step">426ms</span></td>
                 </tr>
 
                             </table>
@@ -536,8 +524,8 @@
 
                         <td width="160" class="SUCCESS-text">
                                 <a href="2217dc51c1fcc0be77654923819c61854d45d6caad03f13c12dfb26323f99426_screenshots.html#screenshots?screenshot=10">
-                                    <img src="073b962128c1336b828a905504b161e17f99945ae962efb0af5dc215193873e0.png"
-                                         href="073b962128c1336b828a905504b161e17f99945ae962efb0af5dc215193873e0.png"
+                                    <img src="db96836a6093f3a470c4cf8838c883da14bbe239c4bc0049624d85fc68aa5d5f.png"
+                                         href="db96836a6093f3a470c4cf8838c883da14bbe239c4bc0049624d85fc68aa5d5f.png"
                                          class="screenshot"
                                          width="48" height="48"/>
                                 </a>
@@ -551,7 +539,7 @@
                                 </a>
                         </td>
                     <td width="130"><span class="nested-step">SUCCESS</span></td>
-                    <td width="100"><span class="nested-step">30s 220ms</span></td>
+                    <td width="100"><span class="nested-step">30s 180ms</span></td>
                 </tr>
                     <tr>
                         <td colspan="5">
@@ -577,8 +565,8 @@
 
                         <td width="160" class="SUCCESS-text">
                                 <a href="2217dc51c1fcc0be77654923819c61854d45d6caad03f13c12dfb26323f99426_screenshots.html#screenshots?screenshot=11">
-                                    <img src="073b962128c1336b828a905504b161e17f99945ae962efb0af5dc215193873e0.png"
-                                         href="073b962128c1336b828a905504b161e17f99945ae962efb0af5dc215193873e0.png"
+                                    <img src="db96836a6093f3a470c4cf8838c883da14bbe239c4bc0049624d85fc68aa5d5f.png"
+                                         href="db96836a6093f3a470c4cf8838c883da14bbe239c4bc0049624d85fc68aa5d5f.png"
                                          class="screenshot"
                                          width="48" height="48"/>
                                 </a>
@@ -592,7 +580,7 @@
                                 </a>
                         </td>
                     <td width="130"><span class="nested-group-step">SUCCESS</span></td>
-                    <td width="100"><span class="nested-group-step">30s 191ms</span></td>
+                    <td width="100"><span class="nested-group-step">30s 149ms</span></td>
                 </tr>
 
                             </table>
@@ -639,7 +627,7 @@
                                 </a>
                         </td>
                     <td width="130"><span class="nested-step">SUCCESS</span></td>
-                    <td width="100"><span class="nested-step">8s 920ms</span></td>
+                    <td width="100"><span class="nested-step">9s 295ms</span></td>
                 </tr>
                     <tr>
                         <td colspan="5">
@@ -680,7 +668,7 @@
                                 </a>
                         </td>
                     <td width="130"><span class="nested-group-step">SUCCESS</span></td>
-                    <td width="100"><span class="nested-group-step">8s 896ms</span></td>
+                    <td width="100"><span class="nested-group-step">9s 273ms</span></td>
                 </tr>
 
                             </table>
@@ -727,7 +715,7 @@
                                 </a>
                         </td>
                     <td width="130"><span class="nested-step">SUCCESS</span></td>
-                    <td width="100"><span class="nested-step">5s 232ms</span></td>
+                    <td width="100"><span class="nested-step">5s 209ms</span></td>
                 </tr>
                     <tr>
                         <td colspan="5">
@@ -768,7 +756,7 @@
                                 </a>
                         </td>
                     <td width="130"><span class="nested-group-step">SUCCESS</span></td>
-                    <td width="100"><span class="nested-group-step">5s 212ms</span></td>
+                    <td width="100"><span class="nested-group-step">5s 183ms</span></td>
                 </tr>
 
                             </table>
@@ -790,7 +778,7 @@
                             <a href="javaScript:void(0)" onClick="toggleDiv('stepSection0-4')"
                                style="display:block;">
                                 <span class="nested-step">
-                                                And Verify "Leave" displays by default
+                                                Then Click on "Work From Home" Tab
                                         </span>
                             </a>
                             <span class="evidence">
@@ -799,16 +787,23 @@
                     </td>
 
                         <td width="160" class="SUCCESS-text">
-
-                                <a href="2217dc51c1fcc0be77654923819c61854d45d6caad03f13c12dfb26323f99426_screenshots.html#screenshots?screenshot=27">
+                                <a href="2217dc51c1fcc0be77654923819c61854d45d6caad03f13c12dfb26323f99426_screenshots.html#screenshots?screenshot=25">
                                     <img src="9b52c09195cb1e7b5a5665d6849e2ca93d194023f2d12971f712e4540a85a1f9.png"
                                          href="9b52c09195cb1e7b5a5665d6849e2ca93d194023f2d12971f712e4540a85a1f9.png"
                                          class="screenshot"
                                          width="48" height="48"/>
                                 </a>
+                                <i class="bi bi-arrow-right"></i>
+
+                                <a href="2217dc51c1fcc0be77654923819c61854d45d6caad03f13c12dfb26323f99426_screenshots.html#screenshots?screenshot=28">
+                                    <img src="83b6a2b1f6dfadb7a4788e81fa9a48846d4ef93db02bf42bf6685bd4d2e71ecb.png"
+                                         href="83b6a2b1f6dfadb7a4788e81fa9a48846d4ef93db02bf42bf6685bd4d2e71ecb.png"
+                                         class="screenshot"
+                                         width="48" height="48"/>
+                                </a>
                         </td>
                     <td width="130"><span class="nested-step">SUCCESS</span></td>
-                    <td width="100"><span class="nested-step">165ms</span></td>
+                    <td width="100"><span class="nested-step">1s 341ms</span></td>
                 </tr>
                     <tr>
                         <td colspan="5">
@@ -825,7 +820,7 @@
                     <td class="step-description-column">
                         <div class="step-description">
                                 <span class="nested-group-step">
-                                                Verify default tab: Leave
+                                                Click on Tab
                                         </span>
                             <span class="evidence">
                                 </span>
@@ -833,16 +828,23 @@
                     </td>
 
                         <td width="160" class="SUCCESS-text">
-
                                 <a href="2217dc51c1fcc0be77654923819c61854d45d6caad03f13c12dfb26323f99426_screenshots.html#screenshots?screenshot=26">
                                     <img src="9b52c09195cb1e7b5a5665d6849e2ca93d194023f2d12971f712e4540a85a1f9.png"
                                          href="9b52c09195cb1e7b5a5665d6849e2ca93d194023f2d12971f712e4540a85a1f9.png"
                                          class="screenshot"
                                          width="48" height="48"/>
                                 </a>
+                                <i class="bi bi-arrow-right"></i>
+
+                                <a href="2217dc51c1fcc0be77654923819c61854d45d6caad03f13c12dfb26323f99426_screenshots.html#screenshots?screenshot=27">
+                                    <img src="83b6a2b1f6dfadb7a4788e81fa9a48846d4ef93db02bf42bf6685bd4d2e71ecb.png"
+                                         href="83b6a2b1f6dfadb7a4788e81fa9a48846d4ef93db02bf42bf6685bd4d2e71ecb.png"
+                                         class="screenshot"
+                                         width="48" height="48"/>
+                                </a>
                         </td>
                     <td width="130"><span class="nested-group-step">SUCCESS</span></td>
-                    <td width="100"><span class="nested-group-step">147ms</span></td>
+                    <td width="100"><span class="nested-group-step">1s 320ms</span></td>
                 </tr>
 
                             </table>
@@ -864,7 +866,7 @@
                             <a href="javaScript:void(0)" onClick="toggleDiv('stepSection0-5')"
                                style="display:block;">
                                 <span class="nested-step">
-                                                Then Select "30/09/2022" From date and "30/09/2022" till Leave dates from Calendar
+                                                And Verify "Work From Home" displays
                                         </span>
                             </a>
                             <span class="evidence">
@@ -873,23 +875,23 @@
                     </td>
 
                         <td width="160" class="SUCCESS-text">
-                                <a href="2217dc51c1fcc0be77654923819c61854d45d6caad03f13c12dfb26323f99426_screenshots.html#screenshots?screenshot=28">
-                                    <img src="9b52c09195cb1e7b5a5665d6849e2ca93d194023f2d12971f712e4540a85a1f9.png"
-                                         href="9b52c09195cb1e7b5a5665d6849e2ca93d194023f2d12971f712e4540a85a1f9.png"
+                                <a href="2217dc51c1fcc0be77654923819c61854d45d6caad03f13c12dfb26323f99426_screenshots.html#screenshots?screenshot=30">
+                                    <img src="83b6a2b1f6dfadb7a4788e81fa9a48846d4ef93db02bf42bf6685bd4d2e71ecb.png"
+                                         href="83b6a2b1f6dfadb7a4788e81fa9a48846d4ef93db02bf42bf6685bd4d2e71ecb.png"
                                          class="screenshot"
                                          width="48" height="48"/>
                                 </a>
                                 <i class="bi bi-arrow-right"></i>
 
                                 <a href="2217dc51c1fcc0be77654923819c61854d45d6caad03f13c12dfb26323f99426_screenshots.html#screenshots?screenshot=33">
-                                    <img src="c72f0269763c2a4ad5ae358e6d728d68462311c34b099d4340b8b105397c8d7d.png"
-                                         href="c72f0269763c2a4ad5ae358e6d728d68462311c34b099d4340b8b105397c8d7d.png"
+                                    <img src="1b504923bd2b602954a76143632ba4920fa840ef93b6ed0e5f024643f87570dd.png"
+                                         href="1b504923bd2b602954a76143632ba4920fa840ef93b6ed0e5f024643f87570dd.png"
                                          class="screenshot"
                                          width="48" height="48"/>
                                 </a>
                         </td>
                     <td width="130"><span class="nested-step">SUCCESS</span></td>
-                    <td width="100"><span class="nested-step">2s 568ms</span></td>
+                    <td width="100"><span class="nested-step">211ms</span></td>
                 </tr>
                     <tr>
                         <td colspan="5">
@@ -906,45 +908,7 @@
                     <td class="step-description-column">
                         <div class="step-description">
                                 <span class="nested-group-step">
-                                                Select from date: 30/09/2022
-                                        </span>
-                            <span class="evidence">
-                                </span>
-                        </div>
-                    </td>
-
-                        <td width="160" class="SUCCESS-text">
-                                <a href="2217dc51c1fcc0be77654923819c61854d45d6caad03f13c12dfb26323f99426_screenshots.html#screenshots?screenshot=29">
-                                    <img src="9b52c09195cb1e7b5a5665d6849e2ca93d194023f2d12971f712e4540a85a1f9.png"
-                                         href="9b52c09195cb1e7b5a5665d6849e2ca93d194023f2d12971f712e4540a85a1f9.png"
-                                         class="screenshot"
-                                         width="48" height="48"/>
-                                </a>
-                                <i class="bi bi-arrow-right"></i>
-
-                                <a href="2217dc51c1fcc0be77654923819c61854d45d6caad03f13c12dfb26323f99426_screenshots.html#screenshots?screenshot=30">
-                                    <img src="ffe50df72efe85643020226552256de9e01e7b839703dacb0fc538bc9f905fc0.png"
-                                         href="ffe50df72efe85643020226552256de9e01e7b839703dacb0fc538bc9f905fc0.png"
-                                         class="screenshot"
-                                         width="48" height="48"/>
-                                </a>
-                        </td>
-                    <td width="130"><span class="nested-group-step">SUCCESS</span></td>
-                    <td width="100"><span class="nested-group-step">1s 282ms</span></td>
-                </tr>
-                <tr class="test-SUCCESS">
-
-                    <td width="90" class="step-icon">
-                        <a name="0-5-1"></a>
-                            <span style="margin-left: 60px;"
-                                  class="nested-group-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
-                                </span>
-                    </td>
-
-                    <td class="step-description-column">
-                        <div class="step-description">
-                                <span class="nested-group-step">
-                                                Select till date: 30/09/2022
+                                                Verify tab is active: Work From Home
                                         </span>
                             <span class="evidence">
                                 </span>
@@ -953,22 +917,22 @@
 
                         <td width="160" class="SUCCESS-text">
                                 <a href="2217dc51c1fcc0be77654923819c61854d45d6caad03f13c12dfb26323f99426_screenshots.html#screenshots?screenshot=31">
-                                    <img src="ffe50df72efe85643020226552256de9e01e7b839703dacb0fc538bc9f905fc0.png"
-                                         href="ffe50df72efe85643020226552256de9e01e7b839703dacb0fc538bc9f905fc0.png"
+                                    <img src="83b6a2b1f6dfadb7a4788e81fa9a48846d4ef93db02bf42bf6685bd4d2e71ecb.png"
+                                         href="83b6a2b1f6dfadb7a4788e81fa9a48846d4ef93db02bf42bf6685bd4d2e71ecb.png"
                                          class="screenshot"
                                          width="48" height="48"/>
                                 </a>
                                 <i class="bi bi-arrow-right"></i>
 
                                 <a href="2217dc51c1fcc0be77654923819c61854d45d6caad03f13c12dfb26323f99426_screenshots.html#screenshots?screenshot=32">
-                                    <img src="c72f0269763c2a4ad5ae358e6d728d68462311c34b099d4340b8b105397c8d7d.png"
-                                         href="c72f0269763c2a4ad5ae358e6d728d68462311c34b099d4340b8b105397c8d7d.png"
+                                    <img src="1b504923bd2b602954a76143632ba4920fa840ef93b6ed0e5f024643f87570dd.png"
+                                         href="1b504923bd2b602954a76143632ba4920fa840ef93b6ed0e5f024643f87570dd.png"
                                          class="screenshot"
                                          width="48" height="48"/>
                                 </a>
                         </td>
                     <td width="130"><span class="nested-group-step">SUCCESS</span></td>
-                    <td width="100"><span class="nested-group-step">1s 263ms</span></td>
+                    <td width="100"><span class="nested-group-step">178ms</span></td>
                 </tr>
 
                             </table>
@@ -990,7 +954,7 @@
                             <a href="javaScript:void(0)" onClick="toggleDiv('stepSection0-6')"
                                style="display:block;">
                                 <span class="nested-step">
-                                                And Select "CL" from Leave Type dropdown
+                                                Then Select date from date dropdown
                                         </span>
                             </a>
                             <span class="evidence">
@@ -1000,22 +964,22 @@
 
                         <td width="160" class="SUCCESS-text">
                                 <a href="2217dc51c1fcc0be77654923819c61854d45d6caad03f13c12dfb26323f99426_screenshots.html#screenshots?screenshot=35">
-                                    <img src="c72f0269763c2a4ad5ae358e6d728d68462311c34b099d4340b8b105397c8d7d.png"
-                                         href="c72f0269763c2a4ad5ae358e6d728d68462311c34b099d4340b8b105397c8d7d.png"
+                                    <img src="1b504923bd2b602954a76143632ba4920fa840ef93b6ed0e5f024643f87570dd.png"
+                                         href="1b504923bd2b602954a76143632ba4920fa840ef93b6ed0e5f024643f87570dd.png"
                                          class="screenshot"
                                          width="48" height="48"/>
                                 </a>
                                 <i class="bi bi-arrow-right"></i>
 
                                 <a href="2217dc51c1fcc0be77654923819c61854d45d6caad03f13c12dfb26323f99426_screenshots.html#screenshots?screenshot=38">
-                                    <img src="e35af2ed8391ad6dcdc8bfe0d075d6847bcb7416fb9df0d00d9f98a7c9d4a46d.png"
-                                         href="e35af2ed8391ad6dcdc8bfe0d075d6847bcb7416fb9df0d00d9f98a7c9d4a46d.png"
+                                    <img src="d1ffd0b65e8493f8319e73fd0f1c47165e8ae5df5982cbec68904796408806aa.png"
+                                         href="d1ffd0b65e8493f8319e73fd0f1c47165e8ae5df5982cbec68904796408806aa.png"
                                          class="screenshot"
                                          width="48" height="48"/>
                                 </a>
                         </td>
                     <td width="130"><span class="nested-step">SUCCESS</span></td>
-                    <td width="100"><span class="nested-step">5s 312ms</span></td>
+                    <td width="100"><span class="nested-step">1s 477ms</span></td>
                 </tr>
                     <tr>
                         <td colspan="5">
@@ -1032,7 +996,7 @@
                     <td class="step-description-column">
                         <div class="step-description">
                                 <span class="nested-group-step">
-                                                Select leave type: CL
+                                                Select Date from Dropdown
                                         </span>
                             <span class="evidence">
                                 </span>
@@ -1041,22 +1005,22 @@
 
                         <td width="160" class="SUCCESS-text">
                                 <a href="2217dc51c1fcc0be77654923819c61854d45d6caad03f13c12dfb26323f99426_screenshots.html#screenshots?screenshot=36">
-                                    <img src="2ad7789c280929ce1e1ff0fb8e79403a965cc29741fe4597ff8e1af253cc506c.png"
-                                         href="2ad7789c280929ce1e1ff0fb8e79403a965cc29741fe4597ff8e1af253cc506c.png"
+                                    <img src="1b504923bd2b602954a76143632ba4920fa840ef93b6ed0e5f024643f87570dd.png"
+                                         href="1b504923bd2b602954a76143632ba4920fa840ef93b6ed0e5f024643f87570dd.png"
                                          class="screenshot"
                                          width="48" height="48"/>
                                 </a>
                                 <i class="bi bi-arrow-right"></i>
 
                                 <a href="2217dc51c1fcc0be77654923819c61854d45d6caad03f13c12dfb26323f99426_screenshots.html#screenshots?screenshot=37">
-                                    <img src="e35af2ed8391ad6dcdc8bfe0d075d6847bcb7416fb9df0d00d9f98a7c9d4a46d.png"
-                                         href="e35af2ed8391ad6dcdc8bfe0d075d6847bcb7416fb9df0d00d9f98a7c9d4a46d.png"
+                                    <img src="d1ffd0b65e8493f8319e73fd0f1c47165e8ae5df5982cbec68904796408806aa.png"
+                                         href="d1ffd0b65e8493f8319e73fd0f1c47165e8ae5df5982cbec68904796408806aa.png"
                                          class="screenshot"
                                          width="48" height="48"/>
                                 </a>
                         </td>
                     <td width="130"><span class="nested-group-step">SUCCESS</span></td>
-                    <td width="100"><span class="nested-group-step">284ms</span></td>
+                    <td width="100"><span class="nested-group-step">1s 454ms</span></td>
                 </tr>
 
                             </table>
@@ -1078,7 +1042,7 @@
                             <a href="javaScript:void(0)" onClick="toggleDiv('stepSection0-7')"
                                style="display:block;">
                                 <span class="nested-step">
-                                                And Enter reason "sick leave" for leave
+                                                And Enter reason "WFH leave" for leave
                                         </span>
                             </a>
                             <span class="evidence">
@@ -1088,22 +1052,22 @@
 
                         <td width="160" class="SUCCESS-text">
                                 <a href="2217dc51c1fcc0be77654923819c61854d45d6caad03f13c12dfb26323f99426_screenshots.html#screenshots?screenshot=40">
-                                    <img src="e35af2ed8391ad6dcdc8bfe0d075d6847bcb7416fb9df0d00d9f98a7c9d4a46d.png"
-                                         href="e35af2ed8391ad6dcdc8bfe0d075d6847bcb7416fb9df0d00d9f98a7c9d4a46d.png"
+                                    <img src="d1ffd0b65e8493f8319e73fd0f1c47165e8ae5df5982cbec68904796408806aa.png"
+                                         href="d1ffd0b65e8493f8319e73fd0f1c47165e8ae5df5982cbec68904796408806aa.png"
                                          class="screenshot"
                                          width="48" height="48"/>
                                 </a>
                                 <i class="bi bi-arrow-right"></i>
 
                                 <a href="2217dc51c1fcc0be77654923819c61854d45d6caad03f13c12dfb26323f99426_screenshots.html#screenshots?screenshot=43">
-                                    <img src="e327a13b6d62106d4b53baad6e9b51efb44bb42a1c50f6f7f2d9a2d198ba0eb4.png"
-                                         href="e327a13b6d62106d4b53baad6e9b51efb44bb42a1c50f6f7f2d9a2d198ba0eb4.png"
+                                    <img src="1cb0511eee8db3ea4f9ad0fcd37dd1523c7b6a7d00c9246feb9868966e0bfa58.png"
+                                         href="1cb0511eee8db3ea4f9ad0fcd37dd1523c7b6a7d00c9246feb9868966e0bfa58.png"
                                          class="screenshot"
                                          width="48" height="48"/>
                                 </a>
                         </td>
                     <td width="130"><span class="nested-step">SUCCESS</span></td>
-                    <td width="100"><span class="nested-step">282ms</span></td>
+                    <td width="100"><span class="nested-step">334ms</span></td>
                 </tr>
                     <tr>
                         <td colspan="5">
@@ -1120,7 +1084,7 @@
                     <td class="step-description-column">
                         <div class="step-description">
                                 <span class="nested-group-step">
-                                                Enter reason: sick leave
+                                                Enter reason: By.xpath: //textarea[@id="WFHReason"], WFH leave
                                         </span>
                             <span class="evidence">
                                 </span>
@@ -1129,22 +1093,22 @@
 
                         <td width="160" class="SUCCESS-text">
                                 <a href="2217dc51c1fcc0be77654923819c61854d45d6caad03f13c12dfb26323f99426_screenshots.html#screenshots?screenshot=41">
-                                    <img src="e35af2ed8391ad6dcdc8bfe0d075d6847bcb7416fb9df0d00d9f98a7c9d4a46d.png"
-                                         href="e35af2ed8391ad6dcdc8bfe0d075d6847bcb7416fb9df0d00d9f98a7c9d4a46d.png"
+                                    <img src="d1ffd0b65e8493f8319e73fd0f1c47165e8ae5df5982cbec68904796408806aa.png"
+                                         href="d1ffd0b65e8493f8319e73fd0f1c47165e8ae5df5982cbec68904796408806aa.png"
                                          class="screenshot"
                                          width="48" height="48"/>
                                 </a>
                                 <i class="bi bi-arrow-right"></i>
 
                                 <a href="2217dc51c1fcc0be77654923819c61854d45d6caad03f13c12dfb26323f99426_screenshots.html#screenshots?screenshot=42">
-                                    <img src="e327a13b6d62106d4b53baad6e9b51efb44bb42a1c50f6f7f2d9a2d198ba0eb4.png"
-                                         href="e327a13b6d62106d4b53baad6e9b51efb44bb42a1c50f6f7f2d9a2d198ba0eb4.png"
+                                    <img src="1cb0511eee8db3ea4f9ad0fcd37dd1523c7b6a7d00c9246feb9868966e0bfa58.png"
+                                         href="1cb0511eee8db3ea4f9ad0fcd37dd1523c7b6a7d00c9246feb9868966e0bfa58.png"
                                          class="screenshot"
                                          width="48" height="48"/>
                                 </a>
                         </td>
                     <td width="130"><span class="nested-group-step">SUCCESS</span></td>
-                    <td width="100"><span class="nested-group-step">264ms</span></td>
+                    <td width="100"><span class="nested-group-step">308ms</span></td>
                 </tr>
 
                             </table>
@@ -1176,22 +1140,22 @@
 
                         <td width="160" class="SUCCESS-text">
                                 <a href="2217dc51c1fcc0be77654923819c61854d45d6caad03f13c12dfb26323f99426_screenshots.html#screenshots?screenshot=45">
-                                    <img src="e327a13b6d62106d4b53baad6e9b51efb44bb42a1c50f6f7f2d9a2d198ba0eb4.png"
-                                         href="e327a13b6d62106d4b53baad6e9b51efb44bb42a1c50f6f7f2d9a2d198ba0eb4.png"
+                                    <img src="1cb0511eee8db3ea4f9ad0fcd37dd1523c7b6a7d00c9246feb9868966e0bfa58.png"
+                                         href="1cb0511eee8db3ea4f9ad0fcd37dd1523c7b6a7d00c9246feb9868966e0bfa58.png"
                                          class="screenshot"
                                          width="48" height="48"/>
                                 </a>
                                 <i class="bi bi-arrow-right"></i>
 
                                 <a href="2217dc51c1fcc0be77654923819c61854d45d6caad03f13c12dfb26323f99426_screenshots.html#screenshots?screenshot=48">
-                                    <img src="2f6b89ad33354dea39d1561837d99c1c78da3fa6eeead9098df6933fc43451fc.png"
-                                         href="2f6b89ad33354dea39d1561837d99c1c78da3fa6eeead9098df6933fc43451fc.png"
+                                    <img src="fa9a35e659664cad9f038e0bc058105da37fbfc44327c5c966a82e5402cf9998.png"
+                                         href="fa9a35e659664cad9f038e0bc058105da37fbfc44327c5c966a82e5402cf9998.png"
                                          class="screenshot"
                                          width="48" height="48"/>
                                 </a>
                         </td>
                     <td width="130"><span class="nested-step">SUCCESS</span></td>
-                    <td width="100"><span class="nested-step">13s 570ms</span></td>
+                    <td width="100"><span class="nested-step">13s 493ms</span></td>
                 </tr>
                     <tr>
                         <td colspan="5">
@@ -1217,22 +1181,22 @@
 
                         <td width="160" class="SUCCESS-text">
                                 <a href="2217dc51c1fcc0be77654923819c61854d45d6caad03f13c12dfb26323f99426_screenshots.html#screenshots?screenshot=46">
-                                    <img src="1b923622345ffd71d0e5f33bcb26c8a2cf6c2c00617e2ed93936a98042681565.png"
-                                         href="1b923622345ffd71d0e5f33bcb26c8a2cf6c2c00617e2ed93936a98042681565.png"
+                                    <img src="1cb0511eee8db3ea4f9ad0fcd37dd1523c7b6a7d00c9246feb9868966e0bfa58.png"
+                                         href="1cb0511eee8db3ea4f9ad0fcd37dd1523c7b6a7d00c9246feb9868966e0bfa58.png"
                                          class="screenshot"
                                          width="48" height="48"/>
                                 </a>
                                 <i class="bi bi-arrow-right"></i>
 
                                 <a href="2217dc51c1fcc0be77654923819c61854d45d6caad03f13c12dfb26323f99426_screenshots.html#screenshots?screenshot=47">
-                                    <img src="2f6b89ad33354dea39d1561837d99c1c78da3fa6eeead9098df6933fc43451fc.png"
-                                         href="2f6b89ad33354dea39d1561837d99c1c78da3fa6eeead9098df6933fc43451fc.png"
+                                    <img src="fa9a35e659664cad9f038e0bc058105da37fbfc44327c5c966a82e5402cf9998.png"
+                                         href="fa9a35e659664cad9f038e0bc058105da37fbfc44327c5c966a82e5402cf9998.png"
                                          class="screenshot"
                                          width="48" height="48"/>
                                 </a>
                         </td>
                     <td width="130"><span class="nested-group-step">SUCCESS</span></td>
-                    <td width="100"><span class="nested-group-step">10s 543ms</span></td>
+                    <td width="100"><span class="nested-group-step">10s 452ms</span></td>
                 </tr>
 
                             </table>
@@ -1254,7 +1218,7 @@
                             <a href="javaScript:void(0)" onClick="toggleDiv('stepSection0-9')"
                                style="display:block;">
                                 <span class="nested-step">
-                                                And Verify Leave is submitted
+                                                And Verify Leave is submitted and "WFH applied successfully" appears
                                         </span>
                             </a>
                             <span class="evidence">
@@ -1264,22 +1228,22 @@
 
                         <td width="160" class="SUCCESS-text">
                                 <a href="2217dc51c1fcc0be77654923819c61854d45d6caad03f13c12dfb26323f99426_screenshots.html#screenshots?screenshot=50">
-                                    <img src="2f6b89ad33354dea39d1561837d99c1c78da3fa6eeead9098df6933fc43451fc.png"
-                                         href="2f6b89ad33354dea39d1561837d99c1c78da3fa6eeead9098df6933fc43451fc.png"
+                                    <img src="fa9a35e659664cad9f038e0bc058105da37fbfc44327c5c966a82e5402cf9998.png"
+                                         href="fa9a35e659664cad9f038e0bc058105da37fbfc44327c5c966a82e5402cf9998.png"
                                          class="screenshot"
                                          width="48" height="48"/>
                                 </a>
                                 <i class="bi bi-arrow-right"></i>
 
-                                <a href="2217dc51c1fcc0be77654923819c61854d45d6caad03f13c12dfb26323f99426_screenshots.html#screenshots?screenshot=55">
-                                    <img src="bc32d663dafcfcf0e630987c67e638dd1a4e4b928ef1fcdf2b56fcc56d1c156e.png"
-                                         href="bc32d663dafcfcf0e630987c67e638dd1a4e4b928ef1fcdf2b56fcc56d1c156e.png"
+                                <a href="2217dc51c1fcc0be77654923819c61854d45d6caad03f13c12dfb26323f99426_screenshots.html#screenshots?screenshot=53">
+                                    <img src="76153ebd65f4f9e451429e9780e016096ea56dce75becdc4c82731d0a73086d1.png"
+                                         href="76153ebd65f4f9e451429e9780e016096ea56dce75becdc4c82731d0a73086d1.png"
                                          class="screenshot"
                                          width="48" height="48"/>
                                 </a>
                         </td>
                     <td width="130"><span class="nested-step">SUCCESS</span></td>
-                    <td width="100"><span class="nested-step">3s 476ms</span></td>
+                    <td width="100"><span class="nested-step">1s 598ms</span></td>
                 </tr>
                     <tr>
                         <td colspan="5">
@@ -1288,53 +1252,7 @@
 
                     <td width="90" class="step-icon">
                         <a name="0-9-0"></a>
-                            <a href="javaScript:void(0)" onClick="toggleDiv('stepSection0-9-0')"
-                               style="display:block">
-                                <i class="bi bi-plus-square imgstepSection0-9-0 success-icon"
-                                   style="margin-left: 60px; float:left; padding-right:5px"></i>
-                            </a>
-                    </td>
-
-                    <td class="step-description-column">
-                        <div class="step-description">
-                            <a href="javaScript:void(0)" onClick="toggleDiv('stepSection0-9-0')"
-                               style="display:block;">
-                                <span class="nested-step">
-                                                Verify popup: Leave applied successfully
-                                        </span>
-                            </a>
-                            <span class="evidence">
-                                </span>
-                        </div>
-                    </td>
-
-                        <td width="160" class="SUCCESS-text">
-                                <a href="2217dc51c1fcc0be77654923819c61854d45d6caad03f13c12dfb26323f99426_screenshots.html#screenshots?screenshot=51">
-                                    <img src="2f6b89ad33354dea39d1561837d99c1c78da3fa6eeead9098df6933fc43451fc.png"
-                                         href="2f6b89ad33354dea39d1561837d99c1c78da3fa6eeead9098df6933fc43451fc.png"
-                                         class="screenshot"
-                                         width="48" height="48"/>
-                                </a>
-                                <i class="bi bi-arrow-right"></i>
-
-                                <a href="2217dc51c1fcc0be77654923819c61854d45d6caad03f13c12dfb26323f99426_screenshots.html#screenshots?screenshot=54">
-                                    <img src="bc32d663dafcfcf0e630987c67e638dd1a4e4b928ef1fcdf2b56fcc56d1c156e.png"
-                                         href="bc32d663dafcfcf0e630987c67e638dd1a4e4b928ef1fcdf2b56fcc56d1c156e.png"
-                                         class="screenshot"
-                                         width="48" height="48"/>
-                                </a>
-                        </td>
-                    <td width="130"><span class="nested-step">SUCCESS</span></td>
-                    <td width="100"><span class="nested-step">3s 452ms</span></td>
-                </tr>
-                    <tr>
-                        <td colspan="5">
-                            <table id="stepSection0-9-0" class="step-table-nested" style="display:none;">
-                <tr class="test-SUCCESS">
-
-                    <td width="110" class="step-icon">
-                        <a name="0-9-0-0"></a>
-                            <span style="margin-left: 80px;"
+                            <span style="margin-left: 60px;"
                                   class="nested-group-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
                                 </span>
                     </td>
@@ -1342,7 +1260,7 @@
                     <td class="step-description-column">
                         <div class="step-description">
                                 <span class="nested-group-step">
-                                                Click on button: OK
+                                                Verify popup: WFH applied successfully
                                         </span>
                             <span class="evidence">
                                 </span>
@@ -1350,28 +1268,24 @@
                     </td>
 
                         <td width="160" class="SUCCESS-text">
-                                <a href="2217dc51c1fcc0be77654923819c61854d45d6caad03f13c12dfb26323f99426_screenshots.html#screenshots?screenshot=52">
-                                    <img src="592abef7f289b2f2ad7e0fc6c12fd16b786890650b6c4227c0d505a2e726a73c.png"
-                                         href="592abef7f289b2f2ad7e0fc6c12fd16b786890650b6c4227c0d505a2e726a73c.png"
+                                <a href="2217dc51c1fcc0be77654923819c61854d45d6caad03f13c12dfb26323f99426_screenshots.html#screenshots?screenshot=51">
+                                    <img src="fa9a35e659664cad9f038e0bc058105da37fbfc44327c5c966a82e5402cf9998.png"
+                                         href="fa9a35e659664cad9f038e0bc058105da37fbfc44327c5c966a82e5402cf9998.png"
                                          class="screenshot"
                                          width="48" height="48"/>
                                 </a>
                                 <i class="bi bi-arrow-right"></i>
 
-                                <a href="2217dc51c1fcc0be77654923819c61854d45d6caad03f13c12dfb26323f99426_screenshots.html#screenshots?screenshot=53">
-                                    <img src="bc32d663dafcfcf0e630987c67e638dd1a4e4b928ef1fcdf2b56fcc56d1c156e.png"
-                                         href="bc32d663dafcfcf0e630987c67e638dd1a4e4b928ef1fcdf2b56fcc56d1c156e.png"
+                                <a href="2217dc51c1fcc0be77654923819c61854d45d6caad03f13c12dfb26323f99426_screenshots.html#screenshots?screenshot=52">
+                                    <img src="76153ebd65f4f9e451429e9780e016096ea56dce75becdc4c82731d0a73086d1.png"
+                                         href="76153ebd65f4f9e451429e9780e016096ea56dce75becdc4c82731d0a73086d1.png"
                                          class="screenshot"
                                          width="48" height="48"/>
                                 </a>
                         </td>
                     <td width="130"><span class="nested-group-step">SUCCESS</span></td>
-                    <td width="100"><span class="nested-group-step">529ms</span></td>
+                    <td width="100"><span class="nested-group-step">1s 577ms</span></td>
                 </tr>
-
-                            </table>
-                        </td>
-                    </tr>
 
                             </table>
                         </td>
@@ -1383,7 +1297,7 @@
             <tr class="test-SUCCESS">
                     <td colspan="3"></td>
                 <td width="130"><span class="top-level-step"><em>SUCCESS</em></span></td>
-                <td width="100"><span class="top-level-step"><em>77.14s</em></span></td>
+                <td width="100"><span class="top-level-step"><em>70.9s</em></span></td>
             </tr>
 
         </table>

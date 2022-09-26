@@ -6,8 +6,12 @@ import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.Step;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 
+import java.time.LocalDate;
+import java.time.Month;
+import java.util.Date;
 import java.util.List;
 
 public class LeaveManagementApplyPage extends PageObject
@@ -95,7 +99,35 @@ public class LeaveManagementApplyPage extends PageObject
     @Step("Verify field is auto populated by default")
     public void verifyAutoPopulated(String fieldName)
     {
-        genFunc.autoPopulate(fieldName);
+        boolean isAutoPopulated = true;
+        if (fieldName.contains(",")) {
+            String[] fieldNames = fieldName.split(",");
+            WebElementFacade elementFacade = null;
+            for (int i = 0; i < fieldNames.length; i++) {
+                if (fieldName.contains("Primary")) {
+                    elementFacade = find(XpathForApplyTab.textBox("leaveContactNumber"));
+                } else if (fieldName.contains("Other")) {
+                    elementFacade = find(XpathForApplyTab.textBox("leaveAltContactNumber"));
+                }
+                if (elementFacade.getText().equals(" ")) {
+                    isAutoPopulated = false;
+                    break;
+                }
+            }
+        }
+        else
+        {
+            WebElementFacade elementFacade = find(XpathForApplyTab.textBox(fieldName));
+            if(elementFacade.getText().equals(" "))
+            {
+                isAutoPopulated = false;
+            }
+        }
+        if (isAutoPopulated) {
+            Assert.assertTrue("Field are auto populated by default", true);
+        } else {
+            Assert.assertFalse("Fields are not auto populated", false);
+        }
     }
 
     @Step
@@ -185,11 +217,11 @@ public class LeaveManagementApplyPage extends PageObject
     }
 
     @Step
-    public void enterReason(String enterReason)
+    public void enterReason(By loc, String enterReason)
     {
-        if(genFunc.isElementFoundInGivenTime(XpathForApplyTab.textArea("leaveReason")))
+        if(genFunc.isElementFoundInGivenTime(loc))
         {
-            WebElementFacade elementFacade= find(XpathForApplyTab.textArea("leaveReason"));
+            WebElementFacade elementFacade= find(loc);
             typeInto(elementFacade,enterReason);
         }
         else
@@ -229,6 +261,40 @@ public class LeaveManagementApplyPage extends PageObject
         {
             clickOnButton("Email");
         }
+    }
+
+
+
+    @Step
+    public void verifyTabIsActive(String tabName) {
+        WebElementFacade elementFacade = find(XpathForApplyTab.isTabActive(tabName));
+        if (elementFacade.getAttribute("class").contains("active")) {
+            Assert.assertTrue("Tab is active", true);
+        } else {
+            Assert.assertFalse("Tab is not active", false);
+        }
+    }
+
+    @Step("Select Date from Dropdown")
+    public void selectDateFromDropdown(Date date, By loc)
+    {
+        String[] dateArray = date.toString().split(" ");
+        LocalDate currentdate = LocalDate.now();
+        int currentDay = currentdate.getDayOfMonth();
+        //Getting the current month
+        Month currentMonth = currentdate.getMonth();
+        String Month = null;
+        if(currentMonth.toString().equals("SEPTEMBER"))
+        {
+            Month= "09";
+        }
+        else if(currentMonth.toString().equals("OCTOBER"))
+        {
+            Month= "10";
+        }
+        String dateToBeSelected = Month+"/"+dateArray[2]+"/2022";
+        WebElementFacade elementFacade = find(loc);
+        selectFromDropdown(elementFacade,dateToBeSelected);
     }
 
 

@@ -48,7 +48,7 @@ public class CommonFunctions extends PageObject {
                 tab = XpathForApplyTab.textBox("btnLogin");
                 break;
             case "Submit":
-                tab = XpathForApplyTab.submitBtn;
+                tab = XpathForApplyTab.textBox("btnSubmitLeave");
                 break;
             case "Total working days":
                 tab = XpathForApplyTab.tooltip;
@@ -125,23 +125,6 @@ public class CommonFunctions extends PageObject {
         }
     }
 
-    public void autoPopulate(String fieldName) {
-        boolean isAutoPopulated = true;
-        if (fieldName.contains(",")) {
-            String[] fieldNames = fieldName.split(",");
-            for (int i = 0; i < fieldNames.length; i++) {
-                if (fieldNames[i].equals(" ")) {
-                    isAutoPopulated = false;
-                    break;
-                }
-            }
-            if (isAutoPopulated) {
-                Assert.assertTrue("Field are auto populated by default", true);
-            } else {
-                Assert.assertFalse("Fields are not auto populated", false);
-            }
-        }
-    }
 
     public void verifyMandatoryFields(String fields) {
         WebElementFacade elementFacade = null;
@@ -154,6 +137,12 @@ public class CommonFunctions extends PageObject {
                 break;
             case "Reason":
                 elementFacade = find(XpathForApplyTab.textArea("leaveReason"));
+                break;
+            case "WFH Reason":
+                elementFacade = find(XpathForApplyTab.textArea("WFHReason"));
+                break;
+            case "Date":
+                elementFacade = find(XpathForApplyTab.dropdown("WorkFromHomeDate"));
                 break;
         }
         if (elementFacade.getAttribute("class").contains("error-validation")) {

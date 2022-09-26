@@ -2,6 +2,7 @@ package stepDefinitions;
 
 import com.beust.ah.A;
 import com.gemini.mis.pages.LeaveManagementApplyPage;
+import com.gemini.mis.selectors.XpathForApplyTab;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -9,6 +10,9 @@ import io.cucumber.java.en.When;
 import net.serenitybdd.core.pages.PageObject;
 import net.thucydides.core.annotations.Steps;
 import org.openqa.selenium.devtools.v85.page.Page;
+
+import java.util.Calendar;
+import java.util.Date;
 
 public class LeaveManagementApplySteps extends PageObject
 {
@@ -153,19 +157,44 @@ public class LeaveManagementApplySteps extends PageObject
     @And("Enter reason {string} for leave")
     public void enterReasonForLeave(String enterReason)
     {
-        ApplyPage.enterReason(enterReason);
+        if(enterReason.equals("sick leave"))
+        {
+            ApplyPage.enterReason(XpathForApplyTab.textArea("leaveReason"),enterReason);
+        }
+        else if(enterReason.equals("WFH leave"))
+        {
+            ApplyPage.enterReason(XpathForApplyTab.textArea("WFHReason"),enterReason);
+        }
     }
 
-    @And("Verify Leave is submitted")
-    public void verifyLeaveIsSubmitted()
+    @And("Verify Leave is submitted and {string} appears")
+    public void verifyLeaveIsSubmitted(String message)
     {
-        ApplyPage.verifyPopup("Leave applied successfully");
+        ApplyPage.verifyPopup(message);
     }
 
     @And("choose {string} as Availability")
     public void chooseAsAvailability(String availabilityType)
     {
         ApplyPage.availabilityType(availabilityType);
+    }
+
+
+    /// WORK FROM HOME
+    @And("Verify {string} displays")
+    public void verifyDisplays(String tabName)
+    {
+        ApplyPage.verifyTabIsActive(tabName);
+    }
+
+    @Then("Select date from date dropdown")
+    public void selectDateFromDateDropdown()
+    {
+        Calendar calendar = Calendar.getInstance();
+        calendar.add(Calendar.DAY_OF_YEAR, 1);
+        Date tomorrow = calendar.getTime();
+        ApplyPage.selectDateFromDropdown(tomorrow, XpathForApplyTab.dropdown("WorkFromHomeDate"));
+
     }
 
 

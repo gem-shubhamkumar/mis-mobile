@@ -111,7 +111,7 @@ Feature: MIS Leave Management Activities
     And Select "<leaveType>" from Leave Type dropdown
     And Enter reason "sick leave" for leave
     Then Click on "Submit" button
-    And Verify Leave is submitted
+    And Verify Leave is submitted and "leave applied successfully" appears
     Examples:
       |      parentTab     |       childTab  | defaultTab |  fromDate  |   toDate    |  leaveType |
       | Leave Management   |          Apply  |    Leave   | 29/09/2022 |  29/09/2022 |     CL     |
