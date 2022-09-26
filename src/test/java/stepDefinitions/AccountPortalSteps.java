@@ -2,11 +2,12 @@ package stepDefinitions;
 
 import com.gemini.mis.commonFunctions.commonMethods;
 import com.gemini.mis.pages.AccountPortalPages;
-import com.gemini.mis.selectors.accountPageSelectors;
+import com.gemini.mis.selectors.AccountPortalSelectors;
 import io.cucumber.java.en.*;
+import net.serenitybdd.core.pages.PageObject;
 import net.thucydides.core.annotations.Steps;
 
-public class accountsStep {
+public class AccountPortalSteps extends PageObject {
 
     @Steps
     commonMethods commonfunction;
@@ -24,11 +25,11 @@ public class accountsStep {
     }
     @And("^Verify login is successful$")
     public void verifyLogInToMyMIS(){
-        commonfunction.isElementFound(accountPageSelectors.btnChangeADPassword);
+        commonfunction.isElementFound(AccountPortalSelectors.btnChangeADPassword);
     }
     @Then("^Click on \"(.*?)\" sub-tab inside \"(.*?)\" tab$")
     public void navigateToSubTab(String subTab,String menuTab){
-        commonfunction.navigateToChildTab(subTab,menuTab);
+        commonfunction.navigateToTab(menuTab,subTab);
     }
      @But("^Verify new tab is open \"(.*?)\" as page heading$")
     public void verifyNewTabOpened(String newTabHeading){
@@ -38,8 +39,9 @@ public class accountsStep {
     public void verifyPageTitle(String currentPageTitle){
         commonfunction.verifyPageTitle(currentPageTitle);
      }
-     @Then("^Verify \"(.*?)\" is present on the page$")
+     @Then("^Verify \"(.*?)\" is present on the current page$")
     public void verifyPageElementOnCurrentPage(String eleName){
+         waitABit(1500);
          accountPages.verifyElementOnCurrentPage(eleName);
      }
      @And("^Verify \"(.*?)\" text is present on the current page$")
@@ -61,6 +63,10 @@ public class accountsStep {
     @Then("^Verify all elements are present on view login history page$")
     public void verifyViewLoginHistoryPageEle(){
         accountPages.verifyHeaderElementsArePresent();
+    }
+    @And("^Close GreytHR portal tab and verify landed to myMis tab$")
+    public void verifyUserLandedToMisPortal(){
+         accountPages.verifyLandingToMyMIS();
     }
 
 }

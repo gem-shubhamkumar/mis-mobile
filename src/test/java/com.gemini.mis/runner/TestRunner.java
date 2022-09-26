@@ -7,7 +7,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "src/test/resources/feature"
         ,glue = "stepDefinitions"
-        ,tags ="@Test4"
+        ,tags ="@Test1"
 )
 
 public class TestRunner {

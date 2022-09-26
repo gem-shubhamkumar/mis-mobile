@@ -1,6 +1,7 @@
 package com.gemini.mis.commonFunctions;
 
-import com.gemini.mis.selectors.accountPageSelectors;
+import com.gemini.mis.selectors.AccountPortalSelectors;
+import com.gemini.mis.selectors.CommonXpaths;
 import net.serenitybdd.core.pages.PageObject;
 import net.thucydides.core.annotations.Step;
 import org.junit.Assert;
@@ -9,6 +10,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 
 public class commonMethods extends PageObject {
+     CommonXpaths commonXpaths;
 
     public void clickOn(By elementLoc){
         if ($(elementLoc).isVisible()){
@@ -57,21 +59,46 @@ public class commonMethods extends PageObject {
 
 
     @Step("Click on {0} inside {1}")
-    public void navigateToChildTab(String childTabName, String parentTabName){
-        if(isElementFound(accountPageSelectors.menuTabs(parentTabName))){
+    public void navigateToTab(String parentTabName, String childTabName) {
+
+        if (isElementFound(CommonXpaths.menuTabs(parentTabName))) {
             waitABit(1000);
-            clickOn(accountPageSelectors.menuTabs(parentTabName));
+            clickOn(commonXpaths.menuTabs(parentTabName));
             waitABit(2000);
-            if(isElementFound(accountPageSelectors.menuTabs(childTabName))){
-                clickOn(accountPageSelectors.menuTabs(childTabName));
-            }else{
-                System.out.println("No child tab found");
-            }
-        }else {
-            Assert.fail("Unable to locate paren element "+parentTabName);
+            if (isElementFound(commonXpaths.menuTabs(childTabName))) {
+                clickOn(commonXpaths.menuTabs(childTabName));
+            } else
+                Assert.fail("Child element is not found");
+        } else
+            Assert.fail("Parent element not found");
+    }
+    @Step("Click on {0} tab")
+    public void navigateToTab(String parentTabName) {
+        if (isElementFound(CommonXpaths.menuTabs(parentTabName))) {
+            waitABit(1000);
+            clickOn(CommonXpaths.menuTabs(parentTabName));
+
+        } else {
+            Assert.fail("Unable to locate parent tab");
         }
     }
 
+    @Step("verify if {0} element is not visible on current screen")
+    public void verifyElementIsNotVisible(String elementName){
+        boolean flag =false;
+        switch (elementName){
+            case "Side navigation bar":
+                flag=$(CommonXpaths.sideMenuBar).isVisible();
+                break;
+
+            default:Assert.fail("Element name wrong");
+        }
+        if(flag){
+            Assert.fail(elementName+" is visible on the screen");
+        }else{
+            System.out.println("Element is not visible on the screen");
+        }
+    }
 
     @Step("Verify page title as {0}")
     public void verifyPageTitle(String title){
@@ -83,23 +110,24 @@ public class commonMethods extends PageObject {
     public void verifyCredentialsEnterInField(String portalName,String username,String password){
         switch (portalName){
             case "myMIS portal":
-                waitFor(ExpectedConditions.presenceOfElementLocated(accountPageSelectors.textFieldMyMISUsername));
-                sendTextToField(accountPageSelectors.textFieldMyMISUsername, username);
-                waitFor(ExpectedConditions.presenceOfElementLocated(accountPageSelectors.textFieldMyMISPassword));
-                sendTextToField(accountPageSelectors.textFieldMyMISPassword, password);
+                waitFor(ExpectedConditions.presenceOfElementLocated(AccountPortalSelectors.textFieldMyMISUsername));
+                sendTextToField(AccountPortalSelectors.textFieldMyMISUsername, username);
+                waitFor(ExpectedConditions.presenceOfElementLocated(AccountPortalSelectors.textFieldMyMISPassword));
+                sendTextToField(AccountPortalSelectors.textFieldMyMISPassword, password);
                 break;
 
             case "greytHR portal":
-                waitFor(ExpectedConditions.presenceOfElementLocated(accountPageSelectors.textFieldGreytHRUsername));
-                sendTextToField(accountPageSelectors.textFieldGreytHRUsername, username);
-                waitFor(ExpectedConditions.presenceOfElementLocated(accountPageSelectors.textFieldGreytHRPassword));
-                sendTextToField(accountPageSelectors.textFieldGreytHRPassword, password);
+                waitFor(ExpectedConditions.presenceOfElementLocated(AccountPortalSelectors.textFieldGreytHRUsername));
+                sendTextToField(AccountPortalSelectors.textFieldGreytHRUsername, username);
+                waitFor(ExpectedConditions.presenceOfElementLocated(AccountPortalSelectors.textFieldGreytHRPassword));
+                sendTextToField(AccountPortalSelectors.textFieldGreytHRPassword, password);
                 waitABit(2000);
                 break;
 
             default:Assert.fail("unable to verify portal name");
 
         }
+        waitABit(3000);
 
 
     }

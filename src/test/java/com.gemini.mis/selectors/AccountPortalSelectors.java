@@ -2,7 +2,7 @@ package com.gemini.mis.selectors;
 
 import org.openqa.selenium.By;
 
-public class accountPageSelectors {
+public class AccountPortalSelectors {
 public static By menuTabs(String tabName){
     return By.xpath("//span[contains(text(),'"+tabName+"')]");
 }

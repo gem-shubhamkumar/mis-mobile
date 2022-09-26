@@ -1,7 +1,10 @@
 package com.gemini.mis.pages;
 
 import com.gemini.mis.commonFunctions.commonMethods;
-import com.gemini.mis.selectors.accountPageSelectors;
+import com.gemini.mis.selectors.AccountPortalSelectors;
+import com.gemini.mis.selectors.CommonXpaths;
+import com.gemini.mis.selectors.LeaveBalanceSelectors;
+import com.gemini.mis.selectors.NavBarSelectors;
 import net.serenitybdd.core.pages.PageObject;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.annotations.Steps;
@@ -20,7 +23,7 @@ public class AccountPortalPages extends PageObject {
     @Step("Verify  elements on greytHR landing page are visible")
     public void verifyGreytHrlandingPageEle(){
             String[] array = {"Payslip","IT Declaration","POI","Track"};
-            List<WebElement> listItems = getDriver().findElements(accountPageSelectors.listLandingPageElements);
+            List<WebElement> listItems = getDriver().findElements(AccountPortalSelectors.listLandingPageElements);
             List<String> compareItemText = new ArrayList<>();
             for(String names :array){
                 compareItemText.add(names);
@@ -42,7 +45,7 @@ public class AccountPortalPages extends PageObject {
     @Step("Verify elements are visible after clicking on View my info link")
     public void verifyEleAreAvailableOnViewMyInfo(){
         String[] array = {"Personal","Accounts & Statutory","Family","Employment & Job","Assets"};
-        List<WebElement> listItems = getDriver().findElements(accountPageSelectors.listViewMyInfo);
+        List<WebElement> listItems = getDriver().findElements(AccountPortalSelectors.listViewMyInfo);
         List<String> compareItemText = new ArrayList<>();
         for(String names :array){
             compareItemText.add(names);
@@ -65,23 +68,43 @@ public class AccountPortalPages extends PageObject {
     public void clickOnElement(String eleName){
         switch(eleName){
             case "sign in button":
-                commonfunctions.clickOn(accountPageSelectors.btnSignIn);
+                commonfunctions.clickOn(AccountPortalSelectors.btnSignIn);
                 break;
             case "Log in button":
-                commonfunctions. clickOn(accountPageSelectors.btnLogIn);
+                commonfunctions. clickOn(AccountPortalSelectors.btnLogIn);
                 break;
             case "View My Info link":
-                commonfunctions.clickOn(accountPageSelectors.linkViewMyInfo);
+                commonfunctions.clickOn(AccountPortalSelectors.linkViewMyInfo);
                 break;
             case "Accounts & Statutory":
-                commonfunctions.clickOn(accountPageSelectors.linkAccountAndStatutory);
+                commonfunctions.clickOn(AccountPortalSelectors.linkAccountAndStatutory);
                 break;
             case "Settings link":
-                commonfunctions.clickOn(accountPageSelectors.linkSettings);
+                commonfunctions.clickOn(AccountPortalSelectors.linkSettings);
                 break;
             case "View login history link":
-                commonfunctions.clickOn(accountPageSelectors.linkViewLoginHistory);
+                commonfunctions.clickOn(AccountPortalSelectors.linkViewLoginHistory);
                 break;
+            case "CL leave balance link":
+                commonfunctions.clickOn(CommonXpaths.linkNumberOfLeave("CL"));
+                break;
+            case "WFH":
+                commonfunctions.clickOn(CommonXpaths.linkNumberOfLeave("WFH"));
+                break;
+            case "Close button":
+                commonfunctions.clickOn(LeaveBalanceSelectors.btnLeaveHistoryClose);
+                break;
+            case "Gemini logo":
+                commonfunctions.clickOn(NavBarSelectors.logoGemini);
+                break;
+            case "Menu button":
+                commonfunctions.clickOn(CommonXpaths.btnMenu);
+                break;
+            case "Change AD password button":
+                commonfunctions.clickOn(NavBarSelectors.btnChangeADpassword);
+                break;
+
+
 
             default:Assert.fail("button not found");
         }
@@ -104,23 +127,39 @@ public class AccountPortalPages extends PageObject {
     public void verifyElementOnCurrentPage(String eleName){
         switch (eleName){
             case "Gemini logo":
-                commonfunctions.isElementFound(accountPageSelectors.logoGemini);
+                commonfunctions.isElementFound(AccountPortalSelectors.logoGemini);
                 break;
             case "greytHR logo":
-                commonfunctions.isElementFound(accountPageSelectors.logoGreytHR);
+                commonfunctions.isElementFound(AccountPortalSelectors.logoGreytHR);
                 break;
             case "greytHR username text field":
-                commonfunctions.isElementFound(accountPageSelectors.textFieldGreytHRUsername);
+                commonfunctions.isElementFound(AccountPortalSelectors.textFieldGreytHRUsername);
                 break;
             case "gerytHR password text field":
-                commonfunctions.isElementFound(accountPageSelectors.textFieldGreytHRPassword);
+                commonfunctions.isElementFound(AccountPortalSelectors.textFieldGreytHRPassword);
                 break;
             case "Settings link":
-                commonfunctions.isElementFound(accountPageSelectors.linkSettings);
+                commonfunctions.isElementFound(AccountPortalSelectors.linkSettings);
                 break;
             case "View login history link":
-                commonfunctions.isElementFound(accountPageSelectors.linkViewLoginHistory);
+                commonfunctions.isElementFound(AccountPortalSelectors.linkViewLoginHistory);
                 break;
+            case "Profile card":
+                commonfunctions.isElementFound(LeaveBalanceSelectors.cardProfile);
+                break;
+            case "Leave balance card":
+                commonfunctions.isElementFound(LeaveBalanceSelectors.cardLeaveBalance);
+                break;
+            case "Leave history window":
+                commonfunctions.isElementFound(LeaveBalanceSelectors.gridLeaveHistory);
+                break;
+            case "Employee directory table":
+                commonfunctions.isElementFound(NavBarSelectors.tableEmployeeDirectory);
+                break;
+            case "Side navigation bar":
+                commonfunctions.isElementFound(CommonXpaths.sideMenuBar);
+                break;
+
 
             default: Assert.fail("failed to locate element with "+eleName);
         }
@@ -130,17 +169,17 @@ public class AccountPortalPages extends PageObject {
     public void verifyTextPresent(String text){
         switch (text){
             case "Hello there!":
-                commonfunctions.isTextFound(accountPageSelectors.textHelloThere,text);
+                commonfunctions.isTextFound(AccountPortalSelectors.textHelloThere,text);
                 break;
             case "Priyanshu":
                 text="Hi "+text;
-                commonfunctions.isTextFound(accountPageSelectors.textUsername,text);
+                commonfunctions.isTextFound(AccountPortalSelectors.textUsername,text);
                 break;
             case "Yes Bank":
-                commonfunctions.isTextFound(accountPageSelectors.textBankNAme,text);
+                commonfunctions.isTextFound(AccountPortalSelectors.textBankNAme,text);
                 break;
             case "Username and password is required.":
-                commonfunctions.isTextFound(accountPageSelectors.textIncorrectCredentials,text);
+                commonfunctions.isTextFound(AccountPortalSelectors.textIncorrectCredentials,text);
                 break;
 
 
@@ -152,12 +191,28 @@ public class AccountPortalPages extends PageObject {
     @Step("Verify header elements are present on view login history page")
     public void verifyHeaderElementsArePresent(){
         for(int i=1;i<4;i++){
-            if(commonfunctions.isElementFound(accountPageSelectors.elementsLoginDetails(i))){
-                System.out.println($(accountPageSelectors.elementsLoginDetails(i)).getText()+" element is found successfully");
+            if(commonfunctions.isElementFound(AccountPortalSelectors.elementsLoginDetails(i))){
+                System.out.println($(AccountPortalSelectors.elementsLoginDetails(i)).getText()+" element is found successfully");
             }else {
-                Assert.fail("Unable to locate element "+$(accountPageSelectors.elementsLoginDetails(i)).getText());
+                Assert.fail("Unable to locate element "+$(AccountPortalSelectors.elementsLoginDetails(i)).getText());
             }
         }
+
+    }
+
+    @Step("Verify user landed on myMIS portal")
+    public void verifyLandingToMyMIS(){
+        if(getDriver().getTitle().equals("greytHR")){
+            getDriver().close();
+            if(getDriver().getTitle().equals("myMIS")){
+                System.out.println("successfully navigated to myMIS portal page/tab");
+            }else{
+                Assert.fail("failed to navigate MIS portal ");
+            }
+        }else{
+            Assert.fail("failed to navigate greytHR portal");
+        }
+
 
     }
 

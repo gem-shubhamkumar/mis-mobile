@@ -1,5 +1,5 @@
 @MISAutomation
-Feature: Accounts My Account
+Feature: Accounts Portal
 
   Background:
     Given Navigate to "myMIS"
@@ -12,16 +12,17 @@ Feature: Accounts My Account
     Then Click on "My Account" sub-tab inside "Accounts Portal" tab
     But Verify new tab is open "greytHR IDP" as page heading
     When On new tab : "greytHR IDP"
-    Then Verify "greytHR logo" is present on the page
-    Then Verify "Gemini logo" is present on the page
-    Then Verify "greytHR username text field" is present on the page
-    Then Verify "gerytHR password text field" is present on the page
+    Then Verify "greytHR logo" is present on the current page
+    Then Verify "Gemini logo" is present on the current page
+    Then Verify "greytHR username text field" is present on the current page
+    Then Verify "gerytHR password text field" is present on the current page
     And Verify "Hello there!" text is present on the current page
 
   @Test2
-  Scenario: Verify login to GreytHR portal
+  Scenario: Verify login to GreytHR portal and landed back to myMIS tab when greytHR tab is closed
     Then Click on "My Account" sub-tab inside "Accounts Portal" tab
     But Verify new tab is open "greytHR IDP" as page heading
+    And Close GreytHR portal tab and verify landed to myMis tab
     Then Enter credentials to "greytHR portal" using username as "priyanshu.prajapati@Geminisolutions.com" and password as "Nishu@greytHR"
     And Click on "Log in button"
     And Verify "Priyanshu" text is present on the current page
@@ -51,9 +52,9 @@ Feature: Accounts My Account
     But Verify new tab is open "greytHR IDP" as page heading
     Then Enter credentials to "greytHR portal" using username as "priyanshu.prajapati@Geminisolutions.com" and password as "Nishu@greytHR"
     And Click on "Log in button"
-    Then Verify "Settings link" is present on the page
+    Then Verify "Settings link" is present on the current page
     And Click on "Settings link"
-    Then Verify "View login history link" is present on the page
+    Then Verify "View login history link" is present on the current page
     And Click on "View login history link"
     Then Verify all elements are present on view login history page
 
