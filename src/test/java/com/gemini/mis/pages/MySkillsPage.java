@@ -1,28 +1,28 @@
 package com.gemini.mis.pages;
 
-import com.gemini.mis.commonfunctions.Utils;
+import com.gemini.mis.commonfunctions.CommonFunctions;
+import com.gemini.mis.selectors.CommonSelectors;
 import com.gemini.mis.selectors.MySkillsLocators;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.pages.PageObject;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 
-import javax.xml.xpath.XPath;
-import java.sql.SQLOutput;
 import java.util.List;
 
-public class MySkillsPages {
+public class MySkillsPage extends PageObject {
 
-     Utils utils = new Utils();
+     CommonFunctions commonFunctions = new CommonFunctions();
 
      @Step("Verify if {0} card is present")
     public void verifyIfCardIsPresent(String cardName) {
          int flag = 0;
 
-         utils.customWait(1000);
+         waitABit(1000);
 
-         List<WebElement> cards = utils.getMultipleElements(By.xpath(MySkillsLocators.cardNames));
+         List<WebElement> cards = getDriver().findElements(By.xpath(MySkillsLocators.cardNames));
 
          for (WebElement card : cards
          ) {
@@ -40,38 +40,35 @@ public class MySkillsPages {
 
     @Step("Verify card is not empty")
     public void verifyCardNotEmpty() {
-            Assert.assertFalse(utils.isPresent(By.xpath(MySkillsLocators.tableDiv)));
+            Assert.assertFalse($(By.xpath(MySkillsLocators.tableDiv)).isPresent());
     }
 
     @Step("Click on skill {0}")
     public void clickASkill(String skill) {
-         utils.click(By.xpath(MySkillsLocators.skillName.replace("skill", skill)));
+         $(By.xpath(MySkillsLocators.skillName.replace("skill", skill))).waitUntilPresent().click();
     }
 
-    @Step("Verify Modal Opened")
-    public void verifySkillModal() {
-         utils.switchToActiveElement();
-         Assert.assertTrue(utils.isPresent(By.xpath(MySkillsLocators.modalTitle)));
-    }
 
     @Step("Select Value {1}")
     public void selectValue(String id, String value) {
-         utils.selectFromDropdown(utils.getElement(By.id(id)), value);
+         commonFunctions.selectFromDropdown($(By.id(id)).getElement(), value);
     }
-
+    @Step
     public void enterValue(String value) {
-         utils.clearField(By.id("expinMonthsEdit"));
-         utils.typeText(By.id("expinMonthsEdit"), value);
+         $(By.id("expinMonthsEdit")).sendKeys(Keys.BACK_SPACE);
+         $(By.id("expinMonthsEdit")).type(value);
     }
 
-
+    @Step
     public void clickOK() {
-         utils.pressEnter();
-    }
+         waitABit(1000);
+        withAction().sendKeys(Keys.ENTER).build().perform();
 
+    }
+    @Step
     public void verifyData(String skill, String type, String experience) {
          int flag = 0;
-        List<WebElement> tableRow = utils.getMultipleElements(By.xpath(MySkillsLocators.tableRow));
+        List<WebElement> tableRow = getDriver().findElements(By.xpath(MySkillsLocators.tableRow.replace("ids", "tblSkillSet")));
         for (WebElement row: tableRow
              ) {
             if(row.getText().contains(skill) && row.getText().contains(type) && row.getText().contains(experience)) {
@@ -83,16 +80,4 @@ public class MySkillsPages {
         else Assert.fail("Record was not updated Successfully");
     }
 
-    public void verifyForError(String inputType) {
-         switch (inputType) {
-             case "skill" :
-                 Assert.assertTrue(utils.isPresent(By.xpath(MySkillsLocators.errorType.replace("ids", "ddlSkillTypeEdit"))));
-                    break;
-             case "experience" :
-                 String xpath = MySkillsLocators.errorType.replace("select", "input");
-                 xpath = xpath.replace("ids", "expinMonthsEdit");
-                 Assert.assertTrue(utils.isPresent(By.xpath(xpath)));
-                 break;
-         }
-    }
 }

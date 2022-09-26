@@ -1,7 +1,8 @@
 package stepDefinitions;
 
-import com.gemini.mis.pages.CommonPages;
-import com.gemini.mis.pages.MySkillsPages;
+import com.gemini.mis.commonfunctions.CommonFunctions;
+import com.gemini.mis.pages.CommonPage;
+import com.gemini.mis.pages.MySkillsPage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -10,10 +11,13 @@ import net.thucydides.core.annotations.Steps;
 public class MySkillsSteps {
 
     @Steps
-    MySkillsPages skillsPages;
+    MySkillsPage skillsPages;
 
     @Steps
-    CommonPages commonPages;
+    CommonPage commonPages;
+
+    @Steps
+    CommonFunctions commonFunctions;
 
 
     @Then("^Verify card is not empty$")
@@ -26,9 +30,9 @@ public class MySkillsSteps {
         skillsPages.clickASkill(skill);
     }
 
-    @When("^Manage Skills Modal open$")
-    public void manageSkillsModalOpen() {
-        skillsPages.verifySkillModal();
+    @When("^\"(.*?)\" Modal open$")
+    public void modalOpen(String modalTitle) {
+        commonPages.verifyModal(modalTitle);
     }
 
     @Then("^User selects Proficiency Level \"(.*?)\"$")
@@ -59,23 +63,23 @@ public class MySkillsSteps {
 
     @Then("^Verify \"(.*?)\" input select has error$")
     public void verifySkillTypeInputSelectHasError(String inputType) {
-        skillsPages.verifyForError(inputType);
+        commonFunctions.verifyForError(inputType);
 
     }
 
     @Then("^User clicks on \"(.*?)\" button on \"(.*?)\" card$")
     public void userClicksOnButton(String buttonName, String cardName) {
-        commonPages.clickButton(buttonName, cardName);
+        commonFunctions.clickButton(buttonName, cardName);
     }
 
     @And("^Verify that \"(.*?)\" card is minimized$")
     public void verifyThatCardIsMinimized(String cardName) {
-        commonPages.verifyCardMinimized(cardName);
+        commonFunctions.verifyCardMinimized(cardName);
     }
 
     @And("^Verify that \"(.*?)\" card is maximized$")
     public void verifyThatCardIsMaximized(String cardName) {
-        commonPages.verifyCardMaximized(cardName);
+        commonFunctions.verifyCardMaximized(cardName);
     }
 
 

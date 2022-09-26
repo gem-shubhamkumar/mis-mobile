@@ -1,5 +1,6 @@
 package com.gemini.mis.selectors;
 
+
 public class CommonSelectors {
 
     public static String loginMsg = "//div[@class='loginMsgDiv']";
@@ -18,4 +19,8 @@ public class CommonSelectors {
     public static String fullScreenCard = "//section[contains(@class, 'panel-expanded')]/header/h3";
 
 
+    public static String sideNav = "//span[@class='lbl' and text()='tabName']";
+
+
+    public static String paginationButtons = "//li[contains(@class, 'paginate_button buttonName')]";
 }
