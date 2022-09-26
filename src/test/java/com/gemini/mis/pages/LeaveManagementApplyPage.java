@@ -8,6 +8,7 @@ import net.thucydides.core.annotations.Step;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 
 import java.time.LocalDate;
 import java.time.Month;
@@ -39,7 +40,7 @@ public class LeaveManagementApplyPage extends PageObject
     @Step
     public void verifyPage(String pageName)
     {
-        waitABit(30000);
+        waitABit(10000);
         String url="";
         if(pageName.equals("Dashboard Page"))
         {
@@ -154,15 +155,15 @@ public class LeaveManagementApplyPage extends PageObject
     }
 
     @Step
-    public void selectTillDate(String tillDate)
+    public void selectTillDate(By loc,String tillDate)
     {
-        genFunc.selectDate(XpathForApplyTab.calendarBtn("leaveTillDate"),tillDate);
+        genFunc.selectDate(loc,tillDate);
     }
 
     @Step
-    public void selectFromDate(String fromDate)
+    public void selectFromDate(By loc,String fromDate)
     {
-        genFunc.selectDate(XpathForApplyTab.calendarBtn("leaveFromDate"),fromDate);
+        genFunc.selectDate(loc,fromDate);
     }
 
     @Step
@@ -226,7 +227,7 @@ public class LeaveManagementApplyPage extends PageObject
         }
         else
         {
-            Assert.assertFalse("Unable to type",false);
+            Assert.fail("Unable to type");
         }
     }
 
@@ -298,4 +299,19 @@ public class LeaveManagementApplyPage extends PageObject
     }
 
 
+    @Step("Select date for comp off")
+    public void selectDateForCompOff()
+    {
+        if(isElementVisible(XpathForApplyTab.dropdown("CompOffDate")))
+        {
+            WebElementFacade elementFacade = find(XpathForApplyTab.dropdown("CompOffDate"));
+            elementFacade.click();
+            elementFacade.sendKeys(Keys.DOWN);
+            elementFacade.sendKeys(Keys.ENTER);
+        }
+        else
+        {
+            Assert.fail("Unable to select from dropdown");
+        }
+    }
 }

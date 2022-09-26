@@ -27,4 +27,39 @@ Feature: MIS Leave Management Activities
       |      parentTab     |       childTab  |     tab       |
       | Leave Management   |          Apply  |    Comp Off   |
 
-  
+  Scenario Outline: Select Date from Date dropdown
+    When User is on MIS Home Page
+    When Click on "<childTab>" sub tab of "<parentTab>" tab
+    And Verify "<childTab>" opens successfully
+    Then Click on "<tab>" Tab
+    And Verify "<tab>" displays
+    Then Select date from date dropdown
+    Examples:
+      |      parentTab     |       childTab  |     tab       |
+      | Leave Management   |          Apply  |    Comp Off   |
+
+  Scenario Outline: Enter Reason for Comp off
+    When User is on MIS Home Page
+    When Click on "<childTab>" sub tab of "<parentTab>" tab
+    And Verify "<childTab>" opens successfully
+    Then Click on "<tab>" Tab
+    And Verify "<tab>" displays
+    Then Enter "weekend testing" as reason
+    Examples:
+      |      parentTab     |       childTab  |     tab       |
+      | Leave Management   |          Apply  |    Comp Off   |
+
+  Scenario Outline: Enter Data and submit Comp off
+    When User is on MIS Home Page
+    When Click on "<childTab>" sub tab of "<parentTab>" tab
+    And Verify "<childTab>" opens successfully
+    Then Click on "<tab>" Tab
+    And Verify "<tab>" displays
+    Then Select date from date dropdown
+    Then Enter "weekend testing" as reason
+    Then Click on Submit button for Comp off Tab
+    And Verify Leave is submitted and "Request processed successfully" appears
+    Examples:
+      |      parentTab     |       childTab  |     tab       |
+      | Leave Management   |          Apply  |    Comp Off   |
+

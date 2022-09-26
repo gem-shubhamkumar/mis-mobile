@@ -28,6 +28,12 @@ public class CommonFunctions extends PageObject {
             case "username":
                 elementFacade = find(XpathForApplyTab.textBox("username"));
                 break;
+            case "Reason":
+                elementFacade = find(XpathForApplyTab.textArea("outingReason"));
+                break;
+            case "Primary contact number":
+                elementFacade =find(XpathForApplyTab.textBox("outingContactNumber"));
+                break;
             case "password":
                 elementFacade = find(XpathForApplyTab.textBox("password"));
                 break;
@@ -49,6 +55,9 @@ public class CommonFunctions extends PageObject {
                 break;
             case "Submit Comp off":
                 tab = XpathForApplyTab.submitBtn("3");
+                break;
+            case "Submit Out of Duty/Tour":
+                tab = XpathForApplyTab.submitBtn("5");
                 break;
             case "Submit Leave":
                 tab = XpathForApplyTab.submitBtn("1");
@@ -135,6 +144,21 @@ public class CommonFunctions extends PageObject {
     public void verifyMandatoryFields(String fields) {
         WebElementFacade elementFacade = null;
         switch (fields) {
+            case "Outing From":
+                elementFacade = find(XpathForApplyTab.inputItem("Outing From"));
+                break;
+            case "Outing Till":
+                elementFacade = find(XpathForApplyTab.inputItem("Outing Till"));
+                break;
+            case "Type":
+                elementFacade = find(XpathForApplyTab.dropdown("outingType"));
+                break;
+            case "Primary Contact number":
+                elementFacade = find(XpathForApplyTab.textBox("outingContactNumber"));
+                break;
+            case "Reason for outing":
+                elementFacade = find(XpathForApplyTab.textArea("outingReason"));
+                break;
             case "From":
                 elementFacade = find(XpathForApplyTab.inputItem("Leave From"));
                 break;
@@ -157,7 +181,7 @@ public class CommonFunctions extends PageObject {
         if (elementFacade.getAttribute("class").contains("error-validation")) {
             Assert.assertTrue("Field is mandatory", true);
         } else {
-            Assert.assertFalse("Fields is not mandatory", false);
+            Assert.fail("Fields is not mandatory");
         }
     }
 

@@ -8,6 +8,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import net.serenitybdd.core.pages.PageObject;
+import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.Steps;
 import org.openqa.selenium.devtools.v85.page.Page;
 
@@ -119,8 +120,8 @@ public class LeaveManagementApplySteps extends PageObject
     @Then("Select {string} From date and {string} till Leave dates from Calendar")
     public void selectFromDateAndTillLeaveDatesFromCalendar(String fromDate, String tillDate)
     {
-        ApplyPage.selectFromDate(fromDate);
-        ApplyPage.selectTillDate(tillDate);
+        ApplyPage.selectFromDate(XpathForApplyTab.calendarBtn("leaveFromDate"), fromDate);
+        ApplyPage.selectTillDate(XpathForApplyTab.calendarBtn("leaveTillDate"),tillDate);
     }
 
     @And("Verify {string} tooltip text")
@@ -214,5 +215,38 @@ public class LeaveManagementApplySteps extends PageObject
     public void clickOnSubmitButtonForCompOffTab()
     {
         ApplyPage.clickOnButton("Submit Comp off");
+    }
+
+    @Then("Select date from date dropdown")
+    public void selectDateFromDateDropdown()
+    {
+        ApplyPage.selectDateForCompOff();
+    }
+
+    @Then("Enter {string} as reason")
+    public void enterAsReason(String reason)
+    {
+        ApplyPage.enterReason(XpathForApplyTab.textArea("CompOffReason"),reason);
+    }
+
+    @Then("Click on Submit button for Out of Duty Tab")
+    public void clickOnSubmitButtonForOutOfDutyTourTab()
+    {
+        ApplyPage.clickOnButton("Submit Out of Duty/Tour");
+    }
+
+    @Then("Select {string} From date and {string} till Leave dates for Out Duty Tour")
+    public void selectFromDateAndTillLeaveDatesForOutDutyTour(String fromDate, String tillDate)
+    {
+        ApplyPage.selectFromDate(XpathForApplyTab.calendarBtn("outingFromDatePicker"), fromDate);
+        ApplyPage.selectTillDate(XpathForApplyTab.calendarBtn("outingTillDatePicker"),tillDate);
+    }
+
+
+    @And("Select {string} from Type dropdown")
+    public void selectFromTypeDropdown(String dropdownVal)
+    {
+        WebElementFacade elementFacade = find(XpathForApplyTab.dropdown("outingType"));
+        ApplyPage.selectFromDropdown(elementFacade,dropdownVal);
     }
 }

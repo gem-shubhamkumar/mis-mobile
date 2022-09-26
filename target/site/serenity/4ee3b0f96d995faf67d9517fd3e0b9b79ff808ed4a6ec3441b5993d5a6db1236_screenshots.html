@@ -151,7 +151,7 @@
             <a href="576946480b52ad056d6f5bddf874399c83582ecf90963cc074a14c70580e7d9f.html"><i class="bi bi-chat-text"></i> Features</a>
         </li>
     </ul>
-    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 26-09-2022 12:03</span>
+    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 26-09-2022 18:01</span>
     <br style="clear:left"/>
 </div>
 
@@ -186,9 +186,9 @@
                 <table class="outcome-header">
                     <tr>
                         <td colspan="2" class="test-title-bar">
-                            <span class="outcome-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon fa-2x' title='SUCCESS'></i></a></span>
+                            <span class="outcome-icon"><a href='##beforetable'><i class='bi bi-exclamation-triangle-fill error-icon fa-2x' title='ERROR'></i></a></span>
                             <span class="test-case-title">
-                                <span class="success-color">Verify Date and Reason are mandatory fields
+                                <span class="error-color">Verify Date and Reason are mandatory fields
                                     <span class="related-issue-title"></span>
                                 </span>
                             </span>
@@ -204,14 +204,50 @@
 
     <div class="story-title">
         <h3>Scenario:</h3>
-        <div class="scenario">When User is on MIS Home Page<br>When Click on "&lt;childTab&gt;" sub tab of "&lt;parentTab&gt;" tab<br>And Verify "&lt;childTab&gt;" opens successfully<br>Then Click on "&lt;tab&gt;" Tab<br>And Verify "&lt;tab&gt;" displays<br>Then Click on Submit button for Comp off Tab<br>Then Verify "Date,WFH Reason" fields are highlighted in red</div>
+        <div class="scenario">When User is on MIS Home Page<br>When Click on "&lt;childTab&gt;" sub tab of "&lt;parentTab&gt;" tab<br>And Verify "&lt;childTab&gt;" opens successfully<br>Then Click on "&lt;tab&gt;" Tab<br>And Verify "&lt;tab&gt;" displays<br>Then Click on Submit button for Comp off Tab<br>Then Verify "Outing From,Outing Till,Type,Primary Contact number,Reason for outing" fields are highlighted in red</div>
     </div>
 
     <div id="beforetable"></div>
     <div id="contenttilttle">
+            <div class="screenshotFailure panel panel-danger">
+    <div style="display:block">
+        <div class="table">
+            <div class="row">
+                <div class="col-sm-10" style="padding-left:1.5em; padding-top:0.5em; padding-bottom:0.5em;">
+                    <span class="error-message error-message-title">Element not interactable exception: element not interactable</span>
+                </div>
+                <div class="col-sm-2">
+                    <a class="btn btn-warning details-button" data-toggle="collapse" href="#stacktraceModal-overall"
+                       role="button" aria-expanded="false" aria-controls="multiCollapseExample1"><i class="bi bi-eye"></i> More details</a>
+                </div>
+             </div>
+        </div>
+    <div>
+
+    <!-- Details Section -->
+    <div class="row stacktrace-details">
+      <div class="col">
+        <div class="collapse multi-collapse" id="stacktraceModal-overall">
+            <div class="card">
+                <div class="card-header">
+                    <h4>org.openqa.selenium.ElementNotInteractableException </h4>
+                </div>
+                <div class="card-body">
+                    <div>
+                        <pre>com.gemini.mis.commonfunctions.CommonFunctions.clickOnBtn(CommonFunctions.java:89)<br />com.gemini.mis.pages.LeaveManagementApplyPage.clickOnButton(LeaveManagementApplyPage.java:37)<br />stepDefinitions.LeaveManagementApplySteps.clickOnSubmitButtonForCompOffTab(LeaveManagementApplySteps.java:217)<br />✽.Click on Submit button for Comp off Tab(file:///C:/Users/ja.multani/IdeaProjects/MISAutomation/src/test/resources/features/LeaveManagementOutOfDuty.feature:24)<br /></pre>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+                <div class="panel-body">
+                    <a href="#" target="_blank" class="btn btn-info">HTML Source</a>
+                </div>
+            </div>
         <div class="slider-wrapper theme-default">
             <div id="slider">
-                <img src="167dff19ef1323028751055f8419f283af973b07ad624a453e2652561d139f30.png" title=" 1: Verify Date and Reason are mandatory fields ({parentTab=Leave Management, childTab=Apply, tab=Comp Off})" width="1034"/>
+                <img src="167dff19ef1323028751055f8419f283af973b07ad624a453e2652561d139f30.png" title=" 1: Verify Date and Reason are mandatory fields ({parentTab=Leave Management, childTab=Apply, tab=Out Duty/Tour})" width="1034"/>
                 <img src="167dff19ef1323028751055f8419f283af973b07ad624a453e2652561d139f30.png" title=" Given User is logged into MIS" width="1034"/>
                 <img src="167dff19ef1323028751055f8419f283af973b07ad624a453e2652561d139f30.png" title=" Launch MIS Beta site" width="1034"/>
                 <img src="167dff19ef1323028751055f8419f283af973b07ad624a453e2652561d139f30.png" title=" Type into element: jasleen.multani, username" width="1034"/>
@@ -219,9 +255,9 @@
                 <img src="091c52e3973651b00eae072eefda8736e48476773cd80657ab63861268a09044.png" title=" Type into element: Gemini@1234, password" width="1034"/>
                 <img src="38cd7a93d24ea449326dbf1866ba8dcfdd623d7b8469a3756e365bdc7dca8ea2.png" title=" Type into element: Gemini@1234, password (completed)" width="1034"/>
                 <img src="58ec82b4d23b30220f63423eb5b89423afbdff43e409b9393207967239358556.png" title=" Click on button: Sign in" width="1034"/>
-                <img src="073b962128c1336b828a905504b161e17f99945ae962efb0af5dc215193873e0.png" title=" Click on button: Sign in (completed)" width="1034"/>
-                <img src="073b962128c1336b828a905504b161e17f99945ae962efb0af5dc215193873e0.png" title=" Given User is logged into MIS (completed)" width="1034"/>
-                <img src="073b962128c1336b828a905504b161e17f99945ae962efb0af5dc215193873e0.png" title=" When User is on MIS Home Page" width="1034"/>
+                <img src="4f1f2547337a6c9cda28663b3203554659b85d5f6057a7227b31f1f7158037ce.png" title=" Click on button: Sign in (completed)" width="1034"/>
+                <img src="4f1f2547337a6c9cda28663b3203554659b85d5f6057a7227b31f1f7158037ce.png" title=" Given User is logged into MIS (completed)" width="1034"/>
+                <img src="4f1f2547337a6c9cda28663b3203554659b85d5f6057a7227b31f1f7158037ce.png" title=" When User is on MIS Home Page" width="1034"/>
                 <img src="d9d5ce6e8a2daa5e7c06acff4992a339a42e5751c52565959921325964a1a841.png" title=" Verify page: Dashboard Page" width="1034"/>
                 <img src="2d664669267e6951330c2facc3927b771ac4d603dfc4f2c8f8a728e0569a21fb.png" title=" Verify page: Dashboard Page (completed)" width="1034"/>
                 <img src="2d664669267e6951330c2facc3927b771ac4d603dfc4f2c8f8a728e0569a21fb.png" title=" When User is on MIS Home Page (completed)" width="1034"/>
@@ -233,23 +269,14 @@
                 <img src="f6749b878b55e4b341fa5451e19e49e23bc3c80262d5d64b0832db9e6e1dfbe3.png" title=" Verify tab: Apply" width="1034"/>
                 <img src="9b52c09195cb1e7b5a5665d6849e2ca93d194023f2d12971f712e4540a85a1f9.png" title=" Verify tab: Apply (completed)" width="1034"/>
                 <img src="9b52c09195cb1e7b5a5665d6849e2ca93d194023f2d12971f712e4540a85a1f9.png" title=" And Verify &quot;Apply&quot; opens successfully (completed)" width="1034"/>
-                <img src="9b52c09195cb1e7b5a5665d6849e2ca93d194023f2d12971f712e4540a85a1f9.png" title=" Then Click on &quot;Comp Off&quot; Tab" width="1034"/>
+                <img src="9b52c09195cb1e7b5a5665d6849e2ca93d194023f2d12971f712e4540a85a1f9.png" title=" Then Click on &quot;Out Duty/Tour&quot; Tab" width="1034"/>
                 <img src="9b52c09195cb1e7b5a5665d6849e2ca93d194023f2d12971f712e4540a85a1f9.png" title=" Click on Tab" width="1034"/>
-                <img src="fc131669359736b5421232a51f8e6454b3b134f5904ebc4f5ea1b3238da6d60d.png" title=" Click on Tab (completed)" width="1034"/>
-                <img src="fc131669359736b5421232a51f8e6454b3b134f5904ebc4f5ea1b3238da6d60d.png" title=" Then Click on &quot;Comp Off&quot; Tab (completed)" width="1034"/>
-                <img src="fc131669359736b5421232a51f8e6454b3b134f5904ebc4f5ea1b3238da6d60d.png" title=" And Verify &quot;Comp Off&quot; displays" width="1034"/>
-                <img src="fc131669359736b5421232a51f8e6454b3b134f5904ebc4f5ea1b3238da6d60d.png" title=" Verify tab is active: Comp Off" width="1034"/>
-                <img src="db33dd12689864114ac596b5516edfbeb2433b338e7e9a424dc6c852d2bb4a4d.png" title=" Verify tab is active: Comp Off (completed)" width="1034"/>
-                <img src="db33dd12689864114ac596b5516edfbeb2433b338e7e9a424dc6c852d2bb4a4d.png" title=" And Verify &quot;Comp Off&quot; displays (completed)" width="1034"/>
-                <img src="db33dd12689864114ac596b5516edfbeb2433b338e7e9a424dc6c852d2bb4a4d.png" title=" Then Click on Submit button for Comp off Tab" width="1034"/>
-                <img src="db33dd12689864114ac596b5516edfbeb2433b338e7e9a424dc6c852d2bb4a4d.png" title=" Click on button: Submit Comp off" width="1034"/>
-                <img src="dfa601f1e045d874d478b12cbbc6aaa59ad39e6429e454115ef60709a460d116.png" title=" Click on button: Submit Comp off (completed)" width="1034"/>
-                <img src="dfa601f1e045d874d478b12cbbc6aaa59ad39e6429e454115ef60709a460d116.png" title=" Then Click on Submit button for Comp off Tab (completed)" width="1034"/>
-                <img src="dfa601f1e045d874d478b12cbbc6aaa59ad39e6429e454115ef60709a460d116.png" title=" Then Verify &quot;Date,WFH Reason&quot; fields are highlighted in red" width="1034"/>
-                <img src="bb344356ea90ae2638e0bd5c2ae002349d42340a22fe10a655049b5ca8aafeeb.png" title=" Verify mandatory fields: Date" width="1034"/>
-                <img src="bb344356ea90ae2638e0bd5c2ae002349d42340a22fe10a655049b5ca8aafeeb.png" title=" Verify mandatory fields: WFH Reason" width="1034"/>
-                <img src="bb344356ea90ae2638e0bd5c2ae002349d42340a22fe10a655049b5ca8aafeeb.png" title=" Then Verify &quot;Date,WFH Reason&quot; fields are highlighted in red (completed)" width="1034"/>
-                <img src="bb344356ea90ae2638e0bd5c2ae002349d42340a22fe10a655049b5ca8aafeeb.png" title=" 1: Verify Date and Reason are mandatory fields ({parentTab=Leave Management, childTab=Apply, tab=Comp Off}) (completed): <span class='success-color'>SUCCESS</span>" width="1034"/>
+                <img src="b3ee09e9bae415a6cd173a85092d1f19442f00f37e068476d06a8e55dbd15a3d.png" title=" Click on Tab (completed)" width="1034"/>
+                <img src="b3ee09e9bae415a6cd173a85092d1f19442f00f37e068476d06a8e55dbd15a3d.png" title=" Then Click on &quot;Out Duty/Tour&quot; Tab (completed)" width="1034"/>
+                <img src="b3ee09e9bae415a6cd173a85092d1f19442f00f37e068476d06a8e55dbd15a3d.png" title=" And Verify &quot;Out Duty/Tour&quot; displays" width="1034"/>
+                <img src="b3ee09e9bae415a6cd173a85092d1f19442f00f37e068476d06a8e55dbd15a3d.png" title=" Verify tab is active: Out Duty/Tour" width="1034"/>
+                <img src="b3ee09e9bae415a6cd173a85092d1f19442f00f37e068476d06a8e55dbd15a3d.png" title=" Then Click on Submit button for Comp off Tab" width="1034"/>
+                <img src="b3ee09e9bae415a6cd173a85092d1f19442f00f37e068476d06a8e55dbd15a3d.png" title=" Click on button: Submit Comp off: <span class='error-color'>ERROR</span>" width="1034"/>
             </div>
         </div>
 

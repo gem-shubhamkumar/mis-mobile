@@ -143,7 +143,7 @@
             <a href="576946480b52ad056d6f5bddf874399c83582ecf90963cc074a14c70580e7d9f.html"><i class="bi bi-chat-text"></i> Features</a>
         </li>
     </ul>
-    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 26-09-2022 12:03</span>
+    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 26-09-2022 18:01</span>
     <br style="clear:left"/>
 </div>
     <div class="clr"></div>
@@ -175,9 +175,9 @@
                 <table class="outcome-header">
                     <tr>
                         <td colspan="2" class="test-title-bar">
-                            <span class="outcome-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon fa-2x' title='SUCCESS'></i></a></span>
+                            <span class="outcome-icon"><a href='##beforetable'><i class='bi bi-exclamation-triangle-fill error-icon fa-2x' title='ERROR'></i></a></span>
                             <span class="test-case-title">
-                                <span class="success-color">
+                                <span class="error-color">
                                     Verify Date and Reason are mandatory fields
                                         <span class="related-issue-title"></span>
                                 </span>
@@ -198,7 +198,7 @@
     <div class="story-title">
         <h3 class="story-header">Scenario Outline</h3>
 
-        <div class="scenario">When User is on MIS Home Page<br>When Click on "&lt;childTab&gt;" sub tab of "&lt;parentTab&gt;" tab<br>And Verify "&lt;childTab&gt;" opens successfully<br>Then Click on "&lt;tab&gt;" Tab<br>And Verify "&lt;tab&gt;" displays<br>Then Click on Submit button for Comp off Tab<br>Then Verify "Date,WFH Reason" fields are highlighted in red</div>
+        <div class="scenario">When User is on MIS Home Page<br>When Click on "&lt;childTab&gt;" sub tab of "&lt;parentTab&gt;" tab<br>And Verify "&lt;childTab&gt;" opens successfully<br>Then Click on "&lt;tab&gt;" Tab<br>And Verify "&lt;tab&gt;" displays<br>Then Click on Submit button for Comp off Tab<br>Then Verify "Outing From,Outing Till,Type,Primary Contact number,Reason for outing" fields are highlighted in red</div>
 
     </div>
 
@@ -224,15 +224,15 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td class="test-SUCCESS"><a href="#0">1</a></td>
-                            <td class="test-SUCCESS"><a
+                        <td class="test-ERROR"><a href="#0">1</a></td>
+                            <td class="test-ERROR"><a
                                         href="#0">Leave Management</a>
                             </td>
-                            <td class="test-SUCCESS"><a
+                            <td class="test-ERROR"><a
                                         href="#0">Apply</a>
                             </td>
-                            <td class="test-SUCCESS"><a
-                                        href="#0">Comp Off</a>
+                            <td class="test-ERROR"><a
+                                        href="#0">Out Duty/Tour</a>
                             </td>
                     </tr>
                 </tbody>
@@ -257,13 +257,13 @@
                 <td colspan="5"></td>
             </tr>
 
-                <tr class="test-SUCCESS">
+                <tr class="test-ERROR">
 
                     <td width="50" class="step-icon">
                         <a name="0"></a>
                             <a href="javaScript:void(0)" onClick="toggleDiv('stepSection0')"
                                style="display:block">
-                                <i class="bi bi-plus-square imgstepSection0 success-icon"
+                                <i class="bi bi-plus-square imgstepSection0 error-icon"
                                    style="margin-left: 20px; float:left; padding-right:5px"></i>
                             </a>
                     </td>
@@ -273,7 +273,7 @@
                             <a href="javaScript:void(0)" onClick="toggleDiv('stepSection0')"
                                style="display:block;">
                                 <span class="top-level-step">
-                                                1: Verify Date and Reason are mandatory fields ({parentTab=Leave Management, childTab=Apply, tab=Comp Off})
+                                                1: Verify Date and Reason are mandatory fields ({parentTab=Leave Management, childTab=Apply, tab=Out Duty/Tour})
                                         </span>
                             </a>
                             <span class="evidence">
@@ -281,7 +281,7 @@
                         </div>
                     </td>
 
-                        <td width="160" class="SUCCESS-text">
+                        <td width="160" class="ERROR-text">
                                 <a href="4ee3b0f96d995faf67d9517fd3e0b9b79ff808ed4a6ec3441b5993d5a6db1236_screenshots.html#screenshots?screenshot=0">
                                     <img src="167dff19ef1323028751055f8419f283af973b07ad624a453e2652561d139f30.png"
                                          href="167dff19ef1323028751055f8419f283af973b07ad624a453e2652561d139f30.png"
@@ -290,15 +290,15 @@
                                 </a>
                                 <i class="bi bi-arrow-right"></i>
 
-                                <a href="4ee3b0f96d995faf67d9517fd3e0b9b79ff808ed4a6ec3441b5993d5a6db1236_screenshots.html#screenshots?screenshot=38">
-                                    <img src="bb344356ea90ae2638e0bd5c2ae002349d42340a22fe10a655049b5ca8aafeeb.png"
-                                         href="bb344356ea90ae2638e0bd5c2ae002349d42340a22fe10a655049b5ca8aafeeb.png"
+                                <a href="4ee3b0f96d995faf67d9517fd3e0b9b79ff808ed4a6ec3441b5993d5a6db1236_screenshots.html#screenshots?screenshot=31">
+                                    <img src="b3ee09e9bae415a6cd173a85092d1f19442f00f37e068476d06a8e55dbd15a3d.png"
+                                         href="b3ee09e9bae415a6cd173a85092d1f19442f00f37e068476d06a8e55dbd15a3d.png"
                                          class="screenshot"
                                          width="48" height="48"/>
                                 </a>
                         </td>
-                    <td width="130"><span class="top-level-step">SUCCESS</span></td>
-                    <td width="100"><span class="top-level-step">59s 218ms</span></td>
+                    <td width="130"><span class="top-level-step">ERROR</span></td>
+                    <td width="100"><span class="top-level-step">46s 153ms</span></td>
                 </tr>
                     <tr>
                         <td colspan="5">
@@ -337,14 +337,14 @@
                                 <i class="bi bi-arrow-right"></i>
 
                                 <a href="4ee3b0f96d995faf67d9517fd3e0b9b79ff808ed4a6ec3441b5993d5a6db1236_screenshots.html#screenshots?screenshot=9">
-                                    <img src="073b962128c1336b828a905504b161e17f99945ae962efb0af5dc215193873e0.png"
-                                         href="073b962128c1336b828a905504b161e17f99945ae962efb0af5dc215193873e0.png"
+                                    <img src="4f1f2547337a6c9cda28663b3203554659b85d5f6057a7227b31f1f7158037ce.png"
+                                         href="4f1f2547337a6c9cda28663b3203554659b85d5f6057a7227b31f1f7158037ce.png"
                                          class="screenshot"
                                          width="48" height="48"/>
                                 </a>
                         </td>
                     <td width="130"><span class="nested-step">SUCCESS</span></td>
-                    <td width="100"><span class="nested-step">6s 854ms</span></td>
+                    <td width="100"><span class="nested-step">7s 482ms</span></td>
                 </tr>
                     <tr>
                         <td colspan="5">
@@ -378,7 +378,7 @@
                                 </a>
                         </td>
                     <td width="130"><span class="nested-group-step">SUCCESS</span></td>
-                    <td width="100"><span class="nested-group-step">2s 760ms</span></td>
+                    <td width="100"><span class="nested-group-step">3s 175ms</span></td>
                 </tr>
                 <tr class="test-SUCCESS">
 
@@ -416,7 +416,7 @@
                                 </a>
                         </td>
                     <td width="130"><span class="nested-group-step">SUCCESS</span></td>
-                    <td width="100"><span class="nested-group-step">304ms</span></td>
+                    <td width="100"><span class="nested-group-step">280ms</span></td>
                 </tr>
                 <tr class="test-SUCCESS">
 
@@ -454,7 +454,7 @@
                                 </a>
                         </td>
                     <td width="130"><span class="nested-group-step">SUCCESS</span></td>
-                    <td width="100"><span class="nested-group-step">308ms</span></td>
+                    <td width="100"><span class="nested-group-step">300ms</span></td>
                 </tr>
                 <tr class="test-SUCCESS">
 
@@ -485,14 +485,14 @@
                                 <i class="bi bi-arrow-right"></i>
 
                                 <a href="4ee3b0f96d995faf67d9517fd3e0b9b79ff808ed4a6ec3441b5993d5a6db1236_screenshots.html#screenshots?screenshot=8">
-                                    <img src="073b962128c1336b828a905504b161e17f99945ae962efb0af5dc215193873e0.png"
-                                         href="073b962128c1336b828a905504b161e17f99945ae962efb0af5dc215193873e0.png"
+                                    <img src="4f1f2547337a6c9cda28663b3203554659b85d5f6057a7227b31f1f7158037ce.png"
+                                         href="4f1f2547337a6c9cda28663b3203554659b85d5f6057a7227b31f1f7158037ce.png"
                                          class="screenshot"
                                          width="48" height="48"/>
                                 </a>
                         </td>
                     <td width="130"><span class="nested-group-step">SUCCESS</span></td>
-                    <td width="100"><span class="nested-group-step">441ms</span></td>
+                    <td width="100"><span class="nested-group-step">691ms</span></td>
                 </tr>
 
                             </table>
@@ -524,8 +524,8 @@
 
                         <td width="160" class="SUCCESS-text">
                                 <a href="4ee3b0f96d995faf67d9517fd3e0b9b79ff808ed4a6ec3441b5993d5a6db1236_screenshots.html#screenshots?screenshot=10">
-                                    <img src="073b962128c1336b828a905504b161e17f99945ae962efb0af5dc215193873e0.png"
-                                         href="073b962128c1336b828a905504b161e17f99945ae962efb0af5dc215193873e0.png"
+                                    <img src="4f1f2547337a6c9cda28663b3203554659b85d5f6057a7227b31f1f7158037ce.png"
+                                         href="4f1f2547337a6c9cda28663b3203554659b85d5f6057a7227b31f1f7158037ce.png"
                                          class="screenshot"
                                          width="48" height="48"/>
                                 </a>
@@ -539,7 +539,7 @@
                                 </a>
                         </td>
                     <td width="130"><span class="nested-step">SUCCESS</span></td>
-                    <td width="100"><span class="nested-step">30s 336ms</span></td>
+                    <td width="100"><span class="nested-step">10s 318ms</span></td>
                 </tr>
                     <tr>
                         <td colspan="5">
@@ -580,7 +580,7 @@
                                 </a>
                         </td>
                     <td width="130"><span class="nested-group-step">SUCCESS</span></td>
-                    <td width="100"><span class="nested-group-step">30s 299ms</span></td>
+                    <td width="100"><span class="nested-group-step">10s 271ms</span></td>
                 </tr>
 
                             </table>
@@ -627,7 +627,7 @@
                                 </a>
                         </td>
                     <td width="130"><span class="nested-step">SUCCESS</span></td>
-                    <td width="100"><span class="nested-step">9s 207ms</span></td>
+                    <td width="100"><span class="nested-step">9s 013ms</span></td>
                 </tr>
                     <tr>
                         <td colspan="5">
@@ -668,7 +668,7 @@
                                 </a>
                         </td>
                     <td width="130"><span class="nested-group-step">SUCCESS</span></td>
-                    <td width="100"><span class="nested-group-step">9s 183ms</span></td>
+                    <td width="100"><span class="nested-group-step">8s 991ms</span></td>
                 </tr>
 
                             </table>
@@ -715,7 +715,7 @@
                                 </a>
                         </td>
                     <td width="130"><span class="nested-step">SUCCESS</span></td>
-                    <td width="100"><span class="nested-step">5s 245ms</span></td>
+                    <td width="100"><span class="nested-step">5s 202ms</span></td>
                 </tr>
                     <tr>
                         <td colspan="5">
@@ -756,7 +756,7 @@
                                 </a>
                         </td>
                     <td width="130"><span class="nested-group-step">SUCCESS</span></td>
-                    <td width="100"><span class="nested-group-step">5s 223ms</span></td>
+                    <td width="100"><span class="nested-group-step">5s 174ms</span></td>
                 </tr>
 
                             </table>
@@ -778,7 +778,7 @@
                             <a href="javaScript:void(0)" onClick="toggleDiv('stepSection0-4')"
                                style="display:block;">
                                 <span class="nested-step">
-                                                Then Click on "Comp Off" Tab
+                                                Then Click on "Out Duty/Tour" Tab
                                         </span>
                             </a>
                             <span class="evidence">
@@ -796,14 +796,14 @@
                                 <i class="bi bi-arrow-right"></i>
 
                                 <a href="4ee3b0f96d995faf67d9517fd3e0b9b79ff808ed4a6ec3441b5993d5a6db1236_screenshots.html#screenshots?screenshot=28">
-                                    <img src="fc131669359736b5421232a51f8e6454b3b134f5904ebc4f5ea1b3238da6d60d.png"
-                                         href="fc131669359736b5421232a51f8e6454b3b134f5904ebc4f5ea1b3238da6d60d.png"
+                                    <img src="b3ee09e9bae415a6cd173a85092d1f19442f00f37e068476d06a8e55dbd15a3d.png"
+                                         href="b3ee09e9bae415a6cd173a85092d1f19442f00f37e068476d06a8e55dbd15a3d.png"
                                          class="screenshot"
                                          width="48" height="48"/>
                                 </a>
                         </td>
                     <td width="130"><span class="nested-step">SUCCESS</span></td>
-                    <td width="100"><span class="nested-step">1s 350ms</span></td>
+                    <td width="100"><span class="nested-step">1s 314ms</span></td>
                 </tr>
                     <tr>
                         <td colspan="5">
@@ -837,14 +837,14 @@
                                 <i class="bi bi-arrow-right"></i>
 
                                 <a href="4ee3b0f96d995faf67d9517fd3e0b9b79ff808ed4a6ec3441b5993d5a6db1236_screenshots.html#screenshots?screenshot=27">
-                                    <img src="fc131669359736b5421232a51f8e6454b3b134f5904ebc4f5ea1b3238da6d60d.png"
-                                         href="fc131669359736b5421232a51f8e6454b3b134f5904ebc4f5ea1b3238da6d60d.png"
+                                    <img src="b3ee09e9bae415a6cd173a85092d1f19442f00f37e068476d06a8e55dbd15a3d.png"
+                                         href="b3ee09e9bae415a6cd173a85092d1f19442f00f37e068476d06a8e55dbd15a3d.png"
                                          class="screenshot"
                                          width="48" height="48"/>
                                 </a>
                         </td>
                     <td width="130"><span class="nested-group-step">SUCCESS</span></td>
-                    <td width="100"><span class="nested-group-step">1s 330ms</span></td>
+                    <td width="100"><span class="nested-group-step">1s 292ms</span></td>
                 </tr>
 
                             </table>
@@ -866,7 +866,7 @@
                             <a href="javaScript:void(0)" onClick="toggleDiv('stepSection0-5')"
                                style="display:block;">
                                 <span class="nested-step">
-                                                And Verify "Comp Off" displays
+                                                And Verify "Out Duty/Tour" displays
                                         </span>
                             </a>
                             <span class="evidence">
@@ -875,23 +875,16 @@
                     </td>
 
                         <td width="160" class="SUCCESS-text">
-                                <a href="4ee3b0f96d995faf67d9517fd3e0b9b79ff808ed4a6ec3441b5993d5a6db1236_screenshots.html#screenshots?screenshot=30">
-                                    <img src="fc131669359736b5421232a51f8e6454b3b134f5904ebc4f5ea1b3238da6d60d.png"
-                                         href="fc131669359736b5421232a51f8e6454b3b134f5904ebc4f5ea1b3238da6d60d.png"
-                                         class="screenshot"
-                                         width="48" height="48"/>
-                                </a>
-                                <i class="bi bi-arrow-right"></i>
 
-                                <a href="4ee3b0f96d995faf67d9517fd3e0b9b79ff808ed4a6ec3441b5993d5a6db1236_screenshots.html#screenshots?screenshot=33">
-                                    <img src="db33dd12689864114ac596b5516edfbeb2433b338e7e9a424dc6c852d2bb4a4d.png"
-                                         href="db33dd12689864114ac596b5516edfbeb2433b338e7e9a424dc6c852d2bb4a4d.png"
+                                <a href="4ee3b0f96d995faf67d9517fd3e0b9b79ff808ed4a6ec3441b5993d5a6db1236_screenshots.html#screenshots?screenshot=32">
+                                    <img src="b3ee09e9bae415a6cd173a85092d1f19442f00f37e068476d06a8e55dbd15a3d.png"
+                                         href="b3ee09e9bae415a6cd173a85092d1f19442f00f37e068476d06a8e55dbd15a3d.png"
                                          class="screenshot"
                                          width="48" height="48"/>
                                 </a>
                         </td>
                     <td width="130"><span class="nested-step">SUCCESS</span></td>
-                    <td width="100"><span class="nested-step">243ms</span></td>
+                    <td width="100"><span class="nested-step">178ms</span></td>
                 </tr>
                     <tr>
                         <td colspan="5">
@@ -908,7 +901,7 @@
                     <td class="step-description-column">
                         <div class="step-description">
                                 <span class="nested-group-step">
-                                                Verify tab is active: Comp Off
+                                                Verify tab is active: Out Duty/Tour
                                         </span>
                             <span class="evidence">
                                 </span>
@@ -916,35 +909,28 @@
                     </td>
 
                         <td width="160" class="SUCCESS-text">
-                                <a href="4ee3b0f96d995faf67d9517fd3e0b9b79ff808ed4a6ec3441b5993d5a6db1236_screenshots.html#screenshots?screenshot=31">
-                                    <img src="fc131669359736b5421232a51f8e6454b3b134f5904ebc4f5ea1b3238da6d60d.png"
-                                         href="fc131669359736b5421232a51f8e6454b3b134f5904ebc4f5ea1b3238da6d60d.png"
-                                         class="screenshot"
-                                         width="48" height="48"/>
-                                </a>
-                                <i class="bi bi-arrow-right"></i>
 
-                                <a href="4ee3b0f96d995faf67d9517fd3e0b9b79ff808ed4a6ec3441b5993d5a6db1236_screenshots.html#screenshots?screenshot=32">
-                                    <img src="db33dd12689864114ac596b5516edfbeb2433b338e7e9a424dc6c852d2bb4a4d.png"
-                                         href="db33dd12689864114ac596b5516edfbeb2433b338e7e9a424dc6c852d2bb4a4d.png"
+                                <a href="4ee3b0f96d995faf67d9517fd3e0b9b79ff808ed4a6ec3441b5993d5a6db1236_screenshots.html#screenshots?screenshot=31">
+                                    <img src="b3ee09e9bae415a6cd173a85092d1f19442f00f37e068476d06a8e55dbd15a3d.png"
+                                         href="b3ee09e9bae415a6cd173a85092d1f19442f00f37e068476d06a8e55dbd15a3d.png"
                                          class="screenshot"
                                          width="48" height="48"/>
                                 </a>
                         </td>
                     <td width="130"><span class="nested-group-step">SUCCESS</span></td>
-                    <td width="100"><span class="nested-group-step">213ms</span></td>
+                    <td width="100"><span class="nested-group-step">149ms</span></td>
                 </tr>
 
                             </table>
                         </td>
                     </tr>
-                <tr class="test-SUCCESS">
+                <tr class="test-ERROR">
 
                     <td width="70" class="step-icon">
                         <a name="0-6"></a>
                             <a href="javaScript:void(0)" onClick="toggleDiv('stepSection0-6')"
                                style="display:block">
-                                <i class="bi bi-plus-square imgstepSection0-6 success-icon"
+                                <i class="bi bi-plus-square imgstepSection0-6 error-icon"
                                    style="margin-left: 40px; float:left; padding-right:5px"></i>
                             </a>
                     </td>
@@ -962,34 +948,27 @@
                         </div>
                     </td>
 
-                        <td width="160" class="SUCCESS-text">
-                                <a href="4ee3b0f96d995faf67d9517fd3e0b9b79ff808ed4a6ec3441b5993d5a6db1236_screenshots.html#screenshots?screenshot=35">
-                                    <img src="db33dd12689864114ac596b5516edfbeb2433b338e7e9a424dc6c852d2bb4a4d.png"
-                                         href="db33dd12689864114ac596b5516edfbeb2433b338e7e9a424dc6c852d2bb4a4d.png"
-                                         class="screenshot"
-                                         width="48" height="48"/>
-                                </a>
-                                <i class="bi bi-arrow-right"></i>
+                        <td width="160" class="ERROR-text">
 
-                                <a href="4ee3b0f96d995faf67d9517fd3e0b9b79ff808ed4a6ec3441b5993d5a6db1236_screenshots.html#screenshots?screenshot=38">
-                                    <img src="dfa601f1e045d874d478b12cbbc6aaa59ad39e6429e454115ef60709a460d116.png"
-                                         href="dfa601f1e045d874d478b12cbbc6aaa59ad39e6429e454115ef60709a460d116.png"
+                                <a href="4ee3b0f96d995faf67d9517fd3e0b9b79ff808ed4a6ec3441b5993d5a6db1236_screenshots.html#screenshots?screenshot=35">
+                                    <img src="b3ee09e9bae415a6cd173a85092d1f19442f00f37e068476d06a8e55dbd15a3d.png"
+                                         href="b3ee09e9bae415a6cd173a85092d1f19442f00f37e068476d06a8e55dbd15a3d.png"
                                          class="screenshot"
                                          width="48" height="48"/>
                                 </a>
                         </td>
-                    <td width="130"><span class="nested-step">SUCCESS</span></td>
-                    <td width="100"><span class="nested-step">540ms</span></td>
+                    <td width="130"><span class="nested-step">ERROR</span></td>
+                    <td width="100"><span class="nested-step">12s 629ms</span></td>
                 </tr>
                     <tr>
                         <td colspan="5">
                             <table id="stepSection0-6" class="step-table-nested" style="display:none;">
-                <tr class="test-SUCCESS">
+                <tr class="test-ERROR">
 
                     <td width="90" class="step-icon">
                         <a name="0-6-0"></a>
                             <span style="margin-left: 60px;"
-                                  class="nested-group-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                  class="nested-group-icon"><a href='##beforetable'><i class='bi bi-exclamation-triangle-fill error-icon ' title='ERROR'></i></a>
                                 </span>
                     </td>
 
@@ -1003,136 +982,80 @@
                         </div>
                     </td>
 
-                        <td width="160" class="SUCCESS-text">
-                                <a href="4ee3b0f96d995faf67d9517fd3e0b9b79ff808ed4a6ec3441b5993d5a6db1236_screenshots.html#screenshots?screenshot=36">
-                                    <img src="db33dd12689864114ac596b5516edfbeb2433b338e7e9a424dc6c852d2bb4a4d.png"
-                                         href="db33dd12689864114ac596b5516edfbeb2433b338e7e9a424dc6c852d2bb4a4d.png"
-                                         class="screenshot"
-                                         width="48" height="48"/>
-                                </a>
-                                <i class="bi bi-arrow-right"></i>
+                        <td width="160" class="ERROR-text">
 
-                                <a href="4ee3b0f96d995faf67d9517fd3e0b9b79ff808ed4a6ec3441b5993d5a6db1236_screenshots.html#screenshots?screenshot=37">
-                                    <img src="dfa601f1e045d874d478b12cbbc6aaa59ad39e6429e454115ef60709a460d116.png"
-                                         href="dfa601f1e045d874d478b12cbbc6aaa59ad39e6429e454115ef60709a460d116.png"
+                                <a href="4ee3b0f96d995faf67d9517fd3e0b9b79ff808ed4a6ec3441b5993d5a6db1236_screenshots.html#screenshots?screenshot=34">
+                                    <img src="b3ee09e9bae415a6cd173a85092d1f19442f00f37e068476d06a8e55dbd15a3d.png"
+                                         href="b3ee09e9bae415a6cd173a85092d1f19442f00f37e068476d06a8e55dbd15a3d.png"
                                          class="screenshot"
                                          width="48" height="48"/>
                                 </a>
                         </td>
-                    <td width="130"><span class="nested-group-step">SUCCESS</span></td>
-                    <td width="100"><span class="nested-group-step">514ms</span></td>
+                    <td width="130"><span class="nested-group-step">ERROR</span></td>
+                    <td width="100"><span class="nested-group-step">12s 562ms</span></td>
                 </tr>
+                    <tr class="test-ERROR">
+                        <td width="40">&nbsp</td>
+                        <td width="%" colspan="4" class="error-message-cell">
 
-                            </table>
+
+    <div style="display:block">
+        <div class="table">
+            <div class="row">
+                <div class="col-sm-10" style="padding-left:1.5em; padding-top:0.5em; padding-bottom:0.5em;">
+                    <span class="error-message error-message-title">org.openqa.selenium.ElementNotInteractableException: element not interactable<br>  (Session info: chrome=105.0.5195.127)<br>Build info: version: &#39;4.4.0&#39;, revision: &#39;e5c75ed026a&#39;<br>System info: host: &#39;GEMPK-200035&#39;, ip: &#39;10.60.1.147&#39;, os.name: &#39;Windows 10&#39;, os.arch: &#39;amd64&#39;, os.version: &#39;10.0&#39;, java.version: &#39;1.8.0_333&#39;<br>Driver info: org.openqa.selenium.chrome.ChromeDriver<br>Command: [106481474e1eaecaa76343239f572e2a, clickElement {id=a87acb7c-5141-4eae-b757-b683af25cfd6}]<br>Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 105.0.5195.127, chrome: {chromedriverVersion: 105.0.5195.52 (412c95e51883..., userDataDir: C:\Users\JA76C5~1.MUL\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:52288}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:52288/devtoo..., se:cdpVersion: 105.0.5195.127, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}<br>Element: [[ChromeDriver: chrome on WINDOWS (106481474e1eaecaa76343239f572e2a)] -&gt; xpath: (//input[@class=&#39;btn btn-success&#39;])[3]]<br>Session ID: 106481474e1eaecaa76343239f572e2a</span>
+                </div>
+                <div class="col-sm-2">
+                    <a class="btn btn-warning details-button" data-toggle="collapse" href="#stacktraceModal-18"
+                       role="button" aria-expanded="false" aria-controls="multiCollapseExample1"><i class="bi bi-eye"></i> More details</a>
+                </div>
+             </div>
+        </div>
+    <div>
+
+    <!-- Details Section -->
+    <div class="row stacktrace-details">
+      <div class="col">
+        <div class="collapse multi-collapse" id="stacktraceModal-18">
+            <div class="card">
+                <div class="card-header">
+                    <h4>org.openqa.selenium.ElementNotInteractableException </h4>
+                </div>
+                <div class="card-body">
+                    <div>
+                        <pre>com.gemini.mis.commonfunctions.CommonFunctions.clickOnBtn(CommonFunctions.java:89)<br />com.gemini.mis.pages.LeaveManagementApplyPage.clickOnButton(LeaveManagementApplyPage.java:37)<br />stepDefinitions.LeaveManagementApplySteps.clickOnSubmitButtonForCompOffTab(LeaveManagementApplySteps.java:217)<br />io.cucumber.java.Invoker.doInvoke(Invoker.java:66)<br />io.cucumber.java.Invoker.invoke(Invoker.java:24)<br />io.cucumber.java.AbstractGlueDefinition.invokeMethod(AbstractGlueDefinition.java:47)<br />io.cucumber.java.JavaStepDefinition.execute(JavaStepDefinition.java:29)<br />io.cucumber.core.runner.CoreStepDefinition.execute(CoreStepDefinition.java:66)<br />io.cucumber.core.runner.PickleStepDefinitionMatch.runStep(PickleStepDefinitionMatch.java:63)<br />io.cucumber.core.runner.TestStep.executeStep(TestStep.java:85)<br />io.cucumber.core.runner.TestStep.run(TestStep.java:57)<br />io.cucumber.core.runner.PickleStepTestStep.run(PickleStepTestStep.java:51)<br />io.cucumber.core.runner.TestCase.run(TestCase.java:84)<br />io.cucumber.core.runner.Runner.runPickle(Runner.java:75)<br />io.cucumber.core.runtime.CucumberExecutionContext.lambda$runTestCase$5(CucumberExecutionContext.java:129)<br />io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:23)<br />io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:129)<br />io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:144)<br />io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:28)<br />io.cucumber.junit.FeatureRunner.run(FeatureRunner.java:137)<br />io.cucumber.junit.CucumberSerenityRunner.runChild(CucumberSerenityRunner.java:259)<br />io.cucumber.junit.CucumberSerenityRunner.runChild(CucumberSerenityRunner.java:59)<br />worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)<br />worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)<br /></pre>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
                         </td>
                     </tr>
-                <tr class="test-SUCCESS">
-
-                    <td width="70" class="step-icon">
-                        <a name="0-7"></a>
-                            <a href="javaScript:void(0)" onClick="toggleDiv('stepSection0-7')"
-                               style="display:block">
-                                <i class="bi bi-plus-square imgstepSection0-7 success-icon"
-                                   style="margin-left: 40px; float:left; padding-right:5px"></i>
-                            </a>
-                    </td>
-
-                    <td class="step-description-column">
-                        <div class="step-description">
-                            <a href="javaScript:void(0)" onClick="toggleDiv('stepSection0-7')"
-                               style="display:block;">
-                                <span class="nested-step">
-                                                Then Verify "Date,WFH Reason" fields are highlighted in red
-                                        </span>
-                            </a>
-                            <span class="evidence">
-                                </span>
-                        </div>
-                    </td>
-
-                        <td width="160" class="SUCCESS-text">
-                                <a href="4ee3b0f96d995faf67d9517fd3e0b9b79ff808ed4a6ec3441b5993d5a6db1236_screenshots.html#screenshots?screenshot=40">
-                                    <img src="dfa601f1e045d874d478b12cbbc6aaa59ad39e6429e454115ef60709a460d116.png"
-                                         href="dfa601f1e045d874d478b12cbbc6aaa59ad39e6429e454115ef60709a460d116.png"
-                                         class="screenshot"
-                                         width="48" height="48"/>
-                                </a>
-                                <i class="bi bi-arrow-right"></i>
-
-                                <a href="4ee3b0f96d995faf67d9517fd3e0b9b79ff808ed4a6ec3441b5993d5a6db1236_screenshots.html#screenshots?screenshot=43">
-                                    <img src="bb344356ea90ae2638e0bd5c2ae002349d42340a22fe10a655049b5ca8aafeeb.png"
-                                         href="bb344356ea90ae2638e0bd5c2ae002349d42340a22fe10a655049b5ca8aafeeb.png"
-                                         class="screenshot"
-                                         width="48" height="48"/>
-                                </a>
-                        </td>
-                    <td width="130"><span class="nested-step">SUCCESS</span></td>
-                    <td width="100"><span class="nested-step">5s 415ms</span></td>
-                </tr>
-                    <tr>
-                        <td colspan="5">
-                            <table id="stepSection0-7" class="step-table-nested" style="display:none;">
-                <tr class="test-SUCCESS">
+                <tr class="test-SKIPPED">
 
                     <td width="90" class="step-icon">
-                        <a name="0-7-0"></a>
+                        <a name="0-6-1"></a>
                             <span style="margin-left: 60px;"
-                                  class="nested-group-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                  class="nested-group-icon"><a href='##beforetable'><i class='bi bi-skip-forward skipped-icon ' title='SKIPPED'></i></a>
                                 </span>
                     </td>
 
                     <td class="step-description-column">
                         <div class="step-description">
                                 <span class="nested-group-step">
-                                                Verify mandatory fields: Date
+                                                Then Verify "Outing From,Outing Till,Type,Primary Contact number,Reason for outing" fields are highlighted in red
                                         </span>
                             <span class="evidence">
                                 </span>
                         </div>
                     </td>
 
-                        <td width="160" class="SUCCESS-text">
+                        <td width="160" class="SKIPPED-text">
 
-                                <a href="4ee3b0f96d995faf67d9517fd3e0b9b79ff808ed4a6ec3441b5993d5a6db1236_screenshots.html#screenshots?screenshot=41">
-                                    <img src="bb344356ea90ae2638e0bd5c2ae002349d42340a22fe10a655049b5ca8aafeeb.png"
-                                         href="bb344356ea90ae2638e0bd5c2ae002349d42340a22fe10a655049b5ca8aafeeb.png"
-                                         class="screenshot"
-                                         width="48" height="48"/>
-                                </a>
                         </td>
-                    <td width="130"><span class="nested-group-step">SUCCESS</span></td>
-                    <td width="100"><span class="nested-group-step">159ms</span></td>
-                </tr>
-                <tr class="test-SUCCESS">
-
-                    <td width="90" class="step-icon">
-                        <a name="0-7-1"></a>
-                            <span style="margin-left: 60px;"
-                                  class="nested-group-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
-                                </span>
-                    </td>
-
-                    <td class="step-description-column">
-                        <div class="step-description">
-                                <span class="nested-group-step">
-                                                Verify mandatory fields: WFH Reason
-                                        </span>
-                            <span class="evidence">
-                                </span>
-                        </div>
-                    </td>
-
-                        <td width="160" class="SUCCESS-text">
-
-                                <a href="4ee3b0f96d995faf67d9517fd3e0b9b79ff808ed4a6ec3441b5993d5a6db1236_screenshots.html#screenshots?screenshot=42">
-                                    <img src="bb344356ea90ae2638e0bd5c2ae002349d42340a22fe10a655049b5ca8aafeeb.png"
-                                         href="bb344356ea90ae2638e0bd5c2ae002349d42340a22fe10a655049b5ca8aafeeb.png"
-                                         class="screenshot"
-                                         width="48" height="48"/>
-                                </a>
-                        </td>
-                    <td width="130"><span class="nested-group-step">SUCCESS</span></td>
-                    <td width="100"><span class="nested-group-step">159ms</span></td>
+                    <td width="130"><span class="nested-group-step">SKIPPED</span></td>
+                    <td width="100"><span class="nested-group-step">014ms</span></td>
                 </tr>
 
                             </table>
@@ -1142,10 +1065,10 @@
                             </table>
                         </td>
                     </tr>
-            <tr class="test-SUCCESS">
+            <tr class="test-ERROR">
                     <td colspan="3"></td>
-                <td width="130"><span class="top-level-step"><em>SUCCESS</em></span></td>
-                <td width="100"><span class="top-level-step"><em>59.92s</em></span></td>
+                <td width="130"><span class="top-level-step"><em>ERROR</em></span></td>
+                <td width="100"><span class="top-level-step"><em>46.89s</em></span></td>
             </tr>
 
         </table>

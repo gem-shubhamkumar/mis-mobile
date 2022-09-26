@@ -151,7 +151,7 @@
             <a href="576946480b52ad056d6f5bddf874399c83582ecf90963cc074a14c70580e7d9f.html"><i class="bi bi-chat-text"></i> Features</a>
         </li>
     </ul>
-    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 25-09-2022 22:39</span>
+    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 26-09-2022 19:35</span>
     <br style="clear:left"/>
 </div>
 
@@ -186,9 +186,9 @@
                 <table class="outcome-header">
                     <tr>
                         <td colspan="2" class="test-title-bar">
-                            <span class="outcome-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon fa-2x' title='SUCCESS'></i></a></span>
+                            <span class="outcome-icon"><a href='##beforetable'><i class='bi bi-x-circle-fill failure-icon fa-2x' title='FAILURE'></i></a></span>
                             <span class="test-case-title">
-                                <span class="success-color">Choose leave type
+                                <span class="failing-color">Choose leave type
                                     <span class="related-issue-title"></span>
                                 </span>
                             </span>
@@ -204,48 +204,62 @@
 
     <div class="story-title">
         <h3>Scenario:</h3>
-        <div class="scenario">When User is on MIS Home Page<br>When Click on "&lt;childTab&gt;" sub tab of "&lt;parentTab&gt;" tab<br>And Verify "&lt;childTab&gt;" opens successfully<br>And Verify "&lt;defaultTab&gt;" displays by default<br>Then Select "&lt;fromDate&gt;" From date and "&lt;toDate&gt;" till Leave dates from Calendar<br>And Select "&lt;leaveType&gt;" from Leave Type dropdown</div>
+        <div class="scenario">When User is on MIS Home Page<br>When Click on "&lt;childTab&gt;" sub tab of "&lt;parentTab&gt;" tab<br>And Verify "&lt;childTab&gt;" opens successfully<br>Then Click on "&lt;tab&gt;" Tab<br>And Verify "&lt;tab&gt;" displays<br>Then Select "&lt;fromDate&gt;" From date and "&lt;toDate&gt;" till Leave dates for Out Duty Tour<br>And Select "&lt;outOfDutyType&gt;" from Type dropdown</div>
     </div>
 
     <div id="beforetable"></div>
     <div id="contenttilttle">
+            <div class="screenshotFailure panel panel-danger">
+    <div style="display:block">
+        <div class="table">
+            <div class="row">
+                <div class="col-sm-10" style="padding-left:1.5em; padding-top:0.5em; padding-bottom:0.5em;">
+                    <span class="error-message error-message-title">Assertion error: expected:(...geminisolutions.com/[]) but was:(...geminisolutions.com/[Dashboard/Index])</span>
+                </div>
+                <div class="col-sm-2">
+                    <a class="btn btn-warning details-button" data-toggle="collapse" href="#stacktraceModal-overall"
+                       role="button" aria-expanded="false" aria-controls="multiCollapseExample1"><i class="bi bi-eye"></i> More details</a>
+                </div>
+             </div>
+        </div>
+    <div>
+
+    <!-- Details Section -->
+    <div class="row stacktrace-details">
+      <div class="col">
+        <div class="collapse multi-collapse" id="stacktraceModal-overall">
+            <div class="card">
+                <div class="card-header">
+                    <h4>java.lang.AssertionError </h4>
+                </div>
+                <div class="card-body">
+                    <div>
+                        <pre>com.gemini.mis.pages.LeaveManagementApplyPage.verifyPage(LeaveManagementApplyPage.java:49)<br />stepDefinitions.LeaveManagementApplySteps.userIsOnMISHomePage(LeaveManagementApplySteps.java:47)<br />✽.User is on MIS Home Page(file:///C:/Users/ja.multani/IdeaProjects/MISAutomation/src/test/resources/features/LeaveManagementOutOfDuty.feature:32)<br /></pre>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+                <div class="panel-body">
+                    <a href="pagesource3949364472328383404.html" target="_blank" class="btn btn-info">HTML Source</a>
+                </div>
+            </div>
         <div class="slider-wrapper theme-default">
             <div id="slider">
-                <img src="067ce547bde52a37fc1396471568db0b00ad59800f973d47a5e3a84ec7d8d7de.png" title=" 1: Choose leave type ({parentTab=Leave Management, childTab=Apply, defaultTab=Leave, fromDate=30/09/2022, toDate=30/09/2022, leaveType=CL})" width="1034"/>
-                <img src="067ce547bde52a37fc1396471568db0b00ad59800f973d47a5e3a84ec7d8d7de.png" title=" Given User is logged into MIS" width="1034"/>
-                <img src="067ce547bde52a37fc1396471568db0b00ad59800f973d47a5e3a84ec7d8d7de.png" title=" Launch MIS Beta site" width="1034"/>
-                <img src="067ce547bde52a37fc1396471568db0b00ad59800f973d47a5e3a84ec7d8d7de.png" title=" Type into element: jasleen.multani, username" width="1034"/>
-                <img src="b4ceb9c5bc44bb41dafdd3b94b86c6b17ec60f01470fbec0db4368a7f2350d5f.png" title=" Type into element: jasleen.multani, username (completed)" width="1034"/>
-                <img src="b4ceb9c5bc44bb41dafdd3b94b86c6b17ec60f01470fbec0db4368a7f2350d5f.png" title=" Type into element: Gemini@1234, password" width="1034"/>
-                <img src="b173d67fef233894362dbfb6a48af8acbb8bd01111b5a256182f7205a1c1c892.png" title=" Type into element: Gemini@1234, password (completed)" width="1034"/>
-                <img src="1c1e2af162baa84caf159a1129d6ebb7e9420c4cfb1180f3f6fe690e1d7e634b.png" title=" Click on button: Sign in" width="1034"/>
-                <img src="db96836a6093f3a470c4cf8838c883da14bbe239c4bc0049624d85fc68aa5d5f.png" title=" Click on button: Sign in (completed)" width="1034"/>
-                <img src="db96836a6093f3a470c4cf8838c883da14bbe239c4bc0049624d85fc68aa5d5f.png" title=" Given User is logged into MIS (completed)" width="1034"/>
-                <img src="db96836a6093f3a470c4cf8838c883da14bbe239c4bc0049624d85fc68aa5d5f.png" title=" When User is on MIS Home Page" width="1034"/>
-                <img src="db96836a6093f3a470c4cf8838c883da14bbe239c4bc0049624d85fc68aa5d5f.png" title=" Verify page: Dashboard Page" width="1034"/>
-                <img src="3a17813a0d14b868444ecbee301ec100068f1e7872e7dcfb6ac03b4b7b2da3aa.png" title=" Verify page: Dashboard Page (completed)" width="1034"/>
-                <img src="3a17813a0d14b868444ecbee301ec100068f1e7872e7dcfb6ac03b4b7b2da3aa.png" title=" When User is on MIS Home Page (completed)" width="1034"/>
-                <img src="3a17813a0d14b868444ecbee301ec100068f1e7872e7dcfb6ac03b4b7b2da3aa.png" title=" When Click on &quot;Apply&quot; sub tab of &quot;Leave Management&quot; tab" width="1034"/>
-                <img src="3a17813a0d14b868444ecbee301ec100068f1e7872e7dcfb6ac03b4b7b2da3aa.png" title=" Click on sub tab: Apply, Leave Management" width="1034"/>
-                <img src="f6749b878b55e4b341fa5451e19e49e23bc3c80262d5d64b0832db9e6e1dfbe3.png" title=" Click on sub tab: Apply, Leave Management (completed)" width="1034"/>
-                <img src="f6749b878b55e4b341fa5451e19e49e23bc3c80262d5d64b0832db9e6e1dfbe3.png" title=" When Click on &quot;Apply&quot; sub tab of &quot;Leave Management&quot; tab (completed)" width="1034"/>
-                <img src="f6749b878b55e4b341fa5451e19e49e23bc3c80262d5d64b0832db9e6e1dfbe3.png" title=" And Verify &quot;Apply&quot; opens successfully" width="1034"/>
-                <img src="f6749b878b55e4b341fa5451e19e49e23bc3c80262d5d64b0832db9e6e1dfbe3.png" title=" Verify tab: Apply" width="1034"/>
-                <img src="9b52c09195cb1e7b5a5665d6849e2ca93d194023f2d12971f712e4540a85a1f9.png" title=" Verify tab: Apply (completed)" width="1034"/>
-                <img src="9b52c09195cb1e7b5a5665d6849e2ca93d194023f2d12971f712e4540a85a1f9.png" title=" And Verify &quot;Apply&quot; opens successfully (completed)" width="1034"/>
-                <img src="9b52c09195cb1e7b5a5665d6849e2ca93d194023f2d12971f712e4540a85a1f9.png" title=" And Verify &quot;Leave&quot; displays by default" width="1034"/>
-                <img src="9b52c09195cb1e7b5a5665d6849e2ca93d194023f2d12971f712e4540a85a1f9.png" title=" Verify default tab: Leave" width="1034"/>
-                <img src="9b52c09195cb1e7b5a5665d6849e2ca93d194023f2d12971f712e4540a85a1f9.png" title=" Then Select &quot;30/09/2022&quot; From date and &quot;30/09/2022&quot; till Leave dates from Calendar" width="1034"/>
-                <img src="9b52c09195cb1e7b5a5665d6849e2ca93d194023f2d12971f712e4540a85a1f9.png" title=" Select from date: 30/09/2022" width="1034"/>
-                <img src="d6d2fa87abd6494bb003ce28b38de2cad1848dba3019fd89139b9aff31f550ac.png" title=" Select from date: 30/09/2022 (completed)" width="1034"/>
-                <img src="d6d2fa87abd6494bb003ce28b38de2cad1848dba3019fd89139b9aff31f550ac.png" title=" Select till date: 30/09/2022" width="1034"/>
-                <img src="23857afe8f58c072e8e6ef02430082141942c7e5f02a949b5aa3085a746b51da.png" title=" Select till date: 30/09/2022 (completed)" width="1034"/>
-                <img src="23857afe8f58c072e8e6ef02430082141942c7e5f02a949b5aa3085a746b51da.png" title=" Then Select &quot;30/09/2022&quot; From date and &quot;30/09/2022&quot; till Leave dates from Calendar (completed)" width="1034"/>
-                <img src="58a1d39fbfde5a5a631be553156471b59ad6b71efc7e5d874960355f63e4defc.png" title=" And Select &quot;CL&quot; from Leave Type dropdown" width="1034"/>
-                <img src="2ad7789c280929ce1e1ff0fb8e79403a965cc29741fe4597ff8e1af253cc506c.png" title=" Select leave type: CL" width="1034"/>
-                <img src="e35af2ed8391ad6dcdc8bfe0d075d6847bcb7416fb9df0d00d9f98a7c9d4a46d.png" title=" Select leave type: CL (completed)" width="1034"/>
-                <img src="e35af2ed8391ad6dcdc8bfe0d075d6847bcb7416fb9df0d00d9f98a7c9d4a46d.png" title=" And Select &quot;CL&quot; from Leave Type dropdown (completed)" width="1034"/>
-                <img src="e35af2ed8391ad6dcdc8bfe0d075d6847bcb7416fb9df0d00d9f98a7c9d4a46d.png" title=" 1: Choose leave type ({parentTab=Leave Management, childTab=Apply, defaultTab=Leave, fromDate=30/09/2022, toDate=30/09/2022, leaveType=CL}) (completed): <span class='success-color'>SUCCESS</span>" width="1034"/>
+                <img src="167dff19ef1323028751055f8419f283af973b07ad624a453e2652561d139f30.png" title=" 1: Choose leave type ({parentTab=Leave Management, childTab=Apply, tab=Out Duty/Tour, fromDate=30/09/2022, toDate=30/09/2022, outOfDutyType=Out Duty (Client Visit)})" width="1034"/>
+                <img src="167dff19ef1323028751055f8419f283af973b07ad624a453e2652561d139f30.png" title=" Given User is logged into MIS" width="1034"/>
+                <img src="167dff19ef1323028751055f8419f283af973b07ad624a453e2652561d139f30.png" title=" Launch MIS Beta site" width="1034"/>
+                <img src="167dff19ef1323028751055f8419f283af973b07ad624a453e2652561d139f30.png" title=" Type into element: jasleen.multani, username" width="1034"/>
+                <img src="091c52e3973651b00eae072eefda8736e48476773cd80657ab63861268a09044.png" title=" Type into element: jasleen.multani, username (completed)" width="1034"/>
+                <img src="091c52e3973651b00eae072eefda8736e48476773cd80657ab63861268a09044.png" title=" Type into element: Gemini@1234, password" width="1034"/>
+                <img src="38cd7a93d24ea449326dbf1866ba8dcfdd623d7b8469a3756e365bdc7dca8ea2.png" title=" Type into element: Gemini@1234, password (completed)" width="1034"/>
+                <img src="b5a2c10524db57b4ab26e406731d1cf2126c1f61c3fc58fb96d99d76d85c5310.png" title=" Click on button: Sign in" width="1034"/>
+                <img src="afa641a89eae68c09b9db2df671296d126ec05d4708a6ab265f097df6b15762c.png" title=" Click on button: Sign in (completed)" width="1034"/>
+                <img src="afa641a89eae68c09b9db2df671296d126ec05d4708a6ab265f097df6b15762c.png" title=" Given User is logged into MIS (completed)" width="1034"/>
+                <img src="afa641a89eae68c09b9db2df671296d126ec05d4708a6ab265f097df6b15762c.png" title=" When User is on MIS Home Page" width="1034"/>
+                <img src="afa641a89eae68c09b9db2df671296d126ec05d4708a6ab265f097df6b15762c.png" title=" Verify page: Dashboard Page" width="1034"/>
+                <img src="40bcb7ec31d34c0860cd1c52a9c27f4f0ea7c9c2bd9f50174de893ec634281fc.png" title=" Verify page: Dashboard Page (completed): <span class='failing-color'>FAILURE</span>" width="1034"/>
             </div>
         </div>
 
