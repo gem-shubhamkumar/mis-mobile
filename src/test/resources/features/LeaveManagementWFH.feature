@@ -32,7 +32,7 @@ Feature: MIS Leave Management Activities
     And Verify "<childTab>" opens successfully
     Then Click on "<tab>" Tab
     And Verify "<tab>" displays
-    Then Click on "Submit" button
+    Then Click on Submit button for WFH
     Then Verify "Date,WFH Reason" fields are highlighted in red
     Examples:
       |      parentTab     |       childTab  |        tab          |
@@ -44,7 +44,7 @@ Feature: MIS Leave Management Activities
     And Verify "<childTab>" opens successfully
     Then Click on "<tab>" Tab
     And Verify "<tab>" displays
-    Then Select date from date dropdown
+    Then Select date from "<tab>" date dropdown
     Examples:
       |      parentTab     |       childTab  |        tab          |
       | Leave Management   |          Apply  |    Work From Home   |
@@ -55,7 +55,7 @@ Feature: MIS Leave Management Activities
     And Verify "<childTab>" opens successfully
     Then Click on "<tab>" Tab
     And Verify "<tab>" displays
-    Then Select date from date dropdown
+    Then Select date from "<tab>" date dropdown
     And Enter reason "WFH leave" for leave
     Examples:
       |      parentTab     |       childTab  |        tab          |
@@ -67,9 +67,9 @@ Feature: MIS Leave Management Activities
     And Verify "<childTab>" opens successfully
     Then Click on "<tab>" Tab
     And Verify "<tab>" displays
-    Then Select date from date dropdown
+    Then Select date from "<tab>" date dropdown
     And Enter reason "WFH leave" for leave
-    Then Click on "Submit" button
+    Then Click on Submit button for WFH
     And Verify Leave is submitted and "Request processed successfully" appears
     Examples:
       |      parentTab     |       childTab  |        tab          |

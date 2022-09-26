@@ -187,15 +187,32 @@ public class LeaveManagementApplySteps extends PageObject
         ApplyPage.verifyTabIsActive(tabName);
     }
 
-    @Then("Select date from date dropdown")
-    public void selectDateFromDateDropdown()
+    @Then("Select date from {string} date dropdown")
+    public void selectDateFromDateDropdown(String tab)
     {
         Calendar calendar = Calendar.getInstance();
         calendar.add(Calendar.DAY_OF_YEAR, 1);
         Date tomorrow = calendar.getTime();
+        if(tab.equals("Work From Home"))
         ApplyPage.selectDateFromDropdown(tomorrow, XpathForApplyTab.dropdown("WorkFromHomeDate"));
+     }
 
+
+    @Then("Click on Submit button for Leave Tab")
+    public void clickOnButtonForLeaveTab()
+    {
+        ApplyPage.clickOnButton("Submit Leave");
     }
 
+    @Then("Click on Submit button for WFH")
+    public void clickOnButtonForWFH()
+    {
+        ApplyPage.clickOnButton("Submit WFH");
+    }
 
+    @Then("Click on Submit button for Comp off Tab")
+    public void clickOnSubmitButtonForCompOffTab()
+    {
+        ApplyPage.clickOnButton("Submit Comp off");
+    }
 }

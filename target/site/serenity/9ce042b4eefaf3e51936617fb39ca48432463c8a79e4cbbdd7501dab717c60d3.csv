@@ -1,5 +1,6 @@
 "Story","Title","Result","Date","Stability","Duration (s)"
 "MIS Leave Management Activities","Navigate to Leave Management > Apply tab","SUCCESS","2022-09-25T22:45:05.767+05:30[Asia/Calcutta]","0.0","68.52"
 "MIS Leave Management Activities","Choose Availability","SUCCESS","2022-09-25T23:07:11.14+05:30[Asia/Calcutta]","0.0","93.35"
+"MIS Leave Management Activities","Verify Date and Reason are mandatory fields","SUCCESS","2022-09-26T12:03:46.639+05:30[Asia/Calcutta]","0.0","59.92"
 "MIS Leave Management Activities","Enter required data and click on Submit leave","SUCCESS","2022-09-26T11:23:29.235+05:30[Asia/Calcutta]","0.0","70.9"
 "MIS Leave Management Activities","Navigate to Leave Management > WFH tab","SUCCESS","2022-09-26T11:39:10.861+05:30[Asia/Calcutta]","0.0","67.01"

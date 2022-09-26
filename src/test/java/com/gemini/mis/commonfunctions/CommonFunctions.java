@@ -47,8 +47,14 @@ public class CommonFunctions extends PageObject {
             case "Sign in":
                 tab = XpathForApplyTab.textBox("btnLogin");
                 break;
-            case "Submit":
-                tab = XpathForApplyTab.textBox("btnSubmitLeave");
+            case "Submit Comp off":
+                tab = XpathForApplyTab.submitBtn("3");
+                break;
+            case "Submit Leave":
+                tab = XpathForApplyTab.submitBtn("1");
+                break;
+            case "Submit WFH":
+                tab = XpathForApplyTab.submitBtn("2");
                 break;
             case "Total working days":
                 tab = XpathForApplyTab.tooltip;
@@ -140,6 +146,9 @@ public class CommonFunctions extends PageObject {
                 break;
             case "WFH Reason":
                 elementFacade = find(XpathForApplyTab.textArea("WFHReason"));
+                break;
+            case "Comp Off Reason":
+                elementFacade = find(XpathForApplyTab.textArea("CompOffReason"));
                 break;
             case "Date":
                 elementFacade = find(XpathForApplyTab.dropdown("WorkFromHomeDate"));

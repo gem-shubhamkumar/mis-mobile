@@ -2,6 +2,7 @@ package stepDefinitions;
 
 import com.gemini.mis.pages.LeaveManagementApplyPage;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import net.serenitybdd.core.pages.PageObject;
 import net.thucydides.core.annotations.Steps;
 
@@ -19,5 +20,11 @@ public class commonStepDefinition extends PageObject
         waitABit(3000);
         ApplyPage.clickOnButton("Sign in");
 
+    }
+
+    @Then("Click on {string} button for Comp off Tab")
+    public void clickOnButtonForCompOffTab(String btnName)
+    {
+        ApplyPage.clickOnButton("Submit Comp Off");
     }
 }

@@ -52,9 +52,13 @@ public class XpathForApplyTab
     {
         return By.xpath("//span[contains(text(),\""+tabName+"\")]/parent::a");
     }
+    public static By submitBtn(String num)
+    {
+      return By.xpath("(//input[@class='btn btn-success'])["+num+"]");
+
+    }
     public static By heading = By.xpath("//h5");
     public static By tab = By.xpath("//a[@role='tab']/span");
-    public static By submitBtn = By.xpath("//input[@value='Submit']");
 
     public static By tooltip = By.xpath("//a[@data-trigger='hover']");
 

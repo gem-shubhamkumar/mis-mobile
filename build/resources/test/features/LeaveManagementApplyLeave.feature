@@ -29,7 +29,7 @@ Feature: MIS Leave Management Activities
     And Verify "<childTab>" opens successfully
     And Verify "<defaultTab>" displays by default
     Then Verify "Primary Contact Number,Other Contact Number" fields are auto populated
-    Then Click on "Submit" button
+    Then Click on Submit button for Leave Tab
     Then Verify "From,Till,Reason" fields are highlighted in red
     Examples:
       |      parentTab     |       childTab  | defaultTab |
@@ -110,7 +110,7 @@ Feature: MIS Leave Management Activities
     Then Select "<fromDate>" From date and "<toDate>" till Leave dates from Calendar
     And Select "<leaveType>" from Leave Type dropdown
     And Enter reason "sick leave" for leave
-    Then Click on "Submit" button
+    Then Click on Submit button for Leave Tab
     And Verify Leave is submitted and "leave applied successfully" appears
     Examples:
       |      parentTab     |       childTab  | defaultTab |  fromDate  |   toDate    |  leaveType |
