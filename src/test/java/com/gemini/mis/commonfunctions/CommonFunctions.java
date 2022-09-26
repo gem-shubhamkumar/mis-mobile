@@ -56,6 +56,9 @@ public class CommonFunctions extends PageObject {
             case "Submit Comp off":
                 tab = XpathForApplyTab.submitBtn("3");
                 break;
+            case "Submit LWP":
+                tab = XpathForApplyTab.submitBtn("4");
+                break;
             case "Submit Out of Duty/Tour":
                 tab = XpathForApplyTab.submitBtn("5");
                 break;
@@ -146,6 +149,15 @@ public class CommonFunctions extends PageObject {
         switch (fields) {
             case "Outing From":
                 elementFacade = find(XpathForApplyTab.inputItem("Outing From"));
+                break;
+            case "LWP Change Request From":
+                elementFacade = find(XpathForApplyTab.dropdown("fromDt"));
+                break;
+            case "Type of Leave":
+                elementFacade = find(XpathForApplyTab.dropdown("legitimateType"));
+                break;
+            case "Reason for Request":
+                elementFacade = find(XpathForApplyTab.textArea("legitimateReason"));
                 break;
             case "Outing Till":
                 elementFacade = find(XpathForApplyTab.inputItem("Outing Till"));

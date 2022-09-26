@@ -249,4 +249,10 @@ public class LeaveManagementApplySteps extends PageObject
         WebElementFacade elementFacade = find(XpathForApplyTab.dropdown("outingType"));
         ApplyPage.selectFromDropdown(elementFacade,dropdownVal);
     }
+
+    @Then("Click on Submit button for LWP tab")
+    public void clickOnSubmitButtonForLWPTab()
+    {
+        ApplyPage.clickOnButton("Submit LWP");
+    }
 }
