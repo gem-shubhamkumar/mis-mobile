@@ -18,6 +18,9 @@
     </remote-repository>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> cd47945af98b36ba4a016b41e7e91c9a33939653
     <remote-repository>
       <option name="id" value="MavenLocal" />
       <option name="name" value="MavenLocal" />
@@ -28,9 +31,12 @@
       <option name="name" value="BintrayJCenter" />
       <option name="url" value="https://jcenter.bintray.com/" />
     </remote-repository>
+<<<<<<< HEAD
 =======
 >>>>>>> e49d1ade399ce8927f9c789ced701b2f3abf7996
 =======
 >>>>>>> b2cd1f24557e5222d1eba35dd7b23d21eb90e2fc
+=======
+>>>>>>> cd47945af98b36ba4a016b41e7e91c9a33939653
   </component>
 </project>

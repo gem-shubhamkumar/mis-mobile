@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 defaultTasks 'clean', 'test', 'aggregate'
 
 apply plugin: 'java'
@@ -30,16 +31,28 @@ version '1.0-SNAPSHOT'
 
 =======
 >>>>>>> b2cd1f24557e5222d1eba35dd7b23d21eb90e2fc
+=======
+>>>>>>> cd47945af98b36ba4a016b41e7e91c9a33939653
 defaultTasks 'clean','test','aggregate'
 
 apply plugin: 'java'
 apply plugin: 'net.serenity-bdd.aggregator'
 
+<<<<<<< HEAD
 group 'org.example'
 version '1.0-SNAPSHOT'
 repositories {
     mavenCentral()
 }
+=======
+group 'org.serenityexample'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+>>>>>>> cd47945af98b36ba4a016b41e7e91c9a33939653
 buildscript {
     project.ext {
         serenityVersion = '2.3.12'
@@ -52,15 +65,20 @@ buildscript {
     }
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> e49d1ade399ce8927f9c789ced701b2f3abf7996
 =======
 >>>>>>> b2cd1f24557e5222d1eba35dd7b23d21eb90e2fc
+=======
+
+>>>>>>> cd47945af98b36ba4a016b41e7e91c9a33939653
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 ext {
     slf4jVersion = '1.7.7'
     serenityCoreVersion = '3.2.5'
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     serenityCucumberVersion = '3.3.0'
@@ -71,6 +89,16 @@ ext {
     jsonVersion = '20210307'
 }
 
+=======
+    junitVersion = '4.13'
+    assertJVersion = '3.8.0'
+    logbackVersion = '1.2.3'
+    restAssuredVersion ='5.1.1'
+    jsonVersion= '20210307'
+}
+
+
+>>>>>>> cd47945af98b36ba4a016b41e7e91c9a33939653
 dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
@@ -86,6 +114,7 @@ dependencies {
     testImplementation group: 'io.cucumber', name: 'cucumber-junit', version: '4.0.0'
     //implementation group: 'net.serenity-bdd', name: 'serenity-cucumber6', version: '2.6.0'
     testImplementation group: 'net.serenity-bdd', name: 'serenity-cucumber', version: '3.3.2'
+<<<<<<< HEAD
     testImplementation group: 'net.serenity-bdd', name:'serenity-screenplay' , version: '3.2.5'
     testImplementation group: 'net.serenity-bdd', name:'serenity-screenplay-rest' , version: '3.2.5'
     testImplementation group: 'net.serenity-bdd', name:'serenity-rest-assured' , version: '3.2.5'
@@ -138,6 +167,9 @@ dependencies {
             // https://mvnrepository.com/artifact/net.serenity-bdd/serenity-cucumber
             "net.serenity-bdd:serenity-cucumber:${serenityCoreVersion}",
 
+=======
+    testImplementation "net.serenity-bdd:serenity-core:${serenityCoreVersion}",
+>>>>>>> cd47945af98b36ba4a016b41e7e91c9a33939653
             "net.serenity-bdd:serenity-junit:${serenityCoreVersion}",
             "net.serenity-bdd:serenity-screenplay:${serenityCoreVersion}",
             "net.serenity-bdd:serenity-screenplay-rest:${serenityCoreVersion}",
@@ -145,6 +177,7 @@ dependencies {
             "io.rest-assured:rest-assured:${restAssuredVersion}",
             "org.json:json:${jsonVersion}",
             "junit:junit:${junitVersion}",
+<<<<<<< HEAD
             "org.assertj:assertj-core:${assertJVersion}"
 }
 
@@ -160,6 +193,24 @@ test {
 //        include all tests from package
 //        includeTestsMatching "com.gemini.serenity.runner.W3SchoolRunner"
 >>>>>>> b2cd1f24557e5222d1eba35dd7b23d21eb90e2fc
+=======
+            "org.assertj:assertj-core:${assertJVersion}",
+            "org.slf4j:slf4j-simple:${slf4jVersion}",
+            "com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.13.4"
+
+
+}
+
+
+test {
+    filter {
+        //include specific method in any of the tests
+        //includeTestsMatching "*LoginRunner"
+
+        //include all tests from package
+        //includeTestsMatching "com.gemini.serenity.Runner.*"
+
+>>>>>>> cd47945af98b36ba4a016b41e7e91c9a33939653
         //include all integration tests
         //includeTestsMatching "*IntegTest"
     }
@@ -167,6 +218,7 @@ test {
     systemProperties System.getProperties()
 
 }
+<<<<<<< HEAD
 gradle.startParameter.continueOnFailure = true
 
 <<<<<<< HEAD
@@ -175,3 +227,9 @@ test.finalizedBy(aggregate)
 =======
 test.finalizedBy(aggregate)
 >>>>>>> b2cd1f24557e5222d1eba35dd7b23d21eb90e2fc
+=======
+
+gradle.startParameter.continueOnFailure = true
+
+test.finalizedBy(aggregate)
+>>>>>>> cd47945af98b36ba4a016b41e7e91c9a33939653

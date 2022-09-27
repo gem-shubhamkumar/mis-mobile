@@ -93,6 +93,7 @@ td.tag-title {
     padding-bottom: 1em;
 }
 
+<<<<<<< HEAD
 .scenario-comments {
     font-style: italic;
     font-weight: normal;
@@ -104,6 +105,8 @@ td.tag-title {
     padding-right: 0.5em;
 }
 
+=======
+>>>>>>> cd47945af98b36ba4a016b41e7e91c9a33939653
 #bottomfooter
 {
     background-image:url(../images/bg_04.jpg); height:26px; background-repeat:repeat-x; margin:0 auto;
@@ -161,10 +164,18 @@ footer {
 .middlebg
 {
     min-width:1007px;
+<<<<<<< HEAD
     height:3.5em;
     padding: 0px;
     padding-left: 10px;
     clear:left;
+=======
+    max-width:1007px;
+    height:3.5em;
+    padding: 0px;
+    padding-left: 10px;
+    float:left;
+>>>>>>> cd47945af98b36ba4a016b41e7e91c9a33939653
 }
 
 .rightbg
@@ -296,6 +307,7 @@ h3.discreet-story-header {
     margin-bottom: 1em;
 }
 
+<<<<<<< HEAD
 .rule-title {
     color: #428bca;
     font-family:euphemia, verdana, sans-serif;font-size: 1.3em; font-weight:normal; font-style: italic;
@@ -306,6 +318,8 @@ h3.discreet-story-header {
     padding-right: 0.25em;
 }
 
+=======
+>>>>>>> cd47945af98b36ba4a016b41e7e91c9a33939653
 .discreet-requirement-narrative-title td, th {
     padding: 0.25em;
 }
@@ -322,6 +336,7 @@ h3.discreet-story-header {
     margin: 0 0 5px;
 }
 
+<<<<<<< HEAD
 .rule-tags {
     text-align: right;
 }
@@ -350,6 +365,10 @@ h3.discreet-story-header {
 
 i.tag {
     color:#ff1631
+=======
+i.tag {
+    color: red;
+>>>>>>> cd47945af98b36ba4a016b41e7e91c9a33939653
 }
 .outcome-header {
     width: 100%;
@@ -386,9 +405,12 @@ i.tag {
     background-color: #eeeadd;
 }
 
+<<<<<<< HEAD
 .test-ABORTED {
     background-color: #ff8f53;
 }
+=======
+>>>>>>> cd47945af98b36ba4a016b41e7e91c9a33939653
 
 .test-IGNORED {
     background-color: #eeeadd;
@@ -405,7 +427,11 @@ i.tag {
 
 .breadcrumbs
 {
+<<<<<<< HEAD
     font-family:euphemia, verdana, sans-serif; font-size:14px; color: #0d78ae; text-transform: capitalize;
+=======
+    font-family:euphemia, verdana, sans-serif; font-size:14px; color: #0d78ae;
+>>>>>>> cd47945af98b36ba4a016b41e7e91c9a33939653
 }
 
 .bluetext
@@ -521,11 +547,19 @@ i.tag {
 }
 
 .error-color  {
+<<<<<<< HEAD
     color: #FF6108;
 }
 
 .flag-color {
     color:#ff1631
+=======
+    color: darkorange;
+}
+
+.flag-color {
+    color: red;
+>>>>>>> cd47945af98b36ba4a016b41e7e91c9a33939653
 }
 
 .ignore-color {
@@ -536,12 +570,17 @@ i.tag {
     color: darkgoldenrod;
 }
 
+<<<<<<< HEAD
 .aborted-color {
     color: #FDAA7D;
 }
 
 .compromised-color  {
     color: #ff68ff;
+=======
+.compromised-color  {
+    color: mediumvioletred;
+>>>>>>> cd47945af98b36ba4a016b41e7e91c9a33939653
 }
 
 .group-heading {
@@ -611,7 +650,11 @@ i.tag {
 }
 
 .ERROR-text {
+<<<<<<< HEAD
     font-family:euphemia, verdana, sans-serif; font-size:14px; color: #FF6108; font-style:italic;
+=======
+    font-family:euphemia, verdana, sans-serif; font-size:14px; color: darkorange; font-style:italic;
+>>>>>>> cd47945af98b36ba4a016b41e7e91c9a33939653
 }
 
 .COMPROMISED-text {
@@ -630,10 +673,13 @@ i.tag {
     font-family:euphemia, verdana, sans-serif; font-size:14px; color:#0d78ae; font-style:italic;
 }
 
+<<<<<<< HEAD
 .ABORTED-test {
     font-family:euphemia, verdana, sans-serif; font-size:14px; color: rgba(255, 153, 102,0.7); font-style:italic;
 }
 
+=======
+>>>>>>> cd47945af98b36ba4a016b41e7e91c9a33939653
 .SUCCESS-item-text {
     font-family:euphemia, verdana, sans-serif; font-size:14px; color: #88a717; font-style:italic;
 }
@@ -654,10 +700,13 @@ i.tag {
     font-family:euphemia, verdana, sans-serif; font-size:14px; color:#0d78ae; font-style:italic;
 }
 
+<<<<<<< HEAD
 .ABORTED-item-text {
     font-family:euphemia, verdana, sans-serif; font-size:14px; color:rgba(255, 153, 102,0.7); font-style:italic;
 }
 
+=======
+>>>>>>> cd47945af98b36ba4a016b41e7e91c9a33939653
 .release-title {
     font-family:euphemia, verdana, sans-serif; font-size:14px; color: #88a717;
 }
@@ -858,7 +907,11 @@ font-family:euphemia, verdana, sans-serif; font-size:16px; color: #88a717; font-
 }
 
 .dark-legend-center {
+<<<<<<< HEAD
     color:#ff1631;
+=======
+    color: red;
+>>>>>>> cd47945af98b36ba4a016b41e7e91c9a33939653
     font-weight: bold;
     opacity: 0.67;
     float: left;
@@ -891,11 +944,19 @@ font-family:euphemia, verdana, sans-serif; font-size:16px; color: #88a717; font-
 }
 
 .errorbar {
+<<<<<<< HEAD
     background-color: #FF6108; height: 1.1em;
 }
 
 .compromisedbar {
     background-color: #ff68ff; height: 1.1em;
+=======
+    background-color: darkorange; height: 1.1em;
+}
+
+.compromisedbar {
+    background-color: fuchsia; height: 1.1em;
+>>>>>>> cd47945af98b36ba4a016b41e7e91c9a33939653
 }
 
 .ignoredbar {
@@ -903,6 +964,7 @@ font-family:euphemia, verdana, sans-serif; font-size:16px; color: #88a717; font-
 }
 
 .failingbar {
+<<<<<<< HEAD
     background-color: #ff1631; height: 1.1em;
 }
 .passingbar {
@@ -920,6 +982,25 @@ font-family:euphemia, verdana, sans-serif; font-size:16px; color: #88a717; font-
 }
 .passing-color {
     color: #99cc33;
+=======
+    background-color: #f8001f; height: 1.1em;
+}
+.passingbar {
+    background-color: #30cb23; height: 1.1em;
+}
+
+.failing-color {
+    color: #f8001f;
+}
+.error-color {
+    color: darkorange;
+}
+.compromised-color {
+    color: fuchsia;
+}
+.passing-color {
+    color: #30cb23;
+>>>>>>> cd47945af98b36ba4a016b41e7e91c9a33939653
 }
 
 #accordion {
@@ -1050,9 +1131,15 @@ a.tagLink:visited, a.tagLink:link {
 }
 
 .tag-badge {
+<<<<<<< HEAD
     font-weight: 400 !important;
     font-size: 0.9em !important;
     color: floralwhite !important;
+=======
+    font-weight: normal;
+    color: #ffffff;
+    background-color: #388bbb;
+>>>>>>> cd47945af98b36ba4a016b41e7e91c9a33939653
 }
 .story-title
 {
@@ -1412,11 +1499,19 @@ h4 {
 }
 
 .test {
+<<<<<<< HEAD
     color: #99cc33;
     color: #009818;
     color: #a2f2f2;
     color: #8bb1df;
     color: #ff1631;
+=======
+    color: #30cb23;
+    color: #009818;
+    color: #a2f2f2;
+    color: #8bb1df;
+    color: #f8001f;
+>>>>>>> cd47945af98b36ba4a016b41e7e91c9a33939653
     color: #a20019;
     color: orange;
 }
@@ -1453,11 +1548,18 @@ h4 {
 .datagrid table tbody .alt2 td { background: #F1F3E8; color: #275420; }
 .datagrid table tbody td:first-child { border-left: none; }
 .datagrid table tbody tr:last-child td { border-bottom: none; }
+<<<<<<< HEAD
 .datagrid table tbody tr.test-FAILURE td { background: #ffcdce; color:#ff1631 }
 .datagrid table tbody tr.test-ERROR td { background: #fed6c2; color:#FF6108 }
 .datagrid table tbody tr.test-COMPROMISED td { background: plum; color: black; }
 .datagrid table tbody tr.test-SKIPPED td { background: #daca8c; color: darkblue; }
 .datagrid table tbody tr.test-ABORTED td { background: rgb(243, 186, 155); color: #4f2307; }
+=======
+.datagrid table tbody tr.test-FAILURE td { background: #ffcdce; color: red; }
+.datagrid table tbody tr.test-ERROR td { background: #fed6c2; color: red; }
+.datagrid table tbody tr.test-COMPROMISED td { background: plum; color: darkviolet; }
+.datagrid table tbody tr.test-SKIPPED td { background: #eeeadd;}
+>>>>>>> cd47945af98b36ba4a016b41e7e91c9a33939653
 .datagrid table tbody tr.test-IGNORED td { background: #eeeadd;}
 .datagrid table tbody tr.test-PENDING td { background: #e5f2eb;}
 
@@ -1781,6 +1883,7 @@ ul.second-level-requirements  {
 
 /* Icon colors */
 .pending-icon {
+<<<<<<< HEAD
     color: #5f93ce;
 }
 
@@ -1814,6 +1917,37 @@ ul.second-level-requirements  {
 
 .error-caption {
     color:#ff1631;
+=======
+    color: #A2C4EC;
+}
+
+.success-icon {
+    color: green;
+}
+
+.failure-icon {
+    color: red;
+}
+
+.compromised-icon {
+    color: mediumvioletred;
+}
+
+.error-icon {
+    color: darkorange;
+}
+
+.ignored-icon {
+    color: darkgrey;
+}
+
+.skip-icon {
+    color: #EEE098;
+}
+
+.error-caption {
+    color: red;
+>>>>>>> cd47945af98b36ba4a016b41e7e91c9a33939653
     font-style: italic;
 }
 
@@ -1903,8 +2037,12 @@ ul.second-level-requirements  {
 /* Chartist styling */
 
 .ct-chart-donut .ct-label {
+<<<<<<< HEAD
     font-size: 0.9em;
     font-weight: bold;
+=======
+    font-size: 1em;
+>>>>>>> cd47945af98b36ba4a016b41e7e91c9a33939653
 }
 
 .chart-container {
@@ -1916,6 +2054,7 @@ h3 {
 }
 
 /* Automated only results */
+<<<<<<< HEAD
 /* Success */
 .aggregated-results .ct-series-a .ct-slice-donut-solid {
     fill: #99cc33;
@@ -1958,26 +2097,67 @@ h3 {
     fill: rgba(153,204,51,0.5)
 }
 /* PENDING */
+=======
+.aggregated-results .ct-series-a .ct-slice-donut-solid {
+    fill: #30cb23;
+}
+.aggregated-results .ct-series-b .ct-slice-donut-solid {
+    fill: #A2C4EC;
+}
+.aggregated-results .ct-series-c .ct-slice-donut-solid {
+    fill: darkgrey;
+}
+.aggregated-results .ct-series-d .ct-slice-donut-solid {
+    fill: #EEE098;
+}
+.aggregated-results .ct-series-e .ct-slice-donut-solid {
+    fill: #f8001f;
+}
+.aggregated-results .ct-series-f .ct-slice-donut-solid {
+    fill: darkorange;
+}
+.aggregated-results .ct-series-g .ct-slice-donut-solid {
+    fill: fuchsia;
+}
+
+/* Automated and manual results */
+.automated-and-manual-results .ct-series-a .ct-slice-donut-solid {
+    fill: rgba(48, 204, 34, 1);
+}
+.automated-and-manual-results .ct-series-b .ct-slice-donut-solid {
+    fill: rgba(48, 204, 34, 0.5);;
+}
+
+>>>>>>> cd47945af98b36ba4a016b41e7e91c9a33939653
 .automated-and-manual-results .ct-series-c .ct-slice-donut-solid {
     fill: rgba(165, 199, 238, 1) ;
 }
 .automated-and-manual-results .ct-series-d .ct-slice-donut-solid {
     fill: rgba(165, 199, 238, 0.5) ;
 }
+<<<<<<< HEAD
 /* IGNORED */
+=======
+
+>>>>>>> cd47945af98b36ba4a016b41e7e91c9a33939653
 .automated-and-manual-results .ct-series-e .ct-slice-donut-solid {
     fill: rgba(168, 168, 168, 1);
 }
 .automated-and-manual-results .ct-series-f .ct-slice-donut-solid {
     fill: rgba(168, 168, 168, 0.5);
 }
+<<<<<<< HEAD
 /* SKIPPED */
+=======
+
+>>>>>>> cd47945af98b36ba4a016b41e7e91c9a33939653
 .automated-and-manual-results .ct-series-g .ct-slice-donut-solid {
     fill: rgba(238, 224, 152, 1) ;
 }
 .automated-and-manual-results .ct-series-h .ct-slice-donut-solid {
     fill: rgba(238, 224, 152, 0.5) ;
 }
+<<<<<<< HEAD
 /* ABORTED */
 .automated-and-manual-results .ct-series-i .ct-slice-donut-solid {
     fill: rgb(255, 153, 102)
@@ -2030,6 +2210,28 @@ tr.ERROR td {
 }
 tr.COMPROMISED td {
     background-color: rgba(255, 104, 255, 0.05);
+=======
+
+.automated-and-manual-results .ct-series-i .ct-slice-donut-solid {
+    fill: rgba(248, 0, 31, 1);
+}
+.automated-and-manual-results .ct-series-j .ct-slice-donut-solid {
+    fill: rgba(248, 0, 31, 0.5);
+}
+
+.automated-and-manual-results .ct-series-k .ct-slice-donut-solid {
+    fill: rgba(255, 141, 0, 1);
+}
+.automated-and-manual-results .ct-series-l .ct-slice-donut-solid {
+    fill: rgba(255, 141, 0, 0.5);
+}
+
+.automated-and-manual-results .ct-series-m .ct-slice-donut-solid {
+    fill: rgba(255, 0, 255, 1);
+}
+.automated-and-manual-results .ct-series-n .ct-slice-donut-solid {
+    fill: rgba(255, 0, 255, 0.5);
+>>>>>>> cd47945af98b36ba4a016b41e7e91c9a33939653
 }
 
 .scenario-heading {padding-left: 1em;}
@@ -2040,15 +2242,19 @@ tr.COMPROMISED td {
 .gwt-button {padding-left: 2.5em;}
 .scenario-details p { line-height: 0.8;}
 
+<<<<<<< HEAD
 .scenario-background-section {
     padding-top: 0.25em;
 }
 
+=======
+>>>>>>> cd47945af98b36ba4a016b41e7e91c9a33939653
 .scenario-docs p {
     padding-left: 2.5em;
     margin: 0px;
 }
 
+<<<<<<< HEAD
 .rule-toc-entry {
     font-weight: bold;
 }
@@ -2066,6 +2272,8 @@ tr.COMPROMISED td {
     padding-right: 0.25em;
 }
 
+=======
+>>>>>>> cd47945af98b36ba4a016b41e7e91c9a33939653
 .scenario-docs ul {
     padding-left: 3.5em;
     margin: 0px;
@@ -2104,8 +2312,189 @@ div.scenario-text:empty {
     margin-bottom: 1em;
 }
 
+<<<<<<< HEAD
 .example-table {
     overflow-x:auto;
+=======
+.card-header {
+    border-bottom: solid gray 0.5px;
+    padding: 0.5em;
+    font-weight: bold;
+}
+
+/* Card header colours */
+
+.card-header.failure {
+    background-color: rgba(255, 0, 0, 0.05);
+}
+.card-header.pending {
+    background-color: rgba(0, 167, 255, 0.05);
+}
+.card-header.error {
+    background-color: rgba(255, 141, 0, 0.05);
+}
+.card-header.compromised {
+    background-color: rgba(255, 0, 255, 0.05);
+}
+.card-header.ignored {
+    background-color: rgba(168, 168, 168, 0.1);
+}
+.card-header.skipped {
+    background-color: rgba(238, 224, 152, 0.2);
+}
+
+/*.scenario-result.PENDING {*/
+/*background-color: rgba(0, 167, 255, 0.05);*/
+/*}*/
+/*.scenario-result.FAILURE {*/
+/*background-color: rgba(255, 0, 0, 0.05);*/
+/*}*/
+/*.scenario-result.ERROR {*/
+/*background-color: rgba(255, 141, 0, 0.05);*/
+/*}*/
+/*.scenario-result.COMPROMISED {*/
+/*background-color: rgba(255, 0, 255, 0.05);*/
+/*}*/
+/*.scenario-result.IGNORED {*/
+/*background-color: rgba(168, 168, 168, 0.1);*/
+/*}*/
+/*.scenario-result.SKIPPED {*/
+/*background-color: rgba(238, 224, 152, 0.2);*/
+/*}*/
+
+.card-body {
+    padding: 0.5em;
+}
+
+.scenario-result-icon {
+    float: right;
+}
+
+.scenario-docs table {
+    margin-left: 3em;
+    margin-top: 0.5em;
+}
+
+.scenario-docs th {
+    font-weight: bold;
+    color: grey;
+    font-size: 12px;
+    padding: 4px;
+    border: 0.5px solid grey;
+}
+.scenario-docs td {
+    padding: 4px;
+    border: 0.5px solid grey;
+}
+
+.scenario-docs .dataTable {
+    border-bottom-color: white;
+}
+
+.examples {
+    padding-top: 0.5em;
+}
+
+.automated-stats {
+    background-color: rgba(38, 38, 38, 0.06);
+    width: 8%;
+}
+
+.manual-stats {
+    background-color: rgba(38, 38, 38, 0.03);
+    width: 8%;
+}
+
+.total-stats {
+    font-weight: bold;
+    width: 8%;
+}
+
+.scenario-result-table th {
+    text-transform: capitalize;
+}
+
+.treeview .badge {
+    background-color: white;
+}
+
+.toc-title {
+    width: 90%;
+}
+
+.top-list-title {
+    min-width: 25em;
+}
+
+.failure-badge {
+    background-color: red !important;
+}
+
+.feature-tags {
+    float:right;
+    padding:4px;
+}
+
+.stacktrace-details {
+    width: 99%;
+    margin-left: 0px !important;
+    background-color: bisque;
+    font-family: monospace;
+}
+
+.rest-query-details {
+    width: 99%;
+    margin-left: 0px !important;
+    background-color: #EEEEE0;
+    font-family: monospace;
+}
+
+.details-button  {
+    float: right;
+    margin-top: 4px !important;
+    margin-bottom: 4px !important;
+    margin-right: 5px; !important;
+    font-size: 1em;
+    background-color: rgba(238,0,0,0.3);
+}
+
+.missing-scenario-warning {
+    color: red;
+}
+
+div.progress {
+    height:20px;
+    margin:0px !important;
+}
+
+.feature-count {
+    font-weight: normal;
+    color: dimgrey;
+}
+
+.requirements-overview img {width: 100%;}
+
+td.indented-error-category i {
+    margin-left: 20px;
+}
+
+.report-info {
+    font-style: italic;
+    font-size: 0.9em;
+    padding-top: 0.5em;
+    padding-left: 1em;
+}
+
+.example-table {
+     overflow-x:auto;
+ }
+
+.example-table table {
+    min-width: 80%;
+}
+.example-table table th {
+    padding: 4px;
+>>>>>>> cd47945af98b36ba4a016b41e7e91c9a33939653
 }
 
 .example-table table td {
@@ -2222,6 +2611,7 @@ div.scenario-text:empty {
 }
 
 .context-icon {
+<<<<<<< HEAD
     padding-right: 1em;
 }
 
@@ -2242,6 +2632,26 @@ div.scenario-text:empty {
 .badge-ignored { background-color: #777777; }
 .badge-pending { background-color: #6884A6; }
 .badge-success { background-color: rgb(153,204,51); }
+=======
+   padding-right: 1em;
+}
+
+.more-details-result-compromised { background-color: fuchsia; !important; }
+.more-details-result-error { background-color: darkorange; !important;  }
+.more-details-result-failure { background-color: #f8001f; !important; }
+.more-details-result-skipped { background-color: #B2A671;  !important; }
+.more-details-result-ignored { background-color: #777777;  !important; }
+.more-details-result-pending { background-color: #6884A6; !important;  }
+.more-details-result-success { background-color: #1D9918; !important;  }
+
+.badge-compromised { background-color: fuchsia; }
+.badge-error { background-color: darkorange; }
+.badge-failure { background-color: #f8001f; }
+.badge-skipped { background-color: #B2A671; }
+.badge-ignored { background-color: #777777; }
+.badge-pending { background-color: #6884A6; }
+.badge-success { background-color: #1D9918; }
+>>>>>>> cd47945af98b36ba4a016b41e7e91c9a33939653
 
 
 .scenario-report-badges {
@@ -2292,6 +2702,7 @@ span.evidence {
     margin-left: 2.5em;
     padding: 0.25em;
     font-style: italic;
+<<<<<<< HEAD
 }
 
 div.code {
@@ -2757,3 +3168,6 @@ div.code {
 .dataTables_filter input {
     font-weight: normal;
 }
+=======
+}
+>>>>>>> cd47945af98b36ba4a016b41e7e91c9a33939653
