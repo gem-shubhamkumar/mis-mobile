@@ -16,6 +16,7 @@
       <option name="name" value="MavenRepo" />
       <option name="url" value="https://repo.maven.apache.org/maven2/" />
     </remote-repository>
+<<<<<<< HEAD
     <remote-repository>
       <option name="id" value="MavenLocal" />
       <option name="name" value="MavenLocal" />
@@ -26,5 +27,7 @@
       <option name="name" value="BintrayJCenter" />
       <option name="url" value="https://jcenter.bintray.com/" />
     </remote-repository>
+=======
+>>>>>>> e49d1ade399ce8927f9c789ced701b2f3abf7996
   </component>
 </project>
