@@ -1,7 +1,12 @@
 package com.gemini.mis.commonfunctions;
 
+import com.gemini.mis.selectors.ApplyToAnyLocators;
+import com.gemini.mis.selectors.CommonSelectors;
+import com.gemini.mis.selectors.FeedbackSelectors;
 import net.serenitybdd.core.pages.PageObject;
 
+import net.thucydides.core.annotations.Step;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -10,25 +15,6 @@ import java.util.List;
 
 public class CommonFunctions extends PageObject {
 
-<<<<<<< HEAD
-    FeedbackPage feedbackPage;
-
-    @Step
-    public void navigateToTab(String childTabName, String parentTabName) {
-
-        if ($(By.xpath(CommonSelectors.sideNav.replace("tabName", parentTabName))).isPresent()) {
-            waitABit(1000);
-            $(By.xpath(CommonSelectors.sideNav.replace("tabName", parentTabName))).click();
-            waitABit(2000);
-
-            if ($(By.xpath(CommonSelectors.sideNav.replace("tabName", childTabName))).isPresent()) {
-
-                $(By.xpath(CommonSelectors.sideNav.replace("tabName", childTabName))).click();
-            }
-
-            else{
-                Assert.fail("Unable to locate child tab");
-=======
 
 
     public void click(By locator)  {
@@ -46,12 +32,9 @@ public class CommonFunctions extends PageObject {
 
             if(element.isDisplayed()) {
                 element.click();
->>>>>>> 4d1076c49efc08b28d321fbaa10d9b403fcad344
             }
 
-        }
 
-<<<<<<< HEAD
         else {
             Assert.fail("Unable to locate parent tab");
         }
@@ -175,7 +158,9 @@ public class CommonFunctions extends PageObject {
     @Step
     public void verifyForError(String inputType) {
         switch (inputType) {
-            case "skill": {
+            case "skill":
+                ApplyToAnyLocators MySkillsLocators;
+            {
                 Assert.assertTrue($(By.xpath(MySkillsLocators.errorType.replace("ids", "ddlSkillTypeEdit"))).isPresent());
                 break;
             }
@@ -194,13 +179,8 @@ public class CommonFunctions extends PageObject {
             }
         }
     }
-}
 
-<<<<<<< HEAD
-=======
 
->>>>>>> c8da6efb1e59fb7559328e219a4e5d27385623ea
-=======
         public Boolean isPresent(By locator) {
             return $(locator).isPresent();
         }
@@ -241,8 +221,3 @@ public class CommonFunctions extends PageObject {
 
         }
 }
-
-
-
-
->>>>>>> 4d1076c49efc08b28d321fbaa10d9b403fcad344
