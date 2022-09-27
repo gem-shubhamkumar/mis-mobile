@@ -17,6 +17,7 @@
       <option name="url" value="https://repo.maven.apache.org/maven2/" />
     </remote-repository>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <remote-repository>
       <option name="id" value="MavenLocal" />
       <option name="name" value="MavenLocal" />
@@ -29,5 +30,7 @@
     </remote-repository>
 =======
 >>>>>>> e49d1ade399ce8927f9c789ced701b2f3abf7996
+=======
+>>>>>>> b2cd1f24557e5222d1eba35dd7b23d21eb90e2fc
   </component>
 </project>
