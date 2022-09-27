@@ -1,13 +1,20 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 4d1076c49efc08b28d321fbaa10d9b403fcad344
 defaultTasks 'clean', 'test', 'aggregate'
 
 apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'net.serenity-bdd.serenity-gradle-plugin'
+<<<<<<< HEAD
 apply plugin: 'test-report-aggregation'
 
+=======
+//apply plugin: 'test-report-aggregation'
+>>>>>>> 4d1076c49efc08b28d321fbaa10d9b403fcad344
 buildscript {
     repositories {
         maven{
@@ -25,6 +32,7 @@ repositories {
 }
 group 'org.example'
 version '1.0-SNAPSHOT'
+<<<<<<< HEAD
 
 
 =======
@@ -72,6 +80,8 @@ buildscript {
 =======
 
 >>>>>>> cd47945af98b36ba4a016b41e7e91c9a33939653
+=======
+>>>>>>> 4d1076c49efc08b28d321fbaa10d9b403fcad344
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
@@ -81,6 +91,9 @@ ext {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 4d1076c49efc08b28d321fbaa10d9b403fcad344
     serenityCucumberVersion = '3.3.0'
     junitVersion = '4.13.1'
     assertJVersion = '3.23.1'
@@ -88,6 +101,7 @@ ext {
     restAssuredVersion = '5.1.1'
     jsonVersion = '20210307'
 }
+<<<<<<< HEAD
 
 =======
     junitVersion = '4.13'
@@ -99,6 +113,8 @@ ext {
 
 
 >>>>>>> cd47945af98b36ba4a016b41e7e91c9a33939653
+=======
+>>>>>>> 4d1076c49efc08b28d321fbaa10d9b403fcad344
 dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
@@ -115,12 +131,16 @@ dependencies {
     //implementation group: 'net.serenity-bdd', name: 'serenity-cucumber6', version: '2.6.0'
     testImplementation group: 'net.serenity-bdd', name: 'serenity-cucumber', version: '3.3.2'
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 4d1076c49efc08b28d321fbaa10d9b403fcad344
     testImplementation group: 'net.serenity-bdd', name:'serenity-screenplay' , version: '3.2.5'
     testImplementation group: 'net.serenity-bdd', name:'serenity-screenplay-rest' , version: '3.2.5'
     testImplementation group: 'net.serenity-bdd', name:'serenity-rest-assured' , version: '3.2.5'
     testImplementation group: 'io.rest-assured', name:'rest-assured' , version: '5.1.1'
     testImplementation group: 'org.json', name:'json' , version: '20210307'
 }
+<<<<<<< HEAD
 reporting
         {
             reports {
@@ -130,6 +150,8 @@ reporting
                         }
             }
         }
+=======
+>>>>>>> 4d1076c49efc08b28d321fbaa10d9b403fcad344
 serenity {
     testRoot = "java"
     requirementsDir = "src/test/resources/features"
@@ -138,7 +160,11 @@ test
         {
             filter
                     {
+<<<<<<< HEAD
                //         includeTestsMatching "*"
+=======
+                        includeTestsMatching "com.gemini.mis.runner.*" //RunnerName
+>>>>>>> 4d1076c49efc08b28d321fbaa10d9b403fcad344
                     }
             // useJUnitPlatform()
             testLogging.showStandardStreams = true
@@ -147,6 +173,7 @@ test
         }
 gradle.startParameter.continueOnFailure = true
 
+<<<<<<< HEAD
 test.finalizedBy(aggregate)
 
 =======
@@ -233,3 +260,6 @@ gradle.startParameter.continueOnFailure = true
 
 test.finalizedBy(aggregate)
 >>>>>>> cd47945af98b36ba4a016b41e7e91c9a33939653
+=======
+test.finalizedBy(aggregate)
+>>>>>>> 4d1076c49efc08b28d321fbaa10d9b403fcad344

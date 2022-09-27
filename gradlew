@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> b2cd1f24557e5222d1eba35dd7b23d21eb90e2fc
 #!/bin/sh
@@ -8,13 +9,18 @@
 # Copyright © 2015-2021 the original authors.
 <<<<<<< HEAD
 =======
+=======
+>>>>>>> 4d1076c49efc08b28d321fbaa10d9b403fcad344
 #!/usr/bin/env sh
 
 #
 # Copyright 2015 the original author or authors.
+<<<<<<< HEAD
 >>>>>>> e49d1ade399ce8927f9c789ced701b2f3abf7996
 =======
 >>>>>>> b2cd1f24557e5222d1eba35dd7b23d21eb90e2fc
+=======
+>>>>>>> 4d1076c49efc08b28d321fbaa10d9b403fcad344
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -30,6 +36,7 @@
 #
 
 ##############################################################################
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -103,6 +110,8 @@ APP_NAME="Gradle"
 APP_BASE_NAME=${0##*/}
 <<<<<<< HEAD
 =======
+=======
+>>>>>>> 4d1076c49efc08b28d321fbaa10d9b403fcad344
 ##
 ##  Gradle start up script for UN*X
 ##
@@ -128,14 +137,18 @@ cd "$SAVED" >/dev/null
 
 APP_NAME="Gradle"
 APP_BASE_NAME=`basename "$0"`
+<<<<<<< HEAD
 >>>>>>> e49d1ade399ce8927f9c789ced701b2f3abf7996
 =======
 >>>>>>> b2cd1f24557e5222d1eba35dd7b23d21eb90e2fc
+=======
+>>>>>>> 4d1076c49efc08b28d321fbaa10d9b403fcad344
 
 # Add default JVM options here. You can also use JAVA_OPTS and GRADLE_OPTS to pass JVM options to this script.
 DEFAULT_JVM_OPTS='"-Xmx64m" "-Xms64m"'
 
 # Use the maximum available, or set MAX_FD != -1 to use that value.
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -147,14 +160,19 @@ warn () {
 } >&2
 <<<<<<< HEAD
 =======
+=======
+>>>>>>> 4d1076c49efc08b28d321fbaa10d9b403fcad344
 MAX_FD="maximum"
 
 warn () {
     echo "$*"
 }
+<<<<<<< HEAD
 >>>>>>> e49d1ade399ce8927f9c789ced701b2f3abf7996
 =======
 >>>>>>> b2cd1f24557e5222d1eba35dd7b23d21eb90e2fc
+=======
+>>>>>>> 4d1076c49efc08b28d321fbaa10d9b403fcad344
 
 die () {
     echo
@@ -163,6 +181,7 @@ die () {
     exit 1
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 } >&2
 =======
 }
@@ -170,12 +189,16 @@ die () {
 =======
 } >&2
 >>>>>>> b2cd1f24557e5222d1eba35dd7b23d21eb90e2fc
+=======
+}
+>>>>>>> 4d1076c49efc08b28d321fbaa10d9b403fcad344
 
 # OS specific support (must be 'true' or 'false').
 cygwin=false
 msys=false
 darwin=false
 nonstop=false
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -187,6 +210,8 @@ case "$( uname )" in                #(
   NONSTOP* )        nonstop=true ;;
 <<<<<<< HEAD
 =======
+=======
+>>>>>>> 4d1076c49efc08b28d321fbaa10d9b403fcad344
 case "`uname`" in
   CYGWIN* )
     cygwin=true
@@ -200,9 +225,12 @@ case "`uname`" in
   NONSTOP* )
     nonstop=true
     ;;
+<<<<<<< HEAD
 >>>>>>> e49d1ade399ce8927f9c789ced701b2f3abf7996
 =======
 >>>>>>> b2cd1f24557e5222d1eba35dd7b23d21eb90e2fc
+=======
+>>>>>>> 4d1076c49efc08b28d321fbaa10d9b403fcad344
 esac
 
 CLASSPATH=$APP_HOME/gradle/wrapper/gradle-wrapper.jar
@@ -212,6 +240,7 @@ CLASSPATH=$APP_HOME/gradle/wrapper/gradle-wrapper.jar
 if [ -n "$JAVA_HOME" ] ; then
     if [ -x "$JAVA_HOME/jre/sh/java" ] ; then
         # IBM's JDK on AIX uses strange locations for the executables
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
         JAVACMD=$JAVA_HOME/jre/sh/java
@@ -227,6 +256,11 @@ if [ -n "$JAVA_HOME" ] ; then
     else
         JAVACMD=$JAVA_HOME/bin/java
 >>>>>>> b2cd1f24557e5222d1eba35dd7b23d21eb90e2fc
+=======
+        JAVACMD="$JAVA_HOME/jre/sh/java"
+    else
+        JAVACMD="$JAVA_HOME/bin/java"
+>>>>>>> 4d1076c49efc08b28d321fbaa10d9b403fcad344
     fi
     if [ ! -x "$JAVACMD" ] ; then
         die "ERROR: JAVA_HOME is set to an invalid directory: $JAVA_HOME
@@ -237,6 +271,7 @@ location of your Java installation."
 else
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     JAVACMD=java
 =======
     JAVACMD="java"
@@ -244,6 +279,9 @@ else
 =======
     JAVACMD=java
 >>>>>>> b2cd1f24557e5222d1eba35dd7b23d21eb90e2fc
+=======
+    JAVACMD="java"
+>>>>>>> 4d1076c49efc08b28d321fbaa10d9b403fcad344
     which java >/dev/null 2>&1 || die "ERROR: JAVA_HOME is not set and no 'java' command could be found in your PATH.
 
 Please set the JAVA_HOME variable in your environment to match the
@@ -251,6 +289,7 @@ location of your Java installation."
 fi
 
 # Increase the maximum file descriptors if we can.
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -347,6 +386,8 @@ eval "set -- $(
     )" '"$@"'
 <<<<<<< HEAD
 =======
+=======
+>>>>>>> 4d1076c49efc08b28d321fbaa10d9b403fcad344
 if [ "$cygwin" = "false" -a "$darwin" = "false" -a "$nonstop" = "false" ] ; then
     MAX_FD_LIMIT=`ulimit -H -n`
     if [ $? -eq 0 ] ; then
@@ -422,8 +463,11 @@ APP_ARGS=`save "$@"`
 
 # Collect all arguments for the java command, following the shell quoting and substitution rules
 eval set -- $DEFAULT_JVM_OPTS $JAVA_OPTS $GRADLE_OPTS "\"-Dorg.gradle.appname=$APP_BASE_NAME\"" -classpath "\"$CLASSPATH\"" org.gradle.wrapper.GradleWrapperMain "$APP_ARGS"
+<<<<<<< HEAD
 >>>>>>> e49d1ade399ce8927f9c789ced701b2f3abf7996
 =======
 >>>>>>> b2cd1f24557e5222d1eba35dd7b23d21eb90e2fc
+=======
+>>>>>>> 4d1076c49efc08b28d321fbaa10d9b403fcad344
 
 exec "$JAVACMD" "$@"

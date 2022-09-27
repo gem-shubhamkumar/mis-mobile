@@ -1,0 +1,22 @@
+package com.gemini.mis.selectors;
+
+public class GenericFunctionPOM  {
+
+    public static String screenNavigation="//span[@class='lbl'][text()='SCREENNAME']";
+    public static String loginMsg = "//div[@class='loginMsgDiv']";
+
+    public static String homePageXpath = "//input[@id='name']";
+
+    public static String logo = "//img[@id='GemLogo']";
+    public static String designation = "//div[@id='designation']";
+
+    public static String cardToggleMinimize = "//h3[text()='card']//parent::header/div/ul/li/a[@data-title='buttonName']";
+
+    public static String cardToggleMaximize = "(//h3[text()='card']//parent::header/div/ul/li)[2]/a";
+
+    public static String collapsedCard = "//section[contains(@class, 'panel-collapsed')]/header/h3";
+
+    public static String fullScreenCard = "//section[contains(@class, 'panel-expanded')]/header/h3";
+    public static String genericButton = "//button[@id='ids']";
+
+}
