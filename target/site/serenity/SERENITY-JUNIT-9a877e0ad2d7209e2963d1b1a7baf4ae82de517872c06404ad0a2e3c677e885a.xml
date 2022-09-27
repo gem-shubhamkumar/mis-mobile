@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="4" failures="0" name="Login MIS Application Activities" skipped="0" tests="11" time="105.5" timestamp="2022-09-27 02:03:47"><testcase name="User verifies elements of Login page"/><testcase name="User Clicks on Sign In without entering Credentials"/><testcase name="User Enters only username and Clicks on Sign In"><error message="no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//*[text()='Password is required.']&quot;}&#10;  (Session info: chrome=105.0.5195.127)&#10;For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element&#10;Build info: version: '4.4.0', revision: 'e5c75ed026a'&#10;System info: host: 'GEMGN-210132', ip: '192.168.1.7', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_342'&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Command: [c43744b1d5a3c8ab6fd7de6159752ac0, findElement {using=xpath, value=//*[text()='Password is required.']}]&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 105.0.5195.127, chrome: {chromedriverVersion: 105.0.5195.52 (412c95e51883..., userDataDir: C:\Users\CH335D~1.SRI\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:61242}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:61242/devtoo..., se:cdpVersion: 105.0.5195.127, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}&#10;Session ID: c43744b1d5a3c8ab6fd7de6159752ac0&#10;For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element&#10;Build info: version: '4.4.0', revision: 'e5c75ed026a'&#10;System info: host: 'GEMGN-210132', ip: '192.168.1.7', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_342'&#10;Driver info: driver.version: unknown" type="org.openqa.selenium.NoSuchElementException">no such element: Unable to locate element: {"method":"xpath","selector":"//*[text()='Password is required.']"}
+  (Session info: chrome=105.0.5195.127)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: '4.4.0', revision: 'e5c75ed026a'
+System info: host: 'GEMGN-210132', ip: '192.168.1.7', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_342'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [c43744b1d5a3c8ab6fd7de6159752ac0, findElement {using=xpath, value=//*[text()='Password is required.']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 105.0.5195.127, chrome: {chromedriverVersion: 105.0.5195.52 (412c95e51883..., userDataDir: C:\Users\CH335D~1.SRI\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:61242}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:61242/devtoo..., se:cdpVersion: 105.0.5195.127, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: c43744b1d5a3c8ab6fd7de6159752ac0
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: '4.4.0', revision: 'e5c75ed026a'
+System info: host: 'GEMGN-210132', ip: '192.168.1.7', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_342'
+Driver info: driver.version: unknown</error><system-err>no such element: Unable to locate element: {"method":"xpath","selector":"//*[text()='Password is required.']"}
+  (Session info: chrome=105.0.5195.127)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: '4.4.0', revision: 'e5c75ed026a'
+System info: host: 'GEMGN-210132', ip: '192.168.1.7', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_342'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [c43744b1d5a3c8ab6fd7de6159752ac0, findElement {using=xpath, value=//*[text()='Password is required.']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 105.0.5195.127, chrome: {chromedriverVersion: 105.0.5195.52 (412c95e51883..., userDataDir: C:\Users\CH335D~1.SRI\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:61242}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:61242/devtoo..., se:cdpVersion: 105.0.5195.127, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: c43744b1d5a3c8ab6fd7de6159752ac0
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: '4.4.0', revision: 'e5c75ed026a'
+System info: host: 'GEMGN-210132', ip: '192.168.1.7', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_342'
+Driver info: driver.version: unknown&#13;
+com.gemini.mis.commonfunctions.CommonFunctions.isElementExist(CommonFunctions.java:59)&#13;
+com.gemini.mis.pages.LoginPage.isElementExist(LoginPage.java:42)&#13;
+stepDefinitions.MISLogin.userVerifiesElement(MISLogin.java:95)&#13;
+✽.User verifies element "Password is required."(file:///C:/Users/ch.srivastava/IdeaProjects/MISAutomation/src/test/resources/features/MISLogin.feature:34)&#13;
+</system-err></testcase><testcase name="User Enter only password and Clicks on Sign In"><error message="no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//*[text()='Username is required.']&quot;}&#10;  (Session info: chrome=105.0.5195.127)&#10;For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element&#10;Build info: version: '4.4.0', revision: 'e5c75ed026a'&#10;System info: host: 'GEMGN-210132', ip: '192.168.1.7', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_342'&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Command: [a2724d91c398bd9413b581b84b1c8801, findElement {using=xpath, value=//*[text()='Username is required.']}]&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 105.0.5195.127, chrome: {chromedriverVersion: 105.0.5195.52 (412c95e51883..., userDataDir: C:\Users\CH335D~1.SRI\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:61271}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:61271/devtoo..., se:cdpVersion: 105.0.5195.127, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}&#10;Session ID: a2724d91c398bd9413b581b84b1c8801&#10;For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element&#10;Build info: version: '4.4.0', revision: 'e5c75ed026a'&#10;System info: host: 'GEMGN-210132', ip: '192.168.1.7', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_342'&#10;Driver info: driver.version: unknown" type="org.openqa.selenium.NoSuchElementException">no such element: Unable to locate element: {"method":"xpath","selector":"//*[text()='Username is required.']"}
+  (Session info: chrome=105.0.5195.127)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: '4.4.0', revision: 'e5c75ed026a'
+System info: host: 'GEMGN-210132', ip: '192.168.1.7', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_342'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [a2724d91c398bd9413b581b84b1c8801, findElement {using=xpath, value=//*[text()='Username is required.']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 105.0.5195.127, chrome: {chromedriverVersion: 105.0.5195.52 (412c95e51883..., userDataDir: C:\Users\CH335D~1.SRI\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:61271}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:61271/devtoo..., se:cdpVersion: 105.0.5195.127, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: a2724d91c398bd9413b581b84b1c8801
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: '4.4.0', revision: 'e5c75ed026a'
+System info: host: 'GEMGN-210132', ip: '192.168.1.7', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_342'
+Driver info: driver.version: unknown</error><system-err>no such element: Unable to locate element: {"method":"xpath","selector":"//*[text()='Username is required.']"}
+  (Session info: chrome=105.0.5195.127)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: '4.4.0', revision: 'e5c75ed026a'
+System info: host: 'GEMGN-210132', ip: '192.168.1.7', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_342'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [a2724d91c398bd9413b581b84b1c8801, findElement {using=xpath, value=//*[text()='Username is required.']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 105.0.5195.127, chrome: {chromedriverVersion: 105.0.5195.52 (412c95e51883..., userDataDir: C:\Users\CH335D~1.SRI\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:61271}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:61271/devtoo..., se:cdpVersion: 105.0.5195.127, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: a2724d91c398bd9413b581b84b1c8801
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: '4.4.0', revision: 'e5c75ed026a'
+System info: host: 'GEMGN-210132', ip: '192.168.1.7', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_342'
+Driver info: driver.version: unknown&#13;
+com.gemini.mis.commonfunctions.CommonFunctions.isElementExist(CommonFunctions.java:59)&#13;
+com.gemini.mis.pages.LoginPage.isElementExist(LoginPage.java:42)&#13;
+stepDefinitions.MISLogin.userVerifiesElement(MISLogin.java:95)&#13;
+✽.User verifies element "Username is required."(file:///C:/Users/ch.srivastava/IdeaProjects/MISAutomation/src/test/resources/features/MISLogin.feature:44)&#13;
+</system-err></testcase><testcase name="User Enters Invalid Credentials"/><testcase name="User Login to the Application via SSO"/><testcase name="User Login to the Application"><error message="Expected condition failed: waiting for visibility of element located by By.xpath: //a[text()='Change AD Password'] (tried for 5 second(s) with 50 milliseconds interval)&#10;Build info: version: '4.4.0', revision: 'e5c75ed026a'&#10;System info: host: 'GEMGN-210132', ip: '192.168.1.7', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_342'&#10;Driver info: driver.version: unknown&#10;Build info: version: '4.4.0', revision: 'e5c75ed026a'&#10;System info: host: 'GEMGN-210132', ip: '192.168.1.7', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_342'&#10;Driver info: driver.version: unknown" type="org.openqa.selenium.TimeoutException">Expected condition failed: waiting for visibility of element located by By.xpath: //a[text()='Change AD Password'] (tried for 5 second(s) with 50 milliseconds interval)
+Build info: version: '4.4.0', revision: 'e5c75ed026a'
+System info: host: 'GEMGN-210132', ip: '192.168.1.7', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_342'
+Driver info: driver.version: unknown
+Build info: version: '4.4.0', revision: 'e5c75ed026a'
+System info: host: 'GEMGN-210132', ip: '192.168.1.7', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_342'
+Driver info: driver.version: unknown</error><system-err>Expected condition failed: waiting for visibility of element located by By.xpath: //a[text()='Change AD Password'] (tried for 5 second(s) with 50 milliseconds interval)
+Build info: version: '4.4.0', revision: 'e5c75ed026a'
+System info: host: 'GEMGN-210132', ip: '192.168.1.7', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_342'
+Driver info: driver.version: unknown
+Build info: version: '4.4.0', revision: 'e5c75ed026a'
+System info: host: 'GEMGN-210132', ip: '192.168.1.7', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_342'
+Driver info: driver.version: unknown&#13;
+com.gemini.mis.commonfunctions.CommonFunctions.WaitTillElementVisible(CommonFunctions.java:52)&#13;
+com.gemini.mis.pages.LoginPage.WaitTillElementIsVisible(LoginPage.java:37)&#13;
+stepDefinitions.MISLogin.user_verifies_landing_page(MISLogin.java:45)&#13;
+✽.User Verifies Landing Page(file:///C:/Users/ch.srivastava/IdeaProjects/MISAutomation/src/test/resources/features/MISLogin.feature:81)&#13;
+</system-err></testcase><testcase name="User clicks on Forget Password"><error message="Expected condition failed: waiting for visibility of element located by By.xpath: //input[@value='Reset Password'] (tried for 5 second(s) with 50 milliseconds interval)&#10;Build info: version: '4.4.0', revision: 'e5c75ed026a'&#10;System info: host: 'GEMGN-210132', ip: '192.168.1.7', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_342'&#10;Driver info: driver.version: unknown&#10;Build info: version: '4.4.0', revision: 'e5c75ed026a'&#10;System info: host: 'GEMGN-210132', ip: '192.168.1.7', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_342'&#10;Driver info: driver.version: unknown" type="org.openqa.selenium.TimeoutException">Expected condition failed: waiting for visibility of element located by By.xpath: //input[@value='Reset Password'] (tried for 5 second(s) with 50 milliseconds interval)
+Build info: version: '4.4.0', revision: 'e5c75ed026a'
+System info: host: 'GEMGN-210132', ip: '192.168.1.7', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_342'
+Driver info: driver.version: unknown
+Build info: version: '4.4.0', revision: 'e5c75ed026a'
+System info: host: 'GEMGN-210132', ip: '192.168.1.7', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_342'
+Driver info: driver.version: unknown</error><system-err>Expected condition failed: waiting for visibility of element located by By.xpath: //input[@value='Reset Password'] (tried for 5 second(s) with 50 milliseconds interval)
+Build info: version: '4.4.0', revision: 'e5c75ed026a'
+System info: host: 'GEMGN-210132', ip: '192.168.1.7', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_342'
+Driver info: driver.version: unknown
+Build info: version: '4.4.0', revision: 'e5c75ed026a'
+System info: host: 'GEMGN-210132', ip: '192.168.1.7', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_342'
+Driver info: driver.version: unknown&#13;
+com.gemini.mis.commonfunctions.CommonFunctions.WaitTillElementVisible(CommonFunctions.java:52)&#13;
+com.gemini.mis.pages.LoginPage.WaitTillElementIsVisible(LoginPage.java:37)&#13;
+stepDefinitions.MISLogin.userIsNavigatedToResetPasswordPage(MISLogin.java:77)&#13;
+✽.User is navigated to Reset Password page(file:///C:/Users/ch.srivastava/IdeaProjects/MISAutomation/src/test/resources/features/MISLogin.feature:93)&#13;
+</system-err></testcase><testcase name="User Clicks on Reset linking without giving username"/><testcase name="User clicks on forgot password and enters invalid username."/><testcase name="User navigate back to sign In Page"/></testsuite>

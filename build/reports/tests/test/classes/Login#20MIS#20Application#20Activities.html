@@ -23,13 +23,13 @@
 <tr>
 <td>
 <div class="infoBox" id="tests">
-<div class="counter">5</div>
+<div class="counter">11</div>
 <p>tests</p>
 </div>
 </td>
 <td>
 <div class="infoBox" id="failures">
-<div class="counter">0</div>
+<div class="counter">4</div>
 <p>failures</p>
 </div>
 </td>
@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">40.347s</div>
+<div class="counter">1m45.74s</div>
 <p>duration</p>
 </div>
 </td>
@@ -50,8 +50,8 @@
 </div>
 </td>
 <td>
-<div class="infoBox success" id="successRate">
-<div class="percent">100%</div>
+<div class="infoBox failures" id="successRate">
+<div class="percent">63%</div>
 <p>successful</p>
 </div>
 </td>
@@ -61,13 +61,137 @@
 <div id="tabs">
 <ul class="tabLinks">
 <li>
-<a href="#tab0">Tests</a>
+<a href="#tab0">Failed tests</a>
 </li>
 <li>
-<a href="#tab1">Standard error</a>
+<a href="#tab1">Tests</a>
+</li>
+<li>
+<a href="#tab2">Standard error</a>
 </li>
 </ul>
 <div id="tab0" class="tab">
+<h2>Failed tests</h2>
+<div class="test">
+<a name="User Enter only password and Clicks on Sign In"></a>
+<h3 class="failures">User Enter only password and Clicks on Sign In</h3>
+<span class="code">
+<pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//*[text()='Username is required.']&quot;}
+  (Session info: chrome=105.0.5195.127)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: '4.4.0', revision: 'e5c75ed026a'
+System info: host: 'GEMGN-210132', ip: '192.168.1.7', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_342'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [a2724d91c398bd9413b581b84b1c8801, findElement {using=xpath, value=//*[text()='Username is required.']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 105.0.5195.127, chrome: {chromedriverVersion: 105.0.5195.52 (412c95e51883..., userDataDir: C:\Users\CH335D~1.SRI\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:61271}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:61271/devtoo..., se:cdpVersion: 105.0.5195.127, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: a2724d91c398bd9413b581b84b1c8801
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:167)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:142)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:547)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:162)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:365)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:357)
+	at net.thucydides.core.webdriver.WebDriverFacade.findElement(WebDriverFacade.java:246)
+	at net.serenitybdd.core.pages.WebElementResolverByLocator.resolveForDriver(WebElementResolverByLocator.java:25)
+	at net.serenitybdd.core.pages.WebElementFacadeImpl.getResolvedElement(WebElementFacadeImpl.java:186)
+	at net.serenitybdd.core.pages.WebElementFacadeImpl.getElement(WebElementFacadeImpl.java:181)
+	at net.serenitybdd.core.pages.WebElementFacadeImpl.isDisplayed(WebElementFacadeImpl.java:1310)
+	at com.gemini.mis.commonfunctions.CommonFunctions.isElementExist(CommonFunctions.java:59)
+	at com.gemini.mis.pages.LoginPage.isElementExist(LoginPage.java:42)
+	at stepDefinitions.MISLogin.userVerifiesElement(MISLogin.java:95)
+	at ✽.User verifies element &quot;Username is required.&quot;(file:///C:/Users/ch.srivastava/IdeaProjects/MISAutomation/src/test/resources/features/MISLogin.feature:44)
+</pre>
+</span>
+</div>
+<div class="test">
+<a name="User Enters only username and Clicks on Sign In"></a>
+<h3 class="failures">User Enters only username and Clicks on Sign In</h3>
+<span class="code">
+<pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//*[text()='Password is required.']&quot;}
+  (Session info: chrome=105.0.5195.127)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: '4.4.0', revision: 'e5c75ed026a'
+System info: host: 'GEMGN-210132', ip: '192.168.1.7', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_342'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [c43744b1d5a3c8ab6fd7de6159752ac0, findElement {using=xpath, value=//*[text()='Password is required.']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 105.0.5195.127, chrome: {chromedriverVersion: 105.0.5195.52 (412c95e51883..., userDataDir: C:\Users\CH335D~1.SRI\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:61242}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:61242/devtoo..., se:cdpVersion: 105.0.5195.127, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: c43744b1d5a3c8ab6fd7de6159752ac0
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:167)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:142)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:547)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:162)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:365)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:357)
+	at net.thucydides.core.webdriver.WebDriverFacade.findElement(WebDriverFacade.java:246)
+	at net.serenitybdd.core.pages.WebElementResolverByLocator.resolveForDriver(WebElementResolverByLocator.java:25)
+	at net.serenitybdd.core.pages.WebElementFacadeImpl.getResolvedElement(WebElementFacadeImpl.java:186)
+	at net.serenitybdd.core.pages.WebElementFacadeImpl.getElement(WebElementFacadeImpl.java:181)
+	at net.serenitybdd.core.pages.WebElementFacadeImpl.isDisplayed(WebElementFacadeImpl.java:1310)
+	at com.gemini.mis.commonfunctions.CommonFunctions.isElementExist(CommonFunctions.java:59)
+	at com.gemini.mis.pages.LoginPage.isElementExist(LoginPage.java:42)
+	at stepDefinitions.MISLogin.userVerifiesElement(MISLogin.java:95)
+	at ✽.User verifies element &quot;Password is required.&quot;(file:///C:/Users/ch.srivastava/IdeaProjects/MISAutomation/src/test/resources/features/MISLogin.feature:34)
+</pre>
+</span>
+</div>
+<div class="test">
+<a name="User Login to the Application"></a>
+<h3 class="failures">User Login to the Application</h3>
+<span class="code">
+<pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //a[text()='Change AD Password'] (tried for 5 second(s) with 50 milliseconds interval)
+Build info: version: '4.4.0', revision: 'e5c75ed026a'
+System info: host: 'GEMGN-210132', ip: '192.168.1.7', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_342'
+Driver info: driver.version: unknown
+	at org.openqa.selenium.support.ui.FluentWait.timeoutException(FluentWait.java:263)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
+	at net.serenitybdd.core.pages.RenderedPageObjectView.waitFor(RenderedPageObjectView.java:111)
+	at net.serenitybdd.core.pages.PageObject.waitFor(PageObject.java:415)
+	at com.gemini.mis.commonfunctions.CommonFunctions.WaitTillElementVisible(CommonFunctions.java:52)
+	at com.gemini.mis.pages.LoginPage.WaitTillElementIsVisible(LoginPage.java:37)
+	at stepDefinitions.MISLogin.user_verifies_landing_page(MISLogin.java:45)
+	at ✽.User Verifies Landing Page(file:///C:/Users/ch.srivastava/IdeaProjects/MISAutomation/src/test/resources/features/MISLogin.feature:81)
+</pre>
+</span>
+</div>
+<div class="test">
+<a name="User clicks on Forget Password"></a>
+<h3 class="failures">User clicks on Forget Password</h3>
+<span class="code">
+<pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //input[@value='Reset Password'] (tried for 5 second(s) with 50 milliseconds interval)
+Build info: version: '4.4.0', revision: 'e5c75ed026a'
+System info: host: 'GEMGN-210132', ip: '192.168.1.7', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_342'
+Driver info: driver.version: unknown
+	at org.openqa.selenium.support.ui.FluentWait.timeoutException(FluentWait.java:263)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
+	at net.serenitybdd.core.pages.RenderedPageObjectView.waitFor(RenderedPageObjectView.java:111)
+	at net.serenitybdd.core.pages.PageObject.waitFor(PageObject.java:415)
+	at com.gemini.mis.commonfunctions.CommonFunctions.WaitTillElementVisible(CommonFunctions.java:52)
+	at com.gemini.mis.pages.LoginPage.WaitTillElementIsVisible(LoginPage.java:37)
+	at stepDefinitions.MISLogin.userIsNavigatedToResetPasswordPage(MISLogin.java:77)
+	at ✽.User is navigated to Reset Password page(file:///C:/Users/ch.srivastava/IdeaProjects/MISAutomation/src/test/resources/features/MISLogin.feature:93)
+</pre>
+</span>
+</div>
+</div>
+<div id="tab1" class="tab">
 <h2>Tests</h2>
 <table>
 <thead>
@@ -78,84 +202,174 @@
 </tr>
 </thead>
 <tr>
-<td class="success">User Clicks on Sign In without entering Credentials</td>
-<td class="success">9.955s</td>
+<td class="success">User Clicks on Reset linking without giving username</td>
+<td class="success">9.452s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
-<td class="success">User Enter only password and Clicks on Sign In</td>
-<td class="success">6.226s</td>
+<td class="success">User Clicks on Sign In without entering Credentials</td>
+<td class="success">9.109s</td>
 <td class="success">passed</td>
+</tr>
+<tr>
+<td class="failures">User Enter only password and Clicks on Sign In</td>
+<td class="failures">8.327s</td>
+<td class="failures">failed</td>
 </tr>
 <tr>
 <td class="success">User Enters Invalid Credentials</td>
-<td class="success">7.166s</td>
+<td class="success">7.262s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
-<td class="success">User Enters only username and Clicks on Sign In</td>
-<td class="success">6.307s</td>
+<td class="failures">User Enters only username and Clicks on Sign In</td>
+<td class="failures">8.681s</td>
+<td class="failures">failed</td>
+</tr>
+<tr>
+<td class="failures">User Login to the Application</td>
+<td class="failures">12.001s</td>
+<td class="failures">failed</td>
+</tr>
+<tr>
+<td class="success">User Login to the Application via SSO</td>
+<td class="success">7.984s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
-<td class="success">User Login to the Application</td>
-<td class="success">10.693s</td>
+<td class="failures">User clicks on Forget Password</td>
+<td class="failures">15.482s</td>
+<td class="failures">failed</td>
+</tr>
+<tr>
+<td class="success">User clicks on forgot password and enters invalid username.</td>
+<td class="success">9.250s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">User navigate back to sign In Page</td>
+<td class="success">8.598s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">User verifies elements of Login page</td>
+<td class="success">9.592s</td>
 <td class="success">passed</td>
 </tr>
 </table>
 </div>
-<div id="tab1" class="tab">
+<div id="tab2" class="tab">
 <h2>Standard error</h2>
 <span class="code">
-<pre>Starting ChromeDriver 105.0.5195.52 (412c95e518836d8a7d97250d62b29c2ae6a26a85-refs/branch-heads/5195@{#853}) on port 51245
+<pre>Starting ChromeDriver 105.0.5195.52 (412c95e518836d8a7d97250d62b29c2ae6a26a85-refs/branch-heads/5195@{#853}) on port 63635
 Only local connections are allowed.
 Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
 ChromeDriver was started successfully.
-Sep 26, 2022 1:58:15 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+Sep 27, 2022 2:03:50 PM org.openqa.selenium.remote.ProtocolHandshake createSession
 INFO: Detected upstream dialect: W3C
-Sep 26, 2022 1:58:15 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+Sep 27, 2022 2:03:50 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 WARNING: Unable to find an exact match for CDP version 105, so returning the closest version found: 104
-Sep 26, 2022 1:58:15 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+Sep 27, 2022 2:03:50 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 INFO: Found CDP implementation for version 105 of 104
-Starting ChromeDriver 105.0.5195.52 (412c95e518836d8a7d97250d62b29c2ae6a26a85-refs/branch-heads/5195@{#853}) on port 64605
+Starting ChromeDriver 105.0.5195.52 (412c95e518836d8a7d97250d62b29c2ae6a26a85-refs/branch-heads/5195@{#853}) on port 50314
 Only local connections are allowed.
 Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
 ChromeDriver was started successfully.
-Sep 26, 2022 1:58:24 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+Sep 27, 2022 2:03:58 PM org.openqa.selenium.remote.ProtocolHandshake createSession
 INFO: Detected upstream dialect: W3C
-Sep 26, 2022 1:58:24 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+Sep 27, 2022 2:03:58 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 WARNING: Unable to find an exact match for CDP version 105, so returning the closest version found: 104
-Sep 26, 2022 1:58:24 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+Sep 27, 2022 2:03:58 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 INFO: Found CDP implementation for version 105 of 104
-Starting ChromeDriver 105.0.5195.52 (412c95e518836d8a7d97250d62b29c2ae6a26a85-refs/branch-heads/5195@{#853}) on port 57193
+Starting ChromeDriver 105.0.5195.52 (412c95e518836d8a7d97250d62b29c2ae6a26a85-refs/branch-heads/5195@{#853}) on port 55591
 Only local connections are allowed.
 Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
 ChromeDriver was started successfully.
-Sep 26, 2022 1:58:30 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+Sep 27, 2022 2:04:07 PM org.openqa.selenium.remote.ProtocolHandshake createSession
 INFO: Detected upstream dialect: W3C
-Sep 26, 2022 1:58:30 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+Sep 27, 2022 2:04:07 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 WARNING: Unable to find an exact match for CDP version 105, so returning the closest version found: 104
-Sep 26, 2022 1:58:30 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+Sep 27, 2022 2:04:07 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 INFO: Found CDP implementation for version 105 of 104
-Starting ChromeDriver 105.0.5195.52 (412c95e518836d8a7d97250d62b29c2ae6a26a85-refs/branch-heads/5195@{#853}) on port 59670
+Starting ChromeDriver 105.0.5195.52 (412c95e518836d8a7d97250d62b29c2ae6a26a85-refs/branch-heads/5195@{#853}) on port 56882
 Only local connections are allowed.
 Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
 ChromeDriver was started successfully.
-Sep 26, 2022 1:58:37 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+Sep 27, 2022 2:04:16 PM org.openqa.selenium.remote.ProtocolHandshake createSession
 INFO: Detected upstream dialect: W3C
-Sep 26, 2022 1:58:37 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+Sep 27, 2022 2:04:16 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 WARNING: Unable to find an exact match for CDP version 105, so returning the closest version found: 104
-Sep 26, 2022 1:58:37 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+Sep 27, 2022 2:04:16 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 INFO: Found CDP implementation for version 105 of 104
-Starting ChromeDriver 105.0.5195.52 (412c95e518836d8a7d97250d62b29c2ae6a26a85-refs/branch-heads/5195@{#853}) on port 61505
+Starting ChromeDriver 105.0.5195.52 (412c95e518836d8a7d97250d62b29c2ae6a26a85-refs/branch-heads/5195@{#853}) on port 50182
 Only local connections are allowed.
 Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
 ChromeDriver was started successfully.
-Sep 26, 2022 1:58:44 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+Sep 27, 2022 2:04:24 PM org.openqa.selenium.remote.ProtocolHandshake createSession
 INFO: Detected upstream dialect: W3C
-Sep 26, 2022 1:58:44 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+Sep 27, 2022 2:04:24 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 WARNING: Unable to find an exact match for CDP version 105, so returning the closest version found: 104
-Sep 26, 2022 1:58:44 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+Sep 27, 2022 2:04:24 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+INFO: Found CDP implementation for version 105 of 104
+Starting ChromeDriver 105.0.5195.52 (412c95e518836d8a7d97250d62b29c2ae6a26a85-refs/branch-heads/5195@{#853}) on port 64077
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+ChromeDriver was started successfully.
+Sep 27, 2022 2:04:32 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected upstream dialect: W3C
+Sep 27, 2022 2:04:32 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find an exact match for CDP version 105, so returning the closest version found: 104
+Sep 27, 2022 2:04:32 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+INFO: Found CDP implementation for version 105 of 104
+Starting ChromeDriver 105.0.5195.52 (412c95e518836d8a7d97250d62b29c2ae6a26a85-refs/branch-heads/5195@{#853}) on port 49830
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+ChromeDriver was started successfully.
+Sep 27, 2022 2:04:40 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected upstream dialect: W3C
+Sep 27, 2022 2:04:40 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find an exact match for CDP version 105, so returning the closest version found: 104
+Sep 27, 2022 2:04:40 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+INFO: Found CDP implementation for version 105 of 104
+Starting ChromeDriver 105.0.5195.52 (412c95e518836d8a7d97250d62b29c2ae6a26a85-refs/branch-heads/5195@{#853}) on port 51433
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+ChromeDriver was started successfully.
+Sep 27, 2022 2:04:52 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected upstream dialect: W3C
+Sep 27, 2022 2:04:52 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find an exact match for CDP version 105, so returning the closest version found: 104
+Sep 27, 2022 2:04:52 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+INFO: Found CDP implementation for version 105 of 104
+Starting ChromeDriver 105.0.5195.52 (412c95e518836d8a7d97250d62b29c2ae6a26a85-refs/branch-heads/5195@{#853}) on port 54214
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+ChromeDriver was started successfully.
+Sep 27, 2022 2:05:07 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected upstream dialect: W3C
+Sep 27, 2022 2:05:07 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find an exact match for CDP version 105, so returning the closest version found: 104
+Sep 27, 2022 2:05:07 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+INFO: Found CDP implementation for version 105 of 104
+Starting ChromeDriver 105.0.5195.52 (412c95e518836d8a7d97250d62b29c2ae6a26a85-refs/branch-heads/5195@{#853}) on port 64726
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+ChromeDriver was started successfully.
+Sep 27, 2022 2:05:16 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected upstream dialect: W3C
+Sep 27, 2022 2:05:16 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find an exact match for CDP version 105, so returning the closest version found: 104
+Sep 27, 2022 2:05:16 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+INFO: Found CDP implementation for version 105 of 104
+Starting ChromeDriver 105.0.5195.52 (412c95e518836d8a7d97250d62b29c2ae6a26a85-refs/branch-heads/5195@{#853}) on port 61794
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+ChromeDriver was started successfully.
+Sep 27, 2022 2:05:26 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected upstream dialect: W3C
+Sep 27, 2022 2:05:26 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find an exact match for CDP version 105, so returning the closest version found: 104
+Sep 27, 2022 2:05:26 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 INFO: Found CDP implementation for version 105 of 104
 </pre>
 </span>
@@ -168,7 +382,7 @@ INFO: Found CDP implementation for version 105 of 104
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 7.1</a> at Sep 26, 2022 1:58:55 PM</p>
+<a href="http://www.gradle.org">Gradle 7.1</a> at Sep 27, 2022 2:05:35 PM</p>
 </div>
 </div>
 </body>

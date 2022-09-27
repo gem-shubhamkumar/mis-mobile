@@ -151,7 +151,7 @@
             <a href="576946480b52ad056d6f5bddf874399c83582ecf90963cc074a14c70580e7d9f.html"><i class="bi bi-chat-text"></i> Features</a>
         </li>
     </ul>
-    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 26-09-2022 13:58</span>
+    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 27-09-2022 14:04</span>
     <br style="clear:left"/>
 </div>
 
@@ -189,9 +189,9 @@
                 <table class="outcome-header">
                     <tr>
                         <td colspan="2" class="test-title-bar">
-                            <span class="outcome-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon fa-2x' title='SUCCESS'></i></a></span>
+                            <span class="outcome-icon"><a href='##beforetable'><i class='bi bi-exclamation-triangle-fill error-icon fa-2x' title='ERROR'></i></a></span>
                             <span class="test-case-title">
-                                <span class="success-color">User Enters only username and Clicks on Sign In
+                                <span class="error-color">User Enters only username and Clicks on Sign In
                                     <span class="related-issue-title"></span>
                                 </span>
                             </span>
@@ -207,22 +207,57 @@
 
     <div class="story-title">
         <h3>Scenario:</h3>
-        <div class="scenario">Given User enters Username as "&lt;username&gt;"<br>Then User clicks on sign in<br>And User verifies error message for "&lt;Password Alert Message&gt;"</div>
+        <div class="scenario">Given User enters Username as "&lt;username&gt;"<br>Then User clicks on sign in<br>And User verifies element "&lt;Password Alert Message&gt;"</div>
     </div>
 
     <div id="beforetable"></div>
     <div id="contenttilttle">
+            <div class="screenshotFailure panel panel-danger">
+    <div style="display:block">
+        <div class="table">
+            <div class="row">
+                <div class="col-sm-10" style="padding-left:1.5em; padding-top:0.5em; padding-bottom:0.5em;">
+                    <span class="error-message error-message-title">No such element exception: no such element: Unable to locate element: {'method':'xpath','selector':'//*[text()='Password is required.']'}</span>
+                </div>
+                <div class="col-sm-2">
+                    <a class="btn btn-warning details-button" data-toggle="collapse" href="#stacktraceModal-overall"
+                       role="button" aria-expanded="false" aria-controls="multiCollapseExample1"><i class="bi bi-eye"></i> More details</a>
+                </div>
+             </div>
+        </div>
+    <div>
+
+    <!-- Details Section -->
+    <div class="row stacktrace-details">
+      <div class="col">
+        <div class="collapse multi-collapse" id="stacktraceModal-overall">
+            <div class="card">
+                <div class="card-header">
+                    <h4>org.openqa.selenium.NoSuchElementException </h4>
+                </div>
+                <div class="card-body">
+                    <div>
+                        <pre>com.gemini.mis.commonfunctions.CommonFunctions.isElementExist(CommonFunctions.java:59)<br />com.gemini.mis.pages.LoginPage.isElementExist(LoginPage.java:42)<br />stepDefinitions.MISLogin.userVerifiesElement(MISLogin.java:95)<br />✽.User verifies element "Password is required."(file:///C:/Users/ch.srivastava/IdeaProjects/MISAutomation/src/test/resources/features/MISLogin.feature:34)<br /></pre>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+                <div class="panel-body">
+                    <a href="pagesource6207327987782584324.html" target="_blank" class="btn btn-info">HTML Source</a>
+                </div>
+            </div>
         <div class="slider-wrapper theme-default">
             <div id="slider">
                 <img src="e6425c2eaf2f6f62035494203d10ad2f3ba3fee2903731914bfa93e1db9143fa.png" title=" 1: User Enters only username and Clicks on Sign In ({username=charu.srivastava, Password Alert Message=Password is required.})" width="1366"/>
                 <img src="e6425c2eaf2f6f62035494203d10ad2f3ba3fee2903731914bfa93e1db9143fa.png" title=" Given User opens MIS Beta page &quot;https://mymis.geminisolutions.com/&quot;" width="1366"/>
-                <img src="e6425c2eaf2f6f62035494203d10ad2f3ba3fee2903731914bfa93e1db9143fa.png" title=" And User Verifies all elements of Login Page" width="1366"/>
                 <img src="e6425c2eaf2f6f62035494203d10ad2f3ba3fee2903731914bfa93e1db9143fa.png" title=" Given User enters Username as &quot;charu.srivastava&quot;" width="1366"/>
                 <img src="14a584534ed9f092e9d9ef817004e349fd915a3fcefa4cc348d4e7cff921dd9b.png" title=" Given User enters Username as &quot;charu.srivastava&quot; (completed)" width="1366"/>
                 <img src="14a584534ed9f092e9d9ef817004e349fd915a3fcefa4cc348d4e7cff921dd9b.png" title=" Then User clicks on sign in" width="1366"/>
-                <img src="3bfa8a36644105f5b4474d681942b87ef4e396a31b472da2d57b3248df50c98e.png" title=" Then User clicks on sign in (completed)" width="1366"/>
-                <img src="3bfa8a36644105f5b4474d681942b87ef4e396a31b472da2d57b3248df50c98e.png" title=" And User verifies error message for &quot;Password is required.&quot;" width="1366"/>
-                <img src="3bfa8a36644105f5b4474d681942b87ef4e396a31b472da2d57b3248df50c98e.png" title=" 1: User Enters only username and Clicks on Sign In ({username=charu.srivastava, Password Alert Message=Password is required.}) (completed): <span class='success-color'>SUCCESS</span>" width="1366"/>
+                <img src="1956370d46c2af6f7d1bf044c06308221ff715c5ddfdae248a1494494ea8eb19.png" title=" Then User clicks on sign in (completed)" width="1366"/>
+                <img src="1956370d46c2af6f7d1bf044c06308221ff715c5ddfdae248a1494494ea8eb19.png" title=" And User verifies element &quot;Password is required.&quot;" width="1366"/>
+                <img src="f3df46f8e7a58aca696bce5dc2b01c4649f4301b6762fb8a41c97e4f48361700.png" title=" And User verifies element &quot;Password is required.&quot; (completed): <span class='error-color'>ERROR</span>" width="1366"/>
             </div>
         </div>
 

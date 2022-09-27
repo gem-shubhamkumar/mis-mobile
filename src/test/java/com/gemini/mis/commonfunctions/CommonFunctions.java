@@ -7,6 +7,10 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import java.util.Iterator;
+import java.util.Set;
+
+import static net.serenitybdd.core.Serenity.getDriver;
 import static org.junit.Assert.assertTrue;
 
 public class CommonFunctions extends PageObject {
@@ -57,7 +61,27 @@ public class CommonFunctions extends PageObject {
         } else {
             Assert.fail("Element is not present on Webpage");
         }
+    }
 
+//************************* FUNCTION TO CHANGE FOCUS TO NEW TAB *******************************************
+
+   public void changeFocus(){
+       Set wnd = getDriver().getWindowHandles();
+       Iterator i = wnd.iterator();
+       String popwnd = String.valueOf(i.next());
+       String prntw = String.valueOf(i.next());
+       getDriver().switchTo().window(prntw);
+   }
+
+ //******************************** FUNCTION TO CHECK IF ELEMENT IS CLICKABLE ***********************************
+    public void isElementClickable(By Loc)  {
+        WebElementFacade element=$(Loc);
+        if(element.isClickable()){
+            assertTrue("Element is clickable",true);
+        }
+        else{
+            Assert.fail("Element can not be clicked");
+        }
     }
 }
 

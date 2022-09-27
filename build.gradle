@@ -51,6 +51,19 @@ dependencies {
     testImplementation group: 'io.cucumber', name: 'cucumber-junit', version: '4.0.0'
     //implementation group: 'net.serenity-bdd', name: 'serenity-cucumber6', version: '2.6.0'
     testImplementation group: 'net.serenity-bdd', name: 'serenity-cucumber', version: '3.3.2'
+    testImplementation "net.serenity-bdd:serenity-core:${serenityCoreVersion}",
+            "net.serenity-bdd:serenity-junit:${serenityCoreVersion}",
+            "net.serenity-bdd:serenity-screenplay:${serenityCoreVersion}",
+            "net.serenity-bdd:serenity-screenplay-rest:${serenityCoreVersion}",
+            "net.serenity-bdd:serenity-rest-assured:${serenityCoreVersion}",
+            "io.rest-assured:rest-assured:${restAssuredVersion}",
+            "org.json:json:${jsonVersion}",
+            "junit:junit:${junitVersion}",
+            "org.assertj:assertj-core:${assertJVersion}",
+            "org.slf4j:slf4j-simple:${slf4jVersion}",
+            "com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.13.4"
+
+
 }
 
 

@@ -151,7 +151,7 @@
             <a href="576946480b52ad056d6f5bddf874399c83582ecf90963cc074a14c70580e7d9f.html"><i class="bi bi-chat-text"></i> Features</a>
         </li>
     </ul>
-    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 26-09-2022 13:58</span>
+    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 27-09-2022 14:04</span>
     <br style="clear:left"/>
 </div>
 
@@ -189,9 +189,9 @@
                 <table class="outcome-header">
                     <tr>
                         <td colspan="2" class="test-title-bar">
-                            <span class="outcome-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon fa-2x' title='SUCCESS'></i></a></span>
+                            <span class="outcome-icon"><a href='##beforetable'><i class='bi bi-exclamation-triangle-fill error-icon fa-2x' title='ERROR'></i></a></span>
                             <span class="test-case-title">
-                                <span class="success-color">User Login to the Application
+                                <span class="error-color">User Login to the Application
                                     <span class="related-issue-title"></span>
                                 </span>
                             </span>
@@ -212,20 +212,54 @@
 
     <div id="beforetable"></div>
     <div id="contenttilttle">
+            <div class="screenshotFailure panel panel-danger">
+    <div style="display:block">
+        <div class="table">
+            <div class="row">
+                <div class="col-sm-10" style="padding-left:1.5em; padding-top:0.5em; padding-bottom:0.5em;">
+                    <span class="error-message error-message-title">Timeout exception: Expected condition failed: waiting for visibility of element located by By.xpath: //a[text()='Change AD Password'] (tried for 5 second(s) with 50 milliseconds interval)Build info: version: '4.4.0', revision: 'e5c75ed026a'System info: host: 'GEMGN-210132', ip: '192.168.1.7', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_342'Driver info: driver.version: unknownBuild info: version: '4.4.0', revision: 'e5c75ed026a'System info: host: 'GEMGN-210132', ip: '192.168.1.7', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_342'Driver info: driver.version: unknown</span>
+                </div>
+                <div class="col-sm-2">
+                    <a class="btn btn-warning details-button" data-toggle="collapse" href="#stacktraceModal-overall"
+                       role="button" aria-expanded="false" aria-controls="multiCollapseExample1"><i class="bi bi-eye"></i> More details</a>
+                </div>
+             </div>
+        </div>
+    <div>
+
+    <!-- Details Section -->
+    <div class="row stacktrace-details">
+      <div class="col">
+        <div class="collapse multi-collapse" id="stacktraceModal-overall">
+            <div class="card">
+                <div class="card-header">
+                    <h4>org.openqa.selenium.TimeoutException </h4>
+                </div>
+                <div class="card-body">
+                    <div>
+                        <pre>com.gemini.mis.commonfunctions.CommonFunctions.WaitTillElementVisible(CommonFunctions.java:52)<br />com.gemini.mis.pages.LoginPage.WaitTillElementIsVisible(LoginPage.java:37)<br />stepDefinitions.MISLogin.user_verifies_landing_page(MISLogin.java:45)<br />✽.User Verifies Landing Page(file:///C:/Users/ch.srivastava/IdeaProjects/MISAutomation/src/test/resources/features/MISLogin.feature:81)<br /></pre>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+                <div class="panel-body">
+                    <a href="pagesource4991778566398169796.html" target="_blank" class="btn btn-info">HTML Source</a>
+                </div>
+            </div>
         <div class="slider-wrapper theme-default">
             <div id="slider">
                 <img src="e6425c2eaf2f6f62035494203d10ad2f3ba3fee2903731914bfa93e1db9143fa.png" title=" 1: User Login to the Application ({username=charu.srivastava, password=Gemini@1234})" width="1366"/>
                 <img src="e6425c2eaf2f6f62035494203d10ad2f3ba3fee2903731914bfa93e1db9143fa.png" title=" Given User opens MIS Beta page &quot;https://mymis.geminisolutions.com/&quot;" width="1366"/>
-                <img src="e6425c2eaf2f6f62035494203d10ad2f3ba3fee2903731914bfa93e1db9143fa.png" title=" And User Verifies all elements of Login Page" width="1366"/>
                 <img src="e6425c2eaf2f6f62035494203d10ad2f3ba3fee2903731914bfa93e1db9143fa.png" title=" Given User enters Username as &quot;charu.srivastava&quot;" width="1366"/>
                 <img src="14a584534ed9f092e9d9ef817004e349fd915a3fcefa4cc348d4e7cff921dd9b.png" title=" Given User enters Username as &quot;charu.srivastava&quot; (completed)" width="1366"/>
                 <img src="14a584534ed9f092e9d9ef817004e349fd915a3fcefa4cc348d4e7cff921dd9b.png" title=" And User enters Password as &quot;Gemini@1234&quot;" width="1366"/>
                 <img src="d7ec2003531a82dc87cb6fbc57f680e94e421df7d92221bdd4390056feeb7006.png" title=" And User enters Password as &quot;Gemini@1234&quot; (completed)" width="1366"/>
                 <img src="d7ec2003531a82dc87cb6fbc57f680e94e421df7d92221bdd4390056feeb7006.png" title=" Then User clicks on sign in" width="1366"/>
-                <img src="8d8ce8ec959f969f3d753913c7eb9151b9f53f62cddb61301b264d3681a99460.png" title=" Then User clicks on sign in (completed)" width="1366"/>
-                <img src="8d8ce8ec959f969f3d753913c7eb9151b9f53f62cddb61301b264d3681a99460.png" title=" And User Verifies Landing Page" width="1366"/>
-                <img src="4f4f6d3a9d57428f778970c839815ac9d095d038f0c90f7697d72a6deae51797.png" title=" And User Verifies Landing Page (completed)" width="1366"/>
-                <img src="4f4f6d3a9d57428f778970c839815ac9d095d038f0c90f7697d72a6deae51797.png" title=" 1: User Login to the Application ({username=charu.srivastava, password=Gemini@1234}) (completed): <span class='success-color'>SUCCESS</span>" width="1366"/>
+                <img src="f310b9e67993a443851719b2775b423507286fdb6b07d2227733310b1213af89.png" title=" Then User clicks on sign in (completed)" width="1366"/>
+                <img src="f310b9e67993a443851719b2775b423507286fdb6b07d2227733310b1213af89.png" title=" And User Verifies Landing Page" width="1366"/>
+                <img src="4065b101f21600969ae6c3e2dcd087a11553226a27c29b4d096180cf124398bf.png" title=" And User Verifies Landing Page (completed): <span class='error-color'>ERROR</span>" width="1366"/>
             </div>
         </div>
 

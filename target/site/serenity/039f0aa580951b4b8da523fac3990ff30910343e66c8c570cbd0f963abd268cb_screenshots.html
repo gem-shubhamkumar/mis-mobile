@@ -151,7 +151,7 @@
             <a href="576946480b52ad056d6f5bddf874399c83582ecf90963cc074a14c70580e7d9f.html"><i class="bi bi-chat-text"></i> Features</a>
         </li>
     </ul>
-    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 26-09-2022 13:58</span>
+    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 27-09-2022 14:04</span>
     <br style="clear:left"/>
 </div>
 
@@ -189,9 +189,9 @@
                 <table class="outcome-header">
                     <tr>
                         <td colspan="2" class="test-title-bar">
-                            <span class="outcome-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon fa-2x' title='SUCCESS'></i></a></span>
+                            <span class="outcome-icon"><a href='##beforetable'><i class='bi bi-exclamation-triangle-fill error-icon fa-2x' title='ERROR'></i></a></span>
                             <span class="test-case-title">
-                                <span class="success-color">User Enter only password and Clicks on Sign In
+                                <span class="error-color">User Enter only password and Clicks on Sign In
                                     <span class="related-issue-title"></span>
                                 </span>
                             </span>
@@ -207,22 +207,56 @@
 
     <div class="story-title">
         <h3>Scenario:</h3>
-        <div class="scenario">Given User enters Password as "&lt;password&gt;"<br>Then User clicks on sign in<br>And User verifies error message for "&lt;Username Alert Message&gt;"</div>
+        <div class="scenario">Given User enters Password as "&lt;password&gt;"<br>Then User clicks on sign in<br>And User verifies element "&lt;Username Alert Message&gt;"</div>
     </div>
 
     <div id="beforetable"></div>
     <div id="contenttilttle">
+            <div class="screenshotFailure panel panel-danger">
+    <div style="display:block">
+        <div class="table">
+            <div class="row">
+                <div class="col-sm-10" style="padding-left:1.5em; padding-top:0.5em; padding-bottom:0.5em;">
+                    <span class="error-message error-message-title">No such element exception: no such element: Unable to locate element: {'method':'xpath','selector':'//*[text()='Username is required.']'}</span>
+                </div>
+                <div class="col-sm-2">
+                    <a class="btn btn-warning details-button" data-toggle="collapse" href="#stacktraceModal-overall"
+                       role="button" aria-expanded="false" aria-controls="multiCollapseExample1"><i class="bi bi-eye"></i> More details</a>
+                </div>
+             </div>
+        </div>
+    <div>
+
+    <!-- Details Section -->
+    <div class="row stacktrace-details">
+      <div class="col">
+        <div class="collapse multi-collapse" id="stacktraceModal-overall">
+            <div class="card">
+                <div class="card-header">
+                    <h4>org.openqa.selenium.NoSuchElementException </h4>
+                </div>
+                <div class="card-body">
+                    <div>
+                        <pre>com.gemini.mis.commonfunctions.CommonFunctions.isElementExist(CommonFunctions.java:59)<br />com.gemini.mis.pages.LoginPage.isElementExist(LoginPage.java:42)<br />stepDefinitions.MISLogin.userVerifiesElement(MISLogin.java:95)<br />✽.User verifies element "Username is required."(file:///C:/Users/ch.srivastava/IdeaProjects/MISAutomation/src/test/resources/features/MISLogin.feature:44)<br /></pre>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+                <div class="panel-body">
+                    <a href="#" target="_blank" class="btn btn-info">HTML Source</a>
+                </div>
+            </div>
         <div class="slider-wrapper theme-default">
             <div id="slider">
                 <img src="e6425c2eaf2f6f62035494203d10ad2f3ba3fee2903731914bfa93e1db9143fa.png" title=" 1: User Enter only password and Clicks on Sign In ({password=Gemini@1234, Username Alert Message=Username is required.})" width="1366"/>
                 <img src="e6425c2eaf2f6f62035494203d10ad2f3ba3fee2903731914bfa93e1db9143fa.png" title=" Given User opens MIS Beta page &quot;https://mymis.geminisolutions.com/&quot;" width="1366"/>
-                <img src="e6425c2eaf2f6f62035494203d10ad2f3ba3fee2903731914bfa93e1db9143fa.png" title=" And User Verifies all elements of Login Page" width="1366"/>
                 <img src="e6425c2eaf2f6f62035494203d10ad2f3ba3fee2903731914bfa93e1db9143fa.png" title=" Given User enters Password as &quot;Gemini@1234&quot;" width="1366"/>
                 <img src="bcd5c3dcec6b639acd7a247249cbe53c06468ccd552592b17416e249ed51905d.png" title=" Given User enters Password as &quot;Gemini@1234&quot; (completed)" width="1366"/>
                 <img src="bcd5c3dcec6b639acd7a247249cbe53c06468ccd552592b17416e249ed51905d.png" title=" Then User clicks on sign in" width="1366"/>
-                <img src="8259d198ca75669d571a32f4d5b7dcfad992311c380346a264d86d3cd4c2239c.png" title=" Then User clicks on sign in (completed)" width="1366"/>
-                <img src="8259d198ca75669d571a32f4d5b7dcfad992311c380346a264d86d3cd4c2239c.png" title=" And User verifies error message for &quot;Username is required.&quot;" width="1366"/>
-                <img src="8259d198ca75669d571a32f4d5b7dcfad992311c380346a264d86d3cd4c2239c.png" title=" 1: User Enter only password and Clicks on Sign In ({password=Gemini@1234, Username Alert Message=Username is required.}) (completed): <span class='success-color'>SUCCESS</span>" width="1366"/>
+                <img src="905af8887d105027f1f4319c27c5993bde90d1a025975807f73b80a53e35873c.png" title=" Then User clicks on sign in (completed)" width="1366"/>
+                <img src="905af8887d105027f1f4319c27c5993bde90d1a025975807f73b80a53e35873c.png" title=" And User verifies element &quot;Username is required.&quot;: <span class='error-color'>ERROR</span>" width="1366"/>
             </div>
         </div>
 

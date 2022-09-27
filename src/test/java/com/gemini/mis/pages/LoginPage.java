@@ -1,12 +1,9 @@
 package com.gemini.mis.pages;
 
 import com.gemini.mis.commonfunctions.CommonFunctions;
-import com.gemini.mis.selectors.LocatorLoginPage;
-import net.serenitybdd.screenplay.waits.Wait;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.pages.PageObject;
 import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class LoginPage extends PageObject {
 
@@ -34,15 +31,23 @@ public class LoginPage extends PageObject {
         utils.click(Loc);
    }
 
-  @Step("Wait Till elementOnLoginPage is visible")
+  @Step("Wait Till myElement is visible")
   public void WaitTillElementIsVisible(By element){
 
         utils.WaitTillElementVisible(element);
   }
-  @Step("Verify that elementOnLoginPage is displayed")
+  @Step("Verify that myElement is displayed")
     public void isElementExist(By Loc){
 
         utils.isElementExist(Loc);
-  }
+   }
 
+  @Step("Verify focus is changed to new tab opened")
+  public void changeFocusToNewTab(){
+        utils.changeFocus();
+  }
+  @Step("Verify element is clickable and click")
+    public void isElementClickable(By Loc) throws InterruptedException {
+        utils.isElementClickable(Loc);
+  }
 }
