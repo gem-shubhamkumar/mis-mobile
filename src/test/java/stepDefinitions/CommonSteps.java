@@ -1,7 +1,8 @@
 package stepDefinitions;
 
-import com.gemini.mis.pages.CommonPages;
-import com.gemini.mis.pages.ApplyToAnyCardPages;
+import com.gemini.mis.commonfunctions.CommonFunctions;
+import com.gemini.mis.pages.CommonPage;
+import com.gemini.mis.pages.MySkillsPage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -11,10 +12,13 @@ import net.thucydides.core.annotations.Steps;
 public class CommonSteps {
 
     @Steps
-    CommonPages commonPages;
+    CommonPage commonPages;
 
     @Steps
-    ApplyToAnyCardPages skillsPages;
+    MySkillsPage skillsPages;
+
+    @Steps
+    CommonFunctions commonFunctions;
 
     @Given("^Verify beta-mis is open and loaded successfully.$")
     public void misBetaIsOpenedAndVerifyApplicationOpensSuccesfully() {
@@ -27,13 +31,7 @@ public class CommonSteps {
     public void enterUsername(String username, String password) {
         commonPages.enterUsername(username);
         commonPages.enterPassword(password);
-        commonPages.clickButton("Sign In");
-    }
-
-
-    @And("^Clicks \"(.*?)\" Button$")
-    public void clicksButton(String buttonName) {
-        commonPages.clickButton(buttonName);
+        commonFunctions.clickButton("Sign In");
     }
 
     @Then("^Verify Dashboard page opens$")
@@ -43,13 +41,15 @@ public class CommonSteps {
 
     @Then("^Click on \"(.*?)\" button$")
     public void clickOnButton(String buttonName) {
-        commonPages.clickButton(buttonName);
+        commonFunctions.clickButton(buttonName);
     }
+
 
     @When("^\"(.*?)\" card is present in dashboard$")
     public void cardIsPresentInDashboard(String cardName) {
         skillsPages.verifyIfCardIsPresent(cardName);
     }
+
 
 
 }

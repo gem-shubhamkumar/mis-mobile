@@ -1,87 +1,186 @@
 package com.gemini.mis.commonfunctions;
 
-import com.gemini.mis.selectors.LocatorLoginPage;
-import net.serenitybdd.core.pages.WebElementFacade;
+import com.gemini.mis.pages.FeedbackPage;
+import com.gemini.mis.selectors.CommonSelectors;
+import com.gemini.mis.selectors.FeedbackSelectors;
+import com.gemini.mis.selectors.MySkillsLocators;
+import net.thucydides.core.annotations.Step;
 import net.thucydides.core.pages.PageObject;
 import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
 
-import java.util.Iterator;
-import java.util.Set;
-
-import static net.serenitybdd.core.Serenity.getDriver;
-import static org.junit.Assert.assertTrue;
+import java.util.List;
 
 public class CommonFunctions extends PageObject {
 
-//***************************** FUNCTION TO LAUNCH URL ************************************************
+    FeedbackPage feedbackPage;
 
-    public void navigateToWebsite(String url) {
-        getDriver().get(url);
-        getDriver().manage().window().maximize();
-        assertTrue("Successfully launched url ", true);
-    }
+    @Step
+    public void navigateToTab(String childTabName, String parentTabName) {
 
-//*************************** FUNCTION TO ENTER VALUE TO A LOCATION ***********************************
+        if ($(By.xpath(CommonSelectors.sideNav.replace("tabName", parentTabName))).isPresent()) {
+            waitABit(1000);
+            $(By.xpath(CommonSelectors.sideNav.replace("tabName", parentTabName))).click();
+            waitABit(2000);
 
-    public void enterValue(By Loc, String enterKey) {
-        $(Loc).sendKeys(enterKey);
-        assertTrue("Successfully Entered Key", true);
+            if ($(By.xpath(CommonSelectors.sideNav.replace("tabName", childTabName))).isPresent()) {
 
-    }
+                $(By.xpath(CommonSelectors.sideNav.replace("tabName", childTabName))).click();
+            }
 
-//****************************** FUNCTION TO CLICK ON ELEMENT ******************************************
+            else{
+                Assert.fail("Unable to locate child tab");
+            }
 
-    public void click(By Loc) {
-        $(Loc).click();
-        assertTrue("Successfully clicked on Element ", true);
+        }
 
-    }
-
-    //******************************* FUNCTION FOR WAIT *****************************************************
-    public void Wait(long seconds) {
-
-        waitABit(seconds);
-    }
-
-//*************************** FUNCTION FOR VISIBILITY OF ELEMENT ******************************************
-
-    public void WaitTillElementVisible(By element) {
-
-        waitFor(ExpectedConditions.visibilityOfElementLocated(element));
-    }
-
-//************************ FUNCTION TO CHECK ELEMENT EXISTENCE *******************************************
-
-    public void isElementExist(By Loc) {
-        WebElementFacade element = $(Loc);
-        if (element.isDisplayed()) {
-            assertTrue("Element is present on Webpage", true);
-        } else {
-            Assert.fail("Element is not present on Webpage");
+        else {
+            Assert.fail("Unable to locate parent tab");
         }
     }
 
-//************************* FUNCTION TO CHANGE FOCUS TO NEW TAB *******************************************
+    public void navigateToTab(String parentTabName){
+        if ($(By.xpath(CommonSelectors.sideNav.replace("tabName", parentTabName))).isPresent()) {
+             waitABit(1000);
+            $(By.xpath(CommonSelectors.sideNav.replace("tabName", parentTabName))).click();
 
-   public void changeFocus(){
-       Set wnd = getDriver().getWindowHandles();
-       Iterator i = wnd.iterator();
-       String popwnd = String.valueOf(i.next());
-       String prntw = String.valueOf(i.next());
-       getDriver().switchTo().window(prntw);
-   }
+    } else {
+             Assert.assertFalse("Unable to locate parent tab",false);
+         }
+    }
 
- //******************************** FUNCTION TO CHECK IF ELEMENT IS CLICKABLE ***********************************
-    public void isElementClickable(By Loc)  {
-        WebElementFacade element=$(Loc);
-        if(element.isClickable()){
-            assertTrue("Element is clickable",true);
+
+    @Step
+    public void clickButton(String buttonName) {
+        waitABit(1000);
+        switch(buttonName) {
+            case "Sign In": {
+                $(By.xpath(CommonSelectors.homePageXpath.replace("name", "btnLogin"))).waitUntilPresent().click();
+                break;
+            }
+
+            case "update" : {
+                $(By.xpath(MySkillsLocators.genericButton.replace("ids", "btnUpdateSkills"))).waitUntilPresent().click();
+                break;
+            }
+
+            case "Provide Feedback": {
+                $(By.xpath(FeedbackSelectors.provideFeedbackButton)).waitUntilPresent().click();
+                break;
+            }
+            case "Submit": {
+                $(By.xpath(FeedbackSelectors.submitButton)).waitUntilPresent().click();
+                break;
+            }
+
+            case "next" :
+            case "Previous" : {
+                while(!$(By.xpath(CommonSelectors.paginationButtons.replace("buttonName", buttonName))).getAttribute("class").contains("disabled")) {
+                    $(By.xpath(CommonSelectors.paginationButtons.replace("buttonName", buttonName))).waitUntilPresent().click();
+                }
+                break;
+            }
+
+            case "View" : {
+                $(By.xpath(FeedbackSelectors.viewButton.replace("size", Integer.toString(feedbackPage.totalRow())))).waitUntilPresent().click();
+                break;
+            }
+
+            case "Copy" :
+            case "Print" :
+            case "PDF" :
+            case "Excel" :
+            case "Export" : {
+                $(By.xpath(FeedbackSelectors.export.replace("name", buttonName))).waitUntilPresent().click();
+                break;
+            }
+
+            default:
+                Assert.fail("Button " + buttonName + " not found");
+
         }
-        else{
-            Assert.fail("Element can not be clicked");
+
+    }
+    @Step
+    public void clickButton(String buttonName, String cardName) {
+        waitABit(1000);
+        switch(buttonName) {
+            case "Maximize": {
+                $(By.xpath(CommonSelectors.cardToggleMaximize.replace("card", cardName))).waitUntilPresent().click();
+                break;
+
+            }
+            case "Minimize" : {
+                String xpath = CommonSelectors.cardToggleMinimize.replace("card", cardName);
+                xpath = xpath.replace("buttonName", buttonName);
+                $(By.xpath(xpath)).waitUntilPresent().click();
+                break;
+            }
+
+
+            default:
+                Assert.fail("Button " + buttonName + " not found");
+
+        }
+
+    }
+
+    @Step
+    public void verifyCardMinimized(String cardName) {
+        int flag = 0;
+        List<WebElement> cards = getDriver().findElements(By.xpath(CommonSelectors.collapsedCard));
+
+        for (WebElement card: cards
+        ) {
+            if(card.getText().equals(cardName)) flag = 1;
+        }
+
+        if(flag == 1) Assert.assertTrue(true);
+        else Assert.fail("Card " + cardName + " is not minimized");
+
+    }
+    @Step
+    public void verifyCardMaximized(String cardName) {
+        int flag = 0;
+        List<WebElement> cards = getDriver().findElements(By.xpath(CommonSelectors.fullScreenCard));
+
+        for (WebElement card: cards
+        ) {
+            if(card.getText().equals(cardName)) flag = 1;
+        }
+
+        if(flag == 1) Assert.assertTrue(true);
+        else Assert.fail("Card " + cardName + " is not maximized");
+
+    }
+
+    @Step
+    public void verifyForError(String inputType) {
+        switch (inputType) {
+            case "skill": {
+                Assert.assertTrue($(By.xpath(MySkillsLocators.errorType.replace("ids", "ddlSkillTypeEdit"))).isPresent());
+                break;
+            }
+
+            case "experience" : {
+                String xpath = MySkillsLocators.errorType.replace("select", "input");
+                xpath = xpath.replace("ids", "expinMonthsEdit");
+                Assert.assertTrue($(By.xpath(xpath)).isPresent());
+                break;
+            }
+            case "Submit Feedback" : {
+                String xpath = MySkillsLocators.errorType.replace("select", "textarea");
+                xpath = xpath.replace("ids", "feedback");
+                Assert.assertTrue($(By.xpath(xpath)).isPresent());
+                break;
+            }
         }
     }
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> c8da6efb1e59fb7559328e219a4e5d27385623ea
