@@ -1,9 +1,15 @@
 package com.gemini.mis.pages;
 
+import com.beust.ah.A;
 import com.gemini.mis.selectors.KnowledgeBaseLocators;
+import io.cucumber.java.en_old.Ac;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.pages.PageObject;
 import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+
+import javax.swing.*;
 
 public class KnowledgeBasePage extends PageObject {
 
@@ -18,11 +24,12 @@ public class KnowledgeBasePage extends PageObject {
                         getDriver().findElement(selector.viewDocumentMenu).click();
                         Assert.assertTrue("Clicked on the view document submenu",true);
 
-                    }   else if(subMenuItem.equals("add New Document")){
-                        getDriver().findElement(selector.addNewDocument).click();
+                    }   else if(subMenuItem.equals("view shared Document")){
+                        getDriver().findElement(selector.viewSharedDocumentMenu).click();
                         Assert.assertTrue("Clicked on the add new document submenu",true);
                     }
                     break;
+
                 default:
                     break;
             }
@@ -72,6 +79,7 @@ public class KnowledgeBasePage extends PageObject {
                     Assert.assertTrue("clicked on save button on the tag name", true);
                     break;
 
+
                 case "nextButton":
                     $(selector.nextButton).click();
                     Assert.assertTrue("clicked on next button", true);
@@ -80,6 +88,11 @@ public class KnowledgeBasePage extends PageObject {
                 case "prevButton":
                     $(selector.prevButton).click();
                     Assert.assertTrue("Clicked on previous button", true);
+                    break;
+
+                case "eye":
+                    $(selector.eyeButton).click();
+                    Assert.assertTrue("clicked on view button in view shared documents", true);
                     break;
                 default:
                     break;
@@ -143,6 +156,37 @@ public class KnowledgeBasePage extends PageObject {
         }
     }
 
+    @Step("is popup open or not")
+    public void isPopUpOpens(){
+        try{
+            $(selector.popUpXpath).isDisplayed();
+            $(selector.popupTitle).isDisplayed();
+            $(selector.closeButtonOnDocument).isDisplayed();
+            Assert.assertTrue("Popup displayed in view shared documents",true);
+        }catch (Exception e){
+
+            System.out.println(e.getMessage());
+            Assert.fail("Popup does not displayed");
+        }
+    }
+
+    @Step("Check whether the popup is scrollable or not")
+    public void isDocScrollable(){
+        try{
+
+            int noOfFrames = getDriver().findElements(By.tagName("iframe")).size();
+            Assert.assertTrue("Switching to iframe containing the document",true);
+            getDriver().switchTo().frame("frame");
+            boolean isIframe = getDriver().findElement(selector.iframeXpath).isDisplayed();
+            JavascriptExecutor js = (JavascriptExecutor) getDriver();
+            js.executeScript("window.scrollBy(0,1000)");
+            Assert.assertTrue("Document is not empty and scrollable", isIframe);
+
+       }catch (Exception e){
+            System.out.println(e.getMessage());
+            Assert.fail("The popup is empty or not scrollable");
+        }
+    }
 
 
 

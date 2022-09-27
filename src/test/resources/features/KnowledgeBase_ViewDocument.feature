@@ -39,13 +39,13 @@ Feature: Automation of  View Document and view shared document Submenu in knowle
     Then click on "<targetElement>"
     And enter "<validTagName>" tag name and click on "<closeButton>"
     Then click on "<targetElement>"
-    Then enter "<invalidTagName>" and click on "<addButton>"
+    Then enter "<invalidTagName>" tag name and click on "<addButton>"
     And click ok on the popup in add new tag
     And click on "<closeButton>" button
     Then click on "<targetElement>"
-    Then enter "<invalidTagName>" and click on "<crossButton>"
+    Then enter "<invalidTagName>" tag name and click on "<crossButton>"
     Then click on "<targetElement>"
-    Then enter "<invalidTagName>" and click on "<closeButton>"
+    Then enter "<invalidTagName>" tag name and click on "<closeButton>"
 
     Examples:
     |menuItem|subMenuItem|targetElement|validTagName|addButton|crossButton|invalidTagName|closeButton|
@@ -59,9 +59,9 @@ Feature: Automation of  View Document and view shared document Submenu in knowle
       And click on "<crossButton>"
       Then click on "<targetElement>"
       And Put "<InvalidFolderName>" and click on "<addButton>"
-      Then verify folder is created
+      Then verify folder added
       And Put "<InvalidFolderName>" and click on "<crossButton>"
-      Then verify no folder has been added
+      Then verify no folder added
       Examples:
         |menuItem|subMenuItem|targetElement|crossButton|InvalidFolderName|addButton|
         |knowledge base|view document|AddNewFolder|crossButton|*&*ArFolderName|addButton|
@@ -99,8 +99,7 @@ Feature: Automation of  View Document and view shared document Submenu in knowle
       Then click on "<targetElement>"
       And click on "<closeButton>"
       Then click on "<targetElement>"
-      And create folder with no name
-      Then click on "<addButton>"
+      And create folder without name and click "<addButton>"
       And verify warning message is displayed
 
       Examples:
@@ -111,15 +110,15 @@ Feature: Automation of  View Document and view shared document Submenu in knowle
   Scenario Outline: Check duplicate folder functionality by adding one duplicate folder
       When Goto "<menuItem>" and click on "<subMenuItem>"
       Then click on "<targetElement>"
-      And enter a "<validFolderName>" and click "<addButton>"
+      And Put "<validFolderName>" and click on "<addButton>"
       Then click on "<targetElement>"
-      And enter a "<duplicateFolderName>" and click "<addButton>"
+      And Put "<duplicateFolderName>" and click on "<addButton>"
       Then verify duplicate folder created
       Then click on "<targetElement>"
-      Then enter a "<noName>" and click "<addButton>"
-      And verify folder created
+      Then create folder without name and click "<addButton>"
+      And verify folder added
       Then click on "<targetElement>"
-      And enter a "<folderName>" and click "<closeButton>"
+      And Put "<folderName>" and click on "<closeButton>"
 
       Examples:
         |menuItem|subMenuItem|targetElement|noName|closeButton|addButton|validFolderName|duplicateFolderName|folderName|
@@ -159,7 +158,7 @@ Feature: Automation of  View Document and view shared document Submenu in knowle
 
 
 
-   @Test36
+   @Test2223
    Scenario Outline: Check navigation on view document page
      When Goto "<menuItem>" and click on "<subMenuItem>"
      Then click on "<next>" button
@@ -170,5 +169,30 @@ Feature: Automation of  View Document and view shared document Submenu in knowle
        |knowledge base|view document|nextButton|
        |knowledge base|view document|prevButton|
 
+   @Test2425
+   Scenario Outline: verify clicks of previous button and next page button on first page.
+     When Goto "<menuItem>" and click on "<subMenuItem>"
+     Then click on "<next>" button
+     And verify user not navigated
+     Then verify no records added in the grid
+     Examples:
+       |menuItem|subMenuItem|next|
+       |knowledge base|view document|nextButton|
+       |knowledge base|view document|prevButton|
+
+  @Test26
+  Scenario: goto View shared documents and verify view functionality
+    When Goto "knowledge base" and click on "view shared Document"
+    Then click on "eye" button
+    And verify that a popup window is displayed
+    Then Verify document is scrollable and not empty
+
+  @Test27
+  Scenario: check the sorting functionality in view shared documents
+    When Goto "knowledge base" and click on "view shared Document"
+    Then click on the sorting icon
+    And Verify that "eye" button is hidden
+    Then click on the sorting icon
+    And verify that "eye" button is visible
 
 

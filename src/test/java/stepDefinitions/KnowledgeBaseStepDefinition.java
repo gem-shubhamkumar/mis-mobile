@@ -62,6 +62,75 @@ public class KnowledgeBaseStepDefinition {
 
     }
 
-    @And("^enter \"(.*?)\"$")
+    @And("^Put \"(.*?)\" and click on \"(.*?)\"$")
+    public void putInvalidFolderName(String folderName, String buttonName){
+
+    }
+
+    @Then("verify folder added")
+    public void verifyFolderCreated(){
+
+    }
+    @And("create folder without name and click \"(.*?)\"")
+    public void createFolderWithoutName(String buttonName){
+
+    }
+
+    @And("click on ok button from success window")
+    public void clickOkFolderAdded(){
+
+    }
+
+    @Then("verify no folder added")
+    public void verifyNoFolderCreated(){
+
+    }
+    @And("verify warning message is displayed")
+    public void warningMessageDisplayed(){
+
+    }
+
+    @Then("verify duplicate folder created")
+    public void isDuplicateFolder(){
+
+    }
+
+
+    @Then("^right click on \"(.*?)\"$")
+    public void rightClick(String elemName){
+
+    }
+
+    @And("verify menu opens")
+    public void isMenuOpen(){
+
+    }
+
+    @Then("verify that a popup window is displayed")
+    public void isPopUpDisplay(){
+    steps.isPopUpOpens();
+    }
+
+
+    @Then("Verify document is scrollable and not empty")
+   public void isDocScrollable(){
+    steps.isDocScrollable();
+    }
+
+    @Then("click on the sorting icon")
+ public void clickOnSortingIcon(){
+
+    }
+    @And("Verify that \"(.*?)\" button is hidden")
+    public void isButtonHidden(String buttonName){
+
+    }
+    @And("verify that \"(.*?)\" button is visible")
+ public void isButtonVisible(String buttonName){
+
+    }
+
+
+
 
 }

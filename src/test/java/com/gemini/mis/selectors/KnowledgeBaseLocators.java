@@ -28,5 +28,10 @@ public class KnowledgeBaseLocators {
 
     //view shared documents xpaths
     public static By viewSharedDocumentMenu = xpath("/html/body/nav/div/div[1]/ul/li[6]/ul/li[2]/a");
+    public static By popUpXpath = xpath("//*[@id='mypopupViewDocModal']");
+    public static By popupTitle = xpath("//h4[@id='modalTitle']");
+    public static By eyeButton = xpath("//button[@class='btn btn-sm teal']");
+    public static By closeButtonOnDocument = xpath("//*[@id='mypopupViewDocModal']/div/div/div[1]/button/span");
+    public static By iframeXpath = xpath("/html/body");
 
 }
