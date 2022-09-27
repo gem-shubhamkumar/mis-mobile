@@ -1,6 +1,6 @@
 package stepDefinitions;
 
-import com.gemini.mis.pages.LeaveManagementApplyPage;
+import com.gemini.mis.pages.LeaveManagementPage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import net.serenitybdd.core.pages.PageObject;
@@ -10,7 +10,7 @@ public class commonStepDefinition extends PageObject
 {
 
     @Steps
-    LeaveManagementApplyPage ApplyPage;
+    LeaveManagementPage ApplyPage;
     @Given("^User is logged into MIS$")
     public void userIsLoggedIn()
     {

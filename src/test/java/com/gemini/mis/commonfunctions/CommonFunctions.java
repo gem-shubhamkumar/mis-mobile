@@ -1,14 +1,13 @@
 package com.gemini.mis.commonfunctions;
 
 import com.gemini.mis.selectors.CommonXpath;
-import com.gemini.mis.selectors.XpathForApplyTab;
+import com.gemini.mis.selectors.XpathForLeaveManagementTab;
 import com.gemini.mis.selectors.XpathforPolicyTab;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.interactions.Actions;
 
 import java.util.List;
 
@@ -27,16 +26,16 @@ public class CommonFunctions extends PageObject {
         WebElementFacade elementFacade = null;
         switch (fieldName) {
             case "username":
-                elementFacade = find(XpathForApplyTab.textBox("username"));
+                elementFacade = find(XpathForLeaveManagementTab.textBox("username"));
                 break;
             case "Reason":
-                elementFacade = find(XpathForApplyTab.textArea("outingReason"));
+                elementFacade = find(XpathForLeaveManagementTab.textArea("outingReason"));
                 break;
             case "Primary contact number":
-                elementFacade =find(XpathForApplyTab.textBox("outingContactNumber"));
+                elementFacade =find(XpathForLeaveManagementTab.textBox("outingContactNumber"));
                 break;
             case "password":
-                elementFacade = find(XpathForApplyTab.textBox("password"));
+                elementFacade = find(XpathForLeaveManagementTab.textBox("password"));
                 break;
         }
         if (elementFacade.isEnabled()) {
@@ -52,46 +51,133 @@ public class CommonFunctions extends PageObject {
         By tab = null;
         switch (btnName) {
             case "Sign in":
-                tab = XpathForApplyTab.textBox("btnLogin");
+                tab = XpathForLeaveManagementTab.textBox("btnLogin");
                 break;
             case "Submit Comp off":
-                tab = XpathForApplyTab.submitBtn("3");
+                tab = XpathForLeaveManagementTab.submitBtn("3");
                 break;
             case "Submit LWP":
-                tab = XpathForApplyTab.submitBtn("4");
+                tab = XpathForLeaveManagementTab.submitBtn("4");
                 break;
             case "Submit Out of Duty/Tour":
-                tab = XpathForApplyTab.submitBtn("5");
+                tab = XpathForLeaveManagementTab.submitBtn("5");
                 break;
             case "Submit Leave":
-                tab = XpathForApplyTab.submitBtn("1");
+                tab = XpathForLeaveManagementTab.submitBtn("1");
                 break;
             case "Submit WFH":
-                tab = XpathForApplyTab.submitBtn("2");
+                tab = XpathForLeaveManagementTab.submitBtn("2");
                 break;
             case "Total working days":
-                tab = XpathForApplyTab.tooltip;
+                tab = XpathForLeaveManagementTab.tooltip;
                 break;
             case "Leave for half day":
-                tab = XpathForApplyTab.textBox("isLeaveHalfDay");
+                tab = XpathForLeaveManagementTab.textBox("isLeaveHalfDay");
                 break;
             case "OK":
-                tab = XpathForApplyTab.btnType("OK");
+                tab = XpathForLeaveManagementTab.btnType("OK");
                 break;
             case "Mobile":
-                tab = XpathForApplyTab.textBox("avilableOnMobile");
+                tab = XpathForLeaveManagementTab.textBox("avilableOnMobile");
                 break;
             case "Email":
-                tab = XpathForApplyTab.textBox("avilableOnEmail");
+                tab = XpathForLeaveManagementTab.textBox("avilableOnEmail");
                 break;
             case "Next":
                 tab = XpathforPolicyTab.pagination("paginate_button next");
+                break;
+            case "Next Leave":
+                tab = XpathForLeaveManagementTab.paginationNext("1");
+                break;
+            case "Next WFH":
+                tab = XpathForLeaveManagementTab.paginationNext("2");
+                break;
+            case "Previous":
+                tab = XpathforPolicyTab.pagination("paginate_button previous");
+                break;
+            case "Previous Leave":
+                tab = XpathForLeaveManagementTab.paginationPrevious("1");
+                break;
+            case "Previous WFH":
+                tab = XpathForLeaveManagementTab.paginationPrevious("1");
                 break;
             case "View":
                 tab = XpathforPolicyTab.viewBtn;
                 break;
             case "Close":
                 tab = XpathforPolicyTab.pageElement("button");
+                break;
+            case "Date Range":
+                tab = XpathForLeaveManagementTab.dateRange;
+                break;
+            case "Export":
+                tab = XpathForLeaveManagementTab.exportBtn("1");
+                break;
+            case "Export WFH":
+                tab = XpathForLeaveManagementTab.exportBtn("2");
+                break;
+            case "Export Comp Off":
+                tab = XpathForLeaveManagementTab.exportBtn("3");
+                break;
+            case "Export Out Duty/Tour":
+                tab = XpathForLeaveManagementTab.exportBtn("4");
+                break;
+            case "Export LWP":
+                tab = XpathForLeaveManagementTab.exportBtn("5");
+                break;
+            case "Copy":
+                tab = XpathForLeaveManagementTab.copyBtn("1");
+                break;
+            case "Print":
+                tab = XpathForLeaveManagementTab.printBtn("1");
+                break;
+            case "Excel":
+                tab = XpathForLeaveManagementTab.excelBtn("1");
+                break;
+            case "Pdf":
+                tab = XpathForLeaveManagementTab.pdfBtn("1");
+                break;
+            case "Period":
+                tab = XpathForLeaveManagementTab.columnHeading("1");
+                break;
+            case "Period WFH":
+                tab = XpathForLeaveManagementTab.columnHeading("8");
+                break;
+            case "Half Day":
+                tab = XpathForLeaveManagementTab.columnHeading("9");
+                break;
+            case "Type":
+                tab = XpathForLeaveManagementTab.columnHeading("2");
+                break;
+            case "Reason":
+                tab = XpathForLeaveManagementTab.columnHeading("3");
+                break;
+            case "Remarks":
+                tab = XpathForLeaveManagementTab.columnHeading("4");
+                break;
+            case "Reason WFH":
+                tab = XpathForLeaveManagementTab.columnHeading("10");
+                break;
+            case "Remarks WFH":
+                tab = XpathForLeaveManagementTab.columnHeading("11");
+                break;
+            case "Status":
+                tab = XpathForLeaveManagementTab.columnHeading("5");
+                break;
+            case "Applied On":
+                tab = XpathForLeaveManagementTab.columnHeading("6");
+                break;
+            case "Action":
+                tab = XpathForLeaveManagementTab.columnHeading("7");
+                break;
+            case "Add":
+                tab = XpathforPolicyTab.expandBtn;
+                break;
+            case "Cancel":
+               tab = XpathForLeaveManagementTab.cancelBtn;
+                break;
+            case "Yes":
+                tab = XpathForLeaveManagementTab.button("confirm btn btn-lg btn-danger");
                 break;
             default:
                 elementPresent = false;
@@ -146,7 +232,7 @@ public class CommonFunctions extends PageObject {
                 }
                 break;
         }
-        WebElementFacade elementFacade = find(XpathForApplyTab.heading);
+        WebElementFacade elementFacade = find(XpathForLeaveManagementTab.heading);
         if (elementFacade.getText().equals(expectedHeading)) {
             Assert.assertTrue("Tab verified successfully", true);
         } else {
@@ -155,7 +241,7 @@ public class CommonFunctions extends PageObject {
     }
 
     public void verifyDefaultTab(String tab) {
-        List<WebElementFacade> elementFacadeList = findAll(XpathForApplyTab.tab);
+        List<WebElementFacade> elementFacadeList = findAll(XpathForLeaveManagementTab.tab);
         if (elementFacadeList.get(0).getAttribute("class").contains("active") &&
                 elementFacadeList.get(0).getText().equals(tab)) {
             Assert.assertTrue("Default Tab verified successfully", true);
@@ -169,46 +255,46 @@ public class CommonFunctions extends PageObject {
         WebElementFacade elementFacade = null;
         switch (fields) {
             case "Outing From":
-                elementFacade = find(XpathForApplyTab.inputItem("Outing From"));
+                elementFacade = find(XpathForLeaveManagementTab.inputItem("Outing From"));
                 break;
             case "LWP Change Request From":
-                elementFacade = find(XpathForApplyTab.dropdown("fromDt"));
+                elementFacade = find(XpathForLeaveManagementTab.dropdown("fromDt"));
                 break;
             case "Type of Leave":
-                elementFacade = find(XpathForApplyTab.dropdown("legitimateType"));
+                elementFacade = find(XpathForLeaveManagementTab.dropdown("legitimateType"));
                 break;
             case "Reason for Request":
-                elementFacade = find(XpathForApplyTab.textArea("legitimateReason"));
+                elementFacade = find(XpathForLeaveManagementTab.textArea("legitimateReason"));
                 break;
             case "Outing Till":
-                elementFacade = find(XpathForApplyTab.inputItem("Outing Till"));
+                elementFacade = find(XpathForLeaveManagementTab.inputItem("Outing Till"));
                 break;
             case "Type":
-                elementFacade = find(XpathForApplyTab.dropdown("outingType"));
+                elementFacade = find(XpathForLeaveManagementTab.dropdown("outingType"));
                 break;
             case "Primary Contact number":
-                elementFacade = find(XpathForApplyTab.textBox("outingContactNumber"));
+                elementFacade = find(XpathForLeaveManagementTab.textBox("outingContactNumber"));
                 break;
             case "Reason for outing":
-                elementFacade = find(XpathForApplyTab.textArea("outingReason"));
+                elementFacade = find(XpathForLeaveManagementTab.textArea("outingReason"));
                 break;
             case "From":
-                elementFacade = find(XpathForApplyTab.inputItem("Leave From"));
+                elementFacade = find(XpathForLeaveManagementTab.inputItem("Leave From"));
                 break;
             case "Till":
-                elementFacade = find(XpathForApplyTab.inputItem("Leave Till"));
+                elementFacade = find(XpathForLeaveManagementTab.inputItem("Leave Till"));
                 break;
             case "Reason":
-                elementFacade = find(XpathForApplyTab.textArea("leaveReason"));
+                elementFacade = find(XpathForLeaveManagementTab.textArea("leaveReason"));
                 break;
             case "WFH Reason":
-                elementFacade = find(XpathForApplyTab.textArea("WFHReason"));
+                elementFacade = find(XpathForLeaveManagementTab.textArea("WFHReason"));
                 break;
             case "Comp Off Reason":
-                elementFacade = find(XpathForApplyTab.textArea("CompOffReason"));
+                elementFacade = find(XpathForLeaveManagementTab.textArea("CompOffReason"));
                 break;
             case "Date":
-                elementFacade = find(XpathForApplyTab.dropdown("WorkFromHomeDate"));
+                elementFacade = find(XpathForLeaveManagementTab.dropdown("WorkFromHomeDate"));
                 break;
         }
         if (elementFacade.getAttribute("class").contains("error-validation")) {
@@ -222,10 +308,10 @@ public class CommonFunctions extends PageObject {
     {
         boolean isAbleToSubmit = false;
         String popupText ="";
-        WebElementFacade elementFacade = find(XpathForApplyTab.successAlertPopup("h2"));
+        WebElementFacade elementFacade = find(XpathForLeaveManagementTab.successAlertPopup("h2"));
         if(elementFacade.isEnabled())
         {
-            popupText = textOf(XpathForApplyTab.successAlertPopup("p"));
+            popupText = textOf(XpathForLeaveManagementTab.successAlertPopup("p"));
             if(popupText.equals("Leave Applied successfully"))
             {
                isAbleToSubmit = true;

@@ -1,0 +1,543 @@
+package com.gemini.mis.pages;
+
+import com.gemini.mis.commonfunctions.CommonFunctions;
+import com.gemini.mis.selectors.XpathForLeaveManagementTab;
+import com.gemini.mis.selectors.XpathforPolicyTab;
+import net.serenitybdd.core.pages.PageObject;
+import net.serenitybdd.core.pages.WebElementFacade;
+import net.thucydides.core.annotations.Step;
+import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
+
+import java.io.File;
+import java.time.LocalDate;
+import java.time.Month;
+import java.util.Date;
+import java.util.List;
+
+public class LeaveManagementPage extends PageObject
+{
+    CommonFunctions genFunc;
+
+    @Step("Launch MIS Beta site")
+    public void launchSite()
+    {
+        genFunc.launchSite();
+    }
+
+    @Step
+    public void typeIntoElement(String text, String fieldName)
+    {
+     genFunc.typeIntoElement(text,fieldName);
+    }
+
+    @Step
+    public void clickOnButton(String btnName)
+    {
+        genFunc.clickOnBtn(btnName);
+    }
+
+    @Step
+    public void verifyPage(String pageName)
+    {
+        waitABit(10000);
+        String url="";
+        if(pageName.equals("Dashboard Page"))
+        {
+            url = "https://mymis.geminisolutions.com/Dashboard/Index";
+        }
+        Assert.assertEquals(getDriver().getCurrentUrl(),url);
+    }
+
+    @Step
+    public void clickOnSideNavigationOption(String tabName)
+    {
+        genFunc.clickOn(XpathForLeaveManagementTab.sideNav(tabName));
+    }
+
+
+    @Step("Verify dropdown options after clicking on Side Navigation tabs")
+    public void sideNavOptions(String options)
+    {
+        boolean isPresent = false;
+        String option[] = options.split(",");
+        for(int i=0;i<option.length;i++)
+        {
+            WebElementFacade elementFacade = find(XpathForLeaveManagementTab.dropdownOptions(String.valueOf(i+1)));
+            if(!elementFacade.getText().equals(option[i]))
+            {
+                isPresent = false;
+                break;
+            }
+            else
+            {
+                isPresent = true;
+            }
+        }
+        if(isPresent)
+        {
+            Assert.assertTrue("Dropdown options present",true);
+        }
+        else
+        {
+            Assert.assertFalse("Dropdown options not present",false);
+        }
+
+    }
+
+    @Step
+    public void verifyTab(String tabName)
+    {
+        genFunc.verifyTab(tabName);
+    }
+
+    @Step
+    public void verifyDefaultTab(String tab)
+    {
+        genFunc.verifyDefaultTab(tab);
+    }
+
+    @Step("Verify field is auto populated by default")
+    public void verifyAutoPopulated(String fieldName)
+    {
+        boolean isAutoPopulated = true;
+        if (fieldName.contains(",")) {
+            String[] fieldNames = fieldName.split(",");
+            WebElementFacade elementFacade = null;
+            for (int i = 0; i < fieldNames.length; i++) {
+                if (fieldName.contains("Primary")) {
+                    elementFacade = find(XpathForLeaveManagementTab.textBox("leaveContactNumber"));
+                } else if (fieldName.contains("Other")) {
+                    elementFacade = find(XpathForLeaveManagementTab.textBox("leaveAltContactNumber"));
+                }
+                if (elementFacade.getText().equals(" ")) {
+                    isAutoPopulated = false;
+                    break;
+                }
+            }
+        }
+        else
+        {
+            WebElementFacade elementFacade = find(XpathForLeaveManagementTab.textBox(fieldName));
+            if(elementFacade.getText().equals(" "))
+            {
+                isAutoPopulated = false;
+            }
+        }
+        if (isAutoPopulated) {
+            Assert.assertTrue("Field are auto populated by default", true);
+        } else {
+            Assert.assertFalse("Fields are not auto populated", false);
+        }
+    }
+
+    @Step
+    public void verifyMandatoryFields(String fields)
+    {
+        genFunc.verifyMandatoryFields(fields);
+
+    }
+
+    @Step
+    public void selectDate(String date, String calendarName) {
+    }
+
+    @Step
+    public void clickOnSubTab(String childTab, String parentTab)
+    {
+        genFunc.navigateToTab(parentTab,childTab);
+    }
+
+    @Step("Click on Tab")
+    public void clickOnTab(String tabName)
+    {
+        genFunc.navigateToTab(tabName);
+    }
+
+    @Step
+    public void selectTillDate(By loc,String tillDate)
+    {
+        genFunc.selectDate(loc,tillDate);
+    }
+
+    @Step
+    public void selectFromDate(By loc,String fromDate)
+    {
+        genFunc.selectDate(loc,fromDate);
+    }
+
+    @Step
+    public void verifyTooltip(String labelText)
+    {
+        if(isElementVisible(XpathForLeaveManagementTab.labelText(labelText)))
+        {
+            WebElementFacade elementFacade = find(XpathForLeaveManagementTab.tooltip);
+            genFunc.clickOn(XpathForLeaveManagementTab.tooltip);
+            if(elementFacade.getAttribute("aria-describedby").contains("popover"))
+            {
+                String tooltipText = elementFacade.getText();
+                if(tooltipText.equals("For ML total days will be considered as total working days"))
+                {
+                    Assert.assertTrue("Tootlip verified",true);
+                }
+                else
+                {
+                    Assert.assertFalse("Unable to verify tooltip",false);
+                }
+            }
+            else
+            {
+                Assert.assertFalse("Unable to verify tooltip",false);
+            }
+        }
+    }
+
+    @Step
+    public void halfDayOptions(String leaveOptions)
+    {
+        String[] halfDayOption = leaveOptions.split(",");
+        String firstHalf = textOf(XpathForLeaveManagementTab.halfDayOptions("isFirstHalfLeave"));
+        String secondHalf =textOf(XpathForLeaveManagementTab.halfDayOptions("isSecondHalfLeave"));
+
+        if(firstHalf.equals(halfDayOption[0]) && secondHalf.equals(halfDayOption[1]))
+        {
+            Assert.assertTrue("Half day options verified",true);
+        }
+        else
+        {
+            Assert.assertFalse("Unable to verify half day options",false);
+        }
+    }
+
+    @Step
+    public void selectLeaveType(String leaveType)
+    {
+        leaveType = "1 "+leaveType;
+        WebElementFacade elementFacade = find(XpathForLeaveManagementTab.dropdown("leaveType"));
+        genFunc.selectFromDropdown(elementFacade,leaveType);
+    }
+
+    @Step
+    public void enterText(By loc, String enterReason)
+    {
+        if(genFunc.isElementFoundInGivenTime(loc))
+        {
+            WebElementFacade elementFacade= find(loc);
+            typeInto(elementFacade,enterReason);
+        }
+        else
+        {
+            Assert.fail("Unable to type");
+        }
+    }
+
+    @Step
+    public void verifyPopup(String popupText)
+    {
+        if(genFunc.isElementFoundInGivenTime(XpathForLeaveManagementTab.successAlertPopup("p")))
+        {
+            String popUpText = textOf(XpathForLeaveManagementTab.successAlertPopup("p"));
+            if(popUpText.equals(popupText))
+            {
+                Assert.assertTrue("Popup verified",true);
+                if(popUpText.contains("successfully"))
+                clickOnButton("OK");
+            }
+            else
+            {
+                Assert.assertFalse("Unable to verify popUp",false);
+            }
+        }
+    }
+
+    @Step
+    public void availabilityType(String availabilityType)
+    {
+        JavascriptExecutor js = (JavascriptExecutor) getDriver();
+        js.executeScript("window.scrollBy(0,document.body.scrollHeight)");
+        if(availabilityType.equals("Mobile"))
+        {
+            clickOnButton("Mobile");
+        }
+        else
+        {
+            clickOnButton("Email");
+        }
+    }
+
+
+
+    @Step
+    public void verifyTabIsActive(String tabName) {
+        WebElementFacade elementFacade = find(XpathForLeaveManagementTab.isTabActive(tabName));
+        if (elementFacade.getAttribute("class").contains("active")) {
+            Assert.assertTrue("Tab is active", true);
+        } else {
+            Assert.assertFalse("Tab is not active", false);
+        }
+    }
+
+    @Step("Select Date from Dropdown")
+    public void selectDateFromDropdown(Date date, By loc)
+    {
+        String[] dateArray = date.toString().split(" ");
+        LocalDate currentdate = LocalDate.now();
+        int currentDay = currentdate.getDayOfMonth();
+        //Getting the current month
+        Month currentMonth = currentdate.getMonth();
+        String Month = null;
+        if(currentMonth.toString().equals("SEPTEMBER"))
+        {
+            Month= "09";
+        }
+        else if(currentMonth.toString().equals("OCTOBER"))
+        {
+            Month= "10";
+        }
+        String dateToBeSelected = Month+"/"+dateArray[2]+"/2022";
+        WebElementFacade elementFacade = find(loc);
+        selectFromDropdown(elementFacade,dateToBeSelected);
+    }
+
+
+    @Step("Select date for comp off")
+    public void selectDateForCompOff()
+    {
+        if(isElementVisible(XpathForLeaveManagementTab.dropdown("CompOffDate")))
+        {
+            WebElementFacade elementFacade = find(XpathForLeaveManagementTab.dropdown("CompOffDate"));
+            elementFacade.click();
+            elementFacade.sendKeys(Keys.DOWN);
+            elementFacade.sendKeys(Keys.ENTER);
+        }
+        else
+        {
+            Assert.fail("Unable to select from dropdown");
+        }
+    }
+
+    @Step
+    public void verifyElement(String element)
+    {
+        WebElementFacade elementFacade = null;
+        switch (element)
+        {
+            case "Request processed successfully":
+                elementFacade = find(XpathForLeaveManagementTab.successAlertPopup("p"));
+                break;
+            case "Date Range":
+            elementFacade = find(XpathForLeaveManagementTab.dateRange);
+            break;
+            case "Export":
+                elementFacade = find(XpathForLeaveManagementTab.exportBtn("1"));
+                break;
+            case "Export WFH":
+                elementFacade = find(XpathForLeaveManagementTab.exportBtn("2"));
+                break;
+            case "Export Comp Off":
+                elementFacade = find(XpathForLeaveManagementTab.exportBtn("3"));
+                break;
+            case "Export Out Duty/Tour":
+                elementFacade = find(XpathForLeaveManagementTab.exportBtn("4"));
+                break;
+            case "Export LWP":
+                elementFacade = find(XpathForLeaveManagementTab.exportBtn("5"));
+                break;
+            case "Copy":
+                elementFacade = find(XpathForLeaveManagementTab.copyBtn("1"));
+                break;
+            case "Print":
+                elementFacade = find(XpathForLeaveManagementTab.printBtn("1"));
+                break;
+            case "Excel":
+                elementFacade = find(XpathForLeaveManagementTab.excelBtn("1"));
+                break;
+            case "PDF":
+                elementFacade = find(XpathForLeaveManagementTab.pdfBtn("1"));
+                break;
+            case "Copied to Clipboard":
+                elementFacade = find(XpathForLeaveManagementTab.copyToClipboard);
+                break;
+        }
+        if(!elementFacade.isPresent())
+        {
+            Assert.fail("Unable to find element on UI");
+        }
+    }
+
+    @Step
+    public void verifyMessageFor(String resultInput, String message)
+    {
+        String actualMsg = textOf(XpathForLeaveManagementTab.list("treeitem"));
+        if(!actualMsg.equals(message))
+        {
+            Assert.fail("Unable to verify message");
+        }
+        if(resultInput.contains("Valid"))
+        {
+            WebElementFacade elementFacade = find(XpathForLeaveManagementTab.list("treeitem"));
+            elementFacade.click();
+        }
+    }
+
+    public void verifyDateSelected(String text)
+    {
+        if(!text.equals(textOf(XpathForLeaveManagementTab.dateRange)))
+        {
+            Assert.fail("Date not selected");
+        }
+    }
+
+    @Step
+    public boolean isFileDownloaded(String downloadPath, String fileName) {
+        File folder = new File(downloadPath);
+        File[] folderContent = folder.listFiles();
+
+        for (int i = 0; i < folderContent.length; i++) {
+            if (folderContent[i].getName().equals(fileName)) {
+                folderContent[i].delete(); // File has been found, it can now be deleted:
+                return true;
+            }
+        }
+        return false;
+    }
+
+    @Step("Verify Print Page opens")
+    public void verifyPageOpens()
+    {
+        if(getDriver().getWindowHandles().equals("1"))
+        {
+            Assert.fail("Print page did not open");
+        }
+    }
+
+    @Step
+    public void verifyLeavePeriod(String searchText)
+    {
+        if(searchText.equals(textOf(XpathforPolicyTab.noOfRows)))
+        {
+            Assert.assertTrue("Leave verified successfully",true);
+        }
+        else
+        {
+            Assert.fail("Leave not filtered successfully");
+        }
+
+    }
+
+    @Step
+    public void verifyColumnIsSorted(String column) {
+        WebElementFacade tab = null;
+        switch (column) {
+            case "Period":
+                tab = find(XpathForLeaveManagementTab.columnHeading("1"));
+                break;
+            case "Period WFH":
+                tab = find(XpathForLeaveManagementTab.columnHeading("8"));
+                break;
+            case "Half Day":
+                tab = find(XpathForLeaveManagementTab.columnHeading("9"));
+                break;
+            case "Type":
+                tab = find(XpathForLeaveManagementTab.columnHeading("2"));
+                break;
+            case "Reason":
+                tab = find(XpathForLeaveManagementTab.columnHeading("3"));
+                break;
+            case "Remarks":
+                tab = find(XpathForLeaveManagementTab.columnHeading("4"));
+                break;
+            case "Reason WFH":
+                tab = find(XpathForLeaveManagementTab.columnHeading("10"));
+                break;
+            case "Remarks WFH":
+                tab = find(XpathForLeaveManagementTab.columnHeading("11"));
+                break;
+            case "Status WFH":
+                tab = find(XpathForLeaveManagementTab.columnHeading("12"));
+                break;
+        }
+            if (tab.getAttribute("class").contains("_desc") || tab.getAttribute("class").contains("_asc")) {
+            Assert.assertTrue("Sorting verified successfully", true);
+        } else {
+            Assert.fail("Unable to sort columns");
+        }
+    }
+
+    @Step
+    public void verifyFile(String fileType, String tab)
+    {
+        boolean isFileDownloaded = false;
+        switch (fileType)
+        {
+            case "Excel":
+            isFileDownloaded = isFileDownloaded("C:\\Users\\ja.multani\\Downloads\\","Leave History List.xlsx");
+            break;
+            case "Excel WFH":
+            isFileDownloaded = isFileDownloaded("C:\\Users\\ja.multani\\Downloads\\","WFH History List.xlsx");
+            break;
+            case "Pdf":
+            isFileDownloaded = isFileDownloaded("C:\\Users\\ja.multani\\Downloads\\","Leave History List.pdf");
+            break;
+            case "Pdf WFH":
+            isFileDownloaded = isFileDownloaded("C:\\Users\\ja.multani\\Downloads\\","WFH History List.pdf");
+            break;
+        }
+        if(!isFileDownloaded)
+        {
+            Assert.fail("Unable to download file");
+        }
+    }
+
+    @Step
+    public void typeText(String text, String tabName)
+    {
+        WebElementFacade elementFacade=null;
+        switch (tabName)
+        {
+            case "Leave":
+                elementFacade = find(XpathForLeaveManagementTab.searchBox("1"));
+                break;
+            case "WFH":
+                elementFacade = find(XpathForLeaveManagementTab.searchBox("2"));
+                break;
+            case "Comp Off":
+                elementFacade = find(XpathForLeaveManagementTab.searchBox("3"));
+                break;
+            case "Out Duty/Tour":
+                elementFacade = find(XpathForLeaveManagementTab.searchBox("4"));
+                break;
+            case "LWP":
+                elementFacade = find(XpathForLeaveManagementTab.searchBox("5"));
+                break;
+        }
+        if(elementFacade.isPresent())
+        {
+            typeInto(elementFacade,text);
+        }
+        else {
+            Assert.fail("Unable to type");
+        }
+    }
+
+    @Step
+    public void verifyResult(String textFiltered, String tabName)
+    {
+        List<WebElementFacade> list = findAll(XpathforPolicyTab.policyData);
+        boolean isSearchResultFound = false;
+        for(WebElementFacade elementFacade:list)
+        {
+            if(elementFacade.getText().equals(textFiltered))
+            {
+                isSearchResultFound=true;
+                break;
+            }
+        }
+        if(!isSearchResultFound)
+        {
+            Assert.fail("Unable to filter");
+        }
+    }
+}

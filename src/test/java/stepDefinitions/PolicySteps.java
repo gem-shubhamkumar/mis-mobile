@@ -1,22 +1,14 @@
 package stepDefinitions;
 
-import com.gemini.mis.pages.LeaveManagementApplyPage;
 import com.gemini.mis.pages.PolicyPage;
-import com.gemini.mis.selectors.XpathForApplyTab;
 import com.gemini.mis.selectors.XpathforPolicyTab;
 import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import net.serenitybdd.core.pages.PageObject;
-import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.Steps;
-import org.openqa.selenium.devtools.v85.page.Page;
 
-import java.util.Calendar;
-import java.util.Date;
-
-public class PolicySteps
+public class PolicySteps extends PageObject
 {
 
     @Steps
@@ -31,13 +23,14 @@ public class PolicySteps
     @And("Verify number of records displayed by default")
     public void verifyNumberOfRecordsDisplayedByDefault()
     {
+        waitABit(5000);
         PolicyPage.verifyDefaultRecords();
     }
 
     @Then("Select {string} as number of entries")
     public void selectAsNumberOfEntries(String noOfEntry)
     {
-        PolicyPage.selectNumberOfEntry(noOfEntry);
+        PolicyPage.selectNumberOfEntry(XpathforPolicyTab.lengthPage("tblActivePolicy_length"),noOfEntry);
     }
 
     @And("Verify number of records displayed changes")
