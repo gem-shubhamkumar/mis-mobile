@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="0" name="MIS Leave Management Activities" skipped="0" tests="2" time="126.34" timestamp="2022-09-26 05:19:45"><testcase name="Navigate to Leave Management &gt; Out of Duty/Tour tab"/><testcase name="Verify From, Till, Primary Contact number , type and Reason are mandatory fields"/></testsuite>

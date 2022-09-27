@@ -1,0 +1,24 @@
+<html lang='en'><head><link href='prism/prism.css' rel='stylesheet' /></head><body><script src='prism/prism.js'></script><body><div><pre><code class='language-html'>&lt;html&gt;<br/>
+ &lt;head&gt;<br/>
+  &lt;script src="/Scripts/lib/jquery.min.js" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script language="javascript" type="text/javascript"&gt;<br/>
+    //if (window.location.hostname !== 'localhost') {<br/>
+    //    if (window.location.protocol !== 'https:') {<br/>
+    //        window.location = 'https://' + window.location.hostname + (window.location.port ? ':' + window.location.port : '') + window.location.pathname + window.location.hash;<br/>
+    //    }<br/>
+    //}<br/>
+    //Post login script<br/>
+    $(function () {<br/>
+        blockContainer('One moment please while we collect your information...');<br/>
+        misSession.authenticate();<br/>
+    });<br/>
+&lt;/script&gt; <br/>
+  &lt;script src="/Scripts/common/mis.basepath.js?v=6.1" type="text/javascript"&gt;&lt;/script&gt;&lt;!--&lt;script src="/Scripts/common/mis.basepath.js?v=6.1" type="text/javascript"&gt;&lt;/script&gt;--&gt; &lt;!--&lt;script src="/Scripts/common/mis.common.min.js?v=4.6" type="text/javascript"&gt;&lt;/script&gt;--&gt; &lt;!--&lt;script src="/Scripts/lib/jquery.blockUI.min.js?v=1.0" type="text/javascript"&gt;&lt;/script&gt;--&gt; &lt;!--&lt;script src="/Scripts/lib/sweetalert.min.js" type="text/javascript"&gt;&lt;/script&gt;--&gt; <br/>
+  &lt;link rel="preload" as="script" href="/Scripts/lib/sweetalert.min.js"&gt;<br/>
+  &lt;link rel="preload" as="script" href="/Scripts/lib/jquery.blockUI.min.js?v=1.0"&gt;<br/>
+  &lt;link rel="preload" as="script" href="/Scripts/common/mis.common.min.js?v=4.6"&gt;<br/>
+  &lt;link rel="preload" as="script" href="/Scripts/common/mis.basepath.js?v=6.1"&gt;<br/>
+  &lt;link rel="preload" as="script" href="/Scripts/lib/jquery.min.js"&gt;<br/>
+ &lt;/head&gt;<br/>
+ &lt;body&gt;&lt;/body&gt;<br/>
+&lt;/html&gt;</code></pre></div></body></html>

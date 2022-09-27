@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="1" failures="2" name="MIS Leave Management Activities" skipped="0" tests="6" time="217.87" timestamp="2022-09-26 07:33:51"><testcase name="Verify From,Till,Type,Primary Contact number,Reason are mandatory fields"/><testcase name="Select Outing From and Till Leave date from Calendar"/><testcase name="Choose leave type"><failure message="expected:&lt;...geminisolutions.com/[]&gt; but was:&lt;...geminisolutions.com/[Dashboard/Index]&gt;" type="java.lang.AssertionError">expected:&lt;...geminisolutions.com/[]&gt; but was:&lt;...geminisolutions.com/[Dashboard/Index]&gt;</failure><system-err>expected:&lt;...geminisolutions.com/[]&gt; but was:&lt;...geminisolutions.com/[Dashboard/Index]&gt;&#13;
+com.gemini.mis.pages.LeaveManagementApplyPage.verifyPage(LeaveManagementApplyPage.java:49)&#13;
+stepDefinitions.LeaveManagementApplySteps.userIsOnMISHomePage(LeaveManagementApplySteps.java:47)&#13;
+✽.User is on MIS Home Page(file:///C:/Users/ja.multani/IdeaProjects/MISAutomation/src/test/resources/features/LeaveManagementOutOfDuty.feature:32)&#13;
+</system-err></testcase><testcase name="Enter Primary Contact number"/><testcase name="Enter Reason for Out Duty"><failure message="expected:&lt;...geminisolutions.com/[]&gt; but was:&lt;...geminisolutions.com/[Dashboard/Index]&gt;" type="java.lang.AssertionError">expected:&lt;...geminisolutions.com/[]&gt; but was:&lt;...geminisolutions.com/[Dashboard/Index]&gt;</failure><system-err>expected:&lt;...geminisolutions.com/[]&gt; but was:&lt;...geminisolutions.com/[Dashboard/Index]&gt;&#13;
+com.gemini.mis.pages.LeaveManagementApplyPage.verifyPage(LeaveManagementApplyPage.java:49)&#13;
+stepDefinitions.LeaveManagementApplySteps.userIsOnMISHomePage(LeaveManagementApplySteps.java:47)&#13;
+✽.User is on MIS Home Page(file:///C:/Users/ja.multani/IdeaProjects/MISAutomation/src/test/resources/features/LeaveManagementOutOfDuty.feature:57)&#13;
+</system-err></testcase><testcase name="Enter Data and Click on Submit"><error message="element not interactable&#10;  (Session info: chrome=105.0.5195.127)&#10;Build info: version: '4.4.0', revision: 'e5c75ed026a'&#10;System info: host: 'GEMPK-200035', ip: '172.20.10.2', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_333'&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Command: [752b63aa5bfdb285a681d1cbce85cb85, clickElement {id=4168183d-2c92-41c0-878e-f9f5fa22dcc1}]&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 105.0.5195.127, chrome: {chromedriverVersion: 105.0.5195.52 (412c95e51883..., userDataDir: C:\Users\JA76C5~1.MUL\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:54243}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:54243/devtoo..., se:cdpVersion: 105.0.5195.127, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}&#10;Element: [[ChromeDriver: chrome on WINDOWS (752b63aa5bfdb285a681d1cbce85cb85)] -&gt; xpath: (//input[@class='btn btn-success'])[3]]&#10;Session ID: 752b63aa5bfdb285a681d1cbce85cb85&#10;Build info: version: '4.4.0', revision: 'e5c75ed026a'&#10;System info: host: 'GEMPK-200035', ip: '172.20.10.2', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_333'&#10;Driver info: driver.version: unknown" type="org.openqa.selenium.ElementNotInteractableException">element not interactable
+  (Session info: chrome=105.0.5195.127)
+Build info: version: '4.4.0', revision: 'e5c75ed026a'
+System info: host: 'GEMPK-200035', ip: '172.20.10.2', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_333'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [752b63aa5bfdb285a681d1cbce85cb85, clickElement {id=4168183d-2c92-41c0-878e-f9f5fa22dcc1}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 105.0.5195.127, chrome: {chromedriverVersion: 105.0.5195.52 (412c95e51883..., userDataDir: C:\Users\JA76C5~1.MUL\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:54243}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:54243/devtoo..., se:cdpVersion: 105.0.5195.127, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on WINDOWS (752b63aa5bfdb285a681d1cbce85cb85)] -&gt; xpath: (//input[@class='btn btn-success'])[3]]
+Session ID: 752b63aa5bfdb285a681d1cbce85cb85
+Build info: version: '4.4.0', revision: 'e5c75ed026a'
+System info: host: 'GEMPK-200035', ip: '172.20.10.2', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_333'
+Driver info: driver.version: unknown</error><system-err>element not interactable
+  (Session info: chrome=105.0.5195.127)
+Build info: version: '4.4.0', revision: 'e5c75ed026a'
+System info: host: 'GEMPK-200035', ip: '172.20.10.2', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_333'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [752b63aa5bfdb285a681d1cbce85cb85, clickElement {id=4168183d-2c92-41c0-878e-f9f5fa22dcc1}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 105.0.5195.127, chrome: {chromedriverVersion: 105.0.5195.52 (412c95e51883..., userDataDir: C:\Users\JA76C5~1.MUL\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:54243}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:54243/devtoo..., se:cdpVersion: 105.0.5195.127, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on WINDOWS (752b63aa5bfdb285a681d1cbce85cb85)] -&gt; xpath: (//input[@class='btn btn-success'])[3]]
+Session ID: 752b63aa5bfdb285a681d1cbce85cb85
+Build info: version: '4.4.0', revision: 'e5c75ed026a'
+System info: host: 'GEMPK-200035', ip: '172.20.10.2', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_333'
+Driver info: driver.version: unknown&#13;
+com.gemini.mis.commonfunctions.CommonFunctions.clickOnBtn(CommonFunctions.java:89)&#13;
+com.gemini.mis.pages.LeaveManagementApplyPage.clickOnButton(LeaveManagementApplyPage.java:37)&#13;
+stepDefinitions.LeaveManagementApplySteps.clickOnSubmitButtonForCompOffTab(LeaveManagementApplySteps.java:217)&#13;
+✽.Click on Submit button for Comp off Tab(file:///C:/Users/ja.multani/IdeaProjects/MISAutomation/src/test/resources/features/LeaveManagementOutOfDuty.feature:79)&#13;
+</system-err></testcase></testsuite>
