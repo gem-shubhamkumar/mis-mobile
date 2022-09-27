@@ -40,5 +40,28 @@ public class KnowledgeBaseStepDefinition {
        steps.clickOnButton(itemName);
     }
 
+    @Then("click on refresh icon")
+    public void clickReloadIcon(){
+        steps.clickOnReloadButton();
+    }
+
+
+    @And("verify this is the last page")
+    public void verifyThisIsLastPage(){
+       steps.isLastPage();
+    }
+
+    //incomplete step definitions
+    @And("^enter \"(.*?)\" tag name and click on \"(.*?)\"$")
+    public void clickOnAddButtonAfterInput(String inputTagName, String buttonName){
+
+    }
+
+    @And("click ok on the popup in add new tag")
+    public void clickOnPopupInAddNewTag(){
+
+    }
+
+    @And("^enter \"(.*?)\"$")
 
 }

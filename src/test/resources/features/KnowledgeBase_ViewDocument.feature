@@ -1,5 +1,5 @@
 @KnowledgeBaseTest
-Feature: Automation of Knowledge Base menu and View Document Submenu in MIS Dashboard
+Feature: Automation of  View Document and view shared document Submenu in knowledge base menu in MIS Dashboard
 
 
   Background:
@@ -33,14 +33,14 @@ Feature: Automation of Knowledge Base menu and View Document Submenu in MIS Dash
     When Goto "<menuItem>" and click on "<subMenuItem>"
     Then click on "<targetElement>"
     And enter "<validTagName>" tag name and click on "<addButton>"
-    Then click ok on the popup
+    Then click ok on the popup in add new tag
     Then click on "<targetElement>"
-    And enter "<validTagName>" tag name click and click on "<crossButton>"
+    And enter "<validTagName>" tag name and click on "<crossButton>"
     Then click on "<targetElement>"
-    And enter "<validTagName>" tag name click and click on "<closeButton>"
+    And enter "<validTagName>" tag name and click on "<closeButton>"
     Then click on "<targetElement>"
     Then enter "<invalidTagName>" and click on "<addButton>"
-    And click ok on the popup
+    And click ok on the popup in add new tag
     And click on "<closeButton>" button
     Then click on "<targetElement>"
     Then enter "<invalidTagName>" and click on "<crossButton>"
@@ -52,13 +52,123 @@ Feature: Automation of Knowledge Base menu and View Document Submenu in MIS Dash
     |knowledge base|view document|add New Document|TagName1|addButton|crossButton|*&^*^^%^%*|closeButton|
 
 
-
+    @Test3
     Scenario Outline:click on checking the functionality of adding folder
       When Goto "<menuItem>" and click on "<subMenuItem>"
       Then click on "<targetElement>"
       And click on "<crossButton>"
       Then click on "<targetElement>"
-      And Put "<InvalidFolderName>"
+      And Put "<InvalidFolderName>" and click on "<addButton>"
+      Then verify folder is created
+      And Put "<InvalidFolderName>" and click on "<crossButton>"
+      Then verify no folder has been added
       Examples:
-        |menuItem|subMenuItem|targetElement|crossButton|
-        |knowledge base|view document|AddNewFolder|crossButton|
+        |menuItem|subMenuItem|targetElement|crossButton|InvalidFolderName|addButton|
+        |knowledge base|view document|AddNewFolder|crossButton|*&*ArFolderName|addButton|
+
+    @Test4
+    Scenario Outline: Knowledge base view documents add new folder testcase to check folder functionality
+      When Goto "<menuItem>" and click on "<subMenuItem>"
+      Then click on "<targetElement>"
+      And click on "<crossButton>"
+      Then verify no folder added
+      Then click on "<targetElement>"
+      And click on "<closeButton>"
+      Then verify no folder added
+      Then click on "<targetElement>"
+      And create folder without name and click "<addButton>"
+      And click on ok button from success window
+      Then verify folder added
+      Then  click on "<targetElement>"
+      And click on "<crossButton>"
+      Then  click on "<targetElement>"
+      And click on "<closeButton>"
+      Then verify no folder added
+
+      Examples:
+        |menuItem|subMenuItem|targetElement|crossButton|closeButton|addButton|
+        |knowledge base|view document|AddNewFolder|crossButton|closeButton|addButton|
+
+     @Test5
+    Scenario Outline:
+      When Goto "<menuItem>" and click on "<subMenuItem>"
+      Then click on "<targetElement>"
+      And click on "<crossButton>"
+      Then click on "<targetElement>"
+      And click on "<closeButton>"
+      Then click on "<targetElement>"
+      And click on "<closeButton>"
+      Then click on "<targetElement>"
+      And create folder with no name
+      Then click on "<addButton>"
+      And verify warning message is displayed
+
+      Examples:
+        |menuItem|subMenuItem|targetElement|crossButton|closeButton|addButton|
+        |knowledge base|view document|AddNewFolder|crossButton|closeButton|addButton|
+
+  @Test6
+  Scenario Outline: Check duplicate folder functionality by adding one duplicate folder
+      When Goto "<menuItem>" and click on "<subMenuItem>"
+      Then click on "<targetElement>"
+      And enter a "<validFolderName>" and click "<addButton>"
+      Then click on "<targetElement>"
+      And enter a "<duplicateFolderName>" and click "<addButton>"
+      Then verify duplicate folder created
+      Then click on "<targetElement>"
+      Then enter a "<noName>" and click "<addButton>"
+      And verify folder created
+      Then click on "<targetElement>"
+      And enter a "<folderName>" and click "<closeButton>"
+
+      Examples:
+        |menuItem|subMenuItem|targetElement|noName|closeButton|addButton|validFolderName|duplicateFolderName|folderName|
+        |knowledge base|view document|AddNewFolder||closeButton|addButton|validFolderName|validFolderName|folderName123|
+
+    @Test7
+    Scenario Outline: check right click working
+      When Goto "<menuItem>" and click on "<subMenuItem>"
+      Then right click on "<targetElement>"
+      And verify menu opens
+      Examples:
+        |menuItem|subMenuItem|targetElement|noName|closeButton|addButton|validFolderName|duplicateFolderName|folderName|
+        |knowledge base|view document|AddNewFolder||closeButton|addButton|validFolderName|validFolderName|folderName123|
+  @Test8
+  Scenario Outline: check right click functionality
+    When Goto "<menuItem>" and click on "<subMenuItem>"
+    Then right click on "<targetElement>"
+    And verify menu opens
+    Then click on "<addSubFolders>" from the menu
+    Then without entering folder name click on "<crossButton>" then  "<closeButton>"
+
+    Examples:
+      |menuItem|subMenuItem|targetElement|noName|closeButton|addButton|validFolderName|duplicateFolderName|crossButton|
+      |knowledge base|view document|AddNewFolder||closeButton|addButton|validFolderName|validFolderName|crossButton|
+
+   @Test16
+   Scenario: check refresh button in view documents tab
+     When Goto "knowledge base" and click on "view document"
+     Then click on refresh icon
+
+   Scenario Outline: Check functionality of view documents number of rows from dropdown
+     When Goto "knowledge base" and click on "view document"
+
+     Examples:
+       |menuItem|subMenuItem|targetElement|noName|closeButton|addButton|validFolderName|duplicateFolderName|crossButton|
+       |knowledge base|view document|AddNewFolder||closeButton|addButton|validFolderName|validFolderName|crossButton|
+
+
+
+   @Test36
+   Scenario Outline: Check navigation on view document page
+     When Goto "<menuItem>" and click on "<subMenuItem>"
+     Then click on "<next>" button
+     And verify this is the last page
+     Then verify no records added in the grid
+     Examples:
+       |menuItem|subMenuItem|next|
+       |knowledge base|view document|nextButton|
+       |knowledge base|view document|prevButton|
+
+
+

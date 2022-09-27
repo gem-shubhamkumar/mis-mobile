@@ -71,6 +71,16 @@ public class KnowledgeBasePage extends PageObject {
                     $(selector.tagNameSaveButton).click();
                     Assert.assertTrue("clicked on save button on the tag name", true);
                     break;
+
+                case "nextButton":
+                    $(selector.nextButton).click();
+                    Assert.assertTrue("clicked on next button", true);
+                    break;
+
+                case "prevButton":
+                    $(selector.prevButton).click();
+                    Assert.assertTrue("Clicked on previous button", true);
+                    break;
                 default:
                     break;
             }
@@ -101,6 +111,41 @@ public class KnowledgeBasePage extends PageObject {
         boolean lowerValue = lowerText.equals("Showing 0 to 0 of 0 entries");
         Assert.assertTrue("No record added",noRecordInGrid & lowerValue);
     }
+
+    @Step("click reload button")
+    public void clickOnReloadButton(){
+        try{
+            $(selector.reloadButton).click();
+            Assert.assertTrue("Clicked on reload button successfully", true);
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+            Assert.fail("Failed to click reload button");
+        }
+    }
+
+    @Step("Check whether this is last page")
+    public void isLastPage(){
+        try{
+            boolean isNextButtonEnabled = true;
+            boolean isPrevButtonEnabled = true;
+
+            while(!isNextButtonEnabled)
+                isNextButtonEnabled =  $(selector.nextButton).isDisplayed();
+
+            while(!isPrevButtonEnabled)
+                isPrevButtonEnabled =  $(selector.prevButton).isDisplayed();
+
+            if (isPrevButtonEnabled || isNextButtonEnabled)
+                 Assert.assertTrue("The next button is not clickable that is this is last page",true);
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+            Assert.fail("This is not the last page");
+        }
+    }
+
+
+
+
 
 
 
