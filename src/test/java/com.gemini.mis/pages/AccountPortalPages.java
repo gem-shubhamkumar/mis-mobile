@@ -66,6 +66,7 @@ public class AccountPortalPages extends PageObject {
 
     @Step("Click on {0}")
     public void clickOnElement(String eleName){
+        waitABit(1500);
         switch(eleName){
             case "sign in button":
                 commonfunctions.clickOn(AccountPortalSelectors.btnSignIn);
@@ -103,13 +104,26 @@ public class AccountPortalPages extends PageObject {
             case "Change AD password button":
                 commonfunctions.clickOn(NavBarSelectors.btnChangeADpassword);
                 break;
+            case "Profile button":
+                waitABit(2000);
+                commonfunctions.clickOn(NavBarSelectors.btnProfileMenu);
+                break;
+            case "Skills option":
+                commonfunctions.clickOn(NavBarSelectors.optionsSkills);
+                break;
+            case "Save button":
+                commonfunctions.clickOn(NavBarSelectors.btnAddSkillSave);
+                break;
 
 
 
-            default:Assert.fail("button not found");
+
+            default:Assert.fail("button not found, not added in switch cases");
         }
         waitABit(1000);
     }
+
+
 
     @Step("Verify new tab is open in window handle as page heading {0}")
     public void verifyNewWindowTabIsOpen(String newTabPageHeading){

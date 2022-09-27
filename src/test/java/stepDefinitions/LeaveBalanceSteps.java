@@ -3,6 +3,7 @@ package stepDefinitions;
 import com.gemini.mis.commonFunctions.commonMethods;
 import com.gemini.mis.pages.LeaveBalancePages;
 import com.gemini.mis.selectors.LeaveBalanceSelectors;
+import com.gemini.mis.selectors.NavBarSelectors;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import net.serenitybdd.core.pages.PageObject;
@@ -38,6 +39,11 @@ public class LeaveBalanceSteps extends PageObject {
             case "Leave history window":
                 $(LeaveBalanceSelectors.gridLeaveHistory).isVisible();
                 break;
+            case "Add skills window":
+                $(NavBarSelectors.windowAddSkills).isVisible();
+            break;
+
+            default:Assert.fail("Element name not added in switch cases");
         }
     }
 
