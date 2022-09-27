@@ -1,5 +1,6 @@
 package com.gemini.mis.commonfunctions;
 
+import com.gemini.mis.pages.FeedbackPage;
 import com.gemini.mis.selectors.CommonSelectors;
 import com.gemini.mis.selectors.FeedbackSelectors;
 import com.gemini.mis.selectors.MySkillsLocators;
@@ -13,6 +14,8 @@ import org.openqa.selenium.WebElement;
 import java.util.List;
 
 public class CommonFunctions extends PageObject {
+
+    FeedbackPage feedbackPage;
 
     @Step
     public void navigateToTab(String childTabName, String parentTabName) {
@@ -77,6 +80,20 @@ public class CommonFunctions extends PageObject {
                 while(!$(By.xpath(CommonSelectors.paginationButtons.replace("buttonName", buttonName))).getAttribute("class").contains("disabled")) {
                     $(By.xpath(CommonSelectors.paginationButtons.replace("buttonName", buttonName))).waitUntilPresent().click();
                 }
+                break;
+            }
+
+            case "View" : {
+                $(By.xpath(FeedbackSelectors.viewButton.replace("size", Integer.toString(feedbackPage.totalRow())))).waitUntilPresent().click();
+                break;
+            }
+
+            case "Copy" :
+            case "Print" :
+            case "PDF" :
+            case "Excel" :
+            case "Export" : {
+                $(By.xpath(FeedbackSelectors.export.replace("name", buttonName))).waitUntilPresent().click();
                 break;
             }
 

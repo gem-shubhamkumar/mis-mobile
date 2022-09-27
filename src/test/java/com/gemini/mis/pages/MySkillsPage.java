@@ -48,11 +48,6 @@ public class MySkillsPage extends PageObject {
          $(By.xpath(MySkillsLocators.skillName.replace("skill", skill))).waitUntilPresent().click();
     }
 
-
-    @Step("Select Value {1}")
-    public void selectValue(String id, String value) {
-         commonFunctions.selectFromDropdown($(By.id(id)).getElement(), value);
-    }
     @Step
     public void enterValue(String value) {
          $(By.id("expinMonthsEdit")).sendKeys(Keys.BACK_SPACE);

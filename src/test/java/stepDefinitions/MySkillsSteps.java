@@ -37,13 +37,13 @@ public class MySkillsSteps {
 
     @Then("^User selects Proficiency Level \"(.*?)\"$")
     public void selectProficiencyLevel(String value) {
-        skillsPages.selectValue("ddlSkillLevelEdit", value);
+        commonPages.selectValue("ddlSkillLevelEdit", value, "id");
     }
 
 
     @Then("^User selects Skill Type \"(.*?)\"$")
     public void selectSkillType(String value) {
-        skillsPages.selectValue("ddlSkillTypeEdit", value);
+        commonPages.selectValue("ddlSkillTypeEdit", value, "id");
     }
 
     @And("^User enters experience (.*?)$")

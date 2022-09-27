@@ -23,4 +23,5 @@ public class CommonSelectors {
 
 
     public static String paginationButtons = "//li[contains(@class, 'paginate_button buttonName')]";
+    public static String select = "//select[@attribute='value']";
 }

@@ -1,14 +1,23 @@
 package com.gemini.mis.pages;
 
+import com.gemini.mis.commonfunctions.CommonFunctions;
 import com.gemini.mis.selectors.CommonSelectors;
+import com.gemini.mis.selectors.FeedbackSelectors;
 import com.gemini.mis.selectors.MySkillsLocators;
 import net.thucydides.core.annotations.Step;
+import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.pages.PageObject;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
+import java.util.List;
 
 public class CommonPage extends PageObject {
+
+    @Steps
+    CommonFunctions commonFunctions;
 
     @Step
     public void launchURL(String url) {
@@ -44,5 +53,17 @@ public class CommonPage extends PageObject {
         Assert.assertTrue($(By.xpath(MySkillsLocators.modalTitle.replace("modalTitle", modalTitle))).isPresent());
     }
 
+    @Step("Select Value {1}")
+    public void selectValue(String id, String value, String attribute) {
+        String xpath = CommonSelectors.select.replace("attribute", attribute);
+        xpath = xpath.replace("value", id);
 
+        commonFunctions.selectFromDropdown($(By.xpath(xpath)).getElement(), value);
+    }
+
+
+    public void verifyRows(int number) {
+        int tableRow = getDriver().findElements(By.xpath(FeedbackSelectors.tableRow.replace("ids", "tblFeedback"))).size();
+            Assert.assertTrue(number == tableRow);
+    }
 }

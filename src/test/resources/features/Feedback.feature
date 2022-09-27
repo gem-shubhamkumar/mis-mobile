@@ -99,6 +99,93 @@ Feature: Feedback
       | Submit Feedback | Feedback | Random Data | wrong |
 
 
+  Scenario Outline: Verify number of rows data
+    When User Clicks on "<childTab>" tab of "<parentTab>" tab
+    Then Verify Submit Feedback tab opens
+    Then Click on "Provide Feedback" button
+    And "<childTab>" Modal open
+    When User enters feedback "<data>"
+    And Click on "Submit" button
+    Then Click OK on Success pop-up
+    When User selects "<number>" of rows to show
+    Then Verify total rows are <number>
+
+
+    Examples:
+      |childTab| parentTab| data | number |
+      | Submit Feedback | Feedback | Random Data | 25 |
+
+  Scenario Outline: Sort the Feedback column
+    When User Clicks on "<childTab>" tab of "<parentTab>" tab
+    Then Verify Submit Feedback tab opens
+    Then Click on "Provide Feedback" button
+    And "<childTab>" Modal open
+    When User enters feedback "<data>"
+    And Click on "Submit" button
+    Then Click OK on Success pop-up
+    When User clicks on Feedback row
+    Then Verify data is in "descending" order
+    When User clicks on Feedback row
+    Then Verify data is in "ascending" order
+
+
+    Examples:
+      |childTab| parentTab| data |
+      | Submit Feedback | Feedback | Random Data |
+
+
+  Scenario Outline: View a Feedback
+    When User Clicks on "<childTab>" tab of "<parentTab>" tab
+    Then Verify Submit Feedback tab opens
+    Then Click on "Provide Feedback" button
+    And "<childTab>" Modal open
+    When User enters feedback "<data>"
+    And Click on "Submit" button
+    Then Click OK on Success pop-up
+    Then Click on "next" button
+    When User hovers over last View Action button
+    Then Verify the "View" tooltip text
+    Then Click on "View" button
+    Then "View Feedback" Modal open
+    Then Verify message "<data>" is present
+
+
+
+    Examples:
+      |childTab| parentTab| data |
+      | Submit Feedback | Feedback | Random Data |
+
+
+  @Test
+  Scenario Outline: Export Data
+    When User Clicks on "<childTab>" tab of "<parentTab>" tab
+    Then Verify Submit Feedback tab opens
+#    Then Click on "Provide Feedback" button
+#    And "<childTab>" Modal open
+#    When User enters feedback "<data>"
+#    And Click on "Submit" button
+#    Then Click OK on Success pop-up
+    Then Click on "Export" button
+    And Verify export options open
+    Then Click on "Excel" button
+    And Verify "excel" file is downloaded
+    Then Click on "PDF" button
+    And Verify "pdf" file is downloaded
+#    Then Click on "Print" button
+#    And Verify print tab is open
+    Then Click on "Copy" button
+    And Verify data is copied
+
+
+
+    Examples:
+      |childTab| parentTab| data |
+      | Submit Feedback | Feedback | Random Data |
+
+
+
+
+
 
 
 

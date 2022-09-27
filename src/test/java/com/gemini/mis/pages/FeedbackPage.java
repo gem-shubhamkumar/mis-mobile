@@ -10,6 +10,8 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 
 public class FeedbackPage extends PageObject {
@@ -27,6 +29,7 @@ public class FeedbackPage extends PageObject {
         $(By.id("feedback")).type(value);
     }
 
+    @Step
     public void verifyData( String data) {
         int flag = 0;
         List<WebElement> tableRow = getDriver().findElements(By.xpath(FeedbackSelectors.tableRow.replace("ids", "tblFeedback")));
@@ -41,6 +44,7 @@ public class FeedbackPage extends PageObject {
         else Assert.fail("Record not found");
     }
 
+    @Step("Verify No matching records found")
     public void verifyData() {
         int flag = 0;
         List<WebElement> tableRow = getDriver().findElements(By.xpath(FeedbackSelectors.tableRow.replace("ids", "tblFeedback")));
@@ -55,11 +59,86 @@ public class FeedbackPage extends PageObject {
         else Assert.fail("Record found");
     }
 
+    @Step
     public void searchData(String dataToBeSearch) {
         $(By.xpath(FeedbackSelectors.search)).type(dataToBeSearch);
     }
 
-    public void syncWithLatestPage() {
+    public void clickRow() {
+        if($(By.xpath(FeedbackSelectors.sortRow)).getAttribute("aria-sort") == null){
+            $(By.xpath(FeedbackSelectors.sortRow)).waitUntilPresent().click();
+            $(By.xpath(FeedbackSelectors.sortRow)).waitUntilPresent().click();
+        }
+        else {
+            $(By.xpath(FeedbackSelectors.sortRow)).waitUntilPresent().click();
 
+        }
+
+    }
+
+    public void verifyOrder(String order) {
+        Assert.assertEquals($(By.xpath(FeedbackSelectors.sortRow)).getAttribute("aria-sort"), order);
+    }
+
+    public int totalRow() {
+        return getDriver().findElements(By.xpath(FeedbackSelectors.tableRow.replace("ids", "tblFeedback"))).size();
+
+    }
+
+    public void hoverOverView() {
+
+        moveTo(By.xpath(FeedbackSelectors.viewButton.replace("size", Integer.toString(totalRow()))));
+    }
+
+    public void tooltipText(String text) {
+        Assert.assertEquals($(By.xpath(FeedbackSelectors.tooltip)).getText(), text);
+    }
+
+    public void verifyMessage(String message) {
+        Assert.assertTrue($(By.id("feedbackMessage")).isDisabled());
+        Assert.assertEquals($(By.id("feedbackMessage")).getAttribute("value"), message);
+    }
+
+    public void veifyExportOptions() {
+        getDriver().switchTo().activeElement();
+        Assert.assertTrue($(By.xpath(FeedbackSelectors.exportOptions)).isPresent());
+    }
+
+    public void verifyFileDownloaded(String fileType) {
+            waitABit(2000);
+            switch (fileType) {
+                case "excel" : {
+                    File f = new File("C:\\Users\\ay.garg\\Downloads\\All Feedback List.xlsx");
+                        Assert.assertTrue(f.exists());
+                        break;
+                }
+                case "pdf" : {
+                    File f = new File("C:\\Users\\ay.garg\\Downloads\\All Feedback List.pdf");
+                    Assert.assertTrue(f.exists());
+                    break;
+                }
+                default: {
+                    Assert.fail("Unsupported file format " + fileType);
+
+                }
+            }
+
+    }
+
+    public void verifyPrintTab() {
+        List<String> browserTabs = new ArrayList<String>(getDriver().getWindowHandles());
+        System.out.println(browserTabs.get(0));
+        System.out.println(browserTabs.get(1));
+        System.out.println(browserTabs.get(2));
+        getDriver().switchTo().window(browserTabs.get(1));
+        System.out.println(getTitle());
+        Assert.assertTrue(getTitle().contains("Gemini"));
+//        getDriver().close();
+        getDriver().switchTo().window(browserTabs.get(0));
+    }
+
+    public void verifyCopy() {
+        getDriver().switchTo().defaultContent();
+        Assert.assertEquals($(By.xpath(FeedbackSelectors.copyClipboard)).getText(), "Copy to clipboard");
     }
 }

@@ -54,8 +54,58 @@ public class FeedbackSteps {
         feedbackPage.verifyData();
     }
 
-    @Then("^Sync with latest page$")
-    public void syncWithLatestPage() {
-        feedbackPage.syncWithLatestPage();
+    @When("^User selects \"(.*?)\" of rows to show$")
+    public void userSelectsOfRowsToShow(String number) {
+        commonPages.selectValue("tblFeedback_length", number, "name");
+    }
+
+    @Then("^Verify total rows are (\\d+)$")
+    public void verifyTotalRowsAre(int number) {
+        commonPages.verifyRows(number);
+    }
+
+    @When("^User clicks on Feedback row$")
+    public void userClicksOnRow() {
+        feedbackPage.clickRow();
+    }
+
+    @Then("^Verify data is in \"(.*?)\" order$")
+    public void verifyDataIsInOrder(String order) {
+        feedbackPage.verifyOrder(order);
+    }
+
+    @When("^User hovers over last View Action button$")
+    public void userHoversOverLastViewActionButton() {
+        feedbackPage.hoverOverView();
+    }
+
+    @Then("^Verify the \"(.*?)\" tooltip text$")
+    public void verifyTheTooltipText(String text) {
+        feedbackPage.tooltipText(text);
+    }
+
+    @Then("^Verify message \"(.*?)\" is present$")
+    public void verifyMessageIsPresent(String message) {
+        feedbackPage.verifyMessage(message);
+    }
+
+    @And("^Verify export options open$")
+    public void verifyExportOptionsOpen() {
+        feedbackPage.veifyExportOptions();
+    }
+
+    @And("^Verify \"(.*?)\" file is downloaded$")
+    public void verifyFileDownloaded(String fileType) {
+        feedbackPage.verifyFileDownloaded(fileType);
+    }
+
+    @And("^Verify print tab is open$")
+    public void verifyPrintTabIsOpen() {
+        feedbackPage.verifyPrintTab();
+    }
+
+    @And("^Verify data is copied$")
+    public void verifyDataIsCopied() {
+        feedbackPage.verifyCopy();
     }
 }
