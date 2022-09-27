@@ -2,6 +2,7 @@ package com.gemini.mis.commonfunctions;
 
 import com.gemini.mis.selectors.CommonXpath;
 import com.gemini.mis.selectors.XpathForApplyTab;
+import com.gemini.mis.selectors.XpathforPolicyTab;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import org.junit.Assert;
@@ -83,6 +84,15 @@ public class CommonFunctions extends PageObject {
             case "Email":
                 tab = XpathForApplyTab.textBox("avilableOnEmail");
                 break;
+            case "Next":
+                tab = XpathforPolicyTab.pagination("paginate_button next");
+                break;
+            case "View":
+                tab = XpathforPolicyTab.viewBtn;
+                break;
+            case "Close":
+                tab = XpathforPolicyTab.pageElement("button");
+                break;
             default:
                 elementPresent = false;
         }
@@ -120,9 +130,20 @@ public class CommonFunctions extends PageObject {
     public void verifyTab(String tabName) {
         waitABit(5000);
         String expectedHeading = "";
+        String title ="";
         switch (tabName) {
             case "Apply":
                 expectedHeading = "Apply Leave/ WFH / Comp Off / Out Duty / Change Request";
+                break;
+            case "View Policies":
+                expectedHeading = "View Policies";
+                title = getDriver().getCurrentUrl();
+                if(title.contains("ViewPolicy"))
+                {
+                    Assert.assertTrue("Tab verified successfully", true);
+                } else {
+                    Assert.fail("Unable to verify tab");
+                }
                 break;
         }
         WebElementFacade elementFacade = find(XpathForApplyTab.heading);
