@@ -10,6 +10,8 @@ import net.thucydides.core.annotations.Step;
 import net.thucydides.core.annotations.Steps;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -105,7 +107,7 @@ public class AccountPortalPages extends PageObject {
                 commonfunctions.clickOn(NavBarSelectors.btnChangeADpassword);
                 break;
             case "Profile button":
-                waitABit(2000);
+                waitFor(ExpectedConditions.presenceOfElementLocated(NavBarSelectors.btnProfileMenu));
                 commonfunctions.clickOn(NavBarSelectors.btnProfileMenu);
                 break;
             case "Skills option":
@@ -113,6 +115,15 @@ public class AccountPortalPages extends PageObject {
                 break;
             case "Save button":
                 commonfunctions.clickOn(NavBarSelectors.btnAddSkillSave);
+                break;
+            case "Logout button":
+                commonfunctions.clickOn(CommonXpaths.btnLogout);
+                break;
+            case "Dashboard setting button":
+                commonfunctions.clickOn(NavBarSelectors.btnDashboardSetting);
+                break;
+            case "Update button":
+                commonfunctions.clickOn(NavBarSelectors.btnUpdate);
                 break;
 
 

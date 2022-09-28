@@ -162,12 +162,14 @@ public class commonMethods extends PageObject {
     @Then("^Verify \"(.*?)\" message appear in screen$")
     public void verifyMessageBoxAfterAddingRecord(String message){
         String messageOnBox="";
+        boolean flag= false;
         if(isElementFound(commonXpaths.textMessageBox)){
              messageOnBox = $(CommonXpaths.textMessageBox).getText();
         }
         switch (message){
             case "Success":
-                if(messageOnBox.contains("Success")){
+                if(messageOnBox.contains("successfully")){
+                    flag=true;
                     System.out.println("Success message box appear");
                 }else {
                     Assert.fail();
@@ -175,11 +177,18 @@ public class commonMethods extends PageObject {
                 break;
             case "Duplicate":
                 if(messageOnBox.contains("Duplicate")){
+                    flag=true;
                     System.out.println("Warning/Duplicate message box appear");
                 }else {
                     Assert.fail();
                 }
-
+                break;
+        }
+        if(flag) {
+            waitFor(ExpectedConditions.presenceOfElementLocated(CommonXpaths.btnOk));
+            clickOn(CommonXpaths.btnOk);
+        }else{
+            Assert.fail("Warning / Success box does not appear");
         }
 
     }

@@ -1,6 +1,8 @@
 package com.gemini.mis.pages;
 
 import com.gemini.mis.commonFunctions.commonMethods;
+import com.gemini.mis.selectors.AccountPortalSelectors;
+import com.gemini.mis.selectors.CommonXpaths;
 import com.gemini.mis.selectors.LeaveBalanceSelectors;
 import com.gemini.mis.selectors.NavBarSelectors;
 import net.serenitybdd.core.pages.PageObject;
@@ -9,6 +11,7 @@ import net.thucydides.core.annotations.Steps;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.ArrayList;
@@ -95,9 +98,108 @@ public class NavBarPages extends PageObject {
             case "Experience":
                 commonFunction.verifyTextFieldAndEnterText(NavBarSelectors.textFieldExperience,textToEnter);
                 break;
-
-
         }
+    }
+
+    @Step("Verify {0} is added in my skill card")
+    public void verifySkillAdded(String skillName,String status, String expectedCondition){
+        getDriver().navigate().refresh();
+        waitABit(2000);
+        boolean flag =false;
+        int count =0;
+        List<WebElement> listMySkills = getDriver().findElements(NavBarSelectors.listMySkillCard);
+        if(status.equals("new")&&expectedCondition.equals("can be")){
+        for (WebElement  ele : listMySkills){
+            if(ele.getText().equals(skillName)){
+                flag=true;
+                break;
+            }else{
+                flag=false;
+            }
+        }
+     if(flag){
+            System.out.println("Newly added skill is successfully added in my skill card ");
+        }else{
+            Assert.fail("Skill not added");
+        }
+
+         }else if(status.equals("duplicate")&&expectedCondition.equals("cannot be")){
+            for (WebElement  ele : listMySkills){
+                if(ele.equals(skillName)){
+                    count++;
+                }
+            }
+            if(count==1){
+                System.out.println("No duplicate record found");
+            }else if(count>1){
+                Assert.fail("Two record with same name are found");
+            }
+        }
+
+    }
+
+    public void verifyNoTwoSkillsArePresentWithSameName(String duplicateName){
+        getDriver().navigate().refresh();
+        int count=0;
+        waitABit(2000);
+        List<WebElement> listItems =getDriver().findElements(NavBarSelectors.listMySkillCard);
+        for(WebElement ele : listItems){
+            if(ele.getText().equals(duplicateName))
+                count++;
+        }
+        if(count==1){
+            System.out.println("No duplicate record found");
+        }else if(count>1){
+            Assert.fail("duplicate records are found");
+        }
+    }
+     public void verifyInvalidValuesAreNotAllowed(String value){
+
+        if(!isElementVisible(CommonXpaths.textMessageBox)){
+            String className = $(NavBarSelectors.textFieldExperience).getAttribute("class");
+            if(className.contains("error-validation")){
+                System.out.println("Text field does not accept text as "+value);
+            }else{
+                Assert.fail();
+            }
+
+        }else {
+            Assert.fail("record is saved and message box appeared, "+value+" is expected");
+        }
+
+    }
+
+    @Step("Verify login page element")
+    public void verifyRedirectedToLoginPage(){
+        waitABit(2000);
+        if(
+        commonFunction.isElementFound(AccountPortalSelectors.textFieldMyMISUsername)&&
+        commonFunction.isElementFound(AccountPortalSelectors.textFieldMyMISPassword)&&
+        commonFunction.isElementFound(AccountPortalSelectors.logoGemini)){
+            System.out.println("Logout successfully");
+        }else{
+            Assert.fail("Unable to verify login page element");
+        }
+
+    }
+
+    public void uncheckAndVerifyAllCheckBox(){
+    List<WebElement> listCheckBox =getDriver().findElements(NavBarSelectors.checkboxTable);
+    boolean flag=false;
+    for (WebElement ele : listCheckBox){
+        if(ele.isSelected()){
+            clickOn(ele);
+            flag=true;
+        }
+    }
+        Assert.assertTrue("All are unchecked",true);
+    }
+
+    @Step("Drag rows within a table and change there position")
+    public void dragRows(String dragged,String draggedTo){
+
+        Actions clickAndHold = withAction().clickAndHold((WebElement) NavBarSelectors.textTableIndex(dragged));
+
     }
 
 

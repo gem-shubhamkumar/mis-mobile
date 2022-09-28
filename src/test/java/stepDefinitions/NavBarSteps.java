@@ -3,11 +3,13 @@ package stepDefinitions;
 import com.gemini.mis.commonFunctions.commonMethods;
 import com.gemini.mis.pages.AccountPortalPages;
 import com.gemini.mis.pages.NavBarPages;
+import com.gemini.mis.selectors.NavBarSelectors;
 import io.cucumber.java.bs.A;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import net.serenitybdd.core.pages.PageObject;
 import net.thucydides.core.annotations.Steps;
+import org.junit.Assert;
 
 public class NavBarSteps extends PageObject {
     @Steps
@@ -53,4 +55,44 @@ public class NavBarSteps extends PageObject {
         navPages.enterTextInField(textToType,fieldName);
     }
 
+    @And("^Verify \"(.*?)\" Skill  is \"(.*?)\" and \"(.*?)\" added in my skills card$")
+    public void verifySkillIsAddedInMySkillsCard(String skillName,String status,String expectedCondition) {
+        navPages.verifySkillAdded(skillName,status,expectedCondition);
+        getDriver().close();
+    }
+    @And("^Verify \"(.*?)\" is not added on my skill card$")
+    public void verifyNoDuplicateSkillsAreAdded(String duplicateSkillName){
+        navPages.verifyNoTwoSkillsArePresentWithSameName(duplicateSkillName);
+    }
+
+    @Then("^Verify Experience text field does not accepts invalid values like \"(.*?)\"$")
+    public void verifyExperienceTextFieldDoesNotAcceptsInvalidValues(String value) {
+        navPages.verifyInvalidValuesAreNotAllowed( value);
+        getDriver().close();
+    }
+
+    @And("^Verify user is logged off and redirected to login page$")
+    public void verifyUserIsLoggedOffAndRedirectedToLoginPage() {
+        navPages.verifyRedirectedToLoginPage();
+    }
+
+    @Then("^Verify all check boxes are uncheck$")
+    public void uncheckAndVerifyCheckBox(){
+        navPages.uncheckAndVerifyAllCheckBox();
+    }
+
+    @And("Verify no card is shown on the dashboard")
+    public void verifyNoCardIsShownOnTheDashboard() {
+        waitABit(5000);
+        if(!$(NavBarSelectors.headingsDashboardCards).isVisible()){
+            System.out.println("All cards are hidden");
+        }else{
+            Assert.fail("Cards are still visible on dashboard");
+        }
+    }
+
+    @Then("^Drag \"(.*?)\" row to \"(.*?)\" position$")
+    public void dragRowToPosition(String dragged, String draggedTo) {
+        navPages.dragRows(dragged,draggedTo);
+    }
 }

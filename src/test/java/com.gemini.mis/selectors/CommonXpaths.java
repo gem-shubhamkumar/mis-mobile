@@ -13,6 +13,8 @@ public class CommonXpaths {
     public static By sideMenuBar= By.xpath("//div[@class='jspPane']/ul");
     public static By btnMenu =By.xpath("//button[@id='show-hide-sidebar-toggle']");
     public static By textMessageBox =By.xpath("//p[@class='lead text-muted ']");
+    public static By btnOk = By.xpath("//button[text()='OK']");
+    public static By btnLogout =By.xpath("(//a[@class='dropdown-item']/span)[4]");
 
 
 }

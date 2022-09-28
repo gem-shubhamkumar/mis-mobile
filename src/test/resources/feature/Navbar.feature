@@ -39,14 +39,52 @@ Feature: NavBar
     Then Select "<Technology name>" from technology dropdown on add skills window
     Then Select "Beginner" from "Proficiency" dropdown on add skills window
     Then Select "Primary" from "Skill type" dropdown on add skills window
-    And Enter "5" in "Experience" text field
+    And Enter "6" in "Experience" text field
     And Click on "Save button"
     But Verify "Add skills window" disappears form current screen
     Then Verify "<Message box text>" message appear in screen
+    And Verify "<Skill name>" Skill  is "<status>" and "<expected condition>" added in my skills card
     Examples:
-      | Technology name |Message box text|
-      |.NET|Success                      |
-      |.NET|Duplicate                    |
+      | Technology name |Message box text| Skill name  |  status    |expected condition|
+      |Photoshop        |Success         |  Photoshop  |    new     | can be           |
+      |Photoshop        |Duplicate       |  Photoshop  |   duplicate|cannot be         |
+
+
+  Scenario Outline: Verify Experience text field on Add new skills window
+    Then Click on "Profile button"
+    Then Click on "Skills option"
+    And Verify "Add skills window" is visible on the current screen
+    Then Select "<Technology name>" from technology dropdown on add skills window
+    Then Select "Beginner" from "Proficiency" dropdown on add skills window
+    Then Select "Primary" from "Skill type" dropdown on add skills window
+    And Enter "<Experience in months>" in "Experience" text field
+    And Click on "Save button"
+    Then Verify Experience text field does not accepts invalid values like "<Experience in months>"
+    Examples:
+      | Experience in months |Technology name|
+      |     |Photoshop                       |
+      | www |Photoshop                       |
+
+  Scenario: Logout to MIS portal
+    Then Click on "Profile button"
+    Then Click on "Logout button"
+    And Verify user is logged off and redirected to login page
+
+
+  Scenario: Verify cars are added on dashboard when updating from dashboard setting
+    Then Click on "Profile button"
+    Then Click on "Dashboard setting button"
+    And Verify "Dashboard setting table" is visible on the current screen
+    Then Verify all check boxes are uncheck
+    And Click on "Update button"
+    And Verify no card is shown on the dashboard
+
+
+
+
+
+
+
 
 
 

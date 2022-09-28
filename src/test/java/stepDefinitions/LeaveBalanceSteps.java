@@ -41,7 +41,11 @@ public class LeaveBalanceSteps extends PageObject {
                 break;
             case "Add skills window":
                 $(NavBarSelectors.windowAddSkills).isVisible();
-            break;
+                break;
+            case "Dashboard setting table":
+                $(NavBarSelectors.textDashboardTable).isVisible();
+                break;
+
 
             default:Assert.fail("Element name not added in switch cases");
         }
