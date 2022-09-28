@@ -41,7 +41,6 @@ Feature: Automation of  View Document and view shared document Submenu in knowle
     Then click on "<targetElement>"
     Then enter "<invalidTagName>" tag name and click on "<addButton>"
     And click ok on the popup in add new tag
-    And click on "<closeButton>" button
     Then click on "<targetElement>"
     Then enter "<invalidTagName>" tag name and click on "<crossButton>"
     Then click on "<targetElement>"
@@ -49,62 +48,58 @@ Feature: Automation of  View Document and view shared document Submenu in knowle
 
     Examples:
     |menuItem|subMenuItem|targetElement|validTagName|addButton|crossButton|invalidTagName|closeButton|
-    |knowledge base|view document|add New Document|TagName1|addButton|crossButton|*&^*^^%^%*|closeButton|
+    |knowledge base|view document|add New Document|TagName25|addButton|crossIcon|*&^*^^%^%&^*|closeButton|
 
 
     @Test3
     Scenario Outline:click on checking the functionality of adding folder
       When Goto "<menuItem>" and click on "<subMenuItem>"
       Then click on "<targetElement>"
-      And click on "<crossButton>"
+      And click on "<crossButton>" button
       Then click on "<targetElement>"
-      And Put "<InvalidFolderName>" and click on "<addButton>"
-      Then verify folder added
       And Put "<InvalidFolderName>" and click on "<crossButton>"
-      Then verify no folder added
+      And Put "<InvalidFolderName>" and click on "<addButton>"
+      Then click ok on the popup in add Folder
+      Then verify folder added
+
       Examples:
         |menuItem|subMenuItem|targetElement|crossButton|InvalidFolderName|addButton|
-        |knowledge base|view document|AddNewFolder|crossButton|*&*ArFolderName|addButton|
+        |knowledge base|view document|AddNewFolder|crossIconOnFolderName|*&*ArFolderNamjbnabe|folderNameSaveButton|
 
     @Test4
     Scenario Outline: Knowledge base view documents add new folder testcase to check folder functionality
       When Goto "<menuItem>" and click on "<subMenuItem>"
       Then click on "<targetElement>"
-      And click on "<crossButton>"
-      Then verify no folder added
+      And click on "<crossButton>" button
       Then click on "<targetElement>"
-      And click on "<closeButton>"
-      Then verify no folder added
+      And click on "<closeButton>" button
       Then click on "<targetElement>"
       And create folder without name and click "<addButton>"
       And click on ok button from success window
       Then verify folder added
       Then  click on "<targetElement>"
-      And click on "<crossButton>"
+      And click on "<crossButton>" button
       Then  click on "<targetElement>"
-      And click on "<closeButton>"
-      Then verify no folder added
+      And click on "<closeButton>" button
 
       Examples:
         |menuItem|subMenuItem|targetElement|crossButton|closeButton|addButton|
-        |knowledge base|view document|AddNewFolder|crossButton|closeButton|addButton|
+        |knowledge base|view document|AddNewFolder|crossIconOnFolderName|folderNameCloseButton|folderNameSaveButton|
 
      @Test5
-    Scenario Outline:
+    Scenario Outline:check folder functionality add folder without name
       When Goto "<menuItem>" and click on "<subMenuItem>"
+       Then click on "<targetElement>"
+       And click on "<closeButton>" button
       Then click on "<targetElement>"
-      And click on "<crossButton>"
-      Then click on "<targetElement>"
-      And click on "<closeButton>"
-      Then click on "<targetElement>"
-      And click on "<closeButton>"
+      And click on "<crossButton>" button
       Then click on "<targetElement>"
       And create folder without name and click "<addButton>"
-      And verify warning message is displayed
+
 
       Examples:
         |menuItem|subMenuItem|targetElement|crossButton|closeButton|addButton|
-        |knowledge base|view document|AddNewFolder|crossButton|closeButton|addButton|
+        |knowledge base|view document|AddNewFolder|crossIconOnFolderName|folderNameCloseButton|folderNameSaveButton|
 
   @Test6
   Scenario Outline: Check duplicate folder functionality by adding one duplicate folder
@@ -122,7 +117,7 @@ Feature: Automation of  View Document and view shared document Submenu in knowle
 
       Examples:
         |menuItem|subMenuItem|targetElement|noName|closeButton|addButton|validFolderName|duplicateFolderName|folderName|
-        |knowledge base|view document|AddNewFolder||closeButton|addButton|validFolderName|validFolderName|folderName123|
+        |knowledge base|view document|AddNewFolder| |closeButton|addButton|validFolderName|validFolderName|folderName123|
 
     @Test7
     Scenario Outline: check right click working
@@ -131,23 +126,24 @@ Feature: Automation of  View Document and view shared document Submenu in knowle
       And verify menu opens
       Examples:
         |menuItem|subMenuItem|targetElement|noName|closeButton|addButton|validFolderName|duplicateFolderName|folderName|
-        |knowledge base|view document|AddNewFolder||closeButton|addButton|validFolderName|validFolderName|folderName123|
+        |knowledge base|view document|newFolder||closeButton|addButton|validFolderName|validFolderName|folderName123|
+
   @Test8
   Scenario Outline: check right click functionality
     When Goto "<menuItem>" and click on "<subMenuItem>"
     Then right click on "<targetElement>"
     And verify menu opens
     Then click on "<addSubFolders>" from the menu
-    Then without entering folder name click on "<crossButton>" then  "<closeButton>"
+    Then click on "<crossButton>" at input folder name place
+    Then click on "<addSubFolders>" from the menu
+    Then click on "<closeButton>" at input folder name place
+
 
     Examples:
       |menuItem|subMenuItem|targetElement|noName|closeButton|addButton|validFolderName|duplicateFolderName|crossButton|
-      |knowledge base|view document|AddNewFolder||closeButton|addButton|validFolderName|validFolderName|crossButton|
+      |knowledge base|view document|newFolder||closeButton|addButton|validFolderName|validFolderName|crossButton|
 
-   @Test16
-   Scenario: check refresh button in view documents tab
-     When Goto "knowledge base" and click on "view document"
-     Then click on refresh icon
+
 
    Scenario Outline: Check functionality of view documents number of rows from dropdown
      When Goto "knowledge base" and click on "view document"
@@ -158,7 +154,39 @@ Feature: Automation of  View Document and view shared document Submenu in knowle
 
 
 
-   @Test2223
+
+  @Test16
+  Scenario: check refresh button in view documents tab
+    When Goto "knowledge base" and click on "view document"
+    Then click on refresh icon
+
+  @Test17
+  Scenario: check number of rows dropdown working or not
+    When Goto "knowledge base" and click on "view document"
+    Then click on "dropdown"
+    And select some number from dropdown
+    Then verify the change in grid
+
+
+
+
+  @Test18192021
+    Scenario Outline: verify search bar functionality on view documents page
+    When Goto "knowledge base" and click on "view document"
+    Then click on view documents search bar and input "<testString>"
+    And verify record availability after input in search bar
+
+    Examples:
+      |testString|
+      |perl|
+      |perl123|
+      |***|
+      |   |
+
+
+
+
+  @Test2223
    Scenario Outline: Check navigation on view document page
      When Goto "<menuItem>" and click on "<subMenuItem>"
      Then click on "<next>" button
@@ -194,5 +222,54 @@ Feature: Automation of  View Document and view shared document Submenu in knowle
     And Verify that "eye" button is hidden
     Then click on the sorting icon
     And verify that "eye" button is visible
+
+  @Test28
+ Scenario: check the dropdown on view shared documents select rows
+    When Goto "knowledge base" and click on "view shared Document"
+    Then click on Number from dropdown on view shared documents page
+    And verify number of rows present
+
+
+  @Test29303132
+  Scenario Outline: check search bar functionality in view shared documents
+    When Goto "knowledge base" and click on "view shared Document"
+    Then click on search bar and input "<testString>"
+    And verify record availability on the basis of "<testString>"
+    Examples:
+      |testString|
+      |perl|
+      |perl123|
+      |***|
+      |   |
+
+  @Test33
+  Scenario: check next button functionality at last page in view shared documents
+    When Goto "knowledge base" and click on "view shared Document"
+    Then Goto last page by clicking next
+    And verify this is last page in view shared documents
+
+  @Test32
+  Scenario: check previous button working while not on first page
+    When Goto "knowledge base" and click on "view shared Document"
+    Then click on "nextButton" in lower right corner
+    Then click on "nextButton" in lower right corner
+    Then click on "prevButton" in lower right corner
+    Then click on "prevButton" in lower right corner
+    And verify user is on first Page
+
+  @Test3435
+  Scenario Outline: check the navigation buttons are working on view shared documents
+    When Goto "knowledge base" and click on "view shared Document"
+    Then click on "<navButton>" in lower right corner
+    And check change in entries text according to the "<navButton>"
+    Examples:
+    |navButton|
+    |nextButton|
+    |prevButton|
+
+
+
+
+
 
 

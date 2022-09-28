@@ -1,14 +1,26 @@
 package stepDefinitions;
 
 import com.gemini.mis.pages.KnowledgeBasePage;
+import com.gemini.mis.selectors.KnowledgeBaseLocators;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.cucumber.java.eo.Se;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.annotations.Steps;
+import net.thucydides.core.pages.PageObject;
+import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
-public class KnowledgeBaseStepDefinition {
+import java.util.ArrayList;
+import java.util.List;
+
+public class KnowledgeBaseStepDefinition extends PageObject {
+
+    KnowledgeBaseLocators selector;
 
     @Steps
     KnowledgeBasePage steps;
@@ -37,6 +49,7 @@ public class KnowledgeBaseStepDefinition {
 
     @Then("^click on \"(.*?)\" button$")
     public void clickOnButton(String itemName){
+       waitABit(2000);
        steps.clickOnButton(itemName);
     }
 
@@ -54,26 +67,37 @@ public class KnowledgeBaseStepDefinition {
     //incomplete step definitions
     @And("^enter \"(.*?)\" tag name and click on \"(.*?)\"$")
     public void clickOnAddButtonAfterInput(String inputTagName, String buttonName){
-
+        steps.inputNameInInputBox(inputTagName);
+        steps.clickOnButton(buttonName);
     }
 
     @And("click ok on the popup in add new tag")
     public void clickOnPopupInAddNewTag(){
-
+        steps.clickOnOkonTagAdded();
     }
 
     @And("^Put \"(.*?)\" and click on \"(.*?)\"$")
     public void putInvalidFolderName(String folderName, String buttonName){
+        steps.enterFolderName(folderName);
+        steps.clickOnButton(buttonName);
+    }
 
+    @Then("click ok on the popup in add Folder")
+    public void clickOkOnFolderPopup(){
+      steps.clickOkOnfolderAdd();
     }
 
     @Then("verify folder added")
     public void verifyFolderCreated(){
-
-    }
-    @And("create folder without name and click \"(.*?)\"")
+        List<WebElement> totalFolders = getDriver().findElements(selector.listOfFolders);
+        if(totalFolders.size()>4){
+            Assert.assertTrue("folder added",true);
+        }
+   }
+    @And("^create folder without name and click \"(.*?)\"$")
     public void createFolderWithoutName(String buttonName){
-
+        steps.enterFolderName("");
+        steps.clickOnButton(buttonName);
     }
 
     @And("click on ok button from success window")
@@ -85,10 +109,7 @@ public class KnowledgeBaseStepDefinition {
     public void verifyNoFolderCreated(){
 
     }
-    @And("verify warning message is displayed")
-    public void warningMessageDisplayed(){
 
-    }
 
     @Then("verify duplicate folder created")
     public void isDuplicateFolder(){
@@ -98,14 +119,16 @@ public class KnowledgeBaseStepDefinition {
 
     @Then("^right click on \"(.*?)\"$")
     public void rightClick(String elemName){
-
+        steps.rightClickOnElement( elemName);
     }
 
     @And("verify menu opens")
     public void isMenuOpen(){
-
+       boolean isMenuDisplayed = $(By.id("myMenu")).isDisplayed();
+        Assert.assertTrue("Right click displayed menu", isMenuDisplayed);
     }
 
+    //completed
     @Then("verify that a popup window is displayed")
     public void isPopUpDisplay(){
     steps.isPopUpOpens();
@@ -119,17 +142,141 @@ public class KnowledgeBaseStepDefinition {
 
     @Then("click on the sorting icon")
  public void clickOnSortingIcon(){
-
+        steps.clickOnSortingIcon();
     }
-    @And("Verify that \"(.*?)\" button is hidden")
+    @And("^Verify that \"(.*?)\" button is hidden$")
     public void isButtonHidden(String buttonName){
+       steps.isButtonHidden(buttonName);
+    }
+    @And("^verify that \"(.*?)\" button is visible$")
+    public void isButtonVisible(String buttonName){
+        steps.isButtonVisible(buttonName);
+    }
+    @And("select some number from dropdown")
+    public void selectSomeNumberFromDropDown(){
+       steps.selectElement();
+    }
+
+    @Then("verify the change in grid")
+    public void verifyChangesInGrid(){
+       steps.isEmptyGrid();
+    }
+
+    @Then("click on Number from dropdown on view shared documents page")
+    public void selectNumberFromDropDown(){
+        Select drpNumOfRows = new Select( $(By.name("tblShareDocumentList_length")));
+        drpNumOfRows.selectByVisibleText("25");
+    }
+
+    @And("verify number of rows present")
+    public void verifyRowsAfterDropDown(){
+      String footerText =  $(By.id("tblShareDocumentList_info")).getText();
+      Assert.assertTrue(footerText.contains("25"));
+    }
+
+    @Then("^click on search bar and input \"(.*?)\"$")
+    public void clickOnSearchAndInput(String testString){
+       $(By.xpath("//*[@id=\"tblShareDocumentList_filter\"]/label/input")).sendKeys(testString);
+    }
+
+    @And("^verify record availability on the basis of \"(.*?)\"$")
+    public void verifyRecordAvailabilty(String str){
+       switch (str){
+           case "perl":
+               String colOneText = $(By.xpath("//*[@id=\"tblShareDocumentList\"]/tbody/tr[1]/td[1]")).getText();
+               Assert.assertTrue("with alphabetical string ",colOneText.contains("Modern Perl"));
+               break;
+           case "perl123":
+               String textInsideGrid = $(By.xpath("//*[@id=\"tblShareDocumentList\"]/tbody/tr/td")).getText();
+               Assert.assertTrue("With alphanumeric string in the grid satisfied, input: 'perl123'",textInsideGrid.contains("No matching"));
+               break;
+           case "***":
+               String textInGrid = $(By.xpath("//*[@id=\"tblShareDocumentList\"]/tbody/tr/td")).getText();
+               Assert.assertTrue("With no string matching in the grid satisfied and input '***'",textInGrid.contains("No matching"));
+               break;
+           case " ":
+               Assert.assertTrue("Empty string criteria satisfied",true);
+
+           default:
+               break;
+       }
+    }
+
+    @Then("^click on \"(.*?)\" in lower right corner$")
+    public void clickOnNextPrev(String navButton){
+       switch (navButton){
+           case "nextButton":
+               $(By.xpath("//*[@id=\"tblShareDocumentList_next\"]/a")).click();
+               break;
+           case "prevButton":
+               $(By.xpath("//*[@id=\"tblShareDocumentList_previous\"]/a")).click();
+
+               break;
+           default:
+               break;
+       }
+    }
+
+    @And("^check change in entries text according to the \"(.*?)\"$")
+    public void verifyChangeAfterClick(String navButton){
+        boolean isChanged;
+       switch (navButton){
+           case "nextButton":
+                isChanged = $(By.xpath("//*[@id=\"tblShareDocumentList_info\"]")).getText().equals("Showing 11 to 20 of 25 entries");
+               Assert.assertTrue("Successfully navigated to next page",isChanged);
+               break;
+           case "prevButton":
+               isChanged = $(By.xpath("//*[@id=\"tblShareDocumentList_info\"]")).getText().equals("Showing 1 to 10 of 25 entries");
+               Assert.assertTrue("Successfully navigated to next page",isChanged);
+               //Showing 1 to 10 of 25 entries
+               break;
+           default:
+               break;
+       }
+    }
+
+    @And("verify user is on first Page")
+    public void isFirstPage(){
+       boolean isFirstPageText = $(By.xpath("//*[@id=\"tblShareDocumentList_info\"]")).getText().equals("Showing 1 to 10 of 25 entries");
+       Assert.assertTrue("Successfully navigated to next page",isFirstPageText);
+    }
+
+    @Then("Goto last page by clicking next")
+    public void gotoLastPage(){
+       String totalPages = $(By.xpath("//*[@id=\"tblShareDocumentList_paginate\"]/ul/li[4]/a")).getText();
+       int totalNumOfPages = Integer.parseInt(totalPages);
+       for(int i =0;i<totalNumOfPages;i++){
+           $(By.xpath("//*[@id=\"tblShareDocumentList_next\"]/a")).click();
+       }
 
     }
-    @And("verify that \"(.*?)\" button is visible")
- public void isButtonVisible(String buttonName){
+
+    @And("verify this is last page in view shared documents")
+    public void verifyLastPage(){
+      boolean lastPageText =  $(By.xpath("//*[@id=\"tblShareDocumentList_info\"]")).getText().equals("Showing 21 to 25 of 25 entries");
+      Assert.assertTrue("Successfully navigated to last page in view shared documents",lastPageText);
+    }
+
+    @Then("^click on view documents search bar and input \"(.*?)\"$")
+    public void enterSearchBarText(String str){
+       $(By.xpath("//*[@id=\"tbldocumentGridViewList_filter\"]/label/input")).sendKeys(str);
+    }
+
+    @And("verify record availability after input in search bar")
+    public void checkViewDocumentSearchBar(){
+       boolean gridText = $(By.xpath("//*[@id=\"tbldocumentGridViewList\"]/tbody/tr/td")).getText().equals("No data available in table");
+        Assert.assertTrue("Search bar working fine on view documents page",gridText);
+    }
+
+    @Then("^click on \"(.*?)\" from the menu$")
+    public void addSubFolder(String subFolderMenu){
 
     }
 
+    @Then("^click on \"(.*?)\" at input folder name place$")
+    public void clickOnSpecifiedButton(){
+
+    }
 
 
 

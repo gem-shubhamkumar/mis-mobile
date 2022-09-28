@@ -3,11 +3,17 @@ package com.gemini.mis.pages;
 import com.beust.ah.A;
 import com.gemini.mis.selectors.KnowledgeBaseLocators;
 import io.cucumber.java.en_old.Ac;
+import io.cucumber.java.eo.Se;
+import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.pages.PageObject;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
 
 import javax.swing.*;
 
@@ -48,6 +54,10 @@ public class KnowledgeBasePage extends PageObject {
                     $(selector.addNewDocument).click();
                     Assert.assertTrue("Successfully clicked on "+elemName,true);
                     break;
+                case "AddNewFolder":
+                    $(selector.addNewFolder).click();
+                    Assert.assertTrue("Successfully clicked on "+elemName,true);
+                    break;
                 default:
                     break;
             }
@@ -66,7 +76,7 @@ public class KnowledgeBasePage extends PageObject {
             switch (buttonName){
                 case "crossIcon":
 //                    getDriver().switchTo().alert();
-                    System.out.println("switched to alert");
+//                    System.out.println("switched to alert");
                     $(selector.crossIconOnTagName).click();
                     Assert.assertTrue("Clicked on cross Icon",true);
                     break;
@@ -94,6 +104,20 @@ public class KnowledgeBasePage extends PageObject {
                     $(selector.eyeButton).click();
                     Assert.assertTrue("clicked on view button in view shared documents", true);
                     break;
+
+                case "crossIconOnFolderName":
+                    $(selector.crossIconOnFolderName).click();
+                    Assert.assertTrue("clicked on cross on top right", true);
+                    break;
+
+                case "folderNameSaveButton":
+                    $(selector.folderNameSaveButton).click();
+                    Assert.assertTrue("clicked on cross on top right", true);
+                    break;
+                case "folderNameCloseButton":
+                    $(selector.folderNameCloseButton).click();
+                    Assert.assertTrue("clicked on cross on top right", true);
+                    break;
                 default:
                     break;
             }
@@ -114,8 +138,19 @@ public class KnowledgeBasePage extends PageObject {
             Assert.fail("Not able to click on Ok Button on popup");
         }
     }
+    @Step("click on ok on tag Added")
+    public void clickOnOkonTagAdded(){
+        try{
+//            getDriver().switchTo().alert();
+            $(selector.tagAddedPopupOk).click();
+            waitABit(2000);
+            Assert.assertTrue("clicked ok on the tag added on popup", true);
+        }catch (Exception e){
+            Assert.fail("Not able to click on Ok Button on popup");
+        }
+    }
 
-    @Step("Check that no record added in the grid")
+    @Step
     public void isEmptyGrid(){
         String gridText = $(selector.emptyGridInAddNewDocs).getText();
         String lowerText = $(selector.recordCountLowerLeft).getText();
@@ -128,7 +163,7 @@ public class KnowledgeBasePage extends PageObject {
     @Step("click reload button")
     public void clickOnReloadButton(){
         try{
-            $(selector.reloadButton).click();
+            $(selector.refreshDocs).click();
             Assert.assertTrue("Clicked on reload button successfully", true);
         }catch (Exception e){
             System.out.println(e.getMessage());
@@ -170,6 +205,15 @@ public class KnowledgeBasePage extends PageObject {
         }
     }
 
+    @Step
+    public void enterFolderName(String folderName){
+        $(selector.inputFolderName).sendKeys(folderName);
+    }
+
+    @Step
+    public void clickOkOnfolderAdd(){
+        $(selector.warnignOkOnFolderPopup).click();
+    }
     @Step("Check whether the popup is scrollable or not")
     public void isDocScrollable(){
         try{
@@ -186,8 +230,55 @@ public class KnowledgeBasePage extends PageObject {
             System.out.println(e.getMessage());
             Assert.fail("The popup is empty or not scrollable");
         }
+
+
     }
 
+    @Step("Click on sorting icon")
+    public void clickOnSortingIcon(){
+        $(selector.sortingIcon).click();
+        Assert.assertTrue("clicked on sorting icon.",true);
+    }
+    @Step
+    public void isButtonHidden(String buttonName){
+        boolean eyeButtonDisplayed = $(selector.eyeButton).isClickable();
+        Assert.assertTrue("Button is now hidden in the view port",eyeButtonDisplayed);
+    }
+
+    @Step
+    public void isButtonVisible(String buttonName){
+        boolean eyeButtonDisplayed = $(selector.eyeButton).isCurrentlyVisible();
+        Assert.assertTrue("Button is now hidden in the view port",eyeButtonDisplayed);
+    }
+
+    @Step
+    public void selectElement(){
+        Select drpDown = new Select($(By.name("tbldocumentGridViewList_length")));
+        drpDown.selectByVisibleText("25");
+        Assert.assertTrue("Dropdown clickable",true);
+            }
+   @Step
+    public void inputNameInInputBox(String inputName){
+        $(selector.tagNameInputBox).sendKeys(inputName);
+    }
+
+
+
+
+    @Step
+    public void rightClickOnElement(String elemName){
+        switch (elemName){
+
+            case "newFolder":
+                Actions actions = new Actions(getDriver());
+                WebElement elem = $(By.xpath("//*[@id=\"DocumentGrouptree\"]/ul/li[2]/span/span[1]"));
+                actions.contextClick(elem).perform();
+                Assert.assertTrue("Right click performed and menu displayed",true);
+                break;
+            default:
+                break;
+        }
+    }
 
 
 
