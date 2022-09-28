@@ -22,7 +22,7 @@ Feature: MIS Leave Management Activities
     Then Click on "<tab>" Tab
     And Verify "<tab>" displays
     Then Click on Submit button for Comp off Tab
-    Then Verify "Date,Comp Off Reason" fields are highlighted in red
+    Then Verify "Comp Off Date,Comp Off Reason" fields are highlighted in red
     Examples:
       |      parentTab     |       childTab  |     tab       |
       | Leave Management   |          Apply  |    Comp Off   |
@@ -49,6 +49,8 @@ Feature: MIS Leave Management Activities
       |      parentTab     |       childTab  |     tab       |
       | Leave Management   |          Apply  |    Comp Off   |
 
+
+  # will only work if there is a date in date dropdown , which is not there at times
   Scenario Outline: Enter Data and submit Comp off
     When User is on MIS Home Page
     When Click on "<childTab>" sub tab of "<parentTab>" tab

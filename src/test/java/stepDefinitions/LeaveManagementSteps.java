@@ -7,6 +7,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.cucumber.java.ht.Le;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.Steps;
@@ -63,6 +64,7 @@ public class LeaveManagementSteps extends PageObject
     @And("Verify {string} opens successfully")
     public void verifyOpenSuccessfully(String tabName)
     {
+        waitABit(5000);
         LeaveManagementTab.verifyTab(tabName);
     }
 
@@ -298,6 +300,7 @@ public class LeaveManagementSteps extends PageObject
     @Then("Verify {string} is selected")
     public void verifyIsSelected(String text)
     {
+        waitABit(10000);
         LeaveManagementTab.verifyDateSelected(text);
     }
 
@@ -335,6 +338,15 @@ public class LeaveManagementSteps extends PageObject
             case "WFH":
             LeaveManagementTab.verifyFile("Excel WFH",tab);
             break;
+            case "Comp Off":
+            LeaveManagementTab.verifyFile("Excel Comp Off", tab);
+            break;
+            case "Out Duty/Tour":
+            LeaveManagementTab.verifyFile("Excel Out Duty/Tour", tab);
+            break;
+            case "Change Request":
+            LeaveManagementTab.verifyFile("Excel Change Request", tab);
+            break;
         }
 
     }
@@ -346,8 +358,17 @@ public class LeaveManagementSteps extends PageObject
             case "Leave":
                 LeaveManagementTab.verifyFile("Pdf", tab);
                 break;
+            case "Comp Off":
+                LeaveManagementTab.verifyFile("Pdf Comp Off", tab);
+                break;
             case "WFH":
                 LeaveManagementTab.verifyFile("Pdf WFH", tab);
+                break;
+            case "Out Duty/Tour":
+                LeaveManagementTab.verifyFile("Pdf Out Duty/Tour", tab);
+                break;
+            case "Change Request":
+                LeaveManagementTab.verifyFile("Pdf Change Request", tab);
                 break;
         }
     }
@@ -364,6 +385,9 @@ public class LeaveManagementSteps extends PageObject
             case "WFH":
                 elementFacade = find(XpathforPolicyTab.lengthPage("tblWFHHistory_length"));
                 break;
+            case "Comp Off":
+            elementFacade = find(XpathforPolicyTab.lengthPage("tblCompOffHistory_length"));
+            break;
         }
         LeaveManagementTab.selectFromDropdown(elementFacade,number);
     }
@@ -400,6 +424,7 @@ public class LeaveManagementSteps extends PageObject
     @And("Verify Records are present on Page")
     public void verifyRecordsArePresentOnNextPage()
     {
+        waitABit(5000);
         List<WebElementFacade> noOfRecords = findAll(XpathforPolicyTab.noOfRows);
         if(noOfRecords.size()>0)
         {
@@ -423,8 +448,8 @@ public class LeaveManagementSteps extends PageObject
         LeaveManagementTab.verifyPopup(message);
     }
 
-    @Then("Enter {string} Valid Date range in WFH")
-    public void enterValidDateRangeInWFH(String text)
+    @Then("Enter {string} {string} Date range in WFH")
+    public void enterValidDateRangeInWFH(String text, String type)
     {
         LeaveManagementTab.enterText(XpathForLeaveManagementTab.searchBox("3"),text);
     }
@@ -440,5 +465,55 @@ public class LeaveManagementSteps extends PageObject
     public void verifyPeriodIsFilteredForTab(String textFiltered, String tabName)
     {
         LeaveManagementTab.verifyResult(textFiltered,tabName);
+    }
+
+    @Then("Enter {string} {string} Date range in Comp Off")
+    public void enterValidDateRangeInCompOff(String text, String type)
+    {
+        LeaveManagementTab.enterText(XpathForLeaveManagementTab.searchBox("3"),text);
+    }
+
+    @And("Verify details of Comp Off request for {string}")
+    public void verifyDetailsOfCompOffRequest(String text)
+    {
+        LeaveManagementTab.verifyDetailsForDate(text);
+    }
+
+
+    @Then("Verify {string} Date for {string} tab")
+    public void verifyDateForTab(String inputField, String tabName)
+    {
+        LeaveManagementTab.verifyDetailsForDate(tabName);
+
+    }
+
+    @Then("Verify {string} Window appears")
+    public void verifyWindowAppears(String title)
+    {
+        LeaveManagementTab.verifyTab(title);
+    }
+
+    @And("Verify {string} date")
+    public void verifyDate(String date)
+    {
+        LeaveManagementTab.verifyOutingDate(date);
+    }
+
+    @And("Verify Detail Window closes")
+    public void verifyDetailWindowCloses()
+    {
+        LeaveManagementTab.verifyTab("Leave History");
+    }
+
+    @Then("Enter {string} {string} Date range in Out Duty")
+    public void enterValidDateRangeInOutDuty(String text,String type)
+    {
+        LeaveManagementTab.enterText(XpathForLeaveManagementTab.searchBox("3"),text);
+    }
+
+    @Then("Enter {string} {string} Date range in Change Request")
+    public void enterDateRangeInChangeRequest(String text,String type)
+    {
+        LeaveManagementTab.enterText(XpathForLeaveManagementTab.searchBox("3"),text);
     }
 }

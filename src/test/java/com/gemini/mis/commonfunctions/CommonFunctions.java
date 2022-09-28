@@ -6,9 +6,10 @@ import com.gemini.mis.selectors.XpathforPolicyTab;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 
+import javax.swing.*;
 import java.util.List;
 
 public class CommonFunctions extends PageObject {
@@ -96,8 +97,6 @@ public class CommonFunctions extends PageObject {
                 tab = XpathforPolicyTab.pagination("paginate_button previous");
                 break;
             case "Previous Leave":
-                tab = XpathForLeaveManagementTab.paginationPrevious("1");
-                break;
             case "Previous WFH":
                 tab = XpathForLeaveManagementTab.paginationPrevious("1");
                 break;
@@ -114,16 +113,10 @@ public class CommonFunctions extends PageObject {
                 tab = XpathForLeaveManagementTab.exportBtn("1");
                 break;
             case "Export WFH":
-                tab = XpathForLeaveManagementTab.exportBtn("2");
-                break;
             case "Export Comp Off":
-                tab = XpathForLeaveManagementTab.exportBtn("3");
-                break;
             case "Export Out Duty/Tour":
-                tab = XpathForLeaveManagementTab.exportBtn("4");
-                break;
             case "Export LWP":
-                tab = XpathForLeaveManagementTab.exportBtn("5");
+                tab = XpathForLeaveManagementTab.exportBtn("2");
                 break;
             case "Copy":
                 tab = XpathForLeaveManagementTab.copyBtn("1");
@@ -141,9 +134,13 @@ public class CommonFunctions extends PageObject {
                 tab = XpathForLeaveManagementTab.columnHeading("1");
                 break;
             case "Period WFH":
+            case "Applied for":
+            case "Period Out Duty":
                 tab = XpathForLeaveManagementTab.columnHeading("8");
                 break;
             case "Half Day":
+            case "Days":
+            case "Duty Type":
                 tab = XpathForLeaveManagementTab.columnHeading("9");
                 break;
             case "Type":
@@ -156,9 +153,13 @@ public class CommonFunctions extends PageObject {
                 tab = XpathForLeaveManagementTab.columnHeading("4");
                 break;
             case "Reason WFH":
+            case "Reason Comp Off":
+            case "Reason Out Duty":
                 tab = XpathForLeaveManagementTab.columnHeading("10");
                 break;
             case "Remarks WFH":
+            case "Remarks Comp Off":
+            case "Remarks Out Duty":
                 tab = XpathForLeaveManagementTab.columnHeading("11");
                 break;
             case "Status":
@@ -170,11 +171,18 @@ public class CommonFunctions extends PageObject {
             case "Action":
                 tab = XpathForLeaveManagementTab.columnHeading("7");
                 break;
-            case "Add":
-                tab = XpathforPolicyTab.expandBtn;
+            case "Expand":
+                tab = XpathForLeaveManagementTab.expandBtn("2");
+                break;
+            case "Expand Comp Off":
+            case "Expand Out Duty":
+                tab = XpathForLeaveManagementTab.expandBtn("11");
                 break;
             case "Cancel":
                tab = XpathForLeaveManagementTab.cancelBtn;
+                break;
+            case "View Out Duty":
+                tab = XpathForLeaveManagementTab.viewBtn;
                 break;
             case "Yes":
                 tab = XpathForLeaveManagementTab.button("confirm btn btn-lg btn-danger");
@@ -217,26 +225,39 @@ public class CommonFunctions extends PageObject {
         waitABit(5000);
         String expectedHeading = "";
         String title ="";
-        switch (tabName) {
-            case "Apply":
-                expectedHeading = "Apply Leave/ WFH / Comp Off / Out Duty / Change Request";
-                break;
-            case "View Policies":
-                expectedHeading = "View Policies";
-                title = getDriver().getCurrentUrl();
-                if(title.contains("ViewPolicy"))
-                {
-                    Assert.assertTrue("Tab verified successfully", true);
-                } else {
-                    Assert.fail("Unable to verify tab");
-                }
-                break;
+        if(tabName.equals("Out Duty/Tour Request Detail"))
+        {
+            WebElementFacade elementFacade = find(XpathForLeaveManagementTab.newHeading);
+            if (elementFacade.getText().equals(expectedHeading)) {
+                Assert.assertTrue("Tab verified successfully", true);
+            } else {
+                Assert.assertFalse("Unable to verify tab", false);
+            }
         }
-        WebElementFacade elementFacade = find(XpathForLeaveManagementTab.heading);
-        if (elementFacade.getText().equals(expectedHeading)) {
-            Assert.assertTrue("Tab verified successfully", true);
-        } else {
-            Assert.assertFalse("Unable to verify tab", false);
+        else {
+            switch (tabName) {
+                case "Apply":
+                    expectedHeading = "Apply Leave/ WFH / Comp Off / Out Duty / Change Request";
+                    break;
+                case "Leave History":
+                    expectedHeading = "Leave History";
+                    break;
+                case "View Policies":
+                    expectedHeading = "View Policies";
+                    title = getDriver().getCurrentUrl();
+                    if (title.contains("ViewPolicy")) {
+                        Assert.assertTrue("Tab verified successfully", true);
+                    } else {
+                        Assert.fail("Unable to verify tab");
+                    }
+                    break;
+            }
+            WebElementFacade elementFacade = find(XpathForLeaveManagementTab.heading);
+            if (elementFacade.getText().equals(expectedHeading)) {
+                Assert.assertTrue("Tab verified successfully", true);
+            } else {
+                Assert.assertFalse("Unable to verify tab", false);
+            }
         }
     }
 
@@ -296,6 +317,9 @@ public class CommonFunctions extends PageObject {
             case "Date":
                 elementFacade = find(XpathForLeaveManagementTab.dropdown("WorkFromHomeDate"));
                 break;
+            case "Comp Off Date":
+                elementFacade = find(XpathForLeaveManagementTab.dropdown("CompOffDate"));
+                break;
         }
         if (elementFacade.getAttribute("class").contains("error-validation")) {
             Assert.assertTrue("Field is mandatory", true);
@@ -319,8 +343,8 @@ public class CommonFunctions extends PageObject {
         }
         return isAbleToSubmit;
     }
-    public void navigateToTab(String parentTabName, String childTabName)
 
+    public void navigateToTab(String parentTabName, String childTabName)
     {
         // verification for Parent tab
         if (isElementFoundInGivenTime(CommonXpath.sideNav(parentTabName)))
@@ -331,15 +355,22 @@ public class CommonFunctions extends PageObject {
             waitABit(2000);
             //verifies sub tab available
             if (isElementFoundInGivenTime(CommonXpath.sideNav(childTabName))) {
-                clickOn(CommonXpath.sideNav(childTabName));}
-
+                if (childTabName.equals("View Request Status") && parentTabName.equals("LNSA")) {
+                    String xpath = "(" + CommonXpath.sideNav(childTabName);
+                    xpath = xpath + ")[2]";
+                    WebElementFacade elementFacade = find(By.xpath(xpath));
+                    elementFacade.click();
+                } else {
+                    clickOn(CommonXpath.sideNav(childTabName));
+                }
+            }
             else{
-                Assert.assertFalse("Unable to locate child tab",false);}
-
+                Assert.assertFalse("Unable to locate child tab",false);
+            }
         }
-
         else {
-            Assert.assertFalse("Unable to locate parent tab",false);}
+            Assert.assertFalse("Unable to locate parent tab",false);
+        }
     }
 
 
@@ -378,5 +409,12 @@ public class CommonFunctions extends PageObject {
         {
             Assert.assertFalse("Unable to click on calendar",false);
         }
+    }
+    public void focusElement(WebElement element){
+        String javaScript = "var evObj = document.createEvent('MouseEvents');"
+                + "evObj.initMouseEvent(\"mouseover\",true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);"
+                + "arguments[0].dispatchEvent(evObj);";
+
+        ((JavascriptExecutor) getDriver()).executeScript(javaScript, element);
     }
 }

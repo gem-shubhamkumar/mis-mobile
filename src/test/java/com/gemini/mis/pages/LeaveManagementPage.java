@@ -435,9 +435,13 @@ public class LeaveManagementPage extends PageObject
                 tab = find(XpathForLeaveManagementTab.columnHeading("1"));
                 break;
             case "Period WFH":
+            case "Applied for":
+            case "Period Out Duty":
                 tab = find(XpathForLeaveManagementTab.columnHeading("8"));
                 break;
             case "Half Day":
+            case "Days":
+            case "Duty Type":
                 tab = find(XpathForLeaveManagementTab.columnHeading("9"));
                 break;
             case "Type":
@@ -450,9 +454,13 @@ public class LeaveManagementPage extends PageObject
                 tab = find(XpathForLeaveManagementTab.columnHeading("4"));
                 break;
             case "Reason WFH":
+            case "Reason Comp Off":
+            case "Reason Out Duty":
                 tab = find(XpathForLeaveManagementTab.columnHeading("10"));
                 break;
             case "Remarks WFH":
+            case "Remarks Comp Off":
+            case "Remarks Out Duty":
                 tab = find(XpathForLeaveManagementTab.columnHeading("11"));
                 break;
             case "Status WFH":
@@ -473,17 +481,32 @@ public class LeaveManagementPage extends PageObject
         switch (fileType)
         {
             case "Excel":
-            isFileDownloaded = isFileDownloaded("C:\\Users\\ja.multani\\Downloads\\","Leave History List.xlsx");
+            case "Excel Change Request":
+                isFileDownloaded = isFileDownloaded("C:\\Users\\ja.multani\\Downloads\\","Leave History List.xlsx");
             break;
             case "Excel WFH":
             isFileDownloaded = isFileDownloaded("C:\\Users\\ja.multani\\Downloads\\","WFH History List.xlsx");
             break;
+            case "Excel Comp Off":
+            isFileDownloaded = isFileDownloaded("C:\\Users\\ja.multani\\Downloads\\","CompOff History List.xlsx");
+            break;
+            case "Excel Out Duty/Tour":
+            isFileDownloaded = isFileDownloaded("C:\\Users\\ja.multani\\Downloads\\","Gemini - MIS.xlsx");
+            break;
             case "Pdf":
-            isFileDownloaded = isFileDownloaded("C:\\Users\\ja.multani\\Downloads\\","Leave History List.pdf");
+            case "Pdf Change Request":
+                isFileDownloaded = isFileDownloaded("C:\\Users\\ja.multani\\Downloads\\","Leave History List.pdf");
             break;
             case "Pdf WFH":
             isFileDownloaded = isFileDownloaded("C:\\Users\\ja.multani\\Downloads\\","WFH History List.pdf");
             break;
+            case "Pdf Comp Off":
+            isFileDownloaded = isFileDownloaded("C:\\Users\\ja.multani\\Downloads\\","CompOff History List.pdf");
+            break;
+            case "Pdf Out Duty/Tour":
+            isFileDownloaded = isFileDownloaded("C:\\Users\\ja.multani\\Downloads\\","Gemini - MIS.pdf");
+            break;
+
         }
         if(!isFileDownloaded)
         {
@@ -501,13 +524,12 @@ public class LeaveManagementPage extends PageObject
                 elementFacade = find(XpathForLeaveManagementTab.searchBox("1"));
                 break;
             case "WFH":
+            case "Comp Off":
+            case "Out Duty":
                 elementFacade = find(XpathForLeaveManagementTab.searchBox("2"));
                 break;
-            case "Comp Off":
+            case "Out Duty Details":
                 elementFacade = find(XpathForLeaveManagementTab.searchBox("3"));
-                break;
-            case "Out Duty/Tour":
-                elementFacade = find(XpathForLeaveManagementTab.searchBox("4"));
                 break;
             case "LWP":
                 elementFacade = find(XpathForLeaveManagementTab.searchBox("5"));
@@ -527,17 +549,70 @@ public class LeaveManagementPage extends PageObject
     {
         List<WebElementFacade> list = findAll(XpathforPolicyTab.policyData);
         boolean isSearchResultFound = false;
-        for(WebElementFacade elementFacade:list)
-        {
-            if(elementFacade.getText().equals(textFiltered))
-            {
-                isSearchResultFound=true;
-                break;
-            }
+        for(WebElementFacade elementFacade:list) {
+             if (elementFacade.getText().equals(textFiltered)) {
+                    isSearchResultFound = true;
+                    break;
+                }
         }
         if(!isSearchResultFound)
         {
             Assert.fail("Unable to filter");
+        }
+    }
+
+    @Step
+    public void verifyDetailsForDate(String text)
+    {
+        if(text.contains("25"))
+        {
+            text = "26-Sep-2022";
+        }
+        if(text.contains("Out Duty/Tour"))
+        {
+            text = "26 Sep 2022";
+        }
+        boolean detailsVerified = false;
+        List<WebElementFacade> listTitle = findAll(XpathForLeaveManagementTab.compOffDetails("dtr-title"));
+        for(WebElementFacade elementFacade:listTitle)
+        {
+            if(elementFacade.getText().equals("Applied On"))
+            {
+                List<WebElementFacade> listDetails = findAll(XpathForLeaveManagementTab.compOffDetails("dtr-data"));
+                for(WebElementFacade elementFacade1: listDetails)
+                {
+                    if(elementFacade1.getText().contains(text))
+                    {
+                        detailsVerified = true;
+                        break;
+                    }
+                }
+            }
+        }
+        if(detailsVerified)
+        {
+            Assert.assertTrue("Details verified successfully",true);
+        }
+        else
+        {
+            Assert.fail("Unable to verify details");
+        }
+
+    }
+
+    @Step
+    public void verifyOutingDate(String date)
+    {
+        WebElementFacade elementFacade1 = find(By.xpath("(//div[@class='modal-content'])[3]"));
+        genFunc.focusElement(elementFacade1);
+        WebElementFacade elementFacade = find(XpathForLeaveManagementTab.outingDate);
+        if(elementFacade.getText().replaceAll("-"," ").equals(date))
+        {
+            Assert.assertTrue("Outing date verified successfully",true);
+        }
+        else
+        {
+            Assert.fail("Outing date not verified");
         }
     }
 }

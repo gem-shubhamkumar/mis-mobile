@@ -47,7 +47,7 @@ Feature: MIS Leave Management Activities
     And Verify "<dateRange>" text displays
     Then Verify "<dateRange>" is selected
     Examples:
-      |      parentTab     |       childTab      | defaultTab |   dateRange |
+      |      parentTab     |       childTab      | defaultTab |       dateRange           |
       | Leave Management   | View Request Status |    Leave   | 01 Apr 2022 - 31 Mar 2023 |
 
   Scenario Outline: Verify Export Options
@@ -123,11 +123,13 @@ Feature: MIS Leave Management Activities
     And Verify "<dateRange>" text displays
     Then Verify "<dateRange>" is selected
     And Verify number of records displayed by default
-    Then Select "<noOfRecords>" as Number of entries for "WFH" tab
+    Then Select "<noOfRecords>" as Number of entries for "Leave" tab
     And Verify number of records displayed changes
     Examples:
-      |      parentTab     |       childTab      |    dateRange |   noOfRecords |
-      | Leave Management   | View Request Status |  01 Apr 2021 - 31 Mar 2022 | 25 |
+      |      parentTab     |       childTab      |         dateRange          |   noOfRecords |
+      | Leave Management   | View Request Status |  01 Apr 2021 - 31 Mar 2022 |       25      |
+
+
 
   Scenario Outline: Enter Leave Period Name in Search Box
     When User is on MIS Home Page
@@ -137,7 +139,7 @@ Feature: MIS Leave Management Activities
     Then Verify "<leavePeriod>" Period is filtered for "Leave" tab
     Examples:
       |      parentTab     |       childTab      |        leavePeriod         |
-      | Leave Management   | View Request Status | 25-Sep 2022 to 26-Sep-2022 |
+      | Leave Management   | View Request Status | 25-Sep-2022 to 26-Sep-2022 |
 
   Scenario Outline: Sort columns
     When User is on MIS Home Page
@@ -193,7 +195,7 @@ Feature: MIS Leave Management Activities
     When Click on "<anotherTab>" tab
     And Verify "<anotherTab>" opens successfully
     Then Verify "Date Range" fields is present
-    And Click on "Add" button
+    And Click on "Expand" button
     When Click on "Cancel" button
     Then Verify "Are you sure you want to cancel this request ?" Popup appears
     And Click on "Yes" button
@@ -201,3 +203,4 @@ Feature: MIS Leave Management Activities
     Examples:
       |      parentTab     |       childTab  | defaultTab |  fromDate  |   toDate    |  leaveType |     anotherTab      |
       | Leave Management   |          Apply  |    Leave   | 29/09/2022 |  29/09/2022 |     CL     | View Request Status |
+

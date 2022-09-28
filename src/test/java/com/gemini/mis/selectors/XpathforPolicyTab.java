@@ -23,7 +23,6 @@ public class XpathforPolicyTab
     }
 
     public static By policyData = By.xpath("//td[@tabindex='0']");
-    public static By expandBtn = By.xpath("(//td[@tabindex='0'])[2]");
 
     public static By noOfPages = By.xpath("//li[@class='paginate_button ']");
     public static By noOfRows = By.xpath("//td[@tabindex='0']");

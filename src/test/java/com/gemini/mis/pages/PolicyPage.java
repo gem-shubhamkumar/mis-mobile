@@ -54,7 +54,7 @@ public class PolicyPage extends PageObject
     {
         List<WebElementFacade> noOfRecords = findAll(XpathforPolicyTab.noOfRows);
         int num = noOfRecords.size();
-        if(num>=25)
+        if(num>=10)
         {
             Assert.assertTrue("Number of records verified successfully",true);
         }

@@ -74,9 +74,9 @@ serenity {
 }
 test
         {
-            filter
+          filter
                     {
-               //         includeTestsMatching "*"
+                      includeTestsMatching "*LeaveManagement"
                     }
             // useJUnitPlatform()
             testLogging.showStandardStreams = true

@@ -95,7 +95,15 @@ public class XpathForLeaveManagementTab
     {
         return By.xpath("(//div[@class='dataTables_length'])["+num+"]");
     }
-
+    public static By expandBtn(String num)
+    {
+        return By.xpath("(//td[@tabindex='0'])["+num+"]");
+    }
+    public static By compOffDetails(String className)
+    {
+        return By.xpath("//li[@data-dt-row='0']/span[@class=\""+className+"\"]");
+    }
+    //li[@data-dt-row='0']/span[@class="dtr-title"]
     public static By columnHeading(String num)
     {
         return By.xpath("(//th[@tabindex='0'])["+num+"]");
@@ -111,7 +119,9 @@ public class XpathForLeaveManagementTab
 
 
     public static By heading = By.xpath("//h5");
+    public static By newHeading = By.xpath("//h4");
     public static By tab = By.xpath("//a[@role='tab']/span");
+    public static By outingDate = By.xpath("(//td[@tabindex='0'])[12]");
 
     public static By tooltip = By.xpath("//a[@data-trigger='hover']");
     public static By dateRange =By.xpath("//span[@id='select2-financialYearScroll-container']");
@@ -119,5 +129,7 @@ public class XpathForLeaveManagementTab
 
     public static By pages =By.xpath("//li/a[@tabindex='0']");
     public static By cancelBtn =By.xpath("(//button[@class='btn btn-sm btn-danger'])[2]");
+
+    public static By viewBtn =By.xpath("(//button[@class='btn btn-sm btn-info'])[2]");
 
 }

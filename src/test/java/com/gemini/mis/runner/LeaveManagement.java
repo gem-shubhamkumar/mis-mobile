@@ -6,7 +6,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(CucumberSerenityRunner.class)
 @CucumberOptions(
-        features = "src/test/resources/features/LeaveManagementViewRequest/ViewRequestWFH.feature" , glue = "stepDefinitions"
+        features = "src/test/resources/features/ApplyLWP.feature" , glue = "stepDefinitions"
 )
 public class LeaveManagement
 {

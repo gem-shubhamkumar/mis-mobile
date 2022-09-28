@@ -36,6 +36,7 @@ public class PolicySteps extends PageObject
     @And("Verify number of records displayed changes")
     public void verifyNumberOfRecordsDisplayedChanges()
     {
+        waitABit(5000);
         PolicyPage.verifyChangeOfRecords("25");
     }
 
