@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="1" name="MIS Leave Management Activities" skipped="0" tests="2" time="63.02" timestamp="2022-09-26 07:31:44"><testcase name="Navigate to Leave Management &gt; Out Duty/Tour"/><testcase name="Verify From,Till,Type,Primary Contact number,Reason are mandatory fields"><failure message="expected:&lt;...geminisolutions.com/[]&gt; but was:&lt;...geminisolutions.com/[Dashboard/Index]&gt;" type="java.lang.AssertionError">expected:&lt;...geminisolutions.com/[]&gt; but was:&lt;...geminisolutions.com/[Dashboard/Index]&gt;</failure><system-err>expected:&lt;...geminisolutions.com/[]&gt; but was:&lt;...geminisolutions.com/[Dashboard/Index]&gt;&#13;
-com.gemini.mis.pages.LeaveManagementApplyPage.verifyPage(LeaveManagementApplyPage.java:49)&#13;
-stepDefinitions.LeaveManagementApplySteps.userIsOnMISHomePage(LeaveManagementApplySteps.java:47)&#13;
-✽.User is on MIS Home Page(file:///C:/Users/ja.multani/IdeaProjects/MISAutomation/src/test/resources/features/LeaveManagementOutOfDuty.feature:19)&#13;
-</system-err></testcase></testsuite>

@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="1" name="MIS Leave Management Activities" skipped="0" tests="2" time="44.89" timestamp="2022-09-21 09:41:43"><testcase name="Navigate to Apply tab present under Leave Management tab"/><testcase name="Verify Primary and Other Contact Number are Auto Populated by default"><failure message="expected:&lt;...geminisolutions.com/[]&gt; but was:&lt;...geminisolutions.com/[Dashboard/Index]&gt;" type="java.lang.AssertionError">expected:&lt;...geminisolutions.com/[]&gt; but was:&lt;...geminisolutions.com/[Dashboard/Index]&gt;</failure><system-err>expected:&lt;...geminisolutions.com/[]&gt; but was:&lt;...geminisolutions.com/[Dashboard/Index]&gt;&#13;
-com.gemini.mis.pages.LeaveManagementApplyPage.verifyPage(LeaveManagementApplyPage.java:43)&#13;
-stepDefinitions.LeaveManagementApplySteps.userIsOnMISHomePage(LeaveManagementApplySteps.java:40)&#13;
-✽.User is on MIS Home Page(file:///C:/Users/ja.multani/IdeaProjects/MISAutomation/src/test/resources/features/LeaveManagementApply.feature:22)&#13;
-</system-err></testcase></testsuite>
