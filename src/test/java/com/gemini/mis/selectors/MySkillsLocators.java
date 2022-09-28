@@ -9,7 +9,7 @@ public class MySkillsLocators {
 
 
     public static String genericButton = "//button[@id='ids']";
-    public static String errorType = "//select[contains(@class, 'error-validation') and @id='ids']";
+    public static String errorType = "//*[contains(@class, 'error-validation') and @id='ids']";
 
     public static String tableRow = "//div[@id='ids']/table/tbody/tr";
 

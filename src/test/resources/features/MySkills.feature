@@ -14,7 +14,7 @@ Feature: My Skills in Dashboard
     And User selects Skill Type "<type>"
     And User enters experience "<experience>"
     Then Click on "update" button
-    Then Click OK on Success pop-up
+    Then Verify "Success" Message
     And Verify skill "<skill>" is updated for type "<type>" and experience "<experience>"
 
 
@@ -42,7 +42,6 @@ Feature: My Skills in Dashboard
       | My Skills |  Beginner | Select | 5 | JAVA | skill   |
       | My Skills |  Beginner | Secondary | experience | JAVA | experience |
       | My Skills |  Beginner | Secondary | | JAVA | experience |
-      | My Skills |  Beginner | Secondary | 1000 | JAVA | experience |
 
 
 

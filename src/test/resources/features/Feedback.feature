@@ -19,14 +19,13 @@ Feature: Feedback
     And "<childTab>" Modal open
     When User enters feedback "<data>"
     And Click on "Submit" button
-    Then Click OK on Success pop-up
+    Then Verify "Success" Message
     Then Click on "Next" button
-    And Verify feedback data "<data>" is added
+    And Verify data "<data>" is added in "<parentTab>" tab
 
     Examples:
     |childTab| parentTab| data |
     | Submit Feedback | Feedback | Feedback |
-
 
   Scenario Outline: Submit a Blank Feedback
     When User Clicks on "<childTab>" tab of "<parentTab>" tab
@@ -49,14 +48,12 @@ Feature: Feedback
     Then Verify Submit Feedback tab opens
     Then Click on "Provide Feedback" button
     And "<childTab>" Modal open
-    When User enters feedback "<data>"
-    And Click on "Submit" button
-    Then Verify "<childTab>" input select has error
+    Then Click on "next" button
 
 
     Examples:
-      |childTab| parentTab| data |
-      | Submit Feedback | Feedback | |
+      |childTab| parentTab|
+      | Submit Feedback | Feedback |
 
 
 
@@ -67,11 +64,11 @@ Feature: Feedback
     And "<childTab>" Modal open
     When User enters feedback "<data>"
     And Click on "Submit" button
-    Then Click OK on Success pop-up
+    Then Verify "Success" Message
     Then Click on "next" button
-    And Verify feedback data "<data>" is added
-    When User searches the feedback "<data>" in search field
-    Then "<data>" data should appear
+    And Verify data "<data>" is added in "<parentTab>" tab
+    When User searches the "<data>" in search field
+    Then "<data>" data should appear in "<parentTab>" tab
 
 
     Examples:
@@ -87,11 +84,11 @@ Feature: Feedback
     And "<childTab>" Modal open
     When User enters feedback "<data>"
     And Click on "Submit" button
-    Then Click OK on Success pop-up
+    Then Verify "Success" Message
     Then Click on "next" button
-    And Verify feedback data "<data>" is added
-    When User searches the feedback "<wrongData>" in search field
-    Then Data should not appear
+    And Verify data "<data>" is added in "<parentTab>" tab
+    When User searches the "<wrongData>" in search field
+    Then Data should not appear in "<parentTab>" tab
 
 
     Examples:
@@ -106,8 +103,8 @@ Feature: Feedback
     And "<childTab>" Modal open
     When User enters feedback "<data>"
     And Click on "Submit" button
-    Then Click OK on Success pop-up
-    When User selects "<number>" of rows to show
+    Then Verify "Success" Message
+    When User selects "<number>" of rows to show for "<parentTab>" tab
     Then Verify total rows are <number>
 
 
@@ -122,7 +119,7 @@ Feature: Feedback
     And "<childTab>" Modal open
     When User enters feedback "<data>"
     And Click on "Submit" button
-    Then Click OK on Success pop-up
+    Then Verify "Success" Message
     When User clicks on Feedback row
     Then Verify data is in "descending" order
     When User clicks on Feedback row
@@ -141,7 +138,7 @@ Feature: Feedback
     And "<childTab>" Modal open
     When User enters feedback "<data>"
     And Click on "Submit" button
-    Then Click OK on Success pop-up
+    Then Verify "Success" Message
     Then Click on "next" button
     When User hovers over last View Action button
     Then Verify the "View" tooltip text
@@ -156,23 +153,22 @@ Feature: Feedback
       | Submit Feedback | Feedback | Random Data |
 
 
-  @Test
   Scenario Outline: Export Data
     When User Clicks on "<childTab>" tab of "<parentTab>" tab
     Then Verify Submit Feedback tab opens
-#    Then Click on "Provide Feedback" button
-#    And "<childTab>" Modal open
-#    When User enters feedback "<data>"
-#    And Click on "Submit" button
-#    Then Click OK on Success pop-up
+    Then Click on "Provide Feedback" button
+    And "<childTab>" Modal open
+    When User enters feedback "<data>"
+    And Click on "Submit" button
+    Then Verify "Success" Message
     Then Click on "Export" button
     And Verify export options open
     Then Click on "Excel" button
-    And Verify "excel" file is downloaded
+    And Verify "All Feedback List.xlsx" file is downloaded
     Then Click on "PDF" button
-    And Verify "pdf" file is downloaded
-#    Then Click on "Print" button
-#    And Verify print tab is open
+    And Verify "All Feedback List.pdf" file is downloaded
+    Then Click on "Print" button
+    And Verify print tab is open
     Then Click on "Copy" button
     And Verify data is copied
 

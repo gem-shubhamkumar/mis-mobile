@@ -3,6 +3,7 @@ package com.gemini.mis.commonfunctions;
 import com.gemini.mis.pages.FeedbackPage;
 import com.gemini.mis.selectors.CommonSelectors;
 import com.gemini.mis.selectors.FeedbackSelectors;
+import com.gemini.mis.selectors.LNSASelectors;
 import com.gemini.mis.selectors.MySkillsLocators;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.pages.PageObject;
@@ -26,7 +27,13 @@ public class CommonFunctions extends PageObject {
             waitABit(2000);
 
             if ($(By.xpath(CommonSelectors.sideNav.replace("tabName", childTabName))).isPresent()) {
+                if(childTabName.equals("View Request Status") && parentTabName.equals("LNSA")) {
+                    String xpath = "(" + CommonSelectors.sideNav;
+                    xpath = xpath + ")[2]";
+                    $(By.xpath(xpath.replace("tabName", childTabName))).click();
 
+                }
+                else
                 $(By.xpath(CommonSelectors.sideNav.replace("tabName", childTabName))).click();
             }
 
@@ -94,6 +101,29 @@ public class CommonFunctions extends PageObject {
             case "Excel" :
             case "Export" : {
                 $(By.xpath(FeedbackSelectors.export.replace("name", buttonName))).waitUntilPresent().click();
+                break;
+            }
+
+            case "previous date" : {
+                $(By.id("btnPreviousMonth")).waitUntilPresent().click();
+                break;
+            }
+
+            case "next date" : {
+                $(By.id("btnNextMonth")).waitUntilPresent().click();
+                break;
+            }
+
+            case "Close" : {
+                $(By.xpath(LNSASelectors.closeModal)).waitUntilPresent().click();
+                break;
+            }
+            case "Submit Reason": {
+                $(By.xpath(FeedbackSelectors.submitButton.replace("2", "3"))).waitUntilPresent().click();
+                break;
+            }
+            case "status": {
+                $(By.xpath(LNSASelectors.statusButton)).waitUntilPresent().click();
                 break;
             }
 
@@ -165,18 +195,60 @@ public class CommonFunctions extends PageObject {
             }
 
             case "experience" : {
-                String xpath = MySkillsLocators.errorType.replace("select", "input");
-                xpath = xpath.replace("ids", "expinMonthsEdit");
+                String xpath = MySkillsLocators.errorType.replace("ids", "expinMonthsEdit");
                 Assert.assertTrue($(By.xpath(xpath)).isPresent());
                 break;
             }
             case "Submit Feedback" : {
-                String xpath = MySkillsLocators.errorType.replace("select", "textarea");
-                xpath = xpath.replace("ids", "feedback");
+                String xpath = MySkillsLocators.errorType.replace("ids", "feedback");
                 Assert.assertTrue($(By.xpath(xpath)).isPresent());
                 break;
             }
+            case "Reason" : {
+                Assert.assertTrue($(By.xpath(MySkillsLocators.errorType.replace("ids", "txtLnsaReason"))).isPresent());
+                break;
+            }
+            default: {
+                Assert.fail("Input " + inputType + " not found");
+            }
         }
+    }
+
+    @Step("Select Value {1}")
+    public void selectValue(String id, String value, String attribute, String tab) {
+        switch (tab) {
+            case "Feedback" : {
+                String xpath = CommonSelectors.select.replace("attribute", attribute);
+                xpath = xpath.replace("value", "tblFeedback_length");
+
+                selectFromDropdown($(By.xpath(xpath)).getElement(), value);
+                break;
+            }
+            case "LNSA" : {
+                String xpath = CommonSelectors.select.replace("attribute", attribute);
+                xpath = xpath.replace("value", "tblLnsaStatusGrid_length");
+
+                selectFromDropdown($(By.xpath(xpath)).getElement(), value);
+                break;
+            }
+            default: {
+                Assert.fail("Tab " + tab + " not found");
+            }
+        }
+    }
+
+    @Step("Select Value {1}")
+    public void selectValue(String id, String value, String attribute) {
+        String xpath = CommonSelectors.select.replace("attribute", attribute);
+        xpath = xpath.replace("value", id);
+
+        selectFromDropdown($(By.xpath(xpath)).getElement(), value);
+    }
+
+    @Step
+    public void verifyRows(int number) {
+        int tableRow = getDriver().findElements(By.xpath(FeedbackSelectors.tableRow.replace("ids", "tblFeedback"))).size();
+        Assert.assertTrue(number == tableRow || tableRow < number);
     }
 }
 

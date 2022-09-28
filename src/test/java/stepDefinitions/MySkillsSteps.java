@@ -37,13 +37,13 @@ public class MySkillsSteps {
 
     @Then("^User selects Proficiency Level \"(.*?)\"$")
     public void selectProficiencyLevel(String value) {
-        commonPages.selectValue("ddlSkillLevelEdit", value, "id");
+        commonFunctions.selectValue("ddlSkillLevelEdit", value, "id");
     }
 
 
     @Then("^User selects Skill Type \"(.*?)\"$")
     public void selectSkillType(String value) {
-        commonPages.selectValue("ddlSkillTypeEdit", value, "id");
+        commonFunctions.selectValue("ddlSkillTypeEdit", value, "id");
     }
 
     @And("^User enters experience (.*?)$")
@@ -51,9 +51,9 @@ public class MySkillsSteps {
         skillsPages.enterValue(value);
     }
 
-    @Then("^Click OK on Success pop-up$")
-    public void clickOKOnSuccessPopup() {
-        skillsPages.clickOK();
+    @Then("^Verify \"(.*?)\" Message$")
+    public void verifySuccessMessage(String message) {
+        skillsPages.verifySuccessMessage(message);
     }
 
     @And("^Verify skill \"(.*?)\" is updated for type \"(.*?)\" and experience \"(.*?)\"$")
