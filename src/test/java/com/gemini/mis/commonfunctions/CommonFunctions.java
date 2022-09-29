@@ -1,10 +1,12 @@
 package com.gemini.mis.commonfunctions;
 
+import com.gemini.mis.selectors.LocatorDashboardProfilePage;
 import com.gemini.mis.selectors.LocatorLoginPage;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.pages.PageObject;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.Iterator;
@@ -83,5 +85,24 @@ public class CommonFunctions extends PageObject {
             Assert.fail("Element can not be clicked");
         }
     }
+
+//************************************* FUNCTION TO SELECT ALL AND DELETE ****************************************
+
+    public void selectAndDelete(By element){
+        getDriver().findElement(element).sendKeys(Keys.CONTROL,"A");
+        getDriver().findElement(element).sendKeys(Keys.DELETE);
+    }
+
+//******************************** FUNCTION TO VALIDATE EMPTY HIGHLIGHTED FIELD ************************************
+   public void validateHighlightedField(By loc){
+       String fun=$(loc).getAttribute("class");
+       //System.out.println(fun);
+       if(fun.contains("error-validation")){
+          Assert.assertTrue("Error box highlighted is present",true);
+       }
+       else{
+           Assert.fail("Fail");
+       }
+   }
 }
 

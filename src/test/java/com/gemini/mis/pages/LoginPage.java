@@ -44,10 +44,8 @@ public class LoginPage extends PageObject {
 
   @Step("Verify focus is changed to new tab opened")
   public void changeFocusToNewTab(){
+
         utils.changeFocus();
   }
-  @Step("Verify element is clickable and click")
-    public void isElementClickable(By Loc) throws InterruptedException {
-        utils.isElementClickable(Loc);
-  }
+
 }

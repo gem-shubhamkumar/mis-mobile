@@ -11,43 +11,24 @@ import static net.serenitybdd.core.Serenity.getDriver;
 public class MISLogin {
 
     LoginPage steps;
-    private String text;
 
-    @Given("User opens MIS Beta page {string}")
-    public void user_opens_mis_beta_page(String url)  {
-        steps.navigateApplication(url);
-
-    }
     @Given("User verifies logo and login page message")
     public void userVerifiesLogoAndLoginPageMessage() {
         steps.isElementExist(LocatorLoginPage.logoOnLoginPage);
         steps.isElementExist(LocatorLoginPage.loginPageMsg);
     }
-    @Then("User enters Username as {string}")
-    public void user_enters_username_as(String username) {
-       steps.enterValues(LocatorLoginPage.inputField("text"),username);
-
-    }
-    @And("User enters Password as {string}")
-    public void user_enters_password_as(String password) {
-        steps.enterValues(LocatorLoginPage.inputField("password"),password);
-
-    }
-
-
-    @Given("User clicks on sign in")
+    /*@Given("User clicks on sign in")
     public void user_clicks_on_sign_in() {
         steps.Wait(1000);
         steps.WaitTillElementIsVisible(LocatorLoginPage.inputField("button"));
         steps.click(LocatorLoginPage.inputField("button"));
-    }
-    @Then("User Verifies Landing Page")
+    }*/
+    /*@Then("User Verifies Landing Page")
     public void user_verifies_landing_page() {
         steps.WaitTillElementIsVisible(LocatorLoginPage.elementOnLandingPage);
+        steps.Wait(3000);
 
-    }
-
-
+    }*/
     @Then("User clicks on Login via SSO")
     public void userClicksOnLoginViaSSO() {
         steps.Wait(1000);
@@ -90,12 +71,12 @@ public class MISLogin {
         steps.WaitTillElementIsVisible(LocatorLoginPage.buttonType("Reset Password"));
     }
 
-    @Then("User verifies element {string}")
+    /*@Then("User verifies element {string}")
     public void userVerifiesElement(String text) {
         steps.Wait(1000);
         steps.isElementExist(LocatorLoginPage.myElement(text));
 
-    }
+    }*/
 
     @And("User clicks on Reset Password")
     public void userClicksOnResetPassword() {
@@ -107,4 +88,6 @@ public class MISLogin {
     public void userClicksOnSignInButton() {
         steps.click(LocatorLoginPage.myElement("Sign In"));
     }
+
+
 }
