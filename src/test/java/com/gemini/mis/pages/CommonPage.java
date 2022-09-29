@@ -1,21 +1,20 @@
 package com.gemini.mis.pages;
 
-import com.gemini.mis.commonfunctions.CommonFunctions;
+import com.gemini.mis.commonfunctions.CommonFunctions_Sidhanshi;
 import com.gemini.mis.selectors.GenericFunctionPOM;
 import net.serenitybdd.core.pages.PageObject;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 
-import static com.gemini.mis.commonfunctions.CommonFunctions.*;
-
 public class CommonPage extends PageObject {
 
-    CommonFunctions commonFunctions = new CommonFunctions();
+    CommonFunctions_Sidhanshi commonFunctions = new CommonFunctions_Sidhanshi();
 
-    public void launchPage(){
+    public void     launchPage(){
 
         getDriver().get("https://mymis.geminisolutions.com");
+        waitABit(3000);
     }
     public void verifyLoginMsg() {
         String loginMsg = commonFunctions.getText(By.xpath(GenericFunctionPOM.loginMsg));

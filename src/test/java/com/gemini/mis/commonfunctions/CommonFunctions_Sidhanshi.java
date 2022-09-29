@@ -2,13 +2,17 @@ package com.gemini.mis.commonfunctions;
 
 import net.serenitybdd.core.pages.PageObject;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
-public class CommonFunctions extends PageObject {
+
+//Functions which can be reused in any other websites
+
+public class CommonFunctions_Sidhanshi extends PageObject {
 
 
 
@@ -70,7 +74,21 @@ public class CommonFunctions extends PageObject {
             getElement(id).sendKeys(Keys.BACK_SPACE);
 
         }
-}
+
+        public void GenericButtons(String ButtonName) {
+            try {
+
+                switch (ButtonName) {
+                    case "Edit":
+
+
+                }
+            } catch (Exception e) {
+                Assert.fail("We were unable to click on the button: " + ButtonName);
+            }
+
+
+        }}
 
 
 

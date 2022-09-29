@@ -1,8 +1,10 @@
 package com.gemini.mis.selectors;
 
+import org.openqa.selenium.By;
+
 public class GenericFunctionPOM  {
 
-    public static String screenNavigation="//span[@class='lbl'][text()='SCREENNAME']";
+    public static String screenNavigation="//*[text()='SCREENNAME']";
     public static String loginMsg = "//div[@class='loginMsgDiv']";
 
     public static String homePageXpath = "//input[@id='name']";
@@ -18,5 +20,10 @@ public class GenericFunctionPOM  {
 
     public static String fullScreenCard = "//section[contains(@class, 'panel-expanded')]/header/h3";
     public static String genericButton = "//button[@id='ids']";
-
+    public static String buttonPath= "//button[text()='BUTTONNAME']";
+    public static String genericPath="//*[text()='VAR']";
+    public static By enteriesNo=By.xpath("//select[contains(@name,'length')]");
+    public static String OptionOfEntry="//select[contains(@name,'length')]//option[@Value='VAR']";
+public static By searchBox=By.xpath("//input[@placeholder='Search']");
+public static By saveButton=By.xpath("//button[@id='btnAddReferral']");
 }
