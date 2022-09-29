@@ -8,6 +8,7 @@ import net.thucydides.core.pages.PageObject;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 
 import java.io.File;
@@ -30,9 +31,19 @@ public class FeedbackPage extends PageObject {
     }
 
     @Step
-    public void verifyData( String data) {
+    public void verifyData( String data, String tab) {
         int flag = 0;
-        List<WebElement> tableRow = getDriver().findElements(By.xpath(FeedbackSelectors.tableRow.replace("ids", "tblFeedback")));
+        List<WebElement> tableRow = new ArrayList<>();
+        switch (tab) {
+            case "Feedback" : {
+                 tableRow = getDriver().findElements(By.xpath(FeedbackSelectors.tableRow.replace("ids", "tblFeedback")));
+                    break;
+            }
+            case "LNSA" : {
+                tableRow = getDriver().findElements(By.xpath(FeedbackSelectors.tableRow.replace("ids", "tblLnsaStatusGrid")));
+                    break;
+            }
+        }
         for (WebElement row: tableRow
         ) {
             if(row.getText().contains(data)) {
@@ -45,9 +56,19 @@ public class FeedbackPage extends PageObject {
     }
 
     @Step("Verify No matching records found")
-    public void verifyData() {
+    public void verifyData(String tab) {
         int flag = 0;
-        List<WebElement> tableRow = getDriver().findElements(By.xpath(FeedbackSelectors.tableRow.replace("ids", "tblFeedback")));
+        List<WebElement> tableRow = new ArrayList<>();
+        switch (tab) {
+            case "Feedback" : {
+                tableRow = getDriver().findElements(By.xpath(FeedbackSelectors.tableRow.replace("ids", "tblFeedback")));
+                break;
+            }
+            case "LNSA" : {
+                tableRow = getDriver().findElements(By.xpath(FeedbackSelectors.tableRow.replace("ids", "tblLnsaStatusGrid")));
+                break;
+            }
+        }
         for (WebElement row: tableRow
         ) {
             if(row.getText().contains("No matching records found")) {
@@ -104,6 +125,19 @@ public class FeedbackPage extends PageObject {
         Assert.assertTrue($(By.xpath(FeedbackSelectors.exportOptions)).isPresent());
     }
 
+    public boolean isFileDownloaded(String downloadPath, String fileName) {
+        File folder = new File(downloadPath);
+        File[] folderContent = folder.listFiles();
+
+        for (int i = 0; i < folderContent.length; i++) {
+            if (folderContent[i].getName().equals(fileName)) {
+                folderContent[i].delete(); // File has been found, it can now be deleted:
+                return true;
+            }
+        }
+        return false;
+    }
+
     public void verifyFileDownloaded(String fileType) {
             waitABit(2000);
             switch (fileType) {
@@ -133,6 +167,8 @@ public class FeedbackPage extends PageObject {
         getDriver().switchTo().window(browserTabs.get(1));
         System.out.println(getTitle());
         Assert.assertTrue(getTitle().contains("Gemini"));
+        withAction().sendKeys(Keys.TAB).build().perform();
+        withAction().sendKeys(Keys.ENTER).build().perform();
 //        getDriver().close();
         getDriver().switchTo().window(browserTabs.get(0));
     }

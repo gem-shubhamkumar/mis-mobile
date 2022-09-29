@@ -1,6 +1,4 @@
-target/
-build/
 .gradle/
-history/
 bin/
-.idea/
+history/
+target/

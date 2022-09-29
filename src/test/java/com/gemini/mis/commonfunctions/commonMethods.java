@@ -2,11 +2,15 @@ package com.gemini.mis.commonFunctions;
 
 import com.gemini.mis.selectors.AccountPortalSelectors;
 import com.gemini.mis.selectors.CommonXpaths;
+import com.gemini.mis.selectors.NavBarSelectors;
+import io.cucumber.java.en.Then;
 import net.serenitybdd.core.pages.PageObject;
 import net.thucydides.core.annotations.Step;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+
+import java.util.List;
 
 
 public class commonMethods extends PageObject {
@@ -44,6 +48,17 @@ public class commonMethods extends PageObject {
         }
         else
         Assert.assertEquals(text,textToCompare);
+    }
+    @Step("Compare list data is same or not")
+    public void compareListData(List<String> list1, List<String> list2){
+        if(list1.size()==list2.size()){
+            if(list1.equals(list2)){
+                System.out.println("Both lists have same data");
+            }else{
+                Assert.fail("Data in lists are not same");
+            }
+        }else
+            Assert.fail("Size of the lists are different");
     }
 
     @Step("Navigate to {0}")
@@ -83,13 +98,25 @@ public class commonMethods extends PageObject {
         }
     }
 
-    @Step("verify if {0} element is not visible on current screen")
+    public void verifyTextFieldAndEnterText(By loc, String text){
+        if (isElementFound(loc)){
+            $(loc).type(text);
+        }else{
+            Assert.fail("Unable to locate text field");
+        }
+    }
+
+    @Step("Verify if {0} element is not visible on current screen")
     public void verifyElementIsNotVisible(String elementName){
         boolean flag =false;
         switch (elementName){
             case "Side navigation bar":
                 flag=$(CommonXpaths.sideMenuBar).isVisible();
                 break;
+            case "Add skills window":
+                flag= $(NavBarSelectors.windowAddSkills).isVisible();
+                break;
+
 
             default:Assert.fail("Element name wrong");
         }
@@ -129,6 +156,41 @@ public class commonMethods extends PageObject {
         }
         waitABit(3000);
 
+
+    }
+
+
+    @Then("^Verify \"(.*?)\" message appear in screen$")
+    public void verifyMessageBoxAfterAddingRecord(String message){
+        String messageOnBox="";
+        boolean flag= false;
+        if(isElementFound(commonXpaths.textMessageBox)){
+             messageOnBox = $(CommonXpaths.textMessageBox).getText();
+        }
+        switch (message){
+            case "Success":
+                if(messageOnBox.contains("successfully")){
+                    flag=true;
+                    System.out.println("Success message box appear");
+                }else {
+                    Assert.fail();
+                }
+                break;
+            case "Duplicate":
+                if(messageOnBox.contains("Duplicate")){
+                    flag=true;
+                    System.out.println("Warning/Duplicate message box appear");
+                }else {
+                    Assert.fail();
+                }
+                break;
+        }
+        if(flag) {
+            waitFor(ExpectedConditions.presenceOfElementLocated(CommonXpaths.btnOk));
+            clickOn(CommonXpaths.btnOk);
+        }else{
+            Assert.fail("Warning / Success box does not appear");
+        }
 
     }
 }

@@ -17,10 +17,13 @@ public class XpathforPolicyTab
     {
         return By.xpath("//div[@class='modal-header']/"+tag+"");
     }
-    public static By lengthPage = By.xpath("//select[@name='tblActivePolicy_length']");
-
+    public static By lengthPage(String className)
+    {
+      return By.xpath("//select[@name=\""+className+"\"]");
+    }
 
     public static By policyData = By.xpath("//td[@tabindex='0']");
+
     public static By noOfPages = By.xpath("//li[@class='paginate_button ']");
     public static By noOfRows = By.xpath("//td[@tabindex='0']");
     public static By invalidPolicy = By.xpath("//td[@class='dataTables_empty']");

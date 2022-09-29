@@ -34,34 +34,34 @@ public class FeedbackSteps {
         feedbackPage.enterFeedback(value);
     }
 
-    @And("^Verify feedback data \"(.*?)\" is added$")
-    public void verifyFeedbackDataIsAdded(String data) {
-        feedbackPage.verifyData(data);
+    @And("^Verify data \"(.*?)\" is added in \"(.*?)\" tab$")
+    public void verifyFeedbackDataIsAdded(String data, String tab) {
+        feedbackPage.verifyData(data, tab);
     }
 
-    @When("^User searches the feedback \"(.*?)\" in search field$")
-    public void userSearchesTheFeedbackInSearchField(String dataToBeSearch) {
+    @When("^User searches the \"(.*?)\" in search field$")
+    public void userSearchesTheInSearchField(String dataToBeSearch) {
         feedbackPage.searchData(dataToBeSearch);
     }
 
-    @Then("^\"(.*?)\" data should appear$")
-    public void dataShouldAppear(String data) {
-        feedbackPage.verifyData(data);
+    @Then("^\"(.*?)\" data should appear in \"(.*?)\" tab$")
+    public void dataShouldAppear(String data, String tab) {
+        feedbackPage.verifyData(data, tab);
     }
 
-    @Then("^Data should not appear$")
-    public void dataShouldNotAppear() {
-        feedbackPage.verifyData();
+    @Then("^Data should not appear in \"(.*?)\" tab$")
+    public void dataShouldNotAppear(String tab) {
+        feedbackPage.verifyData(tab);
     }
 
-    @When("^User selects \"(.*?)\" of rows to show$")
-    public void userSelectsOfRowsToShow(String number) {
-        commonPages.selectValue("tblFeedback_length", number, "name");
+    @When("^User selects \"(.*?)\" of rows to show for \"(.*?)\" tab$")
+    public void userSelectsOfRowsToShowForTab(String number, String tab) {
+        commonFunctions.selectValue("id", number, "name", tab);
     }
 
     @Then("^Verify total rows are (\\d+)$")
     public void verifyTotalRowsAre(int number) {
-        commonPages.verifyRows(number);
+        commonFunctions.verifyRows(number);
     }
 
     @When("^User clicks on Feedback row$")
@@ -95,8 +95,8 @@ public class FeedbackSteps {
     }
 
     @And("^Verify \"(.*?)\" file is downloaded$")
-    public void verifyFileDownloaded(String fileType) {
-        feedbackPage.verifyFileDownloaded(fileType);
+    public void verifyFileDownloaded(String fileName) {
+        feedbackPage.isFileDownloaded("C:\\Users\\ay.garg\\Downloads", fileName);
     }
 
     @And("^Verify print tab is open$")

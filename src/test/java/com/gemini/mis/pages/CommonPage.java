@@ -1,54 +1,57 @@
 package com.gemini.mis.pages;
 
 import com.gemini.mis.commonfunctions.CommonFunctions;
-import com.gemini.mis.selectors.GenericFunctionPOM;
-import net.serenitybdd.core.pages.PageObject;
+import com.gemini.mis.selectors.CommonSelectors;
+import com.gemini.mis.selectors.FeedbackSelectors;
+import com.gemini.mis.selectors.MySkillsLocators;
+import net.thucydides.core.annotations.Step;
+import net.thucydides.core.annotations.Steps;
+import net.thucydides.core.pages.PageObject;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
-import static com.gemini.mis.commonfunctions.CommonFunctions.*;
+import java.util.List;
 
 public class CommonPage extends PageObject {
 
-    CommonFunctions commonFunctions = new CommonFunctions();
+    @Steps
+    CommonFunctions commonFunctions;
 
-    public void launchPage(){
-
-        getDriver().get("https://mymis.geminisolutions.com");
+    @Step
+    public void launchURL(String url) {
+        getDriver().get(url);
     }
+    @Step
     public void verifyLoginMsg() {
-        String loginMsg = commonFunctions.getText(By.xpath(GenericFunctionPOM.loginMsg));
+        String loginMsg = $(By.xpath(CommonSelectors.loginMsg)).getText();
         Assert.assertTrue(StringUtils.contains(loginMsg, "This website is to be used only for authorized business purposes by the employees of Gemini Solutions."));
     }
 
-
+    @Step
     public void enterUsername(String username) {
-        commonFunctions.typeText(By.xpath(GenericFunctionPOM.homePageXpath.replace("name", "username")), username);
+        $(By.xpath(CommonSelectors.homePageXpath.replace("name", "username"))).type(username);
     }
-
+    @Step
     public void enterPassword(String password) {
-        commonFunctions.typeText(By.xpath(GenericFunctionPOM.homePageXpath.replace("name", "password")), password);
+        $(By.xpath(CommonSelectors.homePageXpath.replace("name", "password"))).type(password);
 
     }
 
-    public void clickButton(String buttonName) {
-        commonFunctions.customWait(1000);
-        switch(buttonName) {
-            case "Sign In": {
-                commonFunctions.click(By.xpath(GenericFunctionPOM.homePageXpath.replace("name", "btnLogin")));
-                break;
-            }
-
-            case "update" : {
-                commonFunctions.click(By.xpath(GenericFunctionPOM.genericButton.replace("ids", "btnUpdateSkills")));
-                break;
-            }
-
-            default:
-                Assert.fail("Button " + buttonName + " not found");
-
-        }
+    @Step
+    public void verifyDashboard() {
+        waitABit(3000);
+        Assert.assertTrue($(By.xpath(CommonSelectors.designation)).isPresent());
+        Assert.assertTrue($(By.xpath(CommonSelectors.logo)).isPresent());
 
     }
+
+    @Step("Verify Modal Opened")
+    public void verifyModal(String modalTitle) {
+        getDriver().switchTo().activeElement();
+        Assert.assertTrue($(By.xpath(MySkillsLocators.modalTitle.replace("modalTitle", modalTitle))).isPresent());
+    }
+
+
 }

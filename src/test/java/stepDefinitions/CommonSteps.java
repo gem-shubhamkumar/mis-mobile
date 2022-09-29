@@ -20,7 +20,7 @@ public class CommonSteps {
     @Steps
     CommonFunctions commonFunctions;
 
-    @Given("^Verify beta-mis is open and loaded successfully.$")
+    @Given("^MIS Beta is opened and verify application opens successfully$")
     public void misBetaIsOpenedAndVerifyApplicationOpensSuccesfully() {
         commonPages.launchURL("https://mymis.geminisolutions.com/");
         commonPages.verifyLoginMsg();
@@ -31,7 +31,7 @@ public class CommonSteps {
     public void enterUsername(String username, String password) {
         commonPages.enterUsername(username);
         commonPages.enterPassword(password);
-        commonFunctions.clickButton("Sign In");
+        commonFunctions.clickOnBtn("Sign In");
     }
 
     @Then("^Verify Dashboard page opens$")
@@ -41,7 +41,7 @@ public class CommonSteps {
 
     @Then("^Click on \"(.*?)\" button$")
     public void clickOnButton(String buttonName) {
-        commonFunctions.clickButton(buttonName);
+        commonFunctions.clickOnBtn(buttonName);
     }
 
 

@@ -10,6 +10,8 @@ import net.thucydides.core.annotations.Step;
 import net.thucydides.core.annotations.Steps;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -66,6 +68,7 @@ public class AccountPortalPages extends PageObject {
 
     @Step("Click on {0}")
     public void clickOnElement(String eleName){
+        waitABit(1500);
         switch(eleName){
             case "sign in button":
                 commonfunctions.clickOn(AccountPortalSelectors.btnSignIn);
@@ -103,13 +106,38 @@ public class AccountPortalPages extends PageObject {
             case "Change AD password button":
                 commonfunctions.clickOn(NavBarSelectors.btnChangeADpassword);
                 break;
+            case "Profile button":
+                waitFor(ExpectedConditions.presenceOfElementLocated(NavBarSelectors.btnProfileMenu));
+                commonfunctions.clickOn(NavBarSelectors.btnProfileMenu);
+                break;
+            case "Skills option":
+                commonfunctions.clickOn(NavBarSelectors.optionsSkills);
+                break;
+            case "Save button":
+                commonfunctions.clickOn(NavBarSelectors.btnAddSkillSave);
+                break;
+            case "Add skill close button":
+                commonfunctions.clickOn(CommonXpaths.btnClose);
+                break;
+            case "Logout button":
+                commonfunctions.clickOn(CommonXpaths.btnLogout);
+                break;
+            case "Dashboard setting button":
+                commonfunctions.clickOn(NavBarSelectors.btnDashboardSetting);
+                break;
+            case "Update button":
+                commonfunctions.clickOn(NavBarSelectors.btnUpdate);
+                break;
 
 
 
-            default:Assert.fail("button not found");
+
+            default:Assert.fail("button not found, not added in switch cases");
         }
         waitABit(1000);
     }
+
+
 
     @Step("Verify new tab is open in window handle as page heading {0}")
     public void verifyNewWindowTabIsOpen(String newTabPageHeading){

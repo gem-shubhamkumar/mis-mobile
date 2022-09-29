@@ -1,19 +1,12 @@
 package com.gemini.mis.pages;
 
-import com.gemini.mis.commonfunctions.CommonFunctions;
-import com.gemini.mis.selectors.XpathForApplyTab;
 import com.gemini.mis.selectors.XpathforPolicyTab;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.Step;
 import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
 
-import java.time.LocalDate;
-import java.time.Month;
-import java.util.Date;
 import java.util.List;
 
 public class PolicyPage extends PageObject
@@ -40,7 +33,7 @@ public class PolicyPage extends PageObject
     public void verifyDefaultRecords()
     {
         List<WebElementFacade> noOfRecords = findAll(XpathforPolicyTab.noOfRows);
-        if(String.valueOf(noOfRecords.size()).equals("10"))
+        if(noOfRecords.size()>=10)
         {
             Assert.assertTrue("Number of records verified successfully",true);
         }
@@ -50,9 +43,9 @@ public class PolicyPage extends PageObject
         }
     }
 
-    public void selectNumberOfEntry(String noOfEntry)
+    public void selectNumberOfEntry(By loc,String noOfEntry)
     {
-        WebElementFacade elementFacade=find(XpathforPolicyTab.lengthPage);
+        WebElementFacade elementFacade=find(loc);
         selectFromDropdown(elementFacade,noOfEntry);
     }
 
@@ -61,7 +54,7 @@ public class PolicyPage extends PageObject
     {
         List<WebElementFacade> noOfRecords = findAll(XpathforPolicyTab.noOfRows);
         int num = noOfRecords.size();
-        if(num<=Integer.valueOf(number))
+        if(num>=10)
         {
             Assert.assertTrue("Number of records verified successfully",true);
         }

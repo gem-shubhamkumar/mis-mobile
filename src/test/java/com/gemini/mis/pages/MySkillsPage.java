@@ -53,13 +53,6 @@ public class MySkillsPage extends PageObject {
          $(By.id("expinMonthsEdit")).sendKeys(Keys.BACK_SPACE);
          $(By.id("expinMonthsEdit")).type(value);
     }
-
-    @Step
-    public void clickOK() {
-         waitABit(1000);
-        withAction().sendKeys(Keys.ENTER).build().perform();
-
-    }
     @Step
     public void verifyData(String skill, String type, String experience) {
          int flag = 0;
@@ -75,4 +68,11 @@ public class MySkillsPage extends PageObject {
         else Assert.fail("Record was not updated Successfully");
     }
 
+    @Step
+    public void verifySuccessMessage(String message) {
+         getDriver().switchTo().activeElement();
+         Assert.assertEquals($(By.tagName("h2")).getText(), message);
+         waitABit(1000);
+         withAction().sendKeys(Keys.ENTER).build().perform();
+    }
 }
