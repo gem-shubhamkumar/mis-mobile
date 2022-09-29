@@ -15,6 +15,7 @@ public class CommonXpaths {
     public static By textMessageBox =By.xpath("//p[@class='lead text-muted ']");
     public static By btnOk = By.xpath("//button[text()='OK']");
     public static By btnLogout =By.xpath("(//a[@class='dropdown-item']/span)[4]");
+    public static By btnClose =By.xpath("//button[@id='btnskillsClose']");
 
 
 }

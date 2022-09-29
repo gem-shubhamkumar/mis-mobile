@@ -14,6 +14,7 @@ Feature: Leave Balance
     Then Verify "Leave balance card" is present on the current page
 
 
+
   Scenario: Click on number of leaves and verify leave history popup window
     Then Click on "Dashboard" tab
     Then Verify "Profile card" is present on the current page

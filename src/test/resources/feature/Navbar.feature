@@ -32,6 +32,28 @@ Feature: NavBar
     Then Click on "Profile button"
     And Verify all menu items are present in the dropdown
 
+  Scenario Outline: Verify Add skill close button after entering all values
+    Then Click on "Profile button"
+    Then Click on "Skills option"
+    And Verify "Add skills window" is visible on the current screen
+    Then Select "<Technology name>" from technology dropdown on add skills window
+    Then Select "Beginner" from "Proficiency" dropdown on add skills window
+    Then Select "Primary" from "Skill type" dropdown on add skills window
+    And Enter "6" in "Experience" text field
+    And Click on "Add skill close button"
+    Then Verify skill card window is closed
+    Examples:
+      | Technology name |
+      |    JAVA         |
+
+
+  Scenario: Verify Add skill close button after entering all values
+    Then Click on "Profile button"
+    Then Click on "Skills option"
+    And Verify "Add skills window" is visible on the current screen
+    And Click on "Add skill close button"
+    Then Verify skill card window is closed
+
   Scenario Outline: Verify success/warning message box when adding new/duplicate skills from profile dropdown
     Then Click on "Profile button"
     Then Click on "Skills option"

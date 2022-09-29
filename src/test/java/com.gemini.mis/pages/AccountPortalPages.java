@@ -116,6 +116,9 @@ public class AccountPortalPages extends PageObject {
             case "Save button":
                 commonfunctions.clickOn(NavBarSelectors.btnAddSkillSave);
                 break;
+            case "Add skill close button":
+                commonfunctions.clickOn(CommonXpaths.btnClose);
+                break;
             case "Logout button":
                 commonfunctions.clickOn(CommonXpaths.btnLogout);
                 break;

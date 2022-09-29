@@ -117,6 +117,7 @@ public class commonMethods extends PageObject {
                 flag= $(NavBarSelectors.windowAddSkills).isVisible();
                 break;
 
+
             default:Assert.fail("Element name wrong");
         }
         if(flag){

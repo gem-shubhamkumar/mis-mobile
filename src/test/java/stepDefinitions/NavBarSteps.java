@@ -3,8 +3,7 @@ package stepDefinitions;
 import com.gemini.mis.commonFunctions.commonMethods;
 import com.gemini.mis.pages.AccountPortalPages;
 import com.gemini.mis.pages.NavBarPages;
-import com.gemini.mis.selectors.NavBarSelectors;
-import io.cucumber.java.bs.A;
+import com.gemini.mis.selectors.NavBarSelectors;;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import net.serenitybdd.core.pages.PageObject;
@@ -94,5 +93,10 @@ public class NavBarSteps extends PageObject {
     @Then("^Drag \"(.*?)\" row to \"(.*?)\" position$")
     public void dragRowToPosition(String dragged, String draggedTo) {
         navPages.dragRows(dragged,draggedTo);
+    }
+
+    @Then("^Verify skill card window is closed$")
+    public void verifySkillCardWindowIsClosed() {
+        commonFunction.verifyElementIsNotVisible("Add skills window");
     }
 }
