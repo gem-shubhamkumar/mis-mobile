@@ -27,8 +27,8 @@ public class AccountPortalSteps extends PageObject {
     public void verifyLogInToMyMIS(){
         commonfunction.isElementFound(AccountPortalSelectors.btnChangeADPassword);
     }
-    @Then("^Click on \"(.*?)\" sub-tab inside \"(.*?)\" tab$")
-    public void navigateToSubTab(String subTab,String menuTab){
+    @Then("^Click \"(.*?)\" sub-tab inside \"(.*?)\" tab$")
+    public void clickSubTab(String subTab,String menuTab){
         commonfunction.navigateToTab(menuTab,subTab);
     }
      @But("^Verify new tab is open \"(.*?)\" as page heading$")

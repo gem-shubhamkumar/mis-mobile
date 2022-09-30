@@ -18,8 +18,8 @@ public class LeaveBalanceSteps extends PageObject {
     @Steps
     LeaveBalancePages leavePages;
 
-    @Then("^Click on \"(.*?)\" tab$")
-    public void clickOnParentTabOnly(String parentTab){
+    @Then("^Click on \"(.*?)\" tab inside \"(.*?)\" $")
+    public void clickOnParentTab(String parentTab){
         commonFunction.navigateToTab(parentTab);
     }
 
@@ -45,6 +45,9 @@ public class LeaveBalanceSteps extends PageObject {
             case "Dashboard setting table":
                 $(NavBarSelectors.textDashboardTable).isVisible();
                 break;
+            case "Add KPI description text field":
+                $(ApparsialMngmnt_AddGoalSelectors.textFieldAddKPI).isVisible();
+                break;
 
 
             default:Assert.fail("Element name not added in switch cases");
@@ -54,5 +57,10 @@ public class LeaveBalanceSteps extends PageObject {
     @Then("^Verify number of records ar same as displayed on leave card$")
     public void verifyNumberOfRecordsArSameAsDisplayedOnLeaveCard() {
         leavePages.verifyNumberOfRecordsAreSame();
+    }
+
+    @Then("^Click on \"(.*?)\" parent tab$")
+    public void clickOnTab(String ParentTabName) {
+        commonFunction.navigateToTab(ParentTabName);
     }
 }

@@ -52,7 +52,7 @@ test {
         //include specific method in any of the tests
        // includeTestsMatching "*testRunner"
        //include all tests from package
-         //includeTestsMatching "com.gemini.mis.runner"
+         includeTestsMatching "com.gemini.mis.runner*"
         //include all integration tests
         //includeTestsMatching "*IntegTest"
     }

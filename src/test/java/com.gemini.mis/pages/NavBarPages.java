@@ -1,15 +1,14 @@
 package com.gemini.mis.pages;
 
-import com.gemini.mis.commonFunctions.commonMethods;
-import com.gemini.mis.selectors.AccountPortalSelectors;
+import com.gemini.mis.commonFunctions.commonMethods;;
 import com.gemini.mis.selectors.CommonXpaths;
 import com.gemini.mis.selectors.LeaveBalanceSelectors;
 import com.gemini.mis.selectors.NavBarSelectors;
+import com.gemini.mis.selectors.AccountPortalSelectors;
 import net.serenitybdd.core.pages.PageObject;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.annotations.Steps;
 import org.junit.Assert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -98,6 +97,14 @@ public class NavBarPages extends PageObject {
             case "Experience":
                 commonFunction.verifyTextFieldAndEnterText(NavBarSelectors.textFieldExperience,textToEnter);
                 break;
+            case "KRA":
+                commonFunction.verifyTextFieldAndEnterText(ApparsialMngmnt_AddGoalSelectors.textFieldKRA,textToEnter);
+                break;
+            case "KPI description":
+                commonFunction.verifyTextFieldAndEnterText(ApparsialMngmnt_AddGoalSelectors.textFieldAddKPI,textToEnter);
+                break;
+
+            default:Assert.fail("field not added in switch cases");
         }
     }
 

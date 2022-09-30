@@ -9,7 +9,7 @@ Feature: NavBar
 
   Scenario: Verify user redirect to landing page when clicking on Gemini logo
     Then Verify navigation to landing page is successful after log in
-    Then Click on "Employee Directory" tab
+    Then Click on "Employee Directory" parent tab
     And Verify "Employee directory table" is present on the current page
     When Click on "Gemini logo"
     Then Verify user is redirected to landing page
@@ -63,13 +63,12 @@ Feature: NavBar
     Then Select "Primary" from "Skill type" dropdown on add skills window
     And Enter "6" in "Experience" text field
     And Click on "Save button"
-    But Verify "Add skills window" disappears form current screen
     Then Verify "<Message box text>" message appear in screen
     And Verify "<Skill name>" Skill  is "<status>" and "<expected condition>" added in my skills card
     Examples:
       | Technology name |Message box text| Skill name  |  status    |expected condition|
-      |Photoshop        |Success         |  Photoshop  |    new     | can be           |
-      |Photoshop        |Duplicate       |  Photoshop  |   duplicate|cannot be         |
+      |PIMCO        |Success         |  PIMCO  |    new     | can be           |
+      |PIMCO        |Duplicate       |  PIMCO  |   duplicate|cannot be         |
 
 
   Scenario Outline: Verify Experience text field on Add new skills window

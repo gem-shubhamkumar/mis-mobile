@@ -7,16 +7,14 @@ Feature: Leave Balance
     And Click on "sign in button"
     And Verify login is successful
 
-
   Scenario: Verify leave Balance card is visible or not
-    Then Click on "Dashboard" tab
+    Then Click on "Dashboard" parent tab
     Then Verify "Profile card" is present on the current page
     Then Verify "Leave balance card" is present on the current page
 
 
-
   Scenario: Click on number of leaves and verify leave history popup window
-    Then Click on "Dashboard" tab
+    Then Click on "Dashboard" parent tab
     Then Verify "Profile card" is present on the current page
     When Verify "Leave balance card" is present on the current page
     Then Click on "CL leave balance link"
@@ -26,7 +24,7 @@ Feature: Leave Balance
 
 
   Scenario: Navigate to leave history window and verify number of records
-    Then Click on "Dashboard" tab
+    Then Click on "Dashboard" parent tab
     Then Verify "Profile card" is present on the current page
     When Verify "Leave balance card" is present on the current page
     Then Click on "WFH"

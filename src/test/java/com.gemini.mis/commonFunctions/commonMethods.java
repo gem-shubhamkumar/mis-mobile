@@ -25,6 +25,15 @@ public class commonMethods extends PageObject {
         }
     }
 
+   public void isElementVisible(By loc,String elementName){
+        if($(loc).isVisible()){
+            System.out.println(elementName+ "is visible on the current page");
+        }else{
+            Assert.fail(elementName+" isn not visible on the current page");
+        }
+
+   }
+
     public void sendTextToField(By loc,String text){
         waitFor(ExpectedConditions.presenceOfElementLocated(loc));
         $(loc).type(text);
@@ -116,6 +125,12 @@ public class commonMethods extends PageObject {
             case "Add skills window":
                 flag= $(NavBarSelectors.windowAddSkills).isVisible();
                 break;
+            case "Delivery tab":
+                flag=$(ApparsialMngmnt_AddGoalSelectors.tabDelivery).isVisible();
+                break;
+            case "Add KPI description text field":
+                flag=$(ApparsialMngmnt_AddGoalSelectors.textFieldAddKPI).isVisible();
+                break;
 
 
             default:Assert.fail("Element name wrong");
@@ -123,7 +138,7 @@ public class commonMethods extends PageObject {
         if(flag){
             Assert.fail(elementName+" is visible on the screen");
         }else{
-            System.out.println("Element is not visible on the screen");
+            System.out.println("PASS : Element is not visible on the screen");
         }
     }
 
