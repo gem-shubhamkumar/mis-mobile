@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="1" name="Perform actions on Timesheet of MIS website" skipped="0" tests="1" time="28.41" timestamp="2022-09-28 11:46:26"><testcase name="MIS time sheet create timesheet verify table"><failure message="Previous week not opened" type="java.lang.AssertionError">Previous week not opened</failure><system-err>Previous week not opened&#13;
-com.gemini.mis.pages.TimeSheetFunc.openPreNextWeek(TimeSheetFunc.java:106)&#13;
-stepDefinitions.TimeSheet.openPreNextWeek(TimeSheet.java:44)&#13;
-✽.Open previous and next week(file:///C:/Users/am.srivastava/Desktop/EJ/MISAutomation/src/test/resources/features/Timesheet.feature:47)&#13;
-</system-err></testcase></testsuite>

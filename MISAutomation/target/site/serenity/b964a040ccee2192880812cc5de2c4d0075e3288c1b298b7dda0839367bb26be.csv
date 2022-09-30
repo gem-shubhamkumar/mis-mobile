@@ -1,3 +1,0 @@
-"Story","Title","Result","Date","Stability","Duration (s)"
-"Perform actions on Organization Structure of MIS website","MIS org structure expand and compress","ERROR","2022-09-30T12:43:01.765+05:30[Asia/Calcutta]","0.0","29.88"
-"Perform actions on Timesheet of MIS website","MIS time sheet create timesheet verify table","FAILURE","2022-09-28T23:46:26.527+05:30[Asia/Calcutta]","0.0","28.41"

@@ -34,7 +34,7 @@ public class DashboardFunc extends PageObject {
             if(dropdownItem.isDisplayed()) {
                 log.info("Required month exists in dropdown menu");
                 dropdownItem.click();
-                gf.waitForLoaderToDisappear();
+                waitABit(5000);
             }else {
                 Assert.fail("Required month does not exist in dropdown menu");
             }
