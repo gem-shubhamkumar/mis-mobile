@@ -37,5 +37,9 @@ public class LocatorDashboardProfilePage {
     }
     public static By locationDropdown=By.xpath("//span[@id='select2-location-container']");
     public static By addBtn=By.xpath("//button[@id='BtnsaveDateforLunch']");
+    public static String userCard = "//div[@class='widget-user-stat']";
+    public static By location(String Loc){
+        return By.xpath("//select[@id='location']/*[text()='"+Loc+"']");
+    }
 
 }

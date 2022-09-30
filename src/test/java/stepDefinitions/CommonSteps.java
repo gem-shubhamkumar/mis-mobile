@@ -1,20 +1,31 @@
 package stepDefinitions;
 
+import com.gemini.mis.pages.FormsPage;
 import com.gemini.mis.pages.LoginPage;
 import com.gemini.mis.selectors.LocatorLoginPage;
 import com.gemini.mis.selectors.LocatorDashboardProfilePage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import net.thucydides.core.annotations.Step;
 
 public class CommonSteps
 {
     LoginPage steps;
+    FormsPage form;
 
     @Given("User opens MIS Beta page {string}")
     public void user_opens_mis_beta_page(String url)  {
         steps.navigateApplication(url);
     }
+    @Given("User clicks on tab {string} and {string}")
+    public void userClicksOnTabAnd(String parentTabName, String childTabName) {
+        steps.Wait(3000);
+        form.NavigateParentAndChildTab(parentTabName, childTabName);
+        steps.Wait(5000);
+    }
+
+
     @Then("User enters Username as {string}")
     public void user_enters_username_as(String username) {
         steps.enterValues(LocatorLoginPage.inputField("text"),username);

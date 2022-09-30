@@ -182,14 +182,14 @@ Scenario Outline: User applies for lunch
     Then User verifies element "<elementOne>"
     And User clicks on FromDate Calendar Selects Date "<Date1>"
     Then User clicks on To Date Calendar Selects Date "<Date2>"
-    Then User Selects location from dropdown
+    Then User Selects location from dropdown "<Location>"
     Then User Clicks On Add Btn
     Then User verifies element "<element>"
     And User closes appeared popup
     Then User closes the lunch pop up
     Examples:
-      | elementOne |Date1|Date2|element|
-      |Apply for Lunch|22| 23|Dates Added successfully|
+      | elementOne |Date1|Date2|element|Location|
+      |Apply for Lunch|22| 23|Dates Added successfully|Austin, Texas|
 
 
 #14
@@ -198,14 +198,14 @@ Scenario Outline: User applies for lunch for already applied date
     Then User verifies element "<elementOne>"
     And User clicks on FromDate Calendar Selects Date "<Date1>"
     Then User clicks on To Date Calendar Selects Date "<Date2>"
-    Then User Selects location from dropdown
+  Then User Selects location from dropdown "<Location>"
     Then User Clicks On Add Btn
     Then User verifies element "<Warning Message>"
     And User closes appeared popup
     Then User closes the lunch pop up
     Examples:
-      | elementOne |Date1|Date2|Warning Message|
-      |Apply for Lunch|22| 23|You have already applied for these dates.|
+      | elementOne |Date1|Date2|Warning Message|Location|
+      |Apply for Lunch|22| 23|You have already applied for these dates.|Austin, Texas|
 
 
 #15
@@ -213,9 +213,15 @@ Scenario Outline: User leave a field blank in Apply lunch
     Given User clicks on Lunch Btn
     Then User verifies element "<elementOne>"
     And User clicks on FromDate Calendar Selects Date "<Date1>"
-    Then User Selects location from dropdown
+  Then User Selects location from dropdown "<Location>"
     Then User Clicks On Add Btn
     Then User verifies blank field "<Field Name>"
     Examples:
-      | elementOne | Date1 | Field Name |
-      |Apply for Lunch|22 |tillDateEmp |
+      | elementOne | Date1 | Field Name |Location|
+      |Apply for Lunch|22 |tillDateEmp |Austin, Texas|
+
+#16
+  Scenario: Download Card
+    When User card is present in dashboard
+    Then User clicks on download card button
+    And Verify "card.jpg" file is downloaded

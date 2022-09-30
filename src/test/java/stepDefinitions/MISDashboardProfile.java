@@ -1,19 +1,24 @@
 package stepDefinitions;
 
 import com.gemini.mis.pages.DashboardProfilePage;
+import com.gemini.mis.pages.FormsPage;
 import com.gemini.mis.pages.LoginPage;
 import com.gemini.mis.selectors.LocatorDashboardProfilePage;
+import com.gemini.mis.selectors.LocatorFormPage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.pages.PageObject;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 
 public class MISDashboardProfile extends PageObject {
 
     LoginPage steps;
     DashboardProfilePage mySteps;
+    FormsPage forms;
 
     @Then("User clicks on edit button")
     public void userClicksOnEditButton() {
@@ -143,10 +148,11 @@ public class MISDashboardProfile extends PageObject {
         steps.Wait(500);
     }
 
-    @Then("User Selects location from dropdown")
-    public void userSelectsLocationFromDropdown() {
+    @Then("User Selects location from dropdown {string}")
+    public void userSelectsLocationFromDropdown(String Loc) {
         steps.click(LocatorDashboardProfilePage.locationDropdown);
-        getDriver().findElement(By.xpath("//select[@id='location']/*[text()='Austin, Texas']")).click();
+        steps.click(LocatorDashboardProfilePage.location(Loc));
+        //getDriver().findElement(By.xpath("//select[@id='location']/*[text()='Austin, Texas']")).click();
         steps.click(LocatorDashboardProfilePage.locationDropdown);
         steps.Wait(500);
     }
@@ -163,6 +169,22 @@ public class MISDashboardProfile extends PageObject {
     }
 
 
+    @And("Verify {string} file is downloaded")
+    public void verifyFileIsDownloaded(String fileName) {
+        forms.isFileDownloaded("C:\\Users\\ch.srivastava\\Downloads","card.jpg");
+        
+    }
+
+    @Then("User clicks on download card button")
+    public void userClicksOnDownloadCardButton() {
+        $(By.id("btnConvert")).waitUntilPresent().click();
+        
+    }
+
+    @When("User card is present in dashboard")
+    public void userCardIsPresentInDashboard() {
+     Assert.assertTrue($(By.xpath(LocatorDashboardProfilePage.userCard)).isPresent());
+    }
 }
 
 
