@@ -2,6 +2,7 @@ package stepDefinitions;
 
 import com.gemini.mis.pages.GenericFunctionPages_Siddhanshi;
 import com.gemini.mis.pages.ReimbursementPages;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import net.serenitybdd.core.pages.PageObject;
 import net.thucydides.core.annotations.Steps;
@@ -99,10 +100,15 @@ public void UploadandvalidateNewRequest(String FileName,String FilePath,String D
     ReimbursePage.browseAndUpload(filePath,fileName);
     ReimbursePage.fillTheDetailsSaveDraft(description,billNo,date,rembuirsmenetAmount,amount);
     }
-    @Then("Verify we are able to print")
+    @Then("^Verify we are able to print$")
     public void print(){
     ReimbursePage.VerifyPrint();
     }
 
+
+    @And("^Verify data is copied$")
+    public void verifyDataIsCopied() {
+        ReimbursePage.verifyCopy();
+    }
 
 }

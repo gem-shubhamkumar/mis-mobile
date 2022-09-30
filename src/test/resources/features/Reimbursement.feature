@@ -128,9 +128,6 @@ Then verify Warning "<buttonName>", "<FileName>", "<FilePath>", "<type>", "<mont
       | Reimbursement | MyReimbursement | New Request |  |  | LOGOFILE | C:\Users\si.porwal\Downloads\LOGOFILE.png | Gemini Desktop | 1      | 27/06/2022 | 7500                | 7500   | Monthly | April 2022 |
 
 
-
-#    Then verify Warning "(.*?)", "(.*?)", "(.*?)", "(.*?)", "(.*?)" for more than one reimbursement in a month
-
   @ReimbursementTest13
 
   Scenario Outline: Reimbursement Add new request function save draft functionality
@@ -140,3 +137,12 @@ Then verify Warning "<buttonName>", "<FileName>", "<FilePath>", "<type>", "<mont
     Examples:
       | mainScreen    | subsScreen      |
       | Reimbursement | MyReimbursement |
+
+  @ReimbursementTest14
+
+  Scenario Outline: Verify if fCopy functionality is working properly
+    Then Click on "<mainScreen>" tab of "<subsScreen>" tab
+  And Verify data is copied
+  Examples:
+  | mainScreen    | subsScreen      |
+  | Reimbursement | MyReimbursement |

@@ -357,5 +357,12 @@ break;
                 Assert.fail("we are not able to print");
             }
 }
+}}
 
-}}}
+    public void verifyCopy() {
+        $(By.xpath(GenericFunctionPOM.genericPath.replace("VAR","Export"))).click();
+        $(By.xpath(GenericFunctionPOM.genericPath.replace("VAR","Copy"))).click();
+        getDriver().switchTo().defaultContent();
+        Assert.assertEquals($(By.xpath(ReimbursementPOM.copyClipboard)).getText(), "Copy to clipboard");
+    }
+}
