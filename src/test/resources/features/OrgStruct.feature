@@ -37,6 +37,5 @@ Feature: Perform actions on Organization Structure of MIS website
   Scenario: MIS_OrgStructure_ZoomInZoomOut
     Then Open "Organization Structure" page
     And Verify "Organization Structure" page of type "Main"
-    And Verify side arrows are present on the page
     And Zoom in and zoom out organization structure
     Then Logout from MIS
