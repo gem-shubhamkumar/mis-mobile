@@ -12,6 +12,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 
+import java.io.File;
 import java.util.List;
 
 public class CommonFunctions extends PageObject {
@@ -249,6 +250,20 @@ public class CommonFunctions extends PageObject {
     public void verifyRows(int number) {
         int tableRow = getDriver().findElements(By.xpath(FeedbackSelectors.tableRow.replace("ids", "tblFeedback"))).size();
         Assert.assertTrue(number == tableRow || tableRow < number);
+    }
+
+    public boolean isFileDownloaded(String downloadPath, String fileName) {
+
+        File folder = new File(downloadPath);
+        File[] folderContent = folder.listFiles();
+
+        for (int i = 0; i < folderContent.length; i++) {
+            if (folderContent[i].getName().equals(fileName)) {
+                folderContent[i].delete(); // File has been found, it can now be deleted:
+                return true;
+            }
+        }
+        return false;
     }
 }
 

@@ -96,7 +96,7 @@ public class FeedbackSteps {
 
     @And("^Verify \"(.*?)\" file is downloaded$")
     public void verifyFileDownloaded(String fileName) {
-        feedbackPage.isFileDownloaded("C:\\Users\\ay.garg\\Downloads", fileName);
+        commonFunctions.isFileDownloaded("C:\\Users\\ay.garg\\Downloads", fileName);
     }
 
     @And("^Verify print tab is open$")

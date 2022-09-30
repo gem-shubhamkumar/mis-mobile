@@ -75,4 +75,5 @@ public class MySkillsPage extends PageObject {
          waitABit(1000);
          withAction().sendKeys(Keys.ENTER).build().perform();
     }
+
 }
