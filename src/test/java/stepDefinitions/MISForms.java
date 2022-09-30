@@ -12,9 +12,14 @@ import net.thucydides.core.pages.PageObject;
 import org.junit.Assert;
 import org.openqa.selenium.JavascriptExecutor;
 
+import java.util.logging.Logger;
+
+import static jxl.biff.FormatRecord.logger;
+
 public class MISForms extends PageObject {
     FormsPage form;
     LoginPage steps;
+    Logger log= Logger.getLogger(MISForms.class.getName());
 
     @Then("User closes application")
     public void user_closes_application() {
@@ -59,12 +64,12 @@ public class MISForms extends PageObject {
     @Then("User clicks on eye button and view policy")
     public void userClicksOnEyeButtonAndViewPolicy() {
         steps.click(LocatorFormPage.eyeBtn);
-        steps.Wait(2000);
+        /*steps.Wait(2000);
         steps.changeFocusToNewTab();
         steps.Wait(2000);
         JavascriptExecutor js = (JavascriptExecutor) getDriver();
-        js.executeScript("window.scrollBy(0,document.body.scrollHeight)");
-        steps.Wait(2000);
+        js.executeScript("window.scrollBy(0,document.body.scrollHeight)");*/
+        steps.Wait(4000);
     }
 
 
@@ -120,8 +125,7 @@ public class MISForms extends PageObject {
         }
         else
         {
-
-            Assert.assertTrue("Deavtivate button is not present",true);
+            log.info("Deactivate button is not present");
         }
     }
     @Then("User confirms deactivation")
@@ -139,7 +143,7 @@ public class MISForms extends PageObject {
 
         }
                 else{
-                    Assert.assertTrue("Download button is not present",true);
+                   log.info("Download button is not present");
 
                 }
 

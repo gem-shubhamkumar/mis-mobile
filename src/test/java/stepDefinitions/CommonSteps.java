@@ -46,6 +46,5 @@ public class CommonSteps
     @Then("User Verifies Landing Page")
     public void user_verifies_landing_page() {
         steps.WaitTillElementIsVisible(LocatorDashboardProfilePage.elementOnLandingPage);
-        //steps.Wait(5000);
 
 }}

@@ -152,7 +152,6 @@ public class MISDashboardProfile extends PageObject {
     public void userSelectsLocationFromDropdown(String Loc) {
         steps.click(LocatorDashboardProfilePage.locationDropdown);
         steps.click(LocatorDashboardProfilePage.location(Loc));
-        //getDriver().findElement(By.xpath("//select[@id='location']/*[text()='Austin, Texas']")).click();
         steps.click(LocatorDashboardProfilePage.locationDropdown);
         steps.Wait(500);
     }
