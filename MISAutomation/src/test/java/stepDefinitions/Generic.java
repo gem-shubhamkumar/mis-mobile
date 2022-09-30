@@ -48,4 +48,24 @@ public class Generic extends PageObject {
         gf.verifyPage(Page, PageType);
     }
 
+    @And("Verify and accept success popup")
+    public void verifyAndAcceptSuccess() {
+        gf.verifyAndAcceptSuccessPopup();
+    }
+
+    @Then("Verify and accept warning popup")
+    public void verifyAndAcceptWarning() {
+        gf.verifyAndAcceptWarningPopup();
+    }
+
+    @Then("Verify and accept confirmation popup")
+    public void verifyAndAcceptConfirmation() {
+        gf.verifyAndAcceptConfirmation();
+    }
+
+    @Then("Verify and reject confirmation popup")
+    public void verifyAndRejectConfirmation() {
+        gf.verifyAndRejectConfirmation();
+    }
+
 }

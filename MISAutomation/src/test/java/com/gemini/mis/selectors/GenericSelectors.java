@@ -24,4 +24,20 @@ public class GenericSelectors extends PageObject {
     public By dropdownMenu = By.xpath("//div[contains(@class,'dropdown-menu')]");
     public By dialogWindowHeader = By.xpath("//div[@class='modal-header'])[17]");
 
+    //many pages
+    public By tableHeads = By.xpath("//table//th");
+    public By tableData = By.xpath("//table//td");
+    public By txtSearch = By.xpath("//input[@type='search']");
+    public By successPopup = By.xpath("//div[contains(@class,'sweet-alert')]//h2[text()='Success']");
+    public By successIcon = By.xpath("//div[contains(@class,'success animate')]");
+    public By successMessage = By.xpath("//p[contains(text(),'successfully')]");
+    public By btnOk = By.xpath("//button[text()='OK']");
+    public By warningPopup = By.xpath("//div[contains(@class,'sweet-alert')]//h2[text()='Warning']");
+    public By warningIcon = By.xpath("//div[contains(@class,'pulseWarning')]");
+    public By warningMessage = By.xpath("//p[contains(@class,'text')]");
+    public By confirmationPopup = By.xpath("//div[contains(@class,'sweet-alert')]//h2[text()='Are you sure?']");
+    public By confirmationMessage = By.xpath("//p[contains(text(),'Are you sure')]");
+    public By btnYes = By.xpath("//button[text()='Yes']");
+    public By btnNo = By.xpath("//button[text()='No']");
+
 }
