@@ -9,7 +9,6 @@ import net.thucydides.core.annotations.Step;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-
 import java.util.List;
 
 
@@ -53,7 +52,7 @@ public class commonMethods extends PageObject {
     public void isTextFound(By loc,String text){
         String textToCompare = $(loc).getText();
         if(text.contains("Hello")){
-            System.out.println("Text is verified");;
+            System.out.println("Text is verified");
         }
         else
         Assert.assertEquals(text,textToCompare);
@@ -125,13 +124,6 @@ public class commonMethods extends PageObject {
             case "Add skills window":
                 flag= $(NavBarSelectors.windowAddSkills).isVisible();
                 break;
-            case "Delivery tab":
-                flag=$(ApparsialMngmnt_AddGoalSelectors.tabDelivery).isVisible();
-                break;
-            case "Add KPI description text field":
-                flag=$(ApparsialMngmnt_AddGoalSelectors.textFieldAddKPI).isVisible();
-                break;
-
 
             default:Assert.fail("Element name wrong");
         }

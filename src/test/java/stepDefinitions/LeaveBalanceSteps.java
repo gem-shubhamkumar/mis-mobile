@@ -2,8 +2,6 @@ package stepDefinitions;
 
 import com.gemini.mis.commonFunctions.commonMethods;
 import com.gemini.mis.pages.LeaveBalancePages;
-import com.gemini.mis.selectors.LeaveBalanceSelectors;
-import com.gemini.mis.selectors.NavBarSelectors;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import net.serenitybdd.core.pages.PageObject;
@@ -24,34 +22,13 @@ public class LeaveBalanceSteps extends PageObject {
     }
 
     @Then("^Verify leave history window closes$")
-    public void verifyLeaveHistoryWindowCloses() {
-
-        if(!$(LeaveBalanceSelectors.btnLeaveHistoryClose).isVisible()){
-            System.out.println("Leave window closes successfully");
-        }else{
-            Assert.fail("Leave window is open");
-        }
+    public void VerifyIsLeaveWindowCloses(){
+        leavePages.verifyLeaveHistoryWindowCloses();
     }
 
     @And("^Verify \"(.*?)\" is visible on the current screen$")
-    public void verifyIsVisibleOnTheCurrentScreen(String eleName) {
-        switch (eleName){
-            case "Leave history window":
-                $(LeaveBalanceSelectors.gridLeaveHistory).isVisible();
-                break;
-            case "Add skills window":
-                $(NavBarSelectors.windowAddSkills).isVisible();
-                break;
-            case "Dashboard setting table":
-                $(NavBarSelectors.textDashboardTable).isVisible();
-                break;
-            case "Add KPI description text field":
-                $(ApparsialMngmnt_AddGoalSelectors.textFieldAddKPI).isVisible();
-                break;
-
-
-            default:Assert.fail("Element name not added in switch cases");
-        }
+    public void verifyIsElementVisible(String elName){
+        leavePages.verifyIsVisibleOnTheCurrentScreen(elName);
     }
 
     @Then("^Verify number of records ar same as displayed on leave card$")

@@ -1,6 +1,6 @@
 package com.gemini.mis.pages;
 
-import com.gemini.mis.commonFunctions.commonMethods;;
+import com.gemini.mis.commonFunctions.commonMethods;
 import com.gemini.mis.selectors.CommonXpaths;
 import com.gemini.mis.selectors.LeaveBalanceSelectors;
 import com.gemini.mis.selectors.NavBarSelectors;
@@ -10,13 +10,12 @@ import net.thucydides.core.annotations.Step;
 import net.thucydides.core.annotations.Steps;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class NavBarPages extends PageObject {
+
     @Steps
     commonMethods commonFunction;
 
@@ -97,12 +96,6 @@ public class NavBarPages extends PageObject {
             case "Experience":
                 commonFunction.verifyTextFieldAndEnterText(NavBarSelectors.textFieldExperience,textToEnter);
                 break;
-            case "KRA":
-                commonFunction.verifyTextFieldAndEnterText(ApparsialMngmnt_AddGoalSelectors.textFieldKRA,textToEnter);
-                break;
-            case "KPI description":
-                commonFunction.verifyTextFieldAndEnterText(ApparsialMngmnt_AddGoalSelectors.textFieldAddKPI,textToEnter);
-                break;
 
             default:Assert.fail("field not added in switch cases");
         }
@@ -132,7 +125,7 @@ public class NavBarPages extends PageObject {
 
          }else if(status.equals("duplicate")&&expectedCondition.equals("cannot be")){
             for (WebElement  ele : listMySkills){
-                if(ele.equals(skillName)){
+                if(ele.getText().equals(skillName)){
                     count++;
                 }
             }
@@ -199,14 +192,23 @@ public class NavBarPages extends PageObject {
             flag=true;
         }
     }
-        Assert.assertTrue("All are unchecked",true);
+        Assert.assertTrue("All are unchecked",flag);
     }
 
-    @Step("Drag rows within a table and change there position")
+/*    @Step("Drag rows within a table and change there position")
     public void dragRows(String dragged,String draggedTo){
 
         Actions clickAndHold = withAction().clickAndHold((WebElement) NavBarSelectors.textTableIndex(dragged));
 
+    }*/
+
+    public void verifyNoCardIsShownOnTheDashboard() {
+        waitABit(5000);
+        if(!$(NavBarSelectors.headingsDashboardCards).isVisible()){
+            System.out.println("All cards are hidden");
+        }else{
+            Assert.fail("Cards are still visible on dashboard");
+        }
     }
 
 

@@ -3,12 +3,11 @@ package stepDefinitions;
 import com.gemini.mis.commonFunctions.commonMethods;
 import com.gemini.mis.pages.AccountPortalPages;
 import com.gemini.mis.pages.NavBarPages;
-import com.gemini.mis.selectors.NavBarSelectors;;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import net.serenitybdd.core.pages.PageObject;
 import net.thucydides.core.annotations.Steps;
-import org.junit.Assert;
+
 
 public class NavBarSteps extends PageObject {
     @Steps
@@ -80,20 +79,11 @@ public class NavBarSteps extends PageObject {
         navPages.uncheckAndVerifyAllCheckBox();
     }
 
-    @And("Verify no card is shown on the dashboard")
-    public void verifyNoCardIsShownOnTheDashboard() {
-        waitABit(5000);
-        if(!$(NavBarSelectors.headingsDashboardCards).isVisible()){
-            System.out.println("All cards are hidden");
-        }else{
-            Assert.fail("Cards are still visible on dashboard");
-        }
+    @And("^Verify no card is shown on the dashboard$")
+   public void verifyIsCardsVisibleOnDashboard(){
+        navPages.verifyNoCardIsShownOnTheDashboard();
     }
 
-    @Then("^Drag \"(.*?)\" row to \"(.*?)\" position$")
-    public void dragRowToPosition(String dragged, String draggedTo) {
-        navPages.dragRows(dragged,draggedTo);
-    }
 
     @Then("^Verify skill card window is closed$")
     public void verifySkillCardWindowIsClosed() {

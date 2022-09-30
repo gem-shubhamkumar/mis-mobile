@@ -129,32 +129,6 @@ public class AccountPortalPages extends PageObject {
             case "Update button":
                 commonfunctions.clickOn(NavBarSelectors.btnUpdate);
                 break;
-            case "Add/Update goal button":
-                commonfunctions.clickOn(ApparsialMngmnt_AddGoalSelectors.btnAddGoal);
-                break;
-            case "Close add goal button":
-                commonfunctions.clickOn(ApparsialMngmnt_AddGoalSelectors.btnCloseAddGoal);
-                break;
-            case "Financial year dropdown":
-                commonfunctions.clickOn(ApparsialMngmnt_AddGoalSelectors.dropdownFinancialYear);
-                break;
-            case "List of KRAs and KPIs link":
-                commonfunctions.clickOn(ApparsialMngmnt_AddGoalSelectors.linkOfKRAsAndKPIs);
-                break;
-            case "Add KPI/KRA button":
-                commonfunctions.clickOn(ApparsialMngmnt_AddGoalSelectors.btnAddKPIAndKRA);
-                waitABit(1000);
-                break;
-            case "Add KPI button":
-                commonfunctions.clickOn(ApparsialMngmnt_AddGoalSelectors.btnAddKPI);
-                break;
-            case "KPI cross button":
-                commonfunctions.clickOn(ApparsialMngmnt_AddGoalSelectors.btnCrossBtn);
-                break;
-            case "Submit add button":
-                commonfunctions.clickOn(ApparsialMngmnt_AddGoalSelectors.btnGoalSubmit);
-                break;
-
 
             default:Assert.fail("button not found, not added in switch cases");
         }
@@ -232,9 +206,6 @@ public class AccountPortalPages extends PageObject {
                 break;
             case "Username and password is required.":
                 commonfunctions.isTextFound(AccountPortalSelectors.textIncorrectCredentials,text);
-                break;
-            case "Add My Goal/Team Goal":
-                commonfunctions.isTextFound(ApparsialMngmnt_AddGoalSelectors.validationMyGoalPage,text);
                 break;
 
 
