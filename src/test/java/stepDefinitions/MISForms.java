@@ -55,9 +55,9 @@ public class MISForms extends PageObject {
     }
 
     @Then("User verifies search field and enters value {string}")
-    public void userVerifiesSearchFieldAndEntersValue(String arg0) {
+    public void userVerifiesSearchFieldAndEntersValue(String value) {
         steps.isElementExist(LocatorFormPage.searchBox);
-        steps.enterValues(LocatorFormPage.searchBox,arg0);
+        steps.enterValues(LocatorFormPage.searchBox,value);
         steps.Wait(1000);
     }
 
@@ -98,9 +98,9 @@ public class MISForms extends PageObject {
     }
 
     @And("User Selects form Type {string}")
-    public void userSelectsFormType(String formtype) {
+    public void userSelectsFormType(String formType) {
         steps.click(LocatorFormPage.formsType);
-        steps.click(LocatorFormPage.formType(formtype));
+        steps.click(LocatorFormPage.formType(formType));
 
     }
 
