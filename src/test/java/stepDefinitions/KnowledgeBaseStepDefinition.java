@@ -79,6 +79,7 @@ public class KnowledgeBaseStepDefinition extends PageObject {
     @And("^Put \"(.*?)\" and click on \"(.*?)\"$")
     public void putInvalidFolderName(String folderName, String buttonName){
         steps.enterFolderName(folderName);
+        waitABit(2000);
         steps.clickOnButton(buttonName);
     }
 
@@ -113,7 +114,13 @@ public class KnowledgeBaseStepDefinition extends PageObject {
 
     @Then("verify duplicate folder created")
     public void isDuplicateFolder(){
+       boolean duplicateText =  $(By.xpath("/html/body/div[13]/p")).getText().equals("Duplicate name is not allowed.")  ;
+       Assert.assertTrue("Duplicate folder is created",true);
+    }
 
+    @And("click On ok at popup")
+    public void clickOnOKOnPopupFolder(){
+       $(By.xpath("//button[@class='confirm btn btn-lg btn-primary']")).click();
     }
 
 
@@ -268,14 +275,95 @@ public class KnowledgeBaseStepDefinition extends PageObject {
         Assert.assertTrue("Search bar working fine on view documents page",gridText);
     }
 
-    @Then("^click on \"(.*?)\" from the menu$")
-    public void addSubFolder(String subFolderMenu){
+
+    @Then("^click on \"(.*?)\" at input folder name place$")
+    public void clickOnSpecifiedButton(String btnName){
+        switch (btnName){
+            case "crossButton":
+                $(By.xpath("//*[@id=\"mypopupWindowAddNewDocumentModal\"]/div/div/div[1]/button/span")).click();
+                break;
+            case "closeButton":
+                $(By.id("btnCloseDocument")).click();
+                break;
+            case "addButton":
+                $(By.id("btnSaveDocument")).click();
+                break;
+            default:
+                break;
+        }
+    }
+
+    @And("^click on \"(.*?)\" option after right click$")
+    public void clickOnDelete(String buttonName){
+       switch (buttonName){
+           case "Delete":
+               $(By.xpath("(//ul[@id='myMenu']/li)[3]")).click();
+               break;
+           case "Rename":
+               $(By.xpath("(//ul[@id='myMenu']/li)[4]")).click();
+               break;
+           case "Add New Document":
+               $(By.xpath("(//ul[@id='myMenu']/li)[2]")).click();
+               break;
+           case "Add New Folder":
+               $(By.xpath("(//ul[@id='myMenu']/li)[1]")).click();
+               break;
+           default:
+               break;
+       }
+
 
     }
 
-    @Then("^click on \"(.*?)\" at input folder name place$")
-    public void clickOnSpecifiedButton(){
+    @Then("^click on \"(.*?)\" after clicking$")
+    public void clickYesOrNoAfterDelete(String buttonName){
+       switch (buttonName){
+           case "yesButton":
+               $(By.xpath("/html/body/div[13]/div[7]/div/button"));
+               Assert.assertTrue("clicked on yes", true);
+               break;
+           case "noButton":
+               $(By.xpath("/html/body/div[13]/div[7]/button")).click();
+               Assert.assertTrue("clicked on no", true);
+               break;
+           default:
+               break;
 
+       }
+    }
+
+    @And("^rename folder with \"(.*?)\"$")
+    public void renameFolder(String name){
+       switch (name){
+           case "validName":
+               break;
+           case "duplicateName":
+                break;
+           case " ":
+               break;
+           default:
+               break;
+       }
+    }
+
+    @Then("^upload an \"(.*?)\" on document uploader$")
+    public void uploadAFile(String fileType){
+        steps.fillThefieldsAtDocumentUpload(fileType);
+    }
+
+    @And("^fill \"(.*?)\" in field$")
+    public void fillUpTheFields(String fieldName){
+       steps.fillThefieldsAtDocumentUpload(fieldName);
+    }
+    @Then("click on Ok on Warning popup while document upload")
+    public void clickOnOkWhileDocUploadPopup(){
+       $(By.xpath("//button[@class='confirm btn btn-lg btn-primary']")).click();
+       Assert.assertTrue("clicked on ok popup in warning while adding duplicate element",true);
+    }
+
+    @Then("check add Button working")
+    public void isAddButtonWorking(){
+        $(By.id("btnSaveDocument")).click();
     }
 
 

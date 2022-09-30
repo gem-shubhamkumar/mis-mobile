@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "src/test/resources/features",
         glue = "stepDefinitions",
-        tags = "@Test18192021"
+        tags = "@Test4"
 )
 public class MISAutomation {
 

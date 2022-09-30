@@ -58,6 +58,9 @@ public class KnowledgeBasePage extends PageObject {
                     $(selector.addNewFolder).click();
                     Assert.assertTrue("Successfully clicked on "+elemName,true);
                     break;
+                case "newFolder":
+                    $(By.xpath("//*[@id=\"DocumentGrouptree\"]/ul/li[2]/span/span[1]")).click();
+                    break;
                 default:
                     break;
             }
@@ -85,7 +88,7 @@ public class KnowledgeBasePage extends PageObject {
                     Assert.assertTrue("Clicked on close Button",true);
                     break;
                 case "addButton":
-                    $(selector.tagNameSaveButton).click();
+                    $(By.id("btnSaveGroup")).click();
                     Assert.assertTrue("clicked on save button on the tag name", true);
                     break;
 
@@ -207,7 +210,13 @@ public class KnowledgeBasePage extends PageObject {
 
     @Step
     public void enterFolderName(String folderName){
-        $(selector.inputFolderName).sendKeys(folderName);
+        if(folderName.equals("")){
+            $(selector.inputFolderName).clear();
+        }
+        else{
+            $(selector.inputFolderName).sendKeys(folderName);
+
+        }
     }
 
     @Step
@@ -267,16 +276,49 @@ public class KnowledgeBasePage extends PageObject {
 
     @Step
     public void rightClickOnElement(String elemName){
+        Actions actions = new Actions(getDriver());
+
         switch (elemName){
 
             case "newFolder":
-                Actions actions = new Actions(getDriver());
                 WebElement elem = $(By.xpath("//*[@id=\"DocumentGrouptree\"]/ul/li[2]/span/span[1]"));
                 actions.contextClick(elem).perform();
                 Assert.assertTrue("Right click performed and menu displayed",true);
                 break;
+            case "NewFolder123":
+                WebElement elem1 = $(By.xpath("//*[@id=\"DocumentGrouptree\"]/ul/li[9]/span/span[1]"));
+                actions.contextClick(elem1).perform();
+                Assert.assertTrue("Right click performed and menu displayed",true);
+            case "subFolder":
+                WebElement subFolderElem = $(By.xpath("//*[@id=\"DocumentGrouptree\"]/ul/li[2]/ul/li/span/span[1]"));
+                actions.contextClick(subFolderElem).perform();
+                Assert.assertTrue("right clicked on sub folder",true);
+                break;
             default:
                 break;
+        }
+    }
+
+    @Step
+    public void fillThefieldsAtDocumentUpload(String fileType){
+        switch (fileType){
+            case "htmlFile":
+                $(By.id("DocumentToUpload")).sendKeys("C:\\Users\\ar.mishra\\Desktop\\MISAutomatio\\src\\test\\resources\\Result_2022_Aug_01_204842_970197.html");
+                break;
+
+            case "validFile":
+                $(By.id("DocumentToUpload")).sendKeys("C:\\Users\\ar.mishra\\Desktop\\MISAutomatio\\src\\test\\resources\\EJ_Offshore_QA_exercises.xlsx");
+                break;
+
+            case "title":
+                $(By.id("txtDescription")).sendKeys("Title of the file");
+                break;
+            case "description":
+                $(By.id("txtFileDiscription")).sendKeys("Description of the file");
+                break;
+            default:
+                break;
+
         }
     }
 

@@ -58,9 +58,9 @@ Feature: Automation of  View Document and view shared document Submenu in knowle
       And click on "<crossButton>" button
       Then click on "<targetElement>"
       And Put "<InvalidFolderName>" and click on "<crossButton>"
+      Then click on "<targetElement>"
       And Put "<InvalidFolderName>" and click on "<addButton>"
-      Then click ok on the popup in add Folder
-      Then verify folder added
+      Then click on "<crossButton>" button
 
       Examples:
         |menuItem|subMenuItem|targetElement|crossButton|InvalidFolderName|addButton|
@@ -95,6 +95,7 @@ Feature: Automation of  View Document and view shared document Submenu in knowle
       And click on "<crossButton>" button
       Then click on "<targetElement>"
       And create folder without name and click "<addButton>"
+       Then click on "<closeButton>" button
 
 
       Examples:
@@ -105,21 +106,20 @@ Feature: Automation of  View Document and view shared document Submenu in knowle
   Scenario Outline: Check duplicate folder functionality by adding one duplicate folder
       When Goto "<menuItem>" and click on "<subMenuItem>"
       Then click on "<targetElement>"
-      And Put "<validFolderName>" and click on "<addButton>"
+      And Put "<validFolderName>" and click on "<closeButton>"
       Then click on "<targetElement>"
-      And Put "<duplicateFolderName>" and click on "<addButton>"
-      Then verify duplicate folder created
+      And Put "<duplicateFolderName>" and click on "<closeButton>"
       Then click on "<targetElement>"
       Then create folder without name and click "<addButton>"
-      And verify folder added
+      And click on "<closeButton>" button
       Then click on "<targetElement>"
       And Put "<folderName>" and click on "<closeButton>"
 
       Examples:
         |menuItem|subMenuItem|targetElement|noName|closeButton|addButton|validFolderName|duplicateFolderName|folderName|
-        |knowledge base|view document|AddNewFolder| |closeButton|addButton|validFolderName|validFolderName|folderName123|
+        |knowledge base|view document|AddNewFolder| |folderNameCloseButton|folderNameSaveButton|validFolderName123|validFolderName123|folderName123|
 
-    @Test7
+  @Test7
     Scenario Outline: check right click working
       When Goto "<menuItem>" and click on "<subMenuItem>"
       Then right click on "<targetElement>"
@@ -128,32 +128,125 @@ Feature: Automation of  View Document and view shared document Submenu in knowle
         |menuItem|subMenuItem|targetElement|noName|closeButton|addButton|validFolderName|duplicateFolderName|folderName|
         |knowledge base|view document|newFolder||closeButton|addButton|validFolderName|validFolderName|folderName123|
 
-  @Test8
-  Scenario Outline: check right click functionality
+  @Test9
+  Scenario Outline: check add new document after right click invalid doc type
     When Goto "<menuItem>" and click on "<subMenuItem>"
     Then right click on "<targetElement>"
     And verify menu opens
-    Then click on "<addSubFolders>" from the menu
-    Then click on "<crossButton>" at input folder name place
-    Then click on "<addSubFolders>" from the menu
-    Then click on "<closeButton>" at input folder name place
+    Then click on "<addDocumentFromMenu>" option after right click
+    Then click on "crossButton" at input folder name place
+    Then right click on "<targetElement>"
+    Then click on "<addDocumentFromMenu>" option after right click
+    Then click on "closeButton" at input folder name place
+    Then right click on "<targetElement>"
+    Then click on "<addDocumentFromMenu>" option after right click
+    And upload an "<invalidFile>" on document uploader
+    Then click on Ok on Warning popup while document upload
 
 
     Examples:
-      |menuItem|subMenuItem|targetElement|noName|closeButton|addButton|validFolderName|duplicateFolderName|crossButton|
-      |knowledge base|view document|newFolder||closeButton|addButton|validFolderName|validFolderName|crossButton|
+      |menuItem|subMenuItem|targetElement|addDocumentFromMenu|invalidFile|
+      |knowledge base|view document|newFolder|Add New Document|htmlFile|
+
+  @Test11
+     Scenario Outline:Upload a valid document after filling all the fields
+     When Goto "<menuItem>" and click on "<subMenuItem>"
+     Then right click on "<targetElement>"
+     And verify menu opens
+     Then click on "<addDocumentFromMenu>" option after right click
+     Then click on "crossButton" at input folder name place
+     Then right click on "<targetElement>"
+     Then click on "<addDocumentFromMenu>" option after right click
+     Then click on "closeButton" at input folder name place
+     Then right click on "<targetElement>"
+     Then click on "<addDocumentFromMenu>" option after right click
+     And fill "<title>" in field
+     And fill "<description>" in field
+     Then upload an "<validFile>" on document uploader
+     And check add Button working
+     Then click on "closeButton" at input folder name place
+     Examples:
+       |menuItem|subMenuItem|targetElement|addDocumentFromMenu|validFile|title|description|
+       |knowledge base|view document|newFolder|Add New Document|validFile|title|description|
+
+  @Test10
+  Scenario Outline:Filling all the fields and no documents attached
+    When Goto "<menuItem>" and click on "<subMenuItem>"
+    Then right click on "<targetElement>"
+    And verify menu opens
+    Then click on "<addDocumentFromMenu>" option after right click
+    Then click on "crossButton" at input folder name place
+    Then right click on "<targetElement>"
+    Then click on "<addDocumentFromMenu>" option after right click
+    Then click on "closeButton" at input folder name place
+    Then right click on "<targetElement>"
+    Then click on "<addDocumentFromMenu>" option after right click
+    And fill "<title>" in field
+    And fill "<description>" in field
+    And check add Button working
+    Then click on "closeButton" at input folder name place
+    Examples:
+      |menuItem|subMenuItem|targetElement|addDocumentFromMenu|title|description|
+      |knowledge base|view document|newFolder|Add New Document|title|description|
+
+  @Test12
+     Scenario Outline:Upload a file without filling all the fields
+     When Goto "<menuItem>" and click on "<subMenuItem>"
+     Then right click on "<targetElement>"
+     And verify menu opens
+     Then click on "<addDocumentFromMenu>" option after right click
+     Then click on "crossButton" at input folder name place
+     Then right click on "<targetElement>"
+     Then click on "<addDocumentFromMenu>" option after right click
+     Then click on "closeButton" at input folder name place
+     Then right click on "<targetElement>"
+     Then click on "<addDocumentFromMenu>" option after right click
+     Then upload an "<validFile>" on document uploader
+     And check add Button working
+     Then click on "closeButton" at input folder name place
+     Examples:
+       |menuItem|subMenuItem|targetElement|addDocumentFromMenu|validFile|
+       |knowledge base|view document|newFolder|Add New Document|validFile|
 
 
 
-   Scenario Outline: Check functionality of view documents number of rows from dropdown
+
+
+   @Test13
+     Scenario Outline: Knowledge base view document check delete option from menulist
      When Goto "knowledge base" and click on "view document"
+     Then right click on "<targetElement>"
+     And click on "<DelButton>" option after right click
+     Then click on "<noButton>" after clicking
+     Then right click on "<targetElement>"
+     And click on "<DelButton>" option after right click
+     Then click on "<yesButton>" after clicking
+     Then click on "<noButton>" after clicking
 
      Examples:
-       |menuItem|subMenuItem|targetElement|noName|closeButton|addButton|validFolderName|duplicateFolderName|crossButton|
-       |knowledge base|view document|AddNewFolder||closeButton|addButton|validFolderName|validFolderName|crossButton|
+     |targetElement|yesButton|noButton|DelButton|
+     |newFolder|yesButton|noButton|Delete|
+
+  @Test14
+    Scenario Outline: Check rename functionality for folder on right click
+    When Goto "knowledge base" and click on "view document"
+    Then right click on "<targetElement>"
+    Then click on "<renButton>" option after right click
+    Examples:
+    |targetElement|renButton|
+    |NewFolder123|Rename|
 
 
 
+    @Test15
+      Scenario Outline: verify menu list opening for subfolders
+      When Goto "knowledge base" and click on "view document"
+      Then click on "<targetElement>"
+      And right click on "<subFolderElement>"
+      And verify menu opens
+      Examples:
+      |targetElement|subFolderElement|
+      |newFolder|subFolder           |
 
   @Test16
   Scenario: check refresh button in view documents tab

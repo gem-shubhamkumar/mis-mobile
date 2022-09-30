@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
-public class Utils extends PageObject {
+public class CommonMethods extends PageObject {
 
     public void click(By locator)  {
 
@@ -51,6 +51,7 @@ public class Utils extends PageObject {
 
     public void launchUrl(String url) {
         getDriver().get(url);
+        getDriver().manage().window().maximize();
     }
 
     public void customWait(long seconds) {
