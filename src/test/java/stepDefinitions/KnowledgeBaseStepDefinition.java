@@ -69,6 +69,7 @@ public class KnowledgeBaseStepDefinition extends PageObject {
     public void clickOnAddButtonAfterInput(String inputTagName, String buttonName){
         steps.inputNameInInputBox(inputTagName);
         steps.clickOnButton(buttonName);
+        waitABit(3000);
     }
 
     @And("click ok on the popup in add new tag")
@@ -126,7 +127,13 @@ public class KnowledgeBaseStepDefinition extends PageObject {
 
     @Then("^right click on \"(.*?)\"$")
     public void rightClick(String elemName){
+       waitABit(3000);
         steps.rightClickOnElement( elemName);
+    }
+
+    @Then("verify user not navigated")
+    public void verifyUserNotNavigated(){
+       $(By.id("tbldocumentGridViewList_info")).getText().equals("Showing 0 to 0 of 0 entries");
     }
 
     @And("verify menu opens")
@@ -300,7 +307,7 @@ public class KnowledgeBaseStepDefinition extends PageObject {
                $(By.xpath("(//ul[@id='myMenu']/li)[3]")).click();
                break;
            case "Rename":
-               $(By.xpath("(//ul[@id='myMenu']/li)[4]")).click();
+               $(By.xpath("//ul[@id='myMenu']/li[@class='edit']")).click();
                break;
            case "Add New Document":
                $(By.xpath("(//ul[@id='myMenu']/li)[2]")).click();

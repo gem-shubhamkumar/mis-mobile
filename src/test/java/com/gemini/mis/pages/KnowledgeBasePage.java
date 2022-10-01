@@ -91,6 +91,11 @@ public class KnowledgeBasePage extends PageObject {
                     $(By.id("btnSaveGroup")).click();
                     Assert.assertTrue("clicked on save button on the tag name", true);
                     break;
+                case "addButtonOnTag":
+                    $(By.id("btnSaveDocumentTag")).click();
+                    Assert.assertTrue("clicked on save button on the tag name", true);
+                    break;
+
 
 
                 case "nextButton":
@@ -286,7 +291,7 @@ public class KnowledgeBasePage extends PageObject {
                 Assert.assertTrue("Right click performed and menu displayed",true);
                 break;
             case "NewFolder123":
-                WebElement elem1 = $(By.xpath("//*[@id=\"DocumentGrouptree\"]/ul/li[9]/span/span[1]"));
+                WebElement elem1 = $(By.xpath("//*[@id=\"DocumentGrouptree\"]/ul/li[9]/span/a"));
                 actions.contextClick(elem1).perform();
                 Assert.assertTrue("Right click performed and menu displayed",true);
             case "subFolder":

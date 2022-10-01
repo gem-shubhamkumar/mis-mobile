@@ -25,7 +25,7 @@ Feature: Automation of  View Document and view shared document Submenu in knowle
 
     Examples:
     |menuItem|subMenuItem|targetElement|addButton|close|cross|
-    |knowledge base|view document|add New Document|addButton|closeButton|crossIcon|
+    |knowledge base|view document|add New Document|addButtonOnTag|closeButton|crossIcon|
 
 
   @Test2
@@ -48,7 +48,7 @@ Feature: Automation of  View Document and view shared document Submenu in knowle
 
     Examples:
     |menuItem|subMenuItem|targetElement|validTagName|addButton|crossButton|invalidTagName|closeButton|
-    |knowledge base|view document|add New Document|TagName25|addButton|crossIcon|*&^*^^%^%&^*|closeButton|
+    |knowledge base|view document|add New Document|TagName115|addButtonOnTag|crossIcon|*&^*^^%^%&^*|closeButton|
 
 
     @Test3
@@ -119,7 +119,7 @@ Feature: Automation of  View Document and view shared document Submenu in knowle
         |menuItem|subMenuItem|targetElement|noName|closeButton|addButton|validFolderName|duplicateFolderName|folderName|
         |knowledge base|view document|AddNewFolder| |folderNameCloseButton|folderNameSaveButton|validFolderName123|validFolderName123|folderName123|
 
-  @Test7
+  @RightClick
     Scenario Outline: check right click working
       When Goto "<menuItem>" and click on "<subMenuItem>"
       Then right click on "<targetElement>"
@@ -128,7 +128,7 @@ Feature: Automation of  View Document and view shared document Submenu in knowle
         |menuItem|subMenuItem|targetElement|noName|closeButton|addButton|validFolderName|duplicateFolderName|folderName|
         |knowledge base|view document|newFolder||closeButton|addButton|validFolderName|validFolderName|folderName123|
 
-  @Test9
+  @RightClick
   Scenario Outline: check add new document after right click invalid doc type
     When Goto "<menuItem>" and click on "<subMenuItem>"
     Then right click on "<targetElement>"
@@ -148,7 +148,7 @@ Feature: Automation of  View Document and view shared document Submenu in knowle
       |menuItem|subMenuItem|targetElement|addDocumentFromMenu|invalidFile|
       |knowledge base|view document|newFolder|Add New Document|htmlFile|
 
-  @Test11
+  @RightClick
      Scenario Outline:Upload a valid document after filling all the fields
      When Goto "<menuItem>" and click on "<subMenuItem>"
      Then right click on "<targetElement>"
@@ -169,7 +169,7 @@ Feature: Automation of  View Document and view shared document Submenu in knowle
        |menuItem|subMenuItem|targetElement|addDocumentFromMenu|validFile|title|description|
        |knowledge base|view document|newFolder|Add New Document|validFile|title|description|
 
-  @Test10
+  @RightClick
   Scenario Outline:Filling all the fields and no documents attached
     When Goto "<menuItem>" and click on "<subMenuItem>"
     Then right click on "<targetElement>"
@@ -189,7 +189,7 @@ Feature: Automation of  View Document and view shared document Submenu in knowle
       |menuItem|subMenuItem|targetElement|addDocumentFromMenu|title|description|
       |knowledge base|view document|newFolder|Add New Document|title|description|
 
-  @Test12
+  @RightClick
      Scenario Outline:Upload a file without filling all the fields
      When Goto "<menuItem>" and click on "<subMenuItem>"
      Then right click on "<targetElement>"
@@ -212,7 +212,7 @@ Feature: Automation of  View Document and view shared document Submenu in knowle
 
 
 
-   @Test13
+   @RightClick
      Scenario Outline: Knowledge base view document check delete option from menulist
      When Goto "knowledge base" and click on "view document"
      Then right click on "<targetElement>"
@@ -227,7 +227,7 @@ Feature: Automation of  View Document and view shared document Submenu in knowle
      |targetElement|yesButton|noButton|DelButton|
      |newFolder|yesButton|noButton|Delete|
 
-  @Test14
+  @Rename
     Scenario Outline: Check rename functionality for folder on right click
     When Goto "knowledge base" and click on "view document"
     Then right click on "<targetElement>"
@@ -238,7 +238,7 @@ Feature: Automation of  View Document and view shared document Submenu in knowle
 
 
 
-    @Test15
+    @RightClick
       Scenario Outline: verify menu list opening for subfolders
       When Goto "knowledge base" and click on "view document"
       Then click on "<targetElement>"
@@ -290,7 +290,7 @@ Feature: Automation of  View Document and view shared document Submenu in knowle
        |knowledge base|view document|nextButton|
        |knowledge base|view document|prevButton|
 
-   @Test2425
+
    Scenario Outline: verify clicks of previous button and next page button on first page.
      When Goto "<menuItem>" and click on "<subMenuItem>"
      Then click on "<next>" button
