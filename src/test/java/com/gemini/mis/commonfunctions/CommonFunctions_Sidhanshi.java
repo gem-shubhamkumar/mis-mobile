@@ -594,3 +594,21 @@ public class CommonFunctions extends PageObject {
         ((JavascriptExecutor) getDriver()).executeScript(javaScript, element);
     }
 }
+        public void GenericButtons(String ButtonName) {
+            try {
+
+                switch (ButtonName) {
+                    case "Edit":
+
+
+                }
+            } catch (Exception e) {
+                Assert.fail("We were unable to click on the button: " + ButtonName);
+            }
+
+
+        }}
+
+
+
+

@@ -24,4 +24,11 @@ public class CommonSelectors {
 
     public static String paginationButtons = "//li[contains(@class, 'paginate_button buttonName')]";
     public static String select = "//select[@attribute='value']";
+    public static String genericButton = "//button[@id='ids']";
+    public static String buttonPath= "//button[text()='BUTTONNAME']";
+    public static String genericPath="//*[text()='VAR']";
+    public static By enteriesNo=By.xpath("//select[contains(@name,'length')]");
+    public static String OptionOfEntry="//select[contains(@name,'length')]//option[@Value='VAR']";
+public static By searchBox=By.xpath("//input[@placeholder='Search']");
+public static By saveButton=By.xpath("//button[@id='btnAddReferral']");
 }
