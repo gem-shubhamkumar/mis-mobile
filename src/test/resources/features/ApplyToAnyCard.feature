@@ -1,4 +1,4 @@
-
+@Applytoanycard
 Feature: Apply to any card maximizing and minimizing cards.
 
   Background:

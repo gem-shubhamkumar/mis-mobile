@@ -17,8 +17,13 @@ import org.openqa.selenium.support.ui.Select;
 
 import javax.swing.*;
 
+import java.util.Random;
+
+import static java.util.UUID.randomUUID;
+
 public class KnowledgeBasePage extends PageObject {
 
+    Random rand = new Random();
     KnowledgeBaseLocators selector;
     @Step("Step to goto menu item and click on menu subitem")
     public void gotoMenuItemAndSubItem(String menuItem, String subMenuItem){
@@ -91,6 +96,11 @@ public class KnowledgeBasePage extends PageObject {
                     $(By.id("btnSaveGroup")).click();
                     Assert.assertTrue("clicked on save button on the tag name", true);
                     break;
+                case "addButtonOnTag":
+                    $(By.id("btnSaveDocumentTag")).click();
+                    Assert.assertTrue("clicked on save button on the tag name", true);
+                    break;
+
 
 
                 case "nextButton":
@@ -268,6 +278,9 @@ public class KnowledgeBasePage extends PageObject {
             }
    @Step
     public void inputNameInInputBox(String inputName){
+        int randVal =  rand. nextInt(10000);
+       System.out.println(randVal);
+       inputName = inputName+randVal;
         $(selector.tagNameInputBox).sendKeys(inputName);
     }
 
@@ -286,7 +299,7 @@ public class KnowledgeBasePage extends PageObject {
                 Assert.assertTrue("Right click performed and menu displayed",true);
                 break;
             case "NewFolder123":
-                WebElement elem1 = $(By.xpath("//*[@id=\"DocumentGrouptree\"]/ul/li[9]/span/span[1]"));
+                WebElement elem1 = $(By.xpath("//*[@id=\"DocumentGrouptree\"]/ul/li[9]/span/a"));
                 actions.contextClick(elem1).perform();
                 Assert.assertTrue("Right click performed and menu displayed",true);
             case "subFolder":

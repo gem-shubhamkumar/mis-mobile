@@ -69,6 +69,7 @@ public class KnowledgeBaseStepDefinition extends PageObject {
     public void clickOnAddButtonAfterInput(String inputTagName, String buttonName){
         steps.inputNameInInputBox(inputTagName);
         steps.clickOnButton(buttonName);
+        waitABit(3000);
     }
 
     @And("click ok on the popup in add new tag")
@@ -88,12 +89,18 @@ public class KnowledgeBaseStepDefinition extends PageObject {
       steps.clickOkOnfolderAdd();
     }
 
-    @Then("verify folder added")
-    public void verifyFolderCreated(){
-        List<WebElement> totalFolders = getDriver().findElements(selector.listOfFolders);
-        if(totalFolders.size()>4){
-            Assert.assertTrue("folder added",true);
+    @Then("^verify folder \"(.*?)\" added$")
+    public void verifyFolderCreated(String folderName){
+//        List<WebElement> totalFolders = getDriver().findElements();
+        int size = getDriver().findElements(By.xpath("//div[@id='DocumentGrouptree']/ul/li/span/a")).size();
+        for (int i =1;i<=size;i++){
+            if($(By.xpath("//div[@id='DocumentGrouptree']/ul/li/span/a")).getText().equals(folderName)){
+                Assert.assertTrue("Folder is added in the list",true);
+            }
         }
+//        if(totalFolders.size()>4){
+//            Assert.assertTrue("folder added",true);
+//        }
    }
     @And("^create folder without name and click \"(.*?)\"$")
     public void createFolderWithoutName(String buttonName){
@@ -126,7 +133,13 @@ public class KnowledgeBaseStepDefinition extends PageObject {
 
     @Then("^right click on \"(.*?)\"$")
     public void rightClick(String elemName){
+       waitABit(3000);
         steps.rightClickOnElement( elemName);
+    }
+
+    @Then("verify user not navigated")
+    public void verifyUserNotNavigated(){
+       $(By.id("tbldocumentGridViewList_info")).getText().equals("Showing 0 to 0 of 0 entries");
     }
 
     @And("verify menu opens")
@@ -300,7 +313,8 @@ public class KnowledgeBaseStepDefinition extends PageObject {
                $(By.xpath("(//ul[@id='myMenu']/li)[3]")).click();
                break;
            case "Rename":
-               $(By.xpath("(//ul[@id='myMenu']/li)[4]")).click();
+               waitABit(3000);
+               $(By.xpath("//ul[@id='myMenu']/li[@class='edit']/a")).click();
                break;
            case "Add New Document":
                $(By.xpath("(//ul[@id='myMenu']/li)[2]")).click();
