@@ -67,8 +67,8 @@ Feature: NavBar
     And Verify "<Skill name>" Skill  is "<status>" and "<expected condition>" added in my skills card
     Examples:
       | Technology name |Message box text| Skill name  |  status    |expected condition|
-      |PMO        |Success         |  PMO  |    new     | can be           |
-      |PMO        |Duplicate       |  PMO  |   duplicate|cannot be         |
+      |Selenium-JAVA      |Success         | Selenium-JAVA     |    new     | can be           |
+      |Manual Testing      |Duplicate       | Manual Testing   |   duplicate|cannot be         |
 
 
   Scenario Outline: Verify Experience text field on Add new skills window

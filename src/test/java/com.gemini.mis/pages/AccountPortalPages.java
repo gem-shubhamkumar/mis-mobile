@@ -1,14 +1,15 @@
 package com.gemini.mis.pages;
 
-import com.gemini.mis.commonFunctions.commonMethods;
+import com.gemini.mis.commonFunctions.CommonFunctions;
 import com.gemini.mis.selectors.AccountPortalSelectors;
 import com.gemini.mis.selectors.CommonXpaths;
 import com.gemini.mis.selectors.LeaveBalanceSelectors;
 import com.gemini.mis.selectors.NavBarSelectors;
+import io.cucumber.java.en.Then;
 import net.serenitybdd.core.pages.PageObject;
 import net.thucydides.core.annotations.Step;
-import net.thucydides.core.annotations.Steps;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
@@ -18,8 +19,11 @@ import java.util.List;
 
 
 public class AccountPortalPages extends PageObject {
-    @Steps
-    commonMethods commonfunctions;
+
+
+    CommonXpaths commonXpaths;
+
+    CommonFunctions commonMethod;
     
     
     @Step("Verify  elements on greytHR landing page are visible")
@@ -57,7 +61,7 @@ public class AccountPortalPages extends PageObject {
 
         for(WebElement ele : listItems){
             list.add(ele.getText());
-        };
+        }
         System.out.println(list);
         System.out.println(compareItemText);
         if(list.equals(compareItemText)){
@@ -72,62 +76,62 @@ public class AccountPortalPages extends PageObject {
         waitABit(1500);
         switch(eleName){
             case "sign in button":
-                commonfunctions.clickOn(AccountPortalSelectors.btnSignIn);
+               clickOn(AccountPortalSelectors.btnSignIn);
                 break;
             case "Log in button":
-                commonfunctions. clickOn(AccountPortalSelectors.btnLogIn);
+                clickOn(AccountPortalSelectors.btnLogIn);
                 break;
             case "View My Info link":
-                commonfunctions.clickOn(AccountPortalSelectors.linkViewMyInfo);
+               clickOn(AccountPortalSelectors.linkViewMyInfo);
                 break;
             case "Accounts & Statutory":
-                commonfunctions.clickOn(AccountPortalSelectors.linkAccountAndStatutory);
+               clickOn(AccountPortalSelectors.linkAccountAndStatutory);
                 break;
             case "Settings link":
-                commonfunctions.clickOn(AccountPortalSelectors.linkSettings);
+               clickOn(AccountPortalSelectors.linkSettings);
                 break;
             case "View login history link":
-                commonfunctions.clickOn(AccountPortalSelectors.linkViewLoginHistory);
+               clickOn(AccountPortalSelectors.linkViewLoginHistory);
                 break;
             case "CL leave balance link":
-                commonfunctions.clickOn(CommonXpaths.linkNumberOfLeave("CL"));
+               clickOn(CommonXpaths.linkNumberOfLeave("CL"));
                 break;
             case "WFH":
-                commonfunctions.clickOn(CommonXpaths.linkNumberOfLeave("WFH"));
+               clickOn(CommonXpaths.linkNumberOfLeave("WFH"));
                 break;
             case "Close button":
-                commonfunctions.clickOn(LeaveBalanceSelectors.btnLeaveHistoryClose);
+               clickOn(LeaveBalanceSelectors.btnLeaveHistoryClose);
                 break;
             case "Gemini logo":
-                commonfunctions.clickOn(NavBarSelectors.logoGemini);
+               clickOn(NavBarSelectors.logoGemini);
                 break;
             case "Menu button":
-                commonfunctions.clickOn(CommonXpaths.btnMenu);
+               clickOn(CommonXpaths.btnMenu);
                 break;
             case "Change AD password button":
-                commonfunctions.clickOn(NavBarSelectors.btnChangeADpassword);
+               clickOn(NavBarSelectors.btnChangeADpassword);
                 break;
             case "Profile button":
                 waitFor(ExpectedConditions.presenceOfElementLocated(NavBarSelectors.btnProfileMenu));
-                commonfunctions.clickOn(NavBarSelectors.btnProfileMenu);
+               clickOn(NavBarSelectors.btnProfileMenu);
                 break;
             case "Skills option":
-                commonfunctions.clickOn(NavBarSelectors.optionsSkills);
+               clickOn(NavBarSelectors.optionsSkills);
                 break;
             case "Save button":
-                commonfunctions.clickOn(NavBarSelectors.btnAddSkillSave);
+               clickOn(NavBarSelectors.btnAddSkillSave);
                 break;
             case "Add skill close button":
-                commonfunctions.clickOn(CommonXpaths.btnClose);
+               clickOn(CommonXpaths.btnClose);
                 break;
             case "Logout button":
-                commonfunctions.clickOn(CommonXpaths.btnLogout);
+               clickOn(CommonXpaths.btnLogout);
                 break;
             case "Dashboard setting button":
-                commonfunctions.clickOn(NavBarSelectors.btnDashboardSetting);
+               clickOn(NavBarSelectors.btnDashboardSetting);
                 break;
             case "Update button":
-                commonfunctions.clickOn(NavBarSelectors.btnUpdate);
+               clickOn(NavBarSelectors.btnUpdate);
                 break;
 
             default:Assert.fail("button not found, not added in switch cases");
@@ -153,37 +157,37 @@ public class AccountPortalPages extends PageObject {
     public void verifyElementOnCurrentPage(String eleName){
         switch (eleName){
             case "Gemini logo":
-                commonfunctions.isElementFound(AccountPortalSelectors.logoGemini);
+                isElementFound(AccountPortalSelectors.logoGemini);
                 break;
             case "greytHR logo":
-                commonfunctions.isElementFound(AccountPortalSelectors.logoGreytHR);
+                isElementFound(AccountPortalSelectors.logoGreytHR);
                 break;
             case "greytHR username text field":
-                commonfunctions.isElementFound(AccountPortalSelectors.textFieldGreytHRUsername);
+                isElementFound(AccountPortalSelectors.textFieldGreytHRUsername);
                 break;
             case "gerytHR password text field":
-                commonfunctions.isElementFound(AccountPortalSelectors.textFieldGreytHRPassword);
+                isElementFound(AccountPortalSelectors.textFieldGreytHRPassword);
                 break;
             case "Settings link":
-                commonfunctions.isElementFound(AccountPortalSelectors.linkSettings);
+                isElementFound(AccountPortalSelectors.linkSettings);
                 break;
             case "View login history link":
-                commonfunctions.isElementFound(AccountPortalSelectors.linkViewLoginHistory);
+                isElementFound(AccountPortalSelectors.linkViewLoginHistory);
                 break;
             case "Profile card":
-                commonfunctions.isElementFound(LeaveBalanceSelectors.cardProfile);
+                isElementFound(LeaveBalanceSelectors.cardProfile);
                 break;
             case "Leave balance card":
-                commonfunctions.isElementFound(LeaveBalanceSelectors.cardLeaveBalance);
+                isElementFound(LeaveBalanceSelectors.cardLeaveBalance);
                 break;
             case "Leave history window":
-                commonfunctions.isElementFound(LeaveBalanceSelectors.gridLeaveHistory);
+                isElementFound(LeaveBalanceSelectors.gridLeaveHistory);
                 break;
             case "Employee directory table":
-                commonfunctions.isElementFound(NavBarSelectors.tableEmployeeDirectory);
+                isElementFound(NavBarSelectors.tableEmployeeDirectory);
                 break;
             case "Side navigation bar":
-                commonfunctions.isElementFound(CommonXpaths.sideMenuBar);
+                isElementFound(CommonXpaths.sideMenuBar);
                 break;
 
 
@@ -195,21 +199,22 @@ public class AccountPortalPages extends PageObject {
     public void verifyTextPresent(String text){
         switch (text){
             case "Hello there!":
-                commonfunctions.isTextFound(AccountPortalSelectors.textHelloThere,text);
+                isTextFound(AccountPortalSelectors.textHelloThere,text);
                 break;
             case "Priyanshu":
                 text="Hi "+text;
-                commonfunctions.isTextFound(AccountPortalSelectors.textUsername,text);
+                isTextFound(AccountPortalSelectors.textUsername,text);
                 break;
             case "Yes Bank":
-                commonfunctions.isTextFound(AccountPortalSelectors.textBankNAme,text);
+                isTextFound(AccountPortalSelectors.textBankNAme,text);
                 break;
             case "Username and password is required.":
-                commonfunctions.isTextFound(AccountPortalSelectors.textIncorrectCredentials,text);
+                isTextFound(AccountPortalSelectors.textIncorrectCredentials,text);
                 break;
 
 
             default:Assert.fail("Failed to find text : "+text);
+
 
         }
     }
@@ -217,12 +222,37 @@ public class AccountPortalPages extends PageObject {
     @Step("Verify header elements are present on view login history page")
     public void verifyHeaderElementsArePresent(){
         for(int i=1;i<4;i++){
-            if(commonfunctions.isElementFound(AccountPortalSelectors.elementsLoginDetails(i))){
+            if(isElementFound(AccountPortalSelectors.elementsLoginDetails(i))){
                 System.out.println($(AccountPortalSelectors.elementsLoginDetails(i)).getText()+" element is found successfully");
             }else {
                 Assert.fail("Unable to locate element "+$(AccountPortalSelectors.elementsLoginDetails(i)).getText());
             }
         }
+
+    }
+    @Step("Verify {0} is open and enter username as {1} and password as {2}")
+    public void verifyCredentialsEnterInField(String portalName,String username,String password){
+        switch (portalName){
+            case "myMIS portal":
+                waitFor(ExpectedConditions.presenceOfElementLocated(AccountPortalSelectors.textFieldMyMISUsername));
+                sendTextToField(AccountPortalSelectors.textFieldMyMISUsername, username);
+                waitFor(ExpectedConditions.presenceOfElementLocated(AccountPortalSelectors.textFieldMyMISPassword));
+                sendTextToField(AccountPortalSelectors.textFieldMyMISPassword, password);
+                break;
+
+            case "greytHR portal":
+                waitFor(ExpectedConditions.presenceOfElementLocated(AccountPortalSelectors.textFieldGreytHRUsername));
+                sendTextToField(AccountPortalSelectors.textFieldGreytHRUsername, username);
+                waitFor(ExpectedConditions.presenceOfElementLocated(AccountPortalSelectors.textFieldGreytHRPassword));
+                sendTextToField(AccountPortalSelectors.textFieldGreytHRPassword, password);
+                waitABit(2000);
+                break;
+
+            default:Assert.fail("unable to verify portal name");
+
+        }
+        waitABit(3000);
+
 
     }
 
@@ -242,9 +272,162 @@ public class AccountPortalPages extends PageObject {
 
     }
 
+///////////////////////////////////////////////////MIS COMMON///////////////////////////
+
+
+    public void clickOn(By elementLoc){
+        if ($(elementLoc).isVisible()){
+            waitABit(1500);
+            $(elementLoc).click();
+        }else{
+            Assert.fail("Unable to click: by xpath > "+elementLoc);
+        }
+    }
+
+
+    public void sendTextToField(By loc,String text){
+        waitFor(ExpectedConditions.presenceOfElementLocated(loc));
+        $(loc).type(text);
+    }
+
+    public boolean isElementFound(By loc) {
+        boolean isFound;
+        try {
+            $(loc);
+            isFound = true;
+        } catch (Exception e) {
+            isFound = false;
+        }
+        return isFound;
+    }
+
+    public void isTextFound(By loc,String text){
+        String textToCompare = $(loc).getText();
+        if(text.contains("Hello")){
+            System.out.println("Text is verified");
+        }
+        else
+            Assert.assertEquals(text,textToCompare);
+    }
+    @Step("Compare list data is same or not")
+    public void compareListData(List<String> list1, List<String> list2){
+        if(list1.size()==list2.size()){
+            if(list1.equals(list2)){
+                System.out.println("Both lists have same data");
+            }else{
+                Assert.fail("Data in lists are not same");
+            }
+        }else
+            Assert.fail("Size of the lists are different");
+    }
+
+    @Step("Navigate to {0}")
+    public void navigateTo(String websiteName){
+        switch (websiteName){
+            case "myMIS":
+                getDriver().get("https://mymis.geminisolutions.com/");
+                break;
+
+        }
+        waitABit(3000);
+    }
+
+
+    @Step("Click on {0} inside {1}")
+    public void navigateToTab(String parentTabName, String childTabName) {
+
+        if (isElementFound(CommonXpaths.menuTabs(parentTabName))) {
+            waitABit(1000);
+            clickOn(commonXpaths.menuTabs(parentTabName));
+            waitABit(2000);
+            if (isElementFound(commonXpaths.menuTabs(childTabName))) {
+                clickOn(commonXpaths.menuTabs(childTabName));
+            } else
+                Assert.fail("Child element is not found");
+        } else
+            Assert.fail("Parent element not found");
+    }
+    @Step("Click on {0} tab")
+    public void navigateToTab(String parentTabName) {
+        if (isElementFound(CommonXpaths.menuTabs(parentTabName))) {
+            waitABit(1000);
+            clickOn(CommonXpaths.menuTabs(parentTabName));
+
+        } else {
+            Assert.fail("Unable to locate parent tab");
+        }
+    }
+
+    public void verifyTextFieldAndEnterText(By loc, String text){
+        if (isElementFound(loc)){
+            $(loc).type(text);
+        }else{
+            Assert.fail("Unable to locate text field");
+        }
+    }
+
+    @Step("Verify if {0} element is not visible on current screen")
+    public void verifyElementIsNotVisible(String elementName){
+        boolean flag =false;
+        switch (elementName){
+            case "Side navigation bar":
+                flag=$(CommonXpaths.sideMenuBar).isVisible();
+                break;
+            case "Add skills window":
+                flag= $(NavBarSelectors.windowAddSkills).isVisible();
+                break;
+
+            default:Assert.fail("Element name wrong");
+        }
+        if(flag){
+            Assert.fail(elementName+" is visible on the screen");
+        }else{
+            System.out.println("PASS : Element is not visible on the screen");
+        }
+    }
+
+    @Step("Verify page title as {0}")
+    public void verifyPageTitle(String title){
+        String currentTitle = commonMethod.getTitle();
+        Assert.assertEquals(title,currentTitle);
+    }
 
 
 
+
+    @Then("^Verify \"(.*?)\" message appear in screen$")
+    public void verifyMessageBoxAfterAddingRecord(String message){
+        String messageOnBox="";
+        boolean flag= false;
+        if(isElementFound(commonXpaths.textMessageBox)){
+            messageOnBox = $(CommonXpaths.textMessageBox).getText();
+        }
+        switch (message){
+            case "Success":
+                if(messageOnBox.contains("successfully")){
+                    flag=true;
+                    System.out.println("Success message box appear");
+                }else {
+                    Assert.fail();
+                }
+                break;
+            case "Duplicate":
+                if(messageOnBox.contains("Duplicate")){
+                    flag=true;
+                    System.out.println("Warning/Duplicate message box appear");
+                }else {
+                    Assert.fail();
+                }
+                break;
+        }
+        if(flag) {
+            waitFor(ExpectedConditions.presenceOfElementLocated(CommonXpaths.btnOk));
+            clickOn(CommonXpaths.btnOk);
+        }else{
+            Assert.fail("Warning / Success box does not appear");
+        }
+
+    }
 
 
 

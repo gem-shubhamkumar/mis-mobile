@@ -36,7 +36,6 @@ dependencies {
     testImplementation "net.serenity-bdd:serenity-core:${serenityCoreVersion}",
             // https://mvnrepository.com/artifact/net.serenity-bdd/serenity-cucumber
             "net.serenity-bdd:serenity-cucumber:${serenityCoreVersion}",
-
             "net.serenity-bdd:serenity-junit:${serenityCoreVersion}",
             "net.serenity-bdd:serenity-screenplay:${serenityCoreVersion}",
             "net.serenity-bdd:serenity-screenplay-rest:${serenityCoreVersion}",

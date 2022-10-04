@@ -20,6 +20,7 @@ Feature: Accounts Portal
 
 
   Scenario: Verify login to GreytHR portal and verify View Info list
+    Then Click "My Account" sub-tab inside "Accounts Portal" tab
     But Verify new tab is open "greytHR IDP" as page heading
     Then Enter credentials to "greytHR portal" using username as "priyanshu.prajapati@Geminisolutions.com" and password as "Nishu@greytHR"
     And Click on "Log in button"

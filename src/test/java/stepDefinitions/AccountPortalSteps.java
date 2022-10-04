@@ -1,6 +1,6 @@
 package stepDefinitions;
 
-import com.gemini.mis.commonFunctions.commonMethods;
+import com.gemini.mis.commonFunctions.CommonFunctions;
 import com.gemini.mis.pages.AccountPortalPages;
 import com.gemini.mis.selectors.AccountPortalSelectors;
 import io.cucumber.java.en.*;
@@ -9,15 +9,14 @@ import net.thucydides.core.annotations.Steps;
 
 public class AccountPortalSteps extends PageObject {
 
-    @Steps
-    commonMethods commonfunction;
+    CommonFunctions commonMethod;
 
     @Steps
     AccountPortalPages accountPages;
 
     @Given("^Navigate to \"(.*?)\"$")
     public void launchURL(String websiteName){
-        commonfunction.navigateTo(websiteName);
+        accountPages.navigateTo(websiteName);
     }
     @And("^Click on \"(.*?)\"$")
     public void clickBtn(String eleName){
@@ -25,11 +24,11 @@ public class AccountPortalSteps extends PageObject {
     }
     @And("^Verify login is successful$")
     public void verifyLogInToMyMIS(){
-        commonfunction.isElementFound(AccountPortalSelectors.btnChangeADPassword);
+        accountPages.isElementFound(AccountPortalSelectors.btnChangeADPassword);
     }
     @Then("^Click \"(.*?)\" sub-tab inside \"(.*?)\" tab$")
     public void clickSubTab(String subTab,String menuTab){
-        commonfunction.navigateToTab(menuTab,subTab);
+        commonMethod.navigateToTab(menuTab,subTab);
     }
      @But("^Verify new tab is open \"(.*?)\" as page heading$")
     public void verifyNewTabOpened(String newTabHeading){
@@ -37,7 +36,7 @@ public class AccountPortalSteps extends PageObject {
      }
      @When("^On new tab : \"(.*?)\"$")
     public void verifyPageTitle(String currentPageTitle){
-        commonfunction.verifyPageTitle(currentPageTitle);
+        accountPages.verifyPageTitle(currentPageTitle);
      }
      @Then("^Verify \"(.*?)\" is present on the current page$")
     public void verifyPageElementOnCurrentPage(String eleName){
@@ -50,7 +49,7 @@ public class AccountPortalSteps extends PageObject {
      }
      @Then("^Enter credentials to \"(.*?)\" using username as \"(.*?)\" and password as \"(.*?)\"$")
     public void enterCredentials(String portalName,String username,String password){
-        commonfunction.verifyCredentialsEnterInField(portalName,username,password);
+        accountPages.verifyCredentialsEnterInField(portalName,username,password);
      }
      @Then("^Verify View My Info options are present$")
     public void verifyViewMyInfoListIsAvailable(){

@@ -1,24 +1,27 @@
 package stepDefinitions;
 
-import com.gemini.mis.commonFunctions.commonMethods;
+
+import com.gemini.mis.commonFunctions.CommonFunctions;
+import com.gemini.mis.pages.AccountPortalPages;
 import com.gemini.mis.pages.LeaveBalancePages;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import net.serenitybdd.core.pages.PageObject;
 import net.thucydides.core.annotations.Steps;
-import org.junit.Assert;
 
 public class LeaveBalanceSteps extends PageObject {
 
-    @Steps
-    commonMethods commonFunction;
+     AccountPortalPages accountPage;
 
     @Steps
     LeaveBalancePages leavePages;
 
+    @Steps
+    CommonFunctions commonMethods;
+
     @Then("^Click on \"(.*?)\" tab inside \"(.*?)\" $")
     public void clickOnParentTab(String parentTab){
-        commonFunction.navigateToTab(parentTab);
+        accountPage.navigateToTab(parentTab);
     }
 
     @Then("^Verify leave history window closes$")
@@ -38,6 +41,6 @@ public class LeaveBalanceSteps extends PageObject {
 
     @Then("^Click on \"(.*?)\" parent tab$")
     public void clickOnTab(String ParentTabName) {
-        commonFunction.navigateToTab(ParentTabName);
+        commonMethods.navigateToTab(ParentTabName);
     }
 }

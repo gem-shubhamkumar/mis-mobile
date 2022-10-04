@@ -1,6 +1,5 @@
 package stepDefinitions;
 
-import com.gemini.mis.commonFunctions.commonMethods;
 import com.gemini.mis.pages.AccountPortalPages;
 import com.gemini.mis.pages.NavBarPages;
 import io.cucumber.java.en.And;
@@ -10,14 +9,14 @@ import net.thucydides.core.annotations.Steps;
 
 
 public class NavBarSteps extends PageObject {
-    @Steps
-    commonMethods commonFunction;
 
-    @Steps
-    AccountPortalPages accountPortalPage;
+
 
     @Steps
     NavBarPages navPages;
+
+    @Steps
+    AccountPortalPages accountPage;
 
     @Then("^Verify user is redirected to landing page$")
     public void VerifyNavigationToLandingPage(){
@@ -26,11 +25,11 @@ public class NavBarSteps extends PageObject {
 
     @Then("^Verify \"(.*?)\" disappears form current screen$")
     public void verifySideNavigationBarDisappears(String eleName){
-        commonFunction.verifyElementIsNotVisible(eleName);
+        accountPage.verifyElementIsNotVisible(eleName);
     }
      @Then("^Verify navigation to landing page is successful after log in$")
     public void verifyNavigationToLandingPage(){
-         accountPortalPage.verifyElementOnCurrentPage("Profile card");
+         accountPage.verifyElementOnCurrentPage("Profile card");
          waitABit(1500);
      }
 
@@ -87,6 +86,6 @@ public class NavBarSteps extends PageObject {
 
     @Then("^Verify skill card window is closed$")
     public void verifySkillCardWindowIsClosed() {
-        commonFunction.verifyElementIsNotVisible("Add skills window");
+        accountPage.verifyElementIsNotVisible("Add skills window");
     }
 }
