@@ -1,7 +1,7 @@
 package com.gemini.mis.selectors;
 
 public class LNSASelectors {
-    public static String week = "(//input[@type='checkbox' and @class='selectAll'])[1]";
+    public static String week = "(//input[@type='checkbox' and @class='selectAll'])[3]";
 
     public static String activeDays = "(//input[@type='checkbox' and @class='selectAll'])[1]//parent::div//following-sibling::div/div";
     public static String closeModal = "//button[@data-dismiss='modal']";

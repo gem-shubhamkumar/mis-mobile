@@ -7,10 +7,9 @@ import org.junit.runner.RunWith;
 
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
-        features = "src/test/resources/features",
-        glue = "stepDefinitions",
-        tags="@Test"
-)
+        features = {"src/test/resources/features"},
+        glue = "stepDefinitions"
+        )
 public class MISAutomation {
 
 }

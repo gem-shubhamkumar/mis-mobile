@@ -20,10 +20,6 @@ public class CommonPage extends PageObject {
     CommonFunctions commonFunctions;
 
     @Step
-    public void launchURL(String url) {
-        getDriver().get(url);
-    }
-    @Step
     public void verifyLoginMsg() {
         String loginMsg = $(By.xpath(CommonSelectors.loginMsg)).getText();
         Assert.assertTrue(StringUtils.contains(loginMsg, "This website is to be used only for authorized business purposes by the employees of Gemini Solutions."));
@@ -47,11 +43,7 @@ public class CommonPage extends PageObject {
 
     }
 
-    @Step("Verify Modal Opened")
-    public void verifyModal(String modalTitle) {
-        getDriver().switchTo().activeElement();
-        Assert.assertTrue($(By.xpath(MySkillsLocators.modalTitle.replace("modalTitle", modalTitle))).isPresent());
-    }
+
 
 
 }

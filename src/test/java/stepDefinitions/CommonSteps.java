@@ -2,6 +2,7 @@ package stepDefinitions;
 
 import com.gemini.mis.commonfunctions.CommonFunctions;
 import com.gemini.mis.pages.CommonPage;
+import com.gemini.mis.pages.FeedbackPage;
 import com.gemini.mis.pages.MySkillsPage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -20,9 +21,12 @@ public class CommonSteps {
     @Steps
     CommonFunctions commonFunctions;
 
+    @Steps
+    FeedbackPage feedbackPage;
+
     @Given("^MIS Beta is opened and verify application opens successfully$")
-    public void misBetaIsOpenedAndVerifyApplicationOpensSuccesfully() {
-        commonPages.launchURL("https://mymis.geminisolutions.com/");
+    public void misBetaIsOpenedAndVerifyApplicationOpensSuccesfully() throws Exception {
+        commonFunctions.launchUrl("https://mymis.geminisolutions.com/");
         commonPages.verifyLoginMsg();
 
     }
@@ -31,7 +35,7 @@ public class CommonSteps {
     public void enterUsername(String username, String password) {
         commonPages.enterUsername(username);
         commonPages.enterPassword(password);
-        commonFunctions.clickButton("Sign In");
+        feedbackPage.clickButton("Sign In");
     }
 
     @Then("^Verify Dashboard page opens$")
@@ -41,7 +45,7 @@ public class CommonSteps {
 
     @Then("^Click on \"(.*?)\" button$")
     public void clickOnButton(String buttonName) {
-        commonFunctions.clickButton(buttonName);
+        feedbackPage.clickButton(buttonName);
     }
 
 

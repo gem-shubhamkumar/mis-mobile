@@ -1,9 +1,9 @@
 Feature: My Skills in Dashboard
 
-  Background:
-    Given MIS Beta is opened and verify application opens successfully
-    When User logins into application with username "ayush.garg" and password "Gemini@1234"
-    Then Verify Dashboard page opens
+#  Background:
+#    Given MIS Beta is opened and verify application opens successfully
+#    When User logins into application with username "ayush.garg" and password "Gemini@1234"
+#    Then Verify Dashboard page opens
 
   Scenario Outline: Verify My Skills are updating with Valid Data
     When "<Card>" card is present in dashboard

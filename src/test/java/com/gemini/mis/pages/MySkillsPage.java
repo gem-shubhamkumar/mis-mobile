@@ -71,9 +71,16 @@ public class MySkillsPage extends PageObject {
     @Step
     public void verifySuccessMessage(String message) {
          getDriver().switchTo().activeElement();
-         Assert.assertEquals($(By.tagName("h2")).getText(), message);
+//        waitABit(1000);
+//        Assert.assertEquals(message, $(By.tagName("h2")).getText());
          waitABit(1000);
          withAction().sendKeys(Keys.ENTER).build().perform();
+    }
+
+    @Step("Verify Modal Opened")
+    public void verifyModal(String modalTitle) {
+        getDriver().switchTo().activeElement();
+        Assert.assertTrue($(By.xpath(MySkillsLocators.modalTitle.replace("modalTitle", modalTitle))).isPresent());
     }
 
 }

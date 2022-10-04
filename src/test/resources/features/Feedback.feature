@@ -20,7 +20,7 @@ Feature: Feedback
     When User enters feedback "<data>"
     And Click on "Submit" button
     Then Verify "Success" Message
-    Then Click on "Next" button
+    Then Click on "next" button
     And Verify data "<data>" is added in "<parentTab>" tab
 
     Examples:
@@ -42,12 +42,9 @@ Feature: Feedback
       | Submit Feedback | Feedback | |
 
 
-
   Scenario Outline: Verify Page Navigation
     When User Clicks on "<childTab>" tab of "<parentTab>" tab
     Then Verify Submit Feedback tab opens
-    Then Click on "Provide Feedback" button
-    And "<childTab>" Modal open
     Then Click on "next" button
 
 
@@ -130,7 +127,6 @@ Feature: Feedback
       |childTab| parentTab| data |
       | Submit Feedback | Feedback | Random Data |
 
-
   Scenario Outline: View a Feedback
     When User Clicks on "<childTab>" tab of "<parentTab>" tab
     Then Verify Submit Feedback tab opens
@@ -144,7 +140,7 @@ Feature: Feedback
     Then Verify the "View" tooltip text
     Then Click on "View" button
     Then "View Feedback" Modal open
-    Then Verify message "<data>" is present
+#    Then Verify message "<data>" is present
 
 
 
