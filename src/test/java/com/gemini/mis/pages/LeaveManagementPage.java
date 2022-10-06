@@ -1,6 +1,6 @@
 package com.gemini.mis.pages;
 
-import com.gemini.mis.commonfunctions.CommonFunctions;
+import com.gemini.mis.commonfunctions.CommonFunctions_MIS;
 import com.gemini.mis.selectors.XpathForLeaveManagementTab;
 import com.gemini.mis.selectors.XpathforPolicyTab;
 import net.serenitybdd.core.pages.PageObject;
@@ -11,7 +11,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 
-import java.io.File;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.Date;
@@ -19,7 +18,7 @@ import java.util.List;
 
 public class LeaveManagementPage extends PageObject
 {
-    CommonFunctions genFunc;
+    CommonFunctions_MIS genFunc;
 
     @Step("Launch MIS Beta site")
     public void launchSite()
@@ -391,17 +390,12 @@ public class LeaveManagementPage extends PageObject
     }
 
     @Step
-    public boolean isFileDownloaded(String downloadPath, String fileName) {
-        File folder = new File(downloadPath);
-        File[] folderContent = folder.listFiles();
-
-        for (int i = 0; i < folderContent.length; i++) {
-            if (folderContent[i].getName().equals(fileName)) {
-                folderContent[i].delete(); // File has been found, it can now be deleted:
-                return true;
-            }
-        }
-        return false;
+    public void isFileDownloaded(String downloadPath, String fileName) {
+     boolean isDownloaded = genFunc.isFileDownloaded(downloadPath,fileName);
+     if(!isDownloaded)
+     {
+         Assert.fail("Not downloaded");
+     }
     }
 
     @Step("Verify Print Page opens")
@@ -482,29 +476,29 @@ public class LeaveManagementPage extends PageObject
         {
             case "Excel":
             case "Excel Change Request":
-                isFileDownloaded = isFileDownloaded("C:\\Users\\ja.multani\\Downloads\\","Leave History List.xlsx");
+                isFileDownloaded = genFunc.isFileDownloaded("C:\\Users\\ja.multani\\Downloads\\","Leave History List.xlsx");
             break;
             case "Excel WFH":
-            isFileDownloaded = isFileDownloaded("C:\\Users\\ja.multani\\Downloads\\","WFH History List.xlsx");
+            isFileDownloaded = genFunc.isFileDownloaded("C:\\Users\\ja.multani\\Downloads\\","WFH History List.xlsx");
             break;
             case "Excel Comp Off":
-            isFileDownloaded = isFileDownloaded("C:\\Users\\ja.multani\\Downloads\\","CompOff History List.xlsx");
+            isFileDownloaded = genFunc.isFileDownloaded("C:\\Users\\ja.multani\\Downloads\\","CompOff History List.xlsx");
             break;
             case "Excel Out Duty/Tour":
-            isFileDownloaded = isFileDownloaded("C:\\Users\\ja.multani\\Downloads\\","Gemini - MIS.xlsx");
+            isFileDownloaded = genFunc.isFileDownloaded("C:\\Users\\ja.multani\\Downloads\\","Gemini - MIS.xlsx");
             break;
             case "Pdf":
             case "Pdf Change Request":
-                isFileDownloaded = isFileDownloaded("C:\\Users\\ja.multani\\Downloads\\","Leave History List.pdf");
+                isFileDownloaded = genFunc.isFileDownloaded("C:\\Users\\ja.multani\\Downloads\\","Leave History List.pdf");
             break;
             case "Pdf WFH":
-            isFileDownloaded = isFileDownloaded("C:\\Users\\ja.multani\\Downloads\\","WFH History List.pdf");
+            isFileDownloaded = genFunc.isFileDownloaded("C:\\Users\\ja.multani\\Downloads\\","WFH History List.pdf");
             break;
             case "Pdf Comp Off":
-            isFileDownloaded = isFileDownloaded("C:\\Users\\ja.multani\\Downloads\\","CompOff History List.pdf");
+            isFileDownloaded = genFunc.isFileDownloaded("C:\\Users\\ja.multani\\Downloads\\","CompOff History List.pdf");
             break;
             case "Pdf Out Duty/Tour":
-            isFileDownloaded = isFileDownloaded("C:\\Users\\ja.multani\\Downloads\\","Gemini - MIS.pdf");
+            isFileDownloaded = genFunc.isFileDownloaded("C:\\Users\\ja.multani\\Downloads\\","Gemini - MIS.pdf");
             break;
 
         }

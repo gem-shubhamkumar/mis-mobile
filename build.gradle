@@ -23,7 +23,6 @@ repositories {
 group 'org.example'
 version '1.0-SNAPSHOT'
 
-
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
@@ -74,11 +73,11 @@ serenity {
 }
 test
         {
-          filter
+         /* filter
                     {
                       includeTestsMatching "*LeaveManagement"
                     }
-            // useJUnitPlatform()
+         */   // useJUnitPlatform()
             testLogging.showStandardStreams = true
             systemProperties System.getProperties()
             maxParallelForks = 8

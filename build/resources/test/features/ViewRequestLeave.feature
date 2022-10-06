@@ -1,0 +1,206 @@
+Feature: MIS Leave Management Activities
+  This tests are for Leave Management module of MIS Beta
+
+  Background:
+    Given User is logged into MIS
+
+  Scenario Outline: Navigate to Leave Management > View Request Status tab
+    When User is on MIS Home Page
+    When Click on "<childTab>" sub tab of "<parentTab>" tab
+    And Verify "<childTab>" opens successfully
+    And Verify "<defaultTab>" displays by default
+    Examples:
+      |      parentTab     |       childTab      | defaultTab |
+      | Leave Management   | View Request Status |    Leave   |
+
+  Scenario Outline: Verify Date Range field is present for Leave Tab
+    When User is on MIS Home Page
+    When Click on "<childTab>" sub tab of "<parentTab>" tab
+    And Verify "<childTab>" opens successfully
+    And Verify "<defaultTab>" displays by default
+    Then Verify "Date Range" fields is present
+    Examples:
+      |      parentTab     |       childTab      | defaultTab |
+      | Leave Management   | View Request Status |    Leave   |
+
+  Scenario Outline: Enter Invalid Date Range
+    When User is on MIS Home Page
+    When Click on "<childTab>" sub tab of "<parentTab>" tab
+    And Verify "<childTab>" opens successfully
+    And Verify "<defaultTab>" displays by default
+    Then Verify "Date Range" fields is present
+    And Click "Date Range" dropdown
+    Then Enter "01 Apr 2000" Invalid Date range
+    And Verify "No results found" message displays
+    Examples:
+      |      parentTab     |       childTab      | defaultTab |
+      | Leave Management   | View Request Status |    Leave   |
+
+  Scenario Outline: Enter Valid Date Range
+    When User is on MIS Home Page
+    When Click on "<childTab>" sub tab of "<parentTab>" tab
+    And Verify "<childTab>" opens successfully
+    And Verify "<defaultTab>" displays by default
+    Then Verify "Date Range" fields is present
+    And Click "Date Range" dropdown
+    Then Enter "<dateRange>" Valid Date range
+    And Verify "<dateRange>" text displays
+    Then Verify "<dateRange>" is selected
+    Examples:
+      |      parentTab     |       childTab      | defaultTab |       dateRange           |
+      | Leave Management   | View Request Status |    Leave   | 01 Apr 2022 - 31 Mar 2023 |
+
+  Scenario Outline: Verify Export Options
+    When User is on MIS Home Page
+    When Click on "<childTab>" sub tab of "<parentTab>" tab
+    And Verify "<childTab>" opens successfully
+    And Verify "<defaultTab>" displays by default
+    When Click on "Export" button
+    Then Verify "Copy,Excel,PDF,Print" options are displayed
+    Examples:
+      |      parentTab     |       childTab      | defaultTab |
+      | Leave Management   | View Request Status |    Leave   |
+
+  Scenario Outline: Click on Print Option
+    When User is on MIS Home Page
+    When Click on "<childTab>" sub tab of "<parentTab>" tab
+    And Verify "<childTab>" opens successfully
+    And Verify "<defaultTab>" displays by default
+    When Click on "Export" button
+    Then Verify "Copy,Excel,PDF,Print" options are displayed
+    When Click on "Print" button
+    And Verify Print page appears
+    Examples:
+      |      parentTab     |       childTab      | defaultTab |
+      | Leave Management   | View Request Status |    Leave   |
+
+  Scenario Outline: Click on Excel Option
+    When User is on MIS Home Page
+    When Click on "<childTab>" sub tab of "<parentTab>" tab
+    And Verify "<childTab>" opens successfully
+    And Verify "<defaultTab>" displays by default
+    When Click on "Export" button
+    Then Verify "Copy,Excel,PDF,Print" options are displayed
+    When Click on "Excel" button
+    And Verify excel file is downloaded for "Leave" Tab
+    Examples:
+      |      parentTab     |       childTab      | defaultTab |
+      | Leave Management   | View Request Status |    Leave   |
+
+  Scenario Outline: Click on Copy Option
+    When User is on MIS Home Page
+    When Click on "<childTab>" sub tab of "<parentTab>" tab
+    And Verify "<childTab>" opens successfully
+    And Verify "<defaultTab>" displays by default
+    When Click on "Export" button
+    Then Verify "Copy,Excel,PDF,Print" options are displayed
+    When Click on "Copy" button
+    And Verify "Copied to Clipboard" popup appears
+    Examples:
+      |      parentTab     |       childTab      | defaultTab |
+      | Leave Management   | View Request Status |    Leave   |
+
+  Scenario Outline: Verify PDF option
+    When User is on MIS Home Page
+    When Click on "<childTab>" sub tab of "<parentTab>" tab
+    And Verify "<childTab>" opens successfully
+    And Verify "<defaultTab>" displays by default
+    When Click on "Export" button
+    Then Verify "Copy,Excel,PDF,Print" options are displayed
+    When Click on "Pdf" button
+    And Verify pdf file is downloaded for "Leave" Tab
+    Examples:
+      |      parentTab     |       childTab      | defaultTab |
+      | Leave Management   | View Request Status |    Leave   |
+
+  Scenario Outline: Verify Number of Entries displayed
+    When User is on MIS Home Page
+    When Click on "<childTab>" sub tab of "<parentTab>" tab
+    And Verify "<childTab>" opens successfully
+    Then Verify "Date Range" fields is present
+    And Click "Date Range" dropdown
+    Then Enter "<dateRange>" Valid Date range
+    And Verify "<dateRange>" text displays
+    Then Verify "<dateRange>" is selected
+    And Verify number of records displayed by default
+    Then Select "<noOfRecords>" as Number of entries for "Leave" tab
+    And Verify number of records displayed changes
+    Examples:
+      |      parentTab     |       childTab      |         dateRange          |   noOfRecords |
+      | Leave Management   | View Request Status |  01 Apr 2021 - 31 Mar 2022 |       25      |
+
+
+
+  Scenario Outline: Enter Leave Period Name in Search Box
+    When User is on MIS Home Page
+    When Click on "<childTab>" sub tab of "<parentTab>" tab
+    And Verify "<childTab>" opens successfully
+    When User Enters "<leavePeriod>" period in search box for "Leave" tab
+    Then Verify "<leavePeriod>" Period is filtered for "Leave" tab
+    Examples:
+      |      parentTab     |       childTab      |        leavePeriod         |
+      | Leave Management   | View Request Status | 25-Sep-2022 to 26-Sep-2022 |
+
+  Scenario Outline: Sort columns
+    When User is on MIS Home Page
+    When Click on "<childTab>" sub tab of "<parentTab>" tab
+    And Verify "<childTab>" opens successfully
+    Then Sort "Period,Type,Reason,Remarks" columns and verify sorting
+    Examples:
+      |      parentTab     |       childTab      |
+      | Leave Management   | View Request Status |
+
+  Scenario Outline: Page Next
+    When User is on MIS Home Page
+    When Click on "<childTab>" sub tab of "<parentTab>" tab
+    And Verify "<childTab>" opens successfully
+    Then Verify "Date Range" fields is present
+    And Click "Date Range" dropdown
+    Then Enter "<dateRange>" Valid Date range
+    And Verify "<dateRange>" text displays
+    Then Verify "<dateRange>" is selected
+    Then Click on "Next Leave" button if there is more than one page
+    And Verify Records are present on Page
+    Examples:
+      |      parentTab     |       childTab      |          dateRange         |
+      | Leave Management   | View Request Status |  01 Apr 2021 - 31 Mar 2022 |
+
+  Scenario Outline: Page Previous
+    When User is on MIS Home Page
+    When Click on "<childTab>" sub tab of "<parentTab>" tab
+    And Verify "<childTab>" opens successfully
+    Then Verify "Date Range" fields is present
+    And Click "Date Range" dropdown
+    Then Enter "<dateRange>" Valid Date range
+    And Verify "<dateRange>" text displays
+    Then Verify "<dateRange>" is selected
+    Then Click on "Next Leave" button if there is more than one page
+    And Verify Records are present on Page
+    Then Click on "Previous Leave" button if there is more than one page
+    And Verify Records are present on Page
+    Examples:
+      |      parentTab     |       childTab      |          dateRange         |
+      | Leave Management   | View Request Status |  01 Apr 2021 - 31 Mar 2022 |
+
+  Scenario Outline: Cancel Leave
+    When User is on MIS Home Page
+    When Click on "<childTab>" sub tab of "<parentTab>" tab
+    And Verify "<childTab>" opens successfully
+    And Verify "<defaultTab>" displays by default
+    Then Select "<fromDate>" From date and "<toDate>" till Leave dates from Calendar
+    And Select "<leaveType>" from Leave Type dropdown
+    And Enter reason "sick leave" for leave
+    Then Click on Submit button for Leave Tab
+    And Verify Leave is submitted and "Leave applied successfully" appears
+    When Click on "<anotherTab>" tab
+    And Verify "<anotherTab>" opens successfully
+    Then Verify "Date Range" fields is present
+    And Click on "Expand" button
+    When Click on "Cancel" button
+    Then Verify "Are you sure you want to cancel this request ?" Popup appears
+    And Click on "Yes" button
+    And Verify Leave is cancelled and "Request processed successfully" appears
+    Examples:
+      |      parentTab     |       childTab  | defaultTab |  fromDate  |   toDate    |  leaveType |     anotherTab      |
+      | Leave Management   |          Apply  |    Leave   | 29/09/2022 |  29/09/2022 |     CL     | View Request Status |
+
