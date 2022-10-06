@@ -226,7 +226,10 @@ public class AppraisalManagementStepDefinition extends PageObject {
         if(button.equals("delete"))
             if($(By.xpath(deleteButtonXpath)).isDisplayed()){
                 clickOn($(By.xpath(deleteButtonXpath)));
+<<<<<<< HEAD
 //            clickOn($());
+=======
+>>>>>>> 46652873f568d748e4980e143582ff8b9ddb23b9
                Assert.assertTrue("clicked on delete button ", true);
             }
             else{
@@ -240,8 +243,12 @@ public class AppraisalManagementStepDefinition extends PageObject {
     @Then("^verify \"(.*?)\" and \"(.*?)\" present$")
     public void verifyProjectAndGoalDescription(String projName, String desc){
         deleteButtonXpath  =  goalPages.verifyProjectAndGoalDescription(projName,desc);
+<<<<<<< HEAD
 //        goalPages.verifyProjectAndGoalDescription(projName, desc);
 //        System.out.println(deleteButtonXpath);
+=======
+        System.out.println(deleteButtonXpath);
+>>>>>>> 46652873f568d748e4980e143582ff8b9ddb23b9
     }
 
     @And("^clicks on submit button \"(.*?)\"$")

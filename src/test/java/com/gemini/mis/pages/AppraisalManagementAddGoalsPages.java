@@ -240,7 +240,10 @@ public class AppraisalManagementAddGoalsPages extends PageObject {
                 break;
             case "with some remark":
                 $(By.id("remarks")).sendKeys("Some Remarks before deletion");
+<<<<<<< HEAD
                 Assert.assertTrue("Added remarks",true);
+=======
+>>>>>>> 46652873f568d748e4980e143582ff8b9ddb23b9
                 clickOn($(By.xpath("//*[@id=\"modalDeleteGoal\"]/div/div/div[3]/button[1]")));
                 break;
             default: Assert.fail("Failed in clicking on remark");
@@ -275,6 +278,7 @@ public class AppraisalManagementAddGoalsPages extends PageObject {
 
     @Step("Step to watch out the project name and description")
     public String verifyProjectAndGoalDescription(String projName,String desc){
+<<<<<<< HEAD
         int sizeOfTabItems = getDriver().findElements(By.xpath("//table[@id='tblSelfGoalList']/tbody/tr")).size();
         for(int i=1;i<=sizeOfTabItems;i++){
             if($(By.xpath("//table[@id='tblSelfGoalList']/tbody/tr["+i+"]/td[1]")).getText().equals("Delivery")){
@@ -287,6 +291,26 @@ public class AppraisalManagementAddGoalsPages extends PageObject {
                 }
             }
         }
+=======
+        String xpathForDeleteButton;
+        int rows;
+        int col;
+        if($(By.xpath("//tr[@role='row']")).isVisible()&& $(By.xpath("//tr[@role='row'][1]/td")).isVisible()    ){
+            rows = getDriver().findElements(By.xpath("//tr[@role='row']")).size();
+
+                col = getDriver().findElements(By.xpath("//tr[@role='row'][1]/td")).size();
+                for(int i=1;i<=rows;i++){
+                    for(int j = 1;j<=col;j++){
+                        if($(By.xpath("//tr[@role='row']["+i+"]/td["+j+"]")).getText().equals(projName) && $(By.xpath("//tr[@role='row']["+i+"]/td["+(j+1)+"]")).getText().equals(desc)) {
+                            xpathForDeleteButton = "//tr[@role='row'][1]/td[" + (j + 3) + "]";
+                            return xpathForDeleteButton;
+                        }
+                    }
+                }
+            }
+       else
+           return "";
+>>>>>>> 46652873f568d748e4980e143582ff8b9ddb23b9
 
         return "";
     }
