@@ -1,13 +1,14 @@
 package stepDefinitions;
 
+
 import com.gemini.mis.pages.FormsPage;
 import com.gemini.mis.pages.LoginPage;
+import com.gemini.mis.selectors.CommonSelectors;
 import com.gemini.mis.selectors.LocatorLoginPage;
-import com.gemini.mis.selectors.LocatorDashboardProfilePage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import net.thucydides.core.annotations.Step;
+
 
 public class CommonSteps
 {
@@ -15,7 +16,7 @@ public class CommonSteps
     FormsPage form;
 
     @Given("User opens MIS Beta page {string}")
-    public void user_opens_mis_beta_page(String url)  {
+    public void user_opens_mis_beta_page(String url) throws Exception {
         steps.navigateApplication(url);
     }
     @Given("User clicks on tab {string} and {string}")
@@ -31,11 +32,13 @@ public class CommonSteps
         steps.enterValues(LocatorLoginPage.inputField("text"),username);
 
     }
+
     @And("User enters Password as {string}")
     public void user_enters_password_as(String password) {
-        steps.enterValues(LocatorLoginPage.inputField("password"),password);
+            steps.enterValues(LocatorLoginPage.inputField("password"),password);
 
     }
+
     @Given("User clicks on sign in")
     public void user_clicks_on_sign_in() {
         steps.Wait(2000);
@@ -45,6 +48,6 @@ public class CommonSteps
 
     @Then("User Verifies Landing Page")
     public void user_verifies_landing_page() {
-        steps.WaitTillElementIsVisible(LocatorDashboardProfilePage.elementOnLandingPage);
+        steps.WaitTillElementIsVisible(CommonSelectors.elementOnLandingPage);
 
 }}

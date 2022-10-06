@@ -85,7 +85,7 @@ Feature: Login MIS Application Activities
       |charu.srivastava|Gemini@1234|
 
 
-#8,10.11
+#8
 
   Scenario Outline: User clicks on Forget Password
     Given User enters Username as "<username>"
@@ -113,7 +113,7 @@ Feature: Login MIS Application Activities
       |Enter your username.|Username is required.|
 
 
-#12
+#10
 
  Scenario Outline: User clicks on forgot password and enters invalid username.
     Given User Clicks on Forgot password
@@ -127,7 +127,7 @@ Feature: Login MIS Application Activities
       |Charu|You are not authorised to perform the action|
 
 
-#13
+#11
   Scenario Outline: User navigate back to sign In Page
     Given User Clicks on Forgot password
     Then User is navigated to Reset Password page

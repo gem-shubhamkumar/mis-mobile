@@ -1,6 +1,5 @@
 package stepDefinitions;
 
-import com.gemini.mis.commonfunctions.CommonFunctions;
 import com.gemini.mis.pages.FormsPage;
 import com.gemini.mis.pages.LoginPage;
 import com.gemini.mis.selectors.LocatorFormPage;
@@ -9,12 +8,9 @@ import io.cucumber.java.en.Then;
 import net.serenitybdd.core.pages.WebElementFacade;
 import com.gemini.mis.selectors.LocatorDashboardProfilePage;
 import net.thucydides.core.pages.PageObject;
-import org.junit.Assert;
-import org.openqa.selenium.JavascriptExecutor;
 
 import java.util.logging.Logger;
 
-import static jxl.biff.FormatRecord.logger;
 
 public class MISForms extends PageObject {
     FormsPage form;
@@ -64,13 +60,8 @@ public class MISForms extends PageObject {
     @Then("User clicks on eye button and view policy")
     public void userClicksOnEyeButtonAndViewPolicy() {
         steps.click(LocatorFormPage.eyeBtn);
-        /*steps.Wait(2000);
-        steps.changeFocusToNewTab();
-        steps.Wait(2000);
-        JavascriptExecutor js = (JavascriptExecutor) getDriver();
-        js.executeScript("window.scrollBy(0,document.body.scrollHeight)");*/
-        steps.Wait(4000);
-    }
+        steps.Wait(3000);
+        }
 
 
     @Then("User downloads file and deletes {string}")
@@ -99,6 +90,7 @@ public class MISForms extends PageObject {
 
     @And("User Selects form Type {string}")
     public void userSelectsFormType(String formType) {
+        steps.Wait(1000);
         steps.click(LocatorFormPage.formsType);
         steps.click(LocatorFormPage.formType(formType));
 
@@ -111,7 +103,7 @@ public class MISForms extends PageObject {
     }
 
     @Then("User hover over deactivate button and clicks it")
-    public void userHoverOverDeactivateButtonAndClicksIt() {
+    public void userHoverOverDeactivateButtonAndClicksIt() throws Exception {
         WebElementFacade ele=$(LocatorFormPage.deactivateBtn);
         if (ele.isVisible()) {
             steps.Wait(1000);

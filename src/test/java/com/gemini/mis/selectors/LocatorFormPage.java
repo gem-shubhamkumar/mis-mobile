@@ -3,11 +3,7 @@ package com.gemini.mis.selectors;
 import org.openqa.selenium.By;
 
 public class LocatorFormPage {
-    public static By sideNavigation(String sideNav)
-    {
-        return By.xpath("//span[contains(text(),'"+sideNav+"')]");
-    }
-    public static By elementAfterScroll(String elementScrolled){
+      public static By elementAfterScroll(String elementScrolled){
         return By.xpath("//ul[@id='select2-formDepartment-results']/*[text()='"+elementScrolled+"']");
     }
     public static By select(){
