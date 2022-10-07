@@ -37,7 +37,6 @@ dependencies {
     testImplementation "net.serenity-bdd:serenity-core:${serenityCoreVersion}",
             // https://mvnrepository.com/artifact/net.serenity-bdd/serenity-cucumber
             "net.serenity-bdd:serenity-cucumber:${serenityCoreVersion}",
-
             "net.serenity-bdd:serenity-junit:${serenityCoreVersion}",
             "net.serenity-bdd:serenity-screenplay:${serenityCoreVersion}",
             "net.serenity-bdd:serenity-screenplay-rest:${serenityCoreVersion}",
@@ -52,9 +51,9 @@ dependencies {
 test {
     filter {
         //include specific method in any of the tests
-//        includeTestsMatching "*LoginRunner"
-//        include all tests from package
-//        includeTestsMatching "com.gemini.serenity.runner.W3SchoolRunner"
+       // includeTestsMatching "*testRunner"
+       //include all tests from package
+         includeTestsMatching "com.gemini.mis.runner*"
         //include all integration tests
         //includeTestsMatching "*IntegTest"
     }

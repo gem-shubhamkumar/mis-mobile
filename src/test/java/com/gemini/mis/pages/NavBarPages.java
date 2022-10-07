@@ -1,28 +1,23 @@
 package com.gemini.mis.pages;
 
-import com.gemini.mis.commonFunctions.commonMethods;
-import com.gemini.mis.selectors.AccountPortalSelectors;
 import com.gemini.mis.selectors.CommonXpaths;
 import com.gemini.mis.selectors.LeaveBalanceSelectors;
 import com.gemini.mis.selectors.NavBarSelectors;
+import com.gemini.mis.selectors.AccountPortalSelectors;
 import net.serenitybdd.core.pages.PageObject;
 import net.thucydides.core.annotations.Step;
-import net.thucydides.core.annotations.Steps;
 import org.junit.Assert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class NavBarPages extends PageObject {
-    @Steps
-    commonMethods commonFunction;
+
+AccountPortalPages accountPage;
 
     public void verifyUserRedirectedToLandingPage() {
-        if (commonFunction.isElementFound(LeaveBalanceSelectors.cardProfile)) {
+        if (accountPage.isElementFound(LeaveBalanceSelectors.cardProfile)) {
             System.out.println("User successfully redirected to landing page");
         } else {
             Assert.fail("Failed to navigate to landing page");
@@ -32,12 +27,12 @@ public class NavBarPages extends PageObject {
     @Step("Click on technology dropdown and select dropdown was as {0}")
     public void selectValueFromDropdown(String optionName) {
         boolean flag = false;
-        commonFunction.clickOn(NavBarSelectors.dropdownTechnology);
+        accountPage.clickOn(NavBarSelectors.dropdownTechnology);
         waitFor(ExpectedConditions.presenceOfElementLocated(NavBarSelectors.listTechnologyDropdown));
         List<WebElement> dropdownItems = getDriver().findElements(NavBarSelectors.listTechnologyDropdown);
         for (WebElement ele : dropdownItems) {
             if (optionName.equals(ele.getText())) {
-                commonFunction.clickOn(ele);
+                accountPage.clickOn(ele);
                 flag = true;
                 break;
             }
@@ -50,7 +45,7 @@ public class NavBarPages extends PageObject {
 
     @Step("Verify elements in dropdown")
     public void verifyElementsPresent() {
-        if (commonFunction.isElementFound(NavBarSelectors.menuListProfile)) {
+        if (accountPage.isElementFound(NavBarSelectors.menuListProfile)) {
             String[] menuItems = {"Profile", "Dashboard Settings", "Skills", "Logout"};
             List<String> menuItemsList = new ArrayList<>();
             for (String s : menuItems) {
@@ -61,7 +56,7 @@ public class NavBarPages extends PageObject {
             for (WebElement ele : menuListItems) {
                 itemsOnPage.add(ele.getText());
             }
-            commonFunction.compareListData(itemsOnPage, menuItemsList);
+            accountPage.compareListData(itemsOnPage, menuItemsList);
         } else {
             Assert.fail("Dropdown in not present/visible");
         }
@@ -70,17 +65,17 @@ public class NavBarPages extends PageObject {
     public void selectDropdownOption(String option, String dropdownName) {
         switch (dropdownName) {
             case "Proficiency":
-                if (commonFunction.isElementFound(NavBarSelectors.dropDownProficiency)) {
-                    commonFunction.clickOn(NavBarSelectors.dropDownProficiency);
-                    commonFunction.clickOn(NavBarSelectors.optionsDropdown(option));
+                if (accountPage.isElementFound(NavBarSelectors.dropDownProficiency)) {
+                    accountPage.clickOn(NavBarSelectors.dropDownProficiency);
+                    accountPage.clickOn(NavBarSelectors.optionsDropdown(option));
                 } else {
                     Assert.fail("Proficiency dropdown not found");
                 }
                 break;
             case "Skill type":
-                if (commonFunction.isElementFound(NavBarSelectors.dropDownSkillType)) {
-                    commonFunction.clickOn(NavBarSelectors.dropDownSkillType);
-                    commonFunction.clickOn(NavBarSelectors.optionsDropdown(option));
+                if (accountPage.isElementFound(NavBarSelectors.dropDownSkillType)) {
+                    accountPage.clickOn(NavBarSelectors.dropDownSkillType);
+                    accountPage.clickOn(NavBarSelectors.optionsDropdown(option));
                 } else {
                     Assert.fail("Skill typ dropdown not found");
                 }
@@ -96,8 +91,10 @@ public class NavBarPages extends PageObject {
     public void enterTextInField(String textToEnter, String fieldName){
         switch (fieldName){
             case "Experience":
-                commonFunction.verifyTextFieldAndEnterText(NavBarSelectors.textFieldExperience,textToEnter);
+                accountPage.verifyTextFieldAndEnterText(NavBarSelectors.textFieldExperience,textToEnter);
                 break;
+
+            default:Assert.fail("field not added in switch cases");
         }
     }
 
@@ -108,7 +105,7 @@ public class NavBarPages extends PageObject {
         boolean flag =false;
         int count =0;
         List<WebElement> listMySkills = getDriver().findElements(NavBarSelectors.listMySkillCard);
-        if(status.equals("new")&&expectedCondition.equals("can be")){
+        if(status.equals("new") && expectedCondition.equals("can be")){
         for (WebElement  ele : listMySkills){
             if(ele.getText().equals(skillName)){
                 flag=true;
@@ -125,7 +122,7 @@ public class NavBarPages extends PageObject {
 
          }else if(status.equals("duplicate")&&expectedCondition.equals("cannot be")){
             for (WebElement  ele : listMySkills){
-                if(ele.equals(skillName)){
+                if(ele.getText().equals(skillName)){
                     count++;
                 }
             }
@@ -173,9 +170,9 @@ public class NavBarPages extends PageObject {
     public void verifyRedirectedToLoginPage(){
         waitABit(2000);
         if(
-        commonFunction.isElementFound(AccountPortalSelectors.textFieldMyMISUsername)&&
-        commonFunction.isElementFound(AccountPortalSelectors.textFieldMyMISPassword)&&
-        commonFunction.isElementFound(AccountPortalSelectors.logoGemini)){
+        accountPage.isElementFound(AccountPortalSelectors.textFieldMyMISUsername)&&
+        accountPage.isElementFound(AccountPortalSelectors.textFieldMyMISPassword)&&
+        accountPage.isElementFound(AccountPortalSelectors.logoGemini)){
             System.out.println("Logout successfully");
         }else{
             Assert.fail("Unable to verify login page element");
@@ -192,14 +189,16 @@ public class NavBarPages extends PageObject {
             flag=true;
         }
     }
-        Assert.assertTrue("All are unchecked",true);
+        Assert.assertTrue("All are unchecked",flag);
     }
 
-    @Step("Drag rows within a table and change there position")
-    public void dragRows(String dragged,String draggedTo){
-
-        Actions clickAndHold = withAction().clickAndHold((WebElement) NavBarSelectors.textTableIndex(dragged));
-
+    public void verifyNoCardIsShownOnTheDashboard() {
+        waitABit(5000);
+        if(!$(NavBarSelectors.headingsDashboardCards).isVisible()){
+            System.out.println("All cards are hidden");
+        }else{
+            Assert.fail("Cards are still visible on dashboard");
+        }
     }
 
 
