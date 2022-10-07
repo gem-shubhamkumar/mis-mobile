@@ -56,12 +56,12 @@ public class FeedbackSteps {
 
     @When("^User selects \"(.*?)\" of rows to show for \"(.*?)\" tab$")
     public void userSelectsOfRowsToShowForTab(String number, String tab) {
-        commonFunctions.selectValue("id", number, "name", tab);
+        feedbackPage.selectValue("id", number, "name", tab);
     }
 
     @Then("^Verify total rows are (\\d+)$")
     public void verifyTotalRowsAre(int number) {
-        commonFunctions.verifyRows(number);
+        feedbackPage.verifyRows(number);
     }
 
     @When("^User clicks on Feedback row$")
@@ -96,7 +96,7 @@ public class FeedbackSteps {
 
     @And("^Verify \"(.*?)\" file is downloaded$")
     public void verifyFileDownloaded(String fileName) {
-        feedbackPage.isFileDownloaded("C:\\Users\\ay.garg\\Downloads", fileName);
+        commonFunctions.isFileDownloaded("C:\\Users\\ay.garg\\Downloads", fileName);
     }
 
     @And("^Verify print tab is open$")

@@ -37,7 +37,6 @@ Feature: LNSA
     And Click on "Submit" button
     Then Verify "Warning" Message
 
-
   Scenario: Cancel Submit Window
     When User Clicks on "Apply LNSA" tab of "LNSA" tab
     Then Verify Apply LNSA tab opens
@@ -45,7 +44,6 @@ Feature: LNSA
     Then Verify week is active
     And Click on "Submit" button
     Then Click on "Close" button
-
 
   Scenario: Submit Blank LNSA
     When User Clicks on "Apply LNSA" tab of "LNSA" tab
@@ -55,7 +53,6 @@ Feature: LNSA
     And Click on "Submit" button
     And Click on "Submit Reason" button
     Then Verify "Reason" input select has error
-
 
   Scenario: Submit Valid LNSA
     When User Clicks on "Apply LNSA" tab of "LNSA" tab
@@ -118,7 +115,6 @@ Feature: LNSA
     Examples:
       |childTab| parentTab| data |
       | View Request Status | LNSA | qqqqqqq |
-
 
 
   Scenario: Sort the LNSA columns

@@ -14,4 +14,5 @@ public class MySkillsLocators {
     public static String tableRow = "//div[@id='ids']/table/tbody/tr";
 
 
+    public static String userCard = "//div[@class='widget-user-stat']";
 }

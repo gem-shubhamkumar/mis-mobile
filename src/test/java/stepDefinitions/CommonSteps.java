@@ -1,10 +1,9 @@
 package stepDefinitions;
 
-
-import com.gemini.mis.pages.FormsPage;
-import com.gemini.mis.pages.LoginPage;
-import com.gemini.mis.selectors.CommonSelectors;
-import com.gemini.mis.selectors.LocatorLoginPage;
+import com.gemini.mis.commonfunctions.CommonFunctions;
+import com.gemini.mis.pages.CommonPage;
+import com.gemini.mis.pages.FeedbackPage;
+import com.gemini.mis.pages.MySkillsPage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -18,9 +17,15 @@ public class CommonSteps {
     @Steps
     ApplyToAnyCardPages skillsPages;
 
-    @Given("^Verify beta-mis is open and loaded successfully.$")
-    public void misBetaIsOpenedAndVerifyApplicationOpensSuccesfully() {
-        commonPages.launchURL("https://mymis.geminisolutions.com/");
+    @Steps
+    CommonFunctions commonFunctions;
+
+    @Steps
+    FeedbackPage feedbackPage;
+
+    @Given("^MIS Beta is opened and verify application opens successfully$")
+    public void misBetaIsOpenedAndVerifyApplicationOpensSuccesfully() throws Exception {
+        commonFunctions.launchUrl("https://mymis.geminisolutions.com/");
         commonPages.verifyLoginMsg();
 
     @Given("User opens MIS Beta page {string}")
@@ -32,7 +37,7 @@ public class CommonSteps {
     public void enterUsername(String username, String password) {
         commonPages.enterUsername(username);
         commonPages.enterPassword(password);
-        commonPages.clickButton("Sign In");
+        feedbackPage.clickButton("Sign In");
     }
 
 
@@ -61,7 +66,7 @@ public class CommonSteps {
 
     @Then("^Click on \"(.*?)\" button$")
     public void clickOnButton(String buttonName) {
-        commonPages.clickButton(buttonName);
+        feedbackPage.clickButton(buttonName);
     }
 
     @When("^\"(.*?)\" card is present in dashboard$")

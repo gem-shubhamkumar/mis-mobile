@@ -76,9 +76,6 @@ public class LNSAPage extends PageObject {
         Assert.assertTrue(flag);
     }
 
-    public void verifyWarningPopup() {
-
-    }
 
     public void enterReason(String reason) {
         $(By.id("txtLnsaReason")).type(reason);

@@ -2,6 +2,7 @@ package stepDefinitions;
 
 import com.gemini.mis.commonfunctions.CommonFunctions;
 import com.gemini.mis.pages.CommonPage;
+import com.gemini.mis.pages.FeedbackPage;
 import com.gemini.mis.pages.MySkillsPage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
@@ -14,7 +15,7 @@ public class MySkillsSteps {
     MySkillsPage skillsPages;
 
     @Steps
-    CommonPage commonPages;
+    FeedbackPage feedbackPage;
 
     @Steps
     CommonFunctions commonFunctions;
@@ -32,18 +33,18 @@ public class MySkillsSteps {
 
     @When("^\"(.*?)\" Modal open$")
     public void modalOpen(String modalTitle) {
-        commonPages.verifyModal(modalTitle);
+        skillsPages.verifyModal(modalTitle);
     }
 
     @Then("^User selects Proficiency Level \"(.*?)\"$")
     public void selectProficiencyLevel(String value) {
-        commonFunctions.selectValue("ddlSkillLevelEdit", value, "id");
+        feedbackPage.selectValue("ddlSkillLevelEdit", value, "id");
     }
 
 
     @Then("^User selects Skill Type \"(.*?)\"$")
     public void selectSkillType(String value) {
-        commonFunctions.selectValue("ddlSkillTypeEdit", value, "id");
+        feedbackPage.selectValue("ddlSkillTypeEdit", value, "id");
     }
 
     @And("^User enters experience (.*?)$")
@@ -63,24 +64,25 @@ public class MySkillsSteps {
 
     @Then("^Verify \"(.*?)\" input select has error$")
     public void verifySkillTypeInputSelectHasError(String inputType) {
-        commonFunctions.verifyForError(inputType);
+        feedbackPage.verifyForError(inputType);
 
     }
 
     @Then("^User clicks on \"(.*?)\" button on \"(.*?)\" card$")
     public void userClicksOnButton(String buttonName, String cardName) {
-        commonFunctions.clickButton(buttonName, cardName);
+        feedbackPage.clickButton(buttonName, cardName);
     }
 
     @And("^Verify that \"(.*?)\" card is minimized$")
     public void verifyThatCardIsMinimized(String cardName) {
-        commonFunctions.verifyCardMinimized(cardName);
+        feedbackPage.verifyCardMinimized(cardName);
     }
 
     @And("^Verify that \"(.*?)\" card is maximized$")
     public void verifyThatCardIsMaximized(String cardName) {
-        commonFunctions.verifyCardMaximized(cardName);
+        feedbackPage.verifyCardMaximized(cardName);
     }
+
 
 
 }

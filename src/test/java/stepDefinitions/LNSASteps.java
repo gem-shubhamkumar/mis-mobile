@@ -47,10 +47,6 @@ public class LNSASteps {
         lnsaPage.verifyWeekActive();
     }
 
-    @Then("^Verify warning popup$")
-    public void verifyWarningPopup() {
-        lnsaPage.verifyWarningPopup();
-    }
 
     @When("^User enters reason \"(.*?)\"$")
     public void userEntersReason(String reason) {
