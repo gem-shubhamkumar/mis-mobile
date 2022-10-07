@@ -12,7 +12,8 @@ public class TimeSheetSelectors extends PageObject {
     public By txtSelectedWeek = By.xpath("//label[contains(@id,'SelectedWeek')]");
     public By btnNextWeek = By.xpath("//input[@id='btnNextWeek']");
     public By timesheetStatus = By.xpath("//div[@id='dvTimeSheetStatus']");
-    public By txtTimesheetStatus = By.xpath("//div[@id='dvTimeSheetStatus']//strong");
+    public By txtTimesheetLine1 = By.xpath("(//div[@id='dvTimeSheetStatus']//strong)[1]");
+    public By txtTimesheetLine2 = By.xpath("(//div[@id='dvTimeSheetStatus']//strong)[2]");
     public By btnCopyFromWeek = By.xpath("//input[@id='btnCopyFromWeek']");
     public By dialogCopyFromWeek = By.xpath("//div[contains(@id,'CopyFromWeek')]//div[@class='modal-content']");
     public By yearDropdown = By.xpath("//select[contains(@class,'validation-required') and @id='yearCopyFrom']");
@@ -28,14 +29,19 @@ public class TimeSheetSelectors extends PageObject {
     public By teamNameDropdown = By.xpath("//select[contains(@class,'validation-required') and @id='ddlTeam']");
     public By taskTypeDropdown = By.xpath("//select[contains(@class,'validation-required') and @id='ddlTaskType']");
     public By btnSaveANT = By.xpath("//button[contains(text(),'Save')]");
+    public By txtTemplateData1 = By.xpath("(//tr//td)[1]");
     public By emptyFieldError = By.xpath("//input[contains(@class,'error-validation')]");
     public By btnCloseANT = By.xpath("(//button[contains(text(),'Close')])[1]");
     public By btnCrossCloseANT = By.xpath("(//button[@class='close'])[1]");
-    public String xpath_btnEditTaskTemplate = "//button[@data-original-title='Edit']//parent::td//preceding-sibling::td[text()='VAR']";
+    public By txtTemplateNameEdit = By.xpath("//input[contains(@class,'validation-required') and @id='txtTemplateNameEdit']");
+    public By txtTemplateDescriptionEdit = By.xpath("//input[contains(@class,'validation-required') and @id='txtTemplateDescriptionEdit']");
+    public By teamNameDropdownEdit = By.xpath("//select[contains(@class,'validation-required') and @id='ddlTeamEdit']");
+    public By taskTypeDropdownEdit = By.xpath("//select[contains(@class,'validation-required') and @id='ddlTaskTypeEdit']");
+    public String xpath_btnEditTaskTemplate = "//td[text()='VAR']//following-sibling::td[@class=' text-left']//button[contains(@onclick,'edit')]";
     public By dialogEditTaskTemplate = By.xpath("//div[contains(@id,'myEditTaskTemplateModal')]//div[@class='modal-content']");
-    public By btnUpdate = By.xpath("//input[@id='btnUpdateTaskTemplate']");
+    public By btnUpdate = By.xpath("//button[@id='btnUpdateTaskTemplate']");
     public By btnCloseEdit = By.xpath("(//button[contains(text(),'Close')])[2]");
     public By btnCrossEdit = By.xpath("(//button[@class='close'])[2]");
-    public String xpath_btnDeleteTaskTemplate = "//button[@data-original-title='Delete']//parent::td//preceding-sibling::td[text()='VAR']";
+    public String xpath_btnDeleteTaskTemplate = "//td[text()='VAR']//following-sibling::td[@class=' text-left']//button[contains(@onClick,'deleteTask')]";
 
 }

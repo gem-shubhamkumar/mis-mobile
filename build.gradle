@@ -59,6 +59,23 @@ dependencies {
     testImplementation group: 'org.json', name:'json' , version: '20210307'
 }
 
+configurations {
+    cucumberRuntime {
+        extendsFrom testImplementation
+    }
+}
+
+task cucumber() {
+    dependsOn assemble, compileTestJava
+    doLast {
+        javaexec {
+            main = "io.cucumber.core.cli.Main"
+            classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
+            args = ['--plugin', 'pretty', '--glue', 'MISAutomation.stepDefinitions', 'src/test/resources/features/', '--tags', '@Test']
+        }
+    }
+}
+
 serenity {
     testRoot = "java"
     requirementsDir = "src/test/resources/features"

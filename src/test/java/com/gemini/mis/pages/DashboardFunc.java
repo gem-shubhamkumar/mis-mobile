@@ -7,20 +7,19 @@ import net.thucydides.core.util.EnvironmentVariables;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import java.text.ParseException;
 import java.util.logging.Logger;
 
 public class DashboardFunc extends PageObject {
 
     //declarations
     private final DashboardSelectors ds = new DashboardSelectors();
-    private final GenericFunc gf = new GenericFunc();
+    private final MISCommonFunc mcf = new MISCommonFunc();
     private final CommonFunc cf = new CommonFunc();
-    private final static Logger log = Logger.getLogger(GenericFunc.class.getName());
+    private final static Logger log = Logger.getLogger(MISCommonFunc.class.getName());
     EnvironmentVariables conf = SystemEnvironmentVariables.createEnvironmentVariables();
     /*-----------------------------------------------------------------------------------------------------------*/
 
-    public void scrollToCard(String Card) {
+    public void scrollToCard(String Card) throws Exception {
         WebElement element = getDriver().findElement(By.xpath("//section[@id='"+Card+"']"));
         cf.scrollToElement(element);
         waitABit(3000);
@@ -43,7 +42,7 @@ public class DashboardFunc extends PageObject {
         }
     }
 
-    public void selectAndVerifyAttendanceMonth(String MMMMYYYY) throws ParseException {
+    public void selectAndVerifyAttendanceMonth(String MMMMYYYY) throws Exception {
         scrollToCard("HealthInsurance");
         selectMonthFromDropdown($(ds.txtAttendenceMonth), "July 2022");
         String[] date = $(ds.txtFirstDate_Attendence).getText().split("\\(");

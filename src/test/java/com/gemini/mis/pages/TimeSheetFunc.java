@@ -1,8 +1,9 @@
 package com.gemini.mis.pages;
 
-import com.gemini.mis.selectors.GenericSelectors;
+import com.gemini.mis.selectors.MISCommonSelectors;
 import com.gemini.mis.selectors.TimeSheetSelectors;
 import net.serenitybdd.core.pages.PageObject;
+import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.environment.SystemEnvironmentVariables;
 import net.thucydides.core.util.EnvironmentVariables;
 import org.junit.Assert;
@@ -17,19 +18,19 @@ public class TimeSheetFunc extends PageObject {
 
     //declarations
     private final TimeSheetSelectors ts = new TimeSheetSelectors();
-    private final GenericSelectors gs = new GenericSelectors();
-    private final GenericFunc gf = new GenericFunc();
+    private final MISCommonSelectors mcs = new MISCommonSelectors();
+    private final MISCommonFunc mcf = new MISCommonFunc();
     private final CommonFunc cf = new CommonFunc();
-    private final static Logger log = Logger.getLogger(GenericFunc.class.getName());
+    private final static Logger log = Logger.getLogger(MISCommonFunc.class.getName());
     EnvironmentVariables conf = SystemEnvironmentVariables.createEnvironmentVariables();
     /*-----------------------------------------------------------------------------------------------------------*/
 
     /*----------------------------------------------CONFIGURE TIMESHEET-------------------------------------------*/
 
     public void verifyCFTTableHeads() {
-        String[] act_Heads = gf.getTableHeads();
+        String[] act_Heads = mcf.getTableHeads();
         String[] exp_Heads = {"#", "Project Name", "Parent Project", "Role"};
-        if(Arrays.equals(gf.getTableHeads(), exp_Heads)) {
+        if(Arrays.equals(mcf.getTableHeads(), exp_Heads)) {
             log.info("Table headings are as expected: " + Arrays.toString(act_Heads));
         }else {
             Assert.fail("Table headings are not as expected. Actual: " + Arrays.toString(act_Heads) + " Expected: " + Arrays.toString(exp_Heads));
@@ -37,11 +38,11 @@ public class TimeSheetFunc extends PageObject {
     }
 
     public void verifyCFTTabs() {
-        String[] exp_Tabs = {"Assigned Projects", "Timesheet Subscription"};
+        String[] exp_Tabs = {"Assigned Projects"};
         int act_TabsCount = getDriver().findElements(By.xpath("//li[@class='nav-item']//span")).size();
-        String[] act_Tabs = new String[act_TabsCount];
-        for(int i=1; i<act_TabsCount; i++) {
-            act_Tabs[i] = getDriver().findElement(By.xpath("(//li[@class='nav-item']//span)["+i+"]")).getText();
+        String[] act_Tabs = new String[act_TabsCount-1];
+        for(int i=0; i<act_TabsCount-1; i++) {
+            act_Tabs[i] = getDriver().findElement(By.xpath("(//li[@class='nav-item']//span)["+(i+1)+"]")).getText();
         }
 
         if(Arrays.equals(act_Tabs, exp_Tabs)) {
@@ -77,9 +78,9 @@ public class TimeSheetFunc extends PageObject {
         if($(ts.pleaseNotePopup).isDisplayed()) {
             log.info("Please note popup displayed");
             waitABit(1000);
-            if($(ts.pleaseNoteMessage).isDisplayed() && $(gs.btnOk).isDisplayed()) {
+            if($(ts.pleaseNoteMessage).isDisplayed() && $(mcs.btnOk).isDisplayed()) {
                 log.info("All required elements displayed in please note popup");
-                $(gs.btnOk).click();
+                $(mcs.btnOk).click();
                 waitABit(1000);
                 if(!($(ts.pleaseNotePopup).isDisplayed())) {
                     log.info("Please note popup accepted");
@@ -101,7 +102,7 @@ public class TimeSheetFunc extends PageObject {
             act_Heads[i] = $(By.xpath("(//thead//td)["+(i+1)+"]")).getText();
         }
         String[] exp_Heads = {"Date", "Day"};
-        if(Arrays.equals(gf.getTableHeads(), exp_Heads)) {
+        if(Arrays.equals(mcf.getTableHeads(), exp_Heads)) {
             log.info("Table headings are as expected: " + Arrays.toString(act_Heads));
         }else {
             Assert.fail("Table headings are not as expected. Actual: " + Arrays.toString(act_Heads) + " Expected: " + Arrays.toString(exp_Heads));
@@ -162,7 +163,7 @@ public class TimeSheetFunc extends PageObject {
     public void verifyTimesheetStatus() {
         if($(ts.timesheetStatus).isDisplayed()) {
             log.info("Timesheet status displayed");
-            if($(ts.txtTimesheetStatus).containsText("Total time logged") && $(ts.txtTimesheetStatus).containsText("Status")) {
+            if($(ts.txtTimesheetLine1).containsText("Total time logged") && $(ts.txtTimesheetLine2).containsText("Status")) {
                 log.info("Timesheet status contains total time logged and status");
             }else {
                 Assert.fail("Timesheet status do not contain total time logged and status");
@@ -192,7 +193,7 @@ public class TimeSheetFunc extends PageObject {
         }
     }
 
-    public void verifyCopyTemplate(String Year, String Week) {
+    public void verifyCopyTemplate(String Year, String Week) throws Exception {
         if ($(ts.btnCopyCFW).isDisplayed()) {
             log.info("Copy button displayed");
             Select yearDropdown = new Select($(ts.yearDropdown));
@@ -203,7 +204,7 @@ public class TimeSheetFunc extends PageObject {
                 yearDropdown.selectByVisibleText(Year);
                 weekDropdown.selectByVisibleText(Week);
                 $(ts.btnCopyCFW).click();
-                gf.verifyAndAcceptSuccessPopup();
+                mcf.verifyAndAcceptSuccessPopup();
             }else if(!Arrays.asList(yearOptions).contains(Year) && Arrays.asList(weekOptions).contains(Week)) {
                 weekDropdown.selectByVisibleText(Week);
                 $(ts.btnCopyCFW).click();
@@ -266,9 +267,9 @@ public class TimeSheetFunc extends PageObject {
     /*----------------------------------------------Manage Task Template-------------------------------------------*/
 
     public void verifyMTTTableHeads() {
-        String[] act_Heads = gf.getTableHeads();
+        String[] act_Heads = mcf.getTableHeads();
         String[] exp_Heads = {"Template Name", "Description", "Team Name", "Task Type", "Task Sub Detail 1", "Task Sub Detail 2", "Action"};
-        if (Arrays.equals(gf.getTableHeads(), exp_Heads)) {
+        if (Arrays.equals(mcf.getTableHeads(), exp_Heads)) {
             log.info("Table headings are as expected: " + Arrays.toString(act_Heads));
         } else {
             Assert.fail("Table headings are not as expected. Actual: " + Arrays.toString(act_Heads) + " Expected: " + Arrays.toString(exp_Heads));
@@ -296,24 +297,75 @@ public class TimeSheetFunc extends PageObject {
         }
     }
 
-    public void verifyAddTemplate(String Name, String Description, String Team, String Task) {
+    public void AddValidTemplate(String Name, String Description, String Team, String Task) throws Exception {
         if ($(ts.btnSaveANT).isDisplayed()) {
             log.info("Save button displayed");
             ($(ts.txtTemplateName)).sendKeys(Name);
             ($(ts.txtTemplateDescription)).sendKeys(Description);
             Select teamNameDropdown = new Select($(ts.teamNameDropdown));
             String[] teamNameOptions = cf.listOptionsInSelectDropdown($(ts.teamNameDropdown));
-            if(!$(ts.txtTemplateName).getText().isEmpty() && !$(ts.txtTemplateDescription).getText().isEmpty()) {
+            if (Arrays.asList(teamNameOptions).contains(Team)) {
+                teamNameDropdown.selectByVisibleText(Team);
+                waitABit(1000);
+                Select taskTypeDropdown = new Select($(ts.taskTypeDropdown));
+                String[] taskTypeOptions = cf.listOptionsInSelectDropdown($(ts.taskTypeDropdown));
+                if (Arrays.asList(taskTypeOptions).contains(Task)) {
+                    taskTypeDropdown.selectByVisibleText(Task);
+                    $(ts.btnSaveANT).click();
+                    mcf.verifyAndAcceptSuccessPopup();
+                } else {
+                    Assert.fail("Invalid task type");
+                }
+            } else {
+                Assert.fail("Invalid team name");
+            }
+        }else {
+            Assert.fail("Save button not displayed");
+        }
+    }
+
+    public void AddDuplicateTemplate(String Name, String Description, String Team, String Task) throws Exception {
+        if ($(ts.btnSaveANT).isDisplayed()) {
+            log.info("Save button displayed");
+            ($(ts.txtTemplateName)).sendKeys(Name);
+            ($(ts.txtTemplateDescription)).sendKeys(Description);
+            Select teamNameDropdown = new Select($(ts.teamNameDropdown));
+            String[] teamNameOptions = cf.listOptionsInSelectDropdown($(ts.teamNameDropdown));
+            if (Arrays.asList(teamNameOptions).contains(Team)) {
+                teamNameDropdown.selectByVisibleText(Team);
+                waitABit(1000);
+                Select taskTypeDropdown = new Select($(ts.taskTypeDropdown));
+                String[] taskTypeOptions = cf.listOptionsInSelectDropdown($(ts.taskTypeDropdown));
+                if (Arrays.asList(taskTypeOptions).contains(Task)) {
+                    taskTypeDropdown.selectByVisibleText(Task);
+                    $(ts.btnSaveANT).click();
+                    mcf.verifyAndAcceptWarningPopup();
+                    closeANTDialogBox();
+                } else {
+                    Assert.fail("Invalid task type");
+                }
+            } else {
+                Assert.fail("Invalid team name");
+            }
+        }else {
+            Assert.fail("Save button not displayed");
+        }
+    }
+
+    public void AddInvalidTemplate(String Name, String Description, String Team, String Task) throws Exception {
+        if ($(ts.btnSaveANT).isDisplayed()) {
+            log.info("Save button displayed");
+            ($(ts.txtTemplateName)).sendKeys(Name);
+            ($(ts.txtTemplateDescription)).sendKeys(Description);
+            Select teamNameDropdown = new Select($(ts.teamNameDropdown));
+            String[] teamNameOptions = cf.listOptionsInSelectDropdown($(ts.teamNameDropdown));
+            if(!$(ts.txtTemplateName).getAttribute("value").equals("") && !$(ts.txtTemplateDescription).getAttribute("value").equals("")) {
                 if(Arrays.asList(teamNameOptions).contains(Team)) {
                     teamNameDropdown.selectByVisibleText(Team);
                     waitABit(1000);
                     Select taskTypeDropdown = new Select($(ts.taskTypeDropdown));
                     String[] taskTypeOptions = cf.listOptionsInSelectDropdown($(ts.taskTypeDropdown));
-                    if(Arrays.asList(taskTypeOptions).contains(Task)) {
-                        taskTypeDropdown.selectByVisibleText(Task);
-                        $(ts.btnSaveANT).click();
-                        gf.verifyAndAcceptSuccessPopup();
-                    }else {
+                    if(!Arrays.asList(taskTypeOptions).contains(Task)) {
                         $(ts.btnSaveANT).click();
                         if(getDriver().findElements(ts.emptyDropdownError).size()==1) {
                             log.info("Task type invalid, one empty dropdown errored out");
@@ -331,7 +383,7 @@ public class TimeSheetFunc extends PageObject {
                     }
                     closeANTDialogBox();
                 }
-            }else if(!$(ts.txtTemplateName).getText().isEmpty() ^ !$(ts.txtTemplateDescription).getText().isEmpty()) {
+            }else if(!$(ts.txtTemplateName).getAttribute("value").equals("") ^ !$(ts.txtTemplateDescription).getAttribute("value").equals("")) {
                 if(Arrays.asList(teamNameOptions).contains(Team)) {
                     teamNameDropdown.selectByVisibleText(Team);
                     waitABit(1000);
@@ -340,7 +392,6 @@ public class TimeSheetFunc extends PageObject {
                     if(Arrays.asList(taskTypeOptions).contains(Task)) {
                         taskTypeDropdown.selectByVisibleText(Task);
                         $(ts.btnSaveANT).click();
-                        gf.verifyAndAcceptSuccessPopup();
                     }else {
                         $(ts.btnSaveANT).click();
                         if(getDriver().findElements(ts.emptyDropdownError).size()==1) {
@@ -372,7 +423,6 @@ public class TimeSheetFunc extends PageObject {
                     if(Arrays.asList(taskTypeOptions).contains(Task)) {
                         taskTypeDropdown.selectByVisibleText(Task);
                         $(ts.btnSaveANT).click();
-                        gf.verifyAndAcceptSuccessPopup();
                     }else {
                         $(ts.btnSaveANT).click();
                         if(getDriver().findElements(ts.emptyDropdownError).size()==1) {
@@ -431,7 +481,8 @@ public class TimeSheetFunc extends PageObject {
         }
     }
 
-    public void clickEditTemplate(String txtUniqueIdentifier) {
+    public void clickEditTemplate(String txtUniqueIdentifier) throws Exception {
+        cf.maximizeBrowser();
         By btnEditTaskTemplate = By.xpath(ts.xpath_btnEditTaskTemplate.replace("VAR", txtUniqueIdentifier));
         if($(btnEditTaskTemplate).isDisplayed()){
             log.info("Edit task template button displayed");
@@ -439,11 +490,11 @@ public class TimeSheetFunc extends PageObject {
             waitABit(1000);
             if($(ts.dialogEditTaskTemplate).isDisplayed()) {
                 log.info("Edit task template button clicked successfully. Edit task template dialog box displayed");
-                if($(ts.txtTemplateName).isDisplayed() && $(ts.txtTemplateDescription).isDisplayed() &&
-                        $(ts.teamNameDropdown).isDisplayed() && $(ts.taskTypeDropdown).isDisplayed()) {
+                if($(ts.txtTemplateNameEdit).isDisplayed() && $(ts.txtTemplateDescriptionEdit).isDisplayed() &&
+                        $(ts.teamNameDropdownEdit).isDisplayed() && $(ts.taskTypeDropdownEdit).isDisplayed()) {
                     log.info("Mandatory fields displayed in edit task template dialog box.");
-                    if(!$(ts.txtTemplateName).getText().isEmpty() && !$(ts.txtTemplateDescription).getText().isEmpty()
-                      && !$(ts.teamNameDropdown).getText().isEmpty() && !$(ts.taskTypeDropdown).getText().isEmpty()) {
+                    if(!$(ts.txtTemplateNameEdit).getAttribute("value").equals("") && !$(ts.txtTemplateNameEdit).getAttribute("value").equals("")
+                      && !$(ts.txtTemplateNameEdit).getAttribute("value").equals("") && !$(ts.txtTemplateNameEdit).getAttribute("value").equals("")) {
                         log.info("All fields are autopopulated");
                     }else {
                         Assert.fail("All fields are not autopopulated");
@@ -455,55 +506,155 @@ public class TimeSheetFunc extends PageObject {
                 Assert.fail("Edit task template button not clicked. Edit task template dialog box not displayed");
             }
         }else {
-            Assert.fail("Add new template button not displayed");
+            Assert.fail("Edit task template button not displayed");
         }
     }
 
-    public void verifyEditTemplate(String Name, String Description, String Team, String Task) {
+    public void verifyEditTemplate(String Name, String Description, String Team, String Task) throws Exception {
         if ($(ts.btnUpdate).isDisplayed()) {
             log.info("Update button displayed");
-            if(Name != null) {
-                ($(ts.txtTemplateName)).clear();
-                ($(ts.txtTemplateName)).sendKeys(Name);
-            }
-            if(Description != null) {
-                ($(ts.txtTemplateDescription)).clear();
-                ($(ts.txtTemplateDescription)).sendKeys(Description);
-            }
-            Select teamNameDropdown = new Select($(ts.teamNameDropdown));
-            String[] teamNameOptions = cf.listOptionsInSelectDropdown($(ts.teamNameDropdown));
-            if(Arrays.asList(teamNameOptions).contains(Team)) {
-                teamNameDropdown.selectByVisibleText(Team);
-                waitABit(1000);
-                Select taskTypeDropdown = new Select($(ts.taskTypeDropdown));
-                String[] taskTypeOptions = cf.listOptionsInSelectDropdown($(ts.taskTypeDropdown));
-                if(Arrays.asList(taskTypeOptions).contains(Task)) {
-                    taskTypeDropdown.selectByVisibleText(Task);
-                    $(ts.btnUpdate).click();
-                    gf.verifyAndAcceptSuccessPopup();
-                }else {
-                    $(ts.btnUpdate).click();
-                    if(getDriver().findElements(ts.emptyDropdownError).size()==1) {
-                        log.info("Task type invalid, one empty dropdown errored out");
-                    }else {
-                        Assert.fail("Task type invalid but empty dropdown not errored out");
+            if(!Name.equals("") && !Description.equals("")) {
+                ($(ts.txtTemplateNameEdit)).clear();
+                ($(ts.txtTemplateNameEdit)).sendKeys(Name);
+                ($(ts.txtTemplateDescriptionEdit)).clear();
+                ($(ts.txtTemplateDescriptionEdit)).sendKeys(Description);
+                Select teamNameDropdown = new Select($(ts.teamNameDropdownEdit));
+                String[] teamNameOptions = cf.listOptionsInSelectDropdown($(ts.teamNameDropdownEdit));
+                if (Arrays.asList(teamNameOptions).contains(Team)) {
+                    teamNameDropdown.selectByVisibleText(Team);
+                    waitABit(1000);
+                    Select taskTypeDropdown = new Select($(ts.taskTypeDropdownEdit));
+                    String[] taskTypeOptions = cf.listOptionsInSelectDropdown($(ts.taskTypeDropdownEdit));
+                    if (Arrays.asList(taskTypeOptions).contains(Task)) {
+                        taskTypeDropdown.selectByVisibleText(Task);
+                        $(ts.btnUpdate).click();
+                        mcf.verifyAndAcceptSuccessPopup();
+                    } else {
+                        $(ts.btnUpdate).click();
+                        if (getDriver().findElements(ts.emptyDropdownError).size() == 1) {
+                            log.info("Task type invalid, one empty dropdown errored out");
+                        } else {
+                            Assert.fail("Task type invalid but empty dropdown not errored out");
+                        }
+                        closeEditDialogBox();
                     }
-                    closeEditDialogBox();                }
-            }else {
-                Select taskTypeDropdown = new Select($(ts.taskTypeDropdown));
-                String[] taskTypeOptions = cf.listOptionsInSelectDropdown($(ts.taskTypeDropdown));
-                if (Arrays.asList(taskTypeOptions).contains(Task)) {
-                    taskTypeDropdown.selectByVisibleText(Task);
-                    $(ts.btnUpdate).click();
-                    gf.verifyAndAcceptSuccessPopup();
                 } else {
-                    $(ts.btnUpdate).click();
-                    gf.verifyAndAcceptSuccessPopup();
+                    Select taskTypeDropdown = new Select($(ts.taskTypeDropdownEdit));
+                    String[] taskTypeOptions = cf.listOptionsInSelectDropdown($(ts.taskTypeDropdownEdit));
+                    if (Arrays.asList(taskTypeOptions).contains(Task)) {
+                        taskTypeDropdown.selectByVisibleText(Task);
+                        $(ts.btnUpdate).click();
+                        mcf.verifyAndAcceptSuccessPopup();
+                    } else {
+                        $(ts.btnUpdate).click();
+                        mcf.verifyAndAcceptSuccessPopup();
+                    }
+                }
+            }else if(Name.equals("") && !Description.equals("")) {
+                ($(ts.txtTemplateDescriptionEdit)).clear();
+                ($(ts.txtTemplateDescriptionEdit)).sendKeys(Description);
+                Select teamNameDropdown = new Select($(ts.teamNameDropdownEdit));
+                String[] teamNameOptions = cf.listOptionsInSelectDropdown($(ts.teamNameDropdownEdit));
+                if (Arrays.asList(teamNameOptions).contains(Team)) {
+                    teamNameDropdown.selectByVisibleText(Team);
+                    waitABit(1000);
+                    Select taskTypeDropdown = new Select($(ts.taskTypeDropdownEdit));
+                    String[] taskTypeOptions = cf.listOptionsInSelectDropdown($(ts.taskTypeDropdownEdit));
+                    if (Arrays.asList(taskTypeOptions).contains(Task)) {
+                        taskTypeDropdown.selectByVisibleText(Task);
+                        $(ts.btnUpdate).click();
+                        mcf.verifyAndAcceptSuccessPopup();
+                    } else {
+                        $(ts.btnUpdate).click();
+                        if (getDriver().findElements(ts.emptyDropdownError).size() == 1) {
+                            log.info("Task type invalid, one empty dropdown errored out");
+                        } else {
+                            Assert.fail("Task type invalid but empty dropdown not errored out");
+                        }
+                        closeEditDialogBox();
+                    }
+                } else {
+                    Select taskTypeDropdown = new Select($(ts.taskTypeDropdownEdit));
+                    String[] taskTypeOptions = cf.listOptionsInSelectDropdown($(ts.taskTypeDropdownEdit));
+                    if (Arrays.asList(taskTypeOptions).contains(Task)) {
+                        taskTypeDropdown.selectByVisibleText(Task);
+                        $(ts.btnUpdate).click();
+                        mcf.verifyAndAcceptSuccessPopup();
+                    } else {
+                        $(ts.btnUpdate).click();
+                        mcf.verifyAndAcceptSuccessPopup();
+                    }
+                }
+            }else if(!Name.equals("") && Description.equals("")) {
+                ($(ts.txtTemplateNameEdit)).clear();
+                ($(ts.txtTemplateNameEdit)).sendKeys(Name);
+                Select teamNameDropdown = new Select($(ts.teamNameDropdownEdit));
+                String[] teamNameOptions = cf.listOptionsInSelectDropdown($(ts.teamNameDropdownEdit));
+                if (Arrays.asList(teamNameOptions).contains(Team)) {
+                    teamNameDropdown.selectByVisibleText(Team);
+                    waitABit(1000);
+                    Select taskTypeDropdown = new Select($(ts.taskTypeDropdownEdit));
+                    String[] taskTypeOptions = cf.listOptionsInSelectDropdown($(ts.taskTypeDropdownEdit));
+                    if (Arrays.asList(taskTypeOptions).contains(Task)) {
+                        taskTypeDropdown.selectByVisibleText(Task);
+                        $(ts.btnUpdate).click();
+                        mcf.verifyAndAcceptSuccessPopup();
+                    } else {
+                        $(ts.btnUpdate).click();
+                        if (getDriver().findElements(ts.emptyDropdownError).size() == 1) {
+                            log.info("Task type invalid, one empty dropdown errored out");
+                        } else {
+                            Assert.fail("Task type invalid but empty dropdown not errored out");
+                        }
+                        closeEditDialogBox();
+                    }
+                } else {
+                    Select taskTypeDropdown = new Select($(ts.taskTypeDropdownEdit));
+                    String[] taskTypeOptions = cf.listOptionsInSelectDropdown($(ts.taskTypeDropdownEdit));
+                    if (Arrays.asList(taskTypeOptions).contains(Task)) {
+                        taskTypeDropdown.selectByVisibleText(Task);
+                        $(ts.btnUpdate).click();
+                        mcf.verifyAndAcceptSuccessPopup();
+                    } else {
+                        $(ts.btnUpdate).click();
+                        mcf.verifyAndAcceptSuccessPopup();
+                    }
+                }
+            }else {
+                Select teamNameDropdown = new Select($(ts.teamNameDropdownEdit));
+                String[] teamNameOptions = cf.listOptionsInSelectDropdown($(ts.teamNameDropdownEdit));
+                if (Arrays.asList(teamNameOptions).contains(Team)) {
+                    teamNameDropdown.selectByVisibleText(Team);
+                    waitABit(1000);
+                    Select taskTypeDropdown = new Select($(ts.taskTypeDropdownEdit));
+                    String[] taskTypeOptions = cf.listOptionsInSelectDropdown($(ts.taskTypeDropdownEdit));
+                    if (Arrays.asList(taskTypeOptions).contains(Task)) {
+                        taskTypeDropdown.selectByVisibleText(Task);
+                        $(ts.btnUpdate).click();
+                        mcf.verifyAndAcceptSuccessPopup();
+                    } else {
+                        $(ts.btnUpdate).click();
+                        if (getDriver().findElements(ts.emptyDropdownError).size() == 1) {
+                            log.info("Task type invalid, one empty dropdown errored out");
+                        } else {
+                            Assert.fail("Task type invalid but empty dropdown not errored out");
+                        }
+                        closeEditDialogBox();
+                    }
+                } else {
+                    Select taskTypeDropdown = new Select($(ts.taskTypeDropdownEdit));
+                    String[] taskTypeOptions = cf.listOptionsInSelectDropdown($(ts.taskTypeDropdownEdit));
+                    if (Arrays.asList(taskTypeOptions).contains(Task)) {
+                        taskTypeDropdown.selectByVisibleText(Task);
+                        $(ts.btnUpdate).click();
+                        mcf.verifyAndAcceptSuccessPopup();
+                    } else {
+                        $(ts.btnUpdate).click();
+                        mcf.verifyAndAcceptWarningPopup();
+                        closeEditDialogBox();
+                    }
                 }
             }
-            $(ts.btnUpdate).click();
-            gf.verifyAndAcceptWarningPopup();
-            closeEditDialogBox();
         } else {
             Assert.fail("Update button not displayed");
         }
@@ -539,12 +690,12 @@ public class TimeSheetFunc extends PageObject {
         }
     }
 
-    public void clickDeleteTemplate(String txtUniqueIdentifier) {
-        By btnDeleteTaskTemplate = By.xpath(ts.xpath_btnDeleteTaskTemplate.replace("VAR", txtUniqueIdentifier));
-        if ($(btnDeleteTaskTemplate).isDisplayed()) {
+    public void clickDeleteTemplate(String txtUniqueIdentifier) throws Exception {
+        cf.maximizeBrowser();
+        WebElementFacade btnDeleteTaskTemplate = find(By.xpath(ts.xpath_btnDeleteTaskTemplate.replace("VAR",txtUniqueIdentifier)));
+        if (btnDeleteTaskTemplate.isDisplayed()) {
             log.info("Delete button displayed");
-            $(btnDeleteTaskTemplate).click();
-            waitABit(1000);
+            btnDeleteTaskTemplate.click();
         } else {
             Assert.fail("Delete button not displayed");
         }

@@ -3,7 +3,6 @@ package stepDefinitions;
 import com.gemini.mis.pages.DashboardFunc;
 import net.serenitybdd.core.pages.PageObject;
 import io.cucumber.java.en.And;
-import java.text.ParseException;
 
 public class Dashboard extends PageObject {
 
@@ -12,7 +11,7 @@ public class Dashboard extends PageObject {
     /*----------------------------------------------------------------------------------------------------------*/
 
     @And("^Open attendance of \"(.*?)\"$")
-    public void OpenAttendence(String MMMMYYYY) throws ParseException {
+    public void OpenAttendence(String MMMMYYYY) throws Exception {
         df.selectAndVerifyAttendanceMonth(MMMMYYYY);
     }
 

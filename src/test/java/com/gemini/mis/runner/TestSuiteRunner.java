@@ -11,7 +11,6 @@ import org.junit.runner.RunWith;
         glue = "stepDefinitions",
         tags = "@Test"
 )
-
 public class TestSuiteRunner {
 
 }

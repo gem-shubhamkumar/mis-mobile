@@ -22,7 +22,7 @@ Feature: Perform actions on Timesheet of MIS website
   Scenario Outline: MIS_TimeSheet_ConfTimesheet_searchText
     Then Open "Configure Timesheet" page of "TimeSheet" module
     And Verify "Configure Timesheet" page of type "Sub"
-    And Perform search for "<Text>" using search box
+    And Perform search for "<Text>" using search box when no records are displayed
     Then Logout from MIS
     Examples:
       | Text |
@@ -84,21 +84,23 @@ Feature: Perform actions on Timesheet of MIS website
 
   @Test @TC10 @TimeSheet @ManageTaskTemplate
   Scenario Outline: MIS_TimeSheet_ManageTaskTemplate_searchText
-    Then Open "Configure Timesheet" page of "TimeSheet" module
-    And Verify "Manage Task Template" page of type "Sub"
-    And Perform search for "<Text>" using search box
-    Then Logout from MIS
-    Examples:
-      | Text |
-      | abcd |
-      | @#$% |
-      | 1234 |
-
-  @Test @TC11 @TimeSheet @ManageTaskTemplate
-  Scenario Outline: MIS_TimeSheet_ManageTaskTemplate_addNewTemplate
     Then Open "Manage Task Template" page of "TimeSheet" module
     And Verify "Manage Task Template" page of type "Sub"
-    And Add a new task template with "<Name>" "<Description>" "<Team>" "<Task>"
+    And Add a new valid task template with "<Name>" "<Description>" "<Team>" "<Task>"
+    And Perform invalid search for "<InvalidText>" using search box when records are displayed
+    And Perform valid search for "<ValidText>" using search box when records are displayed
+    Then Logout from MIS
+    Examples:
+      | Name | Description   | Team |   Task   | InvalidText | ValidText |
+      | abc  |   123@##      |  QA  | Learning |    mnop     |    abc    |
+      | XYZ  |   /;[=[++     |  QA  | Testing  |    @#$%     |  /;[=[++  |
+      | pqr  |   batman      |  QA  | Reporting|    1234     |    QA     |
+
+  @Test @TC11 @TimeSheet @ManageTaskTemplate
+  Scenario Outline: MIS_TimeSheet_ManageTaskTemplate_AddInvalidTemplate
+    Then Open "Manage Task Template" page of "TimeSheet" module
+    And Verify "Manage Task Template" page of type "Sub"
+    And Add a new invalid task template with "<Name>" "<Description>" "<Team>" "<Task>"
     Then Logout from MIS
     Examples:
       | Name | Description   | Team |   Task   |
@@ -108,29 +110,54 @@ Feature: Perform actions on Timesheet of MIS website
       |      |               |  QA  |          |
       | abcd | FirstTemplate |      |          |
       | abcd | FirstTemplate |  QA  |          |
-      | abcd | FirstTemplate |  QA  | Learning |
 
   @Test @TC12 @TimeSheet @ManageTaskTemplate
+  Scenario Outline: MIS_TimeSheet_ManageTaskTemplate_delAndAddValidTemplate
+    Then Open "Manage Task Template" page of "TimeSheet" module
+    And Verify "Manage Task Template" page of type "Sub"
+    And Add a new valid task template with "<Name>" "<Description>" "<Team>" "<Task>"
+    Then Logout from MIS
+    Examples:
+      | Name | Description   | Team |   Task   |
+      | abcd | FirstTemplate |  QA  | Learning |
+
+  @Test @TC13 @TimeSheet @ManageTaskTemplate
+  Scenario Outline: MIS_TimeSheet_ManageTaskTemplate_AddDuplicateTemplate
+    Then Open "Manage Task Template" page of "TimeSheet" module
+    And Verify "Manage Task Template" page of type "Sub"
+    And Add a new valid task template with "<Name>" "<Description>" "<Team>" "<Task>"
+    And Add a new duplicate task template with "<Name>" "<Description>" "<Team>" "<Task>"
+    Then Logout from MIS
+    Examples:
+      | Name | Description | Team |   Task    |
+      | TUV  | Automation  | FES  | Debugging |
+
+  @Test @TC14 @TimeSheet @ManageTaskTemplate
   Scenario Outline: MIS_TimeSheet_ManageTaskTemplate_editATemplate
     Then Open "Manage Task Template" page of "TimeSheet" module
     And Verify "Manage Task Template" page of type "Sub"
-    And Edit a task template "abc" with "<Name>" "<Description>" "<Team>" "<Task>"
+    And Add a new valid task template with "<Name>" "<Description>" "<Team>" "<Task>"
+    And Edit a task template "<Name>" with "<EName>" "<EDescription>" "<ETeam>" "<ETask>"
     Then Logout from MIS
     Examples:
-      | Name | Description | Team |   Task   |
-      |      |             |      |          |
-      | wxyz |             |      |          |
-      |      | MyTemplate  |      |          |
-      |      |             | FES  |          |
-      | wxyz | MyTemplate  |      |          |
-      | wxyz | MyTemplate  | FES  |          |
-      | wxyz | MyTemplate  | FES  | Testing  |
+      | Name | Description |  Team  |   Task    | EName | EDescription | ETeam |   ETask   |
+      | Lmno |    njuik    | Gemini | Reporting |       |              |       |           |
+      | Lmno |    njuik    | Gemini | Reporting | wxyz  |              |       |           |
+      | Lmno |    njuik    | Gemini | Reporting |       |  MyTemplate  |       |           |
+      | Lmno |    njuik    | Gemini | Reporting |       |              |  FES  |           |
+      | Lmno |    njuik    | Gemini | Reporting |       |              |       |  Learning |
+      | Lmno |    njuik    | Gemini | Reporting | wxyz  |  MyTemplate  |       |           |
+      | Lmno |    njuik    | Gemini | Reporting | wxyz  |  MyTemplate  |  FES  |           |
+      | Lmno |    njuik    | Gemini | Reporting | wxyz  |  MyTemplate  |  FES  |  Testing  |
 
-
-  @Test @TC13 @TimeSheet @ManageTaskTemplate
-  Scenario: MIS_TimeSheet_ManageTaskTemplate_deleteATemplate
+  @Test @TC15 @TimeSheet @ManageTaskTemplate
+  Scenario Outline: MIS_TimeSheet_ManageTaskTemplate_deleteATemplate
     Then Open "Manage Task Template" page of "TimeSheet" module
     And Verify "Manage Task Template" page of type "Sub"
-    And Click on Delete button for a task template "xyz"
-    Then Verify and accept confirmation popup
+    And Add a new valid task template with "<Name>" "<Description>" "<Team>" "<Task>"
+    And Click on Delete button for a task template "<Name>"
+    Then Verify and reject confirmation popup
     Then Logout from MIS
+    Examples:
+      | Name | Description | Team |    Task     |
+      | del  |    Test     |  ETL | Development |
