@@ -16,9 +16,9 @@ public class OrgStructFunc extends PageObject {
 
     //declarations
     private final OrgStructSelectors os = new OrgStructSelectors();
-    private final GenericFunc gf = new GenericFunc();
+    private final MISCommonFunc mcf = new MISCommonFunc();
     private final CommonFunc cf = new CommonFunc();
-    private final static Logger log = Logger.getLogger(GenericFunc.class.getName());
+    private final static Logger log = Logger.getLogger(MISCommonFunc.class.getName());
     EnvironmentVariables conf = SystemEnvironmentVariables.createEnvironmentVariables();
     /*-----------------------------------------------------------------------------------------------------------*/
 
@@ -63,7 +63,7 @@ public class OrgStructFunc extends PageObject {
         return seniorName;
     }
 
-    public void confirmSideArrows() {
+    public void confirmSideArrows() throws Exception {
         cf.hoverOver($(os.ceoCard));
         waitABit(1000);
         if($(os.arrowUp).isDisplayed() && $(os.arrowDown).isDisplayed() && $(os.arrowLeft).isDisplayed() && $(os.arrowRight).isDisplayed()) {
@@ -90,6 +90,7 @@ public class OrgStructFunc extends PageObject {
         Dimension sizeBeforeZoomIn = $(os.ceoCard).getSize();
         SerenityActions action = new SerenityActions(getDriver());
         action.doubleClick($(os.ceoCard)).perform();
+        waitABit(3000);
         Dimension sizeAfterZoomIn = $(os.ceoCard).getSize();
         if (sizeBeforeZoomIn.width<sizeAfterZoomIn.width && sizeBeforeZoomIn.height<sizeAfterZoomIn.height) {
             log.info("Card zoomed in successfully");
@@ -97,6 +98,7 @@ public class OrgStructFunc extends PageObject {
             Assert.fail("Card not zoomed in");
         }
         action.doubleClick($(os.ceoCard)).perform();
+        waitABit(3000);
         Dimension sizeAfterZoomOut = $(os.ceoCard).getSize();
         if (sizeAfterZoomOut.width==sizeBeforeZoomIn.width && sizeAfterZoomOut.height==sizeBeforeZoomIn.height) {
             log.info("Card zoomed out successfully");

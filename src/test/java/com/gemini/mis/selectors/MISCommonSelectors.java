@@ -3,8 +3,8 @@ package com.gemini.mis.selectors;
 import net.serenitybdd.core.pages.PageObject;
 import org.openqa.selenium.By;
 
-//Selectors specific to MIS
-public class GenericSelectors extends PageObject {
+//Selectors specific and common to MIS
+public class MISCommonSelectors extends PageObject {
 
     public By loader = By.xpath("//img[@class='loading-image-round']");
 

@@ -22,7 +22,7 @@ public class OrgStruct extends PageObject {
     }
 
     @And("Verify side arrows are present on the page")
-    public void confirmSideArrows() {
+    public void confirmSideArrows() throws Exception {
         of.confirmSideArrows();
     }
 
