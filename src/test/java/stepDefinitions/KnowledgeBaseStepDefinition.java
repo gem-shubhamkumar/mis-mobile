@@ -89,12 +89,18 @@ public class KnowledgeBaseStepDefinition extends PageObject {
       steps.clickOkOnfolderAdd();
     }
 
-    @Then("verify folder added")
-    public void verifyFolderCreated(){
-        List<WebElement> totalFolders = getDriver().findElements(selector.listOfFolders);
-        if(totalFolders.size()>4){
-            Assert.assertTrue("folder added",true);
+    @Then("^verify folder \"(.*?)\" added$")
+    public void verifyFolderCreated(String folderName){
+//        List<WebElement> totalFolders = getDriver().findElements();
+        int size = getDriver().findElements(By.xpath("//div[@id='DocumentGrouptree']/ul/li/span/a")).size();
+        for (int i =1;i<=size;i++){
+            if($(By.xpath("//div[@id='DocumentGrouptree']/ul/li/span/a")).getText().equals(folderName)){
+                Assert.assertTrue("Folder is added in the list",true);
+            }
         }
+//        if(totalFolders.size()>4){
+//            Assert.assertTrue("folder added",true);
+//        }
    }
     @And("^create folder without name and click \"(.*?)\"$")
     public void createFolderWithoutName(String buttonName){
@@ -307,7 +313,8 @@ public class KnowledgeBaseStepDefinition extends PageObject {
                $(By.xpath("(//ul[@id='myMenu']/li)[3]")).click();
                break;
            case "Rename":
-               $(By.xpath("//ul[@id='myMenu']/li[@class='edit']")).click();
+               waitABit(3000);
+               $(By.xpath("//ul[@id='myMenu']/li[@class='edit']/a")).click();
                break;
            case "Add New Document":
                $(By.xpath("(//ul[@id='myMenu']/li)[2]")).click();

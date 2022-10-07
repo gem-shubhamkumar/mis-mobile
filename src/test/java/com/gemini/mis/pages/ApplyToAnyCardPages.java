@@ -1,6 +1,6 @@
 package com.gemini.mis.pages;
 
-import com.gemini.mis.commonfunctions.CommonMethods;
+import com.gemini.mis.commonfunctions.CommonFucntions;
 import com.gemini.mis.selectors.ApplyToAnyLocators;
 import net.thucydides.core.annotations.Step;
 import org.junit.Assert;
@@ -11,15 +11,15 @@ import java.util.List;
 
 public class ApplyToAnyCardPages {
 
-     CommonMethods commonMethods = new CommonMethods();
+     CommonFucntions commonFucntions = new CommonFucntions();
 
      @Step("Verify if {0} card is present")
     public void verifyIfCardIsPresent(String cardName) {
          int flag = 0;
 
-         commonMethods.customWait(1000);
+         commonFucntions.customWait(1000);
 
-         List<WebElement> cards = commonMethods.getMultipleElements(By.xpath(ApplyToAnyLocators.cardNames));
+         List<WebElement> cards = commonFucntions.getMultipleElements(By.xpath(ApplyToAnyLocators.cardNames));
 
          for (WebElement card : cards
          ) {
@@ -37,38 +37,38 @@ public class ApplyToAnyCardPages {
 
     @Step("Verify card is not empty")
     public void verifyCardNotEmpty() {
-            Assert.assertFalse(commonMethods.isPresent(By.xpath(ApplyToAnyLocators.tableDiv)));
+            Assert.assertFalse(commonFucntions.isPresent(By.xpath(ApplyToAnyLocators.tableDiv)));
     }
 
     @Step("Click on skill {0}")
     public void clickASkill(String skill) {
-         commonMethods.click(By.xpath(ApplyToAnyLocators.skillName.replace("skill", skill)));
+         commonFucntions.click(By.xpath(ApplyToAnyLocators.skillName.replace("skill", skill)));
     }
 
     @Step("Verify Modal Opened")
     public void verifySkillModal() {
-         commonMethods.switchToActiveElement();
-         Assert.assertTrue(commonMethods.isPresent(By.xpath(ApplyToAnyLocators.modalTitle)));
+         commonFucntions.switchToActiveElement();
+         Assert.assertTrue(commonFucntions.isPresent(By.xpath(ApplyToAnyLocators.modalTitle)));
     }
 
     @Step("Select Value {1}")
     public void selectValue(String id, String value) {
-         commonMethods.selectFromDropdown(commonMethods.getElement(By.id(id)), value);
+         commonFucntions.selectFromDropdown(commonFucntions.getElement(By.id(id)), value);
     }
 
     public void enterValue(String value) {
-         commonMethods.clearField(By.id("expinMonthsEdit"));
-         commonMethods.typeText(By.id("expinMonthsEdit"), value);
+         commonFucntions.clearField(By.id("expinMonthsEdit"));
+         commonFucntions.typeText(By.id("expinMonthsEdit"), value);
     }
 
 
     public void clickOK() {
-         commonMethods.pressEnter();
+         commonFucntions.pressEnter();
     }
 
     public void verifyData(String skill, String type, String experience) {
          int flag = 0;
-        List<WebElement> tableRow = commonMethods.getMultipleElements(By.xpath(ApplyToAnyLocators.tableRow));
+        List<WebElement> tableRow = commonFucntions.getMultipleElements(By.xpath(ApplyToAnyLocators.tableRow));
         for (WebElement row: tableRow
              ) {
             if(row.getText().contains(skill) && row.getText().contains(type) && row.getText().contains(experience)) {
@@ -83,12 +83,12 @@ public class ApplyToAnyCardPages {
     public void verifyForError(String inputType) {
          switch (inputType) {
              case "skill" :
-                 Assert.assertTrue(commonMethods.isPresent(By.xpath(ApplyToAnyLocators.errorType.replace("ids", "ddlSkillTypeEdit"))));
+                 Assert.assertTrue(commonFucntions.isPresent(By.xpath(ApplyToAnyLocators.errorType.replace("ids", "ddlSkillTypeEdit"))));
                     break;
              case "experience" :
                  String xpath = ApplyToAnyLocators.errorType.replace("select", "input");
                  xpath = xpath.replace("ids", "expinMonthsEdit");
-                 Assert.assertTrue(commonMethods.isPresent(By.xpath(xpath)));
+                 Assert.assertTrue(commonFucntions.isPresent(By.xpath(xpath)));
                  break;
          }
     }

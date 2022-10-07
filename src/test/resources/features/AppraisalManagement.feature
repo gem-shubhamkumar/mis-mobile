@@ -142,7 +142,7 @@ Feature: Automation of appraisal management screen in beta mis
     |Active Project|Active Goal|Active Project|
     |Active Project|Active Goal|****|
 
-    @DeleteWithouRemark
+    @DeleteWithoutRemark
   Scenario: check delete with remark and without remark
    When Click "Add Goals" sub-tab inside "Appraisal Management" tab
    Then Verify Add Goals tab opens

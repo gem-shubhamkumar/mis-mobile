@@ -1,6 +1,6 @@
 package com.gemini.mis.pages;
 
-import com.gemini.mis.commonfunctions.CommonMethods;
+import com.gemini.mis.commonfunctions.CommonFucntions;
 import com.gemini.mis.selectors.CommonSelectors;
 import com.gemini.mis.selectors.ApplyToAnyLocators;
 import org.apache.commons.lang3.StringUtils;
@@ -12,36 +12,36 @@ import java.util.List;
 
 public class CommonPages {
 
-    CommonMethods commonMethods = new CommonMethods();
+    CommonFucntions commonFucntions = new CommonFucntions();
     public void launchURL(String s) {
-        commonMethods.launchUrl(s);
+        commonFucntions.launchUrl(s);
     }
 
     public void verifyLoginMsg() {
-        String loginMsg = commonMethods.getText(By.xpath(CommonSelectors.loginMsg));
+        String loginMsg = commonFucntions.getText(By.xpath(CommonSelectors.loginMsg));
         Assert.assertTrue(StringUtils.contains(loginMsg, "This website is to be used only for authorized business purposes by the employees of Gemini Solutions."));
     }
 
 
     public void enterUsername(String username) {
-        commonMethods.typeText(By.xpath(CommonSelectors.homePageXpath.replace("name", "username")), username);
+        commonFucntions.typeText(By.xpath(CommonSelectors.homePageXpath.replace("name", "username")), username);
     }
 
     public void enterPassword(String password) {
-        commonMethods.typeText(By.xpath(CommonSelectors.homePageXpath.replace("name", "password")), password);
+        commonFucntions.typeText(By.xpath(CommonSelectors.homePageXpath.replace("name", "password")), password);
 
     }
 
     public void clickButton(String buttonName) {
-        commonMethods.customWait(1000);
+        commonFucntions.customWait(1000);
         switch(buttonName) {
             case "Sign In": {
-                commonMethods.click(By.xpath(CommonSelectors.homePageXpath.replace("name", "btnLogin")));
+                commonFucntions.click(By.xpath(CommonSelectors.homePageXpath.replace("name", "btnLogin")));
                 break;
             }
 
             case "update" : {
-                commonMethods.click(By.xpath(ApplyToAnyLocators.genericButton.replace("ids", "btnUpdateSkills")));
+                commonFucntions.click(By.xpath(ApplyToAnyLocators.genericButton.replace("ids", "btnUpdateSkills")));
                 break;
             }
 
@@ -53,17 +53,17 @@ public class CommonPages {
     }
 
     public void clickButton(String buttonName, String cardName) {
-        commonMethods.customWait(1000);
+        commonFucntions.customWait(1000);
         switch(buttonName) {
             case "Maximize": {
-                commonMethods.click(By.xpath(CommonSelectors.cardToggleMaximize.replace("card", cardName)));
+                commonFucntions.click(By.xpath(CommonSelectors.cardToggleMaximize.replace("card", cardName)));
                 break;
 
             }
             case "Minimize" : {
                 String xpath = CommonSelectors.cardToggleMinimize.replace("card", cardName);
                 xpath = xpath.replace("buttonName", buttonName);
-                commonMethods.click(By.xpath(xpath));
+                commonFucntions.click(By.xpath(xpath));
                 break;
             }
             default:
@@ -74,15 +74,15 @@ public class CommonPages {
     }
 
     public void verifyDashboard() {
-        commonMethods.customWait(3000);
-        Assert.assertTrue(commonMethods.isPresent(By.xpath(CommonSelectors.designation)));
-        Assert.assertTrue(commonMethods.isPresent(By.xpath(CommonSelectors.logo)));
+        commonFucntions.customWait(3000);
+        Assert.assertTrue(commonFucntions.isPresent(By.xpath(CommonSelectors.designation)));
+        Assert.assertTrue(commonFucntions.isPresent(By.xpath(CommonSelectors.logo)));
 
     }
 
     public void verifyCardMinimized(String cardName) {
         int flag = 0;
-        List<WebElement> cards = commonMethods.getMultipleElements(By.xpath(CommonSelectors.collapsedCard));
+        List<WebElement> cards = commonFucntions.getMultipleElements(By.xpath(CommonSelectors.collapsedCard));
 
         for (WebElement card: cards
              ) {
@@ -96,7 +96,7 @@ public class CommonPages {
 
     public void verifyCardMaximized(String cardName) {
         int flag = 0;
-        List<WebElement> cards = commonMethods.getMultipleElements(By.xpath(CommonSelectors.fullScreenCard));
+        List<WebElement> cards = commonFucntions.getMultipleElements(By.xpath(CommonSelectors.fullScreenCard));
 
         for (WebElement card: cards
         ) {
@@ -108,3 +108,4 @@ public class CommonPages {
 
     }
 }
+

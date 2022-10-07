@@ -17,8 +17,13 @@ import org.openqa.selenium.support.ui.Select;
 
 import javax.swing.*;
 
+import java.util.Random;
+
+import static java.util.UUID.randomUUID;
+
 public class KnowledgeBasePage extends PageObject {
 
+    Random rand = new Random();
     KnowledgeBaseLocators selector;
     @Step("Step to goto menu item and click on menu subitem")
     public void gotoMenuItemAndSubItem(String menuItem, String subMenuItem){
@@ -273,6 +278,9 @@ public class KnowledgeBasePage extends PageObject {
             }
    @Step
     public void inputNameInInputBox(String inputName){
+        int randVal =  rand. nextInt(10000);
+       System.out.println(randVal);
+       inputName = inputName+randVal;
         $(selector.tagNameInputBox).sendKeys(inputName);
     }
 

@@ -33,7 +33,7 @@ ext {
 }
 
 dependencies {
-<<<<<<< HEAD
+
     testImplementation "net.serenity-bdd:serenity-core:${serenityCoreVersion}",
             // https://mvnrepository.com/artifact/net.serenity-bdd/serenity-cucumber
             "net.serenity-bdd:serenity-cucumber:${serenityCoreVersion}",
@@ -46,27 +46,7 @@ dependencies {
             "org.json:json:${jsonVersion}",
             "junit:junit:${junitVersion}",
             "org.assertj:assertj-core:${assertJVersion}"
-=======
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.0'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.0'
-    implementation group: 'net.serenity-bdd', name: 'serenity-core', version: '3.3.2'
-    implementation group: 'net.serenity-bdd', name: 'serenity-junit', version: '3.3.2'
-    testImplementation group: 'net.serenity-bdd', name: 'serenity-cucumber', version: '3.3.2'
-    implementation group: 'io.cucumber', name: 'cucumber-java', version: '6.10.4'
-    testImplementation group: 'io.cucumber', name: 'cucumber-junit', version: '6.10.4'
-    testImplementation group: 'junit', name: 'junit', version: '4.13.2'
-    testImplementation group: 'org.assertj', name: 'assertj-core', version: '3.23.1'
-    implementation group: 'org.slf4j', name: 'slf4j-api', version: '2.0.0'
-    testImplementation group: 'org.slf4j', name: 'slf4j-log4j12', version: '2.0.0', ext: 'pom'
-    testImplementation group: 'io.cucumber', name: 'cucumber-junit', version: '4.0.0'
-    //implementation group: 'net.serenity-bdd', name: 'serenity-cucumber6', version: '2.6.0'
-    testImplementation group: 'net.serenity-bdd', name: 'serenity-cucumber', version: '3.3.2'
-    testImplementation group: 'net.serenity-bdd', name:'serenity-screenplay' , version: '3.2.5'
-    testImplementation group: 'net.serenity-bdd', name:'serenity-screenplay-rest' , version: '3.2.5'
-    testImplementation group: 'net.serenity-bdd', name:'serenity-rest-assured' , version: '3.2.5'
-    testImplementation group: 'io.rest-assured', name:'rest-assured' , version: '5.1.1'
-    testImplementation group: 'org.json', name:'json' , version: '20210307'
->>>>>>> 1a3c1d2e4802563dd8ea6ab4cd4877d4ac0aa443
+
 }
 
 test {

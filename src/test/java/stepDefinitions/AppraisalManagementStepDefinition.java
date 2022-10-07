@@ -1,6 +1,6 @@
 package stepDefinitions;
 
-import com.gemini.mis.commonfunctions.CommonMethods;
+import com.gemini.mis.commonfunctions.CommonFucntions;
 import com.gemini.mis.pages.AppraisalManagementAddGoalsPages;
 import com.gemini.mis.selectors.AppraisalManagementAddGoalsLocators;
 import com.gemini.mis.selectors.CommonSelectors;
@@ -8,7 +8,6 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import net.serenitybdd.core.pages.PageObject;
-import net.thucydides.core.annotations.Step;
 import net.thucydides.core.annotations.Steps;
 import org.junit.Assert;
 import org.openqa.selenium.By;
@@ -19,7 +18,7 @@ public class AppraisalManagementStepDefinition extends PageObject {
     AppraisalManagementAddGoalsPages goalPages;
 
     @Steps
-    CommonMethods commonFunctions;
+    CommonFucntions commonFunctions;
 
     AppraisalManagementAddGoalsLocators myGoalSelectors;
 
@@ -227,6 +226,13 @@ public class AppraisalManagementStepDefinition extends PageObject {
         if(button.equals("delete"))
             if($(By.xpath(deleteButtonXpath)).isDisplayed()){
                 clickOn($(By.xpath(deleteButtonXpath)));
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+//            clickOn($());
+=======
+>>>>>>> 46652873f568d748e4980e143582ff8b9ddb23b9
+>>>>>>> f7aeee926639e321abdc2e653eafa75ce9832045
                Assert.assertTrue("clicked on delete button ", true);
             }
             else{
@@ -240,7 +246,16 @@ public class AppraisalManagementStepDefinition extends PageObject {
     @Then("^verify \"(.*?)\" and \"(.*?)\" present$")
     public void verifyProjectAndGoalDescription(String projName, String desc){
         deleteButtonXpath  =  goalPages.verifyProjectAndGoalDescription(projName,desc);
+<<<<<<< HEAD
         System.out.println(deleteButtonXpath);
+=======
+<<<<<<< HEAD
+//        goalPages.verifyProjectAndGoalDescription(projName, desc);
+//        System.out.println(deleteButtonXpath);
+=======
+        System.out.println(deleteButtonXpath);
+>>>>>>> 46652873f568d748e4980e143582ff8b9ddb23b9
+>>>>>>> f7aeee926639e321abdc2e653eafa75ce9832045
     }
 
     @And("^clicks on submit button \"(.*?)\"$")

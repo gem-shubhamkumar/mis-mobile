@@ -30,7 +30,11 @@ public class KnowledgeBaseLocators {
     public static By nextButton = xpath("(//a[@aria-controls='tbldocumentGridViewList'])[2]");
     public static By prevButton = xpath("(//a[@aria-controls='tbldocumentGridViewList'])[1]");
     public static By dropDown = xpath("//*[@id=\"tbldocumentGridViewList_length\"]/label/select");
+<<<<<<< HEAD
     public static By listOfFolders = xpath("");
+=======
+//    public static By listOfFolders = xpath("//div[@id='DocumentGrouptree']/ul/li[]/span/a");
+>>>>>>> f7aeee926639e321abdc2e653eafa75ce9832045
     public static By warnignOkOnFolderPopup = xpath("/html/body/div[13]/div[7]/div/button");
 
     //view shared documents xpaths

@@ -1,6 +1,6 @@
 package com.gemini.mis.pages;
 
-import com.gemini.mis.commonfunctions.CommonMethods;
+import com.gemini.mis.commonfunctions.CommonFucntions;
 import com.gemini.mis.selectors.AppraisalManagementAddGoalsLocators;
 import net.serenitybdd.core.pages.PageObject;
 import net.thucydides.core.annotations.Step;
@@ -15,7 +15,7 @@ import java.util.List;
 public class AppraisalManagementAddGoalsPages extends PageObject {
 
     @Steps
-    CommonMethods commonFunction;
+    CommonFucntions commonFunction;
 
     @Step("verify four elements are available in financial year dropdown")
     public void verifyFinancialYearDropdown(){
@@ -240,6 +240,7 @@ public class AppraisalManagementAddGoalsPages extends PageObject {
                 break;
             case "with some remark":
                 $(By.id("remarks")).sendKeys("Some Remarks before deletion");
+                Assert.assertTrue("Added remarks",true);
                 clickOn($(By.xpath("//*[@id=\"modalDeleteGoal\"]/div/div/div[3]/button[1]")));
                 break;
             default: Assert.fail("Failed in clicking on remark");
@@ -274,6 +275,7 @@ public class AppraisalManagementAddGoalsPages extends PageObject {
 
     @Step("Step to watch out the project name and description")
     public String verifyProjectAndGoalDescription(String projName,String desc){
+
         String xpathForDeleteButton;
         int rows;
         int col;
@@ -292,8 +294,6 @@ public class AppraisalManagementAddGoalsPages extends PageObject {
             }
        else
            return "";
-
-        return "";
     }
 
     @Step("Verify current page title is not as gemini page title")

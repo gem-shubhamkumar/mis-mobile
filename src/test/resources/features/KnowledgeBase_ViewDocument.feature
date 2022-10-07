@@ -29,7 +29,7 @@ Feature: Automation of  View Document and view shared document Submenu in knowle
 
 
   @Test2
-  Scenario Outline:  On Knowledge Base add new document and check how these working
+  Scenario Outline:  On Knowledge Base add new document and check how these are  working
     When Goto "<menuItem>" and click on "<subMenuItem>"
     Then click on "<targetElement>"
     And enter "<validTagName>" tag name and click on "<addButton>"
@@ -75,16 +75,16 @@ Feature: Automation of  View Document and view shared document Submenu in knowle
       And click on "<closeButton>" button
       Then click on "<targetElement>"
       And create folder without name and click "<addButton>"
-      And click on ok button from success window
-      Then verify folder added
+      And click on "<closeButton>" button
+      Then verify folder "<withoutName>" added
       Then  click on "<targetElement>"
       And click on "<crossButton>" button
       Then  click on "<targetElement>"
       And click on "<closeButton>" button
 
       Examples:
-        |menuItem|subMenuItem|targetElement|crossButton|closeButton|addButton|
-        |knowledge base|view document|AddNewFolder|crossIconOnFolderName|folderNameCloseButton|folderNameSaveButton|
+        |menuItem|subMenuItem|targetElement|crossButton|closeButton|addButton|withoutName|
+        |knowledge base|view document|AddNewFolder|crossIconOnFolderName|folderNameCloseButton|folderNameSaveButton||
 
      @Test5
     Scenario Outline:check folder functionality add folder without name
