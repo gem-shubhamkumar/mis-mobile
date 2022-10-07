@@ -9,63 +9,56 @@ package com.gemini.mis.commonfunctions;
  import java.util.List;
         import java.util.Set;
 
- import com.gemini.mis.selectors.CommonSelectors;
- import net.thucydides.core.pages.PageObject;
- import org.junit.Assert;
- import org.openqa.selenium.*;
- import org.openqa.selenium.Dimension;
- import org.openqa.selenium.Point;
- import org.openqa.selenium.support.ui.ExpectedConditions;
-        import org.openqa.selenium.support.ui.Select;
+import java.awt.*;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.StringSelection;
+import java.io.File;
+import java.text.SimpleDateFormat;
+import java.time.Duration;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+import net.serenitybdd.core.pages.PageObject;
+import net.thucydides.core.annotations.Step;
+import org.junit.Assert;
+import org.openqa.selenium.*;
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.Point;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 
-      
+
 
 public class CommonFunctions extends PageObject  {
 
     public  void launchUrl(String url) throws Exception {
         final String stepTtile = "Launch Url";
-
-
         try {
             getDriver().get(url);
-
-
         } catch (Exception e) {
-
-            
             throw new Exception(e.getMessage());
         }
-
     }
 
     public  String getTitle(String url) throws Exception {
         final String stepTtile = "Get Title";
-
-
         String title = "";
         try {
             title = getDriver().getTitle();
-
-
         } catch (Exception e) {
-
-            
             throw new Exception(e.getMessage());
         }
-
         return title;
     }
 
     public  void maximizeBrowser() throws Exception {
         final String stepTtile = "Maximize Browser";
-
-
         try {
             getDriver().manage().window().maximize();
 
         } catch (Exception e) {
 
-            
+
             throw new Exception(e.getMessage());
         }
 
@@ -73,14 +66,10 @@ public class CommonFunctions extends PageObject  {
 
     public  void minimizeBrowser() throws Exception {
         final String stepTtile = "Minimize Browser";
-
-
         try {
             getDriver().manage().window().minimize();
 
         } catch (Exception e) {
-
-            
             throw new Exception(e.getMessage());
         }
 
@@ -90,22 +79,17 @@ public class CommonFunctions extends PageObject  {
         try {
             return getDriver().manage().window().getSize();
         } catch (Exception e) {
-            
+
             throw new Exception(e.getMessage());
         }
     }
 
     public  void setBrowserSize(int width, int height) throws Exception {
         final String stepTtile = "Set Browser Size";
-
-
         try {
             Dimension dimension = new Dimension(width, height);
             getDriver().manage().window().setSize(dimension);
-
         } catch (Exception e) {
-
-            
             throw new Exception(e.getMessage());
         }
 
@@ -113,15 +97,11 @@ public class CommonFunctions extends PageObject  {
 
     public  void setBrowserPosition(int x, int y) throws Exception {
         final String stepTtile = "Set Browser Position";
-
-
         try {
             Point point = new Point(x, y);
             getDriver().manage().window().setPosition(point);
 
         } catch (Exception e) {
-
-            
             throw new Exception(e.getMessage());
         }
 
@@ -132,7 +112,6 @@ public class CommonFunctions extends PageObject  {
             Point p = getDriver().manage().window().getPosition();
             return p;
         } catch (Exception e) {
-            
             throw new Exception(e.getMessage());
         }
     }
@@ -144,22 +123,20 @@ public class CommonFunctions extends PageObject  {
      ***/
 
     public  void waitSec(long seconds) throws Exception {
-
         try {
-            Thread.sleep(seconds * 1000);
-        } catch (InterruptedException e) {
-            
+            waitABit(seconds * 1000);
+        } catch (Exception e) {
+
             throw new Exception(e.getMessage());
         }
 
     }
 
     public  void setImplicitTimeOut(long seconds) throws Exception {
-
         try {
             getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(seconds));
         } catch (Exception e) {
-            
+
             throw new Exception(e.getMessage());
         }
 
@@ -169,7 +146,6 @@ public class CommonFunctions extends PageObject  {
         try {
             getDriver().manage().timeouts().scriptTimeout(Duration.ofSeconds(seconds));
         } catch (Exception e) {
-            
             throw new Exception(e.getMessage());
         }
     }
@@ -178,22 +154,14 @@ public class CommonFunctions extends PageObject  {
         try {
             getDriver().manage().timeouts().pageLoadTimeout(Duration.ofSeconds(seconds));
         } catch (Exception e) {
-            
+
             throw new Exception(e.getMessage());
         }
     }
-
-
-    /**
-     * return Window Handles
-     *
-     * @throws Exception
-     ***/
     public  String getWindowHandle() throws Exception {
         try {
             return getDriver().getWindowHandle();
         } catch (Exception e) {
-            
             throw new Exception(e.getMessage());
         }
     }
@@ -202,7 +170,6 @@ public class CommonFunctions extends PageObject  {
         try {
             return getDriver().getWindowHandles();
         } catch (Exception e) {
-            
             throw new Exception(e.getMessage());
         }
     }
@@ -217,7 +184,6 @@ public class CommonFunctions extends PageObject  {
         try {
             return getDriver().getCurrentUrl();
         } catch (Exception e) {
-            
             throw new Exception(e.getMessage());
         }
     }
@@ -231,7 +197,6 @@ public class CommonFunctions extends PageObject  {
         try {
             return getDriver().getPageSource();
         } catch (Exception e) {
-            
             throw new Exception(e.getMessage());
         }
     }
@@ -245,7 +210,6 @@ public class CommonFunctions extends PageObject  {
         try {
             getDriver().switchTo().window(nameOfHandle);
         } catch (Exception e) {
-            
             throw new Exception(e.getMessage());
         }
     }
@@ -262,7 +226,6 @@ public class CommonFunctions extends PageObject  {
         try {
             getDriver().switchTo().frame(nameOrId);
         } catch (Exception e) {
-            
             throw new Exception(e.getMessage());
         }
     }
@@ -271,7 +234,6 @@ public class CommonFunctions extends PageObject  {
         try {
             getDriver().switchTo().frame(frameElement);
         } catch (Exception e) {
-            
             throw new Exception(e.getMessage());
         }
     }
@@ -280,7 +242,6 @@ public class CommonFunctions extends PageObject  {
         try {
             getDriver().switchTo().parentFrame();
         } catch (Exception e) {
-            
             throw new Exception(e.getMessage());
         }
     }
@@ -289,7 +250,6 @@ public class CommonFunctions extends PageObject  {
         try {
             getDriver().switchTo().defaultContent();
         } catch (Exception e) {
-            
             throw new Exception(e.getMessage());
         }
     }
@@ -298,7 +258,6 @@ public class CommonFunctions extends PageObject  {
         try {
             return getDriver().switchTo().activeElement();
         } catch (Exception e) {
-            
             throw new Exception(e.getMessage());
         }
     }
@@ -310,49 +269,29 @@ public class CommonFunctions extends PageObject  {
      ***/
     public  void switchToAlert() throws Exception {
         final String stepTtile = "Switch To Alert";
-
-
         try {
             getDriver().switchTo().alert();
-
         } catch (Exception e) {
-
-            
             throw new Exception(e.getMessage());
         }
-
     }
 
     public  void acceptAlert() throws Exception {
         final String stepTtile = "Accept Alert";
-
-
         try {
             getDriver().switchTo().alert().accept();
-
         } catch (Exception e) {
-
-            
             throw new Exception(e.getMessage());
         }
-
-
     }
 
     public  void dismissAlert() throws Exception {
         final String stepTtile = "Dismiss Alert";
-
-
         try {
             getDriver().switchTo().alert().dismiss();
-
         } catch (Exception e) {
-
-            
             throw new Exception(e.getMessage());
         }
-
-
     }
 
     public  void alertInput(String input) throws Exception {
@@ -364,7 +303,6 @@ public class CommonFunctions extends PageObject  {
 
         } catch (Exception e) {
 
-            
             throw new Exception(e.getMessage());
         }
 
@@ -381,7 +319,6 @@ public class CommonFunctions extends PageObject  {
             List<WebElement> elements = getDriver().findElements(locator);
             return elements;
         } catch (Exception e) {
-            
             throw new Exception(e.getMessage());
         }
     }
@@ -392,7 +329,6 @@ public class CommonFunctions extends PageObject  {
         try {
             elementText = element.getText();
         } catch (Exception e) {
-            
             throw new Exception(e.getMessage());
         }
         return elementText;
@@ -408,7 +344,7 @@ public class CommonFunctions extends PageObject  {
             }
 
         } catch (Exception e) {
-            
+
             throw new Exception(e.getMessage());
         }
         return elementsText;
@@ -420,27 +356,18 @@ public class CommonFunctions extends PageObject  {
         try {
             getDriver().close();
         } catch (Exception e) {
-            
+
             throw new Exception(e.getMessage());
         }
     }
 
-
-
     public  void fileUpload(WebElement elementType, String path) throws Exception {
         final String stepTtile = "File Upload";
-
-
         try {
             elementType.sendKeys(path);
-
         } catch (Exception e) {
-
-            
             throw new Exception(e.getMessage());
         }
-
-
     }
 
     public  void pageScroll(int X, int Y) throws Exception {
@@ -484,7 +411,7 @@ public class CommonFunctions extends PageObject  {
      ****/
 
     public  void dragAndDrop(WebElement elementTypeFrom, WebElement elementTypeTo, String fromElementLabel,
-                                   String toElementLabel) throws Exception {
+                             String toElementLabel) throws Exception {
 
         String steps = "Drag and Drop";
 
@@ -493,64 +420,10 @@ public class CommonFunctions extends PageObject  {
 
         } catch (Exception e) {
 
-            
+
             throw new Exception(e.getMessage());
         }
     }
-
-    public  void dragAndDrop(By elementTypeFrom, By elementTypeTo, String fromElementLabel, String toElementLabel
-                                   ) throws Exception {
-
-        WebElement elementFrom = null;
-        WebElement elementTo = null;
-        elementFrom = $(elementTypeFrom);
-        elementTo = $(elementTypeTo);
-        withAction().dragAndDrop(elementFrom, elementTo).build().perform();
-    }
-
-    public void navigateToTab(String childTabName, String parentTabName) {
-        if ($(By.xpath(CommonSelectors.sideNav.replace("tabName", parentTabName))).isPresent()) {
-            waitFor(ExpectedConditions.presenceOfElementLocated(By.xpath(CommonSelectors.sideNav.replace("tabName", parentTabName)))).click();
-            waitABit(2000);
-
-            if ($(By.xpath(CommonSelectors.sideNav.replace("tabName", childTabName))).isPresent()) {
-                $(By.xpath(CommonSelectors.sideNav.replace("tabName", childTabName))).click();
-            }
-
-
-                throw new Exception(e.getMessage());
-            }
-
-        }
-
-        public  String getTitle(String url) throws Exception {
-            final String stepTtile = "Get Title";
-
-
-            String title = "";
-            try {
-                title = getDriver().getTitle();
-
-
-            } catch (Exception e) {
-
-
-                throw new Exception(e.getMessage());
-            }
-
-            return title;
-        }
-
-    public void navigateToTab(String parentTabName){
-        if ($(By.xpath(CommonSelectors.sideNav.replace("tabName", parentTabName))).isPresent()) {
-            waitABit(1000);
-            $(By.xpath(CommonSelectors.sideNav.replace("tabName", parentTabName))).click();
-
-        } else {
-            Assert.assertFalse("Unable to locate parent tab",false);
-        }
-    }
-
 
     public boolean isFileDownloaded(String downloadPath, String fileName) {
         File folder = new File(downloadPath);
@@ -573,6 +446,17 @@ public class CommonFunctions extends PageObject  {
             e.getMessage();
         }
     }
+    public boolean isElementFound(By loc) {
+        boolean isFound;
+        try {
+            $(loc);
+            isFound = true;
+        } catch (Exception e) {
+            isFound = false;
+        }
+        return isFound;
+    }
+
 
     public void changeFocusOfElement(WebElement element) throws Exception{
         try {
@@ -583,30 +467,14 @@ public class CommonFunctions extends PageObject  {
             e.getMessage();
         }
     }
-
-    public File getLAstModifiedFile(String directoryFilePath) throws Exception{
-        try {
-            File directory = new File(directoryFilePath);
-            File[] files = directory.listFiles(File::isFile);
-            long lastModifiedFileTime = Long.MIN_VALUE;
-            File choseFile = null;
-            if (files != null) {
-                for (File file : files) {
-                    if (file.lastModified() > lastModifiedFileTime) {
-                        choseFile = file;
-                        lastModifiedFileTime = file.lastModified();
-                    }
-                }
-            }
-            return choseFile;
+    public void clickOn(By elementLoc){
+        if ($(elementLoc).isVisible()){
+            waitABit(1500);
+            $(elementLoc).click();
+        }else{
+            Assert.fail("Unable to click: by xpath > "+elementLoc);
         }
-        catch (Exception e) {
-            e.getMessage();
-            return null;
-        }
-
     }
-*/
 
     public  void copyPaste(String TextToCopy, WebElement PasteToElement) throws Exception {
         try {
@@ -620,10 +488,9 @@ public class CommonFunctions extends PageObject  {
             e.getMessage();
         }
     }
-
     public String[] formatDate(String Pattern, String Date) throws Exception {
         try {
-           //apply pattern according to first part of Date
+            //apply pattern according to first part of Date
             java.util.Date format = new SimpleDateFormat(Pattern).parse(Date);
             String[] formattedDate = format.toString().split(" ");
             return formattedDate;
@@ -632,11 +499,8 @@ public class CommonFunctions extends PageObject  {
         catch (Exception e) {
             e.getMessage();
         }
-
-
         return new String[0];
     }
-
     public  void hover(WebElement element) throws Exception {
         try {
             withAction().moveToElement(element);
@@ -645,7 +509,6 @@ public class CommonFunctions extends PageObject  {
             e.getMessage();
         }
     }
-
     public String[] listOptionsInSelectDropdown(WebElement Element) throws Exception {
         try {
             Select dropdown = new Select(Element);
@@ -663,43 +526,4 @@ public class CommonFunctions extends PageObject  {
         }
         return new String[0];
     }
-
-/*    public  void validateLastModiFiesText(String directoryFilePath, by xpath) throws Exception {
-        try {
-            $(By.xpath(export button))).click();
-            $(By.xpath(pdf button))).click();
-//genFun.getLAstModifiedFile(FilePath);
-            waitABit(9000);
-            PDDocument document = PDDocument.load(genFun.getLAstModifiedFile(FilePath));
-            //Instantiate PDFTextStripper class
-            PDFTextStripper pdfStripper = new PDFTextStripper();
-            //Retrieving text from PDF document
-            String text = pdfStripper.getText(document);
-            System.out.println(text);
-            //Closing the document
-            if (text.contains(CompareingString)){
-                Assert.assertTrue("The pdf which is downloaded is correct",true);
-            }else{
-                Assert.fail("The pdf which is downloaded is not correct");
-            }
-            document.close();
-
-        }
-
-    }
-		catch (Exception e) {
-        e.getMessage();
-    }
-}*/
-
-
-
-
-
-
-
-
-
-
-
 }

@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 @MISLeave
+=======
+>>>>>>> 21b2f84389c4b714cc01561a2d10d71723c25428
 Feature: MIS Leave Management Activities
   This tests are for Leave Management module of MIS Beta
 

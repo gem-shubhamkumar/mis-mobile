@@ -5,6 +5,7 @@ apply plugin: 'net.serenity-bdd.aggregator'
 
 group 'org.example'
 version '1.0-SNAPSHOT'
+<<<<<<< HEAD
 repositories {
     mavenCentral()
 }
@@ -19,6 +20,9 @@ buildscript {
         classpath('net.serenity-bdd:serenity-gradle-plugin:' + serenityVersion)
     }
 }
+=======
+
+>>>>>>> 21b2f84389c4b714cc01561a2d10d71723c25428
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
@@ -61,6 +65,20 @@ test {
     systemProperties System.getProperties()
 
 }
+<<<<<<< HEAD
+=======
+test
+        {
+         /* filter
+                    {
+                      includeTestsMatching "*LeaveManagement"
+                    }
+         */   // useJUnitPlatform()
+            testLogging.showStandardStreams = true
+            systemProperties System.getProperties()
+            maxParallelForks = 8
+        }
+>>>>>>> 21b2f84389c4b714cc01561a2d10d71723c25428
 gradle.startParameter.continueOnFailure = true
 
 test.finalizedBy(aggregate)

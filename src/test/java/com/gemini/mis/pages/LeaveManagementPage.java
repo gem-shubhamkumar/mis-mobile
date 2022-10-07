@@ -1,6 +1,6 @@
 package com.gemini.mis.pages;
 
-import com.gemini.mis.commonfunctions.CommonFunctions;
+import com.gemini.mis.commonfunctions.CommonFunctions_MIS;
 import com.gemini.mis.selectors.XpathForLeaveManagementTab;
 import com.gemini.mis.selectors.XpathforPolicyTab;
 import net.serenitybdd.core.pages.PageObject;
@@ -11,7 +11,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 
-import java.io.File;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.Date;
@@ -19,24 +18,24 @@ import java.util.List;
 
 public class LeaveManagementPage extends PageObject
 {
-    CommonFunctions genFunc;
+    CommonFunctions_MIS genFunc;
 
     @Step("Launch MIS Beta site")
     public void launchSite()
     {
-        genFunc.launchSite();
+        genFunc.launchSite("https://mymis.geminisolutions.com","Gemini MIS","Successfully launched application","Unable to launch application");
     }
 
     @Step
     public void typeIntoElement(String text, String fieldName)
     {
-     genFunc.typeIntoElement(text,fieldName);
+        type(text,fieldName);
     }
 
     @Step
     public void clickOnButton(String btnName)
     {
-        genFunc.clickOnBtn(btnName);
+        clickOnBtn(btnName);
     }
 
     @Step
@@ -90,7 +89,7 @@ public class LeaveManagementPage extends PageObject
     @Step
     public void verifyTab(String tabName)
     {
-        genFunc.verifyTab(tabName);
+        verifyTabOpens(tabName);
     }
 
     @Step
@@ -136,7 +135,7 @@ public class LeaveManagementPage extends PageObject
     @Step
     public void verifyMandatoryFields(String fields)
     {
-        genFunc.verifyMandatoryFields(fields);
+        verifyRequiredFields(fields);
 
     }
 
@@ -391,17 +390,12 @@ public class LeaveManagementPage extends PageObject
     }
 
     @Step
-    public boolean isFileDownloaded(String downloadPath, String fileName) {
-        File folder = new File(downloadPath);
-        File[] folderContent = folder.listFiles();
-
-        for (int i = 0; i < folderContent.length; i++) {
-            if (folderContent[i].getName().equals(fileName)) {
-                folderContent[i].delete(); // File has been found, it can now be deleted:
-                return true;
-            }
-        }
-        return false;
+    public void isFileDownloaded(String downloadPath, String fileName) {
+     boolean isDownloaded = genFunc.isFileDownloaded(downloadPath,fileName);
+     if(!isDownloaded)
+     {
+         Assert.fail("Not downloaded");
+     }
     }
 
     @Step("Verify Print Page opens")
@@ -482,29 +476,29 @@ public class LeaveManagementPage extends PageObject
         {
             case "Excel":
             case "Excel Change Request":
-                isFileDownloaded = isFileDownloaded("C:\\Users\\ja.multani\\Downloads\\","Leave History List.xlsx");
+                isFileDownloaded = genFunc.isFileDownloaded("C:\\Users\\ja.multani\\Downloads\\","Leave History List.xlsx");
             break;
             case "Excel WFH":
-            isFileDownloaded = isFileDownloaded("C:\\Users\\ja.multani\\Downloads\\","WFH History List.xlsx");
+            isFileDownloaded = genFunc.isFileDownloaded("C:\\Users\\ja.multani\\Downloads\\","WFH History List.xlsx");
             break;
             case "Excel Comp Off":
-            isFileDownloaded = isFileDownloaded("C:\\Users\\ja.multani\\Downloads\\","CompOff History List.xlsx");
+            isFileDownloaded = genFunc.isFileDownloaded("C:\\Users\\ja.multani\\Downloads\\","CompOff History List.xlsx");
             break;
             case "Excel Out Duty/Tour":
-            isFileDownloaded = isFileDownloaded("C:\\Users\\ja.multani\\Downloads\\","Gemini - MIS.xlsx");
+            isFileDownloaded = genFunc.isFileDownloaded("C:\\Users\\ja.multani\\Downloads\\","Gemini - MIS.xlsx");
             break;
             case "Pdf":
             case "Pdf Change Request":
-                isFileDownloaded = isFileDownloaded("C:\\Users\\ja.multani\\Downloads\\","Leave History List.pdf");
+                isFileDownloaded = genFunc.isFileDownloaded("C:\\Users\\ja.multani\\Downloads\\","Leave History List.pdf");
             break;
             case "Pdf WFH":
-            isFileDownloaded = isFileDownloaded("C:\\Users\\ja.multani\\Downloads\\","WFH History List.pdf");
+            isFileDownloaded = genFunc.isFileDownloaded("C:\\Users\\ja.multani\\Downloads\\","WFH History List.pdf");
             break;
             case "Pdf Comp Off":
-            isFileDownloaded = isFileDownloaded("C:\\Users\\ja.multani\\Downloads\\","CompOff History List.pdf");
+            isFileDownloaded = genFunc.isFileDownloaded("C:\\Users\\ja.multani\\Downloads\\","CompOff History List.pdf");
             break;
             case "Pdf Out Duty/Tour":
-            isFileDownloaded = isFileDownloaded("C:\\Users\\ja.multani\\Downloads\\","Gemini - MIS.pdf");
+            isFileDownloaded = genFunc.isFileDownloaded("C:\\Users\\ja.multani\\Downloads\\","Gemini - MIS.pdf");
             break;
 
         }
@@ -613,6 +607,276 @@ public class LeaveManagementPage extends PageObject
         else
         {
             Assert.fail("Outing date not verified");
+        }
+    }
+    public void type(String text, String fieldName) {
+        WebElementFacade elementFacade = null;
+        switch (fieldName) {
+            case "username":
+                elementFacade = find(XpathForLeaveManagementTab.textBox("username"));
+                break;
+            case "Reason":
+                elementFacade = find(XpathForLeaveManagementTab.textArea("outingReason"));
+                break;
+            case "Primary contact number":
+                elementFacade =find(XpathForLeaveManagementTab.textBox("outingContactNumber"));
+                break;
+            case "password":
+                elementFacade = find(XpathForLeaveManagementTab.textBox("password"));
+                break;
+        }
+        if (elementFacade.isEnabled()) {
+            typeInto(elementFacade, text);
+            Assert.assertTrue("Text entered successfully", true);
+        } else {
+            Assert.assertEquals("Unable to enter text", false);
+        }
+    }
+    public void clickOnBtn(String btnName) {
+        boolean elementPresent = false;
+        By tab = null;
+        switch (btnName) {
+            case "Sign in":
+                tab = XpathForLeaveManagementTab.textBox("btnLogin");
+                break;
+            case "Submit Comp off":
+                tab = XpathForLeaveManagementTab.submitBtn("3");
+                break;
+            case "Submit LWP":
+                tab = XpathForLeaveManagementTab.submitBtn("4");
+                break;
+            case "Submit Out of Duty/Tour":
+                tab = XpathForLeaveManagementTab.submitBtn("5");
+                break;
+            case "Submit Leave":
+                tab = XpathForLeaveManagementTab.submitBtn("1");
+                break;
+            case "Submit WFH":
+                tab = XpathForLeaveManagementTab.submitBtn("2");
+                break;
+            case "Total working days":
+                tab = XpathForLeaveManagementTab.tooltip;
+                break;
+            case "Leave for half day":
+                tab = XpathForLeaveManagementTab.textBox("isLeaveHalfDay");
+                break;
+            case "OK":
+                tab = XpathForLeaveManagementTab.btnType("OK");
+                break;
+            case "Mobile":
+                tab = XpathForLeaveManagementTab.textBox("avilableOnMobile");
+                break;
+            case "Email":
+                tab = XpathForLeaveManagementTab.textBox("avilableOnEmail");
+                break;
+            case "Next":
+                tab = XpathforPolicyTab.pagination("paginate_button next");
+                break;
+            case "Next Leave":
+                tab = XpathForLeaveManagementTab.paginationNext("1");
+                break;
+            case "Next WFH":
+                tab = XpathForLeaveManagementTab.paginationNext("2");
+                break;
+            case "Previous":
+                tab = XpathforPolicyTab.pagination("paginate_button previous");
+                break;
+            case "Previous Leave":
+            case "Previous WFH":
+                tab = XpathForLeaveManagementTab.paginationPrevious("1");
+                break;
+            case "View":
+                tab = XpathforPolicyTab.viewBtn;
+                break;
+            case "Close":
+                tab = XpathforPolicyTab.pageElement("button");
+                break;
+            case "Date Range":
+                tab = XpathForLeaveManagementTab.dateRange;
+                break;
+            case "Export":
+                tab = XpathForLeaveManagementTab.exportBtn("1");
+                break;
+            case "Export WFH":
+            case "Export Comp Off":
+            case "Export Out Duty/Tour":
+            case "Export LWP":
+                tab = XpathForLeaveManagementTab.exportBtn("2");
+                break;
+            case "Copy":
+                tab = XpathForLeaveManagementTab.copyBtn("1");
+                break;
+            case "Print":
+                tab = XpathForLeaveManagementTab.printBtn("1");
+                break;
+            case "Excel":
+                tab = XpathForLeaveManagementTab.excelBtn("1");
+                break;
+            case "Pdf":
+                tab = XpathForLeaveManagementTab.pdfBtn("1");
+                break;
+            case "Period":
+                tab = XpathForLeaveManagementTab.columnHeading("1");
+                break;
+            case "Period WFH":
+            case "Applied for":
+            case "Period Out Duty":
+                tab = XpathForLeaveManagementTab.columnHeading("8");
+                break;
+            case "Half Day":
+            case "Days":
+            case "Duty Type":
+                tab = XpathForLeaveManagementTab.columnHeading("9");
+                break;
+            case "Type":
+                tab = XpathForLeaveManagementTab.columnHeading("2");
+                break;
+            case "Reason":
+                tab = XpathForLeaveManagementTab.columnHeading("3");
+                break;
+            case "Remarks":
+                tab = XpathForLeaveManagementTab.columnHeading("4");
+                break;
+            case "Reason WFH":
+            case "Reason Comp Off":
+            case "Reason Out Duty":
+                tab = XpathForLeaveManagementTab.columnHeading("10");
+                break;
+            case "Remarks WFH":
+            case "Remarks Comp Off":
+            case "Remarks Out Duty":
+                tab = XpathForLeaveManagementTab.columnHeading("11");
+                break;
+            case "Status":
+                tab = XpathForLeaveManagementTab.columnHeading("5");
+                break;
+            case "Applied On":
+                tab = XpathForLeaveManagementTab.columnHeading("6");
+                break;
+            case "Action":
+                tab = XpathForLeaveManagementTab.columnHeading("7");
+                break;
+            case "Expand":
+                tab = XpathForLeaveManagementTab.expandBtn("2");
+                break;
+            case "Expand Comp Off":
+            case "Expand Out Duty":
+                tab = XpathForLeaveManagementTab.expandBtn("11");
+                break;
+            case "Cancel":
+                tab = XpathForLeaveManagementTab.cancelBtn;
+                break;
+            case "View Out Duty":
+                tab = XpathForLeaveManagementTab.viewBtn;
+                break;
+            case "Yes":
+                tab = XpathForLeaveManagementTab.button("confirm btn btn-lg btn-danger");
+                break;
+            default:
+                elementPresent = false;
+        }
+        if (genFunc.isElementFoundInGivenTime(tab)) {
+            Assert.assertTrue("Verified button: " + tab + "is present on screen", genFunc.isElementFoundInGivenTime(tab));
+            WebElementFacade elementFacade = find(tab);
+            elementFacade.click();
+        } else {
+            Assert.assertFalse("Unable to find button", !genFunc.isElementFoundInGivenTime(tab));
+        }
+    }
+
+    public void verifyTabOpens(String tabName) {
+        waitABit(5000);
+        String expectedHeading = "";
+        String title ="";
+        if(tabName.equals("Out Duty/Tour Request Detail"))
+        {
+            WebElementFacade elementFacade = find(XpathForLeaveManagementTab.newHeading);
+            if (elementFacade.getText().equals(expectedHeading)) {
+                Assert.assertTrue("Tab verified successfully", true);
+            } else {
+                Assert.assertFalse("Unable to verify tab", false);
+            }
+        }
+        else {
+            switch (tabName) {
+                case "Apply":
+                    expectedHeading = "Apply Leave/ WFH / Comp Off / Out Duty / Change Request";
+                    break;
+                case "Leave History":
+                    expectedHeading = "Leave History";
+                    break;
+                case "View Policies":
+                    expectedHeading = "View Policies";
+                    title = getDriver().getCurrentUrl();
+                    if (title.contains("ViewPolicy")) {
+                        Assert.assertTrue("Tab verified successfully", true);
+                    } else {
+                        Assert.fail("Unable to verify tab");
+                    }
+                    break;
+            }
+            WebElementFacade elementFacade = find(XpathForLeaveManagementTab.heading);
+            if (elementFacade.getText().equals(expectedHeading)) {
+                Assert.assertTrue("Tab verified successfully", true);
+            } else {
+                Assert.assertFalse("Unable to verify tab", false);
+            }
+        }
+    }
+
+    public void verifyRequiredFields(String fields) {
+        WebElementFacade elementFacade = null;
+        switch (fields) {
+            case "Outing From":
+                elementFacade = find(XpathForLeaveManagementTab.inputItem("Outing From"));
+                break;
+            case "LWP Change Request From":
+                elementFacade = find(XpathForLeaveManagementTab.dropdown("fromDt"));
+                break;
+            case "Type of Leave":
+                elementFacade = find(XpathForLeaveManagementTab.dropdown("legitimateType"));
+                break;
+            case "Reason for Request":
+                elementFacade = find(XpathForLeaveManagementTab.textArea("legitimateReason"));
+                break;
+            case "Outing Till":
+                elementFacade = find(XpathForLeaveManagementTab.inputItem("Outing Till"));
+                break;
+            case "Type":
+                elementFacade = find(XpathForLeaveManagementTab.dropdown("outingType"));
+                break;
+            case "Primary Contact number":
+                elementFacade = find(XpathForLeaveManagementTab.textBox("outingContactNumber"));
+                break;
+            case "Reason for outing":
+                elementFacade = find(XpathForLeaveManagementTab.textArea("outingReason"));
+                break;
+            case "From":
+                elementFacade = find(XpathForLeaveManagementTab.inputItem("Leave From"));
+                break;
+            case "Till":
+                elementFacade = find(XpathForLeaveManagementTab.inputItem("Leave Till"));
+                break;
+            case "Reason":
+                elementFacade = find(XpathForLeaveManagementTab.textArea("leaveReason"));
+                break;
+            case "WFH Reason":
+                elementFacade = find(XpathForLeaveManagementTab.textArea("WFHReason"));
+                break;
+            case "Comp Off Reason":
+                elementFacade = find(XpathForLeaveManagementTab.textArea("CompOffReason"));
+                break;
+            case "Date":
+                elementFacade = find(XpathForLeaveManagementTab.dropdown("WorkFromHomeDate"));
+                break;
+            case "Comp Off Date":
+                elementFacade = find(XpathForLeaveManagementTab.dropdown("CompOffDate"));
+                break;
+        }
+        if (elementFacade.getAttribute("class").contains("error-validation")) {
+            Assert.assertTrue("Field is mandatory", true);
+        } else {
+            Assert.fail("Fields is not mandatory");
         }
     }
 }
