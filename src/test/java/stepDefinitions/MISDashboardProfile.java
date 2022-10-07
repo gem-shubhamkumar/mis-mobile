@@ -1,10 +1,10 @@
 package stepDefinitions;
 
+
 import com.gemini.mis.pages.DashboardProfilePage;
 import com.gemini.mis.pages.FormsPage;
 import com.gemini.mis.pages.LoginPage;
 import com.gemini.mis.selectors.LocatorDashboardProfilePage;
-import com.gemini.mis.selectors.LocatorFormPage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -28,6 +28,7 @@ public class MISDashboardProfile extends PageObject {
         steps.Wait(2000);
         steps.click(LocatorDashboardProfilePage.editPencil);
     }
+
     @Then("User verifies element {string}")
     public void userVerifiesElement(String text) {
         steps.Wait(1000);
@@ -168,9 +169,9 @@ public class MISDashboardProfile extends PageObject {
     }
 
 
-    @And("Verify {string} file is downloaded")
+    @And("Verify {string} file is downloaded {string}")
     public void verifyFileIsDownloaded(String fileName) {
-        forms.isFileDownloaded("C:\\Users\\ch.srivastava\\Downloads","card.jpg");
+       forms.isFileDownloaded("C:\\Users\\ch.srivastava\\Downloads",fileName);
         
     }
 

@@ -1,9 +1,7 @@
 package com.gemini.mis.selectors;
 
-<<<<<<< HEAD
-=======
 import org.openqa.selenium.By;
->>>>>>> f7aeee926639e321abdc2e653eafa75ce9832045
+
 
 public class CommonSelectors {
 
@@ -22,21 +20,6 @@ public class CommonSelectors {
 
     public static String fullScreenCard = "//section[contains(@class, 'panel-expanded')]/header/h3";
 
-<<<<<<< HEAD
-
-    public static String sideNav = "//span[@class='lbl' and text()='tabName']";
-
-
-    public static String paginationButtons = "//li[contains(@class, 'paginate_button buttonName')]";
-    public static String select = "//select[@attribute='value']";
-    public static String genericButton = "//button[@id='ids']";
-    public static String buttonPath= "//button[text()='BUTTONNAME']";
-    public static String genericPath="//*[text()='VAR']";
-    public static By enteriesNo=By.xpath("//select[contains(@name,'length')]");
-    public static String OptionOfEntry="//select[contains(@name,'length')]//option[@Value='VAR']";
-public static By searchBox=By.xpath("//input[@placeholder='Search']");
-public static By saveButton=By.xpath("//button[@id='btnAddReferral']");
-=======
     public static By menuTabs(String tabName){
         return By.xpath("//span[contains(text(),'"+tabName+"')]");
     }
@@ -53,5 +36,16 @@ public static By saveButton=By.xpath("//button[@id='btnAddReferral']");
 
 
 
->>>>>>> f7aeee926639e321abdc2e653eafa75ce9832045
+
+
+public class CommonSelectors {
+    public static org.openqa.selenium.By myElement(String text){
+        return By.xpath("//*[text()='"+text+"']");
+    }
+    public static By sideNavigation(String sideNav)
+    {
+
+        return By.xpath("//span[contains(text(),'"+sideNav+"')]");
+    }
+    public static By elementOnLandingPage= By.xpath("//a[text()='Change AD Password']");
 }

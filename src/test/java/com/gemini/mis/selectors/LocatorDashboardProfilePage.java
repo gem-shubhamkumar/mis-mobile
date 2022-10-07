@@ -15,10 +15,6 @@ public class LocatorDashboardProfilePage {
 
         return By.xpath("//input[@id='"+inp+"']");
     }
-    public static By elementOnLandingPage= By.xpath("//a[text()='Change AD Password']");
-    public static By inputValue=By.xpath("//input[@id='presentPincode']");
-    public static By editFieldForMobileNum =By.xpath("//input[@id='contactNo']");
-    public static By editFiledForExtension=By.xpath("//input[@id='extnNo']");
     public static By closeProfilePopup = By.xpath("//div[@id='mypopupUpdateProfile']/div/div/div/button/span");
     public static By updateBtn= By.xpath("//div[@class='form-group']/button[@id='btnUpdate']");
     public static By closeBtn= By.xpath("//button[@id='btnCloseLunch']");
