@@ -6,9 +6,9 @@ import org.junit.runner.RunWith;
 
 @RunWith(CucumberSerenityRunner.class)
 @CucumberOptions(
-        features = "src/test/resources/features/Policy.feature" , glue = "stepDefinitions"
+        features = "src/test/resources/features/" , glue = "stepDefinitions"
 )
-public class Policy
+public class TestRunner
 {
 
 }

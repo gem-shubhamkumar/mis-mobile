@@ -1,7 +1,6 @@
 package com.gemini.mis.pages;
 
 import com.gemini.mis.commonfunctions.CommonFunctions;
-import com.gemini.mis.selectors.CommonXpath;
 import com.gemini.mis.selectors.XpathForLeaveManagementTab;
 import com.gemini.mis.selectors.XpathforPolicyTab;
 import net.serenitybdd.core.pages.PageObject;
@@ -10,7 +9,6 @@ import net.thucydides.core.annotations.Step;
 import org.junit.Assert;
 import org.openqa.selenium.*;
 
-import java.io.File;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.Date;
@@ -919,21 +917,21 @@ public class LeaveManagementPage extends PageObject
     public void navigateToTab(String parentTabName, String childTabName)
     {
         // verification for Parent tab
-        if (isElementFoundInGivenTime(CommonXpath.sideNav(parentTabName)))
+        if (isElementFoundInGivenTime(XpathForLeaveManagementTab.sideNav(parentTabName)))
         {
             waitABit(1000);
             //clicks on parent tab
-            clickOn(CommonXpath.sideNav(parentTabName));
+            clickOn(XpathForLeaveManagementTab.sideNav(parentTabName));
             waitABit(2000);
             //verifies sub tab available
-            if (isElementFoundInGivenTime(CommonXpath.sideNav(childTabName))) {
+            if (isElementFoundInGivenTime(XpathForLeaveManagementTab.sideNav(childTabName))) {
                 if (childTabName.equals("View Request Status") && parentTabName.equals("LNSA")) {
-                    String xpath = "(" + CommonXpath.sideNav(childTabName);
+                    String xpath = "(" + XpathForLeaveManagementTab.sideNav(childTabName);
                     xpath = xpath + ")[2]";
                     WebElementFacade elementFacade = find(By.xpath(xpath));
                     elementFacade.click();
                 } else {
-                    clickOn(CommonXpath.sideNav(childTabName));
+                    clickOn(XpathForLeaveManagementTab.sideNav(childTabName));
                 }
             }
             else{
@@ -948,11 +946,11 @@ public class LeaveManagementPage extends PageObject
 
     public void navigateToTab(String parentTabName){
         // verification for Parent tab
-        if (isElementFoundInGivenTime(CommonXpath.sideNav(parentTabName)))
+        if (isElementFoundInGivenTime(XpathForLeaveManagementTab.sideNav(parentTabName)))
         {
             waitABit(1000);
             //clicks on parent tab
-            clickOn(CommonXpath.sideNav(parentTabName));
+            clickOn(XpathForLeaveManagementTab.sideNav(parentTabName));
 
         }
         else {

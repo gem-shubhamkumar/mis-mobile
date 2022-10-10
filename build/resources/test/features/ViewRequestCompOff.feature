@@ -14,7 +14,7 @@ Feature: MIS Leave Management Activities
       |      parentTab     |       childTab      |     tab   |
       | Leave Management   | View Request Status |  Comp Off |
 
-  Scenario Outline: Verify Date Range field is present for Leave Tab
+  Scenario Outline: Verify Date Range field is present for Comp Off Tab
     When User is on MIS Home Page
     When Click on "<childTab>" sub tab of "<parentTab>" tab
     And Verify "<childTab>" opens successfully
@@ -25,7 +25,7 @@ Feature: MIS Leave Management Activities
       |      parentTab     |       childTab      |       tab     |
       | Leave Management   | View Request Status |    Comp Off   |
 
-  Scenario Outline: Enter Invalid Date Range
+  Scenario Outline: Enter Invalid Date Range for Comp Off Tab
     When User is on MIS Home Page
     When Click on "<childTab>" sub tab of "<parentTab>" tab
     And Verify "<childTab>" opens successfully
@@ -39,7 +39,7 @@ Feature: MIS Leave Management Activities
       |      parentTab     |       childTab      |      tab      |
       | Leave Management   | View Request Status |    Comp Off   |
 
-  Scenario Outline: Enter Valid Date Range
+  Scenario Outline: Enter Valid Date Range for Comp Off Tab
     When User is on MIS Home Page
     When Click on "<childTab>" sub tab of "<parentTab>" tab
     And Verify "<childTab>" opens successfully
@@ -54,7 +54,7 @@ Feature: MIS Leave Management Activities
       |      parentTab     |       childTab      |       tab     |       dateRange           |
       | Leave Management   | View Request Status |    Comp Off   | 01 Apr 2022 - 31 Mar 2023 |
 
-  Scenario Outline: Click on Export Options Option
+  Scenario Outline: Click on Export Options Option for Comp Off Tab
     When User is on MIS Home Page
     When Click on "<childTab>" sub tab of "<parentTab>" tab
     And Verify "<childTab>" opens successfully
@@ -66,7 +66,7 @@ Feature: MIS Leave Management Activities
       |      parentTab     |       childTab      |      tab      |
       | Leave Management   | View Request Status |    Comp Off   |
 
-  Scenario Outline: Click on Print Option
+  Scenario Outline: Click on Print Option for Comp Off Tab
     When User is on MIS Home Page
     When Click on "<childTab>" sub tab of "<parentTab>" tab
     And Verify "<childTab>" opens successfully
@@ -80,7 +80,7 @@ Feature: MIS Leave Management Activities
       |      parentTab     |       childTab      |      tab      |
       | Leave Management   | View Request Status |    Comp Off   |
 
-  Scenario Outline: Click on Copy Option
+  Scenario Outline: Click on Copy Option for Comp Off Tab
     When User is on MIS Home Page
     When Click on "<childTab>" sub tab of "<parentTab>" tab
     And Verify "<childTab>" opens successfully
@@ -94,7 +94,7 @@ Feature: MIS Leave Management Activities
       |      parentTab     |       childTab      |       tab     |
       | Leave Management   | View Request Status |    Comp Off   |
 
-  Scenario Outline: Click on Excel Option
+  Scenario Outline: Click on Excel Option for Comp Off Tab
     When User is on MIS Home Page
     When Click on "<childTab>" sub tab of "<parentTab>" tab
     And Verify "<childTab>" opens successfully
@@ -108,7 +108,7 @@ Feature: MIS Leave Management Activities
       |      parentTab     |       childTab      |       tab     |
       | Leave Management   | View Request Status |    Comp Off   |
 
-  Scenario Outline: Verify PDF option
+  Scenario Outline: Verify PDF option for Comp Off Tab
     When User is on MIS Home Page
     When Click on "<childTab>" sub tab of "<parentTab>" tab
     And Verify "<childTab>" opens successfully
@@ -122,7 +122,7 @@ Feature: MIS Leave Management Activities
       |      parentTab     |       childTab      |       tab     |
       | Leave Management   | View Request Status |    Comp Off   |
 
-  Scenario Outline: Enter Comp Off Period Name in Search Box
+  Scenario Outline: Enter Comp Off Period Name in Search Box for Comp Off Tab
     When User is on MIS Home Page
     When Click on "<childTab>" sub tab of "<parentTab>" tab
     And Verify "<childTab>" opens successfully
@@ -134,7 +134,7 @@ Feature: MIS Leave Management Activities
       |      parentTab     |       childTab      | compOffPeriod |    tab   |
       | Leave Management   | View Request Status |   25-Sep-2022 | Comp Off |
 
-  Scenario Outline: Sort columns
+  Scenario Outline: Sort columns for Comp Off Tab
     When User is on MIS Home Page
     When Click on "<childTab>" sub tab of "<parentTab>" tab
     And Verify "<childTab>" opens successfully
@@ -144,7 +144,7 @@ Feature: MIS Leave Management Activities
       |      parentTab     |       childTab      |   tab    |
       | Leave Management   | View Request Status | Comp Off |
 
-  Scenario Outline: Cancel Leave
+  Scenario Outline: Expand Details of Comp Off
     When User is on MIS Home Page
     When Click on "<childTab>" sub tab of "<parentTab>" tab
     And Verify "<childTab>" opens successfully

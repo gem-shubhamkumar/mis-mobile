@@ -4,7 +4,7 @@ Feature: MIS Leave Management Activities
   Background:
     Given User is logged into MIS
 
-  Scenario Outline: Navigate to Leave Management > View Request Status tab
+  Scenario Outline: Navigate to Leave Management > View Request Status tab > Leave Tab
     When User is on MIS Home Page
     When Click on "<childTab>" sub tab of "<parentTab>" tab
     And Verify "<childTab>" opens successfully
@@ -23,7 +23,7 @@ Feature: MIS Leave Management Activities
       |      parentTab     |       childTab      | defaultTab |
       | Leave Management   | View Request Status |    Leave   |
 
-  Scenario Outline: Enter Invalid Date Range
+  Scenario Outline: Enter Invalid Date Range for Leave Tab
     When User is on MIS Home Page
     When Click on "<childTab>" sub tab of "<parentTab>" tab
     And Verify "<childTab>" opens successfully
@@ -36,7 +36,7 @@ Feature: MIS Leave Management Activities
       |      parentTab     |       childTab      | defaultTab |
       | Leave Management   | View Request Status |    Leave   |
 
-  Scenario Outline: Enter Valid Date Range
+  Scenario Outline: Enter Valid Date Range for Leave Tab
     When User is on MIS Home Page
     When Click on "<childTab>" sub tab of "<parentTab>" tab
     And Verify "<childTab>" opens successfully
@@ -50,7 +50,7 @@ Feature: MIS Leave Management Activities
       |      parentTab     |       childTab      | defaultTab |       dateRange           |
       | Leave Management   | View Request Status |    Leave   | 01 Apr 2022 - 31 Mar 2023 |
 
-  Scenario Outline: Verify Export Options
+  Scenario Outline: Verify Export Options for Leave Tab
     When User is on MIS Home Page
     When Click on "<childTab>" sub tab of "<parentTab>" tab
     And Verify "<childTab>" opens successfully
@@ -61,7 +61,7 @@ Feature: MIS Leave Management Activities
       |      parentTab     |       childTab      | defaultTab |
       | Leave Management   | View Request Status |    Leave   |
 
-  Scenario Outline: Click on Print Option
+  Scenario Outline: Click on Print Option for Leave Tab
     When User is on MIS Home Page
     When Click on "<childTab>" sub tab of "<parentTab>" tab
     And Verify "<childTab>" opens successfully
@@ -74,7 +74,7 @@ Feature: MIS Leave Management Activities
       |      parentTab     |       childTab      | defaultTab |
       | Leave Management   | View Request Status |    Leave   |
 
-  Scenario Outline: Click on Excel Option
+  Scenario Outline: Click on Excel Option for Leave Tab
     When User is on MIS Home Page
     When Click on "<childTab>" sub tab of "<parentTab>" tab
     And Verify "<childTab>" opens successfully
@@ -87,7 +87,7 @@ Feature: MIS Leave Management Activities
       |      parentTab     |       childTab      | defaultTab |
       | Leave Management   | View Request Status |    Leave   |
 
-  Scenario Outline: Click on Copy Option
+  Scenario Outline: Click on Copy Option for Leave Tab
     When User is on MIS Home Page
     When Click on "<childTab>" sub tab of "<parentTab>" tab
     And Verify "<childTab>" opens successfully
@@ -100,7 +100,7 @@ Feature: MIS Leave Management Activities
       |      parentTab     |       childTab      | defaultTab |
       | Leave Management   | View Request Status |    Leave   |
 
-  Scenario Outline: Verify PDF option
+  Scenario Outline: Verify PDF option for Leave Tab
     When User is on MIS Home Page
     When Click on "<childTab>" sub tab of "<parentTab>" tab
     And Verify "<childTab>" opens successfully
@@ -113,7 +113,7 @@ Feature: MIS Leave Management Activities
       |      parentTab     |       childTab      | defaultTab |
       | Leave Management   | View Request Status |    Leave   |
 
-  Scenario Outline: Verify Number of Entries displayed
+  Scenario Outline: Verify Number of Entries displayed for Leave Tab
     When User is on MIS Home Page
     When Click on "<childTab>" sub tab of "<parentTab>" tab
     And Verify "<childTab>" opens successfully
@@ -131,7 +131,7 @@ Feature: MIS Leave Management Activities
 
 
 
-  Scenario Outline: Enter Leave Period Name in Search Box
+  Scenario Outline: Enter Leave Period Name in Search Box for Leave Tab
     When User is on MIS Home Page
     When Click on "<childTab>" sub tab of "<parentTab>" tab
     And Verify "<childTab>" opens successfully
@@ -141,7 +141,7 @@ Feature: MIS Leave Management Activities
       |      parentTab     |       childTab      |        leavePeriod         |
       | Leave Management   | View Request Status | 25-Sep-2022 to 26-Sep-2022 |
 
-  Scenario Outline: Sort columns
+  Scenario Outline: Sort columns for Leave Tab
     When User is on MIS Home Page
     When Click on "<childTab>" sub tab of "<parentTab>" tab
     And Verify "<childTab>" opens successfully
@@ -150,7 +150,7 @@ Feature: MIS Leave Management Activities
       |      parentTab     |       childTab      |
       | Leave Management   | View Request Status |
 
-  Scenario Outline: Page Next
+  Scenario Outline: Page Next for Leave Tab
     When User is on MIS Home Page
     When Click on "<childTab>" sub tab of "<parentTab>" tab
     And Verify "<childTab>" opens successfully
@@ -165,7 +165,7 @@ Feature: MIS Leave Management Activities
       |      parentTab     |       childTab      |          dateRange         |
       | Leave Management   | View Request Status |  01 Apr 2021 - 31 Mar 2022 |
 
-  Scenario Outline: Page Previous
+  Scenario Outline: Page Previous for Leave Tab
     When User is on MIS Home Page
     When Click on "<childTab>" sub tab of "<parentTab>" tab
     And Verify "<childTab>" opens successfully
@@ -182,7 +182,7 @@ Feature: MIS Leave Management Activities
       |      parentTab     |       childTab      |          dateRange         |
       | Leave Management   | View Request Status |  01 Apr 2021 - 31 Mar 2022 |
 
-  Scenario Outline: Cancel Leave
+  Scenario Outline: Cancel Leave for Leave Tab
     When User is on MIS Home Page
     When Click on "<childTab>" sub tab of "<parentTab>" tab
     And Verify "<childTab>" opens successfully
@@ -202,5 +202,5 @@ Feature: MIS Leave Management Activities
     And Verify Leave is cancelled and "Request processed successfully" appears
     Examples:
       |      parentTab     |       childTab  | defaultTab |  fromDate  |   toDate    |  leaveType |     anotherTab      |
-      | Leave Management   |          Apply  |    Leave   | 29/09/2022 |  29/09/2022 |     CL     | View Request Status |
+      | Leave Management   |          Apply  |    Leave   | 6/10/2022 |  6/10/2022 |     CL     | View Request Status |
 
