@@ -94,7 +94,13 @@ public class LeaveManagementSteps extends PageObject
     @And("Verify {string} displays by default")
     public void verifyDisplaysByDefault(String tab)
     {
-        LeaveManagementTab.verifyDefaultTab(tab);
+        List<WebElementFacade> elementFacadeList = findAll(XpathForLeaveManagementTab.tab);
+        if (elementFacadeList.get(0).getAttribute("class").contains("active") &&
+                elementFacadeList.get(0).getText().equals(tab)) {
+            Assert.assertTrue("Default Tab verified successfully", true);
+        } else {
+            Assert.assertFalse("Unable to verify default tab", false);
+        }
     }
 
     @Then("Verify {string} fields are auto populated")

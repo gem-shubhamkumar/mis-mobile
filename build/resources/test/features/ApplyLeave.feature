@@ -43,7 +43,7 @@ Feature: MIS Leave Management Activities
     Then Select "<fromDate>" From date and "<toDate>" till Leave dates from Calendar
     Examples:
       |      parentTab     |       childTab  | defaultTab |  fromDate  | toDate     |
-      | Leave Management   |          Apply  |    Leave   | 29/09/2022 | 29/09/2022 |
+      | Leave Management   |          Apply  |    Leave   | 21/10/2022 | 21/10/2022 |
 
   Scenario Outline: Verify Total Working Days tooltip
     When User is on MIS Home Page
@@ -55,7 +55,7 @@ Feature: MIS Leave Management Activities
     And Verify "Total Working Days" tooltip text
     Examples:
       |      parentTab     |       childTab  | defaultTab |  fromDate  | toDate    |
-      | Leave Management   |          Apply  |    Leave   | 29/09/2022 | 29/09/2022|
+      | Leave Management   |          Apply  |    Leave   | 21/10/2022 | 21/10/2022|
 
   Scenario Outline: Choose leave for half day option
     When User is on MIS Home Page
@@ -67,7 +67,7 @@ Feature: MIS Leave Management Activities
     And Verify "<halfDayOptions>" half day options are available
     Examples:
       |      parentTab     |       childTab  | defaultTab |  fromDate  |   toDate    |            halfDayOptions        |
-      | Leave Management   |          Apply  |    Leave   | 29/09/2022 | 29/09/2022  | First half leave,Second half leave |
+      | Leave Management   |          Apply  |    Leave   | 21/10/2022 | 21/10/2022  | First half leave,Second half leave |
 
   Scenario Outline: Choose leave type
     When User is on MIS Home Page
@@ -78,7 +78,7 @@ Feature: MIS Leave Management Activities
     And Select "<leaveType>" from Leave Type dropdown
     Examples:
       |      parentTab     |       childTab  | defaultTab |  fromDate  |   toDate    |  leaveType |
-      | Leave Management   |          Apply  |    Leave   | 29/09/2022 |  29/09/2022 |     CL     |
+      | Leave Management   |          Apply  |    Leave   | 21/10/2022 |  21/10/2022 |     CL     |
 
   Scenario Outline: Enter reason for leave
     When User is on MIS Home Page
@@ -89,7 +89,7 @@ Feature: MIS Leave Management Activities
     And Enter reason "sick leave" for leave
     Examples:
       |      parentTab     |       childTab  | defaultTab |  fromDate  |   toDate    |
-      | Leave Management   |          Apply  |    Leave   | 29/09/2022 |  29/09/2022 |
+      | Leave Management   |          Apply  |    Leave   | 21/10/2022 |  21/10/2022 |
 
   Scenario Outline: Choose Availability
     When User is on MIS Home Page
@@ -100,7 +100,7 @@ Feature: MIS Leave Management Activities
     And choose "Mobile" as Availability
     Examples:
       |      parentTab     |       childTab  | defaultTab |  fromDate  |   toDate    |
-      | Leave Management   |          Apply  |    Leave   | 29/09/2022 |  29/09/2022 |
+      | Leave Management   |          Apply  |    Leave   | 21/10/2022 |  21/10/2022 |
 
   Scenario Outline: Enter required data and click on Submit leave
     When User is on MIS Home Page
@@ -114,4 +114,4 @@ Feature: MIS Leave Management Activities
     And Verify Leave is submitted and "leave applied successfully" appears
     Examples:
       |      parentTab     |       childTab  | defaultTab |  fromDate  |   toDate    |  leaveType |
-      | Leave Management   |          Apply  |    Leave   | 29/09/2022 |  29/09/2022 |     CL     |
+      | Leave Management   |          Apply  |    Leave   | 21/10/2022 |  21/10/2022 |     CL     |
