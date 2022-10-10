@@ -2,8 +2,8 @@ package com.gemini.mis.pages;
 
 import com.gemini.mis.selectors.DashboardSelectors;
 import net.serenitybdd.core.pages.PageObject;
-import net.thucydides.core.environment.SystemEnvironmentVariables;
 import net.thucydides.core.util.EnvironmentVariables;
+import net.thucydides.core.util.SystemEnvironmentVariables;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;

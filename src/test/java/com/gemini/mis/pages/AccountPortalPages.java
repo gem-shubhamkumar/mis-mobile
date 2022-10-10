@@ -1,6 +1,6 @@
 package com.gemini.mis.pages;
 
-import com.gemini.mis.commonFunctions.CommonFunctions;
+import com.gemini.mis.commonfunctions.CommonFunctions;
 import com.gemini.mis.selectors.AccountPortalSelectors;
 import com.gemini.mis.selectors.CommonXpaths;
 import com.gemini.mis.selectors.LeaveBalanceSelectors;
@@ -131,29 +131,7 @@ public class AccountPortalPages extends PageObject {
                clickOn(NavBarSelectors.btnDashboardSetting);
                 break;
             case "Update button":
-               clickOn(NavBarSelectors.btnUpdate);
-                break;
-            case "Profile button":
-                waitFor(ExpectedConditions.presenceOfElementLocated(NavBarSelectors.btnProfileMenu));
-                commonfunctions.clickOn(NavBarSelectors.btnProfileMenu);
-                break;
-            case "Skills option":
-                commonfunctions.clickOn(NavBarSelectors.optionsSkills);
-                break;
-            case "Save button":
-                commonfunctions.clickOn(NavBarSelectors.btnAddSkillSave);
-                break;
-            case "Add skill close button":
-                commonfunctions.clickOn(CommonXpaths.btnClose);
-                break;
-            case "Logout button":
-                commonfunctions.clickOn(CommonXpaths.btnLogout);
-                break;
-            case "Dashboard setting button":
-                commonfunctions.clickOn(NavBarSelectors.btnDashboardSetting);
-                break;
-            case "Update button":
-                commonfunctions.clickOn(NavBarSelectors.btnUpdate);
+                commonMethod.clickOn(NavBarSelectors.btnUpdate);
                 break;
 
             default:Assert.fail("button not found, not added in switch cases");

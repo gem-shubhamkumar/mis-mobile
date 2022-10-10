@@ -20,32 +20,33 @@ public class CommonSelectors {
 
     public static String fullScreenCard = "//section[contains(@class, 'panel-expanded')]/header/h3";
 
-    public static By menuTabs(String tabName){
-        return By.xpath("//span[contains(text(),'"+tabName+"')]");
-    }
-    public static By linkNumberOfLeave(String leaveType){
-        return By.xpath("//table[@class='tbl-typical text-left']/tbody/tr/td[text()='"+leaveType+"']//following-sibling::td/a");
+    public static By menuTabs(String tabName) {
+        return By.xpath("//span[contains(text(),'" + tabName + "')]");
     }
 
-    public static By sideMenuBar= By.xpath("//div[@class='jspPane']/ul");
-    public static By btnMenu =By.xpath("//button[@id='show-hide-sidebar-toggle']");
-    public static By textMessageBox =By.xpath("//p[@class='lead text-muted ']");
+    public static By linkNumberOfLeave(String leaveType) {
+        return By.xpath("//table[@class='tbl-typical text-left']/tbody/tr/td[text()='" + leaveType + "']//following-sibling::td/a");
+    }
+
+    public static By sideMenuBar = By.xpath("//div[@class='jspPane']/ul");
+    public static By btnMenu = By.xpath("//button[@id='show-hide-sidebar-toggle']");
+    public static By textMessageBox = By.xpath("//p[@class='lead text-muted ']");
     public static By btnOk = By.xpath("//button[text()='OK']");
-    public static By btnLogout =By.xpath("(//a[@class='dropdown-item']/span)[4]");
-    public static By btnClose =By.xpath("//button[@id='btnskillsClose']");
+    public static By btnLogout = By.xpath("(//a[@class='dropdown-item']/span)[4]");
+    public static By btnClose = By.xpath("//button[@id='btnskillsClose']");
 
-
-
-
-
-public class CommonSelectors {
-    public static org.openqa.selenium.By myElement(String text){
-        return By.xpath("//*[text()='"+text+"']");
+    public static org.openqa.selenium.By myElement(String text) {
+        return By.xpath("//*[text()='" + text + "']");
     }
-    public static By sideNavigation(String sideNav)
-    {
 
-        return By.xpath("//span[contains(text(),'"+sideNav+"')]");
+    public static By sideNavigation(String sideNav) {
+
+        return By.xpath("//span[contains(text(),'" + sideNav + "')]");
     }
-    public static By elementOnLandingPage= By.xpath("//a[text()='Change AD Password']");
+
+    public static By elementOnLandingPage = By.xpath("//a[text()='Change AD Password']");
+
 }
+
+
+

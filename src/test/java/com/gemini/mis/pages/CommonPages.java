@@ -1,6 +1,6 @@
 package com.gemini.mis.pages;
 
-import com.gemini.mis.commonfunctions.CommonFucntions;
+import com.gemini.mis.commonfunctions.CommonFunctions;
 import com.gemini.mis.selectors.CommonSelectors;
 import com.gemini.mis.selectors.ApplyToAnyLocators;
 import org.apache.commons.lang3.StringUtils;
@@ -12,7 +12,8 @@ import java.util.List;
 
 public class CommonPages {
 
-    CommonFucntions commonFucntions = new CommonFucntions();
+    CommonFunctions commonFucntions = new CommonFunctions();
+
     public void launchURL(String s) {
         commonFucntions.launchUrl(s);
     }

@@ -1,6 +1,6 @@
 package stepDefinitions;
 
-import com.gemini.mis.commonFunctions.CommonFunctions;
+import com.gemini.mis.commonfunctions.CommonFunctions;
 import com.gemini.mis.pages.AccountPortalPages;
 import com.gemini.mis.selectors.AccountPortalSelectors;
 import io.cucumber.java.en.*;

@@ -1,6 +1,6 @@
 package com.gemini.mis.pages;
 
-import com.gemini.mis.commonfunctions.CommonFucntions;
+import com.gemini.mis.commonfunctions.CommonFunctions;
 import com.gemini.mis.selectors.ApplyToAnyLocators;
 import net.thucydides.core.annotations.Step;
 import org.junit.Assert;
@@ -11,7 +11,7 @@ import java.util.List;
 
 public class ApplyToAnyCardPages {
 
-     CommonFucntions commonFucntions = new CommonFucntions();
+     CommonFunctions commonFucntions = new CommonFunctions();
 
      @Step("Verify if {0} card is present")
     public void verifyIfCardIsPresent(String cardName) {
@@ -46,7 +46,7 @@ public class ApplyToAnyCardPages {
     }
 
     @Step("Verify Modal Opened")
-    public void verifySkillModal() {
+    public void verifySkillModal() throws Exception {
          commonFucntions.switchToActiveElement();
          Assert.assertTrue(commonFucntions.isPresent(By.xpath(ApplyToAnyLocators.modalTitle)));
     }

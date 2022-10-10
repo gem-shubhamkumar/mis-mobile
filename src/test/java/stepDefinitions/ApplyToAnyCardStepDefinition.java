@@ -27,7 +27,7 @@ public class ApplyToAnyCardStepDefinition {
     }
 
     @When("^Manage Skills Modal open$")
-    public void manageSkillsModalOpen() {
+    public void manageSkillsModalOpen() throws Exception {
         skillsPages.verifySkillModal();
     }
 

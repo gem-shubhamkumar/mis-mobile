@@ -1,15 +1,14 @@
 package com.gemini.mis.runner;
 
-
 import io.cucumber.junit.CucumberOptions;
-import net.serenitybdd.cucumber.CucumberWithSerenity;
+import io.cucumber.junit.CucumberSerenityRunner;
 import org.junit.runner.RunWith;
 
-@RunWith(CucumberWithSerenity.class)
+@RunWith(CucumberSerenityRunner.class)
 @CucumberOptions(
-        features = "src/test/resources/features",
-        glue = "stepDefinitions",
-
-public class MISAutomation {
+        features = "src/test/resources/features" , glue = "stepDefinitions"
+)
+public class MISAutomation
+{
 
 }

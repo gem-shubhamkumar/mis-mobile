@@ -598,7 +598,7 @@ public class LeaveManagementPage extends PageObject
     public void verifyOutingDate(String date)
     {
         WebElementFacade elementFacade1 = find(By.xpath("(//div[@class='modal-content'])[3]"));
-        genFunc.focusElement(elementFacade1);
+        genFunc.changeFocusOfElement(elementFacade1);
         WebElementFacade elementFacade = find(XpathForLeaveManagementTab.outingDate);
         if(elementFacade.getText().replaceAll("-"," ").equals(date))
         {

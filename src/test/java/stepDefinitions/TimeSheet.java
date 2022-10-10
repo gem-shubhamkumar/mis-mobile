@@ -7,7 +7,7 @@ import com.gemini.mis.selectors.MISCommonSelectors;
 import com.gemini.mis.selectors.TimeSheetSelectors;
 import net.serenitybdd.core.pages.PageObject;
 import io.cucumber.java.en.And;
-import net.thucydides.core.environment.SystemEnvironmentVariables;
+import net.thucydides.core.util.SystemEnvironmentVariables;
 import net.thucydides.core.util.EnvironmentVariables;
 import org.junit.Assert;
 import java.util.logging.Logger;
