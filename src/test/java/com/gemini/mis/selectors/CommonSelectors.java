@@ -45,6 +45,9 @@ public class CommonSelectors {
     }
 
     public static By elementOnLandingPage = By.xpath("//a[text()='Change AD Password']");
+    public static String paginationButtons = "//li[contains(@class, 'paginate_button buttonName')]";
+    public static String select = "//select[@attribute='value']";
+    public static String sideNav = "//span[@class='lbl' and text()='tabName']";
 
 }
 
