@@ -462,7 +462,7 @@ public class CommonFunctions extends PageObject {
     }
 
 
-    public void changeFocusOfElement(WebElement element) throws Exception{
+    public void changeFocusOfElement(WebElement element) {
         try {
             JavascriptExecutor executor = (JavascriptExecutor) getDriver();
             executor.executeScript("arguments[0].focus();", element);

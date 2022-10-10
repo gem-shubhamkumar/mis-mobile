@@ -65,7 +65,7 @@ public class LeaveManagementSteps extends PageObject
     public void verifyOpenSuccessfully(String tabName)
     {
         waitABit(5000);
-        LeaveManagementTab.verifyTab(tabName);
+        LeaveManagementTab.verifyTabDisplays(tabName);
     }
 
     @And("Verify {string} displays by default")
@@ -490,7 +490,7 @@ public class LeaveManagementSteps extends PageObject
     @Then("Verify {string} Window appears")
     public void verifyWindowAppears(String title)
     {
-        LeaveManagementTab.verifyTab(title);
+        LeaveManagementTab.verifyTabDisplays(title);
     }
 
     @And("Verify {string} date")
@@ -502,7 +502,7 @@ public class LeaveManagementSteps extends PageObject
     @And("Verify Detail Window closes")
     public void verifyDetailWindowCloses()
     {
-        LeaveManagementTab.verifyTab("Leave History");
+        LeaveManagementTab.verifyTabDisplays("Leave History");
     }
 
     @Then("Enter {string} {string} Date range in Out Duty")

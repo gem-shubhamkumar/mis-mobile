@@ -1,16 +1,16 @@
 package com.gemini.mis.pages;
 
-import com.gemini.mis.commonfunctions.CommonFunctions_MIS;
+import com.gemini.mis.commonfunctions.CommonFunctions;
+import com.gemini.mis.selectors.CommonXpath;
 import com.gemini.mis.selectors.XpathForLeaveManagementTab;
 import com.gemini.mis.selectors.XpathforPolicyTab;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.Step;
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
+import org.openqa.selenium.*;
 
+import java.io.File;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.Date;
@@ -18,12 +18,12 @@ import java.util.List;
 
 public class LeaveManagementPage extends PageObject
 {
-    CommonFunctions_MIS genFunc;
 
+    CommonFunctions genFunc;
     @Step("Launch MIS Beta site")
     public void launchSite()
     {
-        genFunc.launchSite("https://mymis.geminisolutions.com","Gemini MIS","Successfully launched application","Unable to launch application");
+        launchSite("https://mymis.geminisolutions.com","Gemini MIS","Successfully launched application","Unable to launch application");
     }
 
     @Step
@@ -53,7 +53,7 @@ public class LeaveManagementPage extends PageObject
     @Step
     public void clickOnSideNavigationOption(String tabName)
     {
-        genFunc.clickOn(XpathForLeaveManagementTab.sideNav(tabName));
+        clickOn(XpathForLeaveManagementTab.sideNav(tabName));
     }
 
 
@@ -87,15 +87,15 @@ public class LeaveManagementPage extends PageObject
     }
 
     @Step
-    public void verifyTab(String tabName)
+    public void verifyTabDisplays(String tabName)
     {
         verifyTabOpens(tabName);
     }
 
     @Step
-    public void verifyDefaultTab(String tab)
+    public void verifyTab(String tab)
     {
-        genFunc.verifyDefaultTab(tab);
+        verifydeafultTab(tab);
     }
 
     @Step("Verify field is auto populated by default")
@@ -146,25 +146,25 @@ public class LeaveManagementPage extends PageObject
     @Step
     public void clickOnSubTab(String childTab, String parentTab)
     {
-        genFunc.navigateToTab(parentTab,childTab);
+        navigateToTab(parentTab,childTab);
     }
 
     @Step("Click on Tab")
     public void clickOnTab(String tabName)
     {
-        genFunc.navigateToTab(tabName);
+        navigateToTab(tabName);
     }
 
     @Step
     public void selectTillDate(By loc,String tillDate)
     {
-        genFunc.selectDate(loc,tillDate);
+        selectDate(loc,tillDate);
     }
 
     @Step
     public void selectFromDate(By loc,String fromDate)
     {
-        genFunc.selectDate(loc,fromDate);
+        selectDate(loc,fromDate);
     }
 
     @Step
@@ -173,7 +173,7 @@ public class LeaveManagementPage extends PageObject
         if(isElementVisible(XpathForLeaveManagementTab.labelText(labelText)))
         {
             WebElementFacade elementFacade = find(XpathForLeaveManagementTab.tooltip);
-            genFunc.clickOn(XpathForLeaveManagementTab.tooltip);
+            clickOn(XpathForLeaveManagementTab.tooltip);
             if(elementFacade.getAttribute("aria-describedby").contains("popover"))
             {
                 String tooltipText = elementFacade.getText();
@@ -215,13 +215,13 @@ public class LeaveManagementPage extends PageObject
     {
         leaveType = "1 "+leaveType;
         WebElementFacade elementFacade = find(XpathForLeaveManagementTab.dropdown("leaveType"));
-        genFunc.selectFromDropdown(elementFacade,leaveType);
+        selectFromDropdown(elementFacade,leaveType);
     }
 
     @Step
     public void enterText(By loc, String enterReason)
     {
-        if(genFunc.isElementFoundInGivenTime(loc))
+        if(isElementFoundInGivenTime(loc))
         {
             WebElementFacade elementFacade= find(loc);
             typeInto(elementFacade,enterReason);
@@ -235,7 +235,7 @@ public class LeaveManagementPage extends PageObject
     @Step
     public void verifyPopup(String popupText)
     {
-        if(genFunc.isElementFoundInGivenTime(XpathForLeaveManagementTab.successAlertPopup("p")))
+        if(isElementFoundInGivenTime(XpathForLeaveManagementTab.successAlertPopup("p")))
         {
             String popUpText = textOf(XpathForLeaveManagementTab.successAlertPopup("p"));
             if(popUpText.equals(popupText))
@@ -390,7 +390,7 @@ public class LeaveManagementPage extends PageObject
     }
 
     @Step
-    public void isFileDownloaded(String downloadPath, String fileName) {
+    public void isFileDownload(String downloadPath, String fileName) {
      boolean isDownloaded = genFunc.isFileDownloaded(downloadPath,fileName);
      if(!isDownloaded)
      {
@@ -595,10 +595,9 @@ public class LeaveManagementPage extends PageObject
     }
 
     @Step
-    public void verifyOutingDate(String date)
-    {
+    public void verifyOutingDate(String date)  {
         WebElementFacade elementFacade1 = find(By.xpath("(//div[@class='modal-content'])[3]"));
-        genFunc.focusElement(elementFacade1);
+        genFunc.changeFocusOfElement(elementFacade1);
         WebElementFacade elementFacade = find(XpathForLeaveManagementTab.outingDate);
         if(elementFacade.getText().replaceAll("-"," ").equals(date))
         {
@@ -775,12 +774,12 @@ public class LeaveManagementPage extends PageObject
             default:
                 elementPresent = false;
         }
-        if (genFunc.isElementFoundInGivenTime(tab)) {
-            Assert.assertTrue("Verified button: " + tab + "is present on screen", genFunc.isElementFoundInGivenTime(tab));
+        if (isElementFoundInGivenTime(tab)) {
+            Assert.assertTrue("Verified button: " + tab + "is present on screen", isElementFoundInGivenTime(tab));
             WebElementFacade elementFacade = find(tab);
             elementFacade.click();
         } else {
-            Assert.assertFalse("Unable to find button", !genFunc.isElementFoundInGivenTime(tab));
+            Assert.assertFalse("Unable to find button", !isElementFoundInGivenTime(tab));
         }
     }
 
@@ -879,4 +878,122 @@ public class LeaveManagementPage extends PageObject
             Assert.fail("Fields is not mandatory");
         }
     }
+    public void launchSite(String url , String expectedTitle, String passDes , String failDes) {
+        getDriver().get(url);
+        if (getDriver().getTitle().equals(expectedTitle)) {
+            Assert.assertTrue(passDes, true);
+        } else {
+            Assert.fail(failDes);
+        }
+    }
+    public boolean isElementFoundInGivenTime(By webelement) {
+        boolean exists = false;
+        try {
+            isElementVisible(webelement);
+            exists = true;
+        } catch (NoSuchElementException e) {
+            // nothing to do.
+        }
+        return exists;
+    }
+
+    public void clickOn(By elementName) {
+        WebElementFacade element = find(elementName);
+        if (element.isDisplayed()) {
+            element.click();
+            Assert.assertTrue("Clicked on button successfully", true);
+        } else {
+            Assert.assertFalse("Unable to click on button", false);
+        }
+    }
+
+    public void verifyDefaultTab(String tab) {
+        List<WebElementFacade> elementFacadeList = findAll(XpathForLeaveManagementTab.tab);
+        if (elementFacadeList.get(0).getAttribute("class").contains("active") &&
+                elementFacadeList.get(0).getText().equals(tab)) {
+            Assert.assertTrue("Default Tab verified successfully", true);
+        } else {
+            Assert.assertFalse("Unable to verify default tab", false);
+        }
+    }
+    public void navigateToTab(String parentTabName, String childTabName)
+    {
+        // verification for Parent tab
+        if (isElementFoundInGivenTime(CommonXpath.sideNav(parentTabName)))
+        {
+            waitABit(1000);
+            //clicks on parent tab
+            clickOn(CommonXpath.sideNav(parentTabName));
+            waitABit(2000);
+            //verifies sub tab available
+            if (isElementFoundInGivenTime(CommonXpath.sideNav(childTabName))) {
+                if (childTabName.equals("View Request Status") && parentTabName.equals("LNSA")) {
+                    String xpath = "(" + CommonXpath.sideNav(childTabName);
+                    xpath = xpath + ")[2]";
+                    WebElementFacade elementFacade = find(By.xpath(xpath));
+                    elementFacade.click();
+                } else {
+                    clickOn(CommonXpath.sideNav(childTabName));
+                }
+            }
+            else{
+                Assert.assertFalse("Unable to locate child tab",false);
+            }
+        }
+        else {
+            Assert.assertFalse("Unable to locate parent tab",false);
+        }
+    }
+
+
+    public void navigateToTab(String parentTabName){
+        // verification for Parent tab
+        if (isElementFoundInGivenTime(CommonXpath.sideNav(parentTabName)))
+        {
+            waitABit(1000);
+            //clicks on parent tab
+            clickOn(CommonXpath.sideNav(parentTabName));
+
+        }
+        else {
+            Assert.assertFalse("Unable to locate parent tab",false);}
+    }
+
+
+    public void selectDate(By loc, String dateValue) {
+        if (isElementFoundInGivenTime(loc)) {
+            clickOn(loc);
+            String date = dateValue.split("/")[0];
+            List<WebElementFacade> dates = findAll("//td");
+            for (WebElementFacade elementFacade : dates) {
+                if (elementFacade.getText().equals(date)) {
+                    if (elementFacade.getAttribute("class").contains("disabled"))
+                    {
+                        continue;
+                    } else {
+                        elementFacade.click();
+                        break;
+                    }
+                }
+            }
+        }
+        else
+        {
+            Assert.assertFalse("Unable to click on calendar",false);
+        }
+    }
+    public void changeFocusOfElement(WebElement element){
+        JavascriptExecutor executor = (JavascriptExecutor)getDriver();
+        executor.executeScript("arguments[0].focus();", element);
+    }
+    public void verifydeafultTab(String tab) {
+        List<WebElementFacade> elementFacadeList = findAll(XpathForLeaveManagementTab.tab);
+        if (elementFacadeList.get(0).getAttribute("class").contains("active") &&
+                elementFacadeList.get(0).getText().equals(tab)) {
+            Assert.assertTrue("Default Tab verified successfully", true);
+        } else {
+            Assert.assertFalse("Unable to verify default tab", false);
+        }
+    }
+  
 }
