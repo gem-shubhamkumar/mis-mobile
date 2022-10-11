@@ -15,12 +15,10 @@ public class XpathForLeaveManagementTab
     {
         return By.xpath("(//input[@type='search'])["+num+"]");
     }
-
     public static By sideNav(String sideNav)
     {
         return By.xpath("//span[contains(text(),\""+sideNav+"\")]");
     }
-
     public static By dropdownOptions(String num)
     {
         return By.xpath("(//li[@class='magenta with-sub opened']/ul/li/a/span)["+num+"]");
