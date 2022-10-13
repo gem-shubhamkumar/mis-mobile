@@ -1,16 +1,11 @@
 package com.gemini.mis.pages;
 
 import com.gemini.mis.implementations.PolicyImplementation;
-import com.gemini.mis.selectors.XpathforPolicyTab;
-import net.serenitybdd.core.pages.PageObject;
-import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.Step;
-import org.junit.Assert;
 import org.openqa.selenium.By;
 
-import java.util.List;
 
-public class PolicyPage extends PageObject
+public class PolicyPage
 {
     PolicyImplementation policy;
 
@@ -27,14 +22,13 @@ public class PolicyPage extends PageObject
 
     public void selectNumberOfEntry(By loc,String noOfEntry)
     {
-        WebElementFacade elementFacade=find(loc);
-        selectFromDropdown(elementFacade,noOfEntry);
+        policy.selectNumberOfEntry(loc,noOfEntry);
     }
 
     @Step("Verify number of records change")
-    public void verifyChangeOfRecords(String number)
+    public void verifyChangeOfRecords()
     {
-     policy.verifyChangeOfRecords(number);
+     policy.verifyChangeOfRecords();
     }
 
     @Step
@@ -59,5 +53,11 @@ public class PolicyPage extends PageObject
     public void verifyPolicyPage(String policyName)
     {
         policy.verifyPolicyPage(policyName);
+    }
+
+    @Step
+    public void clickOnButton(String btnName,By loc)
+    {
+        policy.clickOnBtn(btnName,loc);
     }
 }

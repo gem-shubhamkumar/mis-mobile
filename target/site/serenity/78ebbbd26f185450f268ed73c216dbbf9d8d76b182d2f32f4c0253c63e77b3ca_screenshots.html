@@ -23,19 +23,31 @@
 <meta name="msapplication-TileColor" content="#ffffff">
 <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
 <meta name="theme-color" content="#ffffff">
-<link rel="stylesheet" href="bootstrap-icons/font/bootstrap-icons.css"><!-- JQuery -->
-<script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script><!-- Required Stylesheets -->
+<!--[if IE 7]>
+<!--<link rel="stylesheet" href="font-awesome/css/font-awesome-ie7.min.css">-->
+
+<link rel="stylesheet" type="text/css" href="fontawesome-free-5.7.2-web/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="fontawesome-free-5.7.2-web/css/v4-shims.min.css">
+
+<!-- JQuery -->
+<script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script><link rel="stylesheet" type="text/css" href="chartist/chartist-plugin-tooltip/dist/chartist-plugin-tooltip.min.css">
+<link rel="stylesheet" type="text/css" href="chartist/dist/chartist.min.css">
+<script src="chartist/dist/chartist.min.js"></script>
+<script src="chartist/chartist-plugin-tooltip/dist/chartist-plugin-tooltip.min.js"></script>
+<!-- Required Stylesheets -->
 <link href="bootstrap-treeview/dist/bootstrap-treeview.min.css" rel="stylesheet">
 
 <!-- Required Javascript -->
 <script src="bootstrap-treeview/dist/bootstrap-treeview.min.js"></script><!-- DataTables -->
-<link type="text/css" href="datatables/1.11.3/datatables.min.css" rel="stylesheet" />
-<script type="text/javascript" src="datatables/1.11.3/datatables.min.js"></script>
-<script type="text/javascript" src="datatables/1.11.3/time-elapsed-dhms.js"></script>
+<link type="text/css" href="datatables/1.10.20/datatables.min.css" rel="stylesheet" />
+<script type="text/javascript" src="datatables/1.10.20/datatables.min.js"></script>
+<script type="text/javascript" src="datatables/1.10.20/time-elapsed-dhms.js"></script>
 
 <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <script src="bootstrap/js/bootstrap.min.js"></script>
 
+<script type="text/javascript" src="datatables/1.10.20/datatables.bootstrap4.min.js"></script>
+<link type="text/css" href="datatables/1.10.20/datatables.bootstrap4.min.css" rel="stylesheet" />
 
 <script>
     jQuery.fn.dataTable.ext.type.order['time-elapsed-dhms-pre'] = function(data) {
@@ -59,16 +71,7 @@
 </script>
 <link rel="stylesheet" href="css/core.css"/>
 <link rel="stylesheet" href="css/link.css"/>
-<link type="text/css" media="screen" href="css/screen.css" rel="Stylesheet"/>
-<!--CHART.JS-->
-<script src="chartjs/chart.js"></script>
-<script src="chartjs/chartjs-plugin-datalabels@2.0.0"></script>
-<script src="chartjs/patternomaly.min.js"></script>
-<script>
-    // Register the plugin to all charts:
-    Chart.register(ChartDataLabels);
-</script>
-<!-- Nivo Slider -->
+<link type="text/css" media="screen" href="css/screen.css" rel="Stylesheet"/><!-- Nivo Slider -->
 <link rel="stylesheet" href="nivo-slider/3.2/nivo-slider.css" type="text/css" media="screen" />
 <link rel="stylesheet" href="nivo-slider/3.2/themes/default/default.css" type="text/css" media="screen" />
 <script src="nivo-slider/3.2/jquery.nivo.slider.pack.js" type="text/javascript"></script>
@@ -114,7 +117,7 @@
         <div id="logo"><a href="index.html"><img src="images/serenity-logo.png" border="0"/></a></div>
         <div id="projectname-banner" style="float:right">
             <span class="projectname">
-                <span class="projecttitle">Serenity BDD Report</span>
+                <span class="projecttitle">SerenityGradle</span>
                 <span class="projectsubtitle"></span>
             </span>
         </div>
@@ -142,16 +145,16 @@
 <div>
     <ul class="nav nav-tabs" role="tablist">
         <li class="active">
-            <a href="#"><i class="bi bi-journal-check"></i> Overall Test Results</a>
+            <a href="#"><i class="fa fa-check-square-o"></i> Overall Test Results</a>
         </li>
         <li >
-            <a href="capabilities.html"><i class="bi bi-journal-text"></i> Requirements</a>
+            <a href="capabilities.html"><i class="fa fa-book"></i> Requirements</a>
         </li>
         <li >
-            <a href="576946480b52ad056d6f5bddf874399c83582ecf90963cc074a14c70580e7d9f.html"><i class="bi bi-chat-text"></i> Features</a>
+            <a href="576946480b52ad056d6f5bddf874399c83582ecf90963cc074a14c70580e7d9f.html"><i class="fa fa-comments-o"></i> Features</a>
         </li>
     </ul>
-    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 10-10-2022 16:19</span>
+    <span class="date-and-time"><a href="build-info.html"><i class="fa fa-info-circle"></i></a> Report generated 14-10-2022 01:03</span>
     <br style="clear:left"/>
 </div>
 
@@ -166,7 +169,7 @@
                         <td>
                             <div>
                                 <h3 class="discreet-story-header">
-                                    <i class="fs-2 bi bi-chat-left-quote large-icon"></i>
+                                    <i class="fa fa-2x fa-comments-o"></i>
                                     <span class="story-header-title">MIS Leave Management Activities </span>
                                     <span class="badge tag-badge" style="">Feature</span>
                                 </h3>
@@ -186,9 +189,9 @@
                 <table class="outcome-header">
                     <tr>
                         <td colspan="2" class="test-title-bar">
-                            <span class="outcome-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon fa-2x' title='SUCCESS'></i></a></span>
+                            <span class="outcome-icon"><a href='##beforetable'><i class='fa fa-exclamation-triangle error-icon fa-2x' title='ERROR'></i></a></span>
                             <span class="test-case-title">
-                                <span class="success-color">Enter Data and submit Comp off
+                                <span class="error-color">Enter Data and submit Comp off
                                     <span class="related-issue-title"></span>
                                 </span>
                             </span>
@@ -204,61 +207,97 @@
 
     <div class="story-title">
         <h3>Scenario:</h3>
-        <div class="scenario">When User is on MIS Home Page<br>When Click on "&lt;childTab&gt;" sub tab of "&lt;parentTab&gt;" tab<br>And Verify "&lt;childTab&gt;" opens successfully<br>Then Click on "&lt;tab&gt;" Tab<br>And Verify "&lt;tab&gt;" displays<br>Then Select date from date dropdown<br>Then Enter "weekend testing" as reason<br>Then Click on Submit button for Comp off Tab<br>And Verify Leave is submitted and "Request processed successfully" appears</div>
+        <div class="scenario">When User is on MIS Home Page<br>When User clicks on "&lt;childTab&gt;" sub tab of "&lt;parentTab&gt;" tab<br>And Verify "&lt;heading&gt;" of "&lt;childTab&gt;" tab<br>When User clicks on "&lt;tab&gt;" Tab<br>And Verify "&lt;tab&gt;" displays<br>Then Select date from date dropdown<br>Then Enter "weekend testing" as reason<br>When User clicks on Submit button for Comp off Tab<br>And Verify Leave is submitted and "Request processed successfully" appears</div>
     </div>
 
     <div id="beforetable"></div>
     <div id="contenttilttle">
+            <div class="screenshotFailure panel panel-danger">
+
+    <div style="display:block">
+        <div class="table">
+            <div class="row">
+                <div class="col-sm-10" style="padding-left:1.5em; padding-top:0.5em; padding-bottom:0.5em;">
+                    <span class="error-message error-message-title">No such element exception: no such element: Unable to locate element: {'method':'xpath','selector':'//div[@class='sweet-alert showSweetAlert visible ']/p'}</span>
+                </div>
+                <div class="col-sm-2">
+                    <a class="btn btn-warning details-button" data-toggle="collapse" href="#stacktraceModal-overall""
+                       role="button" aria-expanded="false" aria-controls="multiCollapseExample1"><i class="far fa-eye"></i> More details</a>
+                </div>
+             </div>
+        </div>
+    <div>
+
+    <!-- Details Section -->
+    <div class="row stacktrace-details">
+      <div class="col">
+        <div class="collapse multi-collapse" id="stacktraceModal-overall">
+            <div class="card">
+                <div class="card-header">
+                    <h4>org.openqa.selenium.NoSuchElementException </h4>
+                </div>
+                <div class="card-body">
+                    <div>
+                        <pre>com.gemini.mis.implementations.LeaveImplementation.verifyPopup(LeaveImplementation.java:295)<br />com.gemini.mis.pages.LeaveManagementPage.verifyPopup(LeaveManagementPage.java:104)<br />com.gemini.mis.stepdefinitions.LeaveManagementSteps.verifyLeaveIsSubmitted(LeaveManagementSteps.java:126)<br />✽.Verify Leave is submitted and "Request processed successfully" appears(file:///C:/Users/ja.multani/IdeaProjects/MISBetaAutomation/src/test/resources/features/ApplyCompOff.feature:64)<br /></pre>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+                <div class="panel-body">
+                    <a href="pagesource1745027957237033747.html.txt" target="_blank" class="btn btn-info">HTML Source</a>
+                </div>
+            </div>
         <div class="slider-wrapper theme-default">
             <div id="slider">
-                <img src="167dff19ef1323028751055f8419f283af973b07ad624a453e2652561d139f30.png" title=" 1: Enter Data and submit Comp off ({parentTab=Leave Management, childTab=Apply, tab=Comp Off})" width="1034"/>
-                <img src="167dff19ef1323028751055f8419f283af973b07ad624a453e2652561d139f30.png" title=" Given User is logged into MIS" width="1034"/>
-                <img src="167dff19ef1323028751055f8419f283af973b07ad624a453e2652561d139f30.png" title=" Launch MIS Beta site" width="1034"/>
-                <img src="167dff19ef1323028751055f8419f283af973b07ad624a453e2652561d139f30.png" title=" Type into element: jasleen.multani, username" width="1034"/>
-                <img src="091c52e3973651b00eae072eefda8736e48476773cd80657ab63861268a09044.png" title=" Type into element: jasleen.multani, username (completed)" width="1034"/>
-                <img src="091c52e3973651b00eae072eefda8736e48476773cd80657ab63861268a09044.png" title=" Type into element: Gemini@123, password" width="1034"/>
-                <img src="7337e746928f1a4219c1e4c91b391e746c1b62b18e4385b7555b8849319020e5.png" title=" Type into element: Gemini@123, password (completed)" width="1034"/>
-                <img src="15b36f44ae7db09a3a4aca5e6adbcb1c7078b3734cd855e9239d5078e27c1800.png" title=" Click on button: Sign in" width="1034"/>
-                <img src="cd116fce53b52fdfc0ef6db4482320ed81f06d6c03c959359bd34737b0196967.png" title=" Click on button: Sign in (completed)" width="1034"/>
-                <img src="cd116fce53b52fdfc0ef6db4482320ed81f06d6c03c959359bd34737b0196967.png" title=" Given User is logged into MIS (completed)" width="1034"/>
-                <img src="cd116fce53b52fdfc0ef6db4482320ed81f06d6c03c959359bd34737b0196967.png" title=" When User is on MIS Home Page" width="1034"/>
-                <img src="cd116fce53b52fdfc0ef6db4482320ed81f06d6c03c959359bd34737b0196967.png" title=" Verify page: Dashboard Page" width="1034"/>
-                <img src="8a9a628a53610b69a87fda520cf7c4e429a484ab17a8d210c928aed48fcea2c7.png" title=" Verify page: Dashboard Page (completed)" width="1034"/>
-                <img src="8a9a628a53610b69a87fda520cf7c4e429a484ab17a8d210c928aed48fcea2c7.png" title=" When User is on MIS Home Page (completed)" width="1034"/>
-                <img src="8a9a628a53610b69a87fda520cf7c4e429a484ab17a8d210c928aed48fcea2c7.png" title=" When Click on &quot;Apply&quot; sub tab of &quot;Leave Management&quot; tab" width="1034"/>
-                <img src="8a9a628a53610b69a87fda520cf7c4e429a484ab17a8d210c928aed48fcea2c7.png" title=" Click on sub tab: Apply, Leave Management" width="1034"/>
-                <img src="f6749b878b55e4b341fa5451e19e49e23bc3c80262d5d64b0832db9e6e1dfbe3.png" title=" Click on sub tab: Apply, Leave Management (completed)" width="1034"/>
-                <img src="f6749b878b55e4b341fa5451e19e49e23bc3c80262d5d64b0832db9e6e1dfbe3.png" title=" When Click on &quot;Apply&quot; sub tab of &quot;Leave Management&quot; tab (completed)" width="1034"/>
-                <img src="f6749b878b55e4b341fa5451e19e49e23bc3c80262d5d64b0832db9e6e1dfbe3.png" title=" And Verify &quot;Apply&quot; opens successfully" width="1034"/>
-                <img src="9b52c09195cb1e7b5a5665d6849e2ca93d194023f2d12971f712e4540a85a1f9.png" title=" Verify tab displays: Apply" width="1034"/>
-                <img src="9b52c09195cb1e7b5a5665d6849e2ca93d194023f2d12971f712e4540a85a1f9.png" title=" And Verify &quot;Apply&quot; opens successfully (completed)" width="1034"/>
-                <img src="9b52c09195cb1e7b5a5665d6849e2ca93d194023f2d12971f712e4540a85a1f9.png" title=" Then Click on &quot;Comp Off&quot; Tab" width="1034"/>
-                <img src="9b52c09195cb1e7b5a5665d6849e2ca93d194023f2d12971f712e4540a85a1f9.png" title=" Click on Tab" width="1034"/>
-                <img src="fc131669359736b5421232a51f8e6454b3b134f5904ebc4f5ea1b3238da6d60d.png" title=" Click on Tab (completed)" width="1034"/>
-                <img src="fc131669359736b5421232a51f8e6454b3b134f5904ebc4f5ea1b3238da6d60d.png" title=" Then Click on &quot;Comp Off&quot; Tab (completed)" width="1034"/>
-                <img src="fc131669359736b5421232a51f8e6454b3b134f5904ebc4f5ea1b3238da6d60d.png" title=" And Verify &quot;Comp Off&quot; displays" width="1034"/>
-                <img src="fc131669359736b5421232a51f8e6454b3b134f5904ebc4f5ea1b3238da6d60d.png" title=" Verify tab is active: Comp Off" width="1034"/>
-                <img src="db33dd12689864114ac596b5516edfbeb2433b338e7e9a424dc6c852d2bb4a4d.png" title=" Verify tab is active: Comp Off (completed)" width="1034"/>
-                <img src="db33dd12689864114ac596b5516edfbeb2433b338e7e9a424dc6c852d2bb4a4d.png" title=" And Verify &quot;Comp Off&quot; displays (completed)" width="1034"/>
-                <img src="db33dd12689864114ac596b5516edfbeb2433b338e7e9a424dc6c852d2bb4a4d.png" title=" Then Select date from date dropdown" width="1034"/>
-                <img src="db33dd12689864114ac596b5516edfbeb2433b338e7e9a424dc6c852d2bb4a4d.png" title=" Select date for comp off" width="1034"/>
-                <img src="8a5f0778b561d82b5f83a8c91cdc59ab7ebf6f97b2d7f08ed2da5e698380d8d7.png" title=" Select date for comp off (completed)" width="1034"/>
-                <img src="8a5f0778b561d82b5f83a8c91cdc59ab7ebf6f97b2d7f08ed2da5e698380d8d7.png" title=" Then Select date from date dropdown (completed)" width="1034"/>
-                <img src="8a5f0778b561d82b5f83a8c91cdc59ab7ebf6f97b2d7f08ed2da5e698380d8d7.png" title=" Then Enter &quot;weekend testing&quot; as reason" width="1034"/>
-                <img src="8a5f0778b561d82b5f83a8c91cdc59ab7ebf6f97b2d7f08ed2da5e698380d8d7.png" title=" Enter text: By.xpath: //textarea[@id=&quot;CompOffReason&quot;], weekend testing" width="1034"/>
-                <img src="ded109fbe4cc71472b2527db445d422c71084e026fe7642d7e1f95dfe1e71cfe.png" title=" Enter text: By.xpath: //textarea[@id=&quot;CompOffReason&quot;], weekend testing (completed)" width="1034"/>
-                <img src="ded109fbe4cc71472b2527db445d422c71084e026fe7642d7e1f95dfe1e71cfe.png" title=" Then Enter &quot;weekend testing&quot; as reason (completed)" width="1034"/>
-                <img src="ded109fbe4cc71472b2527db445d422c71084e026fe7642d7e1f95dfe1e71cfe.png" title=" Then Click on Submit button for Comp off Tab" width="1034"/>
-                <img src="ded109fbe4cc71472b2527db445d422c71084e026fe7642d7e1f95dfe1e71cfe.png" title=" Click on button: Submit Comp off" width="1034"/>
-                <img src="933cf5ce83945fd793db55113f53df2e9d750518e6b952b71d2efa93fe3192ef.png" title=" Click on button: Submit Comp off (completed)" width="1034"/>
-                <img src="933cf5ce83945fd793db55113f53df2e9d750518e6b952b71d2efa93fe3192ef.png" title=" Then Click on Submit button for Comp off Tab (completed)" width="1034"/>
-                <img src="933cf5ce83945fd793db55113f53df2e9d750518e6b952b71d2efa93fe3192ef.png" title=" And Verify Leave is submitted and &quot;Request processed successfully&quot; appears" width="1034"/>
-                <img src="933cf5ce83945fd793db55113f53df2e9d750518e6b952b71d2efa93fe3192ef.png" title=" Verify popup: Request processed successfully" width="1034"/>
-                <img src="b6b9c19d07410257b8506d523df75553fe076feca99209afcbf079d90331b217.png" title=" Click on button: OK" width="1034"/>
-                <img src="8d759d29439c676424b4eb79dccefbeff0f7b029ae2414956de66223e36773e7.png" title=" Click on button: OK (completed)" width="1034"/>
-                <img src="8d759d29439c676424b4eb79dccefbeff0f7b029ae2414956de66223e36773e7.png" title=" Verify popup: Request processed successfully (completed)" width="1034"/>
-                <img src="8d759d29439c676424b4eb79dccefbeff0f7b029ae2414956de66223e36773e7.png" title=" And Verify Leave is submitted and &quot;Request processed successfully&quot; appears (completed)" width="1034"/>
-                <img src="8d759d29439c676424b4eb79dccefbeff0f7b029ae2414956de66223e36773e7.png" title=" 1: Enter Data and submit Comp off ({parentTab=Leave Management, childTab=Apply, tab=Comp Off}) (completed): <span class='success-color'>SUCCESS</span>" width="1034"/>
+                <img src="edfdefff7c6183a2fe0d799125a67d805b04b7a36ea76097d148cdd3e817b8c9.png" title=" 1: Enter Data and submit Comp off ({parentTab=Leave Management, childTab=Apply, tab=Comp Off, heading=Apply Leave / WFH / Comp Off / Out Duty / Change Request})" width="1366"/>
+                <img src="edfdefff7c6183a2fe0d799125a67d805b04b7a36ea76097d148cdd3e817b8c9.png" title=" Given User is logged into MIS" width="1366"/>
+                <img src="edfdefff7c6183a2fe0d799125a67d805b04b7a36ea76097d148cdd3e817b8c9.png" title=" Launch MIS Beta site" width="1366"/>
+                <img src="edfdefff7c6183a2fe0d799125a67d805b04b7a36ea76097d148cdd3e817b8c9.png" title=" Type into element: jasleen.multani, username" width="1366"/>
+                <img src="51d6b5cda539aa95a7c21d4438bc89c72daf5130c66ef15baf921187634e9969.png" title=" Type into element: jasleen.multani, username (completed)" width="1366"/>
+                <img src="51d6b5cda539aa95a7c21d4438bc89c72daf5130c66ef15baf921187634e9969.png" title=" Type into element: Gemini@123, password" width="1366"/>
+                <img src="f30786f4ec3e0c57e3bbf0ca1adfbcf61870892be72709ea5ef28023f79bf9f3.png" title=" Type into element: Gemini@123, password (completed)" width="1366"/>
+                <img src="f30786f4ec3e0c57e3bbf0ca1adfbcf61870892be72709ea5ef28023f79bf9f3.png" title=" Click on login button" width="1366"/>
+                <img src="b4b21700b562f2b00e03024f65addb9b769a73fb7ad70174a2ff2cb94a4171fd.png" title=" Click on login button (completed)" width="1366"/>
+                <img src="b4b21700b562f2b00e03024f65addb9b769a73fb7ad70174a2ff2cb94a4171fd.png" title=" Given User is logged into MIS (completed)" width="1366"/>
+                <img src="b4b21700b562f2b00e03024f65addb9b769a73fb7ad70174a2ff2cb94a4171fd.png" title=" When User is on MIS Home Page" width="1366"/>
+                <img src="b4b21700b562f2b00e03024f65addb9b769a73fb7ad70174a2ff2cb94a4171fd.png" title=" Verify page: Dashboard Page" width="1366"/>
+                <img src="6bc78704b8b218bc7ae7b674d7eb1fd4af331c0f13053a3c2013b965c554aa7e.png" title=" Verify page: Dashboard Page (completed)" width="1366"/>
+                <img src="6bc78704b8b218bc7ae7b674d7eb1fd4af331c0f13053a3c2013b965c554aa7e.png" title=" When User is on MIS Home Page (completed)" width="1366"/>
+                <img src="6bc78704b8b218bc7ae7b674d7eb1fd4af331c0f13053a3c2013b965c554aa7e.png" title=" When User clicks on &quot;Apply&quot; sub tab of &quot;Leave Management&quot; tab" width="1366"/>
+                <img src="6bc78704b8b218bc7ae7b674d7eb1fd4af331c0f13053a3c2013b965c554aa7e.png" title=" Navigate to sub tab: Apply, Leave Management" width="1366"/>
+                <img src="a5b6d1a049a8536862a25a1ecc3cb7c84d7659556d33500dbd991731bafbedbe.png" title=" Navigate to sub tab: Apply, Leave Management (completed)" width="1366"/>
+                <img src="a5b6d1a049a8536862a25a1ecc3cb7c84d7659556d33500dbd991731bafbedbe.png" title=" When User clicks on &quot;Apply&quot; sub tab of &quot;Leave Management&quot; tab (completed)" width="1366"/>
+                <img src="a5b6d1a049a8536862a25a1ecc3cb7c84d7659556d33500dbd991731bafbedbe.png" title=" And Verify &quot;Apply Leave / WFH / Comp Off / Out Duty / Change Request&quot; of &quot;Apply&quot; tab" width="1366"/>
+                <img src="a5b6d1a049a8536862a25a1ecc3cb7c84d7659556d33500dbd991731bafbedbe.png" title=" Verify tab displays: Apply Leave / WFH / Comp Off / Out Duty / Change Request" width="1366"/>
+                <img src="7dace71eb73979d97a89353d1f25b55ba85d0397d9c2e4a8798d9a23ed0f18fa.png" title=" Verify tab displays: Apply Leave / WFH / Comp Off / Out Duty / Change Request (completed)" width="1366"/>
+                <img src="7dace71eb73979d97a89353d1f25b55ba85d0397d9c2e4a8798d9a23ed0f18fa.png" title=" And Verify &quot;Apply Leave / WFH / Comp Off / Out Duty / Change Request&quot; of &quot;Apply&quot; tab (completed)" width="1366"/>
+                <img src="7dace71eb73979d97a89353d1f25b55ba85d0397d9c2e4a8798d9a23ed0f18fa.png" title=" When User clicks on &quot;Comp Off&quot; Tab" width="1366"/>
+                <img src="7dace71eb73979d97a89353d1f25b55ba85d0397d9c2e4a8798d9a23ed0f18fa.png" title=" Click on Tab" width="1366"/>
+                <img src="4b200df54f2b29477a91bee3543a5a11aacc7cd64b4e6dfd7981ce93a78ecd49.png" title=" Click on Tab (completed)" width="1366"/>
+                <img src="4b200df54f2b29477a91bee3543a5a11aacc7cd64b4e6dfd7981ce93a78ecd49.png" title=" When User clicks on &quot;Comp Off&quot; Tab (completed)" width="1366"/>
+                <img src="4b200df54f2b29477a91bee3543a5a11aacc7cd64b4e6dfd7981ce93a78ecd49.png" title=" And Verify &quot;Comp Off&quot; displays" width="1366"/>
+                <img src="4b200df54f2b29477a91bee3543a5a11aacc7cd64b4e6dfd7981ce93a78ecd49.png" title=" Verify tab is active: Comp Off" width="1366"/>
+                <img src="180027ddca64aba29557032d8276f22d16f951f448a77c48aae59fe47d6d834e.png" title=" Verify tab is active: Comp Off (completed)" width="1366"/>
+                <img src="180027ddca64aba29557032d8276f22d16f951f448a77c48aae59fe47d6d834e.png" title=" And Verify &quot;Comp Off&quot; displays (completed)" width="1366"/>
+                <img src="180027ddca64aba29557032d8276f22d16f951f448a77c48aae59fe47d6d834e.png" title=" Then Select date from date dropdown" width="1366"/>
+                <img src="ad949a42440b3d2c9006515839dce81071dc287f3fe4adef4c4314e25f3092a3.png" title=" Select date for comp off" width="1366"/>
+                <img src="a32d801ddd66e07e11705c42685b11281b44ad9a52ed7cb14c5f6e75b9fdeba6.png" title=" Select date for comp off (completed)" width="1366"/>
+                <img src="a32d801ddd66e07e11705c42685b11281b44ad9a52ed7cb14c5f6e75b9fdeba6.png" title=" Then Select date from date dropdown (completed)" width="1366"/>
+                <img src="a32d801ddd66e07e11705c42685b11281b44ad9a52ed7cb14c5f6e75b9fdeba6.png" title=" Then Enter &quot;weekend testing&quot; as reason" width="1366"/>
+                <img src="a32d801ddd66e07e11705c42685b11281b44ad9a52ed7cb14c5f6e75b9fdeba6.png" title=" Enter text: By.xpath: //textarea[@id=&quot;CompOffReason&quot;], weekend testing" width="1366"/>
+                <img src="1b37ce4d5df3dacc108354da1a225f3a8036d0d583eaa83236a96ee12f76275d.png" title=" Enter text: By.xpath: //textarea[@id=&quot;CompOffReason&quot;], weekend testing (completed)" width="1366"/>
+                <img src="1b37ce4d5df3dacc108354da1a225f3a8036d0d583eaa83236a96ee12f76275d.png" title=" Then Enter &quot;weekend testing&quot; as reason (completed)" width="1366"/>
+                <img src="1b37ce4d5df3dacc108354da1a225f3a8036d0d583eaa83236a96ee12f76275d.png" title=" When User clicks on Submit button for Comp off Tab" width="1366"/>
+                <img src="1b37ce4d5df3dacc108354da1a225f3a8036d0d583eaa83236a96ee12f76275d.png" title=" Click on Button" width="1366"/>
+                <img src="139123880abab6e372ac9da446905da3dfe71a257e3db8422770145a0269d660.png" title=" Click on Button (completed)" width="1366"/>
+                <img src="139123880abab6e372ac9da446905da3dfe71a257e3db8422770145a0269d660.png" title=" When User clicks on Submit button for Comp off Tab (completed)" width="1366"/>
+                <img src="139123880abab6e372ac9da446905da3dfe71a257e3db8422770145a0269d660.png" title=" And Verify Leave is submitted and &quot;Request processed successfully&quot; appears" width="1366"/>
+                <img src="139123880abab6e372ac9da446905da3dfe71a257e3db8422770145a0269d660.png" title=" Verify popup: Request processed successfully" width="1366"/>
+                <img src="139123880abab6e372ac9da446905da3dfe71a257e3db8422770145a0269d660.png" title=" Verify popup: Request processed successfully (completed): <span class='error-color'>ERROR</span>" width="1366"/>
             </div>
         </div>
 
@@ -267,7 +306,7 @@
 </div>
 <div id="beforefooter"></div>
 <div id="bottomfooter">
-    <span class="version">Serenity BDD version 3.3.2</span>
+    <span class="version">Serenity BDD version 2.6.0</span>
 </div>
 </body>
 </html>

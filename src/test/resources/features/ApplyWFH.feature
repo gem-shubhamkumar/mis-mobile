@@ -1,77 +1,86 @@
-Feature: MIS Leave Management Activities
-  This tests are for Leave Management module of MIS Beta
+Feature: MIS Leave Management Activities > Apply
+  This tests are for Apply module of MIS Beta
 
   Background:
     Given User is logged into MIS
 
   Scenario Outline: Navigate to Leave Management > WFH tab
     When User is on MIS Home Page
-    When Click on "<childTab>" sub tab of "<parentTab>" tab
-    And Verify "<childTab>" opens successfully
+    When User clicks on "<childTab>" sub tab of "<parentTab>" tab
+    And Verify "<heading>" of "<childTab>" tab
     And Verify "<defaultTab>" displays by default
-    Then Click on "<tab>" Tab
+    When User clicks on "<tab>" Tab
     And Verify "<tab>" displays
     Examples:
-      |      parentTab     |  childTab  | defaultTab |     tab        |
-      | Leave Management   |     Apply  |    Leave   | Work From Home |
+      |      parentTab     |  childTab  | defaultTab |     tab        |                         heading                          |
+      | Leave Management   |     Apply  |    Leave   | Work From Home | Apply Leave / WFH / Comp Off / Out Duty / Change Request |
 
-  Scenario Outline: Verify field is Auto Populated by default
+  Scenario Outline: Verify field is Auto Populated by default in WFH tab
     When User is on MIS Home Page
-    When Click on "<childTab>" sub tab of "<parentTab>" tab
-    And Verify "<childTab>" opens successfully
-    Then Click on "<tab>" Tab
+    When User clicks on "<childTab>" sub tab of "<parentTab>" tab
+    And Verify "<heading>" of "<childTab>" tab
+    And Verify "<defaultTab>" displays by default
+    When User clicks on "<tab>" Tab
     And Verify "<tab>" displays
     Then Verify "mobileNo" fields are auto populated
     Examples:
-      |      parentTab     |   childTab  |      tab       |
-      | Leave Management   |      Apply  | Work From Home |
+      |      parentTab     |  childTab  | defaultTab |     tab        |                         heading                          |
+      | Leave Management   |     Apply  |    Leave   | Work From Home | Apply Leave / WFH / Comp Off / Out Duty / Change Request |
 
-  Scenario Outline: Verify Date and Reason are mandatory fields
+  Scenario Outline: Verify WFH Date and WFH Reason are mandatory fields
     When User is on MIS Home Page
-    When Click on "<childTab>" sub tab of "<parentTab>" tab
-    And Verify "<childTab>" opens successfully
-    Then Click on "<tab>" Tab
+    When User clicks on "<childTab>" sub tab of "<parentTab>" tab
+    And Verify "<heading>" of "<childTab>" tab
+    And Verify "<defaultTab>" displays by default
+    When User clicks on "<tab>" Tab
     And Verify "<tab>" displays
-    Then Click on Submit button for WFH
-    Then Verify "Date,WFH Reason" fields are highlighted in red
+    Then Click on Submit button for WFH tab
+    Then Verify "Work From Home Date" dropdown is mandatory field
+    Then Verify "WFH Reason" text box is mandatory field
     Examples:
-      |      parentTab     |       childTab  |        tab          |
-      | Leave Management   |          Apply  |    Work From Home   |
+      |      parentTab     |  childTab  | defaultTab |     tab        |                         heading                          |
+      | Leave Management   |     Apply  |    Leave   | Work From Home | Apply Leave / WFH / Comp Off / Out Duty / Change Request |
 
-  Scenario Outline: Select Date from Date dropdown
+
+  Scenario Outline: Select Date from WFH Date dropdown
     When User is on MIS Home Page
-    When Click on "<childTab>" sub tab of "<parentTab>" tab
-    And Verify "<childTab>" opens successfully
-    Then Click on "<tab>" Tab
+    When User clicks on "<childTab>" sub tab of "<parentTab>" tab
+    And Verify "<heading>" of "<childTab>" tab
+    And Verify "<defaultTab>" displays by default
+    When User clicks on "<tab>" Tab
     And Verify "<tab>" displays
     Then Select date from "<tab>" date dropdown
     Examples:
-      |      parentTab     |       childTab  |        tab          |
-      | Leave Management   |          Apply  |    Work From Home   |
+      |      parentTab     |  childTab  | defaultTab |     tab        |                         heading                          |
+      | Leave Management   |     Apply  |    Leave   | Work From Home | Apply Leave / WFH / Comp Off / Out Duty / Change Request |
+
 
   Scenario Outline: Enter reason for WFH
     When User is on MIS Home Page
-    When Click on "<childTab>" sub tab of "<parentTab>" tab
-    And Verify "<childTab>" opens successfully
-    Then Click on "<tab>" Tab
+    When User clicks on "<childTab>" sub tab of "<parentTab>" tab
+    And Verify "<heading>" of "<childTab>" tab
+    And Verify "<defaultTab>" displays by default
+    When User clicks on "<tab>" Tab
     And Verify "<tab>" displays
     Then Select date from "<tab>" date dropdown
-    And Enter reason "WFH leave" for leave
+    And Enter reason "WFH Reason" for leave
     Examples:
-      |      parentTab     |       childTab  |        tab          |
-      | Leave Management   |          Apply  |    Work From Home   |
+      |      parentTab     |  childTab  | defaultTab |     tab        |                         heading                          |
+      | Leave Management   |     Apply  |    Leave   | Work From Home | Apply Leave / WFH / Comp Off / Out Duty / Change Request |
 
-  Scenario Outline: Enter required data and click on Submit leave
+
+  Scenario Outline: Enter required data and click on Submit WFH
     When User is on MIS Home Page
-    When Click on "<childTab>" sub tab of "<parentTab>" tab
-    And Verify "<childTab>" opens successfully
-    Then Click on "<tab>" Tab
+    When User clicks on "<childTab>" sub tab of "<parentTab>" tab
+    And Verify "<heading>" of "<childTab>" tab
+    And Verify "<defaultTab>" displays by default
+    When User clicks on "<tab>" Tab
     And Verify "<tab>" displays
     Then Select date from "<tab>" date dropdown
     And Enter reason "WFH leave" for leave
-    Then Click on Submit button for WFH
+    Then Click on Submit button for WFH tab
     And Verify Leave is submitted and "Request processed successfully" appears
     Examples:
-      |      parentTab     |       childTab  |        tab          |
-      | Leave Management   |          Apply  |    Work From Home   |
+      |      parentTab     |  childTab  | defaultTab |     tab        |                         heading                          |
+      | Leave Management   |     Apply  |    Leave   | Work From Home | Apply Leave / WFH / Comp Off / Out Duty / Change Request |
 

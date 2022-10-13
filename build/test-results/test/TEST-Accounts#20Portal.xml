@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Accounts Portal" tests="5" skipped="0" failures="0" errors="0" timestamp="2022-10-13T20:11:52" hostname="GEMPK-200035" time="170.468">
+  <properties/>
+  <testcase name="Verify elements loaded on My Account page" classname="Accounts Portal" time="27.661"/>
+  <testcase name="Verify login to GreytHR portal and verify View Info list" classname="Accounts Portal" time="39.038"/>
+  <testcase name="Verify log in failed when no credentials are enter" classname="Accounts Portal" time="20.509"/>
+  <testcase name="Verify all the element on GreytHR landing page" classname="Accounts Portal" time="38.053"/>
+  <testcase name="Verify profile details in greytHR portal" classname="Accounts Portal" time="45.207"/>
+  <system-out><![CDATA[URL is launched
+Title verify successfully
+Text is verified
+URL is launched
+[Personal, Accounts & Statutory, Family, Employment & Job, Assets]
+[Personal, Accounts & Statutory, Family, Employment & Job, Assets]
+All element are present
+URL is launched
+URL is launched
+[Payslip, IT Declaration, POI, Track]
+[Payslip, IT Declaration, POI, Track]
+All element are present
+URL is launched
+Last Login element is found successfully
+Last Login Failure element is found successfully
+Last Password Changed element is found successfully
+]]></system-out>
+  <system-err><![CDATA[Starting ChromeDriver 106.0.5249.61 (511755355844955cd3e264779baf0dd38212a4d0-refs/branch-heads/5249@{#569}) on port 11010
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+ChromeDriver was started successfully.
+Oct 14, 2022 1:41:53 AM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+Starting ChromeDriver 106.0.5249.61 (511755355844955cd3e264779baf0dd38212a4d0-refs/branch-heads/5249@{#569}) on port 8135
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+ChromeDriver was started successfully.
+Oct 14, 2022 1:42:21 AM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+Starting ChromeDriver 106.0.5249.61 (511755355844955cd3e264779baf0dd38212a4d0-refs/branch-heads/5249@{#569}) on port 26062
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+ChromeDriver was started successfully.
+Oct 14, 2022 1:43:00 AM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+Starting ChromeDriver 106.0.5249.61 (511755355844955cd3e264779baf0dd38212a4d0-refs/branch-heads/5249@{#569}) on port 37690
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+ChromeDriver was started successfully.
+Oct 14, 2022 1:43:21 AM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+Starting ChromeDriver 106.0.5249.61 (511755355844955cd3e264779baf0dd38212a4d0-refs/branch-heads/5249@{#569}) on port 37607
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+ChromeDriver was started successfully.
+Oct 14, 2022 1:43:59 AM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+]]></system-err>
+</testsuite>

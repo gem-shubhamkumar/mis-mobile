@@ -1,0 +1,6 @@
+"Story","Title","Result","Date","Stability","Duration (s)"
+"NavBar","Verify user redirect to landing page when clicking on Gemini logo","SUCCESS","2022-10-14T01:44:42.652+05:30[Asia/Calcutta]","0.0","26.67"
+"NavBar","Verify toggle button on dashboard page","SUCCESS","2022-10-14T01:45:10.021+05:30[Asia/Calcutta]","0.0","33.52"
+"NavBar","Click on profile menu and verify all items are present","SUCCESS","2022-10-14T01:46:04.566+05:30[Asia/Calcutta]","0.0","18.57"
+"NavBar","Verify Experience text field on Add new skills window","SUCCESS","2022-10-14T01:48:29.303+05:30[Asia/Calcutta]","0.0","84.9"
+"NavBar","Logout to MIS portal","SUCCESS","2022-10-14T01:49:54.237+05:30[Asia/Calcutta]","0.0","20.29"

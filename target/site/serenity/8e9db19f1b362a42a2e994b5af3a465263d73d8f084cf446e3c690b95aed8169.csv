@@ -1,0 +1,4 @@
+"Story","Title","Result","Date","Stability","Duration (s)"
+"MIS Leave Management Activities","Select Date from Date dropdown","ERROR","2022-10-12T13:59:48.094+05:30[Asia/Calcutta]","0.0","0.72"
+"MIS Leave Management Activities","Enter Reason for Comp off","ERROR","2022-10-12T13:59:48.843+05:30[Asia/Calcutta]","0.0","0.81"
+"MIS Leave Management Activities","Enter Data and submit Comp off","ERROR","2022-10-12T13:59:49.676+05:30[Asia/Calcutta]","0.0","0.73"

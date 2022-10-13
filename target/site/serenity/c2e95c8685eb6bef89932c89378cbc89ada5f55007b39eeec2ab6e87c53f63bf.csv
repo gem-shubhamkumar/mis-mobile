@@ -1,2 +1,4 @@
 "Story","Title","Result","Date","Stability","Duration (s)"
-"MIS Leave Management Activities","Enter Reason for Comp off","FAILURE","2022-10-10T16:18:45.169+05:30[Asia/Calcutta]","0.0","20.17"
+"MIS Leave Management Activities","Navigate to Policy > View Policies","FAILURE","2022-10-14T01:51:52.649+05:30[Asia/Calcutta]","0.0","31.1"
+"MIS Leave Management Activities","Expand Details for Out Duty/Tour","FAILURE","2022-10-13T14:34:33.974+05:30[Asia/Calcutta]","0.0","53.44"
+"MIS Leave Management Activities","Click on Excel Option for Out Duty/Tour","FAILURE","2022-10-14T03:10:10.024+05:30[Asia/Calcutta]","0.0","20.81"

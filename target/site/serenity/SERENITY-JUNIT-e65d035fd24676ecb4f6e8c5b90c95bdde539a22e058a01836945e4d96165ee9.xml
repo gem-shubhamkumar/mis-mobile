@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="2" name="MIS Leave Management Activities" skipped="0" tests="3" time="331.59" timestamp="2022-10-13 09:36:58"><testcase name="Verify Total Working Days tooltip from Leave Tab"/><testcase name="Enter Data and Click on Submit for Out of Duty tab"><failure message="Unable to verify popUp" type="java.lang.AssertionError">Unable to verify popUp</failure><system-err>Unable to verify popUp&#13;
+com.gemini.mis.implementations.LeaveImplementation.verifyPopup(LeaveImplementation.java:308)&#13;
+com.gemini.mis.pages.LeaveManagementPage.verifyPopup(LeaveManagementPage.java:104)&#13;
+com.gemini.mis.stepdefinitions.LeaveManagementSteps.verifyLeaveIsSubmitted(LeaveManagementSteps.java:126)&#13;
+✽.Verify Leave is submitted and "Out Duty/Tour request has been saved successfully" appears(file:///C:/Users/ja.multani/IdeaProjects/MISAutomation/src/test/resources/features/ApplyOutOfDuty.feature:87)&#13;
+</system-err></testcase><testcase name="Enter reason for WFH"><failure message="Expected enabled element was not enabled&#10;Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'&#10;System info: host: 'GEMPK-200035', ip: '172.20.10.2', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_333'&#10;Driver info: driver.version: unknown" type="net.thucydides.core.webdriver.exceptions.ElementShouldBeEnabledException">Expected enabled element was not enabled
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'GEMPK-200035', ip: '172.20.10.2', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_333'
+Driver info: driver.version: unknown</failure><system-err>Expected enabled element was not enabled
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'GEMPK-200035', ip: '172.20.10.2', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_333'
+Driver info: driver.version: unknown&#13;
+com.gemini.mis.implementations.LeaveImplementation.enterText(LeaveImplementation.java:278)&#13;
+com.gemini.mis.pages.LeaveManagementPage.enterText(LeaveManagementPage.java:98)&#13;
+com.gemini.mis.stepdefinitions.LeaveManagementSteps.enterReasonForLeave(LeaveManagementSteps.java:120)&#13;
+✽.Enter reason "WFH leave" for leave(file:///C:/Users/ja.multani/IdeaProjects/MISAutomation/src/test/resources/features/ApplyWFH.feature:67)&#13;
+</system-err></testcase></testsuite>

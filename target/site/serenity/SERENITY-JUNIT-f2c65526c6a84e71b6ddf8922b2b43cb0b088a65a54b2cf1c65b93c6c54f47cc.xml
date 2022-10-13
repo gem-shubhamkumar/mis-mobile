@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="1" name="MIS Leave Management Activities" skipped="0" tests="3" time="260.89" timestamp="2022-10-13 10:17:44"><testcase name="Enter Valid Date Range for Leave Tab"/><testcase name="Cancel Leave for Leave Tab"><failure message="Tab is not active" type="java.lang.AssertionError">Tab is not active</failure><system-err>Tab is not active&#13;
+com.gemini.mis.implementations.LeaveImplementation.verifyTabIsActive(LeaveImplementation.java:338)&#13;
+com.gemini.mis.pages.LeaveManagementPage.verifyTabIsActive(LeaveManagementPage.java:115)&#13;
+com.gemini.mis.stepdefinitions.LeaveManagementSteps.verifyDisplays(LeaveManagementSteps.java:139)&#13;
+✽.Verify "View Request Status" displays(file:///C:/Users/ja.multani/IdeaProjects/MISAutomation/src/test/resources/features/ViewRequestLeave.feature:188)&#13;
+</system-err></testcase><testcase name="Enter Valid Date Range for Out Duty/Tour"/></testsuite>

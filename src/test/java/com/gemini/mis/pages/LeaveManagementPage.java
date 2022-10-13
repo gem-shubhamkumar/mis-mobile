@@ -1,25 +1,20 @@
 package com.gemini.mis.pages;
 
 import com.gemini.mis.commonfunctions.CommonFunctions;
-import com.gemini.mis.implementations.LeaveManagementImplementation;
+import com.gemini.mis.implementations.LeaveImplementation;
 import com.gemini.mis.selectors.XpathForLeaveManagementTab;
 import com.gemini.mis.selectors.XpathforPolicyTab;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.Step;
-import org.junit.Assert;
 import org.openqa.selenium.*;
 
-import java.time.LocalDate;
-import java.time.Month;
 import java.util.Date;
-import java.util.List;
 
-public class LeaveManagementPage extends PageObject
+public class LeaveManagementPage
 {
 
-    LeaveManagementImplementation implementation;
-    CommonFunctions genFunc;
+    LeaveImplementation implementation;
     @Step("Launch MIS Beta site")
     public void launchSite()
     {
@@ -31,44 +26,23 @@ public class LeaveManagementPage extends PageObject
     {
         implementation.type(text,fieldName);
     }
-
-    @Step
-    public void clickOnButton(String btnName)
-    {
-      implementation.clickOn(btnName);
-    }
-
     @Step
     public void verifyPage(String pageName)
     {
-      implementation.verifyPage(pageName);
+      implementation.verifySuccessfulLogin(pageName);
     }
 
     @Step
     public void clickOnSideNavigationOption(String tabName)
     {
-        WebElementFacade elementFacade = find(XpathForLeaveManagementTab.sideNav(tabName));
-        clickOn(elementFacade);
-    }
-
-
-    @Step("Verify dropdown options after clicking on Side Navigation tabs")
-    public void sideNavOptions(String options)
-    {
-     implementation.sideNavOptions(options);
+        implementation.clickOnTab(tabName);
     }
 
     @Step
-    public void verifyTabDisplays(String tabName)
+    public void verifyTabDisplays(String actualHeading)
     {
-    implementation.verifyTabDisplays(tabName);
+    implementation.verifyTabDisplays(actualHeading);
      }
-
-    @Step
-    public void verifyTab(String tab)
-    {
-        implementation.verifyTab(tab);
-    }
 
     @Step("Verify field is auto populated by default")
     public void verifyAutoPopulated(String fieldName)
@@ -77,22 +51,15 @@ public class LeaveManagementPage extends PageObject
     }
 
     @Step
-    public void verifyMandatoryFields(String fields)
+    public void navigateToSubTab(String childTab, String parentTab)
     {
-     implementation.verifyMandatoryFields(fields);
-    }
-
-
-    @Step
-    public void clickOnSubTab(String childTab, String parentTab)
-    {
-        implementation.clickOnSubTab(childTab,parentTab);
+        implementation.navigateToTab(childTab,parentTab);
     }
 
     @Step("Click on Tab")
-    public void clickOnTab(String tabName)
+    public void navigateToTab(String tabName)
     {
-     implementation.clickOnTab(tabName);
+     implementation.navigateToTab(tabName);
     }
 
     @Step
@@ -143,30 +110,15 @@ public class LeaveManagementPage extends PageObject
         implementation.availabilityType(availabilityType);
     }
 
-
-
     @Step
     public void verifyTabIsActive(String tabName) {
         implementation.verifyTabIsActive(tabName);
     }
 
-    @Step("Select Date from Dropdown")
-    public void selectDateFromDropdown(Date date, By loc)
-    {
-        implementation.selectDateFromDropdown(date,loc);
-    }
-
-
     @Step("Select date for comp off")
     public void selectDateForCompOff()
     {
         implementation.selectDateForCompOff();
-    }
-
-    @Step
-    public void verifyElement(String element)
-    {
-        implementation.verifyElement(element);
     }
 
     @Step
@@ -187,26 +139,9 @@ public class LeaveManagementPage extends PageObject
     }
 
     @Step
-    public void verifyLeavePeriod(String searchText)
+    public void verifyFile(String dir,String fileName)
     {
-        implementation.verifyLeavePeriod(searchText);
-    }
-
-    @Step
-    public void verifyColumnIsSorted(String column) {
-       implementation.verifyColumnIsSorted(column);
-    }
-
-    @Step
-    public void verifyFile(String fileType, String tab)
-    {
-        verifyFile(fileType,tab);
-    }
-
-    @Step
-    public void typeText(String text, String tabName)
-    {
-        implementation.typeText(text,tabName);
+        implementation.isFileDownload(dir,fileName);
     }
 
     @Step
@@ -216,13 +151,162 @@ public class LeaveManagementPage extends PageObject
     }
 
     @Step
-    public void verifyDetailsForDate(String text)
+    public void verifyOutingDate(String date)  {
+      implementation.verifyOutingDate(date);
+    }
+    @Step("Click on Button")
+    public void clickOnButton(By loc)
     {
-        implementation.verifyDetailsForDate(text);
+        implementation.clickOn(loc);
     }
 
     @Step
-    public void verifyOutingDate(String date)  {
-      implementation.verifyOutingDate(date);
+    public void clickOnLoginButton()
+    {
+        implementation.clickOnLoginButton();
+    }
+
+    @Step
+    public void verifyMandatoryTextBoxField(String fields)
+    {
+        implementation.mandatoryTextField(fields);
+    }
+
+    @Step
+    public void verifyMandatoryDropdown(String field)
+    {
+        if (field.contains(",")) {
+            String[] fields = field.split(",");
+            for (int i = 0; i < fields.length; i++) {
+                implementation.mandatoryDropdown(fields[i]);
+            }
+        } else {
+            implementation.mandatoryDropdown(field);
+        }
+    }
+
+    @Step("Click on {0} button")
+    public void clickOnBtn(String btnName,By btn)
+    {
+        implementation.clickOn(btn);
+    }
+
+    @Step
+    public void verifyMandatoryCalendar(String fields) {
+        if (fields.contains(",")) {
+            String[] field = fields.split(",");
+            for (int i = 0; i < field.length; i++) {
+                implementation.mandatoryCalendar(field[i]);
+            }
+        } else {
+            implementation.mandatoryCalendar(fields);
+        }
+    }
+
+    @Step
+    public void typeIntoTextBox(String text, String fieldName)
+    {
+        implementation.typeIntoTextBox(text,fieldName);
+    }
+
+    @Step
+    public void verifyDateRange(By loc)
+    {
+        implementation.verifyElement(loc);
+    }
+
+    @Step
+    public void verifyExportOptions(By loc)
+    {
+        implementation.verifyElement(loc);
+    }
+
+    @Step("Verify column gets sorted")
+    public void verifyColumnSort(By column)
+    {
+        implementation.verifyColumnIsSorted(column);
+    }
+
+    @Step("Sort {0} columns and verify sort")
+    public void sortAndVerify(String columns)
+    {
+        implementation.sortAndVerify(columns);
+    }
+
+    @Step("Click on {0} button")
+    public void clickOnExpandButton(String btnName, By loc)
+    {
+       implementation.clickOn(loc);
+    }
+
+    @Step("Verify Details box appears")
+    public void verifyDetailBox()
+    {
+        implementation.verifyElement(XpathForLeaveManagementTab.detailBox);
+    }
+
+    @Step
+    public void numberOfEntries(String number, String tab)
+    {
+        implementation.numEntries(number,tab);
+      }
+
+    @Step
+    public void verifyRecords()
+    {
+        implementation.verifyRecords();
+    }
+
+    public void verifyDataIsPresent()
+    {
+        implementation.verifyData();
+    }
+
+    @Step("Enter Text")
+    public void enterPeriod(String text, String tabName)
+    {
+        implementation.enterPeriod(text,tabName);
+    }
+
+    @Step
+    public void selectDate(String tab)
+    {
+        implementation.selectDate(tab);
+    }
+
+    @Step
+    public void verifyText()
+    {
+        implementation.verifyText();
+    }
+
+    @Step("Verify tab displays by default")
+    public void verifyDefault(String tab)
+    {
+        implementation.verifyDefault(tab);
+    }
+
+    @Step
+    public void selectType(String dropdownVal)
+    {
+        implementation.selectType(dropdownVal);
+    }
+
+    @Step("Sort columns and verify sorting")
+    public void sortCol(String columns)
+    {
+        implementation.sortCols(columns);
+    }
+
+    @Step
+    public void navigateAllPages(String tabName)
+    {
+        implementation.navigateToAllPages(tabName);
+    }
+
+    @Step
+    public void clickOnPreviousPage(String tabName)
+    {
+        implementation.clickOnPrevPage(tabName);
     }
 }

@@ -23,19 +23,31 @@
 <meta name="msapplication-TileColor" content="#ffffff">
 <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
 <meta name="theme-color" content="#ffffff">
-<link rel="stylesheet" href="bootstrap-icons/font/bootstrap-icons.css"><!-- JQuery -->
-<script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script><!-- Required Stylesheets -->
+<!--[if IE 7]>
+<!--<link rel="stylesheet" href="font-awesome/css/font-awesome-ie7.min.css">-->
+
+<link rel="stylesheet" type="text/css" href="fontawesome-free-5.7.2-web/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="fontawesome-free-5.7.2-web/css/v4-shims.min.css">
+
+<!-- JQuery -->
+<script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script><link rel="stylesheet" type="text/css" href="chartist/chartist-plugin-tooltip/dist/chartist-plugin-tooltip.min.css">
+<link rel="stylesheet" type="text/css" href="chartist/dist/chartist.min.css">
+<script src="chartist/dist/chartist.min.js"></script>
+<script src="chartist/chartist-plugin-tooltip/dist/chartist-plugin-tooltip.min.js"></script>
+<!-- Required Stylesheets -->
 <link href="bootstrap-treeview/dist/bootstrap-treeview.min.css" rel="stylesheet">
 
 <!-- Required Javascript -->
 <script src="bootstrap-treeview/dist/bootstrap-treeview.min.js"></script><!-- DataTables -->
-<link type="text/css" href="datatables/1.11.3/datatables.min.css" rel="stylesheet" />
-<script type="text/javascript" src="datatables/1.11.3/datatables.min.js"></script>
-<script type="text/javascript" src="datatables/1.11.3/time-elapsed-dhms.js"></script>
+<link type="text/css" href="datatables/1.10.20/datatables.min.css" rel="stylesheet" />
+<script type="text/javascript" src="datatables/1.10.20/datatables.min.js"></script>
+<script type="text/javascript" src="datatables/1.10.20/time-elapsed-dhms.js"></script>
 
 <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <script src="bootstrap/js/bootstrap.min.js"></script>
 
+<script type="text/javascript" src="datatables/1.10.20/datatables.bootstrap4.min.js"></script>
+<link type="text/css" href="datatables/1.10.20/datatables.bootstrap4.min.css" rel="stylesheet" />
 
 <script>
     jQuery.fn.dataTable.ext.type.order['time-elapsed-dhms-pre'] = function(data) {
@@ -59,16 +71,7 @@
 </script>
 <link rel="stylesheet" href="css/core.css"/>
 <link rel="stylesheet" href="css/link.css"/>
-<link type="text/css" media="screen" href="css/screen.css" rel="Stylesheet"/>
-<!--CHART.JS-->
-<script src="chartjs/chart.js"></script>
-<script src="chartjs/chartjs-plugin-datalabels@2.0.0"></script>
-<script src="chartjs/patternomaly.min.js"></script>
-<script>
-    // Register the plugin to all charts:
-    Chart.register(ChartDataLabels);
-</script>
-<!-- Nivo Slider -->
+<link type="text/css" media="screen" href="css/screen.css" rel="Stylesheet"/><!-- Nivo Slider -->
 <link rel="stylesheet" href="nivo-slider/3.2/nivo-slider.css" type="text/css" media="screen" />
 <link rel="stylesheet" href="nivo-slider/3.2/themes/default/default.css" type="text/css" media="screen" />
 <script src="nivo-slider/3.2/jquery.nivo.slider.pack.js" type="text/javascript"></script>
@@ -114,7 +117,7 @@
         <div id="logo"><a href="index.html"><img src="images/serenity-logo.png" border="0"/></a></div>
         <div id="projectname-banner" style="float:right">
             <span class="projectname">
-                <span class="projecttitle">Serenity BDD Report</span>
+                <span class="projecttitle">SerenityGradle</span>
                 <span class="projectsubtitle"></span>
             </span>
         </div>
@@ -142,16 +145,16 @@
 <div>
     <ul class="nav nav-tabs" role="tablist">
         <li class="active">
-            <a href="#"><i class="bi bi-journal-check"></i> Overall Test Results</a>
+            <a href="#"><i class="fa fa-check-square-o"></i> Overall Test Results</a>
         </li>
         <li >
-            <a href="capabilities.html"><i class="bi bi-journal-text"></i> Requirements</a>
+            <a href="capabilities.html"><i class="fa fa-book"></i> Requirements</a>
         </li>
         <li >
-            <a href="576946480b52ad056d6f5bddf874399c83582ecf90963cc074a14c70580e7d9f.html"><i class="bi bi-chat-text"></i> Features</a>
+            <a href="576946480b52ad056d6f5bddf874399c83582ecf90963cc074a14c70580e7d9f.html"><i class="fa fa-comments-o"></i> Features</a>
         </li>
     </ul>
-    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 10-10-2022 16:18</span>
+    <span class="date-and-time"><a href="build-info.html"><i class="fa fa-info-circle"></i></a> Report generated 14-10-2022 01:02</span>
     <br style="clear:left"/>
 </div>
 
@@ -166,7 +169,7 @@
                         <td>
                             <div>
                                 <h3 class="discreet-story-header">
-                                    <i class="fs-2 bi bi-chat-left-quote large-icon"></i>
+                                    <i class="fa fa-2x fa-comments-o"></i>
                                     <span class="story-header-title">MIS Leave Management Activities </span>
                                     <span class="badge tag-badge" style="">Feature</span>
                                 </h3>
@@ -186,9 +189,9 @@
                 <table class="outcome-header">
                     <tr>
                         <td colspan="2" class="test-title-bar">
-                            <span class="outcome-icon"><a href='##beforetable'><i class='bi bi-x-circle-fill failure-icon fa-2x' title='FAILURE'></i></a></span>
+                            <span class="outcome-icon"><a href='##beforetable'><i class='fa fa-check-circle-o success-icon fa-2x' title='SUCCESS'></i></a></span>
                             <span class="test-case-title">
-                                <span class="failing-color">Enter Reason for Comp off
+                                <span class="success-color">Enter Reason for Comp off
                                     <span class="related-issue-title"></span>
                                 </span>
                             </span>
@@ -204,62 +207,48 @@
 
     <div class="story-title">
         <h3>Scenario:</h3>
-        <div class="scenario">When User is on MIS Home Page<br>When Click on "&lt;childTab&gt;" sub tab of "&lt;parentTab&gt;" tab<br>And Verify "&lt;childTab&gt;" opens successfully<br>Then Click on "&lt;tab&gt;" Tab<br>And Verify "&lt;tab&gt;" displays<br>Then Enter "weekend testing" as reason</div>
+        <div class="scenario">When User is on MIS Home Page<br>When User clicks on "&lt;childTab&gt;" sub tab of "&lt;parentTab&gt;" tab<br>And Verify "&lt;heading&gt;" of "&lt;childTab&gt;" tab<br>When User clicks on "&lt;tab&gt;" Tab<br>And Verify "&lt;tab&gt;" displays<br>Then Enter "weekend testing" as reason</div>
     </div>
 
     <div id="beforetable"></div>
     <div id="contenttilttle">
-            <div class="screenshotFailure panel panel-danger">
-    <div style="display:block">
-        <div class="table">
-            <div class="row">
-                <div class="col-sm-10" style="padding-left:1.5em; padding-top:0.5em; padding-bottom:0.5em;">
-                    <span class="error-message error-message-title">Assertion error: expected:(...geminisolutions.com/[]) but was:(...geminisolutions.com/[Dashboard/Index])</span>
-                </div>
-                <div class="col-sm-2">
-                    <a class="btn btn-warning details-button" data-toggle="collapse" href="#stacktraceModal-overall"
-                       role="button" aria-expanded="false" aria-controls="multiCollapseExample1"><i class="bi bi-eye"></i> More details</a>
-                </div>
-             </div>
-        </div>
-    <div>
-
-    <!-- Details Section -->
-    <div class="row stacktrace-details">
-      <div class="col">
-        <div class="collapse multi-collapse" id="stacktraceModal-overall">
-            <div class="card">
-                <div class="card-header">
-                    <h4>java.lang.AssertionError </h4>
-                </div>
-                <div class="card-body">
-                    <div>
-                        <pre>com.gemini.mis.pages.LeaveManagementPage.verifyPage(LeaveManagementPage.java:48)<br />stepDefinitions.LeaveManagementSteps.userIsOnMISHomePage(LeaveManagementSteps.java:72)<br />✽.User is on MIS Home Page(file:///C:/Users/ja.multani/IdeaProjects/MISAutomation/src/test/resources/features/ApplyCompOff.feature:42)<br /></pre>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
-                <div class="panel-body">
-                    <a href="pagesource195528181469634432.html" target="_blank" class="btn btn-info">HTML Source</a>
-                </div>
-            </div>
         <div class="slider-wrapper theme-default">
             <div id="slider">
-                <img src="167dff19ef1323028751055f8419f283af973b07ad624a453e2652561d139f30.png" title=" 1: Enter Reason for Comp off ({parentTab=Leave Management, childTab=Apply, tab=Comp Off})" width="1034"/>
-                <img src="167dff19ef1323028751055f8419f283af973b07ad624a453e2652561d139f30.png" title=" Given User is logged into MIS" width="1034"/>
-                <img src="167dff19ef1323028751055f8419f283af973b07ad624a453e2652561d139f30.png" title=" Launch MIS Beta site" width="1034"/>
-                <img src="167dff19ef1323028751055f8419f283af973b07ad624a453e2652561d139f30.png" title=" Type into element: jasleen.multani, username" width="1034"/>
-                <img src="091c52e3973651b00eae072eefda8736e48476773cd80657ab63861268a09044.png" title=" Type into element: jasleen.multani, username (completed)" width="1034"/>
-                <img src="091c52e3973651b00eae072eefda8736e48476773cd80657ab63861268a09044.png" title=" Type into element: Gemini@123, password" width="1034"/>
-                <img src="7337e746928f1a4219c1e4c91b391e746c1b62b18e4385b7555b8849319020e5.png" title=" Type into element: Gemini@123, password (completed)" width="1034"/>
-                <img src="ac5493955b3272c9d03340d1c5332fba1c3f13bc036e83eba49ad05e4fe1cb2d.png" title=" Click on button: Sign in" width="1034"/>
-                <img src="017c825c263c50f10664f75c14a12faa6824729e0cf757f1598a6c653a302a1b.png" title=" Click on button: Sign in (completed)" width="1034"/>
-                <img src="017c825c263c50f10664f75c14a12faa6824729e0cf757f1598a6c653a302a1b.png" title=" Given User is logged into MIS (completed)" width="1034"/>
-                <img src="017c825c263c50f10664f75c14a12faa6824729e0cf757f1598a6c653a302a1b.png" title=" When User is on MIS Home Page" width="1034"/>
-                <img src="017c825c263c50f10664f75c14a12faa6824729e0cf757f1598a6c653a302a1b.png" title=" Verify page: Dashboard Page" width="1034"/>
-                <img src="375288f05af052a20409df815d41295b5706c6cca22d2d2ab70e2d68d2ace8f6.png" title=" Verify page: Dashboard Page (completed): <span class='failing-color'>FAILURE</span>" width="1034"/>
+                <img src="edfdefff7c6183a2fe0d799125a67d805b04b7a36ea76097d148cdd3e817b8c9.png" title=" 1: Enter Reason for Comp off ({parentTab=Leave Management, childTab=Apply, tab=Comp Off, heading=Apply Leave / WFH / Comp Off / Out Duty / Change Request})" width="1366"/>
+                <img src="edfdefff7c6183a2fe0d799125a67d805b04b7a36ea76097d148cdd3e817b8c9.png" title=" Given User is logged into MIS" width="1366"/>
+                <img src="edfdefff7c6183a2fe0d799125a67d805b04b7a36ea76097d148cdd3e817b8c9.png" title=" Launch MIS Beta site" width="1366"/>
+                <img src="edfdefff7c6183a2fe0d799125a67d805b04b7a36ea76097d148cdd3e817b8c9.png" title=" Type into element: jasleen.multani, username" width="1366"/>
+                <img src="51d6b5cda539aa95a7c21d4438bc89c72daf5130c66ef15baf921187634e9969.png" title=" Type into element: jasleen.multani, username (completed)" width="1366"/>
+                <img src="51d6b5cda539aa95a7c21d4438bc89c72daf5130c66ef15baf921187634e9969.png" title=" Type into element: Gemini@123, password" width="1366"/>
+                <img src="f30786f4ec3e0c57e3bbf0ca1adfbcf61870892be72709ea5ef28023f79bf9f3.png" title=" Type into element: Gemini@123, password (completed)" width="1366"/>
+                <img src="f30786f4ec3e0c57e3bbf0ca1adfbcf61870892be72709ea5ef28023f79bf9f3.png" title=" Click on login button" width="1366"/>
+                <img src="cb0b2cb92933ea6a21ae8c830bb32fe634556974db8ff30732d8bc9c8f6b8d17.png" title=" Click on login button (completed)" width="1366"/>
+                <img src="cb0b2cb92933ea6a21ae8c830bb32fe634556974db8ff30732d8bc9c8f6b8d17.png" title=" Given User is logged into MIS (completed)" width="1366"/>
+                <img src="cb0b2cb92933ea6a21ae8c830bb32fe634556974db8ff30732d8bc9c8f6b8d17.png" title=" When User is on MIS Home Page" width="1366"/>
+                <img src="d5936a127a0454d1231defc7fe25487a51accd700323eee1f125940dbdcc81a7.png" title=" Verify page: Dashboard Page" width="1366"/>
+                <img src="6bc78704b8b218bc7ae7b674d7eb1fd4af331c0f13053a3c2013b965c554aa7e.png" title=" Verify page: Dashboard Page (completed)" width="1366"/>
+                <img src="6bc78704b8b218bc7ae7b674d7eb1fd4af331c0f13053a3c2013b965c554aa7e.png" title=" When User is on MIS Home Page (completed)" width="1366"/>
+                <img src="6bc78704b8b218bc7ae7b674d7eb1fd4af331c0f13053a3c2013b965c554aa7e.png" title=" When User clicks on &quot;Apply&quot; sub tab of &quot;Leave Management&quot; tab" width="1366"/>
+                <img src="6bc78704b8b218bc7ae7b674d7eb1fd4af331c0f13053a3c2013b965c554aa7e.png" title=" Navigate to sub tab: Apply, Leave Management" width="1366"/>
+                <img src="90611875809a4f711ca9eee034d6edeb17940424b5fea540728da9434dfaff72.png" title=" Navigate to sub tab: Apply, Leave Management (completed)" width="1366"/>
+                <img src="90611875809a4f711ca9eee034d6edeb17940424b5fea540728da9434dfaff72.png" title=" When User clicks on &quot;Apply&quot; sub tab of &quot;Leave Management&quot; tab (completed)" width="1366"/>
+                <img src="90611875809a4f711ca9eee034d6edeb17940424b5fea540728da9434dfaff72.png" title=" And Verify &quot;Apply Leave / WFH / Comp Off / Out Duty / Change Request&quot; of &quot;Apply&quot; tab" width="1366"/>
+                <img src="90611875809a4f711ca9eee034d6edeb17940424b5fea540728da9434dfaff72.png" title=" Verify tab displays: Apply Leave / WFH / Comp Off / Out Duty / Change Request" width="1366"/>
+                <img src="7dace71eb73979d97a89353d1f25b55ba85d0397d9c2e4a8798d9a23ed0f18fa.png" title=" Verify tab displays: Apply Leave / WFH / Comp Off / Out Duty / Change Request (completed)" width="1366"/>
+                <img src="7dace71eb73979d97a89353d1f25b55ba85d0397d9c2e4a8798d9a23ed0f18fa.png" title=" And Verify &quot;Apply Leave / WFH / Comp Off / Out Duty / Change Request&quot; of &quot;Apply&quot; tab (completed)" width="1366"/>
+                <img src="7dace71eb73979d97a89353d1f25b55ba85d0397d9c2e4a8798d9a23ed0f18fa.png" title=" When User clicks on &quot;Comp Off&quot; Tab" width="1366"/>
+                <img src="7dace71eb73979d97a89353d1f25b55ba85d0397d9c2e4a8798d9a23ed0f18fa.png" title=" Click on Tab" width="1366"/>
+                <img src="5cd8c998b9cc8e3c2b4579092cf560dcc3dc8e8a1b34cf07d861b94ae465b3d0.png" title=" Click on Tab (completed)" width="1366"/>
+                <img src="5cd8c998b9cc8e3c2b4579092cf560dcc3dc8e8a1b34cf07d861b94ae465b3d0.png" title=" When User clicks on &quot;Comp Off&quot; Tab (completed)" width="1366"/>
+                <img src="5cd8c998b9cc8e3c2b4579092cf560dcc3dc8e8a1b34cf07d861b94ae465b3d0.png" title=" And Verify &quot;Comp Off&quot; displays" width="1366"/>
+                <img src="5cd8c998b9cc8e3c2b4579092cf560dcc3dc8e8a1b34cf07d861b94ae465b3d0.png" title=" Verify tab is active: Comp Off" width="1366"/>
+                <img src="a03ca31fe085cec37805f786ad4e58464520e46a43a5cb2a3f18298eede6fcc0.png" title=" Verify tab is active: Comp Off (completed)" width="1366"/>
+                <img src="a03ca31fe085cec37805f786ad4e58464520e46a43a5cb2a3f18298eede6fcc0.png" title=" And Verify &quot;Comp Off&quot; displays (completed)" width="1366"/>
+                <img src="a03ca31fe085cec37805f786ad4e58464520e46a43a5cb2a3f18298eede6fcc0.png" title=" Then Enter &quot;weekend testing&quot; as reason" width="1366"/>
+                <img src="a03ca31fe085cec37805f786ad4e58464520e46a43a5cb2a3f18298eede6fcc0.png" title=" Enter text: By.xpath: //textarea[@id=&quot;CompOffReason&quot;], weekend testing" width="1366"/>
+                <img src="1b37ce4d5df3dacc108354da1a225f3a8036d0d583eaa83236a96ee12f76275d.png" title=" Enter text: By.xpath: //textarea[@id=&quot;CompOffReason&quot;], weekend testing (completed)" width="1366"/>
+                <img src="1b37ce4d5df3dacc108354da1a225f3a8036d0d583eaa83236a96ee12f76275d.png" title=" Then Enter &quot;weekend testing&quot; as reason (completed)" width="1366"/>
+                <img src="1b37ce4d5df3dacc108354da1a225f3a8036d0d583eaa83236a96ee12f76275d.png" title=" 1: Enter Reason for Comp off ({parentTab=Leave Management, childTab=Apply, tab=Comp Off, heading=Apply Leave / WFH / Comp Off / Out Duty / Change Request}) (completed): <span class='success-color'>SUCCESS</span>" width="1366"/>
             </div>
         </div>
 
@@ -268,7 +257,7 @@
 </div>
 <div id="beforefooter"></div>
 <div id="bottomfooter">
-    <span class="version">Serenity BDD version 3.3.2</span>
+    <span class="version">Serenity BDD version 2.6.0</span>
 </div>
 </body>
 </html>

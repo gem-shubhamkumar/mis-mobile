@@ -1,0 +1,8 @@
+"Story","Title","Result","Date","Stability","Duration (s)"
+"MIS Leave Management Activities","Enter Data and Click on Submit for Out of Duty tab","FAILURE","2022-10-13T17:45:30.498+05:30[Asia/Calcutta]","0.0","65.37"
+"MIS Leave Management Activities","Verify Data is present in Policies tab","FAILURE","2022-10-13T17:53:25.495+05:30[Asia/Calcutta]","0.0","37.22"
+"MIS Leave Management Activities","Verify Number of Entries displayed","FAILURE","2022-10-13T17:54:02.884+05:30[Asia/Calcutta]","0.0","37.12"
+"MIS Leave Management Activities","Enter Policy Name in Search Box","FAILURE","2022-10-13T17:54:40.025+05:30[Asia/Calcutta]","0.0","36.49"
+"MIS Leave Management Activities","Cancel Leave for Leave Tab","FAILURE","2022-10-13T18:27:27.662+05:30[Asia/Calcutta]","0.0","71.58"
+"MIS Leave Management Activities","Click on View button for Out Duty/Tour","FAILURE","2022-10-13T18:37:43.245+05:30[Asia/Calcutta]","0.0","50.82"
+"MIS Leave Management Activities","Click on Print Option for WFH Tab","FAILURE","2022-10-13T18:44:01.589+05:30[Asia/Calcutta]","0.0","42.12"

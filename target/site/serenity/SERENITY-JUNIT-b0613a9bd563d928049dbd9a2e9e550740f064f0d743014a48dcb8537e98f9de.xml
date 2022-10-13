@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="2" name="MIS Leave Management Activities" skipped="0" tests="3" time="160.05" timestamp="2022-10-13 10:33:08"><testcase name="Click on Export Options Option for Out Duty/Tour"/><testcase name="Verify PDF option for Out Duty/Tour"><failure message="expected:&lt;...geminisolutions.com/[]&gt; but was:&lt;...geminisolutions.com/[Dashboard/Index]&gt;" type="java.lang.AssertionError">expected:&lt;...geminisolutions.com/[]&gt; but was:&lt;...geminisolutions.com/[Dashboard/Index]&gt;</failure><system-err>expected:&lt;...geminisolutions.com/[]&gt; but was:&lt;...geminisolutions.com/[Dashboard/Index]&gt;&#13;
+com.gemini.mis.implementations.LeaveImplementation.verifySuccessfulLogin(LeaveImplementation.java:51)&#13;
+com.gemini.mis.pages.LeaveManagementPage.verifyPage(LeaveManagementPage.java:32)&#13;
+com.gemini.mis.stepdefinitions.LeaveManagementSteps.userIsOnMISHomePage(LeaveManagementSteps.java:40)&#13;
+✽.User is on MIS Home Page(file:///C:/Users/ja.multani/IdeaProjects/MISAutomation/src/test/resources/features/ViewRequestOutDuty.feature:107)&#13;
+</system-err></testcase><testcase name="Click on View button for Out Duty/Tour"><failure message="Unable to verify tab" type="java.lang.AssertionError">Unable to verify tab</failure><system-err>Unable to verify tab&#13;
+com.gemini.mis.implementations.LeaveImplementation.verifyTabDisplays(LeaveImplementation.java:73)&#13;
+com.gemini.mis.pages.LeaveManagementPage.verifyTabDisplays(LeaveManagementPage.java:44)&#13;
+com.gemini.mis.stepdefinitions.LeaveManagementSteps.verifyWindowAppears(LeaveManagementSteps.java:300)&#13;
+✽.Verify "Out Duty/Tour Request Detail" Window appears(file:///C:/Users/ja.multani/IdeaProjects/MISAutomation/src/test/resources/features/ViewRequestOutDuty.feature:158)&#13;
+</system-err></testcase></testsuite>

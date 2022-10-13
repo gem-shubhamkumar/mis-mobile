@@ -7,6 +7,10 @@ public class XpathForLeaveManagementTab
     {
         return By.xpath("//input[@id=\""+nameOfElement+"\"]");
     }
+    public static By column(String nameOfElement)
+    {
+        return By.xpath("//th[contains(text(),\""+nameOfElement+"\")]");
+    }
     public static By dropdown(String nameOfElement)
     {
         return By.xpath("//select[@id=\""+nameOfElement+"\"]");
@@ -14,6 +18,14 @@ public class XpathForLeaveManagementTab
     public static By searchBox(String num)
     {
         return By.xpath("(//input[@type='search'])["+num+"]");
+    }
+    public static By nextBtn(String tabName)
+    {
+        return By.xpath("//a[@aria-controls=\""+tabName+"\"and contains(text(),'Next')]");
+    }
+    public static By previousBtn(String tabName)
+    {
+        return By.xpath("//a[@aria-controls=\""+tabName+"\"and contains(text(),'Previous')]");
     }
     public static By sideNav(String sideNav)
     {
@@ -38,6 +50,11 @@ public class XpathForLeaveManagementTab
     public static By successAlertPopup(String tag)
     {
         return By.xpath("//div[@class='sweet-alert  showSweetAlert visible']/"+tag+"");
+    }
+
+    public static By requestAlertPopup(String tag)
+    {
+        return By.xpath("//div[@class='sweet-alert showSweetAlert visible ']/"+tag+"");
     }
     public static By calendarBtn(String id)
     {
@@ -69,10 +86,16 @@ public class XpathForLeaveManagementTab
         return By.xpath("//button[@class=\""+btnName+"\"]");
 
     }
+    public static By exportOptions(String btnName)
+    {
+        return By.xpath("//span[contains(text(),\""+btnName+"\")]");
+
+    }
     public static By exportBtn(String num)
     {
         return By.xpath("(//a[@class='dt-button buttons-collection'])["+num+"]");
     }
+
     public static By copyBtn(String num)
     {
         return By.xpath("(//a[@class='dt-button buttons-copy buttons-html5'])["+num+"]");
@@ -99,9 +122,9 @@ public class XpathForLeaveManagementTab
     }
     public static By compOffDetails(String className)
     {
-        return By.xpath("//li[@data-dt-row='0']/span[@class=\""+className+"\"]");
+        return By.xpath("//li[@data.json-dt-row='0']/span[@class=\""+className+"\"]");
     }
-    //li[@data-dt-row='0']/span[@class="dtr-title"]
+    //li[@data.json-dt-row='0']/span[@class="dtr-title"]
     public static By columnHeading(String num)
     {
         return By.xpath("(//th[@tabindex='0'])["+num+"]");
@@ -117,9 +140,9 @@ public class XpathForLeaveManagementTab
 
 
     public static By heading = By.xpath("//h5");
-    public static By newHeading = By.xpath("//h4");
+    public static By newHeading = By.xpath("(//h4)[3]");
     public static By tab = By.xpath("//a[@role='tab']/span");
-    public static By outingDate = By.xpath("(//td[@tabindex='0'])[12]");
+    public static By outingDate = By.xpath("(//td[@tabindex='0'])[21]");
 
     public static By tooltip = By.xpath("//a[@data-trigger='hover']");
     public static By dateRange =By.xpath("//span[@id='select2-financialYearScroll-container']");
@@ -134,14 +157,8 @@ public class XpathForLeaveManagementTab
         return By.xpath("//td[contains(text(),\""+date+"\")]");
     }
     public static By nextCal = By.xpath("//th[@class='next']");
-
-
-
-    public static By JDButton= By.xpath("(//button[contains(@onclick,'viewDocumentInPopup')])[1]");
-    public static By JDWindow=By.xpath("//embed[@id='objViewPdf']");
-    public static String JDRole="(//td[text()='VAR'])[1]";
-    public static By RefralButton=By.xpath("(//button[@title='Refer'])[1]");
-    public static By JdNameRefer=By.xpath("//input[@id='refereeName']");
-    public static By JDEmail=By.xpath("//input[@id='refereeID']");
+    public static By detailBox = By.xpath("//td[@class='child']");
+    public static By calNext = By.xpath("//th[@class='next']");
+    public static By dataIsPresent = By.xpath("(//tr[@role='row'])[13]");
 
 }

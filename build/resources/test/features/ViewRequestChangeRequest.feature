@@ -6,34 +6,31 @@ Feature: MIS Leave Management Activities
 
   Scenario Outline: Navigate to Leave Management > View Request Status tab > Change Request
     When User is on MIS Home Page
-    When Click on "<childTab>" sub tab of "<parentTab>" tab
-    And Verify "<childTab>" opens successfully
-    When Click on "<tab>" tab
-    And Verify "<tab>" opens successfully
+    When User clicks on "<childTab>" sub tab of "<parentTab>" tab
+    When User clicks on "<tab>" Tab
+    And Verify "<tab>" displays
     Examples:
       |      parentTab     |       childTab      |       tab       |
       | Leave Management   | View Request Status |  Change Request |
 
   Scenario Outline: Verify Date Range field is present for Change Request
     When User is on MIS Home Page
-    When Click on "<childTab>" sub tab of "<parentTab>" tab
-    And Verify "<childTab>" opens successfully
-    When Click on "<tab>" tab
-    And Verify "<tab>" opens successfully
-    Then Verify "Date Range" fields is present
+    When User clicks on "<childTab>" sub tab of "<parentTab>" tab
+    When User clicks on "<tab>" Tab
+    And Verify "<tab>" displays
+    Then Verify Date Range field is present
     Examples:
       |      parentTab     |       childTab      |       tab       |
       | Leave Management   | View Request Status |  Change Request |
 
   Scenario Outline: Enter Invalid Date Range for Change Request
     When User is on MIS Home Page
-    When Click on "<childTab>" sub tab of "<parentTab>" tab
-    And Verify "<childTab>" opens successfully
-    When Click on "<tab>" tab
-    And Verify "<tab>" opens successfully
-    Then Verify "Date Range" fields is present
+    When User clicks on "<childTab>" sub tab of "<parentTab>" tab
+    When User clicks on "<tab>" Tab
+    And Verify "<tab>" displays
+    Then Verify Date Range field is present
     And Click "Date Range" dropdown
-    Then Enter "01 Apr 20000" "Invalid" Date range in Change Request
+    Then Enter "01 Apr 20000" "Invalid" Date range
     And Verify "No results found" message displays
     Examples:
       |      parentTab     |       childTab      |       tab       |
@@ -41,13 +38,12 @@ Feature: MIS Leave Management Activities
 
   Scenario Outline: Enter Valid Date Range for Change Request
     When User is on MIS Home Page
-    When Click on "<childTab>" sub tab of "<parentTab>" tab
-    And Verify "<childTab>" opens successfully
-    When Click on "<tab>" tab
-    And Verify "<tab>" opens successfully
-    Then Verify "Date Range" fields is present
+    When User clicks on "<childTab>" sub tab of "<parentTab>" tab
+    When User clicks on "<tab>" Tab
+    And Verify "<tab>" displays
+    Then Verify Date Range field is present
     And Click "Date Range" dropdown
-    Then Enter "<dateRange>" "Valid" Date range in Change Request
+    Then Enter "<dateRange>" "Valid" Date range
     And Verify "<dateRange>" text displays
     Then Verify "<dateRange>" is selected
     Examples:
@@ -56,11 +52,10 @@ Feature: MIS Leave Management Activities
 
   Scenario Outline: Click on Export Options Option for Change Request
     When User is on MIS Home Page
-    When Click on "<childTab>" sub tab of "<parentTab>" tab
-    And Verify "<childTab>" opens successfully
-    When Click on "<tab>" tab
-    And Verify "<tab>" opens successfully
-    When Click on "Export LWP" button
+    When User clicks on "<childTab>" sub tab of "<parentTab>" tab
+    When User clicks on "<tab>" Tab
+    And Verify "<tab>" displays
+    When Click on "Export" button
     Then Verify "Copy,Excel,PDF,Print" options are displayed
     Examples:
       |      parentTab     |       childTab      |      tab        |
@@ -68,13 +63,12 @@ Feature: MIS Leave Management Activities
 
   Scenario Outline: Click on Print Option for Change Request
     When User is on MIS Home Page
-    When Click on "<childTab>" sub tab of "<parentTab>" tab
-    And Verify "<childTab>" opens successfully
-    When Click on "<tab>" tab
-    And Verify "<tab>" opens successfully
-    When Click on "Export LWP" button
+    When User clicks on "<childTab>" sub tab of "<parentTab>" tab
+    When User clicks on "<tab>" Tab
+    And Verify "<tab>" displays
+    When Click on "Export" button
     Then Verify "Copy,Excel,PDF,Print" options are displayed
-    When Click on "Print" button
+    When Click on "Print" export option
     And Verify Print page appears
     Examples:
       |      parentTab     |       childTab      |     tab         |
@@ -82,43 +76,39 @@ Feature: MIS Leave Management Activities
 
   Scenario Outline: Click on Copy Option for Change Request
     When User is on MIS Home Page
-    When Click on "<childTab>" sub tab of "<parentTab>" tab
-    And Verify "<childTab>" opens successfully
-    When Click on "<tab>" tab
-    And Verify "<tab>" opens successfully
-    When Click on "Export LWP" button
+    When User clicks on "<childTab>" sub tab of "<parentTab>" tab
+    When User clicks on "<tab>" Tab
+    And Verify "<tab>" displays
+    When Click on "Export" button
     Then Verify "Copy,Excel,PDF,Print" options are displayed
-    When Click on "Copy" button
-    And Verify "Copied to Clipboard" popup appears
+    When Click on "Copy" export option
+    And Verify Copied to Clipboard text appears
     Examples:
       |      parentTab     |       childTab      |       tab       |
       | Leave Management   | View Request Status |  Change Request |
 
   Scenario Outline: Click on Excel Option for Change Request
     When User is on MIS Home Page
-    When Click on "<childTab>" sub tab of "<parentTab>" tab
-    And Verify "<childTab>" opens successfully
-    When Click on "<tab>" tab
-    And Verify "<tab>" opens successfully
-    When Click on "Export LWP" button
+    When User clicks on "<childTab>" sub tab of "<parentTab>" tab
+    When User clicks on "<tab>" Tab
+    And Verify "<tab>" displays
+    When Click on "Export" button
     Then Verify "Copy,Excel,PDF,Print" options are displayed
-    When Click on "Excel" button
-    And Verify excel file is downloaded for "LWP" Tab
+    When Click on "Excel" export option
+    And Verify "Leave History List.xlsx" file is downloaded
     Examples:
       |      parentTab     |       childTab      |        tab      |
       | Leave Management   | View Request Status |  Change Request |
 
   Scenario Outline: Verify PDF option for Change Request
     When User is on MIS Home Page
-    When Click on "<childTab>" sub tab of "<parentTab>" tab
-    And Verify "<childTab>" opens successfully
-    When Click on "<tab>" tab
-    And Verify "<tab>" opens successfully
-    When Click on "Export LWP" button
+    When User clicks on "<childTab>" sub tab of "<parentTab>" tab
+    When User clicks on "<tab>" Tab
+    And Verify "<tab>" displays
+    When Click on "Export" button
     Then Verify "Copy,Excel,PDF,Print" options are displayed
-    When Click on "Pdf" button
-    And Verify pdf file is downloaded for "LWP" Tab
+    When Click on "PDF" export option
+    And Verify "Leave History List.pdf" file is downloaded
     Examples:
       |      parentTab     |       childTab      |        tab      |
       | Leave Management   | View Request Status |  Change Request |
-
