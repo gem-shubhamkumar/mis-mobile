@@ -18,122 +18,122 @@ public class AppraisalManagementStepDefinition extends PageObject {
 
     int numberOfPages;
 
-    @And("^Verify Add goal window opens$")
+    @And("^Verify Add goal window opens.$")
     public void verifyAddGoalWindow(){
         goalPages.isElementVisible(myGoalSelectors.tabDelivery,"delivery tab");
     }
 
-    @And("^Verify that \"(.*?)\" text is present on the current page$")
+    @And("^Verify that \"(.*?)\" text is present on the current page.$")
     public void verifyTextOnCurrentPage(String text){
         goalPages.verifyTextPresent(text);
     }
 
-    @Then("Is AddOrUpdateGoals displayed")
+    @Then("Is AddOrUpdateGoals displayed.")
     public void isAddOrUpdateGoals(){
         goalPages.isAddOrUpdateGoals();
     }
 
-    @Then("^Verify \"(.*?)\" Message$")
+    @Then("^Verify \"(.*?)\" Message.$")
     public void verifyMessage(String message){
         goalPages.verifyMessage(message);
     }
 
-    @Then("^click on \"(.*?)\" option in add new KPI row$")
+    @Then("^click on \"(.*?)\" option in add new KPI row.$")
     public void addOrRemoveKPIRow(String optionName){
         goalPages.addOrRemoveKPIRow(optionName);
     }
 
-    @And("verify KPI row added")
+    @And("verify KPI row added.")
     public void verifyKPIAdded(){
       goalPages.verifyKPIAdded();
     }
 
-    @And("verify KPI row removed")
+    @And("verify KPI row removed.")
     public void verifyKPIRemoved(){
        goalPages.verifyKPIRemoved();
         }
 
-    @And("^Enter \"(.*?)\" in \"(.*?)\" text field$")
+    @And("^Enter \"(.*?)\" in \"(.*?)\" text field.$")
     public void verifyTextFieldAndEnterText(String textToType,String fieldName){
         goalPages.enterTextInField(textToType,fieldName);
     }
 
-    @Then("^Select \"(.*?)\" from the rows dropdown$")
+    @Then("^Select \"(.*?)\" from the rows dropdown.$")
     public void clickFromRowDropDown(String numOfRows){
         goalPages.clickFromRowDropDown(numOfRows);
     }
 
-    @And("^Verify \"(.*?)\" is visible on the current screen$")
-    public void verifyIsVisibleOnTheCurrentScreen(String eleName) {
+    @And("^Verify \"(.*?)\" is visible on the current screen Appraisal.$")
+    public void verifyIsVisibleOnTheCurrentScreenAppraisal(String eleName) {
         goalPages.verifyIsVisibleOnTheCurrentScreen(eleName);
     }
 
-    @And("^Click on \"(.*?)\" button$")
+    @And("^Click on \"(.*?)\" button.$")
     public void clickOnBtn(String eleName){
         goalPages.clickOnElement(eleName);
     }
 
-    @Then("verify number of rows from lower left")
+    @Then("verify number of rows from lower left.")
     public void verifyNumberOfRows(){
         goalPages.verifyNumberOfRows();
     }
 
-    @Then("^Click on \"(.*?)\" Sub Tab inside \"(.*?)\" tab$")
+    @Then("^Click on \"(.*?)\" Sub Tab inside \"(.*?)\" tab.$")
     public void clickOnSubTab(String subTab,String menuTab){
         goalPages.navigateToTab(menuTab,subTab);
     }
 
-    @And("Verify add goal window is closed")
+    @And("Verify add goal window is closed.")
     public void verifyAddGoalWindowIsClosed() {
         goalPages.verifyElementIsNotVisible("Delivery tab");
     }
 
-    @Then("verify number of pages in lower right corner")
+    @Then("verify number of pages in lower right corner.")
     public void verifyNumberOfPages(){
        numberOfPages =  goalPages.verifyNumberOfPages();
     }
 
-    @Then("click on next to check navigation and verify")
+    @Then("click on next to check navigation and verify.")
     public void verifyNextPrevButtons(){
         goalPages.verifyNextPrevButtons(numberOfPages);
     }
 
-    @And("^Verify all elements are available in dropdown$")
+    @And("^Verify all elements are available in dropdown.$")
     public void verifyVerifyAllElementsAreAvailableInDropdown() {
         goalPages.verifyFinancialYearDropdown();
     }
 
-    @Then("^Choose current financial year$")
+    @Then("^Choose current financial year.$")
     public void chooseCurrentFinancialYear() {
         goalPages.chooseCurrentFinancialYearAs("Mar 2022");
     }
 
-    @Then("^Verify link is open on the same tab$")
+    @Then("^Verify link is open on the same tab.$")
     public void verifyLinkIsOpenOnTheSameTab() {
         goalPages.verifyLinkOpenOnSameTab();
     }
 
-    @And("^verify \"(.*?)\" option clickable and present$")
+    @And("^verify \"(.*?)\" option clickable and present.$")
     public void verifyAllFourOptions(String optionName){
         goalPages.verifyAllFourOptions(optionName);
     }
 
-    @And("click on sorting button on first")
+    @And("click on sorting button on first.")
     public void clickOnSortingButton(){
         goalPages.clickOnSortingButton();
     }
 
-    @Then("verify sorting performed")
+    @Then("verify sorting performed.")
     public void verifySortingisDone(){
         goalPages.verifySortingisDone();
     }
 
-    @Then("^Select \"(.*?)\" from Goal type dropdown$")
+    @Then("^Select \"(.*?)\" from Goal type dropdown.$")
     public void selectCreativeFromGoalTypeDropdown(String optionName) {
         goalPages.selectFormGoalTypeDropdown(optionName);
     }
 
-    @Then("^Verify Warning popup appear which says \"(.*?)\"$")
+    @Then("^Verify Warning popup appear which says \"(.*?)\".$")
     public void verifyWarningPopupAppearWhichSays(String message) {
        goalPages.verifyWarningPopupAppearWhichSays(message);
     }
