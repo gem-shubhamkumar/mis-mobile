@@ -75,6 +75,13 @@ public class NavBarPage extends PageObject {
        navBarImp.openProfileMenuList();
 
     }
+  public void checkAllCards(){
+        navBarImp.checkAllCards();
+    }
+    //verify all cards are visible on dashboard
+    public void verifyAllCardsAreShownOnDashboard(){
+        navBarImp.verifyAllCardsAreShownOnDashboard();
+    }
 
 
 
