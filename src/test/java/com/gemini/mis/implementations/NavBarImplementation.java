@@ -220,9 +220,28 @@ public class NavBarImplementation extends PageObject {
         waitFor(ExpectedConditions.presenceOfElementLocated(NavBarSelectors.btnProfileMenu));
         accountImp.clickOn(NavBarSelectors.btnProfileMenu);
     }
+    
+        public void checkAllCards(){
+        List<WebElement> listCheckBox =getDriver().findElements(NavBarSelectors.checkboxTable);
+        boolean flag=false;
+        for (WebElement ele : listCheckBox){
+            if(!ele.isSelected()){
+                clickOn(ele);
+                flag=true;
+            }
+        }
+        Assert.assertTrue("All are checked",flag);
+    }
 
 
-
+ public void verifyAllCardsAreShownOnDashboard(){
+        waitABit(5000);
+        if($(NavBarSelectors.headingsDashboardCards).isVisible()){
+            System.out.println("All cards are visible");
+        }else{
+            Assert.fail("Cards are still noy visible on dashboard");
+        }
+    }
 
 
 
