@@ -104,5 +104,15 @@ public class NavBarSteps extends PageObject {
     public void openProfileMenuList(){
         navPages.openProfileMenuList();
     }
+    
+      @Then("^Check all text box$")
+    public void checkAllCards(){
+        navPages.checkAllCards();
+    }
+    @And("^Verify all cards are visible on the dashboard$")
+    public void verifyAllCardsAreShownOnDashboard(){
+        navPages.verifyAllCardsAreShownOnDashboard();
+    }
+
 
 }
