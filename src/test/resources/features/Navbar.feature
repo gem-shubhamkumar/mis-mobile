@@ -93,3 +93,11 @@ Feature: NavBar
     Then Verify all check boxes are uncheck
     And Click on "Update button"
     And Verify no card is shown on the dashboard
+    
+   Scenario: Verify all cards re appear when checked from dashboard setting
+    Then Open profile menu list from top right on navbar
+    Then Select "Dashboard Settings" from dropdown menu list
+    And Verify "Dashboard setting table" is visible on the current screen
+    Then Check all text box
+    And Click on "Update button"
+    And Verify all cards are visible on the dashboard
