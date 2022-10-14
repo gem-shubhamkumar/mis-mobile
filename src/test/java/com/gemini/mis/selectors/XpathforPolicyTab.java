@@ -29,5 +29,4 @@ public class XpathforPolicyTab
     public static By invalidPolicy = By.xpath("//td[@class='dataTables_empty']");
     public static By policyPage = By.xpath("//div[@class='modal-content']");
     public static By viewBtn = By.xpath("//button[@class='btn btn-sm teal']");
-
 }
