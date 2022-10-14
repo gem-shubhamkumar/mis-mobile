@@ -345,7 +345,9 @@ public class LeaveManagementSteps
     @And("Verify {string} file is downloaded")
     public void verifyFileIsDownloaded(String fileName)
     {
-        LeaveManagementTab.verifyFile("C:\\Users\\ja.multani\\Downloads\\",fileName);
+         String username = System.getProperty("user.name");   //fetch system username
+        String downloadPath = "C:\\Users\\"+username+"\\Downloads\\";
+        LeaveManagementTab.verifyFile(downloadPath,fileName);
     }
 
     @Then("Sort {string} Columns and verify Sort")
