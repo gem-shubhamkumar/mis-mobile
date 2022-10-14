@@ -58,6 +58,15 @@ public class CommonFunctions extends PageObject {
         action.moveToElement(element).perform();
     }
 
+    public  void hover(WebElement element) throws Exception {
+        try {
+            withAction().moveToElement(element);
+        }
+        catch (Exception e) {
+            log.info(e.getMessage());
+        }
+    }
+
     public String[] listOptionsInSelectDropdown(WebElement Element) {
         Select dropdown = new Select(Element);
         List<WebElement> options = dropdown.getOptions();
