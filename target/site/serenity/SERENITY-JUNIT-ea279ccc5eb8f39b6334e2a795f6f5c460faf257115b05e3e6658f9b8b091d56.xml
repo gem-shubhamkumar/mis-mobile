@@ -1,1 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="0" name="MIS Leave Management Activities" skipped="0" tests="3" time="158.21" timestamp="2022-10-13 12:18:28"><testcase name="Enter Policy Name in Search Box"/><testcase name="Enter Invalid Policy Name in Search Box"/><testcase name="View Policy"/></testsuite>

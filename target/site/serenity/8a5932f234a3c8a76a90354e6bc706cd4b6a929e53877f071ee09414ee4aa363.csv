@@ -1,4 +1,0 @@
-"Story","Title","Result","Date","Stability","Duration (s)"
-"MIS Leave Management Activities","Navigate to Policy > View Policies","ERROR","2022-10-12T23:53:05.123+05:30[Asia/Calcutta]","0.0","7.93"
-"MIS Leave Management Activities","Verify Data is present in Policies tab","ERROR","2022-10-12T23:53:13.069+05:30[Asia/Calcutta]","0.0","3.03"
-"MIS Leave Management Activities","Verify Number of Entries displayed","ERROR","2022-10-12T23:53:16.119+05:30[Asia/Calcutta]","0.0","3.82"

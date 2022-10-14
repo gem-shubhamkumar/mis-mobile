@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="1" name="MIS Leave Management Activities" skipped="0" tests="3" time="158.69" timestamp="2022-10-13 02:32:48"><testcase name="Sort columns for Out Duty/Tour"/><testcase name="Enter Out Duty/Tour Period in Search Box for Out Duty/Tour"/><testcase name="Expand Details for Out Duty/Tour"><failure message="Unable to find element on UI" type="java.lang.AssertionError">Unable to find element on UI</failure><system-err>Unable to find element on UI&#13;
-com.gemini.mis.implementations.LeaveImplementation.verifyElement(LeaveImplementation.java:1019)&#13;
-com.gemini.mis.pages.LeaveManagementPage.verifyDetailBox(LeaveManagementPage.java:315)&#13;
-com.gemini.mis.stepdefinitions.LeaveManagementSteps.verifyDetailsBoxAppears(LeaveManagementSteps.java:511)&#13;
-✽.Verify details box appears(file:///C:/Users/ja.multani/IdeaProjects/MISAutomation/src/test/resources/features/ViewRequestOutDuty.feature:149)&#13;
-</system-err></testcase></testsuite>

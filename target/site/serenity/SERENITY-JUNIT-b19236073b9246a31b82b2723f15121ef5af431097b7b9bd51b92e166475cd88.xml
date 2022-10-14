@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="1" name="MIS Leave Management Activities" skipped="0" tests="5" time="274.82" timestamp="2022-10-13 04:16:53"><testcase name="Verify Number of Entries displayed for WFH Tab"/><testcase name="Enter WFH Period Name in Search Box for WFH Tab"/><testcase name="Sort columns for WFH Tab"/><testcase name="Page Next for WFH Tab"/><testcase name="Page Previous for WFH Tab"><failure message="expected:&lt;...geminisolutions.com/[Home]/Index&gt; but was:&lt;...geminisolutions.com/[Dashboard]/Index&gt;" type="java.lang.AssertionError">expected:&lt;...geminisolutions.com/[Home]/Index&gt; but was:&lt;...geminisolutions.com/[Dashboard]/Index&gt;</failure><system-err>expected:&lt;...geminisolutions.com/[Home]/Index&gt; but was:&lt;...geminisolutions.com/[Dashboard]/Index&gt;&#13;
-com.gemini.mis.implementations.LeaveImplementation.verifyPage(LeaveImplementation.java:185)&#13;
-com.gemini.mis.pages.LeaveManagementPage.verifyPage(LeaveManagementPage.java:40)&#13;
-com.gemini.mis.stepdefinitions.LeaveManagementSteps.userIsOnMISHomePage(LeaveManagementSteps.java:50)&#13;
-✽.User is on MIS Home Page(file:///C:/Users/ja.multani/IdeaProjects/MISAutomation/src/test/resources/features/ViewRequestWFH.feature:167)&#13;
-</system-err></testcase></testsuite>
