@@ -1,0 +1,6 @@
+"Story","Title","Result","Date","Stability","Duration (s)"
+"Accounts Portal","Verify elements loaded on My Account page","SUCCESS","2022-10-15T21:37:44.297+05:30[Asia/Calcutta]","0.0","24.17"
+"Accounts Portal","Verify login to GreytHR portal and verify View Info list","SUCCESS","2022-10-15T21:38:09.53+05:30[Asia/Calcutta]","0.0","39.71"
+"Accounts Portal","Verify log in failed when no credentials are enter","SUCCESS","2022-10-15T21:38:50.067+05:30[Asia/Calcutta]","0.0","19.12"
+"Accounts Portal","Verify all the element on GreytHR landing page","SUCCESS","2022-10-15T21:39:09.931+05:30[Asia/Calcutta]","0.0","29.65"
+"Accounts Portal","Verify profile details in greytHR portal","SUCCESS","2022-10-15T21:39:40.68+05:30[Asia/Calcutta]","0.0","37.28"

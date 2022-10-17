@@ -1,0 +1,4 @@
+"Story","Title","Result","Date","Stability","Duration (s)"
+"Perform actions on TimeSheet of MIS website","Verify timesheet status","SUCCESS","2022-10-15T22:08:02.304+05:30[Asia/Calcutta]","0.0","22.78"
+"Perform actions on TimeSheet of MIS website","Open previous and next week timesheet","SUCCESS","2022-10-15T22:08:26.155+05:30[Asia/Calcutta]","0.0","28.73"
+"Perform actions on TimeSheet of MIS website","Copy timesheet from a week","ERROR","2022-10-15T22:08:55.542+05:30[Asia/Calcutta]","0.0","40.12"

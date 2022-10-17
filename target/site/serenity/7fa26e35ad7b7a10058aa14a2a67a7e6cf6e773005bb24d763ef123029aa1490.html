@@ -1,0 +1,1453 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>Features</title>
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+<!--[if IE 7]>
+<!--<link rel="stylesheet" href="font-awesome/css/font-awesome-ie7.min.css">-->
+
+<link rel="stylesheet" type="text/css" href="fontawesome-free-5.7.2-web/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="fontawesome-free-5.7.2-web/css/v4-shims.min.css">
+
+<!-- JQuery -->
+<script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script><link rel="stylesheet" type="text/css" href="chartist/chartist-plugin-tooltip/dist/chartist-plugin-tooltip.min.css">
+<link rel="stylesheet" type="text/css" href="chartist/dist/chartist.min.css">
+<script src="chartist/dist/chartist.min.js"></script>
+<script src="chartist/chartist-plugin-tooltip/dist/chartist-plugin-tooltip.min.js"></script>
+<!-- Required Stylesheets -->
+<link href="bootstrap-treeview/dist/bootstrap-treeview.min.css" rel="stylesheet">
+
+<!-- Required Javascript -->
+<script src="bootstrap-treeview/dist/bootstrap-treeview.min.js"></script><!-- DataTables -->
+<link type="text/css" href="datatables/1.10.20/datatables.min.css" rel="stylesheet" />
+<script type="text/javascript" src="datatables/1.10.20/datatables.min.js"></script>
+<script type="text/javascript" src="datatables/1.10.20/time-elapsed-dhms.js"></script>
+
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="datatables/1.10.20/datatables.bootstrap4.min.js"></script>
+<link type="text/css" href="datatables/1.10.20/datatables.bootstrap4.min.css" rel="stylesheet" />
+
+<script>
+    jQuery.fn.dataTable.ext.type.order['time-elapsed-dhms-pre'] = function(data) {
+
+        var matches = data.match(/^(\d+(?:\.\d+)?)\s*([a-z]+)/i);
+        var multipliers = {
+            ms: 1,
+            s: 1000,
+            m: 60000,
+            h: 3600000,
+            d: 86400000
+        };
+
+        if (matches) {
+            var multiplier = multipliers[matches[2].toLowerCase()];
+            return parseFloat(matches[1]) * multiplier;
+        } else {
+            return -1;
+        };
+    };
+</script>
+<link rel="stylesheet" href="css/core.css"/>
+<link rel="stylesheet" href="css/link.css"/>
+<link type="text/css" media="screen" href="css/screen.css" rel="Stylesheet"/><!-- JQuery-UI -->
+<link type="text/css" href="jqueryui/1.11.2-start/jquery-ui.min.css" rel="Stylesheet" />
+<script type="text/javascript" src="jqueryui/1.11.2-start/jquery-ui.min.js"></script><!-- DataTables -->
+<link type="text/css" href="datatables/1.10.20/datatables.min.css" rel="stylesheet" />
+<script type="text/javascript" src="datatables/1.10.20/datatables.min.js"></script>
+<script type="text/javascript" src="datatables/1.10.20/time-elapsed-dhms.js"></script>
+
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="datatables/1.10.20/datatables.bootstrap4.min.js"></script>
+<link type="text/css" href="datatables/1.10.20/datatables.bootstrap4.min.css" rel="stylesheet" />
+
+<script>
+    jQuery.fn.dataTable.ext.type.order['time-elapsed-dhms-pre'] = function(data) {
+
+        var matches = data.match(/^(\d+(?:\.\d+)?)\s*([a-z]+)/i);
+        var multipliers = {
+            ms: 1,
+            s: 1000,
+            m: 60000,
+            h: 3600000,
+            d: 86400000
+        };
+
+        if (matches) {
+            var multiplier = multipliers[matches[2].toLowerCase()];
+            return parseFloat(matches[1]) * multiplier;
+        } else {
+            return -1;
+        };
+    };
+</script>
+
+
+
+    <script>
+
+        $(document).ready(function () {
+
+            var scenarioTable = $('.scenario-result-table').DataTable({
+
+                "order": [],
+                "language": {
+                    searchPlaceholder: "Filter",
+                    search: ""
+                }
+            });
+
+            $('.example-table table').DataTable({
+                searching: false,
+                ordering: false,
+                paging: false,
+                info: false
+            });
+
+            $('.example-table-in-scenario table').DataTable({
+                searching: false,
+                ordering: false,
+                paging: false,
+                info: false
+            });
+
+            $('#evidence-table').DataTable(
+                {
+                    searching: false,
+                    ordering: false,
+                    paging: false,
+                    info: false
+                }
+            );
+
+
+            $(".scenario-docs .card-body table").wrap("<div class='table-responsive'></div>");
+
+            $("#requirements-tabs").tabs();
+            $("#test-tabs").tabs();
+
+            var requirementsTree = [{"text":"Perform actions on TimeSheet of MIS website","type":"feature","href":"7fa26e35ad7b7a10058aa14a2a67a7e6cf6e773005bb24d763ef123029aa1490.html","nodes":[],"selectable":false,"tags":["\u003ca href\u003d\u0027##beforetable\u0027\u003e\u003ci class\u003d\u0027fa fa-exclamation-triangle error-icon \u0027 title\u003d\u0027ERROR\u0027\u003e\u003c/i\u003e\u003c/a\u003e","\u003cspan class\u003d\u0027feature-count\u0027\u003e12 scenarios\u003c/span\u003e"]}];
+
+            $('#tree').treeview({
+                data: requirementsTree,
+                enableLinks: true,
+                levels:10,
+                showTags: true,
+                expandIcon: "glyphicon glyphicon-folder-close",
+                collapseIcon: "glyphicon glyphicon-folder-open",
+                emptyIcon: "glyphicon glyphicon-book"
+            });
+
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $(".scenario-docs > div > p").html(function () {
+                var text = $(this).text().trim().split(" ");
+                var first = text.shift();
+                return (text.length > 0 ? "<strong>" + first + "</strong> " : first) + text.join(" ");
+            });
+        });
+    </script>
+</head>
+
+<body class="results-page">
+<div id="topheader">
+    <div id="topbanner">
+        <div id="logo"><a href="index.html"><img src="images/serenity-logo.png" border="0"/></a></div>
+        <div id="projectname-banner" style="float:right">
+            <span class="projectname">
+                <span class="projecttitle">MIS Automation</span>
+                <span class="projectsubtitle"></span>
+            </span>
+        </div>
+    </div>
+</div>
+
+
+<div class="middlecontent">
+    <div id="contenttop">
+        <div class="middlebg">
+            <span class="breadcrumbs">
+            <a href='index.html'>Home</a> > <a href="capabilities.html">Requirements</a>
+
+
+
+                    > <span class="truncate-40">Perform Actions On Timesheet Of MIS Website</span>
+
+            </span>
+        </div>
+        <div class="rightbg"></div>
+    </div>
+    <div class="clr"></div>
+
+    <!--/* starts second table*/-->
+
+<div>
+    <ul class="nav nav-tabs" role="tablist">
+        <li >
+            <a href="index.html"><i class="fa fa-check-square-o"></i> Overall Test Results</a>
+        </li>
+        <li >
+            <a href="capabilities.html"><i class="fa fa-book"></i> Requirements</a>
+        </li>
+        <li class="active">
+            <a href="#"><i class="fa fa-comments-o"></i> Features</a>
+        </li>
+    </ul>
+    <span class="date-and-time"><a href="build-info.html"><i class="fa fa-info-circle"></i></a> Report generated 15-10-2022 22:06</span>
+    <br style="clear:left"/>
+</div>
+
+    <div class="clr"></div>
+
+    <div id="beforetable"></div>
+    <div id="results-dashboard">
+        <div class="table">
+            <div class=row">
+                <div class="col-sm-12">
+                    <div>
+                        <div clas="table">
+                            <div class="row">
+                                <div class="col-sm-8">
+                                        <span>
+                                            <h2><i class="fa fa-book"></i> Feature:  Perform Actions On Timesheet Of MIS Website</h2>
+                                        </span>
+                                    </div>
+                                        <div class="col-sm-4">
+                                        <span class="feature-tags">
+                                                <p class="tag">
+                                                    <span class="badge tag-badge" style="background:default;">
+                                                        <i class="fa fa-tag"></i>&nbsp;<a class="tagLink"
+                                                                                          style="background:default;"
+                                                                                          href="93e2de64ca349ad3e5b9a7f6923a6e3954a45726546ae3104a209c79c5da886b.html">TC15
+                                                        (tag)</a>
+                                                    </span>
+                                                </p>
+                                                <p class="tag">
+                                                    <span class="badge tag-badge" style="background:default;">
+                                                        <i class="fa fa-tag"></i>&nbsp;<a class="tagLink"
+                                                                                          style="background:default;"
+                                                                                          href="24aacda3e479b17aef4c2fafa3fb6f2fcac1704edab883a1848f7adc3af41546.html">Test
+                                                        (tag)</a>
+                                                    </span>
+                                                </p>
+                                                <p class="tag">
+                                                    <span class="badge tag-badge" style="background:default;">
+                                                        <i class="fa fa-tag"></i>&nbsp;<a class="tagLink"
+                                                                                          style="background:default;"
+                                                                                          href="dd3a46f2c146fd314deb938153a64f577beacf1fcb243ebcb7a71d7b11d754fb.html">Manage Task Template
+                                                        (tag)</a>
+                                                    </span>
+                                                </p>
+                                                <p class="tag">
+                                                    <span class="badge tag-badge" style="background:default;">
+                                                        <i class="fa fa-tag"></i>&nbsp;<a class="tagLink"
+                                                                                          style="background:default;"
+                                                                                          href="fe720337fe08be94a7addd217200c3694af5ef41aaadae37d89ef4718bf330b4.html">Time Sheet
+                                                        (tag)</a>
+                                                    </span>
+                                                </p>
+                                        </span>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                            <div class="requirementNarrativeTitle">
+                                
+                            </div>
+
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-sm-12">
+
+                        <!-- Requirements result tabs -->
+                        <ul class="nav nav-tabs">
+                            <li class="active">
+                                <a data-toggle="tab" href="#specs"><i class="fas fa-comments"></i> Specifications</a>
+                            </li>
+                            <li>
+                                <a data-toggle="tab" href="#results"><i class="fas fa-tachometer-alt"></i> Test Results</a>
+                            </li>
+                        </ul>
+
+                        <!-- Specifications and Results tabs -->
+                        <div class="card border">
+                            <div class="tab-content" id="pills-tabContent">
+                                <div id="specs" class="tab-pane fade in active">
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-sm-12">
+
+                                                    <!--- TOC --->
+                                                    <div id="toc">
+                                                        <h3>Overview</h3>
+                                                        <table class="table" id="toc-table">
+                                                                        <tr>
+                                                                            <td style="width:95%;" class="toc-title">
+                                                                                <span class="orphan-scenario-toc-entry">
+                                                                                    <a href="#418e5214b99dff2be911da6d8f76d96fca18be0edb12b5e70c1a5905db70310f" title="View scenario details">
+                                                                                        <i class="far fa-comment-dots"></i> Scenario: Verify total tabs and active tab
+                                                                                    </a>
+                                                                                </span>
+                                                                            </td>
+                                                                            <td style="width:5%;">
+                                                                                <table>
+                                                                                    <tr>
+                                                                                        <td>
+                                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                               href="ad1986289d8c546c2de248fc91c6ce975b8ff18e362df636a5f64128023cb668.html"
+                                                                                               title="View test results">
+                                                                                                <a href='##beforetable'><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></a>
+                                                                                                </a>
+
+
+                                                                                        </td>
+                                                                                            <td>
+                                                                                                <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                                   href="ad1986289d8c546c2de248fc91c6ce975b8ff18e362df636a5f64128023cb668.html"
+                                                                                                   title="View test results">
+                                                                                                    <i class="fas fa-search-plus"></i>
+                                                                                                </a>
+                                                                                            </td>
+                                                                                    </tr>
+                                                                                </table>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td style="width:95%;" class="toc-title">
+                                                                                <span class="orphan-scenario-toc-entry">
+                                                                                    <a href="#4280523e29865e8fe6c94c91adb3e16341116403857ca4464e6c560fb50354d2" title="View scenario details">
+                                                                                        <i class="far fa-comment-dots"></i> Scenario: Verify Save button is present and working
+                                                                                    </a>
+                                                                                </span>
+                                                                            </td>
+                                                                            <td style="width:5%;">
+                                                                                <table>
+                                                                                    <tr>
+                                                                                        <td>
+                                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                               href="2e5707026029b8082864e33f208404a87ae33761c5598cbd82221b18f0f40818.html"
+                                                                                               title="View test results">
+                                                                                                <a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a>
+                                                                                                </a>
+
+
+                                                                                        </td>
+                                                                                            <td>
+                                                                                                <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                                   href="2e5707026029b8082864e33f208404a87ae33761c5598cbd82221b18f0f40818.html"
+                                                                                                   title="View test results">
+                                                                                                    <i class="fas fa-search-plus"></i>
+                                                                                                </a>
+                                                                                            </td>
+                                                                                    </tr>
+                                                                                </table>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td style="width:95%;" class="toc-title">
+                                                                                <span class="orphan-scenario-toc-entry">
+                                                                                    <a href="#71c15cb5d1e1cc9be6cc0c270af7d56c3d6b6b29363426ce22dbe765b6f79d37" title="View scenario details">
+                                                                                        <i class="far fa-comment-dots"></i> Scenario: Verify timesheet status
+                                                                                    </a>
+                                                                                </span>
+                                                                            </td>
+                                                                            <td style="width:5%;">
+                                                                                <table>
+                                                                                    <tr>
+                                                                                        <td>
+                                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                               href="7967788260ce61a1fbc3b93c4533882a22c596e6eb4654d6e76eb9a870378650.html"
+                                                                                               title="View test results">
+                                                                                                <a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a>
+                                                                                                </a>
+
+
+                                                                                        </td>
+                                                                                            <td>
+                                                                                                <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                                   href="7967788260ce61a1fbc3b93c4533882a22c596e6eb4654d6e76eb9a870378650.html"
+                                                                                                   title="View test results">
+                                                                                                    <i class="fas fa-search-plus"></i>
+                                                                                                </a>
+                                                                                            </td>
+                                                                                    </tr>
+                                                                                </table>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td style="width:95%;" class="toc-title">
+                                                                                <span class="orphan-scenario-toc-entry">
+                                                                                    <a href="#7e0312a4e18c03c0b57844c03ca1112b21e8143e14381411528e0d3c29c89b44" title="View scenario details">
+                                                                                        <i class="far fa-comment-dots"></i> Scenario: Open previous and next week timesheet
+                                                                                    </a>
+                                                                                </span>
+                                                                            </td>
+                                                                            <td style="width:5%;">
+                                                                                <table>
+                                                                                    <tr>
+                                                                                        <td>
+                                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                               href="a3493a33708e9f1b533b3bf02fffb1c4af64aab194c1a91295a86ebb3d56ec6a.html"
+                                                                                               title="View test results">
+                                                                                                <a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a>
+                                                                                                </a>
+
+
+                                                                                        </td>
+                                                                                            <td>
+                                                                                                <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                                   href="a3493a33708e9f1b533b3bf02fffb1c4af64aab194c1a91295a86ebb3d56ec6a.html"
+                                                                                                   title="View test results">
+                                                                                                    <i class="fas fa-search-plus"></i>
+                                                                                                </a>
+                                                                                            </td>
+                                                                                    </tr>
+                                                                                </table>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td style="width:95%;" class="toc-title">
+                                                                                <span class="orphan-scenario-toc-entry">
+                                                                                    <a href="#a46468dec2232a50816e467c33c0e5b43e55c9151608f52648c741c02eca18d6" title="View scenario details">
+                                                                                        <i class="far fa-comment-dots"></i> Scenario: Copy timesheet from a week
+                                                                                    </a>
+                                                                                        (2 examples)
+                                                                                </span>
+                                                                            </td>
+                                                                            <td style="width:5%;">
+                                                                                <table>
+                                                                                    <tr>
+                                                                                        <td>
+                                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                               href="01e8a2b2c46ecf9e9e5f64ad19c220033553ec2bd4b3431b882b1bfdb1fca279.html"
+                                                                                               title="View test results">
+                                                                                                <a href='##beforetable'><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></a>
+                                                                                                </a>
+
+
+                                                                                        </td>
+                                                                                            <td>
+                                                                                                <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                                   href="01e8a2b2c46ecf9e9e5f64ad19c220033553ec2bd4b3431b882b1bfdb1fca279.html"
+                                                                                                   title="View test results">
+                                                                                                    <i class="fas fa-search-plus"></i>
+                                                                                                </a>
+                                                                                            </td>
+                                                                                    </tr>
+                                                                                </table>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td style="width:95%;" class="toc-title">
+                                                                                <span class="orphan-scenario-toc-entry">
+                                                                                    <a href="#934436f5c8c1010fd92111577365dd8eb416a41b6f8f8339bdd587bc0f50df1e" title="View scenario details">
+                                                                                        <i class="far fa-comment-dots"></i> Scenario: Verify the table heads and table data
+                                                                                    </a>
+                                                                                </span>
+                                                                            </td>
+                                                                            <td style="width:5%;">
+                                                                                <table>
+                                                                                    <tr>
+                                                                                        <td>
+                                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                               href="3a1537988568d77c3e776987526275cd8e7885f7e0cecf2ffd1a860b8469b6c7.html"
+                                                                                               title="View test results">
+                                                                                                <a href='##beforetable'><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></a>
+                                                                                                </a>
+
+
+                                                                                        </td>
+                                                                                            <td>
+                                                                                                <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                                   href="3a1537988568d77c3e776987526275cd8e7885f7e0cecf2ffd1a860b8469b6c7.html"
+                                                                                                   title="View test results">
+                                                                                                    <i class="fas fa-search-plus"></i>
+                                                                                                </a>
+                                                                                            </td>
+                                                                                    </tr>
+                                                                                </table>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td style="width:95%;" class="toc-title">
+                                                                                <span class="orphan-scenario-toc-entry">
+                                                                                    <a href="#381fa82a52ddb29e076d864e9b49d481cb206a694396669c43c7e50a42bede01" title="View scenario details">
+                                                                                        <i class="far fa-comment-dots"></i> Scenario: Search a text using search box
+                                                                                    </a>
+                                                                                        (3 examples)
+                                                                                </span>
+                                                                            </td>
+                                                                            <td style="width:5%;">
+                                                                                <table>
+                                                                                    <tr>
+                                                                                        <td>
+                                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                               href="283afb691f9e349db15f5d7c1ff02cfab6e520f23814dd54c650c65875406182.html"
+                                                                                               title="View test results">
+                                                                                                <a href='##beforetable'><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></a>
+                                                                                                </a>
+
+
+                                                                                        </td>
+                                                                                            <td>
+                                                                                                <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                                   href="283afb691f9e349db15f5d7c1ff02cfab6e520f23814dd54c650c65875406182.html"
+                                                                                                   title="View test results">
+                                                                                                    <i class="fas fa-search-plus"></i>
+                                                                                                </a>
+                                                                                            </td>
+                                                                                    </tr>
+                                                                                </table>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td style="width:95%;" class="toc-title">
+                                                                                <span class="orphan-scenario-toc-entry">
+                                                                                    <a href="#ab115d6f5a6c25fbb718c1e1827d5e4d0c58444ecc3f22b984f4e2acdd7ef595" title="View scenario details">
+                                                                                        <i class="far fa-comment-dots"></i> Scenario: Add an invalid task template
+                                                                                    </a>
+                                                                                        (6 examples)
+                                                                                </span>
+                                                                            </td>
+                                                                            <td style="width:5%;">
+                                                                                <table>
+                                                                                    <tr>
+                                                                                        <td>
+                                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                               href="7c6fba8d09e32236c92c7e1421e4ad82cb0ecd95c9e5405bac68e95a19401aa4.html"
+                                                                                               title="View test results">
+                                                                                                <a href='##beforetable'><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></a>
+                                                                                                </a>
+
+
+                                                                                        </td>
+                                                                                            <td>
+                                                                                                <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                                   href="7c6fba8d09e32236c92c7e1421e4ad82cb0ecd95c9e5405bac68e95a19401aa4.html"
+                                                                                                   title="View test results">
+                                                                                                    <i class="fas fa-search-plus"></i>
+                                                                                                </a>
+                                                                                            </td>
+                                                                                    </tr>
+                                                                                </table>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td style="width:95%;" class="toc-title">
+                                                                                <span class="orphan-scenario-toc-entry">
+                                                                                    <a href="#bfff716eb72f0f4666ca25a89b9735550754fdec71f14f2e4bc68e6528e0f21a" title="View scenario details">
+                                                                                        <i class="far fa-comment-dots"></i> Scenario: Delete and Add a valid task template
+                                                                                    </a>
+                                                                                        (1 example)
+                                                                                </span>
+                                                                            </td>
+                                                                            <td style="width:5%;">
+                                                                                <table>
+                                                                                    <tr>
+                                                                                        <td>
+                                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                               href="1c3a323cbc38c727aa830ac8666310b49a02533c7df3d51c01ad779f78f465c2.html"
+                                                                                               title="View test results">
+                                                                                                <a href='##beforetable'><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></a>
+                                                                                                </a>
+
+
+                                                                                        </td>
+                                                                                            <td>
+                                                                                                <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                                   href="1c3a323cbc38c727aa830ac8666310b49a02533c7df3d51c01ad779f78f465c2.html"
+                                                                                                   title="View test results">
+                                                                                                    <i class="fas fa-search-plus"></i>
+                                                                                                </a>
+                                                                                            </td>
+                                                                                    </tr>
+                                                                                </table>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td style="width:95%;" class="toc-title">
+                                                                                <span class="orphan-scenario-toc-entry">
+                                                                                    <a href="#5f0463e6b050615a65ba3276a1b8afbc4bfc7d38eadcffac4d6410bb5739ada7" title="View scenario details">
+                                                                                        <i class="far fa-comment-dots"></i> Scenario: Add a duplicate task template
+                                                                                    </a>
+                                                                                        (1 example)
+                                                                                </span>
+                                                                            </td>
+                                                                            <td style="width:5%;">
+                                                                                <table>
+                                                                                    <tr>
+                                                                                        <td>
+                                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                               href="d82d850a8b09ec0a9c49c41d9f8e9ff3decd3cad3df7385218084dfb6331dcda.html"
+                                                                                               title="View test results">
+                                                                                                <a href='##beforetable'><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></a>
+                                                                                                </a>
+
+
+                                                                                        </td>
+                                                                                            <td>
+                                                                                                <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                                   href="d82d850a8b09ec0a9c49c41d9f8e9ff3decd3cad3df7385218084dfb6331dcda.html"
+                                                                                                   title="View test results">
+                                                                                                    <i class="fas fa-search-plus"></i>
+                                                                                                </a>
+                                                                                            </td>
+                                                                                    </tr>
+                                                                                </table>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td style="width:95%;" class="toc-title">
+                                                                                <span class="orphan-scenario-toc-entry">
+                                                                                    <a href="#270a82d5b2636f8caa3084ac288649b420b5e753db8110b910bdb73490d034d1" title="View scenario details">
+                                                                                        <i class="far fa-comment-dots"></i> Scenario: Edit an existing task template
+                                                                                    </a>
+                                                                                        (8 examples)
+                                                                                </span>
+                                                                            </td>
+                                                                            <td style="width:5%;">
+                                                                                <table>
+                                                                                    <tr>
+                                                                                        <td>
+                                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                               href="9534f1d0530fa7916a4700c65338dd1fb0c1abbe8a884d570e29612a64562744.html"
+                                                                                               title="View test results">
+                                                                                                <a href='##beforetable'><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></a>
+                                                                                                </a>
+
+
+                                                                                        </td>
+                                                                                            <td>
+                                                                                                <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                                   href="9534f1d0530fa7916a4700c65338dd1fb0c1abbe8a884d570e29612a64562744.html"
+                                                                                                   title="View test results">
+                                                                                                    <i class="fas fa-search-plus"></i>
+                                                                                                </a>
+                                                                                            </td>
+                                                                                    </tr>
+                                                                                </table>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td style="width:95%;" class="toc-title">
+                                                                                <span class="orphan-scenario-toc-entry">
+                                                                                    <a href="#7da29257eeb3cc958d9593ad7e77517072fa2d547567dfec499888102cf1eb3a" title="View scenario details">
+                                                                                        <i class="far fa-comment-dots"></i> Scenario: Verify rejecting a delete action for a task template
+                                                                                    </a>
+                                                                                        (1 example)
+                                                                                </span>
+                                                                            </td>
+                                                                            <td style="width:5%;">
+                                                                                <table>
+                                                                                    <tr>
+                                                                                        <td>
+                                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                               href="4e2b9ffda28a5b2a7019208cf79095bd964de277f3ca4c521e98b505fb63c621.html"
+                                                                                               title="View test results">
+                                                                                                <a href='##beforetable'><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></a>
+                                                                                                </a>
+
+
+                                                                                        </td>
+                                                                                            <td>
+                                                                                                <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                                   href="4e2b9ffda28a5b2a7019208cf79095bd964de277f3ca4c521e98b505fb63c621.html"
+                                                                                                   title="View test results">
+                                                                                                    <i class="fas fa-search-plus"></i>
+                                                                                                </a>
+                                                                                            </td>
+                                                                                    </tr>
+                                                                                </table>
+                                                                            </td>
+                                                                        </tr>
+                                                        </table>
+                                                    </div>
+                                                    <!--- END OF TOC --->
+
+                                                    <h3>Scenarios</h3>
+
+                                                        <a name="3564f935-05cf-4e95-87a0-81e9e08000c4" ></a>
+
+
+                                                            <div class="scenario-docs card" id="418e5214b99dff2be911da6d8f76d96fca18be0edb12b5e70c1a5905db70310f">
+                                                                <div class="scenario-docs card-header error"
+                                                                     style="min-height:1.5em;">
+                                                                    <div>
+                                                            <span class="scenario-heading">
+                                                                <a href="ad1986289d8c546c2de248fc91c6ce975b8ff18e362df636a5f64128023cb668.html"
+                                                                   title="View test results">Scenario: Verify total tabs and active tab</a>
+                                                            </span>
+                                                                        <span class="scenario-result-icon">
+                                                                
+
+                                                                                <a href='##beforetable'><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></a>
+                                                            </span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="scenario-docs card-body">
+                                                                        <p>Given Navigate to MIS Beta Application</p>
+                                                                        <p>And Login to MIS with credentials &quot;amisha.srivastava&quot; &quot;Gemini@123&quot;</p>
+                                                                        <p>Then Open &quot;Configure Timesheet&quot; page of &quot;TimeSheet&quot; module</p>
+                                                                        <p>And Verify &quot;Configure Timesheet&quot; page of type &quot;Sub&quot;</p>
+                                                                        <p>And Verify all tabs and active tab</p>
+                                                                        <p>Then Logout from MIS</p>
+                                                                    <div class="examples">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="scenario-docs card" id="4280523e29865e8fe6c94c91adb3e16341116403857ca4464e6c560fb50354d2">
+                                                                <div class="scenario-docs card-header success"
+                                                                     style="min-height:1.5em;">
+                                                                    <div>
+                                                            <span class="scenario-heading">
+                                                                <a href="2e5707026029b8082864e33f208404a87ae33761c5598cbd82221b18f0f40818.html"
+                                                                   title="View test results">Scenario: Verify Save button is present and working</a>
+                                                            </span>
+                                                                        <span class="scenario-result-icon">
+                                                                
+
+                                                                                <a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a>
+                                                            </span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="scenario-docs card-body">
+                                                                        <p>Given Navigate to MIS Beta Application</p>
+                                                                        <p>And Login to MIS with credentials &quot;amisha.srivastava&quot; &quot;Gemini@123&quot;</p>
+                                                                        <p>Then Open &quot;Configure Timesheet&quot; page of &quot;TimeSheet&quot; module</p>
+                                                                        <p>And Verify &quot;Configure Timesheet&quot; page of type &quot;Sub&quot;</p>
+                                                                        <p>And Click on save button</p>
+                                                                        <p>Then Verify and accept success popup</p>
+                                                                        <p>Then Logout from MIS</p>
+                                                                    <div class="examples">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="scenario-docs card" id="71c15cb5d1e1cc9be6cc0c270af7d56c3d6b6b29363426ce22dbe765b6f79d37">
+                                                                <div class="scenario-docs card-header success"
+                                                                     style="min-height:1.5em;">
+                                                                    <div>
+                                                            <span class="scenario-heading">
+                                                                <a href="7967788260ce61a1fbc3b93c4533882a22c596e6eb4654d6e76eb9a870378650.html"
+                                                                   title="View test results">Scenario: Verify timesheet status</a>
+                                                            </span>
+                                                                        <span class="scenario-result-icon">
+                                                                
+
+                                                                                <a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a>
+                                                            </span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="scenario-docs card-body">
+                                                                        <p>Given Navigate to MIS Beta Application</p>
+                                                                        <p>And Login to MIS with credentials &quot;amisha.srivastava&quot; &quot;Gemini@123&quot;</p>
+                                                                        <p>Then Open &quot;Create Timesheet&quot; page of &quot;TimeSheet&quot; module</p>
+                                                                        <p>And Verify and accept please note popup</p>
+                                                                        <p>And Verify &quot;Create Timesheet&quot; page of type &quot;Sub&quot;</p>
+                                                                        <p>And Verify timesheet status</p>
+                                                                        <p>Then Logout from MIS</p>
+                                                                    <div class="examples">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="scenario-docs card" id="7e0312a4e18c03c0b57844c03ca1112b21e8143e14381411528e0d3c29c89b44">
+                                                                <div class="scenario-docs card-header success"
+                                                                     style="min-height:1.5em;">
+                                                                    <div>
+                                                            <span class="scenario-heading">
+                                                                <a href="a3493a33708e9f1b533b3bf02fffb1c4af64aab194c1a91295a86ebb3d56ec6a.html"
+                                                                   title="View test results">Scenario: Open previous and next week timesheet</a>
+                                                            </span>
+                                                                        <span class="scenario-result-icon">
+                                                                
+
+                                                                                <a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a>
+                                                            </span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="scenario-docs card-body">
+                                                                        <p>Given Navigate to MIS Beta Application</p>
+                                                                        <p>And Login to MIS with credentials &quot;amisha.srivastava&quot; &quot;Gemini@123&quot;</p>
+                                                                        <p>Then Open &quot;Create Timesheet&quot; page of &quot;TimeSheet&quot; module</p>
+                                                                        <p>And Verify and accept please note popup</p>
+                                                                        <p>And Verify &quot;Create Timesheet&quot; page of type &quot;Sub&quot;</p>
+                                                                        <p>And Open previous and next week</p>
+                                                                        <p>Then Verify and accept warning popup</p>
+                                                                        <p>Then Logout from MIS</p>
+                                                                    <div class="examples">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="scenario-docs card" id="a46468dec2232a50816e467c33c0e5b43e55c9151608f52648c741c02eca18d6">
+                                                                <div class="scenario-docs card-header error"
+                                                                     style="min-height:1.5em;">
+                                                                    <div>
+                                                            <span class="scenario-heading">
+                                                                <a href="01e8a2b2c46ecf9e9e5f64ad19c220033553ec2bd4b3431b882b1bfdb1fca279.html"
+                                                                   title="View test results">Scenario: Copy timesheet from a week</a>
+                                                            </span>
+                                                                        <span class="scenario-result-icon">
+                                                                
+
+                                                                                <a href='##beforetable'><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></a>
+                                                            </span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="scenario-docs card-body">
+                                                                        <p>Then Open &quot;Create Timesheet&quot; page of &quot;TimeSheet&quot; module</p>
+                                                                        <p>And Verify and accept please note popup</p>
+                                                                        <p>And Verify &quot;Create Timesheet&quot; page of type &quot;Sub&quot;</p>
+                                                                        <p>And Copy timesheet from week &quot;{week}&quot; of year &quot;{year}&quot;</p>
+                                                                        <p>Then Logout from MIS</p>
+                                                                    <div class="examples">
+                                                                            <p><p>Examples:</p>
+<div class='example-table-in-scenario'><table>
+<thead>
+<tr><th>week</th><th>year</th><th></th></tr>
+</thead>
+<tbody>
+<tr><td></td><td></td><td> </td></tr>
+<tr><td></td><td>2022</td><td> </td></tr>
+</tbody>
+</table></div>
+</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="scenario-docs card" id="934436f5c8c1010fd92111577365dd8eb416a41b6f8f8339bdd587bc0f50df1e">
+                                                                <div class="scenario-docs card-header error"
+                                                                     style="min-height:1.5em;">
+                                                                    <div>
+                                                            <span class="scenario-heading">
+                                                                <a href="3a1537988568d77c3e776987526275cd8e7885f7e0cecf2ffd1a860b8469b6c7.html"
+                                                                   title="View test results">Scenario: Verify the table heads and table data</a>
+                                                            </span>
+                                                                        <span class="scenario-result-icon">
+                                                                
+
+                                                                                <a href='##beforetable'><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></a>
+                                                            </span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="scenario-docs card-body">
+                                                                        <p>Given Navigate to MIS Beta Application</p>
+                                                                        <p>And Login to MIS with credentials &quot;amisha.srivastava&quot; &quot;Gemini@123&quot;</p>
+                                                                        <p>Then Open &quot;Manage Task Template&quot; page of &quot;TimeSheet&quot; module</p>
+                                                                        <p>And Verify &quot;Manage Task Template&quot; page of type &quot;Sub&quot;</p>
+                                                                        <p>And Verify table for manage task template page</p>
+                                                                        <p>Then Logout from MIS</p>
+                                                                    <div class="examples">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="scenario-docs card" id="381fa82a52ddb29e076d864e9b49d481cb206a694396669c43c7e50a42bede01">
+                                                                <div class="scenario-docs card-header error"
+                                                                     style="min-height:1.5em;">
+                                                                    <div>
+                                                            <span class="scenario-heading">
+                                                                <a href="283afb691f9e349db15f5d7c1ff02cfab6e520f23814dd54c650c65875406182.html"
+                                                                   title="View test results">Scenario: Search a text using search box</a>
+                                                            </span>
+                                                                        <span class="scenario-result-icon">
+                                                                
+
+                                                                                <a href='##beforetable'><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></a>
+                                                            </span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="scenario-docs card-body">
+                                                                        <p>Then Open &quot;Manage Task Template&quot; page of &quot;TimeSheet&quot; module</p>
+                                                                        <p>And Verify &quot;Manage Task Template&quot; page of type &quot;Sub&quot;</p>
+                                                                        <p>And Add a new valid task template with &quot;{Name}&quot; &quot;{Description}&quot; &quot;{Team}&quot; &quot;{Task}&quot;</p>
+                                                                        <p>And Perform invalid search for &quot;{InvalidText}&quot; using search box when records are displayed</p>
+                                                                        <p>And Perform valid search for &quot;{ValidText}&quot; using search box when records are displayed</p>
+                                                                        <p>Then Logout from MIS</p>
+                                                                    <div class="examples">
+                                                                            <p><p>Examples:</p>
+<div class='example-table-in-scenario'><table>
+<thead>
+<tr><th>Name</th><th>Description</th><th>Team</th><th>Task</th><th>InvalidText</th><th>ValidText</th><th></th></tr>
+</thead>
+<tbody>
+<tr><td>abc</td><td>123@##</td><td>QA</td><td>Learning</td><td>mnop</td><td>abc</td><td> </td></tr>
+<tr><td>XYZ</td><td>/;[=[++</td><td>QA</td><td>Testing</td><td>@#$%</td><td>/;[=[++</td><td> </td></tr>
+<tr><td>pqr</td><td>batman</td><td>QA</td><td>Reporting</td><td>1234</td><td>QA</td><td> </td></tr>
+</tbody>
+</table></div>
+</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="scenario-docs card" id="ab115d6f5a6c25fbb718c1e1827d5e4d0c58444ecc3f22b984f4e2acdd7ef595">
+                                                                <div class="scenario-docs card-header error"
+                                                                     style="min-height:1.5em;">
+                                                                    <div>
+                                                            <span class="scenario-heading">
+                                                                <a href="7c6fba8d09e32236c92c7e1421e4ad82cb0ecd95c9e5405bac68e95a19401aa4.html"
+                                                                   title="View test results">Scenario: Add an invalid task template</a>
+                                                            </span>
+                                                                        <span class="scenario-result-icon">
+                                                                
+
+                                                                                <a href='##beforetable'><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></a>
+                                                            </span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="scenario-docs card-body">
+                                                                        <p>Then Open &quot;Manage Task Template&quot; page of &quot;TimeSheet&quot; module</p>
+                                                                        <p>And Verify &quot;Manage Task Template&quot; page of type &quot;Sub&quot;</p>
+                                                                        <p>And Add a new invalid task template with &quot;{Name}&quot; &quot;{Description}&quot; &quot;{Team}&quot; &quot;{Task}&quot;</p>
+                                                                        <p>Then Logout from MIS</p>
+                                                                    <div class="examples">
+                                                                            <p><p>Examples:</p>
+<div class='example-table-in-scenario'><table>
+<thead>
+<tr><th>Name</th><th>Description</th><th>Team</th><th>Task</th><th></th></tr>
+</thead>
+<tbody>
+<tr><td></td><td></td><td></td><td></td><td> </td></tr>
+<tr><td>abcd</td><td></td><td></td><td></td><td> </td></tr>
+<tr><td></td><td>FirstTemplate</td><td></td><td></td><td> </td></tr>
+<tr><td></td><td></td><td>QA</td><td></td><td> </td></tr>
+<tr><td>abcd</td><td>FirstTemplate</td><td></td><td></td><td> </td></tr>
+<tr><td>abcd</td><td>FirstTemplate</td><td>QA</td><td></td><td> </td></tr>
+</tbody>
+</table></div>
+</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="scenario-docs card" id="bfff716eb72f0f4666ca25a89b9735550754fdec71f14f2e4bc68e6528e0f21a">
+                                                                <div class="scenario-docs card-header error"
+                                                                     style="min-height:1.5em;">
+                                                                    <div>
+                                                            <span class="scenario-heading">
+                                                                <a href="1c3a323cbc38c727aa830ac8666310b49a02533c7df3d51c01ad779f78f465c2.html"
+                                                                   title="View test results">Scenario: Delete and Add a valid task template</a>
+                                                            </span>
+                                                                        <span class="scenario-result-icon">
+                                                                
+
+                                                                                <a href='##beforetable'><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></a>
+                                                            </span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="scenario-docs card-body">
+                                                                        <p>Then Open &quot;Manage Task Template&quot; page of &quot;TimeSheet&quot; module</p>
+                                                                        <p>And Verify &quot;Manage Task Template&quot; page of type &quot;Sub&quot;</p>
+                                                                        <p>And Add a new valid task template with &quot;{Name}&quot; &quot;{Description}&quot; &quot;{Team}&quot; &quot;{Task}&quot;</p>
+                                                                        <p>Then Logout from MIS</p>
+                                                                    <div class="examples">
+                                                                            <p><p>Examples:</p>
+<div class='example-table-in-scenario'><table>
+<thead>
+<tr><th>Name</th><th>Description</th><th>Team</th><th>Task</th><th></th></tr>
+</thead>
+<tbody>
+<tr><td>abcd</td><td>FirstTemplate</td><td>QA</td><td>Learning</td><td> </td></tr>
+</tbody>
+</table></div>
+</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="scenario-docs card" id="5f0463e6b050615a65ba3276a1b8afbc4bfc7d38eadcffac4d6410bb5739ada7">
+                                                                <div class="scenario-docs card-header error"
+                                                                     style="min-height:1.5em;">
+                                                                    <div>
+                                                            <span class="scenario-heading">
+                                                                <a href="d82d850a8b09ec0a9c49c41d9f8e9ff3decd3cad3df7385218084dfb6331dcda.html"
+                                                                   title="View test results">Scenario: Add a duplicate task template</a>
+                                                            </span>
+                                                                        <span class="scenario-result-icon">
+                                                                
+
+                                                                                <a href='##beforetable'><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></a>
+                                                            </span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="scenario-docs card-body">
+                                                                        <p>Then Open &quot;Manage Task Template&quot; page of &quot;TimeSheet&quot; module</p>
+                                                                        <p>And Verify &quot;Manage Task Template&quot; page of type &quot;Sub&quot;</p>
+                                                                        <p>And Add a new valid task template with &quot;{Name}&quot; &quot;{Description}&quot; &quot;{Team}&quot; &quot;{Task}&quot;</p>
+                                                                        <p>And Add a new duplicate task template with &quot;{Name}&quot; &quot;{Description}&quot; &quot;{Team}&quot; &quot;{Task}&quot;</p>
+                                                                        <p>Then Logout from MIS</p>
+                                                                    <div class="examples">
+                                                                            <p><p>Examples:</p>
+<div class='example-table-in-scenario'><table>
+<thead>
+<tr><th>Name</th><th>Description</th><th>Team</th><th>Task</th><th></th></tr>
+</thead>
+<tbody>
+<tr><td>TUV</td><td>Automation</td><td>FES</td><td>Debugging</td><td> </td></tr>
+</tbody>
+</table></div>
+</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="scenario-docs card" id="270a82d5b2636f8caa3084ac288649b420b5e753db8110b910bdb73490d034d1">
+                                                                <div class="scenario-docs card-header error"
+                                                                     style="min-height:1.5em;">
+                                                                    <div>
+                                                            <span class="scenario-heading">
+                                                                <a href="9534f1d0530fa7916a4700c65338dd1fb0c1abbe8a884d570e29612a64562744.html"
+                                                                   title="View test results">Scenario: Edit an existing task template</a>
+                                                            </span>
+                                                                        <span class="scenario-result-icon">
+                                                                
+
+                                                                                <a href='##beforetable'><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></a>
+                                                            </span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="scenario-docs card-body">
+                                                                        <p>Then Open &quot;Manage Task Template&quot; page of &quot;TimeSheet&quot; module</p>
+                                                                        <p>And Verify &quot;Manage Task Template&quot; page of type &quot;Sub&quot;</p>
+                                                                        <p>And Add a new valid task template with &quot;{Name}&quot; &quot;{Description}&quot; &quot;{Team}&quot; &quot;{Task}&quot;</p>
+                                                                        <p>And Edit a task template &quot;{Name}&quot; with &quot;{EName}&quot; &quot;{EDescription}&quot; &quot;{ETeam}&quot; &quot;{ETask}&quot;</p>
+                                                                        <p>Then Logout from MIS</p>
+                                                                    <div class="examples">
+                                                                            <p><p>Examples:</p>
+<div class='example-table-in-scenario'><table>
+<thead>
+<tr><th>Name</th><th>Description</th><th>Team</th><th>Task</th><th>EName</th><th>EDescription</th><th>ETeam</th><th>ETask</th><th></th></tr>
+</thead>
+<tbody>
+<tr><td>Lmno</td><td>njuik</td><td>Gemini</td><td>Reporting</td><td></td><td></td><td></td><td></td><td> </td></tr>
+<tr><td>Lmno</td><td>njuik</td><td>Gemini</td><td>Reporting</td><td>wxyz</td><td></td><td></td><td></td><td> </td></tr>
+<tr><td>Lmno</td><td>njuik</td><td>Gemini</td><td>Reporting</td><td></td><td>MyTemplate</td><td></td><td></td><td> </td></tr>
+<tr><td>Lmno</td><td>njuik</td><td>Gemini</td><td>Reporting</td><td></td><td></td><td>FES</td><td></td><td> </td></tr>
+<tr><td>Lmno</td><td>njuik</td><td>Gemini</td><td>Reporting</td><td></td><td></td><td></td><td>Learning</td><td> </td></tr>
+<tr><td>Lmno</td><td>njuik</td><td>Gemini</td><td>Reporting</td><td>wxyz</td><td>MyTemplate</td><td></td><td></td><td> </td></tr>
+<tr><td>Lmno</td><td>njuik</td><td>Gemini</td><td>Reporting</td><td>wxyz</td><td>MyTemplate</td><td>FES</td><td></td><td> </td></tr>
+<tr><td>Lmno</td><td>njuik</td><td>Gemini</td><td>Reporting</td><td>wxyz</td><td>MyTemplate</td><td>FES</td><td>Testing</td><td> </td></tr>
+</tbody>
+</table></div>
+</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="scenario-docs card" id="7da29257eeb3cc958d9593ad7e77517072fa2d547567dfec499888102cf1eb3a">
+                                                                <div class="scenario-docs card-header error"
+                                                                     style="min-height:1.5em;">
+                                                                    <div>
+                                                            <span class="scenario-heading">
+                                                                <a href="4e2b9ffda28a5b2a7019208cf79095bd964de277f3ca4c521e98b505fb63c621.html"
+                                                                   title="View test results">Scenario: Verify rejecting a delete action for a task template</a>
+                                                            </span>
+                                                                        <span class="scenario-result-icon">
+                                                                
+
+                                                                                <a href='##beforetable'><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></a>
+                                                            </span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="scenario-docs card-body">
+                                                                        <p>Then Open &quot;Manage Task Template&quot; page of &quot;TimeSheet&quot; module</p>
+                                                                        <p>And Verify &quot;Manage Task Template&quot; page of type &quot;Sub&quot;</p>
+                                                                        <p>And Add a new valid task template with &quot;{Name}&quot; &quot;{Description}&quot; &quot;{Team}&quot; &quot;{Task}&quot;</p>
+                                                                        <p>And Click on Delete button for a task template &quot;{Name}&quot;</p>
+                                                                        <p>Then Verify and reject confirmation popup</p>
+                                                                        <p>Then Logout from MIS</p>
+                                                                    <div class="examples">
+                                                                            <p><p>Examples:</p>
+<div class='example-table-in-scenario'><table>
+<thead>
+<tr><th>Name</th><th>Description</th><th>Team</th><th>Task</th><th></th></tr>
+</thead>
+<tbody>
+<tr><td>del</td><td>Test</td><td>ETL</td><td>Development</td><td> </td></tr>
+</tbody>
+</table></div>
+</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="results" class="tab-pane fade">
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-sm-4">
+
+                                                <div style="width:300px;" class="chart-container automated-and-manual-results">
+                                                    <div class="ct-chart ct-square"></div>
+                                                </div>
+                                                <script>
+
+                                                    var labels = ['26%', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '4%', ' ', '70%', ' ', ' ', ' '];
+                                                    // Our series array that contains series objects or in this case series data arrays
+
+                                                    var series = [{meta: 'Passing tests (automated)', value: 7}, {meta: 'Passing tests (manual)', value: 0}, {meta: 'Pending tests (automated)', value: 0}, {meta: 'Pending tests (manual)', value: 0}, {meta: 'Ignored tests (automated)', value: 0}, {meta: 'Ignored tests (manual)', value: 0}, {meta: 'Skipped tests (automated)', value: 0}, {meta: 'Skipped tests (manual)', value: 0}, {meta: 'Failing tests (automated)', value: 1}, {meta: 'Failing tests (manual)', value: 0}, {meta: 'Broken tests (automated)', value: 19}, {meta: 'Broken tests (manual)', value: 0}, {meta: 'Compromised tests (automated)', value: 0}, {meta: 'Compromised tests (manual)', value: 0}];
+
+                                                    // As options we currently only set a static size of 300x200 px. We can also omit this and use aspect ratio containers
+                                                    // as you saw in the previous example
+                                                    var options = {
+                                                        width: 350,
+                                                        height: 300
+                                                    };
+
+                                                    $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+                                                        new Chartist.Pie('.ct-chart', {
+                                                            series: series,
+                                                            labels: labels,
+                                                        }, {
+                                                            donut: true,
+                                                            donutWidth: 60,
+                                                            donutSolid: true,
+                                                            startAngle: 270,
+                                                            showLabel: true
+                                                        }, options);
+                                                    });
+
+                                                </script>
+                                            </div>
+                                            <div class="col-sm-8">
+
+                                                    <table class="table">
+                                                        <thead>
+                                                        <tr>
+                                                            <th scope="col">Scenario Results (including rows of test
+                                                                data)
+                                                            </th>
+                                                            <th scope="col" colspan="2" class="automated-stats">
+                                                                Automated
+                                                            </th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                        <tr>
+                                                                <td class="aggregate-result-count">
+                                                                    <a href="946393546766f2e9441e589ea9b2f6c3ca35390be64293f5f3f58ec8a7d2044a.html"><i
+                                                                                class='fa fa-check-circle-o success-icon'></i>&nbsp;Passing</a>
+                                                                </td>
+                                                            <td class="automated-stats">7</td>
+                                                            <td class="automated-stats">26%</td>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="aggregate-result-count"><i
+                                                                            class='fa fa-stop-circle-o pending-icon'></i>&nbsp;Pending
+                                                                </td>
+                                                            <td class="automated-stats">0</td>
+                                                            <td class="automated-stats"> </td>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="aggregate-result-count"><i
+                                                                            class='fa fa-ban ignored-icon'></i>&nbsp;Ignored
+                                                                </td>
+                                                            <td class="automated-stats">0</td>
+                                                            <td class="automated-stats"> </td>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="aggregate-result-count"><i
+                                                                            class='fa fa-fast-forward skip-icon'></i>&nbsp;Skipped
+                                                                </td>
+                                                            <td class="automated-stats">0</td>
+                                                            <td class="automated-stats"> </td>
+                                                        </tr>
+                                                        <tr>
+                                                                    <td colspan="3"><a href="2a73bb255e3d075beca40857171c6440457aaa2e47f925aa050e5c095c039406.html"><i
+                                                                                    class='fa fa-times failure-icon'></i>&nbsp;<em>Unsuccessful</em></a>
+                                                                    </td>
+
+                                                        </tr>
+
+                                                        <tr>
+                                                                <td class="aggregate-result-count indented-error-category">
+                                                                    <a href="40c7cdb1e1b116958b23c0ef75ea53d1ebc94ccd0fb52e2b67e74eacb0efa99c.html"><i
+                                                                                class='fa fa-times-circle failure-icon'></i>&nbsp;Failed</a>
+                                                                </td>
+                                                            <td class="automated-stats">1</td>
+                                                            <td class="automated-stats">4%</td>
+                                                        <tr>
+                                                                <td class="aggregate-result-count indented-error-category">
+                                                                    <a href="50b88b96b05a035fd4a22ff514f8a713600a7fd973cd4cd0e4caca87fa2041d7.html"><i
+                                                                                class='fa fa-exclamation-triangle error-icon'></i>&nbsp;Broken</a>
+                                                                </td>
+                                                            <td class="automated-stats">19</td>
+                                                            <td class="automated-stats">70%</td>
+                                                        <tr>
+                                                                <td class="aggregate-result-count indented-error-category">
+                                                                    <i
+                                                                            class='fa fa-chain-broken compromised-icon'></i>&nbsp;Compromised
+                                                                </td>
+                                                            <td class="automated-stats">0</td>
+                                                            <td class="automated-stats"> </td>
+                                                        </tr>
+                                                        <tr class="summary-stats">
+                                                            <td class="aggregate-result-count">Total</td>
+                                                            <td class="automated-stats">27</td>
+                                                            <td class="automated-stats"></td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <table class="table">
+                                                        <thead>
+                                                        <tr>
+                                                            <th>Execution Time</th>
+                                                            <th>Clock Time</th>
+                                                            <th>Fastest Test</th>
+                                                            <th>Slowest Test</th>
+                                                            <th>Average Execution Time</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                        <tr>
+                                                            <td> 8m 40s</td>
+                                                            <td> 9m 31s</td>
+                                                            <td>13s</td>
+                                                            <td>33s</td>
+                                                            <td>43s</td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <h3><i class="fas fa-cogs"></i> Automated Tests</h3>
+
+                                                        <table class="scenario-result-table table"
+                                                               id="scenario-results">
+                                                            <thead>
+                                                            <tr>
+                                                                <th class="test-name-column">Scenario</th>
+                                                                <th>Steps</th>
+                                                                <th>Started</th>
+                                                                <th>Duration</th>
+                                                                <th>Result</th>
+                                                            </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr class="scenario-result ERROR">
+                                                                    <td>
+                                                                            <a href="ad1986289d8c546c2de248fc91c6ce975b8ff18e362df636a5f64128023cb668.html">Verify total tabs and active tab</a>
+                                                                    </td>
+                                                                    <td>6</td>
+                                                                    <td>22:06:21</td>
+                                                                    <td>13s 880ms</td>
+                                                                    <td>
+                                                                            <a href='##beforetable'><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></a> <span
+                                                                                style="display:none">ERROR</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="scenario-result SUCCESS">
+                                                                    <td>
+                                                                            <a href="2e5707026029b8082864e33f208404a87ae33761c5598cbd82221b18f0f40818.html">Verify Save button is present and working</a>
+                                                                    </td>
+                                                                    <td>7</td>
+                                                                    <td>22:07:24</td>
+                                                                    <td>22s 689ms</td>
+                                                                    <td>
+                                                                            <a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a> <span
+                                                                                style="display:none">SUCCESS</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="scenario-result SUCCESS">
+                                                                    <td>
+                                                                            <a href="7967788260ce61a1fbc3b93c4533882a22c596e6eb4654d6e76eb9a870378650.html">Verify timesheet status</a>
+                                                                    </td>
+                                                                    <td>7</td>
+                                                                    <td>22:08:02</td>
+                                                                    <td>22s 777ms</td>
+                                                                    <td>
+                                                                            <a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a> <span
+                                                                                style="display:none">SUCCESS</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="scenario-result SUCCESS">
+                                                                    <td>
+                                                                            <a href="a3493a33708e9f1b533b3bf02fffb1c4af64aab194c1a91295a86ebb3d56ec6a.html">Open previous and next week timesheet</a>
+                                                                    </td>
+                                                                    <td>8</td>
+                                                                    <td>22:08:26</td>
+                                                                    <td>28s 725ms</td>
+                                                                    <td>
+                                                                            <a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a> <span
+                                                                                style="display:none">SUCCESS</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="scenario-result ERROR">
+                                                                    <td>
+                                                                            <a href="01e8a2b2c46ecf9e9e5f64ad19c220033553ec2bd4b3431b882b1bfdb1fca279.html">Copy timesheet from a week</a>
+                                                                            (2 examples)
+                                                                    </td>
+                                                                    <td>5</td>
+                                                                    <td>22:08:55</td>
+                                                                    <td>40s 124ms</td>
+                                                                    <td>
+                                                                            <a href='##beforetable'><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></a> <span
+                                                                                style="display:none">ERROR</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="scenario-result ERROR">
+                                                                    <td>
+                                                                            <a href="3a1537988568d77c3e776987526275cd8e7885f7e0cecf2ffd1a860b8469b6c7.html">Verify the table heads and table data</a>
+                                                                    </td>
+                                                                    <td>6</td>
+                                                                    <td>22:09:35</td>
+                                                                    <td>13s 449ms</td>
+                                                                    <td>
+                                                                            <a href='##beforetable'><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></a> <span
+                                                                                style="display:none">ERROR</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="scenario-result ERROR">
+                                                                    <td>
+                                                                            <a href="283afb691f9e349db15f5d7c1ff02cfab6e520f23814dd54c650c65875406182.html">Search a text using search box</a>
+                                                                            (3 examples)
+                                                                    </td>
+                                                                    <td>6</td>
+                                                                    <td>22:09:49</td>
+                                                                    <td>1m 1s</td>
+                                                                    <td>
+                                                                            <a href='##beforetable'><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></a> <span
+                                                                                style="display:none">ERROR</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="scenario-result ERROR">
+                                                                    <td>
+                                                                            <a href="7c6fba8d09e32236c92c7e1421e4ad82cb0ecd95c9e5405bac68e95a19401aa4.html">Add an invalid task template</a>
+                                                                            (6 examples)
+                                                                    </td>
+                                                                    <td>4</td>
+                                                                    <td>22:10:51</td>
+                                                                    <td>1m 45s</td>
+                                                                    <td>
+                                                                            <a href='##beforetable'><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></a> <span
+                                                                                style="display:none">ERROR</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="scenario-result ERROR">
+                                                                    <td>
+                                                                            <a href="1c3a323cbc38c727aa830ac8666310b49a02533c7df3d51c01ad779f78f465c2.html">Delete and Add a valid task template</a>
+                                                                            (1 example)
+                                                                    </td>
+                                                                    <td>4</td>
+                                                                    <td>22:12:36</td>
+                                                                    <td>14s 202ms</td>
+                                                                    <td>
+                                                                            <a href='##beforetable'><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></a> <span
+                                                                                style="display:none">ERROR</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="scenario-result ERROR">
+                                                                    <td>
+                                                                            <a href="d82d850a8b09ec0a9c49c41d9f8e9ff3decd3cad3df7385218084dfb6331dcda.html">Add a duplicate task template</a>
+                                                                            (1 example)
+                                                                    </td>
+                                                                    <td>5</td>
+                                                                    <td>22:12:50</td>
+                                                                    <td>14s 557ms</td>
+                                                                    <td>
+                                                                            <a href='##beforetable'><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></a> <span
+                                                                                style="display:none">ERROR</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="scenario-result ERROR">
+                                                                    <td>
+                                                                            <a href="9534f1d0530fa7916a4700c65338dd1fb0c1abbe8a884d570e29612a64562744.html">Edit an existing task template</a>
+                                                                            (8 examples)
+                                                                    </td>
+                                                                    <td>5</td>
+                                                                    <td>22:13:04</td>
+                                                                    <td>2m 49s</td>
+                                                                    <td>
+                                                                            <a href='##beforetable'><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></a> <span
+                                                                                style="display:none">ERROR</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="scenario-result ERROR">
+                                                                    <td>
+                                                                            <a href="4e2b9ffda28a5b2a7019208cf79095bd964de277f3ca4c521e98b505fb63c621.html">Verify rejecting a delete action for a task template</a>
+                                                                            (1 example)
+                                                                    </td>
+                                                                    <td>6</td>
+                                                                    <td>22:15:53</td>
+                                                                    <td>14s 904ms</td>
+                                                                    <td>
+                                                                            <a href='##beforetable'><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></a> <span
+                                                                                style="display:none">ERROR</span>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <h3><i class="fas fa-edit"></i> Manual Tests</h3>
+
+                                                        No manual tests were recorded
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <span class="version">Serenity BDD version 2.6.0</span>
+                    </div>
+                </div>
+            </div>
+</body>
+</html>

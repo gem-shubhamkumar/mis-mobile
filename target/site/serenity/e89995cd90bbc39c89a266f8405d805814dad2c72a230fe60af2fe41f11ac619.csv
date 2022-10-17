@@ -1,0 +1,4 @@
+"Story","Title","Result","Date","Stability","Duration (s)"
+"LNSA","Cancel Submit Window","SUCCESS","2022-10-15T21:13:51.213+05:30[Asia/Calcutta]","0.0","32.46"
+"LNSA","Submit Blank LNSA","SUCCESS","2022-10-15T21:14:24.383+05:30[Asia/Calcutta]","0.0","32.91"
+"LNSA","Submit Valid LNSA","SUCCESS","2022-10-15T21:14:57.983+05:30[Asia/Calcutta]","0.0","39.57"

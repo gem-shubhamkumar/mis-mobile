@@ -1,0 +1,7 @@
+"Story","Title","Result","Date","Stability","Duration (s)"
+"Automation of appraisal management screen in beta mis","Verify Add/Delete of new KPI Row","SUCCESS","2022-10-15T20:40:04.697+05:30[Asia/Calcutta]","0.0","31.74"
+"Automation of appraisal management screen in beta mis","Verify entry counts","SUCCESS","2022-10-15T20:40:37.139+05:30[Asia/Calcutta]","0.0","25.58"
+"Automation of appraisal management screen in beta mis","Verify page navigation","SUCCESS","2022-10-15T20:41:03.411+05:30[Asia/Calcutta]","0.0","26.05"
+"Automation of appraisal management screen in beta mis","verify column sorting working or not","SUCCESS","2022-10-15T20:42:04.203+05:30[Asia/Calcutta]","0.0","25.77"
+"Automation of appraisal management screen in beta mis","Submit Goals","SUCCESS","2022-10-15T20:44:23.391+05:30[Asia/Calcutta]","0.0","47.83"
+"Automation of appraisal management screen in beta mis","click on draft without filling any fields","SUCCESS","2022-10-15T20:45:11.254+05:30[Asia/Calcutta]","0.0","44.21"

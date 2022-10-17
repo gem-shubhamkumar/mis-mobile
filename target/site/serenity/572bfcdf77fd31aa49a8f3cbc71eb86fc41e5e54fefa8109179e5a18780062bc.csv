@@ -1,0 +1,4 @@
+"Story","Title","Result","Date","Stability","Duration (s)"
+"Leave Balance","Verify leave Balance card is visible or not","SUCCESS","2022-10-15T21:18:53.053+05:30[Asia/Calcutta]","0.0","16.16"
+"Leave Balance","Click on number of leaves and verify leave history popup window","SUCCESS","2022-10-15T21:19:09.882+05:30[Asia/Calcutta]","0.0","30.3"
+"Leave Balance","Navigate to leave history window and verify number of records","FAILURE","2022-10-15T21:19:40.871+05:30[Asia/Calcutta]","0.0","18.62"

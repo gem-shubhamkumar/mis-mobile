@@ -1,0 +1,1771 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>Features</title>
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+<!--[if IE 7]>
+<!--<link rel="stylesheet" href="font-awesome/css/font-awesome-ie7.min.css">-->
+
+<link rel="stylesheet" type="text/css" href="fontawesome-free-5.7.2-web/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="fontawesome-free-5.7.2-web/css/v4-shims.min.css">
+
+<!-- JQuery -->
+<script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script><link rel="stylesheet" type="text/css" href="chartist/chartist-plugin-tooltip/dist/chartist-plugin-tooltip.min.css">
+<link rel="stylesheet" type="text/css" href="chartist/dist/chartist.min.css">
+<script src="chartist/dist/chartist.min.js"></script>
+<script src="chartist/chartist-plugin-tooltip/dist/chartist-plugin-tooltip.min.js"></script>
+<!-- Required Stylesheets -->
+<link href="bootstrap-treeview/dist/bootstrap-treeview.min.css" rel="stylesheet">
+
+<!-- Required Javascript -->
+<script src="bootstrap-treeview/dist/bootstrap-treeview.min.js"></script><!-- DataTables -->
+<link type="text/css" href="datatables/1.10.20/datatables.min.css" rel="stylesheet" />
+<script type="text/javascript" src="datatables/1.10.20/datatables.min.js"></script>
+<script type="text/javascript" src="datatables/1.10.20/time-elapsed-dhms.js"></script>
+
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="datatables/1.10.20/datatables.bootstrap4.min.js"></script>
+<link type="text/css" href="datatables/1.10.20/datatables.bootstrap4.min.css" rel="stylesheet" />
+
+<script>
+    jQuery.fn.dataTable.ext.type.order['time-elapsed-dhms-pre'] = function(data) {
+
+        var matches = data.match(/^(\d+(?:\.\d+)?)\s*([a-z]+)/i);
+        var multipliers = {
+            ms: 1,
+            s: 1000,
+            m: 60000,
+            h: 3600000,
+            d: 86400000
+        };
+
+        if (matches) {
+            var multiplier = multipliers[matches[2].toLowerCase()];
+            return parseFloat(matches[1]) * multiplier;
+        } else {
+            return -1;
+        };
+    };
+</script>
+<link rel="stylesheet" href="css/core.css"/>
+<link rel="stylesheet" href="css/link.css"/>
+<link type="text/css" media="screen" href="css/screen.css" rel="Stylesheet"/><!-- JQuery-UI -->
+<link type="text/css" href="jqueryui/1.11.2-start/jquery-ui.min.css" rel="Stylesheet" />
+<script type="text/javascript" src="jqueryui/1.11.2-start/jquery-ui.min.js"></script><!-- DataTables -->
+<link type="text/css" href="datatables/1.10.20/datatables.min.css" rel="stylesheet" />
+<script type="text/javascript" src="datatables/1.10.20/datatables.min.js"></script>
+<script type="text/javascript" src="datatables/1.10.20/time-elapsed-dhms.js"></script>
+
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="datatables/1.10.20/datatables.bootstrap4.min.js"></script>
+<link type="text/css" href="datatables/1.10.20/datatables.bootstrap4.min.css" rel="stylesheet" />
+
+<script>
+    jQuery.fn.dataTable.ext.type.order['time-elapsed-dhms-pre'] = function(data) {
+
+        var matches = data.match(/^(\d+(?:\.\d+)?)\s*([a-z]+)/i);
+        var multipliers = {
+            ms: 1,
+            s: 1000,
+            m: 60000,
+            h: 3600000,
+            d: 86400000
+        };
+
+        if (matches) {
+            var multiplier = multipliers[matches[2].toLowerCase()];
+            return parseFloat(matches[1]) * multiplier;
+        } else {
+            return -1;
+        };
+    };
+</script>
+
+
+
+    <script>
+
+        $(document).ready(function () {
+
+            var scenarioTable = $('.scenario-result-table').DataTable({
+
+                "order": [],
+                "language": {
+                    searchPlaceholder: "Filter",
+                    search: ""
+                }
+            });
+
+            $('.example-table table').DataTable({
+                searching: false,
+                ordering: false,
+                paging: false,
+                info: false
+            });
+
+            $('.example-table-in-scenario table').DataTable({
+                searching: false,
+                ordering: false,
+                paging: false,
+                info: false
+            });
+
+            $('#evidence-table').DataTable(
+                {
+                    searching: false,
+                    ordering: false,
+                    paging: false,
+                    info: false
+                }
+            );
+
+
+            $(".scenario-docs .card-body table").wrap("<div class='table-responsive'></div>");
+
+            $("#requirements-tabs").tabs();
+            $("#test-tabs").tabs();
+
+            var requirementsTree = [{"text":"MIS Forms- View Forms scenarios","type":"feature","href":"98b739deaaa217b658306b625b78334dae277936ff305a644be14a5969ad9321.html","nodes":[],"selectable":false,"tags":["\u003ca href\u003d\u0027##beforetable\u0027\u003e\u003ci class\u003d\u0027fa fa-exclamation-triangle error-icon \u0027 title\u003d\u0027ERROR\u0027\u003e\u003c/i\u003e\u003c/a\u003e","\u003cspan class\u003d\u0027feature-count\u0027\u003e16 scenarios\u003c/span\u003e"]}];
+
+            $('#tree').treeview({
+                data: requirementsTree,
+                enableLinks: true,
+                levels:10,
+                showTags: true,
+                expandIcon: "glyphicon glyphicon-folder-close",
+                collapseIcon: "glyphicon glyphicon-folder-open",
+                emptyIcon: "glyphicon glyphicon-book"
+            });
+
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $(".scenario-docs > div > p").html(function () {
+                var text = $(this).text().trim().split(" ");
+                var first = text.shift();
+                return (text.length > 0 ? "<strong>" + first + "</strong> " : first) + text.join(" ");
+            });
+        });
+    </script>
+</head>
+
+<body class="results-page">
+<div id="topheader">
+    <div id="topbanner">
+        <div id="logo"><a href="index.html"><img src="images/serenity-logo.png" border="0"/></a></div>
+        <div id="projectname-banner" style="float:right">
+            <span class="projectname">
+                <span class="projecttitle">MIS Automation</span>
+                <span class="projectsubtitle"></span>
+            </span>
+        </div>
+    </div>
+</div>
+
+
+<div class="middlecontent">
+    <div id="contenttop">
+        <div class="middlebg">
+            <span class="breadcrumbs">
+            <a href='index.html'>Home</a> > <a href="capabilities.html">Requirements</a>
+
+
+
+                    > <span class="truncate-40">MIS Forms- View Forms Scenarios</span>
+
+            </span>
+        </div>
+        <div class="rightbg"></div>
+    </div>
+    <div class="clr"></div>
+
+    <!--/* starts second table*/-->
+
+<div>
+    <ul class="nav nav-tabs" role="tablist">
+        <li >
+            <a href="index.html"><i class="fa fa-check-square-o"></i> Overall Test Results</a>
+        </li>
+        <li >
+            <a href="capabilities.html"><i class="fa fa-book"></i> Requirements</a>
+        </li>
+        <li class="active">
+            <a href="#"><i class="fa fa-comments-o"></i> Features</a>
+        </li>
+    </ul>
+    <span class="date-and-time"><a href="build-info.html"><i class="fa fa-info-circle"></i></a> Report generated 15-10-2022 21:26</span>
+    <br style="clear:left"/>
+</div>
+
+    <div class="clr"></div>
+
+    <div id="beforetable"></div>
+    <div id="results-dashboard">
+        <div class="table">
+            <div class=row">
+                <div class="col-sm-12">
+                    <div>
+                        <div clas="table">
+                            <div class="row">
+                                    <div class="col-sm-12">
+                                        <span>
+                                            <h2><i class="fa fa-book"></i> Feature:  MIS Forms- View Forms Scenarios</h2>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            <div class="requirementNarrativeTitle">
+                                
+                            </div>
+
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-sm-12">
+
+                        <!-- Requirements result tabs -->
+                        <ul class="nav nav-tabs">
+                            <li class="active">
+                                <a data-toggle="tab" href="#specs"><i class="fas fa-comments"></i> Specifications</a>
+                            </li>
+                            <li>
+                                <a data-toggle="tab" href="#results"><i class="fas fa-tachometer-alt"></i> Test Results</a>
+                            </li>
+                        </ul>
+
+                        <!-- Specifications and Results tabs -->
+                        <div class="card border">
+                            <div class="tab-content" id="pills-tabContent">
+                                <div id="specs" class="tab-pane fade in active">
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-sm-12">
+
+                                                    <!--- TOC --->
+                                                    <div id="toc">
+                                                        <h3>Overview</h3>
+                                                        <table class="table" id="toc-table">
+                                                                        <tr>
+                                                                            <td style="width:95%;" class="toc-title">
+                                                                                <span class="orphan-scenario-toc-entry">
+                                                                                    <a href="#ca6ed30e8a4e77cca165692dae09c7aa6611103e53aeac5f6b45c7ed3507e5dc" title="View scenario details">
+                                                                                        <i class="far fa-comment-dots"></i> Scenario: Open View Forms Page
+                                                                                    </a>
+                                                                                        (1 example)
+                                                                                </span>
+                                                                            </td>
+                                                                            <td style="width:5%;">
+                                                                                <table>
+                                                                                    <tr>
+                                                                                        <td>
+                                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                               href="cb1ce3e7defb034a3f31a0886d6dd0146cdc0a645da69f8942a28b0741f894ca.html"
+                                                                                               title="View test results">
+                                                                                                <a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a>
+                                                                                                </a>
+
+
+                                                                                        </td>
+                                                                                            <td>
+                                                                                                <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                                   href="cb1ce3e7defb034a3f31a0886d6dd0146cdc0a645da69f8942a28b0741f894ca.html"
+                                                                                                   title="View test results">
+                                                                                                    <i class="fas fa-search-plus"></i>
+                                                                                                </a>
+                                                                                            </td>
+                                                                                    </tr>
+                                                                                </table>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td style="width:95%;" class="toc-title">
+                                                                                <span class="orphan-scenario-toc-entry">
+                                                                                    <a href="#a3faf913866a9d4f48d1bd025c29983a94ccfeec27b02c6ab70d776e8acbe486" title="View scenario details">
+                                                                                        <i class="far fa-comment-dots"></i> Scenario: Check presence of Previous and Next Btn
+                                                                                    </a>
+                                                                                        (1 example)
+                                                                                </span>
+                                                                            </td>
+                                                                            <td style="width:5%;">
+                                                                                <table>
+                                                                                    <tr>
+                                                                                        <td>
+                                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                               href="54b4d607f4c879a2c4cb2fa19538c54d54498ba03797c9f4e63ff042cd9e499c.html"
+                                                                                               title="View test results">
+                                                                                                <a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a>
+                                                                                                </a>
+
+
+                                                                                        </td>
+                                                                                            <td>
+                                                                                                <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                                   href="54b4d607f4c879a2c4cb2fa19538c54d54498ba03797c9f4e63ff042cd9e499c.html"
+                                                                                                   title="View test results">
+                                                                                                    <i class="fas fa-search-plus"></i>
+                                                                                                </a>
+                                                                                            </td>
+                                                                                    </tr>
+                                                                                </table>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td style="width:95%;" class="toc-title">
+                                                                                <span class="orphan-scenario-toc-entry">
+                                                                                    <a href="#d86ea39328375f6970359f5b5cec793487a1becfae28da869644a859e7174ea5" title="View scenario details">
+                                                                                        <i class="far fa-comment-dots"></i> Scenario: User selects a department
+                                                                                    </a>
+                                                                                        (1 example)
+                                                                                </span>
+                                                                            </td>
+                                                                            <td style="width:5%;">
+                                                                                <table>
+                                                                                    <tr>
+                                                                                        <td>
+                                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                               href="b36752a55be6c3d735cb55e20c840e50cd4a1a5e93dd28c6d6ef207b0ee362ed.html"
+                                                                                               title="View test results">
+                                                                                                <a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a>
+                                                                                                </a>
+
+
+                                                                                        </td>
+                                                                                            <td>
+                                                                                                <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                                   href="b36752a55be6c3d735cb55e20c840e50cd4a1a5e93dd28c6d6ef207b0ee362ed.html"
+                                                                                                   title="View test results">
+                                                                                                    <i class="fas fa-search-plus"></i>
+                                                                                                </a>
+                                                                                            </td>
+                                                                                    </tr>
+                                                                                </table>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td style="width:95%;" class="toc-title">
+                                                                                <span class="orphan-scenario-toc-entry">
+                                                                                    <a href="#a0dd0ff760638d773cc23c8f463c0f9662a8d639f4c12dcb7405aedf5ba79ef5" title="View scenario details">
+                                                                                        <i class="far fa-comment-dots"></i> Scenario: User select number of entries
+                                                                                    </a>
+                                                                                        (1 example)
+                                                                                </span>
+                                                                            </td>
+                                                                            <td style="width:5%;">
+                                                                                <table>
+                                                                                    <tr>
+                                                                                        <td>
+                                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                               href="cbd194f588cd09e2cf8f6b6f08627d887197b83c61998e22c79eb131d37a4230.html"
+                                                                                               title="View test results">
+                                                                                                <a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a>
+                                                                                                </a>
+
+
+                                                                                        </td>
+                                                                                            <td>
+                                                                                                <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                                   href="cbd194f588cd09e2cf8f6b6f08627d887197b83c61998e22c79eb131d37a4230.html"
+                                                                                                   title="View test results">
+                                                                                                    <i class="fas fa-search-plus"></i>
+                                                                                                </a>
+                                                                                            </td>
+                                                                                    </tr>
+                                                                                </table>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td style="width:95%;" class="toc-title">
+                                                                                <span class="orphan-scenario-toc-entry">
+                                                                                    <a href="#052d7e2f0d24a2a72530608c6fd0cf3a4122e2652ffa26a988d666c8ecf28780" title="View scenario details">
+                                                                                        <i class="far fa-comment-dots"></i> Scenario: User enters valid value in search field
+                                                                                    </a>
+                                                                                        (1 example)
+                                                                                </span>
+                                                                            </td>
+                                                                            <td style="width:5%;">
+                                                                                <table>
+                                                                                    <tr>
+                                                                                        <td>
+                                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                               href="810a1e49707f5ab23b7ed87958208752d3e396aa5f1c8fa8bf1be238d8ade9df.html"
+                                                                                               title="View test results">
+                                                                                                <a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a>
+                                                                                                </a>
+
+
+                                                                                        </td>
+                                                                                            <td>
+                                                                                                <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                                   href="810a1e49707f5ab23b7ed87958208752d3e396aa5f1c8fa8bf1be238d8ade9df.html"
+                                                                                                   title="View test results">
+                                                                                                    <i class="fas fa-search-plus"></i>
+                                                                                                </a>
+                                                                                            </td>
+                                                                                    </tr>
+                                                                                </table>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td style="width:95%;" class="toc-title">
+                                                                                <span class="orphan-scenario-toc-entry">
+                                                                                    <a href="#e7ada11978df9e70f5a23858b4d5b1529eba8c5d0563724d445471e2d80e2ce6" title="View scenario details">
+                                                                                        <i class="far fa-comment-dots"></i> Scenario: User enters invalid value in search field
+                                                                                    </a>
+                                                                                        (1 example)
+                                                                                </span>
+                                                                            </td>
+                                                                            <td style="width:5%;">
+                                                                                <table>
+                                                                                    <tr>
+                                                                                        <td>
+                                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                               href="3368aaf75bee60874f0b26948b3ba1f28dcefaa5d06eb025d864108c36e42317.html"
+                                                                                               title="View test results">
+                                                                                                <a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a>
+                                                                                                </a>
+
+
+                                                                                        </td>
+                                                                                            <td>
+                                                                                                <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                                   href="3368aaf75bee60874f0b26948b3ba1f28dcefaa5d06eb025d864108c36e42317.html"
+                                                                                                   title="View test results">
+                                                                                                    <i class="fas fa-search-plus"></i>
+                                                                                                </a>
+                                                                                            </td>
+                                                                                    </tr>
+                                                                                </table>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td style="width:95%;" class="toc-title">
+                                                                                <span class="orphan-scenario-toc-entry">
+                                                                                    <a href="#5c559202a86c8d510e9bd43384d07cb89454811d7edab27448c6c6dc5903b84c" title="View scenario details">
+                                                                                        <i class="far fa-comment-dots"></i> Scenario: User clicks on eye button to view policy
+                                                                                    </a>
+                                                                                        (1 example)
+                                                                                </span>
+                                                                            </td>
+                                                                            <td style="width:5%;">
+                                                                                <table>
+                                                                                    <tr>
+                                                                                        <td>
+                                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                               href="a0d235e13c38f52aa795421a1729b5dd9fb99e0408a148c596b1f6fc52b19af1.html"
+                                                                                               title="View test results">
+                                                                                                <a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a>
+                                                                                                </a>
+
+
+                                                                                        </td>
+                                                                                            <td>
+                                                                                                <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                                   href="a0d235e13c38f52aa795421a1729b5dd9fb99e0408a148c596b1f6fc52b19af1.html"
+                                                                                                   title="View test results">
+                                                                                                    <i class="fas fa-search-plus"></i>
+                                                                                                </a>
+                                                                                            </td>
+                                                                                    </tr>
+                                                                                </table>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td style="width:95%;" class="toc-title">
+                                                                                <span class="orphan-scenario-toc-entry">
+                                                                                    <a href="#e28a461a7fc2cff45151dc0dde41030962a60f854411334a731f5d0ee973979a" title="View scenario details">
+                                                                                        <i class="far fa-comment-dots"></i> Scenario: User downloads document
+                                                                                    </a>
+                                                                                        (1 example)
+                                                                                </span>
+                                                                            </td>
+                                                                            <td style="width:5%;">
+                                                                                <table>
+                                                                                    <tr>
+                                                                                        <td>
+                                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                               href="f36950fcb511aced3451127dc44635a400e5175ecb903174ea94ca8edc64d290.html"
+                                                                                               title="View test results">
+                                                                                                <a href='##beforetable'><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></a>
+                                                                                                </a>
+
+
+                                                                                        </td>
+                                                                                            <td>
+                                                                                                <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                                   href="f36950fcb511aced3451127dc44635a400e5175ecb903174ea94ca8edc64d290.html"
+                                                                                                   title="View test results">
+                                                                                                    <i class="fas fa-search-plus"></i>
+                                                                                                </a>
+                                                                                            </td>
+                                                                                    </tr>
+                                                                                </table>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td style="width:95%;" class="toc-title">
+                                                                                <span class="orphan-scenario-toc-entry">
+                                                                                    <a href="#c4f7b4f7fcbdb6828f40aeed9dbf803c8be2ac993eb283d634d6919f417d8bb2" title="View scenario details">
+                                                                                        <i class="far fa-comment-dots"></i> Scenario: User opens My Forms page
+                                                                                    </a>
+                                                                                        (1 example)
+                                                                                </span>
+                                                                            </td>
+                                                                            <td style="width:5%;">
+                                                                                <table>
+                                                                                    <tr>
+                                                                                        <td>
+                                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                               href="c913ee5e256f36e3f90b3919a8d1ba934701cff05080021a5777a2914cbe92d7.html"
+                                                                                               title="View test results">
+                                                                                                <a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a>
+                                                                                                </a>
+
+
+                                                                                        </td>
+                                                                                            <td>
+                                                                                                <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                                   href="c913ee5e256f36e3f90b3919a8d1ba934701cff05080021a5777a2914cbe92d7.html"
+                                                                                                   title="View test results">
+                                                                                                    <i class="fas fa-search-plus"></i>
+                                                                                                </a>
+                                                                                            </td>
+                                                                                    </tr>
+                                                                                </table>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td style="width:95%;" class="toc-title">
+                                                                                <span class="orphan-scenario-toc-entry">
+                                                                                    <a href="#ebc98e4e228e9cc03f2adeb631dc1a1899a02255e07c4afefc83be09a3dbe1ea" title="View scenario details">
+                                                                                        <i class="far fa-comment-dots"></i> Scenario: User uploads Incorrect File
+                                                                                    </a>
+                                                                                        (1 example)
+                                                                                </span>
+                                                                            </td>
+                                                                            <td style="width:5%;">
+                                                                                <table>
+                                                                                    <tr>
+                                                                                        <td>
+                                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                               href="2afa3e51c9156ab2ee44d67d8ba0050f3cf95a609bb8abfacd437c0a94171b93.html"
+                                                                                               title="View test results">
+                                                                                                <a href='##beforetable'><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></a>
+                                                                                                </a>
+
+
+                                                                                        </td>
+                                                                                            <td>
+                                                                                                <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                                   href="2afa3e51c9156ab2ee44d67d8ba0050f3cf95a609bb8abfacd437c0a94171b93.html"
+                                                                                                   title="View test results">
+                                                                                                    <i class="fas fa-search-plus"></i>
+                                                                                                </a>
+                                                                                            </td>
+                                                                                    </tr>
+                                                                                </table>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td style="width:95%;" class="toc-title">
+                                                                                <span class="orphan-scenario-toc-entry">
+                                                                                    <a href="#bd659402c8712a3fcb660182b109452b0b144489a07aaa04ec693eefea8e54f4" title="View scenario details">
+                                                                                        <i class="far fa-comment-dots"></i> Scenario: User Uploads correct File
+                                                                                    </a>
+                                                                                        (1 example)
+                                                                                </span>
+                                                                            </td>
+                                                                            <td style="width:5%;">
+                                                                                <table>
+                                                                                    <tr>
+                                                                                        <td>
+                                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                               href="5d67b016ed56e01c3414b508f8d4789b4ad7b3042c8f91666235dd509bf4cc91.html"
+                                                                                               title="View test results">
+                                                                                                <a href='##beforetable'><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></a>
+                                                                                                </a>
+
+
+                                                                                        </td>
+                                                                                            <td>
+                                                                                                <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                                   href="5d67b016ed56e01c3414b508f8d4789b4ad7b3042c8f91666235dd509bf4cc91.html"
+                                                                                                   title="View test results">
+                                                                                                    <i class="fas fa-search-plus"></i>
+                                                                                                </a>
+                                                                                            </td>
+                                                                                    </tr>
+                                                                                </table>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td style="width:95%;" class="toc-title">
+                                                                                <span class="orphan-scenario-toc-entry">
+                                                                                    <a href="#c96bdb99d05be268d8d3f2a6f329a80678d22dc3468cbc7b77ad7dedac8fbeac" title="View scenario details">
+                                                                                        <i class="far fa-comment-dots"></i> Scenario: User uploads file and selects number of entries
+                                                                                    </a>
+                                                                                        (1 example)
+                                                                                </span>
+                                                                            </td>
+                                                                            <td style="width:5%;">
+                                                                                <table>
+                                                                                    <tr>
+                                                                                        <td>
+                                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                               href="a9a77140cc9de0295bc4f656aefb10d39d79e09088505e4e60a58dc4e413e00e.html"
+                                                                                               title="View test results">
+                                                                                                <a href='##beforetable'><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></a>
+                                                                                                </a>
+
+
+                                                                                        </td>
+                                                                                            <td>
+                                                                                                <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                                   href="a9a77140cc9de0295bc4f656aefb10d39d79e09088505e4e60a58dc4e413e00e.html"
+                                                                                                   title="View test results">
+                                                                                                    <i class="fas fa-search-plus"></i>
+                                                                                                </a>
+                                                                                            </td>
+                                                                                    </tr>
+                                                                                </table>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td style="width:95%;" class="toc-title">
+                                                                                <span class="orphan-scenario-toc-entry">
+                                                                                    <a href="#b09039fa10d24b7e63470d708fc58c3bfa00866eb126a7984d5d540873ad48ff" title="View scenario details">
+                                                                                        <i class="far fa-comment-dots"></i> Scenario: User enters valid value in My forms search field
+                                                                                    </a>
+                                                                                        (1 example)
+                                                                                </span>
+                                                                            </td>
+                                                                            <td style="width:5%;">
+                                                                                <table>
+                                                                                    <tr>
+                                                                                        <td>
+                                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                               href="b1c5a6cdc6f9a163833d543d43d8b325835d820e4ac21af11c65c8fb9f348422.html"
+                                                                                               title="View test results">
+                                                                                                <a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a>
+                                                                                                </a>
+
+
+                                                                                        </td>
+                                                                                            <td>
+                                                                                                <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                                   href="b1c5a6cdc6f9a163833d543d43d8b325835d820e4ac21af11c65c8fb9f348422.html"
+                                                                                                   title="View test results">
+                                                                                                    <i class="fas fa-search-plus"></i>
+                                                                                                </a>
+                                                                                            </td>
+                                                                                    </tr>
+                                                                                </table>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td style="width:95%;" class="toc-title">
+                                                                                <span class="orphan-scenario-toc-entry">
+                                                                                    <a href="#e339b670d55c020a58f8c03e8333052dae979edd83457fb4bf685d48907fb82e" title="View scenario details">
+                                                                                        <i class="far fa-comment-dots"></i> Scenario: User enters an invalid value in My Forms search field
+                                                                                    </a>
+                                                                                        (1 example)
+                                                                                </span>
+                                                                            </td>
+                                                                            <td style="width:5%;">
+                                                                                <table>
+                                                                                    <tr>
+                                                                                        <td>
+                                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                               href="c0d369cea566b6a830334ecee9adb1553b80e2a5c800c4a9a2657990563de622.html"
+                                                                                               title="View test results">
+                                                                                                <a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a>
+                                                                                                </a>
+
+
+                                                                                        </td>
+                                                                                            <td>
+                                                                                                <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                                   href="c0d369cea566b6a830334ecee9adb1553b80e2a5c800c4a9a2657990563de622.html"
+                                                                                                   title="View test results">
+                                                                                                    <i class="fas fa-search-plus"></i>
+                                                                                                </a>
+                                                                                            </td>
+                                                                                    </tr>
+                                                                                </table>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td style="width:95%;" class="toc-title">
+                                                                                <span class="orphan-scenario-toc-entry">
+                                                                                    <a href="#9dd456c8810f523627fce08d55629cf9db9c832a6cbdabc5953126ddb23ca7e0" title="View scenario details">
+                                                                                        <i class="far fa-comment-dots"></i> Scenario: User hover over and clicks on deactivate Button
+                                                                                    </a>
+                                                                                        (1 example)
+                                                                                </span>
+                                                                            </td>
+                                                                            <td style="width:5%;">
+                                                                                <table>
+                                                                                    <tr>
+                                                                                        <td>
+                                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                               href="84be51051f40ae7b21131e5d97b9ea24d17acee4a5fa6285d02d6eaf645cae54.html"
+                                                                                               title="View test results">
+                                                                                                <a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a>
+                                                                                                </a>
+
+
+                                                                                        </td>
+                                                                                            <td>
+                                                                                                <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                                   href="84be51051f40ae7b21131e5d97b9ea24d17acee4a5fa6285d02d6eaf645cae54.html"
+                                                                                                   title="View test results">
+                                                                                                    <i class="fas fa-search-plus"></i>
+                                                                                                </a>
+                                                                                            </td>
+                                                                                    </tr>
+                                                                                </table>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td style="width:95%;" class="toc-title">
+                                                                                <span class="orphan-scenario-toc-entry">
+                                                                                    <a href="#c325cd962c7aa8245677c009c54ab79da06c95a1d955590a29a053db4ac0b027" title="View scenario details">
+                                                                                        <i class="far fa-comment-dots"></i> Scenario: User downloads from My Forms page
+                                                                                    </a>
+                                                                                        (1 example)
+                                                                                </span>
+                                                                            </td>
+                                                                            <td style="width:5%;">
+                                                                                <table>
+                                                                                    <tr>
+                                                                                        <td>
+                                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                               href="464796dbeee951825429a4dfc53d3072612b474ae4c6bb7d6e7ec47c97bcb6a5.html"
+                                                                                               title="View test results">
+                                                                                                <a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a>
+                                                                                                </a>
+
+
+                                                                                        </td>
+                                                                                            <td>
+                                                                                                <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                                   href="464796dbeee951825429a4dfc53d3072612b474ae4c6bb7d6e7ec47c97bcb6a5.html"
+                                                                                                   title="View test results">
+                                                                                                    <i class="fas fa-search-plus"></i>
+                                                                                                </a>
+                                                                                            </td>
+                                                                                    </tr>
+                                                                                </table>
+                                                                            </td>
+                                                                        </tr>
+                                                        </table>
+                                                    </div>
+                                                    <!--- END OF TOC --->
+
+                                                    <h3>Scenarios</h3>
+
+                                                        <a name="deb6c13f-b2d8-4bdc-b725-84ebd5ae8b3a" ></a>
+
+
+                                                            <div class="scenario-docs card" id="ca6ed30e8a4e77cca165692dae09c7aa6611103e53aeac5f6b45c7ed3507e5dc">
+                                                                <div class="scenario-docs card-header success"
+                                                                     style="min-height:1.5em;">
+                                                                    <div>
+                                                            <span class="scenario-heading">
+                                                                <a href="cb1ce3e7defb034a3f31a0886d6dd0146cdc0a645da69f8942a28b0741f894ca.html"
+                                                                   title="View test results">Scenario: Open View Forms Page</a>
+                                                            </span>
+                                                                        <span class="scenario-result-icon">
+                                                                
+
+                                                                                <a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a>
+                                                            </span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="scenario-docs card-body">
+                                                                        <p>Given User clicks on tab &quot;{parent Tab}&quot; and &quot;{child Tab}&quot;</p>
+                                                                        <p>Then User verifies element &quot;{elementOne}&quot;</p>
+                                                                        <p>And User verifies element &quot;{elementTwo}&quot;</p>
+                                                                        <p>Then User verifies element &quot;{elementThree}&quot;</p>
+                                                                        <p>And User closes application</p>
+                                                                    <div class="examples">
+                                                                            <p><p>Examples:</p>
+<div class='example-table-in-scenario'><table>
+<thead>
+<tr><th>parent Tab</th><th>child Tab</th><th>elementOne</th><th>elementTwo</th><th>elementThree</th><th></th></tr>
+</thead>
+<tbody>
+<tr><td>Forms</td><td>View Form</td><td>View Forms</td><td>Form Name</td><td>Action</td><td> </td></tr>
+</tbody>
+</table></div>
+</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="scenario-docs card" id="a3faf913866a9d4f48d1bd025c29983a94ccfeec27b02c6ab70d776e8acbe486">
+                                                                <div class="scenario-docs card-header success"
+                                                                     style="min-height:1.5em;">
+                                                                    <div>
+                                                            <span class="scenario-heading">
+                                                                <a href="54b4d607f4c879a2c4cb2fa19538c54d54498ba03797c9f4e63ff042cd9e499c.html"
+                                                                   title="View test results">Scenario: Check presence of Previous and Next Btn</a>
+                                                            </span>
+                                                                        <span class="scenario-result-icon">
+                                                                
+
+                                                                                <a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a>
+                                                            </span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="scenario-docs card-body">
+                                                                        <p>Given User clicks on tab &quot;{parent Tab}&quot; and &quot;{child Tab}&quot;</p>
+                                                                        <p>Then User verifies element &quot;{elementOne}&quot;</p>
+                                                                        <p>And User verifies element &quot;{elementTwo}&quot;</p>
+                                                                        <p>Then User verifies element &quot;{elementThree}&quot;</p>
+                                                                        <p>And User closes application</p>
+                                                                    <div class="examples">
+                                                                            <p><p>Examples:</p>
+<div class='example-table-in-scenario'><table>
+<thead>
+<tr><th>parent Tab</th><th>child Tab</th><th>elementOne</th><th>elementTwo</th><th>elementThree</th><th></th></tr>
+</thead>
+<tbody>
+<tr><td>Forms</td><td>View Form</td><td>Previous</td><td>Next</td><td>1</td><td> </td></tr>
+</tbody>
+</table></div>
+</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="scenario-docs card" id="d86ea39328375f6970359f5b5cec793487a1becfae28da869644a859e7174ea5">
+                                                                <div class="scenario-docs card-header success"
+                                                                     style="min-height:1.5em;">
+                                                                    <div>
+                                                            <span class="scenario-heading">
+                                                                <a href="b36752a55be6c3d735cb55e20c840e50cd4a1a5e93dd28c6d6ef207b0ee362ed.html"
+                                                                   title="View test results">Scenario: User selects a department</a>
+                                                            </span>
+                                                                        <span class="scenario-result-icon">
+                                                                
+
+                                                                                <a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a>
+                                                            </span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="scenario-docs card-body">
+                                                                        <p>Given User clicks on tab &quot;{parent Tab}&quot; and &quot;{child Tab}&quot;</p>
+                                                                        <p>And User click on field</p>
+                                                                        <p>Then User scroll to Element &quot;{elementOne}&quot;</p>
+                                                                        <p>And User selects the element &quot;{elementTwo}&quot;</p>
+                                                                        <p>And User closes application</p>
+                                                                    <div class="examples">
+                                                                            <p><p>Examples:</p>
+<div class='example-table-in-scenario'><table>
+<thead>
+<tr><th>parent Tab</th><th>child Tab</th><th>elementOne</th><th>elementTwo</th><th></th></tr>
+</thead>
+<tbody>
+<tr><td>Forms</td><td>View Form</td><td>Quality Assurance</td><td>Quality Assurance</td><td> </td></tr>
+</tbody>
+</table></div>
+</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="scenario-docs card" id="a0dd0ff760638d773cc23c8f463c0f9662a8d639f4c12dcb7405aedf5ba79ef5">
+                                                                <div class="scenario-docs card-header success"
+                                                                     style="min-height:1.5em;">
+                                                                    <div>
+                                                            <span class="scenario-heading">
+                                                                <a href="cbd194f588cd09e2cf8f6b6f08627d887197b83c61998e22c79eb131d37a4230.html"
+                                                                   title="View test results">Scenario: User select number of entries</a>
+                                                            </span>
+                                                                        <span class="scenario-result-icon">
+                                                                
+
+                                                                                <a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a>
+                                                            </span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="scenario-docs card-body">
+                                                                        <p>Given User clicks on tab &quot;{parent Tab}&quot; and &quot;{child Tab}&quot;</p>
+                                                                        <p>Then User selects number of entries &quot;{element}&quot;</p>
+                                                                        <p>And User closes application</p>
+                                                                    <div class="examples">
+                                                                            <p><p>Examples:</p>
+<div class='example-table-in-scenario'><table>
+<thead>
+<tr><th>parent Tab</th><th>child Tab</th><th>element</th><th></th></tr>
+</thead>
+<tbody>
+<tr><td>Forms</td><td>View Form</td><td>25</td><td> </td></tr>
+</tbody>
+</table></div>
+</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="scenario-docs card" id="052d7e2f0d24a2a72530608c6fd0cf3a4122e2652ffa26a988d666c8ecf28780">
+                                                                <div class="scenario-docs card-header success"
+                                                                     style="min-height:1.5em;">
+                                                                    <div>
+                                                            <span class="scenario-heading">
+                                                                <a href="810a1e49707f5ab23b7ed87958208752d3e396aa5f1c8fa8bf1be238d8ade9df.html"
+                                                                   title="View test results">Scenario: User enters valid value in search field</a>
+                                                            </span>
+                                                                        <span class="scenario-result-icon">
+                                                                
+
+                                                                                <a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a>
+                                                            </span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="scenario-docs card-body">
+                                                                        <p>Given User clicks on tab &quot;{parent Tab}&quot; and &quot;{child Tab}&quot;</p>
+                                                                        <p>Then User verifies search field and enters value &quot;{value}&quot;</p>
+                                                                        <p>Then User verifies element &quot;{element}&quot;</p>
+                                                                        <p>And User closes application</p>
+                                                                    <div class="examples">
+                                                                            <p><p>Examples:</p>
+<div class='example-table-in-scenario'><table>
+<thead>
+<tr><th>parent Tab</th><th>child Tab</th><th>value</th><th>element</th><th></th></tr>
+</thead>
+<tbody>
+<tr><td>Forms</td><td>View Form</td><td>Rei</td><td>Reimbursement Form</td><td> </td></tr>
+</tbody>
+</table></div>
+</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="scenario-docs card" id="e7ada11978df9e70f5a23858b4d5b1529eba8c5d0563724d445471e2d80e2ce6">
+                                                                <div class="scenario-docs card-header success"
+                                                                     style="min-height:1.5em;">
+                                                                    <div>
+                                                            <span class="scenario-heading">
+                                                                <a href="3368aaf75bee60874f0b26948b3ba1f28dcefaa5d06eb025d864108c36e42317.html"
+                                                                   title="View test results">Scenario: User enters invalid value in search field</a>
+                                                            </span>
+                                                                        <span class="scenario-result-icon">
+                                                                
+
+                                                                                <a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a>
+                                                            </span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="scenario-docs card-body">
+                                                                        <p>Given User clicks on tab &quot;{parent Tab}&quot; and &quot;{child Tab}&quot;</p>
+                                                                        <p>Then User verifies search field and enters value &quot;{value}&quot;</p>
+                                                                        <p>Then User verifies element &quot;{element}&quot;</p>
+                                                                        <p>And User closes application</p>
+                                                                    <div class="examples">
+                                                                            <p><p>Examples:</p>
+<div class='example-table-in-scenario'><table>
+<thead>
+<tr><th>parent Tab</th><th>child Tab</th><th>value</th><th>element</th><th></th></tr>
+</thead>
+<tbody>
+<tr><td>Forms</td><td>View Form</td><td>hii</td><td>No matching records found</td><td> </td></tr>
+</tbody>
+</table></div>
+</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="scenario-docs card" id="5c559202a86c8d510e9bd43384d07cb89454811d7edab27448c6c6dc5903b84c">
+                                                                <div class="scenario-docs card-header success"
+                                                                     style="min-height:1.5em;">
+                                                                    <div>
+                                                            <span class="scenario-heading">
+                                                                <a href="a0d235e13c38f52aa795421a1729b5dd9fb99e0408a148c596b1f6fc52b19af1.html"
+                                                                   title="View test results">Scenario: User clicks on eye button to view policy</a>
+                                                            </span>
+                                                                        <span class="scenario-result-icon">
+                                                                
+
+                                                                                <a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a>
+                                                            </span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="scenario-docs card-body">
+                                                                        <p>Given User clicks on tab &quot;{parent Tab}&quot; and &quot;{child Tab}&quot;</p>
+                                                                        <p>Then User clicks on eye button and view policy</p>
+                                                                        <p>And User closes application</p>
+                                                                    <div class="examples">
+                                                                            <p><p>Examples:</p>
+<div class='example-table-in-scenario'><table>
+<thead>
+<tr><th>parent Tab</th><th>child Tab</th><th></th></tr>
+</thead>
+<tbody>
+<tr><td>Forms</td><td>View Form</td><td> </td></tr>
+</tbody>
+</table></div>
+</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="scenario-docs card" id="e28a461a7fc2cff45151dc0dde41030962a60f854411334a731f5d0ee973979a">
+                                                                <div class="scenario-docs card-header error"
+                                                                     style="min-height:1.5em;">
+                                                                    <div>
+                                                            <span class="scenario-heading">
+                                                                <a href="f36950fcb511aced3451127dc44635a400e5175ecb903174ea94ca8edc64d290.html"
+                                                                   title="View test results">Scenario: User downloads document</a>
+                                                            </span>
+                                                                        <span class="scenario-result-icon">
+                                                                
+
+                                                                                <a href='##beforetable'><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></a>
+                                                            </span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="scenario-docs card-body">
+                                                                        <p>Given User clicks on tab &quot;{parent Tab}&quot; and &quot;{child Tab}&quot;</p>
+                                                                        <p>Then User downloads file and deletes &quot;{fileName}&quot;</p>
+                                                                        <p>And User closes application</p>
+                                                                    <div class="examples">
+                                                                            <p><p>Examples:</p>
+<div class='example-table-in-scenario'><table>
+<thead>
+<tr><th>parent Tab</th><th>child Tab</th><th>fileName</th><th></th></tr>
+</thead>
+<tbody>
+<tr><td>Forms</td><td>View Form</td><td>Loyalty Redemption Form</td><td> </td></tr>
+</tbody>
+</table></div>
+</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="scenario-docs card" id="c4f7b4f7fcbdb6828f40aeed9dbf803c8be2ac993eb283d634d6919f417d8bb2">
+                                                                <div class="scenario-docs card-header success"
+                                                                     style="min-height:1.5em;">
+                                                                    <div>
+                                                            <span class="scenario-heading">
+                                                                <a href="c913ee5e256f36e3f90b3919a8d1ba934701cff05080021a5777a2914cbe92d7.html"
+                                                                   title="View test results">Scenario: User opens My Forms page</a>
+                                                            </span>
+                                                                        <span class="scenario-result-icon">
+                                                                
+
+                                                                                <a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a>
+                                                            </span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="scenario-docs card-body">
+                                                                        <p>Given User clicks on tab &quot;{parent Tab}&quot; and &quot;{child Tab}&quot;</p>
+                                                                        <p>Then User verifies element &quot;{elementOne}&quot;</p>
+                                                                        <p>And User verifies element &quot;{elementTwo}&quot;</p>
+                                                                        <p>Then User verifies element &quot;{elementThree}&quot;</p>
+                                                                        <p>Then User verifies element &quot;{elementFour}&quot;</p>
+                                                                        <p>Then User verifies element &quot;{elementFive}&quot;</p>
+                                                                    <div class="examples">
+                                                                            <p><p>Examples:</p>
+<div class='example-table-in-scenario'><table>
+<thead>
+<tr><th>parent Tab</th><th>child Tab</th><th>elementOne</th><th>elementTwo</th><th>elementThree</th><th>elementFour</th><th>elementFive</th><th>elementSix</th><th></th></tr>
+</thead>
+<tbody>
+<tr><td>Forms</td><td>My Form</td><td>My Form</td><td>Form</td><td>My Form</td><td>Status</td><td>Uploaded On</td><td>Action</td><td> </td></tr>
+</tbody>
+</table></div>
+</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="scenario-docs card" id="ebc98e4e228e9cc03f2adeb631dc1a1899a02255e07c4afefc83be09a3dbe1ea">
+                                                                <div class="scenario-docs card-header error"
+                                                                     style="min-height:1.5em;">
+                                                                    <div>
+                                                            <span class="scenario-heading">
+                                                                <a href="2afa3e51c9156ab2ee44d67d8ba0050f3cf95a609bb8abfacd437c0a94171b93.html"
+                                                                   title="View test results">Scenario: User uploads Incorrect File</a>
+                                                            </span>
+                                                                        <span class="scenario-result-icon">
+                                                                
+
+                                                                                <a href='##beforetable'><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></a>
+                                                            </span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="scenario-docs card-body">
+                                                                        <p>Given User clicks on tab &quot;{parent Tab}&quot; and &quot;{child Tab}&quot;</p>
+                                                                        <p>Then User Clicks on upload Btn</p>
+                                                                        <p>And And User uploads  file &quot;{fileLoc}&quot;</p>
+                                                                        <p>Then User verifies element &quot;{Warning Message}&quot;</p>
+                                                                        <p>And User closes appeared popup</p>
+                                                                        <p>And User closes application</p>
+                                                                    <div class="examples">
+                                                                            <p><p>Examples:</p>
+<div class='example-table-in-scenario'><table>
+<thead>
+<tr><th>parent Tab</th><th>child Tab</th><th>fileLoc</th><th>Warning Message</th><th></th></tr>
+</thead>
+<tbody>
+<tr><td>Forms</td><td>My Form</td><td>C:\Users\ch.srivastava\OneDrive - Gemini Solutions\Desktop\client-Logo.png</td><td>Invalid file selected. Supported extensions are .xlsx,.xls,.pdf</td><td> </td></tr>
+</tbody>
+</table></div>
+</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="scenario-docs card" id="bd659402c8712a3fcb660182b109452b0b144489a07aaa04ec693eefea8e54f4">
+                                                                <div class="scenario-docs card-header error"
+                                                                     style="min-height:1.5em;">
+                                                                    <div>
+                                                            <span class="scenario-heading">
+                                                                <a href="5d67b016ed56e01c3414b508f8d4789b4ad7b3042c8f91666235dd509bf4cc91.html"
+                                                                   title="View test results">Scenario: User Uploads correct File</a>
+                                                            </span>
+                                                                        <span class="scenario-result-icon">
+                                                                
+
+                                                                                <a href='##beforetable'><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></a>
+                                                            </span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="scenario-docs card-body">
+                                                                        <p>Given User clicks on tab &quot;{parent Tab}&quot; and &quot;{child Tab}&quot;</p>
+                                                                        <p>Then User Clicks on upload Btn</p>
+                                                                        <p>And User Selects form Type &quot;{Form Type}&quot;</p>
+                                                                        <p>And And User uploads  file &quot;{fileLoc}&quot;</p>
+                                                                        <p>Then User saves the file</p>
+                                                                        <p>Then User verifies element &quot;{Success Message}&quot;</p>
+                                                                        <p>And User closes appeared popup</p>
+                                                                        <p>And User closes application</p>
+                                                                    <div class="examples">
+                                                                            <p><p>Examples:</p>
+<div class='example-table-in-scenario'><table>
+<thead>
+<tr><th>parent Tab</th><th>child Tab</th><th>Form Type</th><th>fileLoc</th><th>Success Message</th><th></th></tr>
+</thead>
+<tbody>
+<tr><td>Forms</td><td>My Form</td><td>Employee Achievement</td><td>C:\Users\ch.srivastava\Downloads\MIS_Scenarios.xlsx</td><td>Your form has been uploaded successfully</td><td> </td></tr>
+</tbody>
+</table></div>
+</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="scenario-docs card" id="c96bdb99d05be268d8d3f2a6f329a80678d22dc3468cbc7b77ad7dedac8fbeac">
+                                                                <div class="scenario-docs card-header error"
+                                                                     style="min-height:1.5em;">
+                                                                    <div>
+                                                            <span class="scenario-heading">
+                                                                <a href="a9a77140cc9de0295bc4f656aefb10d39d79e09088505e4e60a58dc4e413e00e.html"
+                                                                   title="View test results">Scenario: User uploads file and selects number of entries</a>
+                                                            </span>
+                                                                        <span class="scenario-result-icon">
+                                                                
+
+                                                                                <a href='##beforetable'><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></a>
+                                                            </span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="scenario-docs card-body">
+                                                                        <p>Given User clicks on tab &quot;{parent Tab}&quot; and &quot;{child Tab}&quot;</p>
+                                                                        <p>Then User Clicks on upload Btn</p>
+                                                                        <p>And User Selects form Type &quot;{Form Type}&quot;</p>
+                                                                        <p>And And User uploads  file &quot;{fileLoc}&quot;</p>
+                                                                        <p>Then User saves the file</p>
+                                                                        <p>Then User verifies element &quot;{Warning Message}&quot;</p>
+                                                                        <p>And User closes appeared popup</p>
+                                                                        <p>And User closes application</p>
+                                                                    <div class="examples">
+                                                                            <p><p>Examples:</p>
+<div class='example-table-in-scenario'><table>
+<thead>
+<tr><th>parent Tab</th><th>child Tab</th><th>Form Type</th><th>fileLoc</th><th>Warning Message</th><th></th></tr>
+</thead>
+<tbody>
+<tr><td>Forms</td><td>My Form</td><td>Employee Achievement</td><td>C:\Users\ch.srivastava\Downloads\MIS_Scenarios.xlsx</td><td>File with same name already exists</td><td> </td></tr>
+</tbody>
+</table></div>
+</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="scenario-docs card" id="b09039fa10d24b7e63470d708fc58c3bfa00866eb126a7984d5d540873ad48ff">
+                                                                <div class="scenario-docs card-header success"
+                                                                     style="min-height:1.5em;">
+                                                                    <div>
+                                                            <span class="scenario-heading">
+                                                                <a href="b1c5a6cdc6f9a163833d543d43d8b325835d820e4ac21af11c65c8fb9f348422.html"
+                                                                   title="View test results">Scenario: User enters valid value in My forms search field</a>
+                                                            </span>
+                                                                        <span class="scenario-result-icon">
+                                                                
+
+                                                                                <a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a>
+                                                            </span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="scenario-docs card-body">
+                                                                        <p>Given User clicks on tab &quot;{parent Tab}&quot; and &quot;{child Tab}&quot;</p>
+                                                                        <p>Then User verifies search field and enters value &quot;{value}&quot;</p>
+                                                                        <p>Then User verifies element &quot;{element}&quot;</p>
+                                                                        <p>And User closes application</p>
+                                                                    <div class="examples">
+                                                                            <p><p>Examples:</p>
+<div class='example-table-in-scenario'><table>
+<thead>
+<tr><th>parent Tab</th><th>child Tab</th><th>value</th><th>element</th><th></th></tr>
+</thead>
+<tbody>
+<tr><td>Forms</td><td>My Form</td><td>Employee</td><td>Employee Achievement Form FY 2018.docx</td><td> </td></tr>
+</tbody>
+</table></div>
+</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="scenario-docs card" id="e339b670d55c020a58f8c03e8333052dae979edd83457fb4bf685d48907fb82e">
+                                                                <div class="scenario-docs card-header success"
+                                                                     style="min-height:1.5em;">
+                                                                    <div>
+                                                            <span class="scenario-heading">
+                                                                <a href="c0d369cea566b6a830334ecee9adb1553b80e2a5c800c4a9a2657990563de622.html"
+                                                                   title="View test results">Scenario: User enters an invalid value in My Forms search field</a>
+                                                            </span>
+                                                                        <span class="scenario-result-icon">
+                                                                
+
+                                                                                <a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a>
+                                                            </span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="scenario-docs card-body">
+                                                                        <p>Given User clicks on tab &quot;{parent Tab}&quot; and &quot;{child Tab}&quot;</p>
+                                                                        <p>Then User verifies search field and enters value &quot;{value}&quot;</p>
+                                                                        <p>Then User verifies element &quot;{element}&quot;</p>
+                                                                        <p>And User closes application</p>
+                                                                    <div class="examples">
+                                                                            <p><p>Examples:</p>
+<div class='example-table-in-scenario'><table>
+<thead>
+<tr><th>parent Tab</th><th>child Tab</th><th>value</th><th>element</th><th></th></tr>
+</thead>
+<tbody>
+<tr><td>Forms</td><td>My Form</td><td>Hello</td><td>No matching records found</td><td> </td></tr>
+</tbody>
+</table></div>
+</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="scenario-docs card" id="9dd456c8810f523627fce08d55629cf9db9c832a6cbdabc5953126ddb23ca7e0">
+                                                                <div class="scenario-docs card-header success"
+                                                                     style="min-height:1.5em;">
+                                                                    <div>
+                                                            <span class="scenario-heading">
+                                                                <a href="84be51051f40ae7b21131e5d97b9ea24d17acee4a5fa6285d02d6eaf645cae54.html"
+                                                                   title="View test results">Scenario: User hover over and clicks on deactivate Button</a>
+                                                            </span>
+                                                                        <span class="scenario-result-icon">
+                                                                
+
+                                                                                <a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a>
+                                                            </span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="scenario-docs card-body">
+                                                                        <p>Given User clicks on tab &quot;{parent Tab}&quot; and &quot;{child Tab}&quot;</p>
+                                                                        <p>Then User hover over deactivate button and clicks it</p>
+                                                                        <p>And User closes application</p>
+                                                                    <div class="examples">
+                                                                            <p><p>Examples:</p>
+<div class='example-table-in-scenario'><table>
+<thead>
+<tr><th>parent Tab</th><th>child Tab</th><th></th></tr>
+</thead>
+<tbody>
+<tr><td>Forms</td><td>My Form</td><td> </td></tr>
+</tbody>
+</table></div>
+</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="scenario-docs card" id="c325cd962c7aa8245677c009c54ab79da06c95a1d955590a29a053db4ac0b027">
+                                                                <div class="scenario-docs card-header success"
+                                                                     style="min-height:1.5em;">
+                                                                    <div>
+                                                            <span class="scenario-heading">
+                                                                <a href="464796dbeee951825429a4dfc53d3072612b474ae4c6bb7d6e7ec47c97bcb6a5.html"
+                                                                   title="View test results">Scenario: User downloads from My Forms page</a>
+                                                            </span>
+                                                                        <span class="scenario-result-icon">
+                                                                
+
+                                                                                <a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a>
+                                                            </span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="scenario-docs card-body">
+                                                                        <p>Given User clicks on tab &quot;{parent Tab}&quot; and &quot;{child Tab}&quot;</p>
+                                                                        <p>Then User verifies element &quot;{ColumnName}&quot; downloads file and deletes &quot;{fileName}&quot;</p>
+                                                                        <p>And User closes application</p>
+                                                                    <div class="examples">
+                                                                            <p><p>Examples:</p>
+<div class='example-table-in-scenario'><table>
+<thead>
+<tr><th>parent Tab</th><th>child Tab</th><th>ColumnName</th><th>fileName</th><th></th></tr>
+</thead>
+<tbody>
+<tr><td>Forms</td><td>My Form</td><td>Action</td><td>Loyalty Redemption Form</td><td> </td></tr>
+</tbody>
+</table></div>
+</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="results" class="tab-pane fade">
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-sm-4">
+
+                                                <div style="width:300px;" class="chart-container automated-and-manual-results">
+                                                    <div class="ct-chart ct-square"></div>
+                                                </div>
+                                                <script>
+
+                                                    var labels = ['75%', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '25%', ' ', ' ', ' '];
+                                                    // Our series array that contains series objects or in this case series data arrays
+
+                                                    var series = [{meta: 'Passing tests (automated)', value: 12}, {meta: 'Passing tests (manual)', value: 0}, {meta: 'Pending tests (automated)', value: 0}, {meta: 'Pending tests (manual)', value: 0}, {meta: 'Ignored tests (automated)', value: 0}, {meta: 'Ignored tests (manual)', value: 0}, {meta: 'Skipped tests (automated)', value: 0}, {meta: 'Skipped tests (manual)', value: 0}, {meta: 'Failing tests (automated)', value: 0}, {meta: 'Failing tests (manual)', value: 0}, {meta: 'Broken tests (automated)', value: 4}, {meta: 'Broken tests (manual)', value: 0}, {meta: 'Compromised tests (automated)', value: 0}, {meta: 'Compromised tests (manual)', value: 0}];
+
+                                                    // As options we currently only set a static size of 300x200 px. We can also omit this and use aspect ratio containers
+                                                    // as you saw in the previous example
+                                                    var options = {
+                                                        width: 350,
+                                                        height: 300
+                                                    };
+
+                                                    $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+                                                        new Chartist.Pie('.ct-chart', {
+                                                            series: series,
+                                                            labels: labels,
+                                                        }, {
+                                                            donut: true,
+                                                            donutWidth: 60,
+                                                            donutSolid: true,
+                                                            startAngle: 270,
+                                                            showLabel: true
+                                                        }, options);
+                                                    });
+
+                                                </script>
+                                            </div>
+                                            <div class="col-sm-8">
+
+                                                    <table class="table">
+                                                        <thead>
+                                                        <tr>
+                                                            <th scope="col">Scenario Results (including rows of test
+                                                                data)
+                                                            </th>
+                                                            <th scope="col" colspan="2" class="automated-stats">
+                                                                Automated
+                                                            </th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                        <tr>
+                                                                <td class="aggregate-result-count">
+                                                                    <a href="2058da7babae4835b6133d99b63c88f35e16063fb79a86436e2c803bf6aedff6.html"><i
+                                                                                class='fa fa-check-circle-o success-icon'></i>&nbsp;Passing</a>
+                                                                </td>
+                                                            <td class="automated-stats">12</td>
+                                                            <td class="automated-stats">75%</td>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="aggregate-result-count"><i
+                                                                            class='fa fa-stop-circle-o pending-icon'></i>&nbsp;Pending
+                                                                </td>
+                                                            <td class="automated-stats">0</td>
+                                                            <td class="automated-stats"> </td>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="aggregate-result-count"><i
+                                                                            class='fa fa-ban ignored-icon'></i>&nbsp;Ignored
+                                                                </td>
+                                                            <td class="automated-stats">0</td>
+                                                            <td class="automated-stats"> </td>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="aggregate-result-count"><i
+                                                                            class='fa fa-fast-forward skip-icon'></i>&nbsp;Skipped
+                                                                </td>
+                                                            <td class="automated-stats">0</td>
+                                                            <td class="automated-stats"> </td>
+                                                        </tr>
+                                                        <tr>
+                                                                    <td colspan="3"><a href="3a1ab1f1ae0275c8e51f2653a6e7abe92fc9b0f465fa842bb51ba96d96510c08.html"><i
+                                                                                    class='fa fa-times failure-icon'></i>&nbsp;<em>Unsuccessful</em></a>
+                                                                    </td>
+
+                                                        </tr>
+
+                                                        <tr>
+                                                                <td class="aggregate-result-count indented-error-category">
+                                                                    <i
+                                                                            class='fa fa-times-circle failure-icon'></i>&nbsp;Failed
+                                                                </td>
+                                                            <td class="automated-stats">0</td>
+                                                            <td class="automated-stats"> </td>
+                                                        <tr>
+                                                                <td class="aggregate-result-count indented-error-category">
+                                                                    <a href="5553adced034ac24fc848ad34bfa8ad230c693e9d5be6517a6912416be501c55.html"><i
+                                                                                class='fa fa-exclamation-triangle error-icon'></i>&nbsp;Broken</a>
+                                                                </td>
+                                                            <td class="automated-stats">4</td>
+                                                            <td class="automated-stats">25%</td>
+                                                        <tr>
+                                                                <td class="aggregate-result-count indented-error-category">
+                                                                    <i
+                                                                            class='fa fa-chain-broken compromised-icon'></i>&nbsp;Compromised
+                                                                </td>
+                                                            <td class="automated-stats">0</td>
+                                                            <td class="automated-stats"> </td>
+                                                        </tr>
+                                                        <tr class="summary-stats">
+                                                            <td class="aggregate-result-count">Total</td>
+                                                            <td class="automated-stats">16</td>
+                                                            <td class="automated-stats"></td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <table class="table">
+                                                        <thead>
+                                                        <tr>
+                                                            <th>Execution Time</th>
+                                                            <th>Clock Time</th>
+                                                            <th>Fastest Test</th>
+                                                            <th>Slowest Test</th>
+                                                            <th>Average Execution Time</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                        <tr>
+                                                            <td> 9m 6s</td>
+                                                            <td> 8m 30s</td>
+                                                            <td>29s</td>
+                                                            <td>40s</td>
+                                                            <td>34s</td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <h3><i class="fas fa-cogs"></i> Automated Tests</h3>
+
+                                                        <table class="scenario-result-table table"
+                                                               id="scenario-results">
+                                                            <thead>
+                                                            <tr>
+                                                                <th class="test-name-column">Scenario</th>
+                                                                <th>Steps</th>
+                                                                <th>Started</th>
+                                                                <th>Duration</th>
+                                                                <th>Result</th>
+                                                            </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr class="scenario-result SUCCESS">
+                                                                    <td>
+                                                                            <a href="cb1ce3e7defb034a3f31a0886d6dd0146cdc0a645da69f8942a28b0741f894ca.html">Open View Forms Page</a>
+                                                                            (1 example)
+                                                                    </td>
+                                                                    <td>5</td>
+                                                                    <td>21:26:48</td>
+                                                                    <td>40s 733ms</td>
+                                                                    <td>
+                                                                            <a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a> <span
+                                                                                style="display:none">SUCCESS</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="scenario-result SUCCESS">
+                                                                    <td>
+                                                                            <a href="54b4d607f4c879a2c4cb2fa19538c54d54498ba03797c9f4e63ff042cd9e499c.html">Check presence of Previous and Next Btn</a>
+                                                                            (1 example)
+                                                                    </td>
+                                                                    <td>5</td>
+                                                                    <td>21:27:29</td>
+                                                                    <td>32s 664ms</td>
+                                                                    <td>
+                                                                            <a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a> <span
+                                                                                style="display:none">SUCCESS</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="scenario-result SUCCESS">
+                                                                    <td>
+                                                                            <a href="b36752a55be6c3d735cb55e20c840e50cd4a1a5e93dd28c6d6ef207b0ee362ed.html">User selects a department</a>
+                                                                            (1 example)
+                                                                    </td>
+                                                                    <td>5</td>
+                                                                    <td>21:28:02</td>
+                                                                    <td>37s 271ms</td>
+                                                                    <td>
+                                                                            <a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a> <span
+                                                                                style="display:none">SUCCESS</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="scenario-result SUCCESS">
+                                                                    <td>
+                                                                            <a href="cbd194f588cd09e2cf8f6b6f08627d887197b83c61998e22c79eb131d37a4230.html">User select number of entries</a>
+                                                                            (1 example)
+                                                                    </td>
+                                                                    <td>3</td>
+                                                                    <td>21:28:39</td>
+                                                                    <td>29s 381ms</td>
+                                                                    <td>
+                                                                            <a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a> <span
+                                                                                style="display:none">SUCCESS</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="scenario-result SUCCESS">
+                                                                    <td>
+                                                                            <a href="810a1e49707f5ab23b7ed87958208752d3e396aa5f1c8fa8bf1be238d8ade9df.html">User enters valid value in search field</a>
+                                                                            (1 example)
+                                                                    </td>
+                                                                    <td>4</td>
+                                                                    <td>21:29:08</td>
+                                                                    <td>33s 467ms</td>
+                                                                    <td>
+                                                                            <a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a> <span
+                                                                                style="display:none">SUCCESS</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="scenario-result SUCCESS">
+                                                                    <td>
+                                                                            <a href="3368aaf75bee60874f0b26948b3ba1f28dcefaa5d06eb025d864108c36e42317.html">User enters invalid value in search field</a>
+                                                                            (1 example)
+                                                                    </td>
+                                                                    <td>4</td>
+                                                                    <td>21:29:42</td>
+                                                                    <td>31s 294ms</td>
+                                                                    <td>
+                                                                            <a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a> <span
+                                                                                style="display:none">SUCCESS</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="scenario-result SUCCESS">
+                                                                    <td>
+                                                                            <a href="a0d235e13c38f52aa795421a1729b5dd9fb99e0408a148c596b1f6fc52b19af1.html">User clicks on eye button to view policy</a>
+                                                                            (1 example)
+                                                                    </td>
+                                                                    <td>3</td>
+                                                                    <td>21:30:13</td>
+                                                                    <td>32s 276ms</td>
+                                                                    <td>
+                                                                            <a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a> <span
+                                                                                style="display:none">SUCCESS</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="scenario-result ERROR">
+                                                                    <td>
+                                                                            <a href="f36950fcb511aced3451127dc44635a400e5175ecb903174ea94ca8edc64d290.html">User downloads document</a>
+                                                                            (1 example)
+                                                                    </td>
+                                                                    <td>3</td>
+                                                                    <td>21:30:45</td>
+                                                                    <td>36s 970ms</td>
+                                                                    <td>
+                                                                            <a href='##beforetable'><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></a> <span
+                                                                                style="display:none">ERROR</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="scenario-result SUCCESS">
+                                                                    <td>
+                                                                            <a href="c913ee5e256f36e3f90b3919a8d1ba934701cff05080021a5777a2914cbe92d7.html">User opens My Forms page</a>
+                                                                            (1 example)
+                                                                    </td>
+                                                                    <td>6</td>
+                                                                    <td>21:31:22</td>
+                                                                    <td>35s 647ms</td>
+                                                                    <td>
+                                                                            <a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a> <span
+                                                                                style="display:none">SUCCESS</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="scenario-result ERROR">
+                                                                    <td>
+                                                                            <a href="2afa3e51c9156ab2ee44d67d8ba0050f3cf95a609bb8abfacd437c0a94171b93.html">User uploads Incorrect File</a>
+                                                                            (1 example)
+                                                                    </td>
+                                                                    <td>6</td>
+                                                                    <td>21:31:58</td>
+                                                                    <td>33s 017ms</td>
+                                                                    <td>
+                                                                            <a href='##beforetable'><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></a> <span
+                                                                                style="display:none">ERROR</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="scenario-result ERROR">
+                                                                    <td>
+                                                                            <a href="5d67b016ed56e01c3414b508f8d4789b4ad7b3042c8f91666235dd509bf4cc91.html">User Uploads correct File</a>
+                                                                            (1 example)
+                                                                    </td>
+                                                                    <td>8</td>
+                                                                    <td>21:32:31</td>
+                                                                    <td>34s 715ms</td>
+                                                                    <td>
+                                                                            <a href='##beforetable'><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></a> <span
+                                                                                style="display:none">ERROR</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="scenario-result ERROR">
+                                                                    <td>
+                                                                            <a href="a9a77140cc9de0295bc4f656aefb10d39d79e09088505e4e60a58dc4e413e00e.html">User uploads file and selects number of entries</a>
+                                                                            (1 example)
+                                                                    </td>
+                                                                    <td>8</td>
+                                                                    <td>21:33:06</td>
+                                                                    <td>36s 862ms</td>
+                                                                    <td>
+                                                                            <a href='##beforetable'><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></a> <span
+                                                                                style="display:none">ERROR</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="scenario-result SUCCESS">
+                                                                    <td>
+                                                                            <a href="b1c5a6cdc6f9a163833d543d43d8b325835d820e4ac21af11c65c8fb9f348422.html">User enters valid value in My forms search field</a>
+                                                                            (1 example)
+                                                                    </td>
+                                                                    <td>4</td>
+                                                                    <td>21:33:43</td>
+                                                                    <td>32s 757ms</td>
+                                                                    <td>
+                                                                            <a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a> <span
+                                                                                style="display:none">SUCCESS</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="scenario-result SUCCESS">
+                                                                    <td>
+                                                                            <a href="c0d369cea566b6a830334ecee9adb1553b80e2a5c800c4a9a2657990563de622.html">User enters an invalid value in My Forms search field</a>
+                                                                            (1 example)
+                                                                    </td>
+                                                                    <td>4</td>
+                                                                    <td>21:34:15</td>
+                                                                    <td>32s 658ms</td>
+                                                                    <td>
+                                                                            <a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a> <span
+                                                                                style="display:none">SUCCESS</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="scenario-result SUCCESS">
+                                                                    <td>
+                                                                            <a href="84be51051f40ae7b21131e5d97b9ea24d17acee4a5fa6285d02d6eaf645cae54.html">User hover over and clicks on deactivate Button</a>
+                                                                            (1 example)
+                                                                    </td>
+                                                                    <td>3</td>
+                                                                    <td>21:34:48</td>
+                                                                    <td>31s 059ms</td>
+                                                                    <td>
+                                                                            <a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a> <span
+                                                                                style="display:none">SUCCESS</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="scenario-result SUCCESS">
+                                                                    <td>
+                                                                            <a href="464796dbeee951825429a4dfc53d3072612b474ae4c6bb7d6e7ec47c97bcb6a5.html">User downloads from My Forms page</a>
+                                                                            (1 example)
+                                                                    </td>
+                                                                    <td>3</td>
+                                                                    <td>21:35:19</td>
+                                                                    <td>35s 874ms</td>
+                                                                    <td>
+                                                                            <a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a> <span
+                                                                                style="display:none">SUCCESS</span>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <h3><i class="fas fa-edit"></i> Manual Tests</h3>
+
+                                                        No manual tests were recorded
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <span class="version">Serenity BDD version 2.6.0</span>
+                    </div>
+                </div>
+            </div>
+</body>
+</html>

@@ -1,0 +1,5 @@
+"Story","Title","Result","Date","Stability","Duration (s)"
+"Leave Balance","Navigate to leave history window and verify number of records","FAILURE","2022-10-15T21:19:40.871+05:30[Asia/Calcutta]","0.0","18.62"
+"NavBar","Click on Change AD Password and verify  new tab is open","FAILURE","2022-10-15T21:42:50.278+05:30[Asia/Calcutta]","0.0","21.93"
+"NavBar","Verify Add skill close button after entering all values","FAILURE","2022-10-15T21:43:31.773+05:30[Asia/Calcutta]","0.0","44.61"
+"NavBar","Verify success/warning message box when adding new/duplicate skills from profile dropdown","FAILURE","2022-10-15T21:44:17.483+05:30[Asia/Calcutta]","0.0","74.25"

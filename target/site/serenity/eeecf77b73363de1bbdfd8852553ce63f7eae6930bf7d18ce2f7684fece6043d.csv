@@ -1,0 +1,7 @@
+"Story","Title","Result","Date","Stability","Duration (s)"
+"Policy Activities","Navigate to Policy > View Policies","SUCCESS","2022-10-15T21:50:32.634+05:30[Asia/Calcutta]","0.0","53.55"
+"Policy Activities","Verify Data is present in Policies tab","SUCCESS","2022-10-15T21:51:26.194+05:30[Asia/Calcutta]","0.0","54.68"
+"Policy Activities","Verify Number of Entries displayed","SUCCESS","2022-10-15T21:52:20.886+05:30[Asia/Calcutta]","0.0","64.72"
+"Policy Activities","Enter Invalid Policy Name in Search Box","SUCCESS","2022-10-15T21:54:21.955+05:30[Asia/Calcutta]","0.0","54.61"
+"Policy Activities","View Policy","SUCCESS","2022-10-15T21:55:16.573+05:30[Asia/Calcutta]","0.0","62.49"
+"Policy Activities","Enter Policy Name in Search Box","SUCCESS","2022-10-15T23:57:24.5568818+05:30[Asia/Calcutta]","0.0","78.36"

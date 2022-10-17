@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><testsuite errors="0" failures="1" name="Leave Balance" skipped="0" tests="3" time="65.08" timestamp="2022-10-15 09:18:53"><testcase name="Verify leave Balance card is visible or not"/><testcase name="Click on number of leaves and verify leave history popup window"/><testcase name="Navigate to leave history window and verify number of records"><failure message="Unable to click: by xpath &gt; By.xpath: //table[@class='tbl-typical text-left']/tbody/tr/td[text()='WFH']//following-sibling::td/a" type="java.lang.AssertionError">Unable to click: by xpath &gt; By.xpath: //table[@class='tbl-typical text-left']/tbody/tr/td[text()='WFH']//following-sibling::td/a</failure><system-err>Unable to click: by xpath &gt; By.xpath: //table[@class='tbl-typical text-left']/tbody/tr/td[text()='WFH']//following-sibling::td/a&#13;
+com.gemini.mis.implementations.AccountPortalImplementation.clickOn(AccountPortalImplementation.java:374)&#13;
+com.gemini.mis.implementations.NavBarImplementation.clickOnLink(NavBarImplementation.java:211)&#13;
+com.gemini.mis.pages.NavBarPage.clickOnLink(NavBarPage.java:67)&#13;
+com.gemini.mis.stepdefinitions.LeaveBalanceSteps.navigateToLink(LeaveBalanceSteps.java:49)&#13;
+io.cucumber.java.Invoker.doInvoke(Invoker.java:66)&#13;
+io.cucumber.java.Invoker.invoke(Invoker.java:24)&#13;
+io.cucumber.java.AbstractGlueDefinition.invokeMethod(AbstractGlueDefinition.java:47)&#13;
+io.cucumber.java.JavaStepDefinition.execute(JavaStepDefinition.java:29)&#13;
+io.cucumber.core.runner.CoreStepDefinition.execute(CoreStepDefinition.java:66)&#13;
+io.cucumber.core.runner.PickleStepDefinitionMatch.runStep(PickleStepDefinitionMatch.java:63)&#13;
+io.cucumber.core.runner.TestStep.executeStep(TestStep.java:86)&#13;
+io.cucumber.core.runner.TestStep.run(TestStep.java:57)&#13;
+io.cucumber.core.runner.PickleStepTestStep.run(PickleStepTestStep.java:51)&#13;
+io.cucumber.core.runner.TestCase.run(TestCase.java:95)&#13;
+io.cucumber.core.runner.Runner.runPickle(Runner.java:75)&#13;
+io.cucumber.core.runtime.CucumberExecutionContext.lambda$runTestCase$3(CucumberExecutionContext.java:151)&#13;
+io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:23)&#13;
+io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:151)&#13;
+io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:144)&#13;
+io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:28)&#13;
+io.cucumber.junit.FeatureRunner.run(FeatureRunner.java:137)&#13;
+io.cucumber.junit.CucumberSerenityRunner.runChild(CucumberSerenityRunner.java:258)&#13;
+io.cucumber.junit.CucumberSerenityRunner.runChild(CucumberSerenityRunner.java:58)&#13;
+worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)&#13;
+worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)&#13;
+</system-err></testcase></testsuite>

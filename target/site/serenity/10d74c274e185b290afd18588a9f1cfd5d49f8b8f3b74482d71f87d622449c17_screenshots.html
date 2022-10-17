@@ -1,0 +1,256 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Screenshots</title>
+
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+<link rel="stylesheet" href="bootstrap-icons/font/bootstrap-icons.css"><!-- JQuery -->
+<script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script><!-- Required Stylesheets -->
+<link href="bootstrap-treeview/dist/bootstrap-treeview.min.css" rel="stylesheet">
+
+<!-- Required Javascript -->
+<script src="bootstrap-treeview/dist/bootstrap-treeview.min.js"></script><!-- DataTables -->
+<link type="text/css" href="datatables/1.11.3/datatables.min.css" rel="stylesheet" />
+<script type="text/javascript" src="datatables/1.11.3/datatables.min.js"></script>
+<script type="text/javascript" src="datatables/1.11.3/time-elapsed-dhms.js"></script>
+
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
+
+<script>
+    jQuery.fn.dataTable.ext.type.order['time-elapsed-dhms-pre'] = function(data) {
+
+        var matches = data.match(/^(\d+(?:\.\d+)?)\s*([a-z]+)/i);
+        var multipliers = {
+            ms: 1,
+            s: 1000,
+            m: 60000,
+            h: 3600000,
+            d: 86400000
+        };
+
+        if (matches) {
+            var multiplier = multipliers[matches[2].toLowerCase()];
+            return parseFloat(matches[1]) * multiplier;
+        } else {
+            return -1;
+        };
+    };
+</script>
+<link rel="stylesheet" href="css/core.css"/>
+<link rel="stylesheet" href="css/link.css"/>
+<link type="text/css" media="screen" href="css/screen.css" rel="Stylesheet"/>
+<!--CHART.JS-->
+<script src="chartjs/chart.js"></script>
+<script src="chartjs/chartjs-plugin-datalabels@2.0.0"></script>
+<script src="chartjs/patternomaly.min.js"></script>
+<script>
+    // Register the plugin to all charts:
+    Chart.register(ChartDataLabels);
+</script>
+<!-- Nivo Slider -->
+<link rel="stylesheet" href="nivo-slider/3.2/nivo-slider.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="nivo-slider/3.2/themes/default/default.css" type="text/css" media="screen" />
+<script src="nivo-slider/3.2/jquery.nivo.slider.pack.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+
+        function getUrlVars() {
+            var vars = {};
+            var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
+                vars[key] = value;
+            });
+            return vars;
+        }
+
+        var screenshotIndex = getUrlVars()["screenshot"];
+
+        $(window).load(function () {
+            $('#slider').nivoSlider({
+                startSlide: screenshotIndex,
+                effect: 'fade',
+                animSpeed: 200,
+                manualAdvance: true
+            });
+        });
+
+        $(window).keydown(function(e) {
+            switch(e.which) {
+                case 37:
+                    $('a.nivo-prevNav').click();
+                    break;
+                case 39:
+                    $('a.nivo-nextNav').click();
+                    break;
+            }
+        });
+    </script>
+
+</head>
+
+<body>
+<div id="topheader">
+    <div id="topbanner">
+        <div id="logo"><a href="index.html"><img src="images/serenity-logo.png" border="0"/></a></div>
+        <div id="projectname-banner" style="float:right">
+            <span class="projectname">
+                <span class="projecttitle">MIS Automation</span>
+                <span class="projectsubtitle"></span>
+            </span>
+        </div>
+    </div>
+</div>
+
+<div class="middlecontent">
+    <div id="contenttop">
+        <div class="middlebg">
+            <span class="breadcrumbs">
+                <a href="index.html">Home</a>
+                > <span class="truncate-40"><a
+                    href="351c72f43848cb9bf2f2c857d353057c09e94d0f3fd9261d554bf2c482df093a.html">Login MIS Application Activities</a></span>
+                > <span class="truncate-60"><a
+                    href="10d74c274e185b290afd18588a9f1cfd5d49f8b8f3b74482d71f87d622449c17.html">User clicks on forgot password and enters invalid username. </a></span>
+                > Screenshots
+            </span>
+        </div>
+        <div class="rightbg"></div>
+    </div>
+
+    <div class="clr"></div>
+
+    <!--/* starts second table*/-->
+<div>
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#"><i class="bi bi-journal-check"></i> Overall Test Results</a>
+        </li>
+        <li >
+            <a href="capabilities.html"><i class="bi bi-journal-text"></i> Requirements</a>
+        </li>
+        <li >
+            <a href="576946480b52ad056d6f5bddf874399c83582ecf90963cc074a14c70580e7d9f.html"><i class="bi bi-chat-text"></i> Features</a>
+        </li>
+    </ul>
+    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 15-10-2022 21:37</span>
+    <br style="clear:left"/>
+</div>
+
+    <div class="clr"></div>
+
+
+    <div id="contentbody">
+        <div class="titlebar">
+            <div class="story-title">
+                <table class="outcome-header">
+                    <tr>
+                        <td>
+                            <div>
+                                <h3 class="discreet-story-header">
+                                    <i class="fs-2 bi bi-chat-left-quote large-icon"></i>
+                                    <span class="story-header-title">Login MIS Application Activities </span>
+                                    <span class="badge tag-badge" style="">Feature</span>
+                                </h3>
+
+                                <div class="discreet-requirement-narrative-title">
+                                
+                                </div>
+                            </div>
+
+                            <div class="requirementNarrative">Background: User verifies Login Page Elements Before Login
+                                    <p></p>
+                            </div>
+                        </td>
+                        <td valign="top" align="right">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="story-title">
+                <table class="outcome-header">
+                    <tr>
+                        <td colspan="2" class="test-title-bar">
+                            <span class="outcome-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon fa-2x' title='SUCCESS'></i></a></span>
+                            <span class="test-case-title">
+                                <span class="success-color">User clicks on forgot password and enters invalid username.
+                                    <span class="related-issue-title"></span>
+                                </span>
+                            </span>
+
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="clr"></div>
+
+    <div class="story-title">
+        <h3>Scenario:</h3>
+        <div class="scenario">Given User Clicks on Forgot password<br>Then User is navigated to Reset Password page<br>Then User enters Username as "&lt;username&gt;"<br>And User clicks on Reset Password<br>Then User verifies element "&lt;Authorization Alert message&gt;"</div>
+    </div>
+
+    <div id="beforetable"></div>
+    <div id="contenttilttle">
+        <div class="slider-wrapper theme-default">
+            <div id="slider">
+                <img src="edfdefff7c6183a2fe0d799125a67d805b04b7a36ea76097d148cdd3e817b8c9.png" title=" 1: User clicks on forgot password and enters invalid username. ({username=Charu, Authorization Alert message=You are not authorised to perform the action})" width="1366"/>
+                <img src="edfdefff7c6183a2fe0d799125a67d805b04b7a36ea76097d148cdd3e817b8c9.png" title=" Given User opens MIS Beta page &quot;https://mymis.geminisolutions.com/&quot;" width="1366"/>
+                <img src="edfdefff7c6183a2fe0d799125a67d805b04b7a36ea76097d148cdd3e817b8c9.png" title=" Navigating to MIS Beta Homepage" width="1366"/>
+                <img src="edfdefff7c6183a2fe0d799125a67d805b04b7a36ea76097d148cdd3e817b8c9.png" title=" Given User opens MIS Beta page &quot;https://mymis.geminisolutions.com/&quot; (completed)" width="1366"/>
+                <img src="edfdefff7c6183a2fe0d799125a67d805b04b7a36ea76097d148cdd3e817b8c9.png" title=" Given User Clicks on Forgot password" width="1366"/>
+                <img src="edfdefff7c6183a2fe0d799125a67d805b04b7a36ea76097d148cdd3e817b8c9.png" title=" customWait for an Element" width="1366"/>
+                <img src="a038dad268f760b5524ff46b45dcc67e70abc300ecb5be09965a9a1407d2f6a1.png" title=" customWait for an Element (completed)" width="1366"/>
+                <img src="a038dad268f760b5524ff46b45dcc67e70abc300ecb5be09965a9a1407d2f6a1.png" title=" customWait Till myElement is visible" width="1366"/>
+                <img src="a038dad268f760b5524ff46b45dcc67e70abc300ecb5be09965a9a1407d2f6a1.png" title=" Click on Element" width="1366"/>
+                <img src="c2b0bb48005cca8751ad6b20dedfc15de42e33f94b70df8681fd6effd15e39e8.png" title=" Click on Element (completed)" width="1366"/>
+                <img src="c2b0bb48005cca8751ad6b20dedfc15de42e33f94b70df8681fd6effd15e39e8.png" title=" customWait for an Element" width="1366"/>
+                <img src="c2b0bb48005cca8751ad6b20dedfc15de42e33f94b70df8681fd6effd15e39e8.png" title=" Given User Clicks on Forgot password (completed)" width="1366"/>
+                <img src="c2b0bb48005cca8751ad6b20dedfc15de42e33f94b70df8681fd6effd15e39e8.png" title=" Then User is navigated to Reset Password page" width="1366"/>
+                <img src="c2b0bb48005cca8751ad6b20dedfc15de42e33f94b70df8681fd6effd15e39e8.png" title=" customWait Till myElement is visible" width="1366"/>
+                <img src="c2b0bb48005cca8751ad6b20dedfc15de42e33f94b70df8681fd6effd15e39e8.png" title=" Then User enters Username as &quot;Charu&quot;" width="1366"/>
+                <img src="c2b0bb48005cca8751ad6b20dedfc15de42e33f94b70df8681fd6effd15e39e8.png" title=" Enter Username and Password" width="1366"/>
+                <img src="8e3708fae0e1b84d1a1dffa45660590b8400f19498be847b34357a0f7dcb18ea.png" title=" Enter Username and Password (completed)" width="1366"/>
+                <img src="8e3708fae0e1b84d1a1dffa45660590b8400f19498be847b34357a0f7dcb18ea.png" title=" Then User enters Username as &quot;Charu&quot; (completed)" width="1366"/>
+                <img src="8e3708fae0e1b84d1a1dffa45660590b8400f19498be847b34357a0f7dcb18ea.png" title=" And User clicks on Reset Password" width="1366"/>
+                <img src="8e3708fae0e1b84d1a1dffa45660590b8400f19498be847b34357a0f7dcb18ea.png" title=" Click on Element" width="1366"/>
+                <img src="0bff1f4f919602a288366336ed80fefe0184bb32ad81ff3d5824473d6bbf2036.png" title=" Click on Element (completed)" width="1366"/>
+                <img src="0bff1f4f919602a288366336ed80fefe0184bb32ad81ff3d5824473d6bbf2036.png" title=" And User clicks on Reset Password (completed)" width="1366"/>
+                <img src="0bff1f4f919602a288366336ed80fefe0184bb32ad81ff3d5824473d6bbf2036.png" title=" Then User verifies element &quot;You are not authorised to perform the action&quot;" width="1366"/>
+                <img src="0bff1f4f919602a288366336ed80fefe0184bb32ad81ff3d5824473d6bbf2036.png" title=" customWait for an Element" width="1366"/>
+                <img src="096235ab65de2a1716cfe4fd289b08ab2ce45e617f80f79f3ad7db15614718aa.png" title=" customWait for an Element (completed)" width="1366"/>
+                <img src="096235ab65de2a1716cfe4fd289b08ab2ce45e617f80f79f3ad7db15614718aa.png" title=" Verify that myElement is displayed" width="1366"/>
+                <img src="096235ab65de2a1716cfe4fd289b08ab2ce45e617f80f79f3ad7db15614718aa.png" title=" Then User verifies element &quot;You are not authorised to perform the action&quot; (completed)" width="1366"/>
+                <img src="096235ab65de2a1716cfe4fd289b08ab2ce45e617f80f79f3ad7db15614718aa.png" title=" 1: User clicks on forgot password and enters invalid username. ({username=Charu, Authorization Alert message=You are not authorised to perform the action}) (completed): <span class='success-color'>SUCCESS</span>" width="1366"/>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<div id="beforefooter"></div>
+<div id="bottomfooter">
+    <span class="version">Serenity BDD version 3.2.5</span>
+</div>
+</body>
+</html>

@@ -1,0 +1,687 @@
+<html lang='en'><head><link href='prism/prism.css' rel='stylesheet' /></head><body><script src='prism/prism.js'></script><body><div><pre><code class='language-html'>&lt;html class=" no-touch"&gt;<br/>
+ &lt;head&gt; <br/>
+  &lt;meta name="viewport" content="width=device-width"&gt; <br/>
+  &lt;title&gt;Gemini - MIS&lt;/title&gt; <br/>
+  &lt;link href="/favicon.ico?v=1.2" rel="shortcut icon" type="image/x-icon"&gt; <br/>
+  &lt;link href="/Content/lib/lobipanel.min.css?v=4.4" rel="stylesheet"&gt; <br/>
+  &lt;link href="/Content/lib/separate/vender/lobipanel.min.css?v=4.4" rel="stylesheet"&gt; <br/>
+  &lt;link href="/Content/lib/separate/widgets.min.css?v=4.4" rel="stylesheet"&gt; <br/>
+  &lt;link href="/Content/lib/jquery-ui.min.css?v=4.4" rel="stylesheet"&gt; <br/>
+  &lt;link href="/Content/lib/sweetalert.css?v=4.4" rel="stylesheet"&gt; <br/>
+  &lt;link href="/Content/lib/sweet-alert-animations.min.css?v=4.4" rel="stylesheet"&gt; <br/>
+  &lt;link href="/Content/lib/bootstrap.min.css?v=4.4" rel="stylesheet"&gt; <br/>
+  &lt;link href="/Content/lib/bootstrap-toggle.min.css?v=4.4" rel="stylesheet"&gt; <br/>
+  &lt;link href="/Content/lib/font-awesome.min.css?v=4.4" rel="stylesheet"&gt; <br/>
+  &lt;link href="/Content/lib/select2.min.css?v=4.4" rel="stylesheet"&gt; <br/>
+  &lt;link href="/Content/lib/main.css?v=1.9" rel="stylesheet"&gt; <br/>
+  &lt;link href="/Content/lib/datepicker.css?v=4.4" rel="stylesheet"&gt; <br/>
+  &lt;link href="/Content/lib/bootstrap-multiselect.css?v=4.4" rel="stylesheet"&gt; <br/>
+  &lt;link href="/Content/app/mis.common.css?v=1.11" rel="stylesheet"&gt; <br/>
+  &lt;link href="/Content/lib/datatable/jquery.dataTables.min.css" rel="stylesheet" asp-append-version="true"&gt; <br/>
+  &lt;link href="/Content/lib/datatable/buttons.dataTables.min.css" rel="stylesheet"&gt; <br/>
+  &lt;link href="/Content/lib/datatable/responsive.dataTables.min.css" rel="stylesheet"&gt; <br/>
+  &lt;link href="/Content/lib/datatable/datatables-net.min.css" rel="stylesheet"&gt; <br/>
+  &lt;script src="/Scripts/lib/jquery.min.js" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script src="/Scripts/lib/jquery-ui.min.js" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script src="/Scripts/lib/jquery.blockUI.min.js?v=1.0" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script src="/Scripts/lib/moment.min.js" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script src="/Scripts/common/mis.basepath.js?v=7.9" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script src="/Scripts/common/mis.common.min.js?v=5.1" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script type="text/javascript"&gt;<br/>
+        //if (window.location.hostname !== 'localhost') {<br/>
+        //    if (window.location.protocol !== 'https:') {<br/>
+        //        window.location = 'https://' + window.location.hostname + (window.location.port ? ':' + window.location.port : '') + window.location.pathname + window.location.hash;<br/>
+        //    }<br/>
+        //}<br/>
+        misSession.validateAccess();<br/>
+    &lt;/script&gt; <br/>
+ &lt;/head&gt; <br/>
+ &lt;body class="with-side-menu control-panel control-panel-compact chrome-browser modal-open" style="padding-right: 17px;"&gt; <br/>
+  &lt;header class="site-header"&gt; <br/>
+   &lt;div class="container-fluid"&gt; &lt;span id="show-hide-sidebar" class="checkbox-toggle"&gt; &lt;input type="checkbox" checked&gt; &lt;button id="show-hide-sidebar-toggle" class="active toggle-menu"&gt; &lt;i class="fa fa-bars"&gt;&lt;/i&gt; &lt;/button&gt; &lt;label for="show-hide-sidebar-toggle"&gt;&lt;/label&gt; &lt;/span&gt; &lt;a href="javascript: void(0)" class="site-logo"&gt; &lt;img class="hidden-md-down" src="/img/GeminiLogo-Small-Black.png?v1.0" alt=""&gt; &lt;/a&gt; &lt;button class="hamburger hamburger--htla"&gt; &lt;span&gt;toggle menu&lt;/span&gt; &lt;/button&gt; <br/>
+    &lt;div class="site-header-content"&gt; <br/>
+     &lt;div class="site-header-content-in"&gt; <br/>
+      &lt;div class="site-header-shown"&gt; <br/>
+       &lt;div class="dropdown dropdown-typical"&gt; &lt;a class="ldap-link" href="https://ldap.geminisolutions.com" target="_blank"&gt;Change AD Password&lt;/a&gt; <br/>
+       &lt;/div&gt; <br/>
+       &lt;div class="dropdown user-menu"&gt; &lt;button class="dropdown-toggle" id="dd-user-menu" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"&gt; &lt;img src="http://mymisapi.geminisolutions.com:8700/Images/male-employee.png?v=4.7" alt="" id="userImage"&gt;&lt;span id="LoginUserName"&gt;&lt;/span&gt; &lt;/button&gt; <br/>
+        &lt;div class="dropdown-menu dropdown-menu-right" aria-labelledby="dd-user-menu"&gt; &lt;a class="dropdown-item" id="updateProfile"&gt;&lt;span class="font-icon glyphicon glyphicon-user"&gt;&lt;/span&gt;Profile&lt;/a&gt; &lt;a class="dropdown-item" id="dashBoardSettings"&gt;&lt;span class="font-icon glyphicon glyphicon-cog"&gt;&lt;/span&gt;Dashboard Settings&lt;/a&gt; &lt;a class="dropdown-item" id="skills"&gt;&lt;span class="font-icon glyphicon glyphicon-signal"&gt;&lt;/span&gt;Skills&lt;/a&gt; <br/>
+         &lt;div class="dropdown-divider"&gt;&lt;/div&gt; &lt;a class="dropdown-item" href="javascript:misSession.signoff();"&gt;&lt;span class="font-icon glyphicon glyphicon-log-out"&gt;&lt;/span&gt;Logout&lt;/a&gt; <br/>
+        &lt;/div&gt; <br/>
+       &lt;/div&gt; &lt;button type="button" class="burger-right"&gt; &lt;i class="font-icon-menu-addl"&gt;&lt;/i&gt; &lt;/button&gt; <br/>
+      &lt;/div&gt; <br/>
+      &lt;div class="mobile-menu-right-overlay"&gt;&lt;/div&gt; <br/>
+      &lt;div class="site-header-collapsed"&gt; <br/>
+      &lt;/div&gt; <br/>
+     &lt;/div&gt; <br/>
+     &lt;div id="divChangeADPassword" class="pull-right"&gt; <br/>
+      &lt;div class="container margin-top-10"&gt; <br/>
+       &lt;div class="row form-group"&gt; <br/>
+        &lt;div class="col-md-6"&gt;<br/>
+         &lt;label class="control-label lbl-right"&gt;Domain Username&lt;/label&gt;<br/>
+        &lt;/div&gt; <br/>
+        &lt;div class="col-md-6"&gt;<br/>
+         &lt;input type="text" autocomplete="off" disabled class="form-control validation-required" id="txtADUsername" name="txtADUsername"&gt;<br/>
+        &lt;/div&gt; <br/>
+       &lt;/div&gt; <br/>
+       &lt;div class="row form-group"&gt; <br/>
+        &lt;div class="col-md-6"&gt;<br/>
+         &lt;label class="control-label lbl-right"&gt;Current Password&lt;/label&gt;<br/>
+        &lt;/div&gt; <br/>
+        &lt;div class="col-md-6"&gt;<br/>
+         &lt;input type="password" autocomplete="off" class="form-control validation-required" id="txtCurrentPass"&gt;<br/>
+        &lt;/div&gt; <br/>
+       &lt;/div&gt; <br/>
+       &lt;div class="row form-group"&gt; <br/>
+        &lt;div class="col-md-6"&gt;<br/>
+         &lt;label class="control-label lbl-right"&gt;New Password&lt;/label&gt;<br/>
+        &lt;/div&gt; <br/>
+        &lt;div class="col-md-6"&gt;<br/>
+         &lt;input type="password" autocomplete="off" class="form-control validation-required" id="txtNewPass"&gt;<br/>
+        &lt;/div&gt; <br/>
+       &lt;/div&gt; <br/>
+       &lt;div class="row form-group"&gt; <br/>
+        &lt;div class="col-md-6"&gt;<br/>
+         &lt;label class="control-label lbl-right"&gt;Confirm New Password&lt;/label&gt;<br/>
+        &lt;/div&gt; <br/>
+        &lt;div class="col-md-6"&gt;<br/>
+         &lt;input type="password" autocomplete="off" class="form-control validation-required" id="txtConfirmNewPass"&gt;<br/>
+        &lt;/div&gt; <br/>
+       &lt;/div&gt; <br/>
+       &lt;div class="row form-group"&gt; <br/>
+        &lt;div class="col-md-12" id="divAlert" style="display:none;"&gt;<br/>
+         &lt;label class="text-danger"&gt;Your Domain Username is not available. Please contact to MIS Team.&lt;/label&gt;<br/>
+        &lt;/div&gt; <br/>
+        &lt;div class="col-md-12" id="divADChangeBtn" style="display:none;"&gt;<br/>
+         &lt;button type="button" id="btnChangeADPass" class="btn btn-outline-success pull-right"&gt;Submit&lt;/button&gt;<br/>
+        &lt;/div&gt; <br/>
+       &lt;/div&gt; <br/>
+       &lt;div class="row form-group"&gt; <br/>
+        &lt;div class="col-md-12" id="divAlertError" style="display:none;"&gt;<br/>
+         &lt;label class="text-danger"&gt;New password and confirm password does not match.&lt;/label&gt;<br/>
+        &lt;/div&gt; <br/>
+       &lt;/div&gt; <br/>
+      &lt;/div&gt; <br/>
+     &lt;/div&gt; <br/>
+    &lt;/div&gt; <br/>
+   &lt;/div&gt; <br/>
+  &lt;/header&gt; <br/>
+  &lt;div class="mobile-menu-left-overlay"&gt;&lt;/div&gt; <br/>
+  &lt;nav class="side-menu jspScrollable" tabindex="0" style="overflow: hidden; padding: 0px; width: 240px;"&gt; <br/>
+   &lt;div class="jspContainer" style="width: 239px; height: 612px;"&gt;<br/>
+    &lt;div class="jspPane" style="padding: 0px; top: 0px; left: 0px; width: 225px;"&gt;<br/>
+     &lt;ul class="side-menu-list"&gt;<br/>
+      &lt;li class="magenta"&gt;&lt;a href="https://mymis.geminisolutions.com/Dashboard/Index"&gt;&lt;i class="fa fa-tachometer"&gt;&lt;/i&gt;&lt;span class="lbl"&gt;Dashboard&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+      &lt;li class="magenta"&gt;&lt;a href="https://mymis.geminisolutions.com/Directory/EmployeeDirectory"&gt;&lt;i class="font-icon font-icon-contacts"&gt;&lt;/i&gt;&lt;span class="lbl"&gt;Employee Directory&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+      &lt;li class="magenta with-sub"&gt;&lt;span&gt;&lt;i class="font-icon fa fa-clock-o"&gt;&lt;/i&gt;&lt;span class="lbl"&gt;TimeSheet&lt;/span&gt;&lt;/span&gt;<br/>
+       &lt;ul&gt;<br/>
+        &lt;li&gt;&lt;a href="https://mymis.geminisolutions.com/Timesheet/ConfigureTimesheet"&gt;&lt;span class="lbl"&gt;Configure Timesheet&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+        &lt;li&gt;&lt;a href="https://mymis.geminisolutions.com/Timesheet/CreateTimesheet"&gt;&lt;span class="lbl"&gt;Create Timesheet&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+        &lt;li&gt;&lt;a href="https://mymis.geminisolutions.com/Timesheet/ManageTaskTemplates"&gt;&lt;span class="lbl"&gt;Manage Task Template&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;/ul&gt;&lt;/li&gt;<br/>
+      &lt;li class="magenta with-sub"&gt;&lt;span&gt;&lt;i class="font-icon fa fa-home"&gt;&lt;/i&gt;&lt;span class="lbl"&gt;Leave Management&lt;/span&gt;&lt;/span&gt;<br/>
+       &lt;ul&gt;<br/>
+        &lt;li&gt;&lt;a href="https://mymis.geminisolutions.com/LeaveManagement/Apply"&gt;&lt;span class="lbl"&gt;Apply&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+        &lt;li&gt;&lt;a href="https://mymis.geminisolutions.com/LeaveManagement/LeaveRequestStatus"&gt;&lt;span class="lbl"&gt;View Request Status&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;/ul&gt;&lt;/li&gt;<br/>
+      &lt;li class="magenta with-sub"&gt;&lt;span&gt;&lt;i class="font-icon glyphicon glyphicon-send"&gt;&lt;/i&gt;&lt;span class="lbl"&gt;LNSA&lt;/span&gt;&lt;/span&gt;<br/>
+       &lt;ul&gt;<br/>
+        &lt;li&gt;&lt;a href="https://mymis.geminisolutions.com/Lnsa/Apply"&gt;&lt;span class="lbl"&gt;Apply LNSA&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+        &lt;li&gt;&lt;a href="https://mymis.geminisolutions.com/Lnsa/ViewStatus"&gt;&lt;span class="lbl"&gt;View Request Status&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;/ul&gt;&lt;/li&gt;<br/>
+      &lt;li class="magenta with-sub active opened"&gt;&lt;span&gt;&lt;i class="fa fa-folder-open"&gt;&lt;/i&gt;&lt;span class="lbl"&gt;Knowledge Base&lt;/span&gt;&lt;/span&gt;<br/>
+       &lt;ul&gt;<br/>
+        &lt;li class="active"&gt;&lt;a href="https://mymis.geminisolutions.com/KnowledgeBase/ViewDoc"&gt;&lt;span class="lbl"&gt;View Documents&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+        &lt;li&gt;&lt;a href="https://mymis.geminisolutions.com/KnowledgeBase/ViewSharedDoc"&gt;&lt;span class="lbl"&gt;View Shared Documents&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;/ul&gt;&lt;/li&gt;<br/>
+      &lt;li class="magenta with-sub"&gt;&lt;span&gt;&lt;i class="fa fa-file-text"&gt;&lt;/i&gt;&lt;span class="lbl"&gt;Policy&lt;/span&gt;&lt;/span&gt;<br/>
+       &lt;ul&gt;<br/>
+        &lt;li&gt;&lt;a href="https://mymis.geminisolutions.com/Policy/ViewPolicy"&gt;&lt;span class="lbl"&gt;View Policies&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;/ul&gt;&lt;/li&gt;<br/>
+      &lt;li class="magenta with-sub"&gt;&lt;span&gt;&lt;i class="font-icon fa fa-file-text"&gt;&lt;/i&gt;&lt;span class="lbl"&gt;Forms&lt;/span&gt;&lt;/span&gt;<br/>
+       &lt;ul&gt;<br/>
+        &lt;li&gt;&lt;a href="https://mymis.geminisolutions.com/Form/ViewForm"&gt;&lt;span class="lbl"&gt;View Form&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+        &lt;li&gt;&lt;a href="https://mymis.geminisolutions.com/Form/MyForm"&gt;&lt;span class="lbl"&gt;My Form&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;/ul&gt;&lt;/li&gt;<br/>
+      &lt;li class="magenta with-sub"&gt;&lt;span&gt;&lt;i class="fa fa-graduation-cap"&gt;&lt;/i&gt;&lt;span class="lbl"&gt;Appraisal Management&lt;/span&gt;&lt;/span&gt;<br/>
+       &lt;ul&gt;<br/>
+        &lt;li&gt;&lt;a href="https://mymis.geminisolutions.com/AppraisalManagement/SelfGoal"&gt;&lt;span class="lbl"&gt;Add Goals&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+        &lt;li&gt;&lt;a href="https://mymis.geminisolutions.com/AppraisalManagement/MyAchievement"&gt;&lt;span class="lbl"&gt;My Achievement&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;/ul&gt;&lt;/li&gt;<br/>
+      &lt;li class="magenta with-sub"&gt;&lt;span&gt;&lt;i class="fa fa-comments"&gt;&lt;/i&gt;&lt;span class="lbl"&gt;Feedback&lt;/span&gt;&lt;/span&gt;<br/>
+       &lt;ul&gt;<br/>
+        &lt;li&gt;&lt;a href="https://mymis.geminisolutions.com/Feedback/SubmitFeedback"&gt;&lt;span class="lbl"&gt;Submit Feedback&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;/ul&gt;&lt;/li&gt;<br/>
+      &lt;li class="magenta"&gt;&lt;a href="https://mymis.geminisolutions.com/Organization/OrganizationStructure"&gt;&lt;i class="fa fa-sitemap"&gt;&lt;/i&gt;&lt;span class="lbl"&gt;Organization Structure&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+      &lt;li class="magenta with-sub"&gt;&lt;span&gt;&lt;i class="fa fa-inr"&gt;&lt;/i&gt;&lt;span class="lbl"&gt;Accounts Portal&lt;/span&gt;&lt;/span&gt;<br/>
+       &lt;ul&gt;<br/>
+        &lt;li&gt;&lt;a href="https://geminisolutions.greythr.com/" target="_blank"&gt;&lt;span class="lbl"&gt;My Account&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;/ul&gt;&lt;/li&gt;<br/>
+      &lt;li class="magenta with-sub"&gt;&lt;span&gt;&lt;i class="fa fa-inr"&gt;&lt;/i&gt;&lt;span class="lbl"&gt;Reimbursement&lt;/span&gt;&lt;/span&gt;<br/>
+       &lt;ul&gt;<br/>
+        &lt;li&gt;&lt;a href="https://mymis.geminisolutions.com/Reimbursement/MyReimbursement"&gt;&lt;span class="lbl"&gt;MyReimbursement&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;/ul&gt;&lt;/li&gt;<br/>
+      &lt;li class="magenta with-sub"&gt;&lt;span&gt;&lt;i class="fa fa-list"&gt;&lt;/i&gt;&lt;span class="lbl"&gt;Other Portals&lt;/span&gt;&lt;/span&gt;<br/>
+       &lt;ul&gt;<br/>
+        &lt;li&gt;&lt;a href="https://geminisolutions.talentlms.com/index" target="_blank"&gt;&lt;span class="lbl"&gt;L&amp;D Portal&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+        &lt;li&gt;&lt;a href="https://contripoint.geminisolutions.com/" target="_blank"&gt;&lt;span class="lbl"&gt;Contripoint&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+        &lt;li&gt;&lt;a href="https://gembook.geminisolutions.com/" target="_blank"&gt;&lt;span class="lbl"&gt;Gembook&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+        &lt;li&gt;&lt;a href="https://wiki.geminisolutions.com/login" target="_blank"&gt;&lt;span class="lbl"&gt;Gem Wiki&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+        &lt;li&gt;&lt;a href="https://github.com/Gemini-Solutions" target="_blank"&gt;&lt;span class="lbl"&gt;Github&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+        &lt;li&gt;&lt;a href="https://jenkins.geminisolutions.com/" target="_blank"&gt;&lt;span class="lbl"&gt;Jenkins&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+        &lt;li&gt;&lt;a href="https://athena.geminisolutions.com/login" target="_blank"&gt;&lt;span class="lbl"&gt;Athena&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+        &lt;li&gt;&lt;a href="https://servicedesk.geminisolutions.com/index.php" target="_blank"&gt;&lt;span class="lbl"&gt;Service Desk&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;/ul&gt;&lt;/li&gt;<br/>
+     &lt;/ul&gt;<br/>
+    &lt;/div&gt;<br/>
+    &lt;div class="jspVerticalBar"&gt;<br/>
+     &lt;div class="jspCap jspCapTop"&gt;&lt;/div&gt;<br/>
+     &lt;div class="jspTrack" style="height: 612px;"&gt;<br/>
+      &lt;div class="jspDrag" style="height: 528px;"&gt;<br/>
+       &lt;div class="jspDragTop"&gt;&lt;/div&gt;<br/>
+       &lt;div class="jspDragBottom"&gt;&lt;/div&gt;<br/>
+      &lt;/div&gt;<br/>
+     &lt;/div&gt;<br/>
+     &lt;div class="jspCap jspCapBottom"&gt;&lt;/div&gt;<br/>
+    &lt;/div&gt;<br/>
+   &lt;/div&gt;<br/>
+  &lt;/nav&gt; <br/>
+  &lt;div class="page-content"&gt; <br/>
+   &lt;link href="/Content/lib/jquery.contextMenu.css" rel="stylesheet"&gt; <br/>
+   &lt;script src="/Scripts/lib/jquery.tokeninput.js" type="text/javascript"&gt;&lt;/script&gt; <br/>
+   &lt;script src="/Scripts/lib/jquery-ui.custom.js" type="text/javascript"&gt;&lt;/script&gt; <br/>
+   &lt;script src="/Scripts/lib/jquery.cookie.js" type="text/javascript"&gt;&lt;/script&gt; <br/>
+   &lt;script src="/Scripts/lib/jquery.ui.core.js" type="text/javascript"&gt;&lt;/script&gt; <br/>
+   &lt;script src="/Scripts/lib/jquery.contextMenu-custom.js" type="text/javascript"&gt;&lt;/script&gt; <br/>
+   &lt;link href="/Content/lib/ui.dynatree.css" rel="stylesheet"&gt; <br/>
+   &lt;script src="/Scripts/lib/jquery.dynatree.js" type="text/javascript"&gt;&lt;/script&gt; <br/>
+   &lt;script src="/Scripts/lib/select2.min.js" type="text/javascript"&gt;&lt;/script&gt; <br/>
+   &lt;div class="container-fluid"&gt; <br/>
+    &lt;section class="card"&gt; <br/>
+     &lt;div class="card-block"&gt; <br/>
+      &lt;h5 class="with-border m-t-0"&gt;View Documents&lt;/h5&gt; <br/>
+      &lt;div class="row rightMainDivContainer"&gt; <br/>
+       &lt;div id="viewDocument-leftContainer" class=" col-md-2 roundedCorner" style="background-color:#eee;padding-top:10px"&gt; <br/>
+        &lt;div&gt; &lt;a id="popupAddNewDocumentTag"&gt; &lt;img src="../Images/documentTag.png?v=1.0" alt="Add New Document Tag" title="Add New Document Tag"&gt; &lt;/a&gt; &lt;a id="popupAddNewDocGroup"&gt; &lt;img src="../Images/addFolder.png?v=1.0" alt="Add New Folder" id="img2" title="Add New Folder "&gt; &lt;/a&gt; &lt;a id="imgAllDocument"&gt; &lt;img src="../Images/Refresh.png?v=1.0" alt="Refresh" id="imgDocRefresh" title="Refresh"&gt; &lt;/a&gt; <br/>
+        &lt;/div&gt; <br/>
+        &lt;div id="DocumentGrouptree"&gt; <br/>
+         &lt;ul class="dynatree-container"&gt;<br/>
+          &lt;li class=""&gt;&lt;span class="dynatree-node dynatree-folder dynatree-has-children dynatree-lazy dynatree-exp-cd dynatree-ico-cf"&gt;&lt;span class="dynatree-expander"&gt;&lt;/span&gt;&lt;span class="dynatree-icon"&gt;&lt;/span&gt;&lt;a href="#" class="dynatree-title"&gt;New Folder 2&lt;/a&gt;&lt;/span&gt;&lt;/li&gt;<br/>
+          &lt;li class=""&gt;&lt;span class="dynatree-node dynatree-folder dynatree-has-children dynatree-lazy dynatree-exp-cd dynatree-ico-cf dynatree-selected"&gt;&lt;span class="dynatree-expander"&gt;&lt;/span&gt;&lt;span class="dynatree-icon"&gt;&lt;/span&gt;&lt;a href="#" class="dynatree-title"&gt;New Folder&lt;/a&gt;&lt;/span&gt;&lt;/li&gt;<br/>
+          &lt;li class=""&gt;&lt;span class="dynatree-node dynatree-folder dynatree-has-children dynatree-lazy dynatree-exp-cd dynatree-ico-cf"&gt;&lt;span class="dynatree-expander"&gt;&lt;/span&gt;&lt;span class="dynatree-icon"&gt;&lt;/span&gt;&lt;a href="#" class="dynatree-title"&gt;*&amp;*&amp;Obvjhgak&lt;/a&gt;&lt;/span&gt;&lt;/li&gt;<br/>
+          &lt;li class=""&gt;&lt;span class="dynatree-node dynatree-folder dynatree-has-children dynatree-lazy dynatree-exp-cd dynatree-ico-cf"&gt;&lt;span class="dynatree-expander"&gt;&lt;/span&gt;&lt;span class="dynatree-icon"&gt;&lt;/span&gt;&lt;a href="#" class="dynatree-title"&gt;kagjgaj91768917&lt;/a&gt;&lt;/span&gt;&lt;/li&gt;<br/>
+          &lt;li class=""&gt;&lt;span class="dynatree-node dynatree-folder dynatree-has-children dynatree-lazy dynatree-exp-cd dynatree-ico-cf"&gt;&lt;span class="dynatree-expander"&gt;&lt;/span&gt;&lt;span class="dynatree-icon"&gt;&lt;/span&gt;&lt;a href="#" class="dynatree-title"&gt;123&lt;/a&gt;&lt;/span&gt;&lt;/li&gt;<br/>
+          &lt;li class=""&gt;&lt;span class="dynatree-node dynatree-folder dynatree-has-children dynatree-lazy dynatree-exp-cd dynatree-ico-cf"&gt;&lt;span class="dynatree-expander"&gt;&lt;/span&gt;&lt;span class="dynatree-icon"&gt;&lt;/span&gt;&lt;a href="#" class="dynatree-title"&gt;New Folder*&amp;*ArFolderName&lt;/a&gt;&lt;/span&gt;&lt;/li&gt;<br/>
+          &lt;li class=""&gt;&lt;span class="dynatree-node dynatree-folder dynatree-has-children dynatree-lazy dynatree-exp-cd dynatree-ico-cf"&gt;&lt;span class="dynatree-expander"&gt;&lt;/span&gt;&lt;span class="dynatree-icon"&gt;&lt;/span&gt;&lt;a href="#" class="dynatree-title"&gt;kjaoshsNew Folder*&amp;*ArFolderNamjbnabe&lt;/a&gt;&lt;/span&gt;&lt;/li&gt;<br/>
+          &lt;li class=""&gt;&lt;span class="dynatree-node dynatree-folder dynatree-has-children dynatree-lazy dynatree-exp-cd dynatree-ico-cf"&gt;&lt;span class="dynatree-expander"&gt;&lt;/span&gt;&lt;span class="dynatree-icon"&gt;&lt;/span&gt;&lt;a href="#" class="dynatree-title"&gt;New Folder*&amp;*ArFolderNamjbnabe&lt;/a&gt;&lt;/span&gt;&lt;/li&gt;<br/>
+          &lt;li class=""&gt;&lt;span class="dynatree-node dynatree-folder dynatree-has-children dynatree-lazy dynatree-exp-cd dynatree-ico-cf"&gt;&lt;span class="dynatree-expander"&gt;&lt;/span&gt;&lt;span class="dynatree-icon"&gt;&lt;/span&gt;&lt;a href="#" class="dynatree-title"&gt;New Folder123&lt;/a&gt;&lt;/span&gt;&lt;/li&gt;<br/>
+          &lt;li class=""&gt;&lt;span class="dynatree-node dynatree-folder dynatree-has-children dynatree-lazy dynatree-exp-cd dynatree-ico-cf"&gt;&lt;span class="dynatree-expander"&gt;&lt;/span&gt;&lt;span class="dynatree-icon"&gt;&lt;/span&gt;&lt;a href="#" class="dynatree-title"&gt;New FoldervalidFolderName&lt;/a&gt;&lt;/span&gt;&lt;/li&gt;<br/>
+          &lt;li class=""&gt;&lt;span class="dynatree-node dynatree-folder dynatree-has-children dynatree-lazy dynatree-exp-cd dynatree-ico-cf"&gt;&lt;span class="dynatree-expander"&gt;&lt;/span&gt;&lt;span class="dynatree-icon"&gt;&lt;/span&gt;&lt;a href="#" class="dynatree-title"&gt;New Folderjkhk&lt;/a&gt;&lt;/span&gt;&lt;/li&gt;<br/>
+          &lt;li class=""&gt;&lt;span class="dynatree-node dynatree-folder dynatree-has-children dynatree-lazy dynatree-exp-cd dynatree-ico-cf"&gt;&lt;span class="dynatree-expander"&gt;&lt;/span&gt;&lt;span class="dynatree-icon"&gt;&lt;/span&gt;&lt;a href="#" class="dynatree-title"&gt;&lt;/a&gt;&lt;/span&gt;&lt;/li&gt;<br/>
+          &lt;li class=""&gt;&lt;span class="dynatree-node dynatree-folder dynatree-has-children dynatree-lazy dynatree-exp-cd dynatree-ico-cf"&gt;&lt;span class="dynatree-expander"&gt;&lt;/span&gt;&lt;span class="dynatree-icon"&gt;&lt;/span&gt;&lt;a href="#" class="dynatree-title"&gt;New Folderkj&lt;/a&gt;&lt;/span&gt;&lt;/li&gt;<br/>
+          &lt;li class="dynatree-lastsib"&gt;&lt;span class="dynatree-node dynatree-folder dynatree-has-children dynatree-lazy dynatree-lastsib dynatree-exp-cdl dynatree-ico-cf"&gt;&lt;span class="dynatree-expander"&gt;&lt;/span&gt;&lt;span class="dynatree-icon"&gt;&lt;/span&gt;&lt;a href="#" class="dynatree-title"&gt;New FoldervalidFolderName123&lt;/a&gt;&lt;/span&gt;&lt;/li&gt;<br/>
+         &lt;/ul&gt;<br/>
+        &lt;/div&gt; <br/>
+        &lt;ul id="myMenu" class="contextMenu" style="width: 180px; padding: 2px; top: 60px; left: 130px; display: none;"&gt; <br/>
+         &lt;li class="newFolder"&gt;&lt;a href="#addNewFolder"&gt;Add New Folder&lt;/a&gt;&lt;/li&gt; <br/>
+         &lt;li class="newDocument"&gt;&lt;a href="#addNewDocument"&gt;Add New document&lt;/a&gt;&lt;/li&gt; <br/>
+         &lt;li class="delete"&gt;&lt;a href="#delete"&gt;Delete&lt;/a&gt;&lt;/li&gt; <br/>
+         &lt;li class="edit"&gt;&lt;a href="#rename"&gt;Rename&lt;/a&gt;&lt;/li&gt; <br/>
+        &lt;/ul&gt; <br/>
+       &lt;/div&gt; <br/>
+       &lt;div id="viewDocument-rightContainer" class="col-md-10"&gt; <br/>
+        &lt;div id="documentGridView" class="gridViewBody gridViewContainerBorder"&gt; <br/>
+         &lt;div class="col-md-12 clearfix"&gt; <br/>
+          &lt;div id="tbldocumentGridViewList_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer"&gt;<br/>
+           &lt;div class="row"&gt;<br/>
+            &lt;div class="col-sm-6"&gt;<br/>
+             &lt;div class="dataTables_length" id="tbldocumentGridViewList_length"&gt;<br/>
+              &lt;label&gt; &lt;select name="tbldocumentGridViewList_length" aria-controls="tbldocumentGridViewList" class="form-control input-sm"&gt;&lt;option value="10"&gt;10&lt;/option&gt;&lt;option value="25"&gt;25&lt;/option&gt;&lt;option value="50"&gt;50&lt;/option&gt;&lt;option value="100"&gt;100&lt;/option&gt;&lt;/select&gt; &lt;/label&gt;<br/>
+             &lt;/div&gt;<br/>
+            &lt;/div&gt;<br/>
+            &lt;div class="col-sm-6"&gt;<br/>
+             &lt;div id="tbldocumentGridViewList_filter" class="dataTables_filter"&gt;<br/>
+              &lt;label&gt;&lt;input type="search" class="form-control input-sm" placeholder="Search" aria-controls="tbldocumentGridViewList"&gt;&lt;/label&gt;<br/>
+             &lt;/div&gt;<br/>
+            &lt;/div&gt;<br/>
+           &lt;/div&gt;<br/>
+           &lt;div class="row"&gt;<br/>
+            &lt;div class="col-sm-12"&gt;<br/>
+             &lt;table id="tbldocumentGridViewList" class="table table-bordered table-hover display table-striped dataTable no-footer dtr-inline" role="grid" aria-describedby="tbldocumentGridViewList_info"&gt;<br/>
+              &lt;thead&gt;<br/>
+               &lt;tr role="row"&gt;<br/>
+                &lt;th class="text-left sorting_disabled" rowspan="1" colspan="1" style="width: 100px;" aria-label="View"&gt;View&lt;/th&gt;<br/>
+                &lt;th class="sorting" tabindex="0" aria-controls="tbldocumentGridViewList" rowspan="1" colspan="1" aria-label="Title: activate to sort column ascending"&gt;Title&lt;/th&gt;<br/>
+                &lt;th class="sorting" tabindex="0" aria-controls="tbldocumentGridViewList" rowspan="1" colspan="1" aria-label="Folder: activate to sort column ascending"&gt;Folder&lt;/th&gt;<br/>
+                &lt;th class="sorting" tabindex="0" aria-controls="tbldocumentGridViewList" rowspan="1" colspan="1" aria-label="Date: activate to sort column ascending"&gt;Date&lt;/th&gt;<br/>
+                &lt;th class="text-left sorting_disabled" rowspan="1" colspan="1" style="width: 100px;" aria-label="Share with user"&gt;Share with user&lt;/th&gt;<br/>
+                &lt;th class="text-left sorting_disabled" rowspan="1" colspan="1" style="width: 100px;" aria-label="Share with group"&gt;Share with group&lt;/th&gt;<br/>
+                &lt;th class="text-left sorting_disabled" rowspan="1" colspan="1" style="width: 100px;" aria-label="Update"&gt;Update&lt;/th&gt;<br/>
+                &lt;th class="text-left sorting_disabled" rowspan="1" colspan="1" style="width: 100px;" aria-label="View"&gt;View&lt;/th&gt;<br/>
+                &lt;th class="text-left sorting_disabled" rowspan="1" colspan="1" style="width: 100px;" aria-label="Download"&gt;Download&lt;/th&gt;<br/>
+                &lt;th class="text-left sorting_disabled" rowspan="1" colspan="1" style="width: 100px;" aria-label="Delete"&gt;Delete&lt;/th&gt;<br/>
+               &lt;/tr&gt;<br/>
+              &lt;/thead&gt;<br/>
+              &lt;tbody&gt;<br/>
+               &lt;tr class="odd"&gt;<br/>
+                &lt;td valign="top" colspan="10" class="dataTables_empty"&gt;No data available in table&lt;/td&gt;<br/>
+               &lt;/tr&gt;<br/>
+              &lt;/tbody&gt;<br/>
+             &lt;/table&gt;<br/>
+            &lt;/div&gt;<br/>
+           &lt;/div&gt;<br/>
+           &lt;div class="row"&gt;<br/>
+            &lt;div class="col-sm-5"&gt;<br/>
+             &lt;div class="dataTables_info" id="tbldocumentGridViewList_info" role="status" aria-live="polite"&gt;<br/>
+              Showing 0 to 0 of 0 entries<br/>
+             &lt;/div&gt;<br/>
+            &lt;/div&gt;<br/>
+            &lt;div class="col-sm-7"&gt;<br/>
+             &lt;div class="dataTables_paginate paging_simple_numbers" id="tbldocumentGridViewList_paginate"&gt;<br/>
+              &lt;ul class="pagination"&gt;<br/>
+               &lt;li class="paginate_button previous disabled" id="tbldocumentGridViewList_previous"&gt;&lt;a href="#" aria-controls="tbldocumentGridViewList" data-dt-idx="0" tabindex="0"&gt;Previous&lt;/a&gt;&lt;/li&gt;<br/>
+               &lt;li class="paginate_button next disabled" id="tbldocumentGridViewList_next"&gt;&lt;a href="#" aria-controls="tbldocumentGridViewList" data-dt-idx="1" tabindex="0"&gt;Next&lt;/a&gt;&lt;/li&gt;<br/>
+              &lt;/ul&gt;<br/>
+             &lt;/div&gt;<br/>
+            &lt;/div&gt;<br/>
+           &lt;/div&gt;<br/>
+          &lt;/div&gt; <br/>
+         &lt;/div&gt; <br/>
+        &lt;/div&gt; <br/>
+        &lt;div id="customizeGridData" class="CustomizeGridFooter"&gt; <br/>
+        &lt;/div&gt; <br/>
+       &lt;/div&gt; <br/>
+       &lt;div class="clearBoth"&gt;&lt;/div&gt; <br/>
+      &lt;/div&gt; <br/>
+     &lt;/div&gt; <br/>
+    &lt;/section&gt; <br/>
+   &lt;/div&gt; <br/>
+   &lt;div id="mypopupWindowShareDocumentModal" class="modal fade" role="dialog" aria-labelledby="mypopupWindowShareDocumentModal" aria-hidden="true"&gt; <br/>
+    &lt;div class="modal-dialog modal-lg"&gt; <br/>
+     &lt;div class="modal-content"&gt; <br/>
+      &lt;div class="modal-header"&gt; &lt;button type="button" class="close" data-dismiss="modal" aria-label="Close"&gt;&lt;span aria-hidden="true"&gt;×&lt;/span&gt;&lt;/button&gt; <br/>
+       &lt;h4 id="modalTitle" class="modal-title"&gt;Add New Document&lt;/h4&gt; <br/>
+      &lt;/div&gt; <br/>
+      &lt;div class="container margin-top-10"&gt; <br/>
+       &lt;input id="txtShareDocId" type="hidden"&gt; &lt;span id="lblbShareDocTitle"&gt;&lt;/span&gt; <br/>
+       &lt;div class="form-group row"&gt; <br/>
+        &lt;div class="col-md-5 form-group"&gt; <br/>
+         &lt;div class="col-md-12"&gt; <br/>
+          &lt;h4 id="hUsers"&gt;Users&lt;/h4&gt; &lt;select id="lstBoxShareDocAllUser" size="10" style="width: 100%; height: 300px; overflow:auto" class="form-control formddl generalinput"&gt;&lt;/select&gt; <br/>
+         &lt;/div&gt; <br/>
+        &lt;/div&gt; <br/>
+        &lt;div class="col-md-2 form-group"&gt; <br/>
+         &lt;div class="col-md-12" style="margin-top: 150px;"&gt; &lt;button id="btnShareDocumentAdd" type="button" class="btn default"&gt;&gt;&gt;&gt;&lt;/button&gt; &lt;button id="btnShareDocumentRemove" type="button" class="btn default"&gt;&lt;&lt;&lt;&lt;/button&gt; <br/>
+         &lt;/div&gt; <br/>
+        &lt;/div&gt; <br/>
+        &lt;div class="col-md-5 form-group"&gt; <br/>
+         &lt;div class="col-md-12"&gt; <br/>
+          &lt;h4 id="hUsers"&gt;Shared with users&lt;/h4&gt; &lt;select id="lstBoxShareDocSharedUser" size="10" style="width: 100%; height: 300px; overflow:auto" class="form-control formddl generalinput"&gt;&lt;/select&gt; <br/>
+         &lt;/div&gt; <br/>
+        &lt;/div&gt; <br/>
+       &lt;/div&gt; <br/>
+       &lt;div class="modal-footer"&gt; &lt;button id="btnCloseShareDocument" type="button" class="btn btn-default"&gt;&lt;i class="fa fa-times"&gt;&lt;/i&gt;&nbsp;Close &lt;/button&gt; <br/>
+       &lt;/div&gt; <br/>
+      &lt;/div&gt; <br/>
+     &lt;/div&gt; <br/>
+    &lt;/div&gt; <br/>
+   &lt;/div&gt; <br/>
+   &lt;div id="mypopupWindowViewDocumentModal" class="modal fade" role="dialog" aria-labelledby="mypopupViewDocModal" aria-hidden="true"&gt; <br/>
+    &lt;div class="modal-dialog modal-lg"&gt; <br/>
+     &lt;div class="modal-content"&gt; <br/>
+      &lt;div class="modal-header"&gt; &lt;button type="button" class="close" data-dismiss="modal" aria-label="Close"&gt;&lt;span aria-hidden="true"&gt;×&lt;/span&gt;&lt;/button&gt; <br/>
+       &lt;h4 id="modalTitle" class="modal-title"&gt;View Document&lt;/h4&gt; <br/>
+      &lt;/div&gt; <br/>
+      &lt;div class="container margin-top-10"&gt; <br/>
+       &lt;div id="popupWindowViewDocument"&gt; &lt;object id="objViewPdf" type="application/pdf" data="" width="100%" height="500" internalinstanceid="65"&gt;No Support&lt;/object&gt; <br/>
+       &lt;/div&gt; <br/>
+      &lt;/div&gt; <br/>
+     &lt;/div&gt; <br/>
+    &lt;/div&gt; <br/>
+   &lt;/div&gt; <br/>
+   &lt;div id="mypopupWindowShareDocumentWithGropusModal" class="modal fade" role="dialog" aria-labelledby="mypopupViewDocModal" aria-hidden="true"&gt; <br/>
+    &lt;div class="modal-dialog modal-lg"&gt; <br/>
+     &lt;div class="modal-content"&gt; <br/>
+      &lt;div class="modal-header"&gt; &lt;button type="button" class="close" data-dismiss="modal" aria-label="Close"&gt;&lt;span aria-hidden="true"&gt;×&lt;/span&gt;&lt;/button&gt; <br/>
+       &lt;h4 id="modalTitle" class="modal-title"&gt;View Document&lt;/h4&gt; <br/>
+      &lt;/div&gt; <br/>
+      &lt;div class="container margin-top-10"&gt; <br/>
+       &lt;input id="txtDocIdShareDocWithgropus" type="hidden"&gt; &lt;span id="lblbShareDocTitleWithgropus"&gt;&lt;/span&gt; <br/>
+       &lt;div class="form-group row"&gt; <br/>
+        &lt;div class="col-md-5 form-group"&gt; <br/>
+         &lt;div class="col-md-12"&gt; <br/>
+          &lt;h4 id="hUsers"&gt;Groups&lt;/h4&gt; &lt;select id="lstBoxShareDocAllGroups" size="10" style="width: 100%; height: 300px; overflow:auto" class="form-control formddl generalinput"&gt;&lt;/select&gt; <br/>
+         &lt;/div&gt; <br/>
+        &lt;/div&gt; <br/>
+        &lt;div class="col-md-2 form-group"&gt; <br/>
+         &lt;div class="col-md-12" style="margin-top: 150px;"&gt; &lt;button id="btnShareDocumentWithGroup" type="button" class="btn default"&gt;&gt;&gt;&gt;&lt;/button&gt; &lt;button id="btnShareDocumentRemoveGroup" type="button" class="btn default"&gt;&lt;&lt;&lt;&lt;/button&gt; <br/>
+         &lt;/div&gt; <br/>
+        &lt;/div&gt; <br/>
+        &lt;div class="col-md-5 form-group"&gt; <br/>
+         &lt;div class="col-md-12"&gt; <br/>
+          &lt;h4 id="hUsers"&gt;Shared with Groups&lt;/h4&gt; &lt;select id="lstBoxShareDocSharedGroups" size="10" style="width: 100%; height: 300px; overflow:auto" class="form-control formddl generalinput"&gt;&lt;/select&gt; <br/>
+         &lt;/div&gt; <br/>
+        &lt;/div&gt; <br/>
+       &lt;/div&gt; <br/>
+       &lt;div class="modal-footer"&gt; &lt;button id="btnCloseShareDocumentGroups" type="button" class="btn btn-default"&gt;&lt;i class="fa fa-times"&gt;&lt;/i&gt;&nbsp;Close &lt;/button&gt; <br/>
+       &lt;/div&gt; <br/>
+      &lt;/div&gt; <br/>
+     &lt;/div&gt; <br/>
+    &lt;/div&gt; <br/>
+   &lt;/div&gt; <br/>
+   &lt;div id="mypopupWindowAddNewDocumentModal" class="modal fade in" role="dialog" aria-labelledby="mypopupWindowAddNewDocumentModal" style="display: block;"&gt; <br/>
+    &lt;div class="modal-dialog modal-lg"&gt; <br/>
+     &lt;div class="modal-content"&gt; <br/>
+      &lt;div class="modal-header"&gt; &lt;button type="button" class="close" data-dismiss="modal" aria-label="Close"&gt;&lt;span aria-hidden="true"&gt;×&lt;/span&gt;&lt;/button&gt; <br/>
+       &lt;h4 id="modalTitle" class="modal-title"&gt;Add Document&lt;/h4&gt; <br/>
+      &lt;/div&gt; <br/>
+      &lt;div class="container margin-top-10"&gt; <br/>
+       &lt;div class="form-group row"&gt; <br/>
+        &lt;div class="form-group"&gt; <br/>
+         &lt;div class="col-md-4"&gt; &lt;label&gt;Attach Document&lt;span class="spnError"&gt;*&lt;/span&gt;&lt;/label&gt; <br/>
+         &lt;/div&gt; <br/>
+         &lt;div class="col-md-8"&gt; <br/>
+          &lt;input id="DocumentToUpload" type="file" name="fileToUpload" class="form-control validation-required txtDocument" onchange="if (!window.__cfRLUnblockHandlers) return false; checkFileIsValid(this);"&gt; <br/>
+          &lt;img id="loading" src="../Images/loader.gif" style="display: none;" alt="image"&gt; <br/>
+         &lt;/div&gt; <br/>
+        &lt;/div&gt; <br/>
+       &lt;/div&gt; <br/>
+       &lt;div class="form-group row"&gt; <br/>
+        &lt;div class="form-group"&gt; <br/>
+         &lt;div class="col-md-4"&gt; &lt;label&gt;Title&lt;span class="spnError"&gt;*&lt;/span&gt;&lt;/label&gt; <br/>
+         &lt;/div&gt; <br/>
+         &lt;div class="col-md-8"&gt; <br/>
+          &lt;input type="text" class="form-control validation-required txtDocument generalinput" id="txtDescription"&gt; <br/>
+         &lt;/div&gt; <br/>
+        &lt;/div&gt; <br/>
+       &lt;/div&gt; <br/>
+       &lt;div class="form-group row"&gt; <br/>
+        &lt;div class="form-group"&gt; <br/>
+         &lt;div class="col-md-4"&gt; &lt;label&gt;File Description&lt;span class="spnError"&gt;*&lt;/span&gt;&lt;/label&gt; <br/>
+         &lt;/div&gt; <br/>
+         &lt;div class="col-md-8"&gt; <br/>
+          &lt;input type="text" class="form-control validation-required generalinput" id="txtFileDiscription"&gt; <br/>
+         &lt;/div&gt; <br/>
+        &lt;/div&gt; <br/>
+       &lt;/div&gt; <br/>
+       &lt;div class="form-group row"&gt; <br/>
+        &lt;div class="form-group"&gt; <br/>
+         &lt;div class="col-md-4"&gt; &lt;label&gt;Tags&lt;span class="spnError"&gt;*&lt;/span&gt;&lt;/label&gt; <br/>
+         &lt;/div&gt; <br/>
+         &lt;div class="col-md-8"&gt; &lt;select class="select2 select2-hidden-accessible" multiple tabindex="-1" aria-hidden="true" id="txtDocumentTags"&gt;&lt;option value="-1"&gt;Policy&lt;/option&gt;&lt;option value="1"&gt;Operation&lt;/option&gt;&lt;option value="2"&gt;Test Tag&lt;/option&gt;&lt;option value="3"&gt;Autosys&lt;/option&gt;&lt;option value="9"&gt;Modern Perl&lt;/option&gt;&lt;option value="22"&gt;oracle&lt;/option&gt;&lt;option value="23"&gt;locking&lt;/option&gt;&lt;option value="24"&gt;resource busy&lt;/option&gt;&lt;option value="25"&gt;finance&lt;/option&gt;&lt;option value="27"&gt;ratings&lt;/option&gt;&lt;option value="28"&gt;symphony&lt;/option&gt;&lt;option value="29"&gt;grid&lt;/option&gt;&lt;option value="31"&gt;Unix Tutorial&lt;/option&gt;&lt;option value="36"&gt;Database&lt;/option&gt;&lt;option value="10022"&gt;MQ MultiInstance QueueManager&lt;/option&gt;&lt;option value="10023"&gt;A&lt;/option&gt;&lt;option value="20023"&gt;Python&lt;/option&gt;&lt;option value="20024"&gt;IIS&lt;/option&gt;&lt;option value="20025"&gt;MQ Doc&lt;/option&gt;&lt;option value="20026"&gt;Finance Course&lt;/option&gt;&lt;option value="20027"&gt;kjnkj&lt;/option&gt;&lt;option value="30027"&gt;Django&lt;/option&gt;&lt;option value="30028"&gt;IPR and Guidelines to Use&lt;/option&gt;&lt;option value="30029"&gt;Tp&lt;/option&gt;&lt;option value="30030"&gt;ISMS and HR Induction training&lt;/option&gt;&lt;option value="30031"&gt;Microsoft Edge Browser in Windows 10(Drawbacks)&lt;/option&gt;&lt;option value="30032"&gt;Wesphere MQ&lt;/option&gt;&lt;option value="30033"&gt;seekhley&lt;/option&gt;&lt;option value="30034"&gt;Finance Intro Session&lt;/option&gt;&lt;option value="30035"&gt;Test 1&lt;/option&gt;&lt;option value="30036"&gt;Test&lt;/option&gt;&lt;option value="30037"&gt;Tag 2&lt;/option&gt;&lt;option value="30038"&gt;Ujjawal&lt;/option&gt;&lt;option value="30039"&gt;kjahsd&lt;/option&gt;&lt;option value="30040"&gt;1111&lt;/option&gt;&lt;option value="30041"&gt;kjahsdqwq&lt;/option&gt;&lt;option value="30042"&gt;12323&lt;/option&gt;&lt;option value="30043"&gt;12311232313312&lt;/option&gt;&lt;option value="30044"&gt;6283626ujulj&lt;/option&gt;&lt;option value="30045"&gt;0&lt;/option&gt;&lt;option value="30046"&gt;%%&lt;/option&gt;&lt;option value="30047"&gt;hello&lt;/option&gt;&lt;option value="30048"&gt;new folder&lt;/option&gt;&lt;option value="30049"&gt;tag&lt;/option&gt;&lt;option value="30050"&gt;tag1&lt;/option&gt;&lt;option value="30051"&gt;testag&lt;/option&gt;&lt;option value="30052"&gt;123&lt;/option&gt;&lt;option value="30053"&gt;tag1234&lt;/option&gt;&lt;option value="30054"&gt;*&amp;*&amp;*&lt;/option&gt;&lt;option value="30055"&gt;TagName1&lt;/option&gt;&lt;option value="30056"&gt;a1234&lt;/option&gt;&lt;option value="30057"&gt;tagName123&lt;/option&gt;&lt;option value="30058"&gt;TagName12&lt;/option&gt;&lt;option value="30059"&gt;TagName24&lt;/option&gt;&lt;option value="30060"&gt;*&amp;^*^^%^%*&lt;/option&gt;&lt;option value="30061"&gt;TagName25&lt;/option&gt;&lt;option value="30062"&gt;*&amp;^*^^%^%&amp;^*&lt;/option&gt;&lt;option value="30063"&gt;newdoc&lt;/option&gt;&lt;option value="30064"&gt;newtag&lt;/option&gt;&lt;option value="30065"&gt;TagName115&lt;/option&gt;&lt;option value="30066"&gt;TagName115921&lt;/option&gt;&lt;option value="30067"&gt;*&amp;^*^^%^%&amp;^*4361&lt;/option&gt;&lt;option value="30068"&gt;TagName1155322&lt;/option&gt;&lt;option value="30069"&gt;*&amp;^*^^%^%&amp;^*9141&lt;/option&gt;&lt;option value="30070"&gt;TagName1157619&lt;/option&gt;&lt;option value="30071"&gt;*&amp;^*^^%^%&amp;^*6701&lt;/option&gt;&lt;option value="30072"&gt;TagName115925&lt;/option&gt;&lt;option value="30073"&gt;*&amp;^*^^%^%&amp;^*8817&lt;/option&gt;&lt;option value="30074"&gt;TagName11549&lt;/option&gt;&lt;option value="30075"&gt;*&amp;^*^^%^%&amp;^*104&lt;/option&gt;&lt;option value="30076"&gt;TagName1157083&lt;/option&gt;&lt;option value="30077"&gt;*&amp;^*^^%^%&amp;^*1580&lt;/option&gt;&lt;option value="30078"&gt;TagName1158948&lt;/option&gt;&lt;option value="30079"&gt;TagName115705&lt;/option&gt;&lt;option value="30080"&gt;TagName1154326&lt;/option&gt;&lt;option value="30081"&gt;*&amp;^*^^%^%&amp;^*9330&lt;/option&gt;&lt;/select&gt;&lt;span class="select2 select2-container select2-container--default" dir="ltr" style="width: 100px;"&gt;&lt;span class="selection"&gt;&lt;span class="select2-selection select2-selection--multiple" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="-1"&gt;<br/>
+             &lt;ul class="select2-selection__rendered"&gt;<br/>
+              &lt;li class="select2-search select2-search--inline"&gt;&lt;input class="select2-search__field" type="search" tabindex="-1" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" role="textbox" aria-autocomplete="list" placeholder="" style="width: 0.75em;"&gt;&lt;/li&gt;<br/>
+             &lt;/ul&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="dropdown-wrapper" aria-hidden="true"&gt;&lt;/span&gt;&lt;/span&gt; <br/>
+         &lt;/div&gt; <br/>
+        &lt;/div&gt; <br/>
+       &lt;/div&gt; &lt;label class="ErrorLabel" for="txtDocumentTags"&gt;&lt;/label&gt; <br/>
+       &lt;div class="modal-footer"&gt; &lt;button type="button" class="btn btn-success" id="btnSaveDocument"&gt;&lt;i class="fa fa-save"&gt;&lt;/i&gt;&nbsp;Add&lt;/button&gt; &lt;button id="btnCloseDocument" type="button" class="btn btn-default"&gt;&lt;i class="fa fa-times"&gt;&lt;/i&gt;&nbsp;Close &lt;/button&gt; <br/>
+       &lt;/div&gt; <br/>
+      &lt;/div&gt; <br/>
+     &lt;/div&gt; <br/>
+    &lt;/div&gt; <br/>
+   &lt;/div&gt; <br/>
+   &lt;div id="mypopupWindowReplaceDocumentModal" class="modal fade" role="dialog" aria-labelledby="mypopupWindowReplaceDocumentModal" aria-hidden="true"&gt; <br/>
+    &lt;div class="modal-dialog modal-lg"&gt; <br/>
+     &lt;div class="modal-content"&gt; <br/>
+      &lt;div class="modal-header"&gt; &lt;button type="button" class="close" data-dismiss="modal" aria-label="Close"&gt;&lt;span aria-hidden="true"&gt;×&lt;/span&gt;&lt;/button&gt; <br/>
+       &lt;h4 id="modalTitle" class="modal-title"&gt;Replace Document&lt;/h4&gt; <br/>
+      &lt;/div&gt; <br/>
+      &lt;div class="container margin-top-10"&gt; <br/>
+       &lt;input type="hidden" class="txtInput generalinput" id="txtReDocumentId"&gt; <br/>
+       &lt;div class="form-group row"&gt; <br/>
+        &lt;div class="form-group"&gt; <br/>
+         &lt;div class="col-md-4"&gt; &lt;label&gt;Replace Document&lt;span class="spnError"&gt;*&lt;/span&gt;&lt;/label&gt; <br/>
+         &lt;/div&gt; <br/>
+         &lt;div class="col-md-8"&gt; <br/>
+          &lt;input id="DocumentToReUpload" type="file" name="fileToReUploadDocument" class="form-control validation-required txtReplaceDocument" onchange="if (!window.__cfRLUnblockHandlers) return false; checkFileIsValid(this);"&gt; <br/>
+          &lt;img id="Img1" src="../Images/loader.gif" style="display: none;" alt="image"&gt; <br/>
+         &lt;/div&gt; <br/>
+        &lt;/div&gt; <br/>
+       &lt;/div&gt; <br/>
+       &lt;div class="form-group row"&gt; <br/>
+        &lt;div class="form-group"&gt; <br/>
+         &lt;div class="col-md-4"&gt; &lt;label&gt;Title&lt;span class="spnError"&gt;*&lt;/span&gt;&lt;/label&gt; <br/>
+         &lt;/div&gt; <br/>
+         &lt;div class="col-md-8"&gt; <br/>
+          &lt;input type="text" class="form-control validation-required txtReplaceDocument" id="txtRetitleDocument"&gt; <br/>
+         &lt;/div&gt; <br/>
+        &lt;/div&gt; <br/>
+       &lt;/div&gt; <br/>
+       &lt;div class="form-group row"&gt; <br/>
+        &lt;div class="form-group"&gt; <br/>
+         &lt;div class="col-md-4"&gt; <br/>
+         &lt;/div&gt; <br/>
+         &lt;div class="col-md-8"&gt; &lt;label class="ErrorLabel" id="ErrorLabel"&gt;&lt;/label&gt; <br/>
+         &lt;/div&gt; <br/>
+        &lt;/div&gt; <br/>
+       &lt;/div&gt; <br/>
+       &lt;div class="form-group row"&gt; <br/>
+        &lt;div class="form-group"&gt; <br/>
+         &lt;div class="col-md-4"&gt; <br/>
+         &lt;/div&gt; <br/>
+         &lt;div class="col-md-8"&gt; &lt;button type="button" class="btn btn-success" id="btnreplacedocument"&gt;&lt;i class="fa fa-save"&gt;&lt;/i&gt;&nbsp;Update&lt;/button&gt; &lt;button id="btnClosereplacedocument" type="button" class="btn btn-default"&gt;&lt;i class="fa fa-times"&gt;&lt;/i&gt;&nbsp;Close &lt;/button&gt; <br/>
+         &lt;/div&gt; <br/>
+        &lt;/div&gt; <br/>
+       &lt;/div&gt; <br/>
+      &lt;/div&gt; <br/>
+     &lt;/div&gt; <br/>
+    &lt;/div&gt; <br/>
+   &lt;/div&gt; <br/>
+   &lt;div id="mypopupAddNewDocGroupModal" class="modal fade" role="dialog" aria-labelledby="mypopupAddNewDocGroupModal" aria-hidden="true"&gt; <br/>
+    &lt;div class="modal-dialog"&gt; <br/>
+     &lt;div class="modal-content"&gt; <br/>
+      &lt;div class="modal-header"&gt; &lt;button type="button" class="close" data-dismiss="modal" aria-label="Close"&gt;&lt;span aria-hidden="true"&gt;×&lt;/span&gt;&lt;/button&gt; <br/>
+       &lt;h4 id="modalTitle" class="modal-title"&gt;Add Folder&lt;/h4&gt; <br/>
+      &lt;/div&gt; <br/>
+      &lt;div class="container margin-top-10"&gt; <br/>
+       &lt;div class="form-group row"&gt; <br/>
+        &lt;div class="form-group"&gt; <br/>
+         &lt;div class="col-md-4"&gt; &lt;label&gt;Folder&lt;span class="spnError"&gt;*&lt;/span&gt;&lt;/label&gt; <br/>
+         &lt;/div&gt; <br/>
+         &lt;div class="col-md-8"&gt; <br/>
+          &lt;input type="text" class="form-control validation-required txtInput" id="groupName" placeholder="Group Name"&gt; <br/>
+         &lt;/div&gt; <br/>
+        &lt;/div&gt; <br/>
+       &lt;/div&gt; &lt;span id="spError-VD"&gt;&lt;/span&gt; <br/>
+       &lt;div class="modal-footer"&gt; &lt;button type="button" class="btn btn-success" id="btnSaveGroup"&gt;&lt;i class="fa fa-save"&gt;&lt;/i&gt;&nbsp;Add&lt;/button&gt; &lt;button id="btnCloseGroup" type="button" class="btn btn-default"&gt;&lt;i class="fa fa-times"&gt;&lt;/i&gt;&nbsp;Close &lt;/button&gt; <br/>
+       &lt;/div&gt; <br/>
+      &lt;/div&gt; <br/>
+     &lt;/div&gt; <br/>
+    &lt;/div&gt; <br/>
+   &lt;/div&gt; <br/>
+   &lt;div id="mypopupAddNewDocumentTagModal" class="modal fade" role="dialog" aria-labelledby="mypopupAddNewDocumentTagModal" aria-hidden="true"&gt; <br/>
+    &lt;div class="modal-dialog"&gt; <br/>
+     &lt;div class="modal-content"&gt; <br/>
+      &lt;div class="modal-header"&gt; &lt;button type="button" class="close" data-dismiss="modal" aria-label="Close"&gt;&lt;span aria-hidden="true"&gt;×&lt;/span&gt;&lt;/button&gt; <br/>
+       &lt;h4 id="modalTitle" class="modal-title"&gt;Create Tag Name&lt;/h4&gt; <br/>
+      &lt;/div&gt; <br/>
+      &lt;div class="container margin-top-10"&gt; <br/>
+       &lt;div class="form-group row"&gt; <br/>
+        &lt;div class="form-group"&gt; <br/>
+         &lt;div class="col-md-4"&gt; &lt;label&gt;Tag Name&lt;span class="spnError"&gt;*&lt;/span&gt;&lt;/label&gt; <br/>
+         &lt;/div&gt; <br/>
+         &lt;div class="col-md-8"&gt; <br/>
+          &lt;input type="text" class="form-control validation-required txtInput" id="txtTagName"&gt; <br/>
+         &lt;/div&gt; <br/>
+        &lt;/div&gt; <br/>
+       &lt;/div&gt; &lt;span id="spnErrorDocumentTag"&gt;&lt;/span&gt; <br/>
+       &lt;div class="modal-footer"&gt; &lt;button type="button" class="btn btn-success" id="btnSaveDocumentTag"&gt;&lt;i class="fa fa-save"&gt;&lt;/i&gt;&nbsp;Add&lt;/button&gt; &lt;button id="btnCloseDocumentTag" type="button" class="btn btn-default"&gt;&lt;i class="fa fa-times"&gt;&lt;/i&gt;&nbsp;Close &lt;/button&gt; <br/>
+       &lt;/div&gt; <br/>
+      &lt;/div&gt; <br/>
+     &lt;/div&gt; <br/>
+    &lt;/div&gt; <br/>
+   &lt;/div&gt; <br/>
+   &lt;script src="/Scripts/app/KnowledgeBase/viewdoc.js" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;/div&gt; <br/>
+  &lt;div id="myModalDashBoardSettings" class="modal fade" role="dialog" aria-labelledby="myModalDashBoardSettings" aria-hidden="true"&gt; <br/>
+   &lt;div class="modal-dialog modal-lg" id="DashBoardSettings"&gt; <br/>
+   &lt;/div&gt; <br/>
+  &lt;/div&gt; <br/>
+  &lt;div id="mypopupUpdateSkills" class="modal fade" role="dialog" aria-labelledby="mypopupUpdateSkills" aria-hidden="true"&gt; <br/>
+   &lt;div class="modal-dialog" id="skillsSettings"&gt; <br/>
+   &lt;/div&gt; <br/>
+  &lt;/div&gt; <br/>
+  &lt;div id="mypopupHelpDoc" class="modal fade" role="dialog" aria-labelledby="mypopupHelpDoc" aria-hidden="true"&gt; <br/>
+   &lt;div class="modal-dialog  modal-lg" id="helpDocument"&gt; <br/>
+   &lt;/div&gt; <br/>
+  &lt;/div&gt; <br/>
+  &lt;div id="mypopupEditSkills" class="modal fade" role="dialog" aria-labelledby="mypopupEditSkills" aria-hidden="true"&gt; <br/>
+   &lt;input type="hidden" name="name" value="" id="hdnSkillDetailId"&gt; <br/>
+   &lt;input type="hidden" name="name" value="" id="hdnSkillTypeId"&gt; <br/>
+   &lt;div class="modal-dialog" id="skillsSettingsEdit"&gt; <br/>
+   &lt;/div&gt; <br/>
+  &lt;/div&gt; <br/>
+  &lt;div id="mypopupUpdateProfile" class="modal fade" role="dialog" aria-labelledby="mypopupUpdateProfile" aria-hidden="true"&gt; <br/>
+   &lt;div class="modal-dialog" id="divUpdateProfile"&gt; <br/>
+   &lt;/div&gt; <br/>
+  &lt;/div&gt; <br/>
+  &lt;div id="popupApplyForLunch" class="modal fade" role="dialog" aria-labelledby="mypopup" aria-hidden="true"&gt; <br/>
+   &lt;div class="modal-dialog modal-lg" id="divApplyForLunch"&gt; <br/>
+   &lt;/div&gt; <br/>
+  &lt;/div&gt; <br/>
+  &lt;div id="editLunchDatePopup" class="modal fade" role="dialog" aria-labelledby="editLunchDatePopup" aria-hidden="true"&gt; <br/>
+   &lt;div class="modal-dialog modal-lg"&gt; <br/>
+    &lt;div class="modal-content"&gt; <br/>
+     &lt;div class="modal-header"&gt; &lt;button type="button" class="close" data-dismiss="modal" aria-label="Close"&gt;&lt;span aria-hidden="true"&gt;×&lt;/span&gt;&lt;/button&gt; <br/>
+      &lt;h4 id="modalTitle" class="modal-title"&gt;Edit Lunch Dates&lt;/h4&gt; <br/>
+     &lt;/div&gt; <br/>
+     &lt;div class="modal-body" id="divEditApplyForLunch"&gt; <br/>
+      &lt;input type="hidden" id="hdnSeqIdId"&gt; <br/>
+      &lt;div class="row"&gt; <br/>
+       &lt;div class="col-md-4"&gt; <br/>
+        &lt;div class="form-group"&gt; &lt;label class="control-label"&gt;From Date&lt;span class="spnError"&gt;*&lt;/span&gt;&lt;/label&gt; <br/>
+         &lt;div class="inputGroupContainer date date-picker" id="fromEditDate"&gt; <br/>
+          &lt;div class="input-group"&gt; <br/>
+           &lt;input type="text" class="form-control validation-required" readonly placeholder="Enter start date" name="fromEditDate" id="fromEditDateEmp"&gt; &lt;span class=" input-group-btn"&gt; &lt;button class="btn default" type="button"&gt;&lt;i class="fa fa-calendar"&gt;&lt;/i&gt;&lt;/button&gt; &lt;/span&gt; <br/>
+          &lt;/div&gt; <br/>
+         &lt;/div&gt; <br/>
+        &lt;/div&gt; <br/>
+       &lt;/div&gt; <br/>
+       &lt;div class="col-md-4"&gt; <br/>
+        &lt;div class="form-group"&gt; &lt;label class="control-label"&gt;Till Date&lt;span class="spnError"&gt;*&lt;/span&gt;&lt;/label&gt; <br/>
+         &lt;div class="inputGroupContainer date date-picker" id="tillEditDate"&gt; <br/>
+          &lt;div class="input-group"&gt; <br/>
+           &lt;input type="text" class="form-control validation-required" readonly placeholder="Enter end date" name="tillEditDate" id="tillEditDateEmp"&gt; &lt;span class=" input-group-btn"&gt; &lt;button class="btn default" type="button"&gt;&lt;i class="fa fa-calendar"&gt;&lt;/i&gt;&lt;/button&gt; &lt;/span&gt; <br/>
+          &lt;/div&gt; <br/>
+         &lt;/div&gt; <br/>
+        &lt;/div&gt; <br/>
+       &lt;/div&gt; <br/>
+       &lt;div class="form-group col-md-4"&gt; &lt;label&gt;Location&lt;span class="spnError"&gt;*&lt;/span&gt;&lt;/label&gt; &lt;select style="width: 100%;" id="Editlocation" class="form-control select2 select2-hidden-accessible validation-required" tabindex="-1" aria-hidden="true"&gt;&lt;/select&gt;&lt;span class="select2 select2-container select2-container--default" dir="ltr" style="width: 100%;"&gt;&lt;span class="selection"&gt;&lt;span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="1" aria-labelledby="select2-Editlocation-container"&gt;&lt;span class="select2-selection__rendered" id="select2-Editlocation-container"&gt;&lt;/span&gt;&lt;span class="select2-selection__arrow" role="presentation"&gt;&lt;b role="presentation"&gt;&lt;/b&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="dropdown-wrapper" aria-hidden="true"&gt;&lt;/span&gt;&lt;/span&gt; <br/>
+       &lt;/div&gt; <br/>
+      &lt;/div&gt; <br/>
+     &lt;/div&gt; <br/>
+     &lt;div class="modal-footer"&gt; &lt;button id="BtnEditDateforLunch" type="button" class="btn btn-success" onclick="if (!window.__cfRLUnblockHandlers) return false; updateLunchDatePopup()"&gt;&lt;i class="fa fa-save"&gt;&lt;/i&gt;&nbsp;Update&lt;/button&gt; &lt;button id="btnEditClose" type="button" class="btn btn-default"&gt;&lt;i class="fa fa-times"&gt;&lt;/i&gt;&nbsp;Close&lt;/button&gt; <br/>
+     &lt;/div&gt; <br/>
+    &lt;/div&gt; <br/>
+   &lt;/div&gt; <br/>
+  &lt;/div&gt; <br/>
+  &lt;div id="mypopupUserDelegation" class="modal fade" role="dialog" aria-labelledby="mypopupUserDelegation" aria-hidden="true"&gt; <br/>
+   &lt;div class="modal-dialog" id="divUserDelegation"&gt; <br/>
+   &lt;/div&gt; <br/>
+  &lt;/div&gt; <br/>
+  &lt;script src="/Scripts/lib/tether.min.js?v=1.2" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script src="/Scripts/lib/bootstrap.js?v=1.2" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script src="/Scripts/lib/plugins.js?v=1.2" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script src="/Scripts/lib/jquery.ui.position.min.js?v=1.2" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script src="/Scripts/lib/lobipanel.min.js?v=1.2" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script src="/Scripts/lib/jquery.matchHeight.js?v=1.2" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script src="/Scripts/lib/app.js?v=1.2" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script src="/Scripts/lib/sweetalert.min.js?v=1.2" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script src="/Scripts/lib/bootstrap-datepicker.min.js?v=1.2" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script src="/Scripts/lib/bootstrap-toggle.min.js?v=1.2" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script src="/Scripts/lib/datatable/datatables.min.js?v=1.3" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script src="/Scripts/lib/datatable/jquery.dataTables.min.js?v=1.3" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script src="/Scripts/lib/datatable/dataTables.buttons.min.js?v=1.2" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script src="/Scripts/lib/datatable/pdfmake.min.js?v=1.2" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script src="/Scripts/lib/datatable/vfs_fonts.js?v=1.2" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script src="/Scripts/lib/datatable/buttons.html5.min.js?v=1.2" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script src="/Scripts/lib/datatable/buttons.print.min.js?v=1.2" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script src="/Scripts/lib/datatable/dataTables.responsive.min.js?v=1.2" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script src="/Scripts/lib/datatable/dataTables.bootstrap.min.js?v=1.2" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script src="/Scripts/lib/datatable/buttons.colVis.js?v=1.2" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script src="/Scripts/lib/bootstrap-multiselect.js?v=1.2" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script src="/Scripts/lib/select2.min.js?v=1.2" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script src="/Scripts/common/mis.layout.js?v=2.8" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script src="/Scripts/lib/underscore-min.js?v=1.2" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script type="text/javascript"&gt;<br/>
+        $(document).ready(function () {<br/>
+            //$(document).ajaxStart($.blockUI).ajaxError($.unblockUI).ajaxStop($.unblockUI);<br/>
+            $(document).ajaxError($.unblockUI).ajaxStop($.unblockUI);<br/>
+            misLayout.init();<br/>
+<br/>
+            $("#lblChangeADPassword").click(function () {<br/>
+                $('#divChangeADPassword').toggle("slow");<br/>
+                $("#txtADUsername").val("");<br/>
+                $("#txtCurrentPass").val("");<br/>
+                $("#txtNewPass").val("");<br/>
+                $("#txtConfirmNewPass").val("");<br/>
+                getADUserName();<br/>
+            });<br/>
+        });<br/>
+<br/>
+        function getADUserName() {<br/>
+            calltoAjax(misApiUrl.getADUserName, "POST", "",<br/>
+                function (result) {<br/>
+                    if (result !== null && result !== "") {<br/>
+<br/>
+                        $("#txtADUsername").val("");<br/>
+                        $("#txtADUsername").val(result);<br/>
+                        $("#txtADUsername").attr("disabled", true);<br/>
+                        $("#divADChangeBtn").show();<br/>
+                        $("#divAlert").hide();<br/>
+                    }<br/>
+                    else {<br/>
+                        $("#divADChangeBtn").hide();<br/>
+                        $("#divAlert").show();<br/>
+                    }<br/>
+                });<br/>
+        }<br/>
+<br/>
+        $("#btnChangeADPass").click(function () {<br/>
+            if (!validateControls('divChangeADPassword')) {<br/>
+                return false;<br/>
+            }<br/>
+            var newPass = $("#txtNewPass").val();<br/>
+            var confirmNewPass = $("#txtConfirmNewPass").val();<br/>
+<br/>
+            if (!confirmADPassword(newPass, confirmNewPass)) {<br/>
+                return false;<br/>
+            }<br/>
+            var jsonObject = {<br/>
+                currntADPassword: $("#txtCurrentPass").val(),<br/>
+                newADPassword: $("#txtNewPass").val()<br/>
+            }<br/>
+            calltoAjax(misApiUrl.changeADPassword, "POST", jsonObject, function (result) {<br/>
+                if (result.IsSuccessful) {<br/>
+                    $("#mypopupUpdateProfile").modal("hide");<br/>
+                    misAlert('Your Domain password has been changed successfully.', 'Success', 'success');<br/>
+                }<br/>
+                else//error<br/>
+                {<br/>
+                    misAlert(result.Message, "Error", "error");<br/>
+                }<br/>
+            });<br/>
+        });<br/>
+<br/>
+        function confirmADPassword(newPass, confirmNewPass) {<br/>
+            if (newPass != confirmNewPass) {<br/>
+                $("#divAlertError").show();<br/>
+                return false;<br/>
+            }<br/>
+            else {<br/>
+                $("#divAlertError").hide();<br/>
+            }<br/>
+            return true;<br/>
+        }<br/>
+<br/>
+    &lt;/script&gt; <br/>
+  &lt;div class="responsive-bootstrap-toolkit"&gt;<br/>
+   &lt;div class="device-xs visible-xs visible-xs-block"&gt;&lt;/div&gt;<br/>
+   &lt;div class="device-sm visible-sm visible-sm-block"&gt;&lt;/div&gt;<br/>
+   &lt;div class="device-md visible-md visible-md-block"&gt;&lt;/div&gt;<br/>
+   &lt;div class="device-lg visible-lg visible-lg-block"&gt;&lt;/div&gt;<br/>
+  &lt;/div&gt;<br/>
+  &lt;div class="modal-backdrop fade in"&gt;&lt;/div&gt;<br/>
+ &lt;/body&gt;<br/>
+&lt;/html&gt;</code></pre></div></body></html>

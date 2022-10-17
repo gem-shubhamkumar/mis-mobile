@@ -1,0 +1,8 @@
+"Story","Title","Result","Date","Stability","Duration (s)"
+"Perform actions on TimeSheet of MIS website","Verify the table heads and table data","ERROR","2022-10-15T22:09:35.677+05:30[Asia/Calcutta]","0.0","13.45"
+"Perform actions on TimeSheet of MIS website","Search a text using search box","ERROR","2022-10-15T22:09:49.784+05:30[Asia/Calcutta]","0.0","61.33"
+"Perform actions on TimeSheet of MIS website","Add an invalid task template","ERROR","2022-10-15T22:10:51.138+05:30[Asia/Calcutta]","0.0","104.88"
+"Perform actions on TimeSheet of MIS website","Delete and Add a valid task template","ERROR","2022-10-15T22:12:36.052+05:30[Asia/Calcutta]","0.0","14.2"
+"Perform actions on TimeSheet of MIS website","Add a duplicate task template","ERROR","2022-10-15T22:12:50.265+05:30[Asia/Calcutta]","0.0","14.56"
+"Perform actions on TimeSheet of MIS website","Edit an existing task template","ERROR","2022-10-15T22:13:04.832+05:30[Asia/Calcutta]","0.0","169.04"
+"Perform actions on TimeSheet of MIS website","Verify rejecting a delete action for a task template","ERROR","2022-10-15T22:15:53.885+05:30[Asia/Calcutta]","0.0","14.9"

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><testsuite errors="3" failures="0" name="MIS Leave Management Activities &gt; Apply" skipped="0" tests="6" time="443.76" timestamp="2022-10-15 12:38:35"><testcase name="Navigate to Leave Management &gt; WFH tab"/><testcase name="Verify field is Auto Populated by default in WFH tab"/><testcase name="Verify WFH Date and WFH Reason are mandatory fields"/><testcase name="Select Date from WFH Date dropdown"><error message="Cannot locate option with text: 10/16/2022&#10;For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element&#10;Build info: version: '4.1.4', revision: '535d840ee2'&#10;System info: host: 'GEMPK-200035', ip: '172.20.10.2', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.3'&#10;Driver info: driver.version: unknown&#10;For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element&#10;Build info: version: '4.1.4', revision: '535d840ee2'&#10;System info: host: 'GEMPK-200035', ip: '172.20.10.2', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.3'&#10;Driver info: driver.version: unknown" type="org.openqa.selenium.NoSuchElementException">Cannot locate option with text: 10/16/2022
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: '4.1.4', revision: '535d840ee2'
+System info: host: 'GEMPK-200035', ip: '172.20.10.2', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.3'
+Driver info: driver.version: unknown
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: '4.1.4', revision: '535d840ee2'
+System info: host: 'GEMPK-200035', ip: '172.20.10.2', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.3'
+Driver info: driver.version: unknown</error><system-err>Cannot locate option with text: 10/16/2022
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: '4.1.4', revision: '535d840ee2'
+System info: host: 'GEMPK-200035', ip: '172.20.10.2', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.3'
+Driver info: driver.version: unknown
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: '4.1.4', revision: '535d840ee2'
+System info: host: 'GEMPK-200035', ip: '172.20.10.2', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.3'
+Driver info: driver.version: unknown&#13;
+com.gemini.mis.implementations.LeaveImplementation.selectDateFromDropdown(LeaveImplementation.java:365)&#13;
+com.gemini.mis.implementations.LeaveImplementation.selectDate(LeaveImplementation.java:699)&#13;
+com.gemini.mis.pages.LeaveManagementPage.selectDate(LeaveManagementPage.java:274)&#13;
+com.gemini.mis.stepdefinitions.LeaveManagementSteps.selectDateFromDateDropdown(LeaveManagementSteps.java:145)&#13;
+✽.Select date from "Work From Home" date dropdown(file:///C:/Users/ja.multani/Downloads/EJMisProject/mis-training-master/src/test/resources/features/ApplyWFH.feature:52)&#13;
+</system-err></testcase><testcase name="Enter reason for WFH"><error message="Cannot locate option with text: 10/16/2022&#10;For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element&#10;Build info: version: '4.1.4', revision: '535d840ee2'&#10;System info: host: 'GEMPK-200035', ip: '172.20.10.2', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.3'&#10;Driver info: driver.version: unknown&#10;For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element&#10;Build info: version: '4.1.4', revision: '535d840ee2'&#10;System info: host: 'GEMPK-200035', ip: '172.20.10.2', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.3'&#10;Driver info: driver.version: unknown" type="org.openqa.selenium.NoSuchElementException">Cannot locate option with text: 10/16/2022
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: '4.1.4', revision: '535d840ee2'
+System info: host: 'GEMPK-200035', ip: '172.20.10.2', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.3'
+Driver info: driver.version: unknown
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: '4.1.4', revision: '535d840ee2'
+System info: host: 'GEMPK-200035', ip: '172.20.10.2', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.3'
+Driver info: driver.version: unknown</error><system-err>Cannot locate option with text: 10/16/2022
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: '4.1.4', revision: '535d840ee2'
+System info: host: 'GEMPK-200035', ip: '172.20.10.2', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.3'
+Driver info: driver.version: unknown
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: '4.1.4', revision: '535d840ee2'
+System info: host: 'GEMPK-200035', ip: '172.20.10.2', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.3'
+Driver info: driver.version: unknown&#13;
+com.gemini.mis.implementations.LeaveImplementation.selectDateFromDropdown(LeaveImplementation.java:365)&#13;
+com.gemini.mis.implementations.LeaveImplementation.selectDate(LeaveImplementation.java:699)&#13;
+com.gemini.mis.pages.LeaveManagementPage.selectDate(LeaveManagementPage.java:274)&#13;
+com.gemini.mis.stepdefinitions.LeaveManagementSteps.selectDateFromDateDropdown(LeaveManagementSteps.java:145)&#13;
+✽.Select date from "Work From Home" date dropdown(file:///C:/Users/ja.multani/Downloads/EJMisProject/mis-training-master/src/test/resources/features/ApplyWFH.feature:65)&#13;
+</system-err></testcase><testcase name="Enter required data and click on Submit WFH"><error message="Cannot locate option with text: 10/16/2022&#10;For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element&#10;Build info: version: '4.1.4', revision: '535d840ee2'&#10;System info: host: 'GEMPK-200035', ip: '172.20.10.2', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.3'&#10;Driver info: driver.version: unknown&#10;For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element&#10;Build info: version: '4.1.4', revision: '535d840ee2'&#10;System info: host: 'GEMPK-200035', ip: '172.20.10.2', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.3'&#10;Driver info: driver.version: unknown" type="org.openqa.selenium.NoSuchElementException">Cannot locate option with text: 10/16/2022
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: '4.1.4', revision: '535d840ee2'
+System info: host: 'GEMPK-200035', ip: '172.20.10.2', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.3'
+Driver info: driver.version: unknown
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: '4.1.4', revision: '535d840ee2'
+System info: host: 'GEMPK-200035', ip: '172.20.10.2', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.3'
+Driver info: driver.version: unknown</error><system-err>Cannot locate option with text: 10/16/2022
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: '4.1.4', revision: '535d840ee2'
+System info: host: 'GEMPK-200035', ip: '172.20.10.2', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.3'
+Driver info: driver.version: unknown
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: '4.1.4', revision: '535d840ee2'
+System info: host: 'GEMPK-200035', ip: '172.20.10.2', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.3'
+Driver info: driver.version: unknown&#13;
+com.gemini.mis.implementations.LeaveImplementation.selectDateFromDropdown(LeaveImplementation.java:365)&#13;
+com.gemini.mis.implementations.LeaveImplementation.selectDate(LeaveImplementation.java:699)&#13;
+com.gemini.mis.pages.LeaveManagementPage.selectDate(LeaveManagementPage.java:274)&#13;
+com.gemini.mis.stepdefinitions.LeaveManagementSteps.selectDateFromDateDropdown(LeaveManagementSteps.java:145)&#13;
+✽.Select date from "Work From Home" date dropdown(file:///C:/Users/ja.multani/Downloads/EJMisProject/mis-training-master/src/test/resources/features/ApplyWFH.feature:79)&#13;
+</system-err></testcase></testsuite>

@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><testsuite errors="0" failures="0" name="My Skills in Dashboard" skipped="0" tests="4" time="91.32" timestamp="2022-10-15 09:40:18"><testcase name="Verify My Skills are updating with Valid Data"/><testcase name="Verify My Skills are not updating with InValid Data"/></testsuite>

@@ -1,0 +1,296 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Screenshots</title>
+
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+<link rel="stylesheet" href="bootstrap-icons/font/bootstrap-icons.css"><!-- JQuery -->
+<script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script><!-- Required Stylesheets -->
+<link href="bootstrap-treeview/dist/bootstrap-treeview.min.css" rel="stylesheet">
+
+<!-- Required Javascript -->
+<script src="bootstrap-treeview/dist/bootstrap-treeview.min.js"></script><!-- DataTables -->
+<link type="text/css" href="datatables/1.11.3/datatables.min.css" rel="stylesheet" />
+<script type="text/javascript" src="datatables/1.11.3/datatables.min.js"></script>
+<script type="text/javascript" src="datatables/1.11.3/time-elapsed-dhms.js"></script>
+
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
+
+<script>
+    jQuery.fn.dataTable.ext.type.order['time-elapsed-dhms-pre'] = function(data) {
+
+        var matches = data.match(/^(\d+(?:\.\d+)?)\s*([a-z]+)/i);
+        var multipliers = {
+            ms: 1,
+            s: 1000,
+            m: 60000,
+            h: 3600000,
+            d: 86400000
+        };
+
+        if (matches) {
+            var multiplier = multipliers[matches[2].toLowerCase()];
+            return parseFloat(matches[1]) * multiplier;
+        } else {
+            return -1;
+        };
+    };
+</script>
+<link rel="stylesheet" href="css/core.css"/>
+<link rel="stylesheet" href="css/link.css"/>
+<link type="text/css" media="screen" href="css/screen.css" rel="Stylesheet"/>
+<!--CHART.JS-->
+<script src="chartjs/chart.js"></script>
+<script src="chartjs/chartjs-plugin-datalabels@2.0.0"></script>
+<script src="chartjs/patternomaly.min.js"></script>
+<script>
+    // Register the plugin to all charts:
+    Chart.register(ChartDataLabels);
+</script>
+<!-- Nivo Slider -->
+<link rel="stylesheet" href="nivo-slider/3.2/nivo-slider.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="nivo-slider/3.2/themes/default/default.css" type="text/css" media="screen" />
+<script src="nivo-slider/3.2/jquery.nivo.slider.pack.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+
+        function getUrlVars() {
+            var vars = {};
+            var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
+                vars[key] = value;
+            });
+            return vars;
+        }
+
+        var screenshotIndex = getUrlVars()["screenshot"];
+
+        $(window).load(function () {
+            $('#slider').nivoSlider({
+                startSlide: screenshotIndex,
+                effect: 'fade',
+                animSpeed: 200,
+                manualAdvance: true
+            });
+        });
+
+        $(window).keydown(function(e) {
+            switch(e.which) {
+                case 37:
+                    $('a.nivo-prevNav').click();
+                    break;
+                case 39:
+                    $('a.nivo-nextNav').click();
+                    break;
+            }
+        });
+    </script>
+
+</head>
+
+<body>
+<div id="topheader">
+    <div id="topbanner">
+        <div id="logo"><a href="index.html"><img src="images/serenity-logo.png" border="0"/></a></div>
+        <div id="projectname-banner" style="float:right">
+            <span class="projectname">
+                <span class="projecttitle">MIS Automation</span>
+                <span class="projectsubtitle"></span>
+            </span>
+        </div>
+    </div>
+</div>
+
+<div class="middlecontent">
+    <div id="contenttop">
+        <div class="middlebg">
+            <span class="breadcrumbs">
+                <a href="index.html">Home</a>
+                > <span class="truncate-40"><a
+                    href="c4e5340a919071b524e1abd131723f018c8dabba0277acc073f1dd7f78873b1d.html">LNSA</a></span>
+                > <span class="truncate-60"><a
+                    href="28e647c68db71150a85f60c218347ff05c8b42a8d7ff758beec8e00ba73b24d0.html">Sort the LNSA columns </a></span>
+                > Screenshots
+            </span>
+        </div>
+        <div class="rightbg"></div>
+    </div>
+
+    <div class="clr"></div>
+
+    <!--/* starts second table*/-->
+<div>
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#"><i class="bi bi-journal-check"></i> Overall Test Results</a>
+        </li>
+        <li >
+            <a href="capabilities.html"><i class="bi bi-journal-text"></i> Requirements</a>
+        </li>
+        <li >
+            <a href="576946480b52ad056d6f5bddf874399c83582ecf90963cc074a14c70580e7d9f.html"><i class="bi bi-chat-text"></i> Features</a>
+        </li>
+    </ul>
+    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 15-10-2022 21:17</span>
+    <br style="clear:left"/>
+</div>
+
+    <div class="clr"></div>
+
+
+    <div id="contentbody">
+        <div class="titlebar">
+            <div class="story-title">
+                <table class="outcome-header">
+                    <tr>
+                        <td>
+                            <div>
+                                <h3 class="discreet-story-header">
+                                    <i class="fs-2 bi bi-chat-left-quote large-icon"></i>
+                                    <span class="story-header-title">LNSA </span>
+                                    <span class="badge tag-badge" style="">Feature</span>
+                                </h3>
+
+                                <div class="discreet-requirement-narrative-title">
+                                
+                                </div>
+                            </div>
+
+                        </td>
+                        <td valign="top" align="right">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="story-title">
+                <table class="outcome-header">
+                    <tr>
+                        <td colspan="2" class="test-title-bar">
+                            <span class="outcome-icon"><a href='##beforetable'><i class='bi bi-x-circle-fill failure-icon fa-2x' title='FAILURE'></i></a></span>
+                            <span class="test-case-title">
+                                <span class="failing-color">Sort the LNSA columns
+                                    <span class="related-issue-title"></span>
+                                </span>
+                            </span>
+
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="clr"></div>
+
+
+    <div id="beforetable"></div>
+    <div id="contenttilttle">
+            <div class="screenshotFailure panel panel-danger">
+    <div style="display:block">
+        <div class="table">
+            <div class="row">
+                <div class="col-sm-10" style="padding-left:1.5em; padding-top:0.5em; padding-bottom:0.5em;">
+                    <span class="error-message error-message-title">Assertion error: Expected Sort Order: descending but Actual Sort Order is:</span>
+                </div>
+                <div class="col-sm-2">
+                    <a class="btn btn-warning details-button" data-toggle="collapse" href="#stacktraceModal-overall"
+                       role="button" aria-expanded="false" aria-controls="multiCollapseExample1"><i class="bi bi-eye"></i> More details</a>
+                </div>
+             </div>
+        </div>
+    <div>
+
+    <!-- Details Section -->
+    <div class="row stacktrace-details">
+      <div class="col">
+        <div class="collapse multi-collapse" id="stacktraceModal-overall">
+            <div class="card">
+                <div class="card-header">
+                    <h4>java.lang.AssertionError </h4>
+                </div>
+                <div class="card-body">
+                    <div>
+                        <pre>com.gemini.mis.implementations.LNSAImplementation.verifyOrder(LNSAImplementation.java:168)<br />com.gemini.mis.pages.LNSAPage.verifyOrder(LNSAPage.java:77)<br />com.gemini.mis.stepdefinitions.LNSASteps.verifyRowIsInOrder(LNSASteps.java:69)<br />io.cucumber.java.Invoker.doInvoke(Invoker.java:66)<br />io.cucumber.java.Invoker.invoke(Invoker.java:24)<br />io.cucumber.java.AbstractGlueDefinition.invokeMethod(AbstractGlueDefinition.java:47)<br />io.cucumber.java.JavaStepDefinition.execute(JavaStepDefinition.java:29)<br />io.cucumber.core.runner.CoreStepDefinition.execute(CoreStepDefinition.java:66)<br />io.cucumber.core.runner.PickleStepDefinitionMatch.runStep(PickleStepDefinitionMatch.java:63)<br />io.cucumber.core.runner.TestStep.executeStep(TestStep.java:86)<br />io.cucumber.core.runner.TestStep.run(TestStep.java:57)<br />io.cucumber.core.runner.PickleStepTestStep.run(PickleStepTestStep.java:51)<br />io.cucumber.core.runner.TestCase.run(TestCase.java:95)<br />io.cucumber.core.runner.Runner.runPickle(Runner.java:75)<br />io.cucumber.core.runtime.CucumberExecutionContext.lambda$runTestCase$3(CucumberExecutionContext.java:151)<br />io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:23)<br />io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:151)<br />io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:144)<br />io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:28)<br />io.cucumber.junit.FeatureRunner.run(FeatureRunner.java:137)<br />io.cucumber.junit.CucumberSerenityRunner.runChild(CucumberSerenityRunner.java:258)<br />io.cucumber.junit.CucumberSerenityRunner.runChild(CucumberSerenityRunner.java:58)<br />worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)<br />worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)<br /></pre>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+                <div class="panel-body">
+                    <a href="#" target="_blank" class="btn btn-info">HTML Source</a>
+                </div>
+            </div>
+        <div class="slider-wrapper theme-default">
+            <div id="slider">
+                <img src="edfdefff7c6183a2fe0d799125a67d805b04b7a36ea76097d148cdd3e817b8c9.png" title=" Given User logins into MIS Beta application with username &quot;jasleen.multani&quot; and password &quot;Gemini@123&quot;" width="1366"/>
+                <img src="edfdefff7c6183a2fe0d799125a67d805b04b7a36ea76097d148cdd3e817b8c9.png" title=" Verify login msg" width="1366"/>
+                <img src="edfdefff7c6183a2fe0d799125a67d805b04b7a36ea76097d148cdd3e817b8c9.png" title=" Enter username: jasleen.multani" width="1366"/>
+                <img src="0322784acbfe8ad1f8c8068bb78a788bc3d8d1e27d843d68264bbd01082b011b.png" title=" Enter username: jasleen.multani (completed)" width="1366"/>
+                <img src="0322784acbfe8ad1f8c8068bb78a788bc3d8d1e27d843d68264bbd01082b011b.png" title=" Enter password: Gemini@123" width="1366"/>
+                <img src="f30786f4ec3e0c57e3bbf0ca1adfbcf61870892be72709ea5ef28023f79bf9f3.png" title=" Enter password: Gemini@123 (completed)" width="1366"/>
+                <img src="ab7a42a0c17cd38813568e18b51ef1406ba466686963fd548517aac0c176b9a1.png" title=" Verify dashboard" width="1366"/>
+                <img src="681466064bcf93916a238219dbc5d651fed3de880b8ad6e070aebb8371d37406.png" title=" Verify dashboard (completed)" width="1366"/>
+                <img src="681466064bcf93916a238219dbc5d651fed3de880b8ad6e070aebb8371d37406.png" title=" Given User logins into MIS Beta application with username &quot;jasleen.multani&quot; and password &quot;Gemini@123&quot; (completed)" width="1366"/>
+                <img src="768ce4c2b8d6eb4ad1667633441d49ef1826166d0994ac3864313e59e488ab51.png" title=" When User Clicks on &quot;View Request Status&quot; tab of &quot;LNSA&quot; tab" width="1366"/>
+                <img src="768ce4c2b8d6eb4ad1667633441d49ef1826166d0994ac3864313e59e488ab51.png" title=" Navigate to tab: View Request Status, LNSA" width="1366"/>
+                <img src="768ce4c2b8d6eb4ad1667633441d49ef1826166d0994ac3864313e59e488ab51.png" title=" When User Clicks on &quot;View Request Status&quot; tab of &quot;LNSA&quot; tab (completed)" width="1366"/>
+                <img src="561d74b665724953825b0f69cea5dd148fa7524baba07eb098ad06991d367916.png" title=" Then Verify View Request Status tab opens" width="1366"/>
+                <img src="561d74b665724953825b0f69cea5dd148fa7524baba07eb098ad06991d367916.png" title=" Verify view request status tab open" width="1366"/>
+                <img src="561d74b665724953825b0f69cea5dd148fa7524baba07eb098ad06991d367916.png" title=" Then Verify View Request Status tab opens (completed)" width="1366"/>
+                <img src="2ddf577d54fa5b87da3b090ae0f82eeb20af74b9533fe054cb7f9a762ef6251a.png" title=" When User clicks on &quot;From Date&quot; row" width="1366"/>
+                <img src="2ddf577d54fa5b87da3b090ae0f82eeb20af74b9533fe054cb7f9a762ef6251a.png" title=" Click row: From Date" width="1366"/>
+                <img src="2ddf577d54fa5b87da3b090ae0f82eeb20af74b9533fe054cb7f9a762ef6251a.png" title=" When User clicks on &quot;From Date&quot; row (completed)" width="1366"/>
+                <img src="2ddf577d54fa5b87da3b090ae0f82eeb20af74b9533fe054cb7f9a762ef6251a.png" title=" Then Verify &quot;From Date&quot; row is in &quot;descending&quot; order" width="1366"/>
+                <img src="2ddf577d54fa5b87da3b090ae0f82eeb20af74b9533fe054cb7f9a762ef6251a.png" title=" Verify order: From Date, descending" width="1366"/>
+                <img src="85f3d045eaeb87821708d35c08f2a75da46dfdea1f0d417f73df421bdffabaa6.png" title=" When User clicks on &quot;From Date&quot; row" width="1366"/>
+                <img src="85f3d045eaeb87821708d35c08f2a75da46dfdea1f0d417f73df421bdffabaa6.png" title=" Click row: From Date" width="1366"/>
+                <img src="85f3d045eaeb87821708d35c08f2a75da46dfdea1f0d417f73df421bdffabaa6.png" title=" When User clicks on &quot;From Date&quot; row (completed)" width="1366"/>
+                <img src="85f3d045eaeb87821708d35c08f2a75da46dfdea1f0d417f73df421bdffabaa6.png" title=" Then Verify &quot;From Date&quot; row is in &quot;ascending&quot; order" width="1366"/>
+                <img src="85f3d045eaeb87821708d35c08f2a75da46dfdea1f0d417f73df421bdffabaa6.png" title=" Verify order: From Date, ascending" width="1366"/>
+                <img src="4f48a6e0ca4b5d9eb3f71cbc966b17554be9859a40599f557c618943f3bd4c43.png" title=" When User clicks on &quot;Till Date&quot; row" width="1366"/>
+                <img src="4f48a6e0ca4b5d9eb3f71cbc966b17554be9859a40599f557c618943f3bd4c43.png" title=" Click row: Till Date" width="1366"/>
+                <img src="4f48a6e0ca4b5d9eb3f71cbc966b17554be9859a40599f557c618943f3bd4c43.png" title=" When User clicks on &quot;Till Date&quot; row (completed)" width="1366"/>
+                <img src="4f48a6e0ca4b5d9eb3f71cbc966b17554be9859a40599f557c618943f3bd4c43.png" title=" Then Verify &quot;Till Date&quot; row is in &quot;descending&quot; order" width="1366"/>
+                <img src="4f48a6e0ca4b5d9eb3f71cbc966b17554be9859a40599f557c618943f3bd4c43.png" title=" Verify order: Till Date, descending" width="1366"/>
+                <img src="1c7c0d1abc899ad8032644e0ebb3c035d1e77e4d38b74c561c2aa4954d8fa8fe.png" title=" When User clicks on &quot;Till Date&quot; row" width="1366"/>
+                <img src="1c7c0d1abc899ad8032644e0ebb3c035d1e77e4d38b74c561c2aa4954d8fa8fe.png" title=" Click row: Till Date" width="1366"/>
+                <img src="1c7c0d1abc899ad8032644e0ebb3c035d1e77e4d38b74c561c2aa4954d8fa8fe.png" title=" When User clicks on &quot;Till Date&quot; row (completed)" width="1366"/>
+                <img src="1c7c0d1abc899ad8032644e0ebb3c035d1e77e4d38b74c561c2aa4954d8fa8fe.png" title=" Then Verify &quot;Till Date&quot; row is in &quot;ascending&quot; order" width="1366"/>
+                <img src="1c7c0d1abc899ad8032644e0ebb3c035d1e77e4d38b74c561c2aa4954d8fa8fe.png" title=" Verify order: Till Date, ascending" width="1366"/>
+                <img src="1c7c0d1abc899ad8032644e0ebb3c035d1e77e4d38b74c561c2aa4954d8fa8fe.png" title=" When User clicks on &quot;No of Days&quot; row" width="1366"/>
+                <img src="1c7c0d1abc899ad8032644e0ebb3c035d1e77e4d38b74c561c2aa4954d8fa8fe.png" title=" Click row: No of Days" width="1366"/>
+                <img src="1c7c0d1abc899ad8032644e0ebb3c035d1e77e4d38b74c561c2aa4954d8fa8fe.png" title=" Then Verify &quot;No of Days&quot; row is in &quot;descending&quot; order" width="1366"/>
+                <img src="1c7c0d1abc899ad8032644e0ebb3c035d1e77e4d38b74c561c2aa4954d8fa8fe.png" title=" Verify order: No of Days, descending: <span class='failing-color'>FAILURE</span>" width="1366"/>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<div id="beforefooter"></div>
+<div id="bottomfooter">
+    <span class="version">Serenity BDD version 3.2.5</span>
+</div>
+</body>
+</html>
