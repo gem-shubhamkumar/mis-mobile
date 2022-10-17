@@ -4,6 +4,7 @@ Feature: Perform actions on Dashboard of MIS website
     Given Navigate to MIS Beta Application
     And Login to MIS with credentials "amisha.srivastava" "Gemini@123"
 
+  @Test @TC01 @Dashboard @MyAttendanceCard
   Scenario: Select a month and verify
     Then Open "Dashboard" page
     And Verify "Dashboard" page of type "Main"
