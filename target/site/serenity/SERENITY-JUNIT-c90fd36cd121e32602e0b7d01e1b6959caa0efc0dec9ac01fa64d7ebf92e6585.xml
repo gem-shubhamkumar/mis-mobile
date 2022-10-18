@@ -1,1 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><testsuite errors="0" failures="0" name="MIS Leave Management Activities &gt; Apply" skipped="0" tests="2" time="154.85" timestamp="2022-10-15 12:09:30"><testcase name="Navigate to Leave Management &gt; LWP Change Request tab"/><testcase name="Verify Date, Type of leave and Reason fields are mandatory"/></testsuite>

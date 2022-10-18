@@ -1,1 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><testsuite errors="0" failures="0" name="LNSA" skipped="0" tests="3" time="287.77" timestamp="2022-10-15 02:48:40"><testcase name="Cancel Submit Window"/><testcase name="Submit Blank LNSA"/><testcase name="Submit Valid LNSA"/></testsuite>

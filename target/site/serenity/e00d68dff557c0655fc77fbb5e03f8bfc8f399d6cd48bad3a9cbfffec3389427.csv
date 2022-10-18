@@ -1,7 +1,0 @@
-"Story","Title","Result","Date","Stability","Duration (s)"
-"Reimbursement","Reimbursement Add new request function","ERROR","2022-10-15T21:56:19.073+05:30[Asia/Calcutta]","0.0","42.24"
-"Reimbursement","Verify we are able to check if warning pop up is visible","ERROR","2022-10-15T21:58:58.366+05:30[Asia/Calcutta]","0.0","42.25"
-"Reimbursement","Verify warning for more than one reimbursement in a month","ERROR","2022-10-15T21:59:40.641+05:30[Asia/Calcutta]","0.0","43.49"
-"Reimbursement","Validation for cancel button functionality","FAILURE","2022-10-15T22:02:49.598+05:30[Asia/Calcutta]","0.0","41.5"
-"Reimbursement","Reimbursement Add new request function save draft functionality","ERROR","2022-10-15T22:03:31.13+05:30[Asia/Calcutta]","0.0","80.34"
-"Reimbursement","Verify wrong extension warning pop up is visible","ERROR","2022-10-15T22:05:24.649+05:30[Asia/Calcutta]","0.0","43.25"

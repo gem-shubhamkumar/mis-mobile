@@ -1,7 +1,0 @@
-"Story","Title","Result","Date","Stability","Duration (s)"
-"DashboardReferral","Verify if dashboard page is loaded properly and JD window is visible","SUCCESS","2022-10-15T20:46:23.642+05:30[Asia/Calcutta]","0.0","32.09"
-"DashboardReferral","Create referral red error field validation","SUCCESS","2022-10-15T20:46:55.744+05:30[Asia/Calcutta]","0.0","24.49"
-"DashboardReferral","Validation of resume popup in my referral card","SUCCESS","2022-10-15T20:47:44.332+05:30[Asia/Calcutta]","0.0","18.72"
-"DashboardReferral","Validation of wrong email popup","SUCCESS","2022-10-15T20:48:03.063+05:30[Asia/Calcutta]","0.0","23.37"
-"DashboardReferral","Validation of FAQ pdf visibility","SUCCESS","2022-10-15T20:48:45.509+05:30[Asia/Calcutta]","0.0","22.4"
-"DashboardReferral","Validation of manual pdf visibility","SUCCESS","2022-10-15T20:49:07.938+05:30[Asia/Calcutta]","0.0","22.75"

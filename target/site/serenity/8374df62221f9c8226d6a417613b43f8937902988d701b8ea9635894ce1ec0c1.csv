@@ -1,7 +1,0 @@
-"Story","Title","Result","Date","Stability","Duration (s)"
-"Automation of  View Document and view shared document Submenu in knowledge base menu in MIS Dashboard","On Knowledge Base navigate to view documents and verify add New Documents Tag Icon Present and functional","FAILURE","2022-10-15T20:57:21.44+05:30[Asia/Calcutta]","0.0","20.48"
-"Automation of  View Document and view shared document Submenu in knowledge base menu in MIS Dashboard","Knowledge base view documents add new folder testcase to check folder functionality","FAILURE","2022-10-15T20:58:58.392+05:30[Asia/Calcutta]","0.0","28.61"
-"Automation of  View Document and view shared document Submenu in knowledge base menu in MIS Dashboard","Filling all the fields and no documents attached","FAILURE","2022-10-15T21:02:11.16+05:30[Asia/Calcutta]","0.0","20.84"
-"Automation of  View Document and view shared document Submenu in knowledge base menu in MIS Dashboard","goto View shared documents and verify view functionality","FAILURE","2022-10-15T21:07:55.193+05:30[Asia/Calcutta]","0.0","15.99"
-"Automation of  View Document and view shared document Submenu in knowledge base menu in MIS Dashboard","check the sorting functionality in view shared documents","FAILURE","2022-10-15T21:08:11.902+05:30[Asia/Calcutta]","0.0","18.77"
-"Automation of  View Document and view shared document Submenu in knowledge base menu in MIS Dashboard","check search bar functionality in view shared documents","FAILURE","2022-10-15T21:08:49.533+05:30[Asia/Calcutta]","0.0","74.45"

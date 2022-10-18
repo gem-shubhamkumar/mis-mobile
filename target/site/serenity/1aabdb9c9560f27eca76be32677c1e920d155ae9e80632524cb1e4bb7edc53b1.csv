@@ -1,5 +1,0 @@
-"Story","Title","Result","Date","Stability","Duration (s)"
-"Automation of  View Document and view shared document Submenu in knowledge base menu in MIS Dashboard","check add new document after right click invalid doc type","ERROR","2022-10-15T21:00:45.312+05:30[Asia/Calcutta]","0.0","42.5"
-"Automation of  View Document and view shared document Submenu in knowledge base menu in MIS Dashboard","Upload a valid document after filling all the fields","ERROR","2022-10-15T21:01:27.823+05:30[Asia/Calcutta]","0.0","43.32"
-"Automation of  View Document and view shared document Submenu in knowledge base menu in MIS Dashboard","Filling all the fields and no documents attached","FAILURE","2022-10-15T21:02:11.16+05:30[Asia/Calcutta]","0.0","20.84"
-"Automation of  View Document and view shared document Submenu in knowledge base menu in MIS Dashboard","Upload a file without filling all the fields","ERROR","2022-10-15T21:02:32.006+05:30[Asia/Calcutta]","0.0","42.59"

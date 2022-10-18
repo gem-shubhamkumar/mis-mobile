@@ -1,4 +1,0 @@
-"Story","Title","Result","Date","Stability","Duration (s)"
-"Perform actions on TimeSheet of MIS website","Verify Save button is present and working","SUCCESS","2022-10-15T22:07:24.719+05:30[Asia/Calcutta]","0.0","22.69"
-"Perform actions on TimeSheet of MIS website","Verify timesheet status","SUCCESS","2022-10-15T22:08:02.304+05:30[Asia/Calcutta]","0.0","22.78"
-"Perform actions on TimeSheet of MIS website","Open previous and next week timesheet","SUCCESS","2022-10-15T22:08:26.155+05:30[Asia/Calcutta]","0.0","28.73"
