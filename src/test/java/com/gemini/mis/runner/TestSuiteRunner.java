@@ -6,8 +6,8 @@ import org.junit.runner.RunWith;
 
 @RunWith(CucumberSerenityRunner.class)
 @CucumberOptions(
-        features = "src/test/resources/features/DashboardAttendance.feature" , glue = "com/gemini/mis/stepdefinitions",
-        tags = "@TC01"
+        features = "src/test/resources/features" , glue = "com/gemini/mis/stepdefinitions",
+        tags = "@otherPortalTest01"
 )
 public class TestSuiteRunner
 {
