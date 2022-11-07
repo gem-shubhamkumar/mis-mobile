@@ -121,8 +121,8 @@ public class TimeSheetPage {
     }
 
     @Step
-    public void verifyEditTemplate(String Name, String Description, String Team, String Task) {
-        timeImpl.verifyEditTemplate(Name, Description, Team, Task);
+    public void EditTemplate(String Name, String Description, String Team, String Task) {
+        timeImpl.EditTemplate(Name, Description, Team, Task);
     }
 
     @Step
