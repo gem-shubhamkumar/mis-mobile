@@ -483,6 +483,7 @@ public class TimeSheetImpl extends PageObject {
     }
 
     public void clickEditTemplate(String txtUniqueIdentifier) {
+        waitABit(1000);
         By btnEditTaskTemplate = By.xpath(ts.xpathBtnEditTaskTemplate.replace("VAR", txtUniqueIdentifier));
         if($(btnEditTaskTemplate).isDisplayed()){
             log.info("Edit task template button displayed");
@@ -510,7 +511,7 @@ public class TimeSheetImpl extends PageObject {
         }
     }
 
-    public void verifyEditTemplate(String Name, String Description, String Team, String Task) {
+    public void EditTemplate(String Name, String Description, String Team, String Task) {
         if ($(ts.btnUpdate).isDisplayed()) {
             log.info("Update button displayed");
             if(!Name.equals("") && !Description.equals("")) {
