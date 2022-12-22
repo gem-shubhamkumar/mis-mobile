@@ -91,6 +91,7 @@ public class NavBarSteps extends PageObject {
 
 
 
+
     @Then("^Verify skill card window is closed$")
     public void verifySkillCardWindowIsClosed() {
         accountPage.verifyElementIsNotVisible("Add skills window");

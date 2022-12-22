@@ -6,7 +6,8 @@ import org.junit.runner.RunWith;
 
 @RunWith(CucumberSerenityRunner.class)
 @CucumberOptions(
-        features = "src/test/resources/features" , glue = "com/gemini/mis/stepdefinitions"
+        features = "src/test/resources/features" , glue = "com/gemini/mis/stepdefinitions",
+        tags = "@LeaveBalance3"
 )
 
 public class TestSuiteRunner
