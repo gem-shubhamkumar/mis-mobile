@@ -5,17 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="92e1b9bf-80c8-4ff2-b93d-27e793321e97" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/checksums/md5-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/checksums/sha1-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/gemini/mis/implementations/FeedbackImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/gemini/mis/implementations/FeedbackImplementation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/gemini/mis/runner/TestSuiteRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/gemini/mis/runner/TestSuiteRunner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/gemini/mis/selectors/ApplyToAnyCardLocators.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/gemini/mis/selectors/ApplyToAnyCardLocators.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/gemini/mis/selectors/FeedbackSelectors.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/gemini/mis/selectors/FeedbackSelectors.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/gemini/mis/pages/FeedbackPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/gemini/mis/pages/FeedbackPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/gemini/mis/stepdefinitions/FeedbackSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/gemini/mis/stepdefinitions/FeedbackSteps.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/gemini/mis/stepdefinitions/MISDashboardProfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/gemini/mis/stepdefinitions/MISDashboardProfile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/ApplyToAnyCard.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/ApplyToAnyCard.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/gemini/mis/stepdefinitions/LNSASteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/gemini/mis/stepdefinitions/LNSASteps.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/resources/features/Feedback.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/Feedback.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/MISDashboardProfile.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/MISDashboardProfile.feature" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/resources/features/MISLogin.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/MISLogin.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/serenity.conf" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/serenity.conf" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +37,9 @@
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
         <projects_view>
           <tree_state>
             <expand />
@@ -42,7 +52,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="mis-Divya" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -50,18 +60,19 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
+  </component>
   <component name="ProjectId" id="2IttxLgbyI7dyz4FIBq7CoCv5lk" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
-  }
-}</component>
-  <component name="RunManager" selected="Gradle.TestSuiteRunner">
+  <component name="PropertiesComponent">
+    <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
+  </component>
+  <component name="RunManager">
     <configuration name="Feature: MISLogin" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="5" />
       <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/MISLogin.feature" />
@@ -209,10 +220,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.TestSuiteRunner" />
+        <item itemvalue="Cucumber Java.Scenario: User verifies elements of Login page" />
+        <item itemvalue="Cucumber Java.Feature: MISLogin" />
         <item itemvalue="Cucumber Java.Scenario: User clicks on forgot password and enters invalid username." />
         <item itemvalue="Cucumber Java.Scenario: Submit a Blank Feedback" />
-        <item itemvalue="Cucumber Java.Feature: MISLogin" />
-        <item itemvalue="Cucumber Java.Scenario: User verifies elements of Login page" />
       </list>
     </recent_temporary>
   </component>
@@ -237,26 +248,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/com/gemini/mis/stepdefinitions/MISDashboardProfile.java</url>
-          <line>37</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/com/gemini/mis/pages/LoginPage.java</url>
-          <line>38</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/com/gemini/mis/implementations/FeedbackImplementation.java</url>
-          <line>190</line>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

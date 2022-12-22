@@ -16,7 +16,6 @@ public class FeedbackPage {
 
         feedbackImplementation.verifySubmitFeedbackTabOpen();
 
-
     }
 
     @Step
