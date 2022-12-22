@@ -9,17 +9,17 @@ Feature: MIS Forms- View Forms scenarios
 
  #1
   Scenario Outline: Open View Forms Page
-
     Given User clicks on tab "<parent Tab>" and "<child Tab>"
     Then User verifies element "<elementOne>"
     And User verifies element "<elementTwo>"
     Then User verifies element "<elementThree>"
     And User closes application
     Examples:
-      | parent Tab | child Tab |elementOne|elementTwo|elementThree|
-      |Forms       |View Form  |View Forms|Form Name |Action      |
+      | parent Tab | child Tab | elementOne | elementTwo | elementThree |
+      | Forms      | View Form | View Forms | Form Name  | Action       |
 
 #2
+  @First
   Scenario Outline: Check presence of Previous and Next Btn
     Given User clicks on tab "<parent Tab>" and "<child Tab>"
     Then User verifies element "<elementOne>"
@@ -28,7 +28,7 @@ Feature: MIS Forms- View Forms scenarios
     And User closes application
     Examples:
       | parent Tab | child Tab | elementOne | elementTwo | elementThree |
-      |Forms       |View Form  |Previous    |Next        |1             |
+      | Forms      | View Form | Previous   | Next       | 1            |
 
 #3
   Scenario Outline: User selects a department
@@ -38,8 +38,8 @@ Feature: MIS Forms- View Forms scenarios
     And User selects the element "<elementTwo>"
     And User closes application
     Examples:
-      | parent Tab | child Tab | elementOne | elementTwo |
-      |Forms       |View Form  |Quality Assurance|Quality Assurance|
+      | parent Tab | child Tab | elementOne        | elementTwo        |
+      | Forms      | View Form | Quality Assurance | Quality Assurance |
 
 #4
   Scenario Outline: User select number of entries
@@ -48,7 +48,7 @@ Feature: MIS Forms- View Forms scenarios
     And User closes application
     Examples:
       | parent Tab | child Tab | element |
-      |Forms       |View Form  |25       |
+      | Forms      | View Form | 25      |
 
 #5
   Scenario Outline: User enters valid value in search field
@@ -57,8 +57,8 @@ Feature: MIS Forms- View Forms scenarios
     Then User verifies element "<element>"
     And User closes application
     Examples:
-      | parent Tab | child Tab | value | element |
-      |Forms       |View Form  |Rei|Reimbursement Form|
+      | parent Tab | child Tab | value | element            |
+      | Forms      | View Form | Rei   | Reimbursement Form |
 
 #6
   Scenario Outline: User enters invalid value in search field
@@ -67,8 +67,8 @@ Feature: MIS Forms- View Forms scenarios
     Then User verifies element "<element>"
     And User closes application
     Examples:
-      | parent Tab | child Tab | value | element |
-      |Forms       |View Form  |hii    |No matching records found|
+      | parent Tab | child Tab | value | element                   |
+      | Forms      | View Form | hii   | No matching records found |
 
 #7
   Scenario Outline: User clicks on eye button to view policy
@@ -77,7 +77,7 @@ Feature: MIS Forms- View Forms scenarios
     And User closes application
     Examples:
       | parent Tab | child Tab |
-      |Forms       |View Form  |
+      | Forms      | View Form |
 
 #8
   Scenario Outline: User downloads document
@@ -85,8 +85,8 @@ Feature: MIS Forms- View Forms scenarios
     Then User downloads file and deletes "<fileName>"
     And User closes application
     Examples:
-      | parent Tab | child Tab |fileName|
-      |Forms       |View Form  |Loyalty Redemption Form|
+      | parent Tab | child Tab | fileName                |
+      | Forms      | View Form | Loyalty Redemption Form |
 
 
 
@@ -98,12 +98,9 @@ Feature: MIS Forms- View Forms scenarios
     Then User verifies element "<elementOne>"
     And User verifies element "<elementTwo>"
     Then User verifies element "<elementThree>"
-    Then User verifies element "<elementFour>"
-    Then User verifies element "<elementFive>"
-    #Then User verifies element "<elementSix>"
     Examples:
       | parent Tab | child Tab | elementOne | elementTwo | elementThree | elementFour | elementFive | elementSix |
-      |Forms |My Form          |My Form     |Form        |My Form       |Status       |Uploaded On  |Action      |
+      | Forms      | My Form   | My Form    | Form       | My Form      | Status      | Uploaded On | Action     |
 
  #10
   Scenario Outline: User uploads Incorrect File
@@ -115,36 +112,36 @@ Feature: MIS Forms- View Forms scenarios
     And User closes application
 
     Examples:
-      | parent Tab | child Tab | fileLoc |Warning Message|
-      |Forms       |My Form |C:\\Users\\ch.srivastava\\OneDrive - Gemini Solutions\\Desktop\\client-Logo.png|Invalid file selected. Supported extensions are .xlsx,.xls,.pdf|
+      | parent Tab | child Tab | fileLoc                                        | Warning Message                                                 |
+      | Forms      | My Form   | src\\test\\resources\\FileUpload\\LOGOFILE.png | Invalid file selected. Supported extensions are .xlsx,.xls,.pdf |
 
 #11
   Scenario Outline: User Uploads correct File
     Given User clicks on tab "<parent Tab>" and "<child Tab>"
     Then User Clicks on upload Btn
     And User Selects form Type "<Form Type>"
-    And And User uploads  file "<fileLoc>"
+    And And User uploads correct  file "<fileLoc>"
     Then User saves the file
     Then User verifies element "<Success Message>"
     And User closes appeared popup
     And User closes application
     Examples:
-      | parent Tab | child Tab | Form Type | fileLoc | Success Message |
-      |Forms       |My Form    |Employee Achievement  |C:\\Users\\ch.srivastava\Downloads\\MIS_Scenarios.xlsx|Your form has been uploaded successfully|
+      | parent Tab | child Tab | Form Type            | fileLoc                                                       | Success Message                          |
+      | Forms      | My Form   | Employee Achievement | src\\test\\resources\\FileUpload\\Loyalty Redemption Form.pdf | Your form has been uploaded successfully |
 
 #12
-Scenario Outline: User uploads file and selects number of entries
-  Given User clicks on tab "<parent Tab>" and "<child Tab>"
-  Then User Clicks on upload Btn
-  And User Selects form Type "<Form Type>"
-  And And User uploads  file "<fileLoc>"
-  Then User saves the file
-  Then User verifies element "<Warning Message>"
-  And User closes appeared popup
-  And User closes application
-  Examples:
-    | parent Tab | child Tab | Form Type | fileLoc | Warning Message |
-    |Forms       |My Form    |Employee Achievement |C:\\Users\\ch.srivastava\Downloads\\MIS_Scenarios.xlsx|File with same name already exists|
+  Scenario Outline: User uploads file and selects number of entries
+    Given User clicks on tab "<parent Tab>" and "<child Tab>"
+    Then User Clicks on upload Btn
+    And User Selects form Type "<Form Type>"
+    And And User uploads  file "<fileLoc>"
+    Then User saves the file
+    Then User verifies element "<Warning Message>"
+    And User closes appeared popup
+    And User closes application
+    Examples:
+      | parent Tab | child Tab | Form Type            | fileLoc                                                       | Warning Message                    |
+      | Forms      | My Form   | Employee Achievement | src\\test\\resources\\FileUpload\\Loyalty Redemption Form.pdf | File with same name already exists |
 
 
 #13
@@ -154,8 +151,8 @@ Scenario Outline: User uploads file and selects number of entries
     Then User verifies element "<element>"
     And User closes application
     Examples:
-      | parent Tab | child Tab | value | element |
-      |Forms       | My Form  |Employee |Employee Achievement Form FY 2018.docx|
+      | parent Tab | child Tab | value    | element                                |
+      | Forms      | My Form   | Employee | Employee Achievement Form FY 2018.docx |
 
 #14
   Scenario Outline: User enters an invalid value in My Forms search field
@@ -164,25 +161,25 @@ Scenario Outline: User uploads file and selects number of entries
     Then User verifies element "<element>"
     And User closes application
     Examples:
-      | parent Tab | child Tab | value | element |
-      |Forms       | My Form  |Hello |No matching records found|
+      | parent Tab | child Tab | value | element                   |
+      | Forms      | My Form   | Hello | No matching records found |
 
 #15
   Scenario Outline: User hover over and clicks on deactivate Button
     Given User clicks on tab "<parent Tab>" and "<child Tab>"
+    Then User clicks on row to expand the details
     Then User hover over deactivate button and clicks it
     And User closes application
 
     Examples:
       | parent Tab | child Tab |
-      |Forms       | My Form  |
+      | Forms      | My Form   |
 
 #16
-
   Scenario Outline: User downloads from My Forms page
     Given User clicks on tab "<parent Tab>" and "<child Tab>"
     Then User verifies element "<ColumnName>" downloads file and deletes "<fileName>"
     And User closes application
     Examples:
-      | parent Tab | child Tab | ColumnName | fileName |
-      |Forms       |My Form    |Action       |Loyalty Redemption Form|
+      | parent Tab | child Tab | ColumnName | fileName                               |
+      | Forms      | My Form   | Action     | Employee Achievement Form FY 2018.docx |
