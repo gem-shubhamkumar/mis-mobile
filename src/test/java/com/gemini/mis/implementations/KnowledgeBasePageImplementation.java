@@ -506,6 +506,7 @@ public class KnowledgeBasePageImplementation extends PageObject {
                 WebElement elem1 = $(selector.newFolder123);
                 actions.contextClick(elem1).perform();
                 Assert.assertTrue("Right click performed and menu displayed", true);
+                break;
             case "subFolder":
                 WebElement subFolderElem = $(selector.subFolder);
                 actions.contextClick(subFolderElem).perform();
@@ -522,22 +523,22 @@ public class KnowledgeBasePageImplementation extends PageObject {
         switch (fileType) {
             case "htmlFile":
                 LOGGER.info("Uploading invalid type file(html File)");
-                $(selector.docUpload).sendKeys("C:\\Users\\ar.mishra\\Desktop\\MISAutomatio\\src\\test\\resources\\Result_2022_Aug_01_204842_970197.html");
-                break;
+                $(selector.docUpload).sendKeys("C:\\Users\\dell\\Desktop\\Sample.html");
+//                break;
 
             case "validFile":
                 LOGGER.info("Uploading valid excel file.");
-                $(selector.docUpload).sendKeys("C:\\Users\\ar.mishra\\Desktop\\MISAutomatio\\src\\test\\resources\\EJ_Offshore_QA_exercises.xlsx");
-                break;
+                $(selector.docUpload).sendKeys("C:\\Users\\dell\\Desktop\\Sample.xlsx");
+//                break;
 
             case "title":
                 LOGGER.info("Uploading title of the file");
                 $(selector.fileTitle).sendKeys("Title of the file");
-                break;
+//                break;
             case "description":
                 LOGGER.info("Uploading description of the file.");
                 $(selector.fileDesc).sendKeys("Description of the file");
-                break;
+//                break;
             default:
                 break;
 

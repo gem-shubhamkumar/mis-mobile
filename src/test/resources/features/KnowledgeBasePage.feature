@@ -229,7 +229,7 @@ Feature: Automation of  View Document and view shared document Submenu in knowle
     Scenario Outline: Check rename functionality for folder on right click
     When Goto "knowledge base" and click on "view document"
     Then right click on "<targetElement>"
-    Then click on "<renButton>" option after right click
+    Then rename folder with "<renButton>"
     Examples:
     |targetElement|renButton|
     |NewFolder123|Rename|
