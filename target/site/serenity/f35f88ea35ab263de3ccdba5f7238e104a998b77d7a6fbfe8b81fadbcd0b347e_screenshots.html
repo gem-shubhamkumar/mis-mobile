@@ -1,0 +1,306 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Screenshots</title>
+
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+<link rel="stylesheet" href="bootstrap-icons/font/bootstrap-icons.css"><!-- JQuery -->
+<script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script><!-- Required Stylesheets -->
+<link href="bootstrap-treeview/dist/bootstrap-treeview.min.css" rel="stylesheet">
+
+<!-- Required Javascript -->
+<script src="bootstrap-treeview/dist/bootstrap-treeview.min.js"></script><!-- DataTables -->
+<link type="text/css" href="datatables/1.11.3/datatables.min.css" rel="stylesheet" />
+<script type="text/javascript" src="datatables/1.11.3/datatables.min.js"></script>
+<script type="text/javascript" src="datatables/1.11.3/time-elapsed-dhms.js"></script>
+
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
+
+<script>
+    jQuery.fn.dataTable.ext.type.order['time-elapsed-dhms-pre'] = function(data) {
+
+        var matches = data.match(/^(\d+(?:\.\d+)?)\s*([a-z]+)/i);
+        var multipliers = {
+            ms: 1,
+            s: 1000,
+            m: 60000,
+            h: 3600000,
+            d: 86400000
+        };
+
+        if (matches) {
+            var multiplier = multipliers[matches[2].toLowerCase()];
+            return parseFloat(matches[1]) * multiplier;
+        } else {
+            return -1;
+        };
+    };
+</script>
+<link rel="stylesheet" href="css/core.css"/>
+<link rel="stylesheet" href="css/link.css"/>
+<link type="text/css" media="screen" href="css/screen.css" rel="Stylesheet"/>
+<!--CHART.JS-->
+<script src="chartjs/chart.js"></script>
+<script src="chartjs/chartjs-plugin-datalabels@2.0.0"></script>
+<script src="chartjs/patternomaly.min.js"></script>
+<script>
+    // Register the plugin to all charts:
+    Chart.register(ChartDataLabels);
+</script>
+<!-- Nivo Slider -->
+<link rel="stylesheet" href="nivo-slider/3.2/nivo-slider.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="nivo-slider/3.2/themes/default/default.css" type="text/css" media="screen" />
+<script src="nivo-slider/3.2/jquery.nivo.slider.pack.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+
+        function getUrlVars() {
+            var vars = {};
+            var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
+                vars[key] = value;
+            });
+            return vars;
+        }
+
+        var screenshotIndex = getUrlVars()["screenshot"];
+
+        $(window).load(function () {
+            $('#slider').nivoSlider({
+                startSlide: screenshotIndex,
+                effect: 'fade',
+                animSpeed: 200,
+                manualAdvance: true
+            });
+        });
+
+        $(window).keydown(function(e) {
+            switch(e.which) {
+                case 37:
+                    $('a.nivo-prevNav').click();
+                    break;
+                case 39:
+                    $('a.nivo-nextNav').click();
+                    break;
+            }
+        });
+    </script>
+
+</head>
+
+<body>
+<div id="topheader">
+    <div id="topbanner">
+        <div id="logo"><a href="index.html"><img src="images/serenity-logo.png" border="0"/></a></div>
+        <div id="projectname-banner" style="float:right">
+            <span class="projectname">
+                <span class="projecttitle">MIS Automation</span>
+                <span class="projectsubtitle"></span>
+            </span>
+        </div>
+    </div>
+</div>
+
+<div class="middlecontent">
+    <div id="contenttop">
+        <div class="middlebg">
+            <span class="breadcrumbs">
+                <a href="index.html">Home</a>
+                > <span class="truncate-40"><a
+                    href="d3ee36efe673cc4b6b9fab881da252f297a4db965f32ef916f9fe1b96499bdec.html">MIS Dashboard Profile Module Scenarios</a></span>
+                > <span class="truncate-60"><a
+                    href="f35f88ea35ab263de3ccdba5f7238e104a998b77d7a6fbfe8b81fadbcd0b347e.html">User Changes Password Successfully </a></span>
+                > Screenshots
+            </span>
+        </div>
+        <div class="rightbg"></div>
+    </div>
+
+    <div class="clr"></div>
+
+    <!--/* starts second table*/-->
+<div>
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#"><i class="bi bi-journal-check"></i> Overall Test Results</a>
+        </li>
+        <li >
+            <a href="capabilities.html"><i class="bi bi-journal-text"></i> Requirements</a>
+        </li>
+        <li >
+            <a href="576946480b52ad056d6f5bddf874399c83582ecf90963cc074a14c70580e7d9f.html"><i class="bi bi-chat-text"></i> Features</a>
+        </li>
+    </ul>
+    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 17-12-2022 21:17</span>
+    <br style="clear:left"/>
+</div>
+
+    <div class="clr"></div>
+
+
+    <div id="contentbody">
+        <div class="titlebar">
+            <div class="story-title">
+                <table class="outcome-header">
+                    <tr>
+                        <td>
+                            <div>
+                                <h3 class="discreet-story-header">
+                                    <i class="fs-2 bi bi-chat-left-quote large-icon"></i>
+                                    <span class="story-header-title">MIS Dashboard Profile Module Scenarios </span>
+                                    <span class="badge tag-badge" style="">Feature</span>
+                                </h3>
+
+                                <div class="discreet-requirement-narrative-title">
+                                
+                                </div>
+                            </div>
+
+                            <div class="requirementNarrative">Background: User verifies Login Page Elements Before Login
+                                    <p></p>
+                            </div>
+                        </td>
+                        <td valign="top" align="right">
+                            <p class="tag">
+                                <span class="badge tag-badge" style="background:default;"
+                                    <i class="bi bi-tag-fill"></i>&nbsp;<a class="tagLink" style="background:default;" href="418c37e552b1a4f19b81d752f025c47bae2b12c5162ca56ad0a0477dcba4b628.html">Profile Module
+                                    (tag)</a>
+                                </span>
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="story-title">
+                <table class="outcome-header">
+                    <tr>
+                        <td colspan="2" class="test-title-bar">
+                            <span class="outcome-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon fa-2x' title='SUCCESS'></i></a></span>
+                            <span class="test-case-title">
+                                <span class="success-color">User Changes Password Successfully
+                                    <span class="related-issue-title"></span>
+                                </span>
+                            </span>
+
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="clr"></div>
+
+    <div class="story-title">
+        <h3>Scenario:</h3>
+        <div class="scenario">Given User clicks on edit button<br>Then User verifies element "&lt;elementOne&gt;"<br>Then User clicks on field "&lt;Change Password&gt;"<br>And User edits value "&lt;LocationOne&gt;" as "&lt;Old Password&gt;"<br>And User edits value "&lt;LocationTwo&gt;" as "&lt;New Password&gt;"<br>And User edits value "&lt;LocationThree&gt;" as "&lt;Confirm Password&gt;"<br>And User closes the pop up</div>
+    </div>
+
+    <div id="beforetable"></div>
+    <div id="contenttilttle">
+        <div class="slider-wrapper theme-default">
+            <div id="slider">
+                <img src="71ad714ece0bca415020a6552b3e2cef9a3f3846f312b7eb27c1865097747605.png" title=" 1: User Changes Password Successfully ({elementOne=Update Profile, Change Password=Change Password, LocationOne=txtOldPassword, Old Password=Gemini@12345, LocationTwo=txtNewPassword, New Password=Gemini@1234, LocationThree=txtconfirmPassword, Confirm Password=Gemini@1234, element=Success})" width="1920"/>
+                <img src="71ad714ece0bca415020a6552b3e2cef9a3f3846f312b7eb27c1865097747605.png" title=" Given User opens MIS Beta page &quot;https://mymis.geminisolutions.com/&quot;" width="1920"/>
+                <img src="71ad714ece0bca415020a6552b3e2cef9a3f3846f312b7eb27c1865097747605.png" title=" Navigating to MIS Beta Homepage" width="1920"/>
+                <img src="71ad714ece0bca415020a6552b3e2cef9a3f3846f312b7eb27c1865097747605.png" title=" Given User opens MIS Beta page &quot;https://mymis.geminisolutions.com/&quot; (completed)" width="1920"/>
+                <img src="71ad714ece0bca415020a6552b3e2cef9a3f3846f312b7eb27c1865097747605.png" title=" Given User enters Username as &quot;charu.srivastava&quot;" width="1920"/>
+                <img src="71ad714ece0bca415020a6552b3e2cef9a3f3846f312b7eb27c1865097747605.png" title=" Enter Username and Password" width="1920"/>
+                <img src="97604b73fa7de25b48bab7ea2afd4f1e2c592be475ab68d053cccf575fdbf3bf.png" title=" Enter Username and Password (completed)" width="1920"/>
+                <img src="97604b73fa7de25b48bab7ea2afd4f1e2c592be475ab68d053cccf575fdbf3bf.png" title=" Given User enters Username as &quot;charu.srivastava&quot; (completed)" width="1920"/>
+                <img src="97604b73fa7de25b48bab7ea2afd4f1e2c592be475ab68d053cccf575fdbf3bf.png" title=" And User enters Password as &quot;Gemini@123&quot;" width="1920"/>
+                <img src="97604b73fa7de25b48bab7ea2afd4f1e2c592be475ab68d053cccf575fdbf3bf.png" title=" Enter Username and Password" width="1920"/>
+                <img src="60894790b14c40c410e8a1cfeeff5fa397e5695cd6ecf821bf1aa6398a610984.png" title=" Enter Username and Password (completed)" width="1920"/>
+                <img src="60894790b14c40c410e8a1cfeeff5fa397e5695cd6ecf821bf1aa6398a610984.png" title=" And User enters Password as &quot;Gemini@123&quot; (completed)" width="1920"/>
+                <img src="60894790b14c40c410e8a1cfeeff5fa397e5695cd6ecf821bf1aa6398a610984.png" title=" Then User clicks on sign in" width="1920"/>
+                <img src="60894790b14c40c410e8a1cfeeff5fa397e5695cd6ecf821bf1aa6398a610984.png" title=" customWait for an Element" width="1920"/>
+                <img src="60894790b14c40c410e8a1cfeeff5fa397e5695cd6ecf821bf1aa6398a610984.png" title=" customWait Till myElement is visible" width="1920"/>
+                <img src="60894790b14c40c410e8a1cfeeff5fa397e5695cd6ecf821bf1aa6398a610984.png" title=" Click on Element" width="1920"/>
+                <img src="c6ca06aa762347e006b85f0fcf635ff74e16d11e0fc8b70162ad757e50738fca.png" title=" Click on Element (completed)" width="1920"/>
+                <img src="c6ca06aa762347e006b85f0fcf635ff74e16d11e0fc8b70162ad757e50738fca.png" title=" Then User clicks on sign in (completed)" width="1920"/>
+                <img src="c6ca06aa762347e006b85f0fcf635ff74e16d11e0fc8b70162ad757e50738fca.png" title=" And User Verifies Landing Page" width="1920"/>
+                <img src="c6ca06aa762347e006b85f0fcf635ff74e16d11e0fc8b70162ad757e50738fca.png" title=" customWait Till myElement is visible" width="1920"/>
+                <img src="34671e717cb5baa1f9a59c99a51ef8f3469a19f8a3a3f16cc03f30666b79a4f3.png" title=" customWait Till myElement is visible (completed)" width="1920"/>
+                <img src="34671e717cb5baa1f9a59c99a51ef8f3469a19f8a3a3f16cc03f30666b79a4f3.png" title=" And User Verifies Landing Page (completed)" width="1920"/>
+                <img src="34671e717cb5baa1f9a59c99a51ef8f3469a19f8a3a3f16cc03f30666b79a4f3.png" title=" Given User clicks on edit button" width="1920"/>
+                <img src="34671e717cb5baa1f9a59c99a51ef8f3469a19f8a3a3f16cc03f30666b79a4f3.png" title=" customWait for an Element" width="1920"/>
+                <img src="c74e3bc602fa9aa2a153e49ac3f6accb3d232fb2383f4d046350c52e6769db36.png" title=" customWait for an Element (completed)" width="1920"/>
+                <img src="c74e3bc602fa9aa2a153e49ac3f6accb3d232fb2383f4d046350c52e6769db36.png" title=" Verify that myElement is displayed" width="1920"/>
+                <img src="bd646e0e4c49f9bec96104098c9c0429de45680fc8b20e65f9803dc60e97f062.png" title=" Verify that myElement is displayed (completed)" width="1920"/>
+                <img src="bd646e0e4c49f9bec96104098c9c0429de45680fc8b20e65f9803dc60e97f062.png" title=" customWait Till myElement is visible" width="1920"/>
+                <img src="91b040b84507b1a93b6026ab16eb68c12eb74814704ff9c0458bd702013d040f.png" title=" customWait Till myElement is visible (completed)" width="1920"/>
+                <img src="91b040b84507b1a93b6026ab16eb68c12eb74814704ff9c0458bd702013d040f.png" title=" customWait for an Element" width="1920"/>
+                <img src="1cb7572b9e789a14dbf77e022a55b4a9be00c34c6bce10d728bdd249674b2f64.png" title=" customWait for an Element (completed)" width="1920"/>
+                <img src="1cb7572b9e789a14dbf77e022a55b4a9be00c34c6bce10d728bdd249674b2f64.png" title=" Click on Element" width="1920"/>
+                <img src="3ed4b980fd2e654d9caa624316f8e2e58c9aeb4139f62c816993f5b7eba96f92.png" title=" Click on Element (completed)" width="1920"/>
+                <img src="3ed4b980fd2e654d9caa624316f8e2e58c9aeb4139f62c816993f5b7eba96f92.png" title=" Given User clicks on edit button (completed)" width="1920"/>
+                <img src="3ed4b980fd2e654d9caa624316f8e2e58c9aeb4139f62c816993f5b7eba96f92.png" title=" Then User verifies element &quot;Update Profile&quot;" width="1920"/>
+                <img src="8c6be66ad44ca9cb824f188eb973902d13207fba139d002c4c1ab785aff3e0a4.png" title=" customWait for an Element" width="1920"/>
+                <img src="5240c3f97584046ee2199f9ec9a62a23592b027dfe725f5c88fadf2d8c477630.png" title=" customWait for an Element (completed)" width="1920"/>
+                <img src="5240c3f97584046ee2199f9ec9a62a23592b027dfe725f5c88fadf2d8c477630.png" title=" Verify that myElement is displayed" width="1920"/>
+                <img src="5240c3f97584046ee2199f9ec9a62a23592b027dfe725f5c88fadf2d8c477630.png" title=" Then User verifies element &quot;Update Profile&quot; (completed)" width="1920"/>
+                <img src="5240c3f97584046ee2199f9ec9a62a23592b027dfe725f5c88fadf2d8c477630.png" title=" Then User clicks on field &quot;Change Password&quot;" width="1920"/>
+                <img src="5240c3f97584046ee2199f9ec9a62a23592b027dfe725f5c88fadf2d8c477630.png" title=" customWait for an Element" width="1920"/>
+                <img src="5240c3f97584046ee2199f9ec9a62a23592b027dfe725f5c88fadf2d8c477630.png" title=" Click on Element" width="1920"/>
+                <img src="8185c46b15c681c651f4db38bbbee7c81b90adb322ffd118752bbdc09875bfc9.png" title=" Click on Element (completed)" width="1920"/>
+                <img src="8185c46b15c681c651f4db38bbbee7c81b90adb322ffd118752bbdc09875bfc9.png" title=" Then User clicks on field &quot;Change Password&quot; (completed)" width="1920"/>
+                <img src="8185c46b15c681c651f4db38bbbee7c81b90adb322ffd118752bbdc09875bfc9.png" title=" And User edits value &quot;txtOldPassword&quot; as &quot;Gemini@12345&quot;" width="1920"/>
+                <img src="8185c46b15c681c651f4db38bbbee7c81b90adb322ffd118752bbdc09875bfc9.png" title=" Click on Element" width="1920"/>
+                <img src="6fbdbe289a840538d16b338425d553d0a9b038eed1aaaf642e65f18c2318adea.png" title=" Click on Element (completed)" width="1920"/>
+                <img src="6fbdbe289a840538d16b338425d553d0a9b038eed1aaaf642e65f18c2318adea.png" title=" Select all and delete" width="1920"/>
+                <img src="6fbdbe289a840538d16b338425d553d0a9b038eed1aaaf642e65f18c2318adea.png" title=" Enter Username and Password" width="1920"/>
+                <img src="5bd89ecff964f1d7bd44141b306cb056e620547d2f66b7c769625d70a971b247.png" title=" Enter Username and Password (completed)" width="1920"/>
+                <img src="5bd89ecff964f1d7bd44141b306cb056e620547d2f66b7c769625d70a971b247.png" title=" And User edits value &quot;txtOldPassword&quot; as &quot;Gemini@12345&quot; (completed)" width="1920"/>
+                <img src="5bd89ecff964f1d7bd44141b306cb056e620547d2f66b7c769625d70a971b247.png" title=" And User edits value &quot;txtNewPassword&quot; as &quot;Gemini@1234&quot;" width="1920"/>
+                <img src="21864c89ad320ede95f775209c068b578b7be6f1f757342bc15d12a2ad6b6b8b.png" title=" Click on Element" width="1920"/>
+                <img src="3bf1335a8899fc3f4141b26cbf7594dda765209d5b1920013a3a0dc98abd3a59.png" title=" Click on Element (completed)" width="1920"/>
+                <img src="3bf1335a8899fc3f4141b26cbf7594dda765209d5b1920013a3a0dc98abd3a59.png" title=" Select all and delete" width="1920"/>
+                <img src="3bf1335a8899fc3f4141b26cbf7594dda765209d5b1920013a3a0dc98abd3a59.png" title=" Enter Username and Password" width="1920"/>
+                <img src="983a3f35aca19c9818e758b6c26d06e2bc01e3bcd548bd478896c8c5bb71d3f5.png" title=" Enter Username and Password (completed)" width="1920"/>
+                <img src="983a3f35aca19c9818e758b6c26d06e2bc01e3bcd548bd478896c8c5bb71d3f5.png" title=" And User edits value &quot;txtNewPassword&quot; as &quot;Gemini@1234&quot; (completed)" width="1920"/>
+                <img src="983a3f35aca19c9818e758b6c26d06e2bc01e3bcd548bd478896c8c5bb71d3f5.png" title=" And User edits value &quot;txtconfirmPassword&quot; as &quot;Gemini@1234&quot;" width="1920"/>
+                <img src="983a3f35aca19c9818e758b6c26d06e2bc01e3bcd548bd478896c8c5bb71d3f5.png" title=" Click on Element" width="1920"/>
+                <img src="ce2af68c825e298de6e95dc618dc7e82495a58889b96e52dd3de75e6ae8fdf71.png" title=" Click on Element (completed)" width="1920"/>
+                <img src="ce2af68c825e298de6e95dc618dc7e82495a58889b96e52dd3de75e6ae8fdf71.png" title=" Select all and delete" width="1920"/>
+                <img src="ce2af68c825e298de6e95dc618dc7e82495a58889b96e52dd3de75e6ae8fdf71.png" title=" Enter Username and Password" width="1920"/>
+                <img src="9e16d1038abc51fff1ee26ec007b30d44b3d53179e6eccca0775a4c512bd361d.png" title=" Enter Username and Password (completed)" width="1920"/>
+                <img src="9e16d1038abc51fff1ee26ec007b30d44b3d53179e6eccca0775a4c512bd361d.png" title=" And User edits value &quot;txtconfirmPassword&quot; as &quot;Gemini@1234&quot; (completed)" width="1920"/>
+                <img src="9e16d1038abc51fff1ee26ec007b30d44b3d53179e6eccca0775a4c512bd361d.png" title=" And User closes the pop up" width="1920"/>
+                <img src="9e16d1038abc51fff1ee26ec007b30d44b3d53179e6eccca0775a4c512bd361d.png" title=" customWait for an Element" width="1920"/>
+                <img src="01e15bbbe8667828d049d19bfdafc2bc82fa75d2974e2b5c962f9d17a95ec431.png" title=" customWait for an Element (completed)" width="1920"/>
+                <img src="01e15bbbe8667828d049d19bfdafc2bc82fa75d2974e2b5c962f9d17a95ec431.png" title=" Click on Element" width="1920"/>
+                <img src="e82c5218da1de655d31928fd2adf91440379eea52d1df06a533a213036831e41.png" title=" Click on Element (completed)" width="1920"/>
+                <img src="e82c5218da1de655d31928fd2adf91440379eea52d1df06a533a213036831e41.png" title=" And User closes the pop up (completed)" width="1920"/>
+                <img src="e82c5218da1de655d31928fd2adf91440379eea52d1df06a533a213036831e41.png" title=" 1: User Changes Password Successfully ({elementOne=Update Profile, Change Password=Change Password, LocationOne=txtOldPassword, Old Password=Gemini@12345, LocationTwo=txtNewPassword, New Password=Gemini@1234, LocationThree=txtconfirmPassword, Confirm Password=Gemini@1234, element=Success}) (completed): <span class='success-color'>SUCCESS</span>" width="1920"/>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<div id="beforefooter"></div>
+<div id="bottomfooter">
+    <span class="version">Serenity BDD version 3.2.5</span>
+</div>
+</body>
+</html>

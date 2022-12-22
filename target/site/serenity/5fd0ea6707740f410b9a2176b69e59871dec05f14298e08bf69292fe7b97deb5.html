@@ -1,0 +1,1600 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>Features</title>
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+<!--[if IE 7]>
+<!--<link rel="stylesheet" href="font-awesome/css/font-awesome-ie7.min.css">-->
+
+<link rel="stylesheet" type="text/css" href="fontawesome-free-5.7.2-web/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="fontawesome-free-5.7.2-web/css/v4-shims.min.css">
+
+<!-- JQuery -->
+<script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script><link rel="stylesheet" type="text/css" href="chartist/chartist-plugin-tooltip/dist/chartist-plugin-tooltip.min.css">
+<link rel="stylesheet" type="text/css" href="chartist/dist/chartist.min.css">
+<script src="chartist/dist/chartist.min.js"></script>
+<script src="chartist/chartist-plugin-tooltip/dist/chartist-plugin-tooltip.min.js"></script>
+<!-- Required Stylesheets -->
+<link href="bootstrap-treeview/dist/bootstrap-treeview.min.css" rel="stylesheet">
+
+<!-- Required Javascript -->
+<script src="bootstrap-treeview/dist/bootstrap-treeview.min.js"></script><!-- DataTables -->
+<link type="text/css" href="datatables/1.10.20/datatables.min.css" rel="stylesheet" />
+<script type="text/javascript" src="datatables/1.10.20/datatables.min.js"></script>
+<script type="text/javascript" src="datatables/1.10.20/time-elapsed-dhms.js"></script>
+
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="datatables/1.10.20/datatables.bootstrap4.min.js"></script>
+<link type="text/css" href="datatables/1.10.20/datatables.bootstrap4.min.css" rel="stylesheet" />
+
+<script>
+    jQuery.fn.dataTable.ext.type.order['time-elapsed-dhms-pre'] = function(data) {
+
+        var matches = data.match(/^(\d+(?:\.\d+)?)\s*([a-z]+)/i);
+        var multipliers = {
+            ms: 1,
+            s: 1000,
+            m: 60000,
+            h: 3600000,
+            d: 86400000
+        };
+
+        if (matches) {
+            var multiplier = multipliers[matches[2].toLowerCase()];
+            return parseFloat(matches[1]) * multiplier;
+        } else {
+            return -1;
+        };
+    };
+</script>
+<link rel="stylesheet" href="css/core.css"/>
+<link rel="stylesheet" href="css/link.css"/>
+<link type="text/css" media="screen" href="css/screen.css" rel="Stylesheet"/><!-- JQuery-UI -->
+<link type="text/css" href="jqueryui/1.11.2-start/jquery-ui.min.css" rel="Stylesheet" />
+<script type="text/javascript" src="jqueryui/1.11.2-start/jquery-ui.min.js"></script><!-- DataTables -->
+<link type="text/css" href="datatables/1.10.20/datatables.min.css" rel="stylesheet" />
+<script type="text/javascript" src="datatables/1.10.20/datatables.min.js"></script>
+<script type="text/javascript" src="datatables/1.10.20/time-elapsed-dhms.js"></script>
+
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="datatables/1.10.20/datatables.bootstrap4.min.js"></script>
+<link type="text/css" href="datatables/1.10.20/datatables.bootstrap4.min.css" rel="stylesheet" />
+
+<script>
+    jQuery.fn.dataTable.ext.type.order['time-elapsed-dhms-pre'] = function(data) {
+
+        var matches = data.match(/^(\d+(?:\.\d+)?)\s*([a-z]+)/i);
+        var multipliers = {
+            ms: 1,
+            s: 1000,
+            m: 60000,
+            h: 3600000,
+            d: 86400000
+        };
+
+        if (matches) {
+            var multiplier = multipliers[matches[2].toLowerCase()];
+            return parseFloat(matches[1]) * multiplier;
+        } else {
+            return -1;
+        };
+    };
+</script>
+
+
+
+    <script>
+
+        $(document).ready(function () {
+
+            var scenarioTable = $('.scenario-result-table').DataTable({
+
+                "order": [],
+                "language": {
+                    searchPlaceholder: "Filter",
+                    search: ""
+                }
+            });
+
+            $('.example-table table').DataTable({
+                searching: false,
+                ordering: false,
+                paging: false,
+                info: false
+            });
+
+            $('.example-table-in-scenario table').DataTable({
+                searching: false,
+                ordering: false,
+                paging: false,
+                info: false
+            });
+
+            $('#evidence-table').DataTable(
+                {
+                    searching: false,
+                    ordering: false,
+                    paging: false,
+                    info: false
+                }
+            );
+
+
+            $(".scenario-docs .card-body table").wrap("<div class='table-responsive'></div>");
+
+            $("#requirements-tabs").tabs();
+            $("#test-tabs").tabs();
+
+            var requirementsTree = [{"text":"Reimbursement","type":"feature","href":"5fd0ea6707740f410b9a2176b69e59871dec05f14298e08bf69292fe7b97deb5.html","nodes":[],"selectable":false,"tags":["\u003ca href\u003d\u0027##beforetable\u0027\u003e\u003ci class\u003d\u0027far fa-stop-circle pending-icon \u0027 title\u003d\u0027PENDING\u0027\u003e\u003c/i\u003e\u003c/a\u003e","\u003cspan class\u003d\u0027feature-count\u0027\u003e14 scenarios\u003c/span\u003e"]}];
+
+            $('#tree').treeview({
+                data: requirementsTree,
+                enableLinks: true,
+                levels:10,
+                showTags: true,
+                expandIcon: "glyphicon glyphicon-folder-close",
+                collapseIcon: "glyphicon glyphicon-folder-open",
+                emptyIcon: "glyphicon glyphicon-book"
+            });
+
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $(".scenario-docs > div > p").html(function () {
+                var text = $(this).text().trim().split(" ");
+                var first = text.shift();
+                return (text.length > 0 ? "<strong>" + first + "</strong> " : first) + text.join(" ");
+            });
+        });
+    </script>
+</head>
+
+<body class="results-page">
+<div id="topheader">
+    <div id="topbanner">
+        <div id="logo"><a href="index.html"><img src="images/serenity-logo.png" border="0"/></a></div>
+        <div id="projectname-banner" style="float:right">
+            <span class="projectname">
+                <span class="projecttitle">MIS Automation</span>
+                <span class="projectsubtitle"></span>
+            </span>
+        </div>
+    </div>
+</div>
+
+
+<div class="middlecontent">
+    <div id="contenttop">
+        <div class="middlebg">
+            <span class="breadcrumbs">
+            <a href='index.html'>Home</a> > <a href="capabilities.html">Requirements</a>
+
+
+
+                    > <span class="truncate-40">Reimbursement</span>
+
+            </span>
+        </div>
+        <div class="rightbg"></div>
+    </div>
+    <div class="clr"></div>
+
+    <!--/* starts second table*/-->
+
+<div>
+    <ul class="nav nav-tabs" role="tablist">
+        <li >
+            <a href="index.html"><i class="fa fa-check-square-o"></i> Overall Test Results</a>
+        </li>
+        <li >
+            <a href="capabilities.html"><i class="fa fa-book"></i> Requirements</a>
+        </li>
+        <li class="active">
+            <a href="#"><i class="fa fa-comments-o"></i> Features</a>
+        </li>
+    </ul>
+    <span class="date-and-time"><a href="build-info.html"><i class="fa fa-info-circle"></i></a> Report generated 16-12-2022 10:21</span>
+    <br style="clear:left"/>
+</div>
+
+    <div class="clr"></div>
+
+    <div id="beforetable"></div>
+    <div id="results-dashboard">
+        <div class="table">
+            <div class=row">
+                <div class="col-sm-12">
+                    <div>
+                        <div clas="table">
+                            <div class="row">
+                                <div class="col-sm-8">
+                                        <span>
+                                            <h2><i class="fa fa-book"></i> Feature:  Reimbursement</h2>
+                                        </span>
+                                    </div>
+                                        <div class="col-sm-4">
+                                        <span class="feature-tags">
+                                                <p class="tag">
+                                                    <span class="badge tag-badge" style="background:default;">
+                                                        <i class="fa fa-tag"></i>&nbsp;<a class="tagLink"
+                                                                                          style="background:default;"
+                                                                                          href="78f1cde0bbc137cff62b99bda9bd09576609094f4baf70af1b24999113517f92.html">Reimbursement Test15
+                                                        (tag)</a>
+                                                    </span>
+                                                </p>
+                                                <p class="tag">
+                                                    <span class="badge tag-badge" style="background:default;">
+                                                        <i class="fa fa-tag"></i>&nbsp;<a class="tagLink"
+                                                                                          style="background:default;"
+                                                                                          href="9c6a097d10ab4fa84924b583e3fe819ebd5f4a8d6b4b33213fa73fe9e62d3ad2.html">Reb
+                                                        (tag)</a>
+                                                    </span>
+                                                </p>
+                                        </span>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                            <div class="requirementNarrativeTitle">
+                                
+                            </div>
+
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-sm-12">
+
+                        <!-- Requirements result tabs -->
+                        <ul class="nav nav-tabs">
+                            <li class="active">
+                                <a data-toggle="tab" href="#specs"><i class="fas fa-comments"></i> Specifications</a>
+                            </li>
+                            <li>
+                                <a data-toggle="tab" href="#results"><i class="fas fa-tachometer-alt"></i> Test Results</a>
+                            </li>
+                        </ul>
+
+                        <!-- Specifications and Results tabs -->
+                        <div class="card border">
+                            <div class="tab-content" id="pills-tabContent">
+                                <div id="specs" class="tab-pane fade in active">
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-sm-12">
+
+                                                    <!--- TOC --->
+                                                    <div id="toc">
+                                                        <h3>Overview</h3>
+                                                        <table class="table" id="toc-table">
+                                                                        <tr>
+                                                                            <td style="width:95%;" class="toc-title">
+                                                                                <span class="orphan-scenario-toc-entry">
+                                                                                    <a href="#9974a08fcb8d330ea696a115cd405f922ea8fa4f2dd7fa11e1a597978237ae21" title="View scenario details">
+                                                                                        <i class="far fa-comment-dots"></i> Scenario: Reimbursement Add new request function
+                                                                                    </a>
+                                                                                        (1 example)
+                                                                                </span>
+                                                                            </td>
+                                                                            <td style="width:5%;">
+                                                                                <table>
+                                                                                    <tr>
+                                                                                        <td>
+                                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                               href="1fc856cf11160a07f15cfb6c2019e9285ed7c8f0cc4d37645118655ffa5725f2.html"
+                                                                                               title="View test results">
+                                                                                                <a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a>
+                                                                                                </a>
+
+
+                                                                                        </td>
+                                                                                            <td>
+                                                                                                <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                                   href="1fc856cf11160a07f15cfb6c2019e9285ed7c8f0cc4d37645118655ffa5725f2.html"
+                                                                                                   title="View test results">
+                                                                                                    <i class="fas fa-search-plus"></i>
+                                                                                                </a>
+                                                                                            </td>
+                                                                                    </tr>
+                                                                                </table>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td style="width:95%;" class="toc-title">
+                                                                                <span class="orphan-scenario-toc-entry">
+                                                                                    <a href="#8969b6dbcb8898a5765748dc4af90ebaedd68c0cc27f0f0ab510be310c398603" title="View scenario details">
+                                                                                        <i class="far fa-comment-dots"></i> Scenario: Reimbursement main page validations
+                                                                                    </a>
+                                                                                        (1 example)
+                                                                                </span>
+                                                                            </td>
+                                                                            <td style="width:5%;">
+                                                                                <table>
+                                                                                    <tr>
+                                                                                        <td>
+                                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                               href="0a8184eb324219768e72399d158f12fb214d6520cd5cd6d10b40478091dfe601.html"
+                                                                                               title="View test results">
+                                                                                                <a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a>
+                                                                                                </a>
+
+
+                                                                                        </td>
+                                                                                            <td>
+                                                                                                <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                                   href="0a8184eb324219768e72399d158f12fb214d6520cd5cd6d10b40478091dfe601.html"
+                                                                                                   title="View test results">
+                                                                                                    <i class="fas fa-search-plus"></i>
+                                                                                                </a>
+                                                                                            </td>
+                                                                                    </tr>
+                                                                                </table>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td style="width:95%;" class="toc-title">
+                                                                                <span class="orphan-scenario-toc-entry">
+                                                                                    <a href="#ab2fad3ef0396c781efc8856c6e44008e157a5c79285adb02c27f33af3a691ad" title="View scenario details">
+                                                                                        <i class="far fa-comment-dots"></i> Scenario: Verify if search box is working
+                                                                                    </a>
+                                                                                        (1 example)
+                                                                                </span>
+                                                                            </td>
+                                                                            <td style="width:5%;">
+                                                                                <table>
+                                                                                    <tr>
+                                                                                        <td>
+                                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                               href="ef7d29d8dc3d0747cb39b575621728c597cb5ce77a64ef12fc492fa7126d81da.html"
+                                                                                               title="View test results">
+                                                                                                <a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a>
+                                                                                                </a>
+
+
+                                                                                        </td>
+                                                                                            <td>
+                                                                                                <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                                   href="ef7d29d8dc3d0747cb39b575621728c597cb5ce77a64ef12fc492fa7126d81da.html"
+                                                                                                   title="View test results">
+                                                                                                    <i class="fas fa-search-plus"></i>
+                                                                                                </a>
+                                                                                            </td>
+                                                                                    </tr>
+                                                                                </table>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td style="width:95%;" class="toc-title">
+                                                                                <span class="orphan-scenario-toc-entry">
+                                                                                    <a href="#0ea37cf76d21dc760cb01882d02d6e91fbbcc671c9894bbc468a35d8e8809459" title="View scenario details">
+                                                                                        <i class="far fa-comment-dots"></i> Scenario: Verify if search box is working for no records found
+                                                                                    </a>
+                                                                                        (1 example)
+                                                                                </span>
+                                                                            </td>
+                                                                            <td style="width:5%;">
+                                                                                <table>
+                                                                                    <tr>
+                                                                                        <td>
+                                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                               href="a7fc58aaa07690f6dba3fac61a6ada1f6e1a7e63d3ec0a541b885b6ad06e5069.html"
+                                                                                               title="View test results">
+                                                                                                <a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a>
+                                                                                                </a>
+
+
+                                                                                        </td>
+                                                                                            <td>
+                                                                                                <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                                   href="a7fc58aaa07690f6dba3fac61a6ada1f6e1a7e63d3ec0a541b885b6ad06e5069.html"
+                                                                                                   title="View test results">
+                                                                                                    <i class="fas fa-search-plus"></i>
+                                                                                                </a>
+                                                                                            </td>
+                                                                                    </tr>
+                                                                                </table>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td style="width:95%;" class="toc-title">
+                                                                                <span class="orphan-scenario-toc-entry">
+                                                                                    <a href="#30633d030aa4ed9171a5f1e0d935f5640778b8a104605e9d4f8744de984164f3" title="View scenario details">
+                                                                                        <i class="far fa-comment-dots"></i> Scenario: Verify we are able to check if warning pop up is visible
+                                                                                    </a>
+                                                                                        (1 example)
+                                                                                </span>
+                                                                            </td>
+                                                                            <td style="width:5%;">
+                                                                                <table>
+                                                                                    <tr>
+                                                                                        <td>
+                                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                               href="9653b6660c019bf096c77a52bb1b8895ab5e795e2fb1f17d7ce2133c4f8ee399.html"
+                                                                                               title="View test results">
+                                                                                                <a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a>
+                                                                                                </a>
+
+
+                                                                                        </td>
+                                                                                            <td>
+                                                                                                <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                                   href="9653b6660c019bf096c77a52bb1b8895ab5e795e2fb1f17d7ce2133c4f8ee399.html"
+                                                                                                   title="View test results">
+                                                                                                    <i class="fas fa-search-plus"></i>
+                                                                                                </a>
+                                                                                            </td>
+                                                                                    </tr>
+                                                                                </table>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td style="width:95%;" class="toc-title">
+                                                                                <span class="orphan-scenario-toc-entry">
+                                                                                    <a href="#8f9279138b95292ad5205bbbc517e094c696663431bcb8a4ebaaa6e75b7933ad" title="View scenario details">
+                                                                                        <i class="far fa-comment-dots"></i> Scenario: Verify warning for more than one reimbursement in a month
+                                                                                    </a>
+                                                                                        (1 example)
+                                                                                </span>
+                                                                            </td>
+                                                                            <td style="width:5%;">
+                                                                                <table>
+                                                                                    <tr>
+                                                                                        <td>
+                                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                               href="b4a4dbcb37c72616e0e90c7805064aa3cce3517c9eef1f3e57b63d105e5f019a.html"
+                                                                                               title="View test results">
+                                                                                                <a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a>
+                                                                                                </a>
+
+
+                                                                                        </td>
+                                                                                            <td>
+                                                                                                <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                                   href="b4a4dbcb37c72616e0e90c7805064aa3cce3517c9eef1f3e57b63d105e5f019a.html"
+                                                                                                   title="View test results">
+                                                                                                    <i class="fas fa-search-plus"></i>
+                                                                                                </a>
+                                                                                            </td>
+                                                                                    </tr>
+                                                                                </table>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td style="width:95%;" class="toc-title">
+                                                                                <span class="orphan-scenario-toc-entry">
+                                                                                    <a href="#652543d7e971f99efbe46ebc74f43e5619035bc6b641b63fb0ae5c7839b371ee" title="View scenario details">
+                                                                                        <i class="far fa-comment-dots"></i> Scenario: Verify total amount is correct
+                                                                                    </a>
+                                                                                        (1 example)
+                                                                                </span>
+                                                                            </td>
+                                                                            <td style="width:5%;">
+                                                                                <table>
+                                                                                    <tr>
+                                                                                        <td>
+                                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                               href="2204fd227c7471c3e111c64a0d9adb70df7c0500dc93a68ab8afb82c0613352a.html"
+                                                                                               title="View test results">
+                                                                                                <a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a>
+                                                                                                </a>
+
+
+                                                                                        </td>
+                                                                                            <td>
+                                                                                                <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                                   href="2204fd227c7471c3e111c64a0d9adb70df7c0500dc93a68ab8afb82c0613352a.html"
+                                                                                                   title="View test results">
+                                                                                                    <i class="fas fa-search-plus"></i>
+                                                                                                </a>
+                                                                                            </td>
+                                                                                    </tr>
+                                                                                </table>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td style="width:95%;" class="toc-title">
+                                                                                <span class="orphan-scenario-toc-entry">
+                                                                                    <a href="#74e6ace66589b73817dd7797b23693b85040ba6593c5b9e3a148d5b8ec6d7e77" title="View scenario details">
+                                                                                        <i class="far fa-comment-dots"></i> Scenario: Validation Pdf export
+                                                                                    </a>
+                                                                                        (1 example)
+                                                                                </span>
+                                                                            </td>
+                                                                            <td style="width:5%;">
+                                                                                <table>
+                                                                                    <tr>
+                                                                                        <td>
+                                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                               href="a45a02d0cb96b84a323013ad550b4a4011a64b9454a4e2ca58db0b0112387da8.html"
+                                                                                               title="View test results">
+                                                                                                <a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a>
+                                                                                                </a>
+
+
+                                                                                        </td>
+                                                                                            <td>
+                                                                                                <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                                   href="a45a02d0cb96b84a323013ad550b4a4011a64b9454a4e2ca58db0b0112387da8.html"
+                                                                                                   title="View test results">
+                                                                                                    <i class="fas fa-search-plus"></i>
+                                                                                                </a>
+                                                                                            </td>
+                                                                                    </tr>
+                                                                                </table>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td style="width:95%;" class="toc-title">
+                                                                                <span class="orphan-scenario-toc-entry">
+                                                                                    <a href="#c2b053d3838866b64d20ba21972d85ba2df0aff860b281e1ce3d203e022eaf52" title="View scenario details">
+                                                                                        <i class="far fa-comment-dots"></i> Scenario: Validate if are able to navigate back to reimbursement main page
+                                                                                    </a>
+                                                                                        (1 example)
+                                                                                </span>
+                                                                            </td>
+                                                                            <td style="width:5%;">
+                                                                                <table>
+                                                                                    <tr>
+                                                                                        <td>
+                                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                               href="89a71ae7f7a22659b5ad0307112410634c3481bd45ddc601d5dedda3b0b5864c.html"
+                                                                                               title="View test results">
+                                                                                                <a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a>
+                                                                                                </a>
+
+
+                                                                                        </td>
+                                                                                            <td>
+                                                                                                <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                                   href="89a71ae7f7a22659b5ad0307112410634c3481bd45ddc601d5dedda3b0b5864c.html"
+                                                                                                   title="View test results">
+                                                                                                    <i class="fas fa-search-plus"></i>
+                                                                                                </a>
+                                                                                            </td>
+                                                                                    </tr>
+                                                                                </table>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td style="width:95%;" class="toc-title">
+                                                                                <span class="orphan-scenario-toc-entry">
+                                                                                    <a href="#13f07418d895d6169e7d94bbee7ce627b3270bf1e806a84ffe70cbf867b51305" title="View scenario details">
+                                                                                        <i class="far fa-comment-dots"></i> Scenario: Validation for action button visibility
+                                                                                    </a>
+                                                                                        (1 example)
+                                                                                </span>
+                                                                            </td>
+                                                                            <td style="width:5%;">
+                                                                                <table>
+                                                                                    <tr>
+                                                                                        <td>
+                                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                               href="6bb587859c4d1b63a3948e4356d00cd8af3ad9639993cc8b949875d4449e8fb7.html"
+                                                                                               title="View test results">
+                                                                                                <a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a>
+                                                                                                </a>
+
+
+                                                                                        </td>
+                                                                                            <td>
+                                                                                                <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                                   href="6bb587859c4d1b63a3948e4356d00cd8af3ad9639993cc8b949875d4449e8fb7.html"
+                                                                                                   title="View test results">
+                                                                                                    <i class="fas fa-search-plus"></i>
+                                                                                                </a>
+                                                                                            </td>
+                                                                                    </tr>
+                                                                                </table>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td style="width:95%;" class="toc-title">
+                                                                                <span class="orphan-scenario-toc-entry">
+                                                                                    <a href="#341eba47add4ba58a956e01b68babc3a31d290e511a3757fbcc8a6ae6e5cb55f" title="View scenario details">
+                                                                                        <i class="far fa-comment-dots"></i> Scenario: Validation for cancel button functionality
+                                                                                    </a>
+                                                                                        (1 example)
+                                                                                </span>
+                                                                            </td>
+                                                                            <td style="width:5%;">
+                                                                                <table>
+                                                                                    <tr>
+                                                                                        <td>
+                                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                               href="09b3cf5b5e1923ccbccb1be15807194ca72beec80063167c0084dff269192204.html"
+                                                                                               title="View test results">
+                                                                                                <a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a>
+                                                                                                </a>
+
+
+                                                                                        </td>
+                                                                                            <td>
+                                                                                                <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                                   href="09b3cf5b5e1923ccbccb1be15807194ca72beec80063167c0084dff269192204.html"
+                                                                                                   title="View test results">
+                                                                                                    <i class="fas fa-search-plus"></i>
+                                                                                                </a>
+                                                                                            </td>
+                                                                                    </tr>
+                                                                                </table>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td style="width:95%;" class="toc-title">
+                                                                                <span class="orphan-scenario-toc-entry">
+                                                                                    <a href="#639c13dcfad2376d439445cf4a99dd701e4dcf30e5a1fb0560d932d8d18318ad" title="View scenario details">
+                                                                                        <i class="far fa-comment-dots"></i> Scenario: Reimbursement Add new request function save draft functionality
+                                                                                    </a>
+                                                                                        (1 example)
+                                                                                </span>
+                                                                            </td>
+                                                                            <td style="width:5%;">
+                                                                                <table>
+                                                                                    <tr>
+                                                                                        <td>
+                                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                               href="89ed4fcb0754de195e8766de7d6993a29c01b32dd1e76b689ebe6163869af589.html"
+                                                                                               title="View test results">
+                                                                                                <a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a>
+                                                                                                </a>
+
+
+                                                                                        </td>
+                                                                                            <td>
+                                                                                                <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                                   href="89ed4fcb0754de195e8766de7d6993a29c01b32dd1e76b689ebe6163869af589.html"
+                                                                                                   title="View test results">
+                                                                                                    <i class="fas fa-search-plus"></i>
+                                                                                                </a>
+                                                                                            </td>
+                                                                                    </tr>
+                                                                                </table>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td style="width:95%;" class="toc-title">
+                                                                                <span class="orphan-scenario-toc-entry">
+                                                                                    <a href="#8b993112f80f443aac116799fb8d85c853b32b8347c543a2c82d5d9c3dfa6562" title="View scenario details">
+                                                                                        <i class="far fa-comment-dots"></i> Scenario: Verify if Copy functionality is working properly
+                                                                                    </a>
+                                                                                        (1 example)
+                                                                                </span>
+                                                                            </td>
+                                                                            <td style="width:5%;">
+                                                                                <table>
+                                                                                    <tr>
+                                                                                        <td>
+                                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                               href="4b5036becc580878bf6ff7c128fc7a42f085625ab3d3da30b79390f39be4ac90.html"
+                                                                                               title="View test results">
+                                                                                                <a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a>
+                                                                                                </a>
+
+
+                                                                                        </td>
+                                                                                            <td>
+                                                                                                <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                                   href="4b5036becc580878bf6ff7c128fc7a42f085625ab3d3da30b79390f39be4ac90.html"
+                                                                                                   title="View test results">
+                                                                                                    <i class="fas fa-search-plus"></i>
+                                                                                                </a>
+                                                                                            </td>
+                                                                                    </tr>
+                                                                                </table>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td style="width:95%;" class="toc-title">
+                                                                                <span class="orphan-scenario-toc-entry">
+                                                                                    <a href="#2716f12a0a195c1ac965729dfe5669d40e50f3637e38aca7c945ffb5e142b009" title="View scenario details">
+                                                                                        <i class="far fa-comment-dots"></i> Scenario: Verify wrong extension warning pop up is visible
+                                                                                    </a>
+                                                                                        (1 example)
+                                                                                </span>
+                                                                            </td>
+                                                                            <td style="width:5%;">
+                                                                                <table>
+                                                                                    <tr>
+                                                                                        <td>
+                                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                               href="1735c8fd2fa53bba150de1c6fa92cc8d834744746eacd5a36a3d40ad4e4fe618.html"
+                                                                                               title="View test results">
+                                                                                                <a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a>
+                                                                                                </a>
+
+
+                                                                                        </td>
+                                                                                            <td>
+                                                                                                <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                                   href="1735c8fd2fa53bba150de1c6fa92cc8d834744746eacd5a36a3d40ad4e4fe618.html"
+                                                                                                   title="View test results">
+                                                                                                    <i class="fas fa-search-plus"></i>
+                                                                                                </a>
+                                                                                            </td>
+                                                                                    </tr>
+                                                                                </table>
+                                                                            </td>
+                                                                        </tr>
+                                                        </table>
+                                                    </div>
+                                                    <!--- END OF TOC --->
+
+                                                    <h3>Scenarios</h3>
+
+                                                        <a name="7f5fe17b-8047-43ba-a15c-2bdf11d663e7" ></a>
+
+
+                                                            <div class="scenario-docs card" id="9974a08fcb8d330ea696a115cd405f922ea8fa4f2dd7fa11e1a597978237ae21">
+                                                                <div class="scenario-docs card-header pending"
+                                                                     style="min-height:1.5em;">
+                                                                    <div>
+                                                            <span class="scenario-heading">
+                                                                <a href="1fc856cf11160a07f15cfb6c2019e9285ed7c8f0cc4d37645118655ffa5725f2.html"
+                                                                   title="View test results">Scenario: Reimbursement Add new request function</a>
+                                                            </span>
+                                                                        <span class="scenario-result-icon">
+                                                                
+
+                                                                                <a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a>
+                                                            </span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="scenario-docs card-body">
+                                                                        <p>Then Click on &quot;{mainScreen}&quot; tab of &quot;{subsScreen}&quot; tab</p>
+                                                                        <p>Then Click on &quot;{buttonName}&quot;, &quot;{type}&quot;, &quot;{month}&quot; and select the drop down value for the current month</p>
+                                                                        <p>Then Upload the file with &quot;{FileName}&quot;, &quot;{FilePath}&quot; and validate &quot;{Description}&quot;, &quot;{BillNo}&quot;, &quot;{Date}&quot;,&quot;{reimbursementAmount}&quot;,&quot;{Amount}&quot; after filling the details</p>
+                                                                    <div class="examples">
+                                                                            <p><p>Examples:</p>
+<div class='example-table-in-scenario'><table>
+<thead>
+<tr><th>mainScreen</th><th>subsScreen</th><th>buttonName</th><th>type</th><th>month</th><th>FileName</th><th>FilePath</th><th>Description</th><th>BillNo</th><th>Date</th><th>reimbursementAmount</th><th>Amount</th><th></th></tr>
+</thead>
+<tbody>
+<tr><td>Reimbursement</td><td>MyReimbursement</td><td>New Request</td><td>Monthly</td><td>April 2022</td><td>LOGOFILE</td><td>C:\Users\si.porwal\Downloads\LOGOFILE.png</td><td>Gemini wire</td><td>1</td><td>04/20/2022</td><td>7500</td><td>7500</td><td> </td></tr>
+</tbody>
+</table></div>
+</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="scenario-docs card" id="8969b6dbcb8898a5765748dc4af90ebaedd68c0cc27f0f0ab510be310c398603">
+                                                                <div class="scenario-docs card-header pending"
+                                                                     style="min-height:1.5em;">
+                                                                    <div>
+                                                            <span class="scenario-heading">
+                                                                <a href="0a8184eb324219768e72399d158f12fb214d6520cd5cd6d10b40478091dfe601.html"
+                                                                   title="View test results">Scenario: Reimbursement main page validations</a>
+                                                            </span>
+                                                                        <span class="scenario-result-icon">
+                                                                
+
+                                                                                <a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a>
+                                                            </span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="scenario-docs card-body">
+                                                                        <p>Then Click on &quot;{mainScreen}&quot; tab of &quot;{subsScreen}&quot; tab</p>
+                                                                        <p>Then Select Drop Down values for current financial year and validate</p>
+                                                                        <p>Then Change and validate entries on page</p>
+                                                                        <p>Then Verify if Button is visible</p>
+                                                                        <p>Then Verify No. of Columns and print name of columns</p>
+                                                                    <div class="examples">
+                                                                            <p><p>Examples:</p>
+<div class='example-table-in-scenario'><table>
+<thead>
+<tr><th>mainScreen</th><th>subsScreen</th><th></th></tr>
+</thead>
+<tbody>
+<tr><td>Reimbursement</td><td>MyReimbursement</td><td> </td></tr>
+</tbody>
+</table></div>
+</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="scenario-docs card" id="ab2fad3ef0396c781efc8856c6e44008e157a5c79285adb02c27f33af3a691ad">
+                                                                <div class="scenario-docs card-header pending"
+                                                                     style="min-height:1.5em;">
+                                                                    <div>
+                                                            <span class="scenario-heading">
+                                                                <a href="ef7d29d8dc3d0747cb39b575621728c597cb5ce77a64ef12fc492fa7126d81da.html"
+                                                                   title="View test results">Scenario: Verify if search box is working</a>
+                                                            </span>
+                                                                        <span class="scenario-result-icon">
+                                                                
+
+                                                                                <a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a>
+                                                            </span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="scenario-docs card-body">
+                                                                        <p>Then Click on &quot;{mainScreen}&quot; tab of &quot;{subsScreen}&quot; tab</p>
+                                                                        <p>Then Validate you are able to search &quot;{value}&quot; value successfully</p>
+                                                                    <div class="examples">
+                                                                            <p><p>Examples:</p>
+<div class='example-table-in-scenario'><table>
+<thead>
+<tr><th>mainScreen</th><th>subsScreen</th><th>value</th><th></th></tr>
+</thead>
+<tbody>
+<tr><td>Reimbursement</td><td>MyReimbursement</td><td>234</td><td> </td></tr>
+</tbody>
+</table></div>
+</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="scenario-docs card" id="0ea37cf76d21dc760cb01882d02d6e91fbbcc671c9894bbc468a35d8e8809459">
+                                                                <div class="scenario-docs card-header pending"
+                                                                     style="min-height:1.5em;">
+                                                                    <div>
+                                                            <span class="scenario-heading">
+                                                                <a href="a7fc58aaa07690f6dba3fac61a6ada1f6e1a7e63d3ec0a541b885b6ad06e5069.html"
+                                                                   title="View test results">Scenario: Verify if search box is working for no records found</a>
+                                                            </span>
+                                                                        <span class="scenario-result-icon">
+                                                                
+
+                                                                                <a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a>
+                                                            </span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="scenario-docs card-body">
+                                                                        <p>Then Click on &quot;{mainScreen}&quot; tab of &quot;{subsScreen}&quot; tab</p>
+                                                                        <p>Then Validate you are able to search &quot;{value}&quot; value and validate no records found successfully</p>
+                                                                    <div class="examples">
+                                                                            <p><p>Examples:</p>
+<div class='example-table-in-scenario'><table>
+<thead>
+<tr><th>mainScreen</th><th>subsScreen</th><th>value</th><th></th></tr>
+</thead>
+<tbody>
+<tr><td>Reimbursement</td><td>MyReimbursement</td><td>23400</td><td> </td></tr>
+</tbody>
+</table></div>
+</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="scenario-docs card" id="30633d030aa4ed9171a5f1e0d935f5640778b8a104605e9d4f8744de984164f3">
+                                                                <div class="scenario-docs card-header pending"
+                                                                     style="min-height:1.5em;">
+                                                                    <div>
+                                                            <span class="scenario-heading">
+                                                                <a href="9653b6660c019bf096c77a52bb1b8895ab5e795e2fb1f17d7ce2133c4f8ee399.html"
+                                                                   title="View test results">Scenario: Verify we are able to check if warning pop up is visible</a>
+                                                            </span>
+                                                                        <span class="scenario-result-icon">
+                                                                
+
+                                                                                <a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a>
+                                                            </span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="scenario-docs card-body">
+                                                                        <p>Then Click on &quot;{mainScreen}&quot; tab of &quot;{subsScreen}&quot; tab</p>
+                                                                        <p>Then Verify warning after file upload of &quot;{FilePath}&quot;, &quot;{type}&quot;, &quot;{month}&quot; is visible</p>
+                                                                    <div class="examples">
+                                                                            <p><p>Examples:</p>
+<div class='example-table-in-scenario'><table>
+<thead>
+<tr><th>mainScreen</th><th>subsScreen</th><th>FilePath</th><th>type</th><th>month</th><th></th></tr>
+</thead>
+<tbody>
+<tr><td>Reimbursement</td><td>MyReimbursement</td><td>C:\Users\si.porwal\Downloads\MicrosoftTeams-image (55).png</td><td>Monthly</td><td>September 2022</td><td> </td></tr>
+</tbody>
+</table></div>
+</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="scenario-docs card" id="8f9279138b95292ad5205bbbc517e094c696663431bcb8a4ebaaa6e75b7933ad">
+                                                                <div class="scenario-docs card-header pending"
+                                                                     style="min-height:1.5em;">
+                                                                    <div>
+                                                            <span class="scenario-heading">
+                                                                <a href="b4a4dbcb37c72616e0e90c7805064aa3cce3517c9eef1f3e57b63d105e5f019a.html"
+                                                                   title="View test results">Scenario: Verify warning for more than one reimbursement in a month</a>
+                                                            </span>
+                                                                        <span class="scenario-result-icon">
+                                                                
+
+                                                                                <a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a>
+                                                            </span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="scenario-docs card-body">
+                                                                        <p>Then Click on &quot;{mainScreen}&quot; tab of &quot;{subsScreen}&quot; tab</p>
+                                                                        <p>Then verify Warning &quot;{buttonName}&quot;, &quot;{FileName}&quot;, &quot;{FilePath}&quot;, &quot;{type}&quot;, &quot;{month}&quot; for more than one reimbursement in a month</p>
+                                                                        <p>Then Verify &quot;{description}&quot;, &quot;{billNo}&quot;, &quot;{date}&quot;, &quot;{reimbursementAmount}&quot;, &quot;{amount}&quot; save draft reimbursement for same month</p>
+                                                                    <div class="examples">
+                                                                            <p><p>Examples:</p>
+<div class='example-table-in-scenario'><table>
+<thead>
+<tr><th>mainScreen</th><th>subsScreen</th><th>buttonName</th><th>FileName</th><th>FilePath</th><th>type</th><th>month</th><th>description</th><th>billNo</th><th>date</th><th>reimbursementAmount</th><th>amount</th><th></th></tr>
+</thead>
+<tbody>
+<tr><td>Reimbursement</td><td>MyReimbursement</td><td>New Request</td><td>LOGOFILE</td><td>C:\Users\si.porwal\Downloads\LOGOFILE.png</td><td>Monthly</td><td>September 2022</td><td>Gemini Desktop</td><td>123</td><td>09/23/2022</td><td>12345</td><td>12345</td><td> </td></tr>
+</tbody>
+</table></div>
+</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="scenario-docs card" id="652543d7e971f99efbe46ebc74f43e5619035bc6b641b63fb0ae5c7839b371ee">
+                                                                <div class="scenario-docs card-header pending"
+                                                                     style="min-height:1.5em;">
+                                                                    <div>
+                                                            <span class="scenario-heading">
+                                                                <a href="2204fd227c7471c3e111c64a0d9adb70df7c0500dc93a68ab8afb82c0613352a.html"
+                                                                   title="View test results">Scenario: Verify total amount is correct</a>
+                                                            </span>
+                                                                        <span class="scenario-result-icon">
+                                                                
+
+                                                                                <a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a>
+                                                            </span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="scenario-docs card-body">
+                                                                        <p>Then Click on &quot;{mainScreen}&quot; tab of &quot;{subsScreen}&quot; tab</p>
+                                                                        <p>Then Verify total amount in the UI is correct</p>
+                                                                    <div class="examples">
+                                                                            <p><p>Examples:</p>
+<div class='example-table-in-scenario'><table>
+<thead>
+<tr><th>mainScreen</th><th>subsScreen</th><th></th></tr>
+</thead>
+<tbody>
+<tr><td>Reimbursement</td><td>MyReimbursement</td><td> </td></tr>
+</tbody>
+</table></div>
+</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="scenario-docs card" id="74e6ace66589b73817dd7797b23693b85040ba6593c5b9e3a148d5b8ec6d7e77">
+                                                                <div class="scenario-docs card-header pending"
+                                                                     style="min-height:1.5em;">
+                                                                    <div>
+                                                            <span class="scenario-heading">
+                                                                <a href="a45a02d0cb96b84a323013ad550b4a4011a64b9454a4e2ca58db0b0112387da8.html"
+                                                                   title="View test results">Scenario: Validation Pdf export</a>
+                                                            </span>
+                                                                        <span class="scenario-result-icon">
+                                                                
+
+                                                                                <a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a>
+                                                            </span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="scenario-docs card-body">
+                                                                        <p>Then Click on &quot;{mainScreen}&quot; tab of &quot;{subsScreen}&quot; tab</p>
+                                                                        <p>Then PDF export validation</p>
+                                                                    <div class="examples">
+                                                                            <p><p>Examples:</p>
+<div class='example-table-in-scenario'><table>
+<thead>
+<tr><th>mainScreen</th><th>subsScreen</th><th></th><th></th></tr>
+</thead>
+<tbody>
+<tr><td>Reimbursement</td><td>MyReimbursement</td><td></td><td> </td></tr>
+</tbody>
+</table></div>
+</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="scenario-docs card" id="c2b053d3838866b64d20ba21972d85ba2df0aff860b281e1ce3d203e022eaf52">
+                                                                <div class="scenario-docs card-header pending"
+                                                                     style="min-height:1.5em;">
+                                                                    <div>
+                                                            <span class="scenario-heading">
+                                                                <a href="89a71ae7f7a22659b5ad0307112410634c3481bd45ddc601d5dedda3b0b5864c.html"
+                                                                   title="View test results">Scenario: Validate if are able to navigate back to reimbursement main page</a>
+                                                            </span>
+                                                                        <span class="scenario-result-icon">
+                                                                
+
+                                                                                <a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a>
+                                                            </span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="scenario-docs card-body">
+                                                                        <p>Then Click on &quot;{mainScreen}&quot; tab of &quot;{subsScreen}&quot; tab</p>
+                                                                        <p>Then Validate action button for &quot;{elementNo}&quot;, &quot;{actionButtonNo}&quot; visibility</p>
+                                                                        <p>Then Validate that we are able to navigate back to main page of reimbursement</p>
+                                                                    <div class="examples">
+                                                                            <p><p>Examples:</p>
+<div class='example-table-in-scenario'><table>
+<thead>
+<tr><th>mainScreen</th><th>subsScreen</th><th>elementNo</th><th>actionButtonNo</th><th></th></tr>
+</thead>
+<tbody>
+<tr><td>Reimbursement</td><td>MyReimbursement</td><td>2</td><td>2</td><td> </td></tr>
+</tbody>
+</table></div>
+</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="scenario-docs card" id="13f07418d895d6169e7d94bbee7ce627b3270bf1e806a84ffe70cbf867b51305">
+                                                                <div class="scenario-docs card-header pending"
+                                                                     style="min-height:1.5em;">
+                                                                    <div>
+                                                            <span class="scenario-heading">
+                                                                <a href="6bb587859c4d1b63a3948e4356d00cd8af3ad9639993cc8b949875d4449e8fb7.html"
+                                                                   title="View test results">Scenario: Validation for action button visibility</a>
+                                                            </span>
+                                                                        <span class="scenario-result-icon">
+                                                                
+
+                                                                                <a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a>
+                                                            </span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="scenario-docs card-body">
+                                                                        <p>Then Click on &quot;{mainScreen}&quot; tab of &quot;{subsScreen}&quot; tab</p>
+                                                                        <p>Then Validate action button for &quot;{elementNo}&quot;, &quot;{actionButtonNo}&quot; visibility</p>
+                                                                    <div class="examples">
+                                                                            <p><p>Examples:</p>
+<div class='example-table-in-scenario'><table>
+<thead>
+<tr><th>mainScreen</th><th>subsScreen</th><th>elementNo</th><th>actionButtonNo</th><th></th></tr>
+</thead>
+<tbody>
+<tr><td>Reimbursement</td><td>MyReimbursement</td><td>2</td><td>2</td><td> </td></tr>
+</tbody>
+</table></div>
+</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="scenario-docs card" id="341eba47add4ba58a956e01b68babc3a31d290e511a3757fbcc8a6ae6e5cb55f">
+                                                                <div class="scenario-docs card-header pending"
+                                                                     style="min-height:1.5em;">
+                                                                    <div>
+                                                            <span class="scenario-heading">
+                                                                <a href="09b3cf5b5e1923ccbccb1be15807194ca72beec80063167c0084dff269192204.html"
+                                                                   title="View test results">Scenario: Validation for cancel button functionality</a>
+                                                            </span>
+                                                                        <span class="scenario-result-icon">
+                                                                
+
+                                                                                <a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a>
+                                                            </span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="scenario-docs card-body">
+                                                                        <p>Then Click on &quot;{mainScreen}&quot; tab of &quot;{subsScreen}&quot; tab</p>
+                                                                        <p>Then Validate cancel button for &quot;{cancelButtonNo}&quot;, &quot;{noOfElement}&quot; functionality</p>
+                                                                    <div class="examples">
+                                                                            <p><p>Examples:</p>
+<div class='example-table-in-scenario'><table>
+<thead>
+<tr><th>mainScreen</th><th>subsScreen</th><th>cancelButtonNo</th><th>noOfElement</th><th></th><th></th></tr>
+</thead>
+<tbody>
+<tr><td>Reimbursement</td><td>MyReimbursement</td><td>2</td><td>5</td><td></td><td> </td></tr>
+</tbody>
+</table></div>
+</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="scenario-docs card" id="639c13dcfad2376d439445cf4a99dd701e4dcf30e5a1fb0560d932d8d18318ad">
+                                                                <div class="scenario-docs card-header pending"
+                                                                     style="min-height:1.5em;">
+                                                                    <div>
+                                                            <span class="scenario-heading">
+                                                                <a href="89ed4fcb0754de195e8766de7d6993a29c01b32dd1e76b689ebe6163869af589.html"
+                                                                   title="View test results">Scenario: Reimbursement Add new request function save draft functionality</a>
+                                                            </span>
+                                                                        <span class="scenario-result-icon">
+                                                                
+
+                                                                                <a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a>
+                                                            </span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="scenario-docs card-body">
+                                                                        <p>Then Click on &quot;{mainScreen}&quot; tab of &quot;{subsScreen}&quot; tab</p>
+                                                                        <p>Then Click on &quot;{buttonName}&quot;, &quot;{type}&quot;, &quot;{month}&quot; and select the drop down value for the current month</p>
+                                                                        <p>Then Validate &quot;{Description}&quot;, &quot;{BillNo}&quot;, &quot;{Date}&quot;, &quot;{ReimbursementAmount}&quot;, &quot;{Amount}&quot;, &quot;{FilePath}&quot;, &quot;{FileName}&quot; and click on save draft</p>
+                                                                    <div class="examples">
+                                                                            <p><p>Examples:</p>
+<div class='example-table-in-scenario'><table>
+<thead>
+<tr><th>mainScreen</th><th>subsScreen</th><th>buttonName</th><th></th><th></th><th>FileName</th><th>FilePath</th><th>Description</th><th>BillNo</th><th>Date</th><th>ReimbursementAmount</th><th>Amount</th><th>type</th><th>month</th><th></th></tr>
+</thead>
+<tbody>
+<tr><td>Reimbursement</td><td>MyReimbursement</td><td>New Request</td><td></td><td></td><td>LOGOFILE</td><td>C:\Users\si.porwal\Downloads\LOGOFILE.png</td><td>Files</td><td>3</td><td>06/17/2022</td><td>7500</td><td>7500</td><td>Monthly</td><td>June 2022</td><td> </td></tr>
+</tbody>
+</table></div>
+</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="scenario-docs card" id="8b993112f80f443aac116799fb8d85c853b32b8347c543a2c82d5d9c3dfa6562">
+                                                                <div class="scenario-docs card-header pending"
+                                                                     style="min-height:1.5em;">
+                                                                    <div>
+                                                            <span class="scenario-heading">
+                                                                <a href="4b5036becc580878bf6ff7c128fc7a42f085625ab3d3da30b79390f39be4ac90.html"
+                                                                   title="View test results">Scenario: Verify if Copy functionality is working properly</a>
+                                                            </span>
+                                                                        <span class="scenario-result-icon">
+                                                                
+
+                                                                                <a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a>
+                                                            </span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="scenario-docs card-body">
+                                                                        <p>Then Click on &quot;{mainScreen}&quot; tab of &quot;{subsScreen}&quot; tab</p>
+                                                                        <p>And Verify data is copied for reimbursement page</p>
+                                                                    <div class="examples">
+                                                                            <p><p>Examples:</p>
+<div class='example-table-in-scenario'><table>
+<thead>
+<tr><th>mainScreen</th><th>subsScreen</th><th></th></tr>
+</thead>
+<tbody>
+<tr><td>Reimbursement</td><td>MyReimbursement</td><td> </td></tr>
+</tbody>
+</table></div>
+</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="scenario-docs card" id="2716f12a0a195c1ac965729dfe5669d40e50f3637e38aca7c945ffb5e142b009">
+                                                                <div class="scenario-docs card-header pending"
+                                                                     style="min-height:1.5em;">
+                                                                    <div>
+                                                            <span class="scenario-heading">
+                                                                <a href="1735c8fd2fa53bba150de1c6fa92cc8d834744746eacd5a36a3d40ad4e4fe618.html"
+                                                                   title="View test results">Scenario: Verify wrong extension warning pop up is visible</a>
+                                                            </span>
+                                                                        <span class="scenario-result-icon">
+                                                                
+
+                                                                                <a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a>
+                                                            </span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="scenario-docs card-body">
+                                                                        <p>Then Click on &quot;{mainScreen}&quot; tab of &quot;{subsScreen}&quot; tab</p>
+                                                                        <p>Then Verify wrong extension warning after file upload of &quot;{FilePath}&quot;, &quot;{type}&quot;, &quot;{month}&quot; is visible</p>
+                                                                    <div class="examples">
+                                                                            <p><p>Examples:</p>
+<div class='example-table-in-scenario'><table>
+<thead>
+<tr><th>mainScreen</th><th>subsScreen</th><th>FilePath</th><th>type</th><th>month</th><th></th></tr>
+</thead>
+<tbody>
+<tr><td>Reimbursement</td><td>MyReimbursement</td><td>C:\Users\si.porwal\OneDrive - Gemini Solutions\Desktop\Final MIS CODE\MISAutomationFinal\src\test\resources\FileUpload\Free CFA Level 1 Mock Exam (300Hours).pdf</td><td>Monthly</td><td>September 2022</td><td> </td></tr>
+</tbody>
+</table></div>
+</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="results" class="tab-pane fade">
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-sm-4">
+
+                                                <div style="width:300px;" class="chart-container automated-and-manual-results">
+                                                    <div class="ct-chart ct-square"></div>
+                                                </div>
+                                                <script>
+
+                                                    var labels = [' ', ' ', '100%', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '];
+                                                    // Our series array that contains series objects or in this case series data arrays
+
+                                                    var series = [{meta: 'Passing tests (automated)', value: 0}, {meta: 'Passing tests (manual)', value: 0}, {meta: 'Pending tests (automated)', value: 14}, {meta: 'Pending tests (manual)', value: 0}, {meta: 'Ignored tests (automated)', value: 0}, {meta: 'Ignored tests (manual)', value: 0}, {meta: 'Skipped tests (automated)', value: 0}, {meta: 'Skipped tests (manual)', value: 0}, {meta: 'Failing tests (automated)', value: 0}, {meta: 'Failing tests (manual)', value: 0}, {meta: 'Broken tests (automated)', value: 0}, {meta: 'Broken tests (manual)', value: 0}, {meta: 'Compromised tests (automated)', value: 0}, {meta: 'Compromised tests (manual)', value: 0}];
+
+                                                    // As options we currently only set a static size of 300x200 px. We can also omit this and use aspect ratio containers
+                                                    // as you saw in the previous example
+                                                    var options = {
+                                                        width: 350,
+                                                        height: 300
+                                                    };
+
+                                                    $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+                                                        new Chartist.Pie('.ct-chart', {
+                                                            series: series,
+                                                            labels: labels,
+                                                        }, {
+                                                            donut: true,
+                                                            donutWidth: 60,
+                                                            donutSolid: true,
+                                                            startAngle: 270,
+                                                            showLabel: true
+                                                        }, options);
+                                                    });
+
+                                                </script>
+                                            </div>
+                                            <div class="col-sm-8">
+
+                                                    <table class="table">
+                                                        <thead>
+                                                        <tr>
+                                                            <th scope="col">Scenario Results (including rows of test
+                                                                data)
+                                                            </th>
+                                                            <th scope="col" colspan="2" class="automated-stats">
+                                                                Automated
+                                                            </th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                        <tr>
+                                                                <td class="aggregate-result-count"><i
+                                                                            class='fa fa-check-circle-o success-icon'></i>&nbsp;Passing
+                                                                </td>
+                                                            <td class="automated-stats">0</td>
+                                                            <td class="automated-stats"> </td>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="aggregate-result-count">
+                                                                    <a href="26611db3dfabefa05be3ff292d36afd3a268ca22372bc5387c7409eba9691ed1.html"><i
+                                                                                class='fa fa-stop-circle-o pending-icon'></i>&nbsp;Pending</a>
+                                                                </td>
+                                                            <td class="automated-stats">14</td>
+                                                            <td class="automated-stats">100%</td>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="aggregate-result-count"><i
+                                                                            class='fa fa-ban ignored-icon'></i>&nbsp;Ignored
+                                                                </td>
+                                                            <td class="automated-stats">0</td>
+                                                            <td class="automated-stats"> </td>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="aggregate-result-count"><i
+                                                                            class='fa fa-fast-forward skip-icon'></i>&nbsp;Skipped
+                                                                </td>
+                                                            <td class="automated-stats">0</td>
+                                                            <td class="automated-stats"> </td>
+                                                        </tr>
+                                                        <tr>
+                                                                    <td colspan="3"><i
+                                                                                class='fa fa-times failure-icon'></i>&nbsp;<em>Unsuccessful</em></a>
+                                                                    </td>
+
+                                                        </tr>
+
+                                                        <tr>
+                                                                <td class="aggregate-result-count indented-error-category">
+                                                                    <i
+                                                                            class='fa fa-times-circle failure-icon'></i>&nbsp;Failed
+                                                                </td>
+                                                            <td class="automated-stats">0</td>
+                                                            <td class="automated-stats"> </td>
+                                                        <tr>
+                                                                <td class="aggregate-result-count indented-error-category">
+                                                                    <i
+                                                                            class='fa fa-exclamation-triangle error-icon'></i>&nbsp;Broken
+                                                                </td>
+                                                            <td class="automated-stats">0</td>
+                                                            <td class="automated-stats"> </td>
+                                                        <tr>
+                                                                <td class="aggregate-result-count indented-error-category">
+                                                                    <i
+                                                                            class='fa fa-chain-broken compromised-icon'></i>&nbsp;Compromised
+                                                                </td>
+                                                            <td class="automated-stats">0</td>
+                                                            <td class="automated-stats"> </td>
+                                                        </tr>
+                                                        <tr class="summary-stats">
+                                                            <td class="aggregate-result-count">Total</td>
+                                                            <td class="automated-stats">14</td>
+                                                            <td class="automated-stats"></td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <table class="table">
+                                                        <thead>
+                                                        <tr>
+                                                            <th>Execution Time</th>
+                                                            <th>Clock Time</th>
+                                                            <th>Fastest Test</th>
+                                                            <th>Slowest Test</th>
+                                                            <th>Average Execution Time</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                        <tr>
+                                                            <td>177ms</td>
+                                                            <td>236ms</td>
+                                                            <td>0ms</td>
+                                                            <td>13ms</td>
+                                                            <td>12ms</td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <h3><i class="fas fa-cogs"></i> Automated Tests</h3>
+
+                                                        <table class="scenario-result-table table"
+                                                               id="scenario-results">
+                                                            <thead>
+                                                            <tr>
+                                                                <th class="test-name-column">Scenario</th>
+                                                                <th>Steps</th>
+                                                                <th>Started</th>
+                                                                <th>Duration</th>
+                                                                <th>Result</th>
+                                                            </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr class="scenario-result PENDING">
+                                                                    <td>
+                                                                            <a href="1fc856cf11160a07f15cfb6c2019e9285ed7c8f0cc4d37645118655ffa5725f2.html">Reimbursement Add new request function</a>
+                                                                            (1 example)
+                                                                    </td>
+                                                                    <td>3</td>
+                                                                    <td>10:21:10</td>
+                                                                    <td>011ms</td>
+                                                                    <td>
+                                                                            <a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a> <span
+                                                                                style="display:none">PENDING</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="scenario-result PENDING">
+                                                                    <td>
+                                                                            <a href="0a8184eb324219768e72399d158f12fb214d6520cd5cd6d10b40478091dfe601.html">Reimbursement main page validations</a>
+                                                                            (1 example)
+                                                                    </td>
+                                                                    <td>5</td>
+                                                                    <td>10:21:10</td>
+                                                                    <td>015ms</td>
+                                                                    <td>
+                                                                            <a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a> <span
+                                                                                style="display:none">PENDING</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="scenario-result PENDING">
+                                                                    <td>
+                                                                            <a href="ef7d29d8dc3d0747cb39b575621728c597cb5ce77a64ef12fc492fa7126d81da.html">Verify if search box is working</a>
+                                                                            (1 example)
+                                                                    </td>
+                                                                    <td>2</td>
+                                                                    <td>10:21:10</td>
+                                                                    <td>018ms</td>
+                                                                    <td>
+                                                                            <a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a> <span
+                                                                                style="display:none">PENDING</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="scenario-result PENDING">
+                                                                    <td>
+                                                                            <a href="a7fc58aaa07690f6dba3fac61a6ada1f6e1a7e63d3ec0a541b885b6ad06e5069.html">Verify if search box is working for no records found</a>
+                                                                            (1 example)
+                                                                    </td>
+                                                                    <td>2</td>
+                                                                    <td>10:21:10</td>
+                                                                    <td>009ms</td>
+                                                                    <td>
+                                                                            <a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a> <span
+                                                                                style="display:none">PENDING</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="scenario-result PENDING">
+                                                                    <td>
+                                                                            <a href="9653b6660c019bf096c77a52bb1b8895ab5e795e2fb1f17d7ce2133c4f8ee399.html">Verify we are able to check if warning pop up is visible</a>
+                                                                            (1 example)
+                                                                    </td>
+                                                                    <td>2</td>
+                                                                    <td>10:21:10</td>
+                                                                    <td>013ms</td>
+                                                                    <td>
+                                                                            <a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a> <span
+                                                                                style="display:none">PENDING</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="scenario-result PENDING">
+                                                                    <td>
+                                                                            <a href="b4a4dbcb37c72616e0e90c7805064aa3cce3517c9eef1f3e57b63d105e5f019a.html">Verify warning for more than one reimbursement in a month</a>
+                                                                            (1 example)
+                                                                    </td>
+                                                                    <td>3</td>
+                                                                    <td>10:21:10</td>
+                                                                    <td>010ms</td>
+                                                                    <td>
+                                                                            <a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a> <span
+                                                                                style="display:none">PENDING</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="scenario-result PENDING">
+                                                                    <td>
+                                                                            <a href="2204fd227c7471c3e111c64a0d9adb70df7c0500dc93a68ab8afb82c0613352a.html">Verify total amount is correct</a>
+                                                                            (1 example)
+                                                                    </td>
+                                                                    <td>2</td>
+                                                                    <td>10:21:10</td>
+                                                                    <td>007ms</td>
+                                                                    <td>
+                                                                            <a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a> <span
+                                                                                style="display:none">PENDING</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="scenario-result PENDING">
+                                                                    <td>
+                                                                            <a href="a45a02d0cb96b84a323013ad550b4a4011a64b9454a4e2ca58db0b0112387da8.html">Validation Pdf export</a>
+                                                                            (1 example)
+                                                                    </td>
+                                                                    <td>2</td>
+                                                                    <td>10:21:10</td>
+                                                                    <td>014ms</td>
+                                                                    <td>
+                                                                            <a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a> <span
+                                                                                style="display:none">PENDING</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="scenario-result PENDING">
+                                                                    <td>
+                                                                            <a href="89a71ae7f7a22659b5ad0307112410634c3481bd45ddc601d5dedda3b0b5864c.html">Validate if are able to navigate back to reimbursement main page</a>
+                                                                            (1 example)
+                                                                    </td>
+                                                                    <td>3</td>
+                                                                    <td>10:21:10</td>
+                                                                    <td>013ms</td>
+                                                                    <td>
+                                                                            <a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a> <span
+                                                                                style="display:none">PENDING</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="scenario-result PENDING">
+                                                                    <td>
+                                                                            <a href="6bb587859c4d1b63a3948e4356d00cd8af3ad9639993cc8b949875d4449e8fb7.html">Validation for action button visibility</a>
+                                                                            (1 example)
+                                                                    </td>
+                                                                    <td>2</td>
+                                                                    <td>10:21:10</td>
+                                                                    <td>008ms</td>
+                                                                    <td>
+                                                                            <a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a> <span
+                                                                                style="display:none">PENDING</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="scenario-result PENDING">
+                                                                    <td>
+                                                                            <a href="09b3cf5b5e1923ccbccb1be15807194ca72beec80063167c0084dff269192204.html">Validation for cancel button functionality</a>
+                                                                            (1 example)
+                                                                    </td>
+                                                                    <td>2</td>
+                                                                    <td>10:21:10</td>
+                                                                    <td>008ms</td>
+                                                                    <td>
+                                                                            <a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a> <span
+                                                                                style="display:none">PENDING</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="scenario-result PENDING">
+                                                                    <td>
+                                                                            <a href="89ed4fcb0754de195e8766de7d6993a29c01b32dd1e76b689ebe6163869af589.html">Reimbursement Add new request function save draft functionality</a>
+                                                                            (1 example)
+                                                                    </td>
+                                                                    <td>3</td>
+                                                                    <td>10:21:10</td>
+                                                                    <td>029ms</td>
+                                                                    <td>
+                                                                            <a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a> <span
+                                                                                style="display:none">PENDING</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="scenario-result PENDING">
+                                                                    <td>
+                                                                            <a href="4b5036becc580878bf6ff7c128fc7a42f085625ab3d3da30b79390f39be4ac90.html">Verify if Copy functionality is working properly</a>
+                                                                            (1 example)
+                                                                    </td>
+                                                                    <td>2</td>
+                                                                    <td>10:21:10</td>
+                                                                    <td>008ms</td>
+                                                                    <td>
+                                                                            <a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a> <span
+                                                                                style="display:none">PENDING</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="scenario-result PENDING">
+                                                                    <td>
+                                                                            <a href="1735c8fd2fa53bba150de1c6fa92cc8d834744746eacd5a36a3d40ad4e4fe618.html">Verify wrong extension warning pop up is visible</a>
+                                                                            (1 example)
+                                                                    </td>
+                                                                    <td>2</td>
+                                                                    <td>10:21:10</td>
+                                                                    <td>014ms</td>
+                                                                    <td>
+                                                                            <a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a> <span
+                                                                                style="display:none">PENDING</span>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <h3><i class="fas fa-edit"></i> Manual Tests</h3>
+
+                                                        No manual tests were recorded
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <span class="version">Serenity BDD version 2.6.0</span>
+                    </div>
+                </div>
+            </div>
+</body>
+</html>

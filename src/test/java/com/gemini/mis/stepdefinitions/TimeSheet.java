@@ -102,6 +102,7 @@ public class TimeSheet extends PageObject {
 
     @And("^Add a new invalid task template with \"(.*?)\" \"(.*?)\" \"(.*?)\" \"(.*?)\"$")
     public void addNewInvalidTemplate(String Name, String Description, String Team, String Task) {
+        waitABit(4000);
         time.clickAddNewTemplate();
         time.AddInvalidTemplate(Name, Description, Team, Task);
     }

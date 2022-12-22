@@ -280,6 +280,7 @@ public class TimeSheetImpl extends PageObject {
     public void clickAddNewTemplate() {
         if($(ts.btnAddNewTemplate).isDisplayed()){
             log.info("Add new template button displayed");
+            waitABit(3000);
             $(ts.btnAddNewTemplate).click();
             waitABit(1000);
             if($(ts.dialogAddTaskTemplate).isDisplayed()) {
@@ -352,6 +353,7 @@ public class TimeSheetImpl extends PageObject {
             Assert.fail("Save button not displayed");
         }
     }
+
 
     public void AddInvalidTemplate(String Name, String Description, String Team, String Task) {
         if ($(ts.btnSaveANT).isDisplayed()) {

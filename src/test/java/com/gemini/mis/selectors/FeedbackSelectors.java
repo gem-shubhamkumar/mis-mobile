@@ -7,7 +7,7 @@ public class FeedbackSelectors {
     public static By provideFeedbackButton = By.xpath("//button[text()='Provide Feedback']");
 
     public static By submitButton (String number) {
-        return By.xpath("(//button[contains(text(), 'Submit')])[" + number + "]");
+        return By.xpath("(//button[@class='btn btn-success'])[2]");
     }
 
     public static By tableRow (String id) {

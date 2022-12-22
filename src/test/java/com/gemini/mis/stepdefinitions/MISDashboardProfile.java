@@ -35,8 +35,9 @@ public class MISDashboardProfile extends PageObject {
 
     @Then("User verifies element {string}")
     public void userVerifiesElement(String text) {
-        steps.customWait(1000);
-        steps.isElementExist(XpathForDashboardProfilePage.myElement(text));
+        steps.customWait(3000);
+       // getDriver().switchTo().alert().getText().equals(text);
+       steps.isElementExist(XpathForDashboardProfilePage.myElement(text));
 
     }
 
@@ -175,14 +176,15 @@ public class MISDashboardProfile extends PageObject {
 
     @And("Verify file is downloaded {string}")
     public void verifyFileIsDownloaded(String fileName) {
-       forms.isFileDownloaded("C:\\Users\\ch.srivastava\\Downloads",fileName);
-        
+    String path="C:\\Users\\" +System.getenv("Username")+ "\\Downloads";
+       forms.isFileDownloaded(path,fileName);
     }
 
     @Then("User clicks on download card button")
     public void userClicksOnDownloadCardButton() {
+        waitABit(6000);
         $(By.id("btnConvert")).waitUntilPresent().click();
-        
+
     }
 
     @When("User card is present in dashboard")

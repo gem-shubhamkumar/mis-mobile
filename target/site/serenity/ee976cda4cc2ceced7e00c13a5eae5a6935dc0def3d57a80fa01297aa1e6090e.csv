@@ -1,0 +1,5 @@
+"Story","Title","Result","Date","Stability","Duration (s)"
+"Perform actions on TimeSheet of MIS website","Open previous and next week timesheet","PENDING","2022-12-16T10:21:11.010631+05:30[Asia/Calcutta]","0.0","0.01"
+"Perform actions on TimeSheet of MIS website","Copy timesheet from a week","PENDING","2022-12-16T10:21:11.0255902+05:30[Asia/Calcutta]","0.0","0.02"
+"Perform actions on TimeSheet of MIS website","Verify the table heads and table data","ERROR","2022-12-22T10:25:05.9669455+05:30[Asia/Calcutta]","0.0","30.64"
+"Perform actions on TimeSheet of MIS website","Verify timesheet status","SUCCESS","2022-12-22T10:31:42.1630146+05:30[Asia/Calcutta]","0.0","28.89"

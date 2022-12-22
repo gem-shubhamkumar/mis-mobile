@@ -182,15 +182,15 @@ import java.util.List;
 
     
     public void verifyPrintTab() {
+        waitABit(2000);
         List<String> browserTabs = new ArrayList<>(getDriver().getWindowHandles());
-
         getDriver().switchTo().window(browserTabs.get(1));
         System.out.println(getTitle());
         Assert.assertTrue(StringUtils.contains(getTitle(), "Gemini"));
-        waitABit(5000);
-        withAction().sendKeys(Keys.TAB).build().perform();
-        withAction().sendKeys(Keys.ENTER).build().perform();
-        getDriver().switchTo().window(browserTabs.get(0));
+        getDriver().switchTo().window(browserTabs.get(2));
+        waitABit(3000);
+        getDriver().close();
+        getDriver().switchTo().window(parentWindowHandle);
     }
 
 
@@ -206,9 +206,10 @@ import java.util.List;
         }
 
     }
-
+     public  static String  parentWindowHandle;
 
      public void clickOn(By elementName) {
+         parentWindowHandle = getDriver().getWindowHandle();
          WebElementFacade element = find(elementName);
          waitABit(3000);
          if (element.isDisplayed()) {
@@ -223,13 +224,13 @@ import java.util.List;
      public void clickButton(String buttonName) {
          if(StringUtils.equals("Submit", buttonName))
              clickOn(FeedbackSelectors.submitButton("2"));
-         if(StringUtils.equals("previous date", buttonName))
+        else if(StringUtils.equals("previous date", buttonName))
              if(!StringUtils.equals($(By.id("btnPreviousMonth")).getAttribute("disabled"), "disabled"))
                  clickOn(By.id("btnPreviousMonth"));
-         if(StringUtils.equals("next date", buttonName))
+        else if(StringUtils.equals("next date", buttonName))
              if(!StringUtils.equals($(By.id("btnNextMonth")).getAttribute("disabled"), "disabled"))
                  clickOn(By.id("btnNextMonth"));
-         if(StringUtils.equals("Submit Reason", buttonName))
+        else if(StringUtils.equals("Submit Reason", buttonName))
              clickOn(FeedbackSelectors.submitButton("3"));
          else {
              Assert.fail("Button " + buttonName + " not found");

@@ -6,7 +6,8 @@ import org.openqa.selenium.By;
 public class ApplyToAnyCardLocators {
 
 //Apply to any card locators
-    public static By cardNames = By.xpath("//h3[@class='panel-title']");
+     public static By cardNames = By.xpath("//h3[@class='panel-title']");
+
 
 //Common Locators
     public static By loginMsg = By.xpath("//div[@class='loginMsgDiv']");

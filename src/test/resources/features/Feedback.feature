@@ -1,3 +1,4 @@
+@TagAll
 Feature: Feedback
 
   Background:
@@ -8,7 +9,7 @@ Feature: Feedback
     When User Clicks on "Submit Feedback" tab of "Feedback" tab
     Then Verify Submit Feedback tab opens
 
-
+@tag2
   Scenario Outline: Submit a Feedback
     When User Clicks on "<childTab>" tab of "<parentTab>" tab
     Then Verify Submit Feedback tab opens
@@ -24,7 +25,7 @@ Feature: Feedback
     |childTab| parentTab| data |
     | Submit Feedback | Feedback | Feedback |
 
-
+@tag3
   Scenario Outline: Submit a Blank Feedback
     When User Clicks on "<childTab>" tab of "<parentTab>" tab
     Then Verify Submit Feedback tab opens
@@ -39,7 +40,7 @@ Feature: Feedback
       |childTab| parentTab| data |
       | Submit Feedback | Feedback | |
 
-
+@tag4
   Scenario Outline: Verify Page Navigation
     When User Clicks on "<childTab>" tab of "<parentTab>" tab
     Then Verify Submit Feedback tab opens
@@ -51,7 +52,7 @@ Feature: Feedback
       | Submit Feedback | Feedback |
 
 
-
+@tag5
   Scenario Outline: Valid Search a Feedback
     When User Clicks on "<childTab>" tab of "<parentTab>" tab
     Then Verify Submit Feedback tab opens
@@ -71,7 +72,7 @@ Feature: Feedback
       | Submit Feedback | Feedback | Random Data |
 
 
-
+@tag6
   Scenario Outline: Invalid Search a Feedback
     When User Clicks on "<childTab>" tab of "<parentTab>" tab
     Then Verify Submit Feedback tab opens
@@ -90,7 +91,7 @@ Feature: Feedback
       |childTab| parentTab| data | wrongData |
       | Submit Feedback | Feedback | Random Data | wrong |
 
-
+@tag7
   Scenario Outline: Verify number of rows data
     When User Clicks on "<childTab>" tab of "<parentTab>" tab
     Then Verify Submit Feedback tab opens
@@ -106,7 +107,7 @@ Feature: Feedback
     Examples:
       |childTab| parentTab| data | number |
       | Submit Feedback | Feedback | Random Data | 25 |
-
+@tag8
   Scenario Outline: Sort the Feedback column
     When User Clicks on "<childTab>" tab of "<parentTab>" tab
     Then Verify Submit Feedback tab opens
@@ -124,7 +125,7 @@ Feature: Feedback
     Examples:
       |childTab| parentTab| data |
       | Submit Feedback | Feedback | Random Data |
-
+@tag9
   Scenario Outline: View a Feedback
     When User Clicks on "<childTab>" tab of "<parentTab>" tab
     Then Verify Submit Feedback tab opens
@@ -158,9 +159,9 @@ Feature: Feedback
     Then Click on Export Options "Export" button
     And Verify export options open
     Then Click on Export Options "Excel" button
-    And Verify "All Feedback List.xlsx" file is downloaded
+    And Verify Feedback "All Feedback List.xlsx" file is downloaded
     Then Click on Export Options "PDF" button
-    And Verify "All Feedback List.pdf" file is downloaded
+    And Verify Feedback "All Feedback List.pdf" file is downloaded
     Then Click on Export Options "Print" button
     And Verify print tab is open
     Then Click on Export Options "Copy" button
