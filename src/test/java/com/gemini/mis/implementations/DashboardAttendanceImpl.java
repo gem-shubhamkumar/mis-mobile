@@ -72,11 +72,12 @@ public class DashboardAttendanceImpl extends PageObject {
 
     public void loginToMIS(String Username, String Password) {
         $(ds.txtUsername).type(Username);
-        $(ds.txtPassword).type(Password);
-        $(ds.btnSignIn).click();
+        $(ds.txtPassword).typeAndEnter(Password);
+        //$(ds.btnSignIn).click();
         waitForLoaderToDisappear();
         if ($(ds.geminiLogo).isDisplayed() && $(ds.sidebarToggle).isDisplayed() && $(ds.sidebarList).isDisplayed() && $(ds.btnChangePW).isDisplayed() && $(ds.btnuser).isDisplayed()) {
             log.info("Login to MIS successful");
+            waitABit(5000);
         } else {
             Assert.fail("Login to MIS failed");
         }
@@ -94,6 +95,7 @@ public class DashboardAttendanceImpl extends PageObject {
                 $(By.xpath("//div[contains(@class,'dropdown-menu')]//a[text()='" + Action + "']")).click();
                 if ($(ds.geminiLogo).isDisplayed() && $(ds.loginMsg).isDisplayed() && $(ds.loginForm).isDisplayed()) {
                     log.info("Logout from MIS successful");
+                    waitABit(2000);
                 } else {
                     Assert.fail("Logout from MIS failed");
                 }

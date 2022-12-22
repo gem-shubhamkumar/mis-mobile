@@ -127,7 +127,7 @@ public class AppraisalManagementPageImplementation extends PageObject {
     }
 
     public void clickTab(String tab) {
-waitABit(2000);
+        waitABit(2000);
         switch(tab){
             case "Engineering":
                 $(AppraisalManagementAddGoalsLocators.engineeringTab).click();
@@ -284,7 +284,8 @@ waitABit(2000);
                 clickOn($(AppraisalManagementAddGoalsLocators.saveGoal));
                 clickOn($(AppraisalManagementAddGoalsLocators.saveGoalDraft));
                 clickOn($(AppraisalManagementAddGoalsLocators.saveGoalDraftConfirm));
-                getDriver().close();
+                // getDriver().close();
+                break;
             }
             case "delete":{
                 LOGGER.info("Clicked on button {}",button);
@@ -559,14 +560,16 @@ waitABit(2000);
 
     public void navigateToTab(String parentTabName, String childTabName){
 
-      waitABit(5000);
+        //waitABit(5000);
+        waitABit(8000);
+
         if (isElementFound(applyToAnyCardLocators.menuTabs(parentTabName))) {
             waitABit(1000);
             $(applyToAnyCardLocators.menuTabs(parentTabName)).click();
             waitABit(2000);
             if (isElementFound(applyToAnyCardLocators.menuTabs(childTabName))) {
                 $(applyToAnyCardLocators.menuTabs(childTabName)).click();
-                LOGGER.info("Successfully naviagted to subtab: {} under tab: {}.",childTabName,parentTabName);
+                LOGGER.info("Successfully navigated to subtab: {} under tab: {}.",childTabName,parentTabName);
             } else
                 Assert.fail("Child element is not found");
         } else
