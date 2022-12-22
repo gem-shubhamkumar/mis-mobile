@@ -4,7 +4,7 @@ Feature: Perform actions on Organization Structure of MIS website
     Given Navigate to MIS Beta Application
     And Login to MIS with credentials "amisha.srivastava" "Gemini@123"
 
-  @Test @TC01 @OrgStructure
+  @Test @TC01 @OrgStructure @testme
   Scenario: Search an employee and get their designation
   #MIS_OrgStructure_SearchEmployeeAndGetDesignation
     Then Open "Organization Structure" page

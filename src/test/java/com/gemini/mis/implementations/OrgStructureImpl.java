@@ -24,8 +24,9 @@ public class OrgStructureImpl extends PageObject {
 
     public void searchEmployee(String Name) {
         $(os.searchBox).waitUntilVisible().sendKeys(Name);
-        waitABit(1000);
-        By searchedEmployee = By.xpath("//*[local-name()='text' and text()='"+Name+"']");
+        waitABit(4000);
+        $(By.xpath("//*[@title='zoom in']")).click();
+        By searchedEmployee = By.xpath("//*[text()='"+Name+"']");
         if($(searchedEmployee).isDisplayed()) {
             log.info("Employee search successful. " + Name + " found");
         }else {

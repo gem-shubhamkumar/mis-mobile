@@ -73,11 +73,10 @@ public class ReimbursementImplementation extends PageObject{
             //click on submit button
             genFun.clickOnButton("Submit");
             boolean verifySubmit=$(MISPOM.genericPath("Reimbursement request has been submitted successfully")).isVisible();
+
             String verifyDescription = $(ReimbursementPOM.typeInValue( "Description")).getText();
             String VerifyReimbursementAmount = $(ReimbursementPOM.reimbursementAmount).getText();
-
             if(verifyDescription.contains(description) && VerifyReimbursementAmount.contains(reimbursementAmount) && verifySubmit){
-
                 Assert.assertTrue("User is able to add the new request successfully",true);
             }else{
                 Assert.fail("User is unable to fill the details and submit the file");
@@ -160,11 +159,12 @@ public class ReimbursementImplementation extends PageObject{
 
         public void verifyWaringPopUp(String filePath){
             WebElementFacade inputLogo= $(ReimbursementPOM.fileUpload);
-            // inputLogo.click();
+//            inputLogo.click();
+            System.out.println(inputLogo);
             inputLogo.sendKeys(filePath);
+            waitABit(5000);
             // inputLogo.sendKeys(Keys.ENTER);
             boolean verifySubmit=$(MISPOM.genericPath("Kindly add image with less than 1 MB size")).isVisible();
-
             if (verifySubmit){
                 Assert.assertTrue("User is able to see the warning popup",true);
             }else{
@@ -324,7 +324,6 @@ public class ReimbursementImplementation extends PageObject{
         //validate export functionality
 
         public void validateExport() throws IOException {
-
             $(MISPOM.genericPath("Export")).click();
             $(MISPOM.genericPath("PDF")).click();
             //genFun.getLAstModifiedFile(FilePath);

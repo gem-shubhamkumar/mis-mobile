@@ -72,7 +72,7 @@ Feature: LNSA
     When User Clicks on "View Request Status" tab of "LNSA" tab
     Then Verify View Request Status tab opens
 
-
+@test12
   Scenario: Export Data
     When User Clicks on "View Request Status" tab of "LNSA" tab
     Then Verify View Request Status tab opens

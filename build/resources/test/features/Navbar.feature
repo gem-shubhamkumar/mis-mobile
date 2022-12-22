@@ -86,7 +86,7 @@ Feature: NavBar
     Then Select "Logout" from dropdown menu list
     And Verify user is logged off and redirected to login page
 
-  Scenario: Verify cars are added on dashboard when updating from dashboard setting
+  Scenario: Verify cards are added on dashboard when updating from dashboard setting
     Then Open profile menu list from top right on navbar
     Then Select "Dashboard Settings" from dropdown menu list
     And Verify "Dashboard setting table" is visible on the current screen

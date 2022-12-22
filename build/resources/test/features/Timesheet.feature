@@ -122,14 +122,14 @@ Feature: Perform actions on TimeSheet of MIS website
     Examples:
       | Name | Description   | Team |   Task   |
       |      |               |      |          |
-      | abcd |               |      |          |
+      | byod |               |      |          |
       |      | FirstTemplate |      |          |
       |      |               |  QA  |          |
-      | abcd | FirstTemplate |      |          |
-      | abcd | FirstTemplate |  QA  |          |
+      | byod | FirstTemplate |      |          |
+      | byod | FirstTemplate |  QA  |          |
 
   @Test @TC12 @TimeSheet @ManageTaskTemplate
-  Scenario Outline: Delete and Add a valid task template
+  Scenario Outline: Add a valid task template
   #MIS_TimeSheet_ManageTaskTemplate_delAndAddValidTemplate
     Then Open "Manage Task Template" page of "TimeSheet" module
     And Verify "Manage Task Template" page of type "Sub"
@@ -137,7 +137,7 @@ Feature: Perform actions on TimeSheet of MIS website
     Then Logout from MIS
     Examples:
       | Name | Description   | Team |   Task   |
-      | abcd | FirstTemplate |  QA  | Learning |
+      | dcba | FirstTemplate |  QA  | Learning |
 
   @Test @TC13 @TimeSheet @ManageTaskTemplate
   Scenario Outline: Add a duplicate task template
@@ -161,14 +161,13 @@ Feature: Perform actions on TimeSheet of MIS website
     Then Logout from MIS
     Examples:
       | Name | Description |  Team  |   Task    | EName | EDescription | ETeam |   ETask   |
-      | Lmno |    njuik    | Gemini | Reporting |       |              |       |           |
-      | Lmno |    njuik    | Gemini | Reporting | wxyz  |              |       |           |
-      | Lmno |    njuik    | Gemini | Reporting |       |  MyTemplate  |       |           |
-      | Lmno |    njuik    | Gemini | Reporting |       |              |  FES  |           |
-      | Lmno |    njuik    | Gemini | Reporting |       |              |       |  Learning |
-      | Lmno |    njuik    | Gemini | Reporting | wxyz  |  MyTemplate  |       |           |
-      | Lmno |    njuik    | Gemini | Reporting | wxyz  |  MyTemplate  |  FES  |           |
-      | Lmno |    njuik    | Gemini | Reporting | wxyz  |  MyTemplate  |  FES  |  Testing  |
+      | Lmno |    njuik    | Gemini | Reporting | dfaq  |              |       |           |
+      | Lmno |    njuik    | Gemini | Reporting | mdhv  |  MyTemplate  |       |           |
+      | Lmno |    njuik    | Gemini | Reporting | orgy  |              |  FES  |           |
+      | Lmno |    njuik    | Gemini | Reporting | pdxv  |              |       |  Learning |
+      | Lmno |    njuik    | Gemini | Reporting | vrds  |  MyTemplate  |       |  Learning |
+      | Lmno |    njuik    | Gemini | Reporting | mntr  |  MyTemplate  |  FES  |           |
+      | Lmno |    njuik    | Gemini | Reporting | oprd  |  MyTemplate  |  FES  |  Testing  |
 
   @Test @TC15 @TimeSheet @ManageTaskTemplate
   Scenario Outline: Verify rejecting a delete action for a task template
