@@ -173,7 +173,6 @@ Feature: MIS Leave Management > View Request Status
       |      parentTab     |       childTab      |          dateRange         |
       | Leave Management   | View Request Status |  01 Apr 2021 - 31 Mar 2022 |
 
-  @tagMIS
   Scenario Outline: Cancel Leave for Leave Tab
     When User is on MIS Home Page
     When User clicks on "<childTab>" sub tab of "<parentTab>" tab

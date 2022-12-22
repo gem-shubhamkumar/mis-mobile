@@ -1,0 +1,593 @@
+<html lang='en'><head><link href='prism/prism.css' rel='stylesheet' /></head><body><script src='prism/prism.js'></script><body><div><pre><code class='language-html'>&lt;html class=" no-touch"&gt;<br/>
+ &lt;head&gt; <br/>
+  &lt;meta name="viewport" content="width=device-width"&gt; <br/>
+  &lt;title&gt;Gemini - MIS&lt;/title&gt; <br/>
+  &lt;link href="/favicon.ico?v=1.2" rel="shortcut icon" type="image/x-icon"&gt; <br/>
+  &lt;link href="/Content/lib/lobipanel.min.css?v=4.4" rel="stylesheet"&gt; <br/>
+  &lt;link href="/Content/lib/separate/vender/lobipanel.min.css?v=4.4" rel="stylesheet"&gt; <br/>
+  &lt;link href="/Content/lib/separate/widgets.min.css?v=4.4" rel="stylesheet"&gt; <br/>
+  &lt;link href="/Content/lib/jquery-ui.min.css?v=4.4" rel="stylesheet"&gt; <br/>
+  &lt;link href="/Content/lib/sweetalert.css?v=4.4" rel="stylesheet"&gt; <br/>
+  &lt;link href="/Content/lib/sweet-alert-animations.min.css?v=4.4" rel="stylesheet"&gt; <br/>
+  &lt;link href="/Content/lib/bootstrap.min.css?v=4.4" rel="stylesheet"&gt; <br/>
+  &lt;link href="/Content/lib/bootstrap-toggle.min.css?v=4.4" rel="stylesheet"&gt; <br/>
+  &lt;link href="/Content/lib/font-awesome.min.css?v=4.4" rel="stylesheet"&gt; <br/>
+  &lt;link href="/Content/lib/select2.min.css?v=4.4" rel="stylesheet"&gt; <br/>
+  &lt;link href="/Content/lib/main.css?v=1.9" rel="stylesheet"&gt; <br/>
+  &lt;link href="/Content/lib/datepicker.css?v=4.4" rel="stylesheet"&gt; <br/>
+  &lt;link href="/Content/lib/bootstrap-multiselect.css?v=4.4" rel="stylesheet"&gt; <br/>
+  &lt;link href="/Content/app/mis.common.css?v=1.11" rel="stylesheet"&gt; <br/>
+  &lt;link href="/Content/lib/datatable/jquery.dataTables.min.css" rel="stylesheet" asp-append-version="true"&gt; <br/>
+  &lt;link href="/Content/lib/datatable/buttons.dataTables.min.css" rel="stylesheet"&gt; <br/>
+  &lt;link href="/Content/lib/datatable/responsive.dataTables.min.css" rel="stylesheet"&gt; <br/>
+  &lt;link href="/Content/lib/datatable/datatables-net.min.css" rel="stylesheet"&gt; <br/>
+  &lt;script src="/Scripts/lib/jquery.min.js" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script src="/Scripts/lib/jquery-ui.min.js" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script src="/Scripts/lib/jquery.blockUI.min.js?v=1.0" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script src="/Scripts/lib/moment.min.js" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script src="/Scripts/common/mis.basepath.js?v=7.9" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script src="/Scripts/common/mis.common.min.js?v=5.1" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script type="text/javascript"&gt;<br/>
+        //if (window.location.hostname !== 'localhost') {<br/>
+        //    if (window.location.protocol !== 'https:') {<br/>
+        //        window.location = 'https://' + window.location.hostname + (window.location.port ? ':' + window.location.port : '') + window.location.pathname + window.location.hash;<br/>
+        //    }<br/>
+        //}<br/>
+        misSession.validateAccess();<br/>
+    &lt;/script&gt; <br/>
+ &lt;/head&gt; <br/>
+ &lt;body class="with-side-menu control-panel control-panel-compact chrome-browser modal-open" style="padding-right: 17px;"&gt; <br/>
+  &lt;header class="site-header"&gt; <br/>
+   &lt;div class="container-fluid"&gt; &lt;span id="show-hide-sidebar" class="checkbox-toggle"&gt; &lt;input type="checkbox" checked&gt; &lt;button id="show-hide-sidebar-toggle" class="active toggle-menu"&gt; &lt;i class="fa fa-bars"&gt;&lt;/i&gt; &lt;/button&gt; &lt;label for="show-hide-sidebar-toggle"&gt;&lt;/label&gt; &lt;/span&gt; &lt;a href="javascript: void(0)" class="site-logo"&gt; &lt;img class="hidden-md-down" src="/img/GeminiLogo-Small-Black.png?v1.0" alt=""&gt; &lt;/a&gt; &lt;button class="hamburger hamburger--htla"&gt; &lt;span&gt;toggle menu&lt;/span&gt; &lt;/button&gt; <br/>
+    &lt;div class="site-header-content"&gt; <br/>
+     &lt;div class="site-header-content-in"&gt; <br/>
+      &lt;div class="site-header-shown"&gt; <br/>
+       &lt;div class="dropdown dropdown-typical"&gt; &lt;a class="ldap-link" href="https://ldap.geminisolutions.com" target="_blank"&gt;Change AD Password&lt;/a&gt; <br/>
+       &lt;/div&gt; <br/>
+       &lt;div class="dropdown user-menu"&gt; &lt;button class="dropdown-toggle" id="dd-user-menu" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"&gt; &lt;img src="http://mymisapi.geminisolutions.com:8700/Images/male-employee.png?v=4.7" alt="" id="userImage"&gt;&lt;span id="LoginUserName"&gt;&lt;/span&gt; &lt;/button&gt; <br/>
+        &lt;div class="dropdown-menu dropdown-menu-right" aria-labelledby="dd-user-menu"&gt; &lt;a class="dropdown-item" id="updateProfile"&gt;&lt;span class="font-icon glyphicon glyphicon-user"&gt;&lt;/span&gt;Profile&lt;/a&gt; &lt;a class="dropdown-item" id="dashBoardSettings"&gt;&lt;span class="font-icon glyphicon glyphicon-cog"&gt;&lt;/span&gt;Dashboard Settings&lt;/a&gt; &lt;a class="dropdown-item" id="skills"&gt;&lt;span class="font-icon glyphicon glyphicon-signal"&gt;&lt;/span&gt;Skills&lt;/a&gt; <br/>
+         &lt;div class="dropdown-divider"&gt;&lt;/div&gt; &lt;a class="dropdown-item" href="javascript:misSession.signoff();"&gt;&lt;span class="font-icon glyphicon glyphicon-log-out"&gt;&lt;/span&gt;Logout&lt;/a&gt; <br/>
+        &lt;/div&gt; <br/>
+       &lt;/div&gt; &lt;button type="button" class="burger-right"&gt; &lt;i class="font-icon-menu-addl"&gt;&lt;/i&gt; &lt;/button&gt; <br/>
+      &lt;/div&gt; <br/>
+      &lt;div class="mobile-menu-right-overlay"&gt;&lt;/div&gt; <br/>
+      &lt;div class="site-header-collapsed"&gt; <br/>
+      &lt;/div&gt; <br/>
+     &lt;/div&gt; <br/>
+     &lt;div id="divChangeADPassword" class="pull-right"&gt; <br/>
+      &lt;div class="container margin-top-10"&gt; <br/>
+       &lt;div class="row form-group"&gt; <br/>
+        &lt;div class="col-md-6"&gt;<br/>
+         &lt;label class="control-label lbl-right"&gt;Domain Username&lt;/label&gt;<br/>
+        &lt;/div&gt; <br/>
+        &lt;div class="col-md-6"&gt;<br/>
+         &lt;input type="text" autocomplete="off" disabled class="form-control validation-required" id="txtADUsername" name="txtADUsername"&gt;<br/>
+        &lt;/div&gt; <br/>
+       &lt;/div&gt; <br/>
+       &lt;div class="row form-group"&gt; <br/>
+        &lt;div class="col-md-6"&gt;<br/>
+         &lt;label class="control-label lbl-right"&gt;Current Password&lt;/label&gt;<br/>
+        &lt;/div&gt; <br/>
+        &lt;div class="col-md-6"&gt;<br/>
+         &lt;input type="password" autocomplete="off" class="form-control validation-required" id="txtCurrentPass"&gt;<br/>
+        &lt;/div&gt; <br/>
+       &lt;/div&gt; <br/>
+       &lt;div class="row form-group"&gt; <br/>
+        &lt;div class="col-md-6"&gt;<br/>
+         &lt;label class="control-label lbl-right"&gt;New Password&lt;/label&gt;<br/>
+        &lt;/div&gt; <br/>
+        &lt;div class="col-md-6"&gt;<br/>
+         &lt;input type="password" autocomplete="off" class="form-control validation-required" id="txtNewPass"&gt;<br/>
+        &lt;/div&gt; <br/>
+       &lt;/div&gt; <br/>
+       &lt;div class="row form-group"&gt; <br/>
+        &lt;div class="col-md-6"&gt;<br/>
+         &lt;label class="control-label lbl-right"&gt;Confirm New Password&lt;/label&gt;<br/>
+        &lt;/div&gt; <br/>
+        &lt;div class="col-md-6"&gt;<br/>
+         &lt;input type="password" autocomplete="off" class="form-control validation-required" id="txtConfirmNewPass"&gt;<br/>
+        &lt;/div&gt; <br/>
+       &lt;/div&gt; <br/>
+       &lt;div class="row form-group"&gt; <br/>
+        &lt;div class="col-md-12" id="divAlert" style="display:none;"&gt;<br/>
+         &lt;label class="text-danger"&gt;Your Domain Username is not available. Please contact to MIS Team.&lt;/label&gt;<br/>
+        &lt;/div&gt; <br/>
+        &lt;div class="col-md-12" id="divADChangeBtn" style="display:none;"&gt;<br/>
+         &lt;button type="button" id="btnChangeADPass" class="btn btn-outline-success pull-right"&gt;Submit&lt;/button&gt;<br/>
+        &lt;/div&gt; <br/>
+       &lt;/div&gt; <br/>
+       &lt;div class="row form-group"&gt; <br/>
+        &lt;div class="col-md-12" id="divAlertError" style="display:none;"&gt;<br/>
+         &lt;label class="text-danger"&gt;New password and confirm password does not match.&lt;/label&gt;<br/>
+        &lt;/div&gt; <br/>
+       &lt;/div&gt; <br/>
+      &lt;/div&gt; <br/>
+     &lt;/div&gt; <br/>
+    &lt;/div&gt; <br/>
+   &lt;/div&gt; <br/>
+  &lt;/header&gt; <br/>
+  &lt;div class="mobile-menu-left-overlay"&gt;&lt;/div&gt; <br/>
+  &lt;nav class="side-menu jspScrollable" tabindex="0" style="overflow: hidden; padding: 0px; width: 240px;"&gt; <br/>
+   &lt;div class="jspContainer" style="width: 239px; height: 564px;"&gt;<br/>
+    &lt;div class="jspPane" style="padding: 0px; top: 0px; left: 0px; width: 225px;"&gt;<br/>
+     &lt;ul class="side-menu-list"&gt;<br/>
+      &lt;li class="magenta"&gt;&lt;a href="https://mymis.geminisolutions.com/Dashboard/Index"&gt;&lt;i class="fa fa-tachometer"&gt;&lt;/i&gt;&lt;span class="lbl"&gt;Dashboard&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+      &lt;li class="magenta"&gt;&lt;a href="https://mymis.geminisolutions.com/Directory/EmployeeDirectory"&gt;&lt;i class="font-icon font-icon-contacts"&gt;&lt;/i&gt;&lt;span class="lbl"&gt;Employee Directory&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+      &lt;li class="magenta with-sub"&gt;&lt;span&gt;&lt;i class="font-icon fa fa-clock-o"&gt;&lt;/i&gt;&lt;span class="lbl"&gt;TimeSheet&lt;/span&gt;&lt;/span&gt;<br/>
+       &lt;ul&gt;<br/>
+        &lt;li&gt;&lt;a href="https://mymis.geminisolutions.com/Timesheet/ConfigureTimesheet"&gt;&lt;span class="lbl"&gt;Configure Timesheet&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+        &lt;li&gt;&lt;a href="https://mymis.geminisolutions.com/Timesheet/CreateTimesheet"&gt;&lt;span class="lbl"&gt;Create Timesheet&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+        &lt;li&gt;&lt;a href="https://mymis.geminisolutions.com/Timesheet/ManageTaskTemplates"&gt;&lt;span class="lbl"&gt;Manage Task Template&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;/ul&gt;&lt;/li&gt;<br/>
+      &lt;li class="magenta with-sub"&gt;&lt;span&gt;&lt;i class="font-icon fa fa-home"&gt;&lt;/i&gt;&lt;span class="lbl"&gt;Leave Management&lt;/span&gt;&lt;/span&gt;<br/>
+       &lt;ul&gt;<br/>
+        &lt;li&gt;&lt;a href="https://mymis.geminisolutions.com/LeaveManagement/Apply"&gt;&lt;span class="lbl"&gt;Apply&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+        &lt;li&gt;&lt;a href="https://mymis.geminisolutions.com/LeaveManagement/LeaveRequestStatus"&gt;&lt;span class="lbl"&gt;View Request Status&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;/ul&gt;&lt;/li&gt;<br/>
+      &lt;li class="magenta with-sub"&gt;&lt;span&gt;&lt;i class="font-icon glyphicon glyphicon-send"&gt;&lt;/i&gt;&lt;span class="lbl"&gt;LNSA&lt;/span&gt;&lt;/span&gt;<br/>
+       &lt;ul&gt;<br/>
+        &lt;li&gt;&lt;a href="https://mymis.geminisolutions.com/Lnsa/Apply"&gt;&lt;span class="lbl"&gt;Apply LNSA&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+        &lt;li&gt;&lt;a href="https://mymis.geminisolutions.com/Lnsa/ViewStatus"&gt;&lt;span class="lbl"&gt;View Request Status&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;/ul&gt;&lt;/li&gt;<br/>
+      &lt;li class="magenta with-sub"&gt;&lt;span&gt;&lt;i class="fa fa-folder-open"&gt;&lt;/i&gt;&lt;span class="lbl"&gt;Knowledge Base&lt;/span&gt;&lt;/span&gt;<br/>
+       &lt;ul&gt;<br/>
+        &lt;li&gt;&lt;a href="https://mymis.geminisolutions.com/KnowledgeBase/ViewDoc"&gt;&lt;span class="lbl"&gt;View Documents&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+        &lt;li&gt;&lt;a href="https://mymis.geminisolutions.com/KnowledgeBase/ViewSharedDoc"&gt;&lt;span class="lbl"&gt;View Shared Documents&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;/ul&gt;&lt;/li&gt;<br/>
+      &lt;li class="magenta with-sub"&gt;&lt;span&gt;&lt;i class="fa fa-file-text"&gt;&lt;/i&gt;&lt;span class="lbl"&gt;Policy&lt;/span&gt;&lt;/span&gt;<br/>
+       &lt;ul&gt;<br/>
+        &lt;li&gt;&lt;a href="https://mymis.geminisolutions.com/Policy/ViewPolicy"&gt;&lt;span class="lbl"&gt;View Policies&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;/ul&gt;&lt;/li&gt;<br/>
+      &lt;li class="magenta with-sub"&gt;&lt;span&gt;&lt;i class="font-icon fa fa-file-text"&gt;&lt;/i&gt;&lt;span class="lbl"&gt;Forms&lt;/span&gt;&lt;/span&gt;<br/>
+       &lt;ul&gt;<br/>
+        &lt;li&gt;&lt;a href="https://mymis.geminisolutions.com/Form/ViewForm"&gt;&lt;span class="lbl"&gt;View Form&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+        &lt;li&gt;&lt;a href="https://mymis.geminisolutions.com/Form/MyForm"&gt;&lt;span class="lbl"&gt;My Form&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;/ul&gt;&lt;/li&gt;<br/>
+      &lt;li class="magenta with-sub"&gt;&lt;span&gt;&lt;i class="fa fa-graduation-cap"&gt;&lt;/i&gt;&lt;span class="lbl"&gt;Appraisal Management&lt;/span&gt;&lt;/span&gt;<br/>
+       &lt;ul&gt;<br/>
+        &lt;li&gt;&lt;a href="https://mymis.geminisolutions.com/AppraisalManagement/SelfGoal"&gt;&lt;span class="lbl"&gt;Add Goals&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+        &lt;li&gt;&lt;a href="https://mymis.geminisolutions.com/AppraisalManagement/MyAchievement"&gt;&lt;span class="lbl"&gt;My Achievement&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;/ul&gt;&lt;/li&gt;<br/>
+      &lt;li class="magenta with-sub active opened"&gt;&lt;span&gt;&lt;i class="fa fa-comments"&gt;&lt;/i&gt;&lt;span class="lbl"&gt;Feedback&lt;/span&gt;&lt;/span&gt;<br/>
+       &lt;ul&gt;<br/>
+        &lt;li class="active"&gt;&lt;a href="https://mymis.geminisolutions.com/Feedback/SubmitFeedback"&gt;&lt;span class="lbl"&gt;Submit Feedback&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;/ul&gt;&lt;/li&gt;<br/>
+      &lt;li class="magenta"&gt;&lt;a href="https://mymis.geminisolutions.com/Organization/OrganizationStructure"&gt;&lt;i class="fa fa-sitemap"&gt;&lt;/i&gt;&lt;span class="lbl"&gt;Organization Structure&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+      &lt;li class="magenta with-sub"&gt;&lt;span&gt;&lt;i class="fa fa-inr"&gt;&lt;/i&gt;&lt;span class="lbl"&gt;Accounts Portal&lt;/span&gt;&lt;/span&gt;<br/>
+       &lt;ul&gt;<br/>
+        &lt;li&gt;&lt;a href="https://geminisolutions.greythr.com/" target="_blank"&gt;&lt;span class="lbl"&gt;My Account&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;/ul&gt;&lt;/li&gt;<br/>
+      &lt;li class="magenta with-sub"&gt;&lt;span&gt;&lt;i class="fa fa-inr"&gt;&lt;/i&gt;&lt;span class="lbl"&gt;Reimbursement&lt;/span&gt;&lt;/span&gt;<br/>
+       &lt;ul&gt;<br/>
+        &lt;li&gt;&lt;a href="https://mymis.geminisolutions.com/Reimbursement/MyReimbursement"&gt;&lt;span class="lbl"&gt;MyReimbursement&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;/ul&gt;&lt;/li&gt;<br/>
+      &lt;li class="magenta with-sub"&gt;&lt;span&gt;&lt;i class="fa fa-list"&gt;&lt;/i&gt;&lt;span class="lbl"&gt;Other Portals&lt;/span&gt;&lt;/span&gt;<br/>
+       &lt;ul&gt;<br/>
+        &lt;li&gt;&lt;a href="https://geminisolutions.talentlms.com/index" target="_blank"&gt;&lt;span class="lbl"&gt;L&amp;D Portal&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+        &lt;li&gt;&lt;a href="https://contripoint.geminisolutions.com/" target="_blank"&gt;&lt;span class="lbl"&gt;Contripoint&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+        &lt;li&gt;&lt;a href="https://gembook.geminisolutions.com/" target="_blank"&gt;&lt;span class="lbl"&gt;Gembook&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+        &lt;li&gt;&lt;a href="https://wiki.geminisolutions.com/login" target="_blank"&gt;&lt;span class="lbl"&gt;Gem Wiki&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+        &lt;li&gt;&lt;a href="https://github.com/Gemini-Solutions" target="_blank"&gt;&lt;span class="lbl"&gt;Github&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+        &lt;li&gt;&lt;a href="https://jenkins.geminisolutions.com/" target="_blank"&gt;&lt;span class="lbl"&gt;Jenkins&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+        &lt;li&gt;&lt;a href="https://athena.geminisolutions.com/login" target="_blank"&gt;&lt;span class="lbl"&gt;Athena&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+        &lt;li&gt;&lt;a href="https://servicedesk.geminisolutions.com/index.php" target="_blank"&gt;&lt;span class="lbl"&gt;Service Desk&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;/ul&gt;&lt;/li&gt;<br/>
+     &lt;/ul&gt;<br/>
+    &lt;/div&gt;<br/>
+    &lt;div class="jspVerticalBar"&gt;<br/>
+     &lt;div class="jspCap jspCapTop"&gt;&lt;/div&gt;<br/>
+     &lt;div class="jspTrack" style="height: 564px;"&gt;<br/>
+      &lt;div class="jspDrag" style="height: 474px;"&gt;<br/>
+       &lt;div class="jspDragTop"&gt;&lt;/div&gt;<br/>
+       &lt;div class="jspDragBottom"&gt;&lt;/div&gt;<br/>
+      &lt;/div&gt;<br/>
+     &lt;/div&gt;<br/>
+     &lt;div class="jspCap jspCapBottom"&gt;&lt;/div&gt;<br/>
+    &lt;/div&gt;<br/>
+   &lt;/div&gt;<br/>
+  &lt;/nav&gt; <br/>
+  &lt;div class="page-content"&gt; <br/>
+   &lt;div class="container-fluid"&gt; <br/>
+    &lt;section class="card"&gt; <br/>
+     &lt;div class="card-block"&gt; <br/>
+      &lt;h5 class="with-border m-t-0"&gt;Submit Feedback&lt;/h5&gt; <br/>
+      &lt;div&gt; &lt;button type="button" class="btn btn-success" onclick="if (!window.__cfRLUnblockHandlers) return false; openPopupSubmitFeedback()"&gt;Provide Feedback&lt;/button&gt; <br/>
+      &lt;/div&gt; <br/>
+      &lt;div role="tabpanel" class="tab-pane margin-top-10"&gt; <br/>
+       &lt;section&gt; <br/>
+        &lt;div class="row form-body"&gt; <br/>
+         &lt;div class="col-md-12 clearfix"&gt; <br/>
+          &lt;div id="tblFeedback_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer"&gt;<br/>
+           &lt;div class="dataTables_length" id="tblFeedback_length"&gt;<br/>
+            &lt;label&gt; &lt;select name="tblFeedback_length" aria-controls="tblFeedback" class="form-control input-sm"&gt;&lt;option value="10"&gt;10&lt;/option&gt;&lt;option value="25"&gt;25&lt;/option&gt;&lt;option value="50"&gt;50&lt;/option&gt;&lt;option value="100"&gt;100&lt;/option&gt;&lt;/select&gt; &lt;/label&gt;<br/>
+           &lt;/div&gt;<br/>
+           &lt;div class="dt-buttons"&gt;<br/>
+            &lt;a class="dt-button buttons-collection" tabindex="0" aria-controls="tblFeedback" href="#"&gt;&lt;span&gt;Export&lt;/span&gt;&lt;/a&gt;<br/>
+           &lt;/div&gt;<br/>
+           &lt;div id="tblFeedback_filter" class="dataTables_filter"&gt;<br/>
+            &lt;label&gt;&lt;input type="search" class="form-control input-sm" placeholder="Search" aria-controls="tblFeedback"&gt;&lt;/label&gt;<br/>
+           &lt;/div&gt;<br/>
+           &lt;table id="tblFeedback" class="table table-bordered table-hover display table-striped dataTable no-footer dtr-inline" role="grid" aria-describedby="tblFeedback_info"&gt;<br/>
+            &lt;thead&gt;<br/>
+             &lt;tr role="row"&gt;<br/>
+              &lt;th class="sorting" tabindex="0" aria-controls="tblFeedback" rowspan="1" colspan="1" aria-label="Feedback: activate to sort column ascending"&gt;Feedback&lt;/th&gt;<br/>
+              &lt;th class="text-center sorting_disabled" rowspan="1" colspan="1" aria-label="Status"&gt;Status&lt;/th&gt;<br/>
+              &lt;th class="text-center sorting_disabled" rowspan="1" colspan="1" aria-label="View"&gt;View&lt;/th&gt;<br/>
+             &lt;/tr&gt;<br/>
+            &lt;/thead&gt;<br/>
+            &lt;tbody&gt;<br/>
+             &lt;tr role="row" class="odd"&gt;<br/>
+              &lt;td tabindex="0"&gt;ada &lt;/td&gt;<br/>
+              &lt;td class=" text-center"&gt;<br/>
+               &lt;div&gt;<br/>
+                Unacknowledged<br/>
+               &lt;/div&gt;&lt;/td&gt;<br/>
+              &lt;td class=" text-center"&gt;<br/>
+               &lt;div&gt;<br/>
+                &lt;button type="button" data-toggle="tooltip" title="View" class="btn btn-sm btn-success" onclick="openPopupViewFeedback(51)"&gt;&lt;i class="fa fa-eye" aria-hidden="true"&gt;&lt;/i&gt;&lt;/button&gt;&nbsp;<br/>
+               &lt;/div&gt;&lt;/td&gt;<br/>
+             &lt;/tr&gt;<br/>
+             &lt;tr role="row" class="even"&gt;<br/>
+              &lt;td tabindex="0"&gt;gggg&lt;/td&gt;<br/>
+              &lt;td class=" text-center"&gt;<br/>
+               &lt;div&gt;<br/>
+                Unacknowledged<br/>
+               &lt;/div&gt;&lt;/td&gt;<br/>
+              &lt;td class=" text-center"&gt;<br/>
+               &lt;div&gt;<br/>
+                &lt;button type="button" data-toggle="tooltip" title="View" class="btn btn-sm btn-success" onclick="openPopupViewFeedback(52)"&gt;&lt;i class="fa fa-eye" aria-hidden="true"&gt;&lt;/i&gt;&lt;/button&gt;&nbsp;<br/>
+               &lt;/div&gt;&lt;/td&gt;<br/>
+             &lt;/tr&gt;<br/>
+             &lt;tr role="row" class="odd"&gt;<br/>
+              &lt;td tabindex="0"&gt;Feedback&lt;/td&gt;<br/>
+              &lt;td class=" text-center"&gt;<br/>
+               &lt;div&gt;<br/>
+                Unacknowledged<br/>
+               &lt;/div&gt;&lt;/td&gt;<br/>
+              &lt;td class=" text-center"&gt;<br/>
+               &lt;div&gt;<br/>
+                &lt;button type="button" data-toggle="tooltip" title="View" class="btn btn-sm btn-success" onclick="openPopupViewFeedback(53)"&gt;&lt;i class="fa fa-eye" aria-hidden="true"&gt;&lt;/i&gt;&lt;/button&gt;&nbsp;<br/>
+               &lt;/div&gt;&lt;/td&gt;<br/>
+             &lt;/tr&gt;<br/>
+             &lt;tr role="row" class="even"&gt;<br/>
+              &lt;td tabindex="0"&gt;Feedback&lt;/td&gt;<br/>
+              &lt;td class=" text-center"&gt;<br/>
+               &lt;div&gt;<br/>
+                Unacknowledged<br/>
+               &lt;/div&gt;&lt;/td&gt;<br/>
+              &lt;td class=" text-center"&gt;<br/>
+               &lt;div&gt;<br/>
+                &lt;button type="button" data-toggle="tooltip" title="View" class="btn btn-sm btn-success" onclick="openPopupViewFeedback(54)"&gt;&lt;i class="fa fa-eye" aria-hidden="true"&gt;&lt;/i&gt;&lt;/button&gt;&nbsp;<br/>
+               &lt;/div&gt;&lt;/td&gt;<br/>
+             &lt;/tr&gt;<br/>
+             &lt;tr role="row" class="odd"&gt;<br/>
+              &lt;td tabindex="0"&gt;Feedback&lt;/td&gt;<br/>
+              &lt;td class=" text-center"&gt;<br/>
+               &lt;div&gt;<br/>
+                Unacknowledged<br/>
+               &lt;/div&gt;&lt;/td&gt;<br/>
+              &lt;td class=" text-center"&gt;<br/>
+               &lt;div&gt;<br/>
+                &lt;button type="button" data-toggle="tooltip" title="View" class="btn btn-sm btn-success" onclick="openPopupViewFeedback(55)"&gt;&lt;i class="fa fa-eye" aria-hidden="true"&gt;&lt;/i&gt;&lt;/button&gt;&nbsp;<br/>
+               &lt;/div&gt;&lt;/td&gt;<br/>
+             &lt;/tr&gt;<br/>
+             &lt;tr role="row" class="even"&gt;<br/>
+              &lt;td tabindex="0"&gt;Feedback&lt;/td&gt;<br/>
+              &lt;td class=" text-center"&gt;<br/>
+               &lt;div&gt;<br/>
+                Unacknowledged<br/>
+               &lt;/div&gt;&lt;/td&gt;<br/>
+              &lt;td class=" text-center"&gt;<br/>
+               &lt;div&gt;<br/>
+                &lt;button type="button" data-toggle="tooltip" title="View" class="btn btn-sm btn-success" onclick="openPopupViewFeedback(56)"&gt;&lt;i class="fa fa-eye" aria-hidden="true"&gt;&lt;/i&gt;&lt;/button&gt;&nbsp;<br/>
+               &lt;/div&gt;&lt;/td&gt;<br/>
+             &lt;/tr&gt;<br/>
+             &lt;tr role="row" class="odd"&gt;<br/>
+              &lt;td tabindex="0"&gt;Feedback&lt;/td&gt;<br/>
+              &lt;td class=" text-center"&gt;<br/>
+               &lt;div&gt;<br/>
+                Unacknowledged<br/>
+               &lt;/div&gt;&lt;/td&gt;<br/>
+              &lt;td class=" text-center"&gt;<br/>
+               &lt;div&gt;<br/>
+                &lt;button type="button" data-toggle="tooltip" title="View" class="btn btn-sm btn-success" onclick="openPopupViewFeedback(57)"&gt;&lt;i class="fa fa-eye" aria-hidden="true"&gt;&lt;/i&gt;&lt;/button&gt;&nbsp;<br/>
+               &lt;/div&gt;&lt;/td&gt;<br/>
+             &lt;/tr&gt;<br/>
+             &lt;tr role="row" class="even"&gt;<br/>
+              &lt;td tabindex="0"&gt;Feedback&lt;/td&gt;<br/>
+              &lt;td class=" text-center"&gt;<br/>
+               &lt;div&gt;<br/>
+                Unacknowledged<br/>
+               &lt;/div&gt;&lt;/td&gt;<br/>
+              &lt;td class=" text-center"&gt;<br/>
+               &lt;div&gt;<br/>
+                &lt;button type="button" data-toggle="tooltip" title="View" class="btn btn-sm btn-success" onclick="openPopupViewFeedback(58)"&gt;&lt;i class="fa fa-eye" aria-hidden="true"&gt;&lt;/i&gt;&lt;/button&gt;&nbsp;<br/>
+               &lt;/div&gt;&lt;/td&gt;<br/>
+             &lt;/tr&gt;<br/>
+             &lt;tr role="row" class="odd"&gt;<br/>
+              &lt;td tabindex="0"&gt;Feedback&lt;/td&gt;<br/>
+              &lt;td class=" text-center"&gt;<br/>
+               &lt;div&gt;<br/>
+                Unacknowledged<br/>
+               &lt;/div&gt;&lt;/td&gt;<br/>
+              &lt;td class=" text-center"&gt;<br/>
+               &lt;div&gt;<br/>
+                &lt;button type="button" data-toggle="tooltip" title="View" class="btn btn-sm btn-success" onclick="openPopupViewFeedback(59)"&gt;&lt;i class="fa fa-eye" aria-hidden="true"&gt;&lt;/i&gt;&lt;/button&gt;&nbsp;<br/>
+               &lt;/div&gt;&lt;/td&gt;<br/>
+             &lt;/tr&gt;<br/>
+             &lt;tr role="row" class="even"&gt;<br/>
+              &lt;td tabindex="0"&gt;Feedback&lt;/td&gt;<br/>
+              &lt;td class=" text-center"&gt;<br/>
+               &lt;div&gt;<br/>
+                Unacknowledged<br/>
+               &lt;/div&gt;&lt;/td&gt;<br/>
+              &lt;td class=" text-center"&gt;<br/>
+               &lt;div&gt;<br/>
+                &lt;button type="button" data-toggle="tooltip" title="View" class="btn btn-sm btn-success" onclick="openPopupViewFeedback(60)"&gt;&lt;i class="fa fa-eye" aria-hidden="true"&gt;&lt;/i&gt;&lt;/button&gt;&nbsp;<br/>
+               &lt;/div&gt;&lt;/td&gt;<br/>
+             &lt;/tr&gt;<br/>
+            &lt;/tbody&gt;<br/>
+           &lt;/table&gt;<br/>
+           &lt;div class="dataTables_info" id="tblFeedback_info" role="status" aria-live="polite"&gt;<br/>
+            Showing 1 to 10 of 290 entries<br/>
+           &lt;/div&gt;<br/>
+           &lt;div class="dataTables_paginate paging_simple_numbers" id="tblFeedback_paginate"&gt;<br/>
+            &lt;ul class="pagination"&gt;<br/>
+             &lt;li class="paginate_button previous disabled" id="tblFeedback_previous"&gt;&lt;a href="#" aria-controls="tblFeedback" data-dt-idx="0" tabindex="0"&gt;Previous&lt;/a&gt;&lt;/li&gt;<br/>
+             &lt;li class="paginate_button active"&gt;&lt;a href="#" aria-controls="tblFeedback" data-dt-idx="1" tabindex="0"&gt;1&lt;/a&gt;&lt;/li&gt;<br/>
+             &lt;li class="paginate_button "&gt;&lt;a href="#" aria-controls="tblFeedback" data-dt-idx="2" tabindex="0"&gt;2&lt;/a&gt;&lt;/li&gt;<br/>
+             &lt;li class="paginate_button "&gt;&lt;a href="#" aria-controls="tblFeedback" data-dt-idx="3" tabindex="0"&gt;3&lt;/a&gt;&lt;/li&gt;<br/>
+             &lt;li class="paginate_button "&gt;&lt;a href="#" aria-controls="tblFeedback" data-dt-idx="4" tabindex="0"&gt;4&lt;/a&gt;&lt;/li&gt;<br/>
+             &lt;li class="paginate_button "&gt;&lt;a href="#" aria-controls="tblFeedback" data-dt-idx="5" tabindex="0"&gt;5&lt;/a&gt;&lt;/li&gt;<br/>
+             &lt;li class="paginate_button disabled" id="tblFeedback_ellipsis"&gt;&lt;a href="#" aria-controls="tblFeedback" data-dt-idx="6" tabindex="0"&gt;…&lt;/a&gt;&lt;/li&gt;<br/>
+             &lt;li class="paginate_button "&gt;&lt;a href="#" aria-controls="tblFeedback" data-dt-idx="7" tabindex="0"&gt;29&lt;/a&gt;&lt;/li&gt;<br/>
+             &lt;li class="paginate_button next" id="tblFeedback_next"&gt;&lt;a href="#" aria-controls="tblFeedback" data-dt-idx="8" tabindex="0"&gt;Next&lt;/a&gt;&lt;/li&gt;<br/>
+            &lt;/ul&gt;<br/>
+           &lt;/div&gt;<br/>
+          &lt;/div&gt; <br/>
+         &lt;/div&gt; <br/>
+        &lt;/div&gt; <br/>
+       &lt;/section&gt; <br/>
+      &lt;/div&gt; <br/>
+     &lt;/div&gt; <br/>
+    &lt;/section&gt; <br/>
+   &lt;/div&gt; <br/>
+   &lt;div id="modal-submitFeedback" class="modal fade in" role="dialog" style="display: block;"&gt; <br/>
+    &lt;div class="modal-dialog"&gt; <br/>
+     &lt;div class="modal-content"&gt; <br/>
+      &lt;input type="hidden" name="name" value=" " id="hdnFeedbackId"&gt; <br/>
+      &lt;div class="modal-header"&gt; &lt;button type="button" class="close" data-dismiss="modal" aria-label="Close"&gt;&lt;span aria-hidden="true"&gt;×&lt;/span&gt;&lt;/button&gt; <br/>
+       &lt;h4 id="modalTitle" class="modal-title"&gt;Submit Feedback&lt;/h4&gt; <br/>
+      &lt;/div&gt; <br/>
+      &lt;div class="modal-body"&gt; <br/>
+       &lt;div class="form-group" id="submitFeedback"&gt; <br/>
+        &lt;div class="inputGroupContainer"&gt; <br/>
+         &lt;div class="input-group"&gt; &lt;textarea class="form-control validation-required" id="feedback" maxlength="5000" placeholder="Write you comments here." rows="10"&gt;&lt;/textarea&gt; <br/>
+         &lt;/div&gt; <br/>
+        &lt;/div&gt; <br/>
+       &lt;/div&gt; <br/>
+      &lt;/div&gt; <br/>
+      &lt;div class="modal-footer"&gt; &lt;button type="button" class="btn btn-success" onclick="if (!window.__cfRLUnblockHandlers) return false; submitFeedback();"&gt;&lt;i class="fa fa-save"&gt;&lt;/i&gt;&nbsp;Submit&lt;/button&gt; &lt;button type="button" class="btn btn-default btnClose"&gt;&lt;i class="fa fa-times"&gt;&lt;/i&gt;&nbsp;Close &lt;/button&gt; <br/>
+      &lt;/div&gt; <br/>
+     &lt;/div&gt; <br/>
+    &lt;/div&gt; <br/>
+   &lt;/div&gt; <br/>
+   &lt;div id="modal-feedback" class="modal fade" role="dialog" aria-hidden="true"&gt; <br/>
+    &lt;div class="modal-dialog"&gt; <br/>
+     &lt;div class="modal-content"&gt; <br/>
+      &lt;input type="hidden" name="name" value=" " id="hdnFeedbackId"&gt; <br/>
+      &lt;div class="modal-header"&gt; &lt;button type="button" class="close" data-dismiss="modal" aria-label="Close"&gt;&lt;span aria-hidden="true"&gt;×&lt;/span&gt;&lt;/button&gt; <br/>
+       &lt;h4 id="modalTitle" class="modal-title"&gt;View Feedback&lt;/h4&gt; <br/>
+      &lt;/div&gt; <br/>
+      &lt;div class="modal-body"&gt; <br/>
+       &lt;div class="form-group"&gt; &lt;label class="control-label"&gt;Employee Name&lt;/label&gt; <br/>
+        &lt;div class="inputGroupContainer"&gt; <br/>
+         &lt;div class="input-group"&gt; <br/>
+          &lt;input type="text" disabled class="form-control validation-required" placeholder="Enter task sub detail1 name" id="employeeName"&gt; <br/>
+         &lt;/div&gt; <br/>
+        &lt;/div&gt; <br/>
+       &lt;/div&gt; <br/>
+       &lt;div class="form-group"&gt; &lt;label class="control-label"&gt;Created Date&lt;/label&gt; <br/>
+        &lt;div class="inputGroupContainer"&gt; <br/>
+         &lt;div class="input-group"&gt; <br/>
+          &lt;input type="text" disabled class="form-control validation-required" placeholder="Enter task sub detail1 name" id="createdDate"&gt; <br/>
+         &lt;/div&gt; <br/>
+        &lt;/div&gt; <br/>
+       &lt;/div&gt; <br/>
+       &lt;div class="form-group"&gt; &lt;label class="control-label"&gt;Acknowledged By&lt;/label&gt; <br/>
+        &lt;div class="inputGroupContainer"&gt; <br/>
+         &lt;div class="input-group"&gt; <br/>
+          &lt;input type="text" disabled class="form-control validation-required" placeholder="Enter task sub detail1 name" id="acknowledgedBy"&gt; <br/>
+         &lt;/div&gt; <br/>
+        &lt;/div&gt; <br/>
+       &lt;/div&gt; <br/>
+       &lt;div class="form-group"&gt; &lt;label class="control-label"&gt;Feedback Message&lt;/label&gt; <br/>
+        &lt;div class="inputGroupContainer"&gt; <br/>
+         &lt;div class="input-group"&gt; &lt;textarea disabled class="form-control validation-required" id="feedbackMessage"&gt;&lt;/textarea&gt; <br/>
+         &lt;/div&gt; <br/>
+        &lt;/div&gt; <br/>
+       &lt;/div&gt; <br/>
+      &lt;/div&gt; <br/>
+      &lt;div class="modal-footer"&gt; &lt;button type="button" class="btn btn-default btnClose"&gt;&lt;i class="fa fa-times"&gt;&lt;/i&gt;&nbsp;Close &lt;/button&gt; <br/>
+      &lt;/div&gt; <br/>
+     &lt;/div&gt; <br/>
+    &lt;/div&gt; <br/>
+   &lt;/div&gt; <br/>
+   &lt;script src="/Scripts/app/Feedback/submitFeedback.js?v=1.1" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;/div&gt; <br/>
+  &lt;div id="myModalDashBoardSettings" class="modal fade" role="dialog" aria-labelledby="myModalDashBoardSettings" aria-hidden="true"&gt; <br/>
+   &lt;div class="modal-dialog modal-lg" id="DashBoardSettings"&gt; <br/>
+   &lt;/div&gt; <br/>
+  &lt;/div&gt; <br/>
+  &lt;div id="mypopupUpdateSkills" class="modal fade" role="dialog" aria-labelledby="mypopupUpdateSkills" aria-hidden="true"&gt; <br/>
+   &lt;div class="modal-dialog" id="skillsSettings"&gt; <br/>
+   &lt;/div&gt; <br/>
+  &lt;/div&gt; <br/>
+  &lt;div id="mypopupHelpDoc" class="modal fade" role="dialog" aria-labelledby="mypopupHelpDoc" aria-hidden="true"&gt; <br/>
+   &lt;div class="modal-dialog  modal-lg" id="helpDocument"&gt; <br/>
+   &lt;/div&gt; <br/>
+  &lt;/div&gt; <br/>
+  &lt;div id="mypopupEditSkills" class="modal fade" role="dialog" aria-labelledby="mypopupEditSkills" aria-hidden="true"&gt; <br/>
+   &lt;input type="hidden" name="name" value="" id="hdnSkillDetailId"&gt; <br/>
+   &lt;input type="hidden" name="name" value="" id="hdnSkillTypeId"&gt; <br/>
+   &lt;div class="modal-dialog" id="skillsSettingsEdit"&gt; <br/>
+   &lt;/div&gt; <br/>
+  &lt;/div&gt; <br/>
+  &lt;div id="mypopupUpdateProfile" class="modal fade" role="dialog" aria-labelledby="mypopupUpdateProfile" aria-hidden="true"&gt; <br/>
+   &lt;div class="modal-dialog" id="divUpdateProfile"&gt; <br/>
+   &lt;/div&gt; <br/>
+  &lt;/div&gt; <br/>
+  &lt;div id="popupApplyForLunch" class="modal fade" role="dialog" aria-labelledby="mypopup" aria-hidden="true"&gt; <br/>
+   &lt;div class="modal-dialog modal-lg" id="divApplyForLunch"&gt; <br/>
+   &lt;/div&gt; <br/>
+  &lt;/div&gt; <br/>
+  &lt;div id="editLunchDatePopup" class="modal fade" role="dialog" aria-labelledby="editLunchDatePopup" aria-hidden="true"&gt; <br/>
+   &lt;div class="modal-dialog modal-lg"&gt; <br/>
+    &lt;div class="modal-content"&gt; <br/>
+     &lt;div class="modal-header"&gt; &lt;button type="button" class="close" data-dismiss="modal" aria-label="Close"&gt;&lt;span aria-hidden="true"&gt;×&lt;/span&gt;&lt;/button&gt; <br/>
+      &lt;h4 id="modalTitle" class="modal-title"&gt;Edit Lunch Dates&lt;/h4&gt; <br/>
+     &lt;/div&gt; <br/>
+     &lt;div class="modal-body" id="divEditApplyForLunch"&gt; <br/>
+      &lt;input type="hidden" id="hdnSeqIdId"&gt; <br/>
+      &lt;div class="row"&gt; <br/>
+       &lt;div class="col-md-4"&gt; <br/>
+        &lt;div class="form-group"&gt; &lt;label class="control-label"&gt;From Date&lt;span class="spnError"&gt;*&lt;/span&gt;&lt;/label&gt; <br/>
+         &lt;div class="inputGroupContainer date date-picker" id="fromEditDate"&gt; <br/>
+          &lt;div class="input-group"&gt; <br/>
+           &lt;input type="text" class="form-control validation-required" readonly placeholder="Enter start date" name="fromEditDate" id="fromEditDateEmp"&gt; &lt;span class=" input-group-btn"&gt; &lt;button class="btn default" type="button"&gt;&lt;i class="fa fa-calendar"&gt;&lt;/i&gt;&lt;/button&gt; &lt;/span&gt; <br/>
+          &lt;/div&gt; <br/>
+         &lt;/div&gt; <br/>
+        &lt;/div&gt; <br/>
+       &lt;/div&gt; <br/>
+       &lt;div class="col-md-4"&gt; <br/>
+        &lt;div class="form-group"&gt; &lt;label class="control-label"&gt;Till Date&lt;span class="spnError"&gt;*&lt;/span&gt;&lt;/label&gt; <br/>
+         &lt;div class="inputGroupContainer date date-picker" id="tillEditDate"&gt; <br/>
+          &lt;div class="input-group"&gt; <br/>
+           &lt;input type="text" class="form-control validation-required" readonly placeholder="Enter end date" name="tillEditDate" id="tillEditDateEmp"&gt; &lt;span class=" input-group-btn"&gt; &lt;button class="btn default" type="button"&gt;&lt;i class="fa fa-calendar"&gt;&lt;/i&gt;&lt;/button&gt; &lt;/span&gt; <br/>
+          &lt;/div&gt; <br/>
+         &lt;/div&gt; <br/>
+        &lt;/div&gt; <br/>
+       &lt;/div&gt; <br/>
+       &lt;div class="form-group col-md-4"&gt; &lt;label&gt;Location&lt;span class="spnError"&gt;*&lt;/span&gt;&lt;/label&gt; &lt;select style="width: 100%;" id="Editlocation" class="form-control select2 select2-hidden-accessible validation-required" tabindex="-1" aria-hidden="true"&gt;&lt;/select&gt;&lt;span class="select2 select2-container select2-container--default" dir="ltr" style="width: 100%;"&gt;&lt;span class="selection"&gt;&lt;span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="1" aria-labelledby="select2-Editlocation-container"&gt;&lt;span class="select2-selection__rendered" id="select2-Editlocation-container"&gt;&lt;/span&gt;&lt;span class="select2-selection__arrow" role="presentation"&gt;&lt;b role="presentation"&gt;&lt;/b&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="dropdown-wrapper" aria-hidden="true"&gt;&lt;/span&gt;&lt;/span&gt; <br/>
+       &lt;/div&gt; <br/>
+      &lt;/div&gt; <br/>
+     &lt;/div&gt; <br/>
+     &lt;div class="modal-footer"&gt; &lt;button id="BtnEditDateforLunch" type="button" class="btn btn-success" onclick="if (!window.__cfRLUnblockHandlers) return false; updateLunchDatePopup()"&gt;&lt;i class="fa fa-save"&gt;&lt;/i&gt;&nbsp;Update&lt;/button&gt; &lt;button id="btnEditClose" type="button" class="btn btn-default"&gt;&lt;i class="fa fa-times"&gt;&lt;/i&gt;&nbsp;Close&lt;/button&gt; <br/>
+     &lt;/div&gt; <br/>
+    &lt;/div&gt; <br/>
+   &lt;/div&gt; <br/>
+  &lt;/div&gt; <br/>
+  &lt;div id="mypopupUserDelegation" class="modal fade" role="dialog" aria-labelledby="mypopupUserDelegation" aria-hidden="true"&gt; <br/>
+   &lt;div class="modal-dialog" id="divUserDelegation"&gt; <br/>
+   &lt;/div&gt; <br/>
+  &lt;/div&gt; <br/>
+  &lt;script src="/Scripts/lib/tether.min.js?v=1.2" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script src="/Scripts/lib/bootstrap.js?v=1.2" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script src="/Scripts/lib/plugins.js?v=1.2" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script src="/Scripts/lib/jquery.ui.position.min.js?v=1.2" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script src="/Scripts/lib/lobipanel.min.js?v=1.2" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script src="/Scripts/lib/jquery.matchHeight.js?v=1.2" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script src="/Scripts/lib/app.js?v=1.2" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script src="/Scripts/lib/sweetalert.min.js?v=1.2" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script src="/Scripts/lib/bootstrap-datepicker.min.js?v=1.2" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script src="/Scripts/lib/bootstrap-toggle.min.js?v=1.2" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script src="/Scripts/lib/datatable/datatables.min.js?v=1.3" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script src="/Scripts/lib/datatable/jquery.dataTables.min.js?v=1.3" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script src="/Scripts/lib/datatable/dataTables.buttons.min.js?v=1.2" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script src="/Scripts/lib/datatable/pdfmake.min.js?v=1.2" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script src="/Scripts/lib/datatable/vfs_fonts.js?v=1.2" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script src="/Scripts/lib/datatable/buttons.html5.min.js?v=1.2" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script src="/Scripts/lib/datatable/buttons.print.min.js?v=1.2" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script src="/Scripts/lib/datatable/dataTables.responsive.min.js?v=1.2" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script src="/Scripts/lib/datatable/dataTables.bootstrap.min.js?v=1.2" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script src="/Scripts/lib/datatable/buttons.colVis.js?v=1.2" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script src="/Scripts/lib/bootstrap-multiselect.js?v=1.2" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script src="/Scripts/lib/select2.min.js?v=1.2" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script src="/Scripts/common/mis.layout.js?v=2.8" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script src="/Scripts/lib/underscore-min.js?v=1.2" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script type="text/javascript"&gt;<br/>
+        $(document).ready(function () {<br/>
+            //$(document).ajaxStart($.blockUI).ajaxError($.unblockUI).ajaxStop($.unblockUI);<br/>
+            $(document).ajaxError($.unblockUI).ajaxStop($.unblockUI);<br/>
+            misLayout.init();<br/>
+<br/>
+            $("#lblChangeADPassword").click(function () {<br/>
+                $('#divChangeADPassword').toggle("slow");<br/>
+                $("#txtADUsername").val("");<br/>
+                $("#txtCurrentPass").val("");<br/>
+                $("#txtNewPass").val("");<br/>
+                $("#txtConfirmNewPass").val("");<br/>
+                getADUserName();<br/>
+            });<br/>
+        });<br/>
+<br/>
+        function getADUserName() {<br/>
+            calltoAjax(misApiUrl.getADUserName, "POST", "",<br/>
+                function (result) {<br/>
+                    if (result !== null && result !== "") {<br/>
+<br/>
+                        $("#txtADUsername").val("");<br/>
+                        $("#txtADUsername").val(result);<br/>
+                        $("#txtADUsername").attr("disabled", true);<br/>
+                        $("#divADChangeBtn").show();<br/>
+                        $("#divAlert").hide();<br/>
+                    }<br/>
+                    else {<br/>
+                        $("#divADChangeBtn").hide();<br/>
+                        $("#divAlert").show();<br/>
+                    }<br/>
+                });<br/>
+        }<br/>
+<br/>
+        $("#btnChangeADPass").click(function () {<br/>
+            if (!validateControls('divChangeADPassword')) {<br/>
+                return false;<br/>
+            }<br/>
+            var newPass = $("#txtNewPass").val();<br/>
+            var confirmNewPass = $("#txtConfirmNewPass").val();<br/>
+<br/>
+            if (!confirmADPassword(newPass, confirmNewPass)) {<br/>
+                return false;<br/>
+            }<br/>
+            var jsonObject = {<br/>
+                currntADPassword: $("#txtCurrentPass").val(),<br/>
+                newADPassword: $("#txtNewPass").val()<br/>
+            }<br/>
+            calltoAjax(misApiUrl.changeADPassword, "POST", jsonObject, function (result) {<br/>
+                if (result.IsSuccessful) {<br/>
+                    $("#mypopupUpdateProfile").modal("hide");<br/>
+                    misAlert('Your Domain password has been changed successfully.', 'Success', 'success');<br/>
+                }<br/>
+                else//error<br/>
+                {<br/>
+                    misAlert(result.Message, "Error", "error");<br/>
+                }<br/>
+            });<br/>
+        });<br/>
+<br/>
+        function confirmADPassword(newPass, confirmNewPass) {<br/>
+            if (newPass != confirmNewPass) {<br/>
+                $("#divAlertError").show();<br/>
+                return false;<br/>
+            }<br/>
+            else {<br/>
+                $("#divAlertError").hide();<br/>
+            }<br/>
+            return true;<br/>
+        }<br/>
+<br/>
+    &lt;/script&gt; <br/>
+  &lt;div class="responsive-bootstrap-toolkit"&gt;<br/>
+   &lt;div class="device-xs visible-xs visible-xs-block"&gt;&lt;/div&gt;<br/>
+   &lt;div class="device-sm visible-sm visible-sm-block"&gt;&lt;/div&gt;<br/>
+   &lt;div class="device-md visible-md visible-md-block"&gt;&lt;/div&gt;<br/>
+   &lt;div class="device-lg visible-lg visible-lg-block"&gt;&lt;/div&gt;<br/>
+  &lt;/div&gt;<br/>
+  &lt;div class="modal-backdrop fade in"&gt;&lt;/div&gt;<br/>
+  &lt;div class="blockUI" style="display:none"&gt;&lt;/div&gt;<br/>
+  &lt;div class="blockUI blockOverlay" style="z-index: 1050; border: none; margin: 0px; padding: 0px; width: 100%; height: 100%; top: 0px; left: 0px; background-color: rgb(0, 0, 0); opacity: 0.6; cursor: wait; position: fixed;"&gt;&lt;/div&gt;<br/>
+  &lt;div class="blockUI blockMsg blockPage" style="z-index: 1051; position: fixed; padding: 0px; margin: 0px; width: 30%; top: 40%; left: 35%; text-align: center; color: rgb(255, 255, 255); cursor: wait;"&gt;<br/>
+   &lt;img style=" border-radius: 50%;width: 80px;height: 80px;" class="loading-image-round" src="../Images/loading.gif?v=1.0"&gt;<br/>
+  &lt;/div&gt;<br/>
+ &lt;/body&gt;<br/>
+&lt;/html&gt;</code></pre></div></body></html>

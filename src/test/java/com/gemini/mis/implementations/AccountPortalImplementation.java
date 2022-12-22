@@ -274,8 +274,8 @@ public class AccountPortalImplementation extends PageObject {
 
     //Navigate to parent tab > child tab
     public void navigateToTab(String childTabName, String parentTabName) {
-          waitFor(ExpectedConditions.presenceOfElementLocated((AccountPortalSelectors.menuTabs(parentTabName))));
         if ($(AccountPortalSelectors.menuTabs(parentTabName)).isVisible()) {
+            waitFor(ExpectedConditions.presenceOfElementLocated((AccountPortalSelectors.menuTabs(parentTabName))));
             $(AccountPortalSelectors.menuTabs(parentTabName)).click();
             if ($(AccountPortalSelectors.menuTabs(childTabName)).isVisible()) {
                 $((AccountPortalSelectors.menuTabs(childTabName))).click();

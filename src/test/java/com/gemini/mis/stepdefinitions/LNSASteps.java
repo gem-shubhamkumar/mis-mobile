@@ -18,11 +18,11 @@ public class LNSASteps {
     @Steps
     FeedbackPage feedbackPage;
 
-  /*  @When("^User clicks on \"(.*?)\" tab$")
+    @When("^User clicks on \"(.*?)\" tab$")
     public void userClicksOnTab(String tabName) {
         feedbackPage.navigateToTab(tabName);
     }
-*/
+
     @Then("^Verify Apply LNSA tab opens$")
     public void verifyApplyLNSATabOpens() {
         lnsaPage.verifyApplyLNSATabOpen();

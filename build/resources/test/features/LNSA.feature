@@ -1,7 +1,7 @@
 Feature: LNSA
 
   Background:
-    Given User logins into MIS Beta application with username "jasleen.multani" and password "Gemini@123"
+    Given User logins into MIS Beta application with username "ayush.garg" and password "Gemini@123"
 
   Scenario: Open Apply LNSA Tab
     When User Clicks on "Apply LNSA" tab of "LNSA" tab
@@ -36,7 +36,6 @@ Feature: LNSA
     Then Validate "Warning" Message
 
 
-  @tags
   Scenario: Cancel Submit Window
     When User Clicks on "Apply LNSA" tab of "LNSA" tab
     Then Verify Apply LNSA tab opens
@@ -45,7 +44,6 @@ Feature: LNSA
     And User should click on "Submit" button
     Then Click on Close button
 
-  @tags
   Scenario: Submit Blank LNSA
     When User Clicks on "Apply LNSA" tab of "LNSA" tab
     Then Verify Apply LNSA tab opens
@@ -55,7 +53,6 @@ Feature: LNSA
     And User should click on "Submit Reason" button
     Then Verify "Reason" input select has error
 
-  @tags
   Scenario: Submit Valid LNSA
     When User Clicks on "Apply LNSA" tab of "LNSA" tab
     Then Verify Apply LNSA tab opens
@@ -82,10 +79,11 @@ Feature: LNSA
     And Verify "All Lnsa Request List.xlsx" file is downloaded
     Then Click on Export Options "PDF" button
     And Verify "All Lnsa Request List.pdf" file is downloaded
-    Then Click on Export Options "Copy" button
-    And Verify data is copied
     Then Click on Export Options "Print" button
     And Verify print tab is open
+    Then Click on Export Options "Copy" button
+    And Verify data is copied
+
 
   Scenario: Verify number of rows data
     When User Clicks on "View Request Status" tab of "LNSA" tab

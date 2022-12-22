@@ -32,7 +32,6 @@ Feature: Policy Activities
       | parentTab |    childTab    |  noOfRecords |   heading    |
       |  Policy   | View Policies  |     25       | View Policies|
 
-
   Scenario Outline: Enter Policy Name in Search Box
     When User is on MIS Home Page
     When User clicks on "<childTab>" sub tab of "<parentTab>" tab

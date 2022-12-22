@@ -98,8 +98,8 @@ Feature: MIS Forms- View Forms scenarios
     Then User verifies element "<elementOne>"
     And User verifies element "<elementTwo>"
     Then User verifies element "<elementThree>"
-    Then User verifies element "<elementFour>"
-    Then User verifies element "<elementFive>"
+    #Then User verifies element "<elementFour>"
+    #Then User verifies element "<elementFive>"
     #Then User verifies element "<elementSix>"
     Examples:
       | parent Tab | child Tab | elementOne | elementTwo | elementThree | elementFour | elementFive | elementSix |

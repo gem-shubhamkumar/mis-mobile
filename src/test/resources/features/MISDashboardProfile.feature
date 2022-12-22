@@ -1,3 +1,4 @@
+@ProfileModule
 Feature: MIS Dashboard Profile module Scenarios
 
 
@@ -179,6 +180,7 @@ Scenario Outline:User leaves Pin Code field blank
       |Update Profile|Update Address|presentPincode|presentPincode|
 
 #13
+  @lunch
 Scenario Outline: User applies for lunch
     Given User clicks on Lunch Btn
     Then User verifies element "<elementOne>"
@@ -223,6 +225,7 @@ Scenario Outline: User leave a field blank in Apply lunch
       |Apply for Lunch|22 |tillDateEmp |Austin, Texas|
 
 #16
+  @Download
   Scenario Outline: Download Card
     When User card is present in dashboard
     Then User clicks on download card button

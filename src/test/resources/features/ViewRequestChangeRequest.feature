@@ -74,7 +74,6 @@ Feature: MIS Leave Management > View Request Status
       |      parentTab     |       childTab      |     tab         |
       | Leave Management   | View Request Status |  Change Request |
 
-  @tagMIS
   Scenario Outline: Click on Copy Option for Change Request
     When User is on MIS Home Page
     When User clicks on "<childTab>" sub tab of "<parentTab>" tab

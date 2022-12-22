@@ -90,13 +90,14 @@ public class FeedbackSteps {
         feedbackPage.veifyExportOptions();
     }
 
-   /* @And("^Verify \"(.*?)\" file is downloaded$")
-    public void verifyFileDownloaded(String fileName) {
-        commonFunctions.isFileDownloaded("C:\\Users\\si.porwal\\Downloads", fileName);
+    @And("^Verify Feedback \"(.*?)\" file is downloaded$")
+    public void verifyFileDownloadedFeedback(String fileName) {
+        commonFunctions.isFileDownloaded("C:\\Users\\"+System.getenv("Username")+"\\Downloads", fileName);
     }
-*/
+
     @And("^Verify print tab is open$")
-    public void verifyPrintTabIsOpen() {
+    public void verifyPrintTabIsOpen() throws InterruptedException {
+
         feedbackPage.verifyPrintTab();
     }
 

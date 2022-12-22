@@ -280,6 +280,7 @@ public class TimeSheetImpl extends PageObject {
     public void clickAddNewTemplate() {
         if($(ts.btnAddNewTemplate).isDisplayed()){
             log.info("Add new template button displayed");
+            waitABit(3000);
             $(ts.btnAddNewTemplate).click();
             waitABit(1000);
             if($(ts.dialogAddTaskTemplate).isDisplayed()) {
@@ -352,6 +353,7 @@ public class TimeSheetImpl extends PageObject {
             Assert.fail("Save button not displayed");
         }
     }
+
 
     public void AddInvalidTemplate(String Name, String Description, String Team, String Task) {
         if ($(ts.btnSaveANT).isDisplayed()) {
@@ -483,7 +485,6 @@ public class TimeSheetImpl extends PageObject {
     }
 
     public void clickEditTemplate(String txtUniqueIdentifier) {
-        waitABit(1000);
         By btnEditTaskTemplate = By.xpath(ts.xpathBtnEditTaskTemplate.replace("VAR", txtUniqueIdentifier));
         if($(btnEditTaskTemplate).isDisplayed()){
             log.info("Edit task template button displayed");
@@ -511,7 +512,7 @@ public class TimeSheetImpl extends PageObject {
         }
     }
 
-    public void EditTemplate(String Name, String Description, String Team, String Task) {
+    public void verifyEditTemplate(String Name, String Description, String Team, String Task) {
         if ($(ts.btnUpdate).isDisplayed()) {
             log.info("Update button displayed");
             if(!Name.equals("") && !Description.equals("")) {
@@ -700,5 +701,5 @@ public class TimeSheetImpl extends PageObject {
             Assert.fail("Delete button not displayed");
         }
     }
-    
+
 }

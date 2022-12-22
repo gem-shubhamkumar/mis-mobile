@@ -142,6 +142,8 @@ Feature: Automation of  View Document and view shared document Submenu in knowle
     Then click on "<addDocumentFromMenu>" option after right click
     And upload an "<invalidFile>" on document uploader
     Then click on Ok on Warning popup while document upload
+
+
     Examples:
       |menuItem|subMenuItem|targetElement|addDocumentFromMenu|invalidFile|
       |knowledge base|view document|newFolder|Add New Document|htmlFile|

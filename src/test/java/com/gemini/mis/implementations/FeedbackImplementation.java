@@ -182,17 +182,21 @@ import java.util.List;
 
     
     public void verifyPrintTab() {
-        if(StringUtils.equals(String.valueOf(getDriver().getWindowHandles()),"1"))
-        {
-            Assert.fail("Print page did not open");
-            log.info("Print page did not open");
-        }
+        waitABit(2000);
+        List<String> browserTabs = new ArrayList<>(getDriver().getWindowHandles());
+        getDriver().switchTo().window(browserTabs.get(1));
+        System.out.println(getTitle());
+        Assert.assertTrue(StringUtils.contains(getTitle(), "Gemini"));
+        getDriver().switchTo().window(browserTabs.get(2));
+        waitABit(3000);
+        getDriver().close();
+        getDriver().switchTo().window(parentWindowHandle);
     }
 
 
     
     public void verifyCopy() {
-     //   getDriver().switchTo().defaultContent();
+        getDriver().switchTo().defaultContent();
         String actualText = $(FeedbackSelectors.copyClipboard).getText();
         boolean equal = StringUtils.equals(actualText, "Copy to clipboard");
         if(equal) Assert.assertTrue(true);
@@ -202,9 +206,10 @@ import java.util.List;
         }
 
     }
-
+     public  static String  parentWindowHandle;
 
      public void clickOn(By elementName) {
+         parentWindowHandle = getDriver().getWindowHandle();
          WebElementFacade element = find(elementName);
          waitABit(3000);
          if (element.isDisplayed()) {
@@ -217,21 +222,16 @@ import java.util.List;
      }
 
      public void clickButton(String buttonName) {
-         if(StringUtils.equals("Submit", buttonName)) {
+         if(StringUtils.equals("Submit", buttonName))
              clickOn(FeedbackSelectors.submitButton("2"));
-         }
-         else if(StringUtils.equals("previous date", buttonName)) {
-             if (!StringUtils.equals($(By.id("btnPreviousMonth")).getAttribute("disabled"), "disabled")) {
+        else if(StringUtils.equals("previous date", buttonName))
+             if(!StringUtils.equals($(By.id("btnPreviousMonth")).getAttribute("disabled"), "disabled"))
                  clickOn(By.id("btnPreviousMonth"));
-             }
-         }
-         else if(StringUtils.equals("next date", buttonName)) {
-             if (!StringUtils.equals($(By.id("btnNextMonth")).getAttribute("disabled"), "disabled")){
-                 clickOn(By.id("btnNextMonth"));}
-         }
-         else if(StringUtils.equals("Submit Reason", buttonName))
-         {
-             clickOn(FeedbackSelectors.submitButton("3"));}
+        else if(StringUtils.equals("next date", buttonName))
+             if(!StringUtils.equals($(By.id("btnNextMonth")).getAttribute("disabled"), "disabled"))
+                 clickOn(By.id("btnNextMonth"));
+        else if(StringUtils.equals("Submit Reason", buttonName))
+             clickOn(FeedbackSelectors.submitButton("3"));
          else {
              Assert.fail("Button " + buttonName + " not found");
              log.info("Button " + buttonName + " not found");

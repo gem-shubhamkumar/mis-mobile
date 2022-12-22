@@ -73,8 +73,13 @@ public class DashboardAttendanceImpl extends PageObject {
     public void loginToMIS(String Username, String Password) {
         $(ds.txtUsername).type(Username);
         $(ds.txtPassword).type(Password);
+        waitABit(9000);
         $(ds.btnSignIn).click();
-        waitForLoaderToDisappear();
+        try{waitForLoaderToDisappear();}
+        catch (Exception e){
+
+        }
+        waitABit(12000);
         if ($(ds.geminiLogo).isDisplayed() && $(ds.sidebarToggle).isDisplayed() && $(ds.sidebarList).isDisplayed() && $(ds.btnChangePW).isDisplayed() && $(ds.btnuser).isDisplayed()) {
             log.info("Login to MIS successful");
         } else {

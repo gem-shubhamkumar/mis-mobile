@@ -102,6 +102,7 @@ public class TimeSheet extends PageObject {
 
     @And("^Add a new invalid task template with \"(.*?)\" \"(.*?)\" \"(.*?)\" \"(.*?)\"$")
     public void addNewInvalidTemplate(String Name, String Description, String Team, String Task) {
+        waitABit(4000);
         time.clickAddNewTemplate();
         time.AddInvalidTemplate(Name, Description, Team, Task);
     }
@@ -135,25 +136,8 @@ public class TimeSheet extends PageObject {
 
     @And("^Edit a task template \"(.*?)\" with \"(.*?)\" \"(.*?)\" \"(.*?)\" \"(.*?)\"$")
     public void editTemplate(String txtUniqueIdentifier, String Name, String Description, String Team, String Task) {
-        WebElementFacade searchBox = $(ds.txtSearch);
-        if(searchBox.isDisplayed()) {
-            log.info("Search box displayed");
-            searchBox.typeAndEnter(Name);
-            if($(ts.txtTemplateData1).getText().equals(Name)) {
-                log.info("Searched item present");
-                time.clickDeleteTemplate(Name);
-                dashAtd.verifyAndAcceptConfirmation();
-                time.clickEditTemplate(txtUniqueIdentifier);
-                time.EditTemplate(Name, Description, Team, Task);
-            }else {
-                log.info("Searched item not present");
-                searchBox.clear();
-                time.clickEditTemplate(txtUniqueIdentifier);
-                time.EditTemplate(Name, Description, Team, Task);
-            }
-        }else {
-            Assert.fail("Search box not displayed");
-        }
+        time.clickEditTemplate(txtUniqueIdentifier);
+        time.verifyEditTemplate(Name, Description, Team, Task);
     }
 
     @And("^Click on Delete button for a task template \"(.*?)\"$")

@@ -516,9 +516,8 @@ public class KnowledgeBasePageImplementation extends PageObject {
         }
     }
 
-    public void fillThefieldsAtDocumentUpload(String fileType)
-    {
-        String username = System.getProperty("user.name");   //fetch system username
+    public void fillThefieldsAtDocumentUpload(String fileType) {
+
         switch (fileType) {
             case "htmlFile":
                 LOGGER.info("Uploading invalid type file(html File)");

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><testsuite errors="2" failures="0" name="MIS Dashboard Profile module Scenarios" skipped="0" tests="16" time="592.09" timestamp="2022-12-17 09:12:23"><testcase name="User Updates Mobile and Extn Number"/><testcase name="User enters invalid Phone number"/><testcase name="User not fills a field in Mobile Number section"/><testcase name="User not fills a field in Extension number section"/><testcase name="User enters invalid Extension Number"/><testcase name="User enters invalid Pin code"><error message="The following error occurred: unknown error: failed to change window state to 'normal', current state is 'maximized'&#10;  (Session info: chrome=108.0.5359.100)&#10;Build info: version: '4.1.4', revision: '535d840ee2'&#10;System info: host: 'GEMGN-210274', ip: '192.168.0.109', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '16.0.2'&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Command: [ef310bb260e4297459918c922ed8a607, maximizeCurrentWindow {}]&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 108.0.5359.100, chrome: {chromedriverVersion: 108.0.5359.71 (1e0e3868ee06..., userDataDir: C:\Users\DIVYA~1.MAD\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:52847}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:52847/devtoo..., se:cdpVersion: 108.0.5359.100, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}&#10;Session ID: ef310bb260e4297459918c922ed8a607&#10;Build info: version: '4.1.4', revision: '535d840ee2'&#10;System info: host: 'GEMGN-210274', ip: '192.168.0.109', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '16.0.2'&#10;Driver info: driver.version: unknown" type="org.openqa.selenium.WebDriverException">The following error occurred: unknown error: failed to change window state to 'normal', current state is 'maximized'
+  (Session info: chrome=108.0.5359.100)
+Build info: version: '4.1.4', revision: '535d840ee2'
+System info: host: 'GEMGN-210274', ip: '192.168.0.109', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '16.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [ef310bb260e4297459918c922ed8a607, maximizeCurrentWindow {}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 108.0.5359.100, chrome: {chromedriverVersion: 108.0.5359.71 (1e0e3868ee06..., userDataDir: C:\Users\DIVYA~1.MAD\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:52847}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:52847/devtoo..., se:cdpVersion: 108.0.5359.100, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: ef310bb260e4297459918c922ed8a607
+Build info: version: '4.1.4', revision: '535d840ee2'
+System info: host: 'GEMGN-210274', ip: '192.168.0.109', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '16.0.2'
+Driver info: driver.version: unknown</error><system-err>The following error occurred: unknown error: failed to change window state to 'normal', current state is 'maximized'
+  (Session info: chrome=108.0.5359.100)
+Build info: version: '4.1.4', revision: '535d840ee2'
+System info: host: 'GEMGN-210274', ip: '192.168.0.109', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '16.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [ef310bb260e4297459918c922ed8a607, maximizeCurrentWindow {}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 108.0.5359.100, chrome: {chromedriverVersion: 108.0.5359.71 (1e0e3868ee06..., userDataDir: C:\Users\DIVYA~1.MAD\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:52847}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:52847/devtoo..., se:cdpVersion: 108.0.5359.100, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: ef310bb260e4297459918c922ed8a607
+Build info: version: '4.1.4', revision: '535d840ee2'
+System info: host: 'GEMGN-210274', ip: '192.168.0.109', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '16.0.2'
+Driver info: driver.version: unknown&#13;
+com.gemini.mis.implementations.LoginPageImplementations.launchApplication(LoginPageImplementations.java:23)&#13;
+com.gemini.mis.pages.LoginPage.navigateApplication(LoginPage.java:18)&#13;
+com.gemini.mis.stepdefinitions.MISLogin.userOpensMisBetaPage(MISLogin.java:21)&#13;
+io.cucumber.java.Invoker.doInvoke(Invoker.java:66)&#13;
+io.cucumber.java.Invoker.invoke(Invoker.java:24)&#13;
+io.cucumber.java.AbstractGlueDefinition.invokeMethod(AbstractGlueDefinition.java:47)&#13;
+io.cucumber.java.JavaStepDefinition.execute(JavaStepDefinition.java:29)&#13;
+io.cucumber.core.runner.CoreStepDefinition.execute(CoreStepDefinition.java:66)&#13;
+io.cucumber.core.runner.PickleStepDefinitionMatch.runStep(PickleStepDefinitionMatch.java:63)&#13;
+io.cucumber.core.runner.TestStep.executeStep(TestStep.java:86)&#13;
+io.cucumber.core.runner.TestStep.run(TestStep.java:57)&#13;
+io.cucumber.core.runner.PickleStepTestStep.run(PickleStepTestStep.java:51)&#13;
+io.cucumber.core.runner.TestCase.run(TestCase.java:95)&#13;
+io.cucumber.core.runner.Runner.runPickle(Runner.java:75)&#13;
+io.cucumber.core.runtime.CucumberExecutionContext.lambda$runTestCase$3(CucumberExecutionContext.java:151)&#13;
+io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:23)&#13;
+io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:151)&#13;
+io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:144)&#13;
+io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:28)&#13;
+io.cucumber.junit.FeatureRunner.run(FeatureRunner.java:137)&#13;
+io.cucumber.junit.CucumberSerenityRunner.runChild(CucumberSerenityRunner.java:258)&#13;
+io.cucumber.junit.CucumberSerenityRunner.runChild(CucumberSerenityRunner.java:58)&#13;
+worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)&#13;
+worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)&#13;
+</system-err></testcase><testcase name="User enters Incorrect Password"/><testcase name="User enters Different Password in Confirm Password"/><testcase name="User Changes Password Successfully"/><testcase name="User not fills a field in Change Password section"/><testcase name="User Updates Address"/><testcase name="User leaves Pin Code field blank"/><testcase name="User applies for lunch"/><testcase name="User applies for lunch for already applied date"/><testcase name="User leave a field blank in Apply lunch"/><testcase name="Download Card"><error message="Cannot read the array length because &quot;folderContent&quot; is null" type="java.lang.NullPointerException">Cannot read the array length because "folderContent" is null</error><system-err>Cannot read the array length because "folderContent" is null&#13;
+com.gemini.mis.commonfunctions.CommonFunctions.isFileDownloaded(CommonFunctions.java:151)&#13;
+com.gemini.mis.pages.FormsPage.isFileDownloaded(FormsPage.java:34)&#13;
+com.gemini.mis.stepdefinitions.MISDashboardProfile.verifyFileIsDownloaded(MISDashboardProfile.java:178)&#13;
+✽.Verify file is downloaded "card.jpg"(file:///C:/MIS%20Training/mis-training/src/test/resources/features/MISDashboardProfile.feature:230)&#13;
+</system-err></testcase></testsuite>

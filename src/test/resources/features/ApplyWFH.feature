@@ -62,6 +62,7 @@ Feature: MIS Leave Management Activities > Apply
     And Verify "<defaultTab>" displays by default
     When User clicks on "<tab>" Tab
     And Verify "<tab>" displays
+    Then Select date from "<tab>" date dropdown
     And Enter reason "WFH Reason" for leave
     Examples:
       |      parentTab     |  childTab  | defaultTab |     tab        |                         heading                          |

@@ -4,6 +4,7 @@ Feature: Login MIS Application Activities
     Given User opens MIS Beta page "https://mymis.geminisolutions.com/"
 
 #1
+@Login
   Scenario Outline: User verifies elements of Login page
     Given User verifies logo and login page message
     Then User verifies element "<elementOne>"
@@ -16,6 +17,7 @@ Feature: Login MIS Application Activities
 
 
 #2
+  @Credentials
   Scenario Outline: User Clicks on Sign In without entering Credentials
     Given User clicks on sign in
     Then User verifies element "<Enter Credentials Alert Message>"
@@ -28,6 +30,7 @@ Feature: Login MIS Application Activities
 
 
 #3
+  @Sign
   Scenario Outline: User Enters only username and Clicks on Sign In
     Given User enters Username as "<username>"
     Then User clicks on sign in
@@ -38,6 +41,7 @@ Feature: Login MIS Application Activities
       |charu.srivastava|Password is required.|
 
 #4
+  @password
   Scenario Outline: User Enter only password and Clicks on Sign In
     Given User enters Password as "<password>"
     Then User clicks on sign in
@@ -49,6 +53,7 @@ Feature: Login MIS Application Activities
 
 
 #5
+  @Invalid
   Scenario Outline: User Enters Invalid Credentials
     Given User enters Username as "<username>"
     And User enters Password as "<password>"
@@ -61,7 +66,7 @@ Feature: Login MIS Application Activities
 
 
 #6
-
+@Application
   Scenario Outline: User Login to the Application via SSO
     Given User enters Username as "<username>"
     And User enters Password as "<password>"
@@ -69,11 +74,11 @@ Feature: Login MIS Application Activities
     And User verifies new Window of Microsoft Login
 
     Examples:
-      |username  |password|
+      |username @User |password|
       |charu.srivastava|Gemini@123|
 
 #7
-
+  @User
   Scenario Outline: User Login to the Application
     Given User enters Username as "<username>"
     And User enters Password as "<password>"
@@ -86,7 +91,7 @@ Feature: Login MIS Application Activities
 
 
 #8
-
+@Forget
   Scenario Outline: User clicks on Forget Password
     Given User enters Username as "<username>"
     And User Clicks on Forgot password
@@ -101,7 +106,7 @@ Feature: Login MIS Application Activities
 
 
 #9
-
+@Reset
   Scenario Outline: User Clicks on Reset linking without giving username
     Given User Clicks on Forgot password
     Then User is navigated to Reset Password page
@@ -114,7 +119,7 @@ Feature: Login MIS Application Activities
 
 
 #10
-
+@invalid
   Scenario Outline: User clicks on forgot password and enters invalid username.
     Given User Clicks on Forgot password
     Then User is navigated to Reset Password page
@@ -128,6 +133,7 @@ Feature: Login MIS Application Activities
 
 
 #11
+  @Page
   Scenario Outline: User navigate back to sign In Page
     Given User Clicks on Forgot password
     Then User is navigated to Reset Password page

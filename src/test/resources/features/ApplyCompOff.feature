@@ -4,7 +4,6 @@ Feature: MIS Leave Management Activities > Apply
   Background:
     Given User is logged into MIS
 
-  @tagMS
   Scenario Outline: Navigate to Leave Management > Comp Off tab
     When User is on MIS Home Page
     When User clicks on "<childTab>" sub tab of "<parentTab>" tab

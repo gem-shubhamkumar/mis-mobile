@@ -1,0 +1,1324 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Serenity Reports</title>
+
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+<!--[if IE 7]>
+<!--<link rel="stylesheet" href="font-awesome/css/font-awesome-ie7.min.css">-->
+
+<link rel="stylesheet" type="text/css" href="fontawesome-free-5.7.2-web/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="fontawesome-free-5.7.2-web/css/v4-shims.min.css">
+
+<!-- JQuery -->
+<script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script><link rel="stylesheet" type="text/css" href="chartist/chartist-plugin-tooltip/dist/chartist-plugin-tooltip.min.css">
+<link rel="stylesheet" type="text/css" href="chartist/dist/chartist.min.css">
+<script src="chartist/dist/chartist.min.js"></script>
+<script src="chartist/chartist-plugin-tooltip/dist/chartist-plugin-tooltip.min.js"></script>
+<!-- Required Stylesheets -->
+<link href="bootstrap-treeview/dist/bootstrap-treeview.min.css" rel="stylesheet">
+
+<!-- Required Javascript -->
+<script src="bootstrap-treeview/dist/bootstrap-treeview.min.js"></script><!-- DataTables -->
+<link type="text/css" href="datatables/1.10.20/datatables.min.css" rel="stylesheet" />
+<script type="text/javascript" src="datatables/1.10.20/datatables.min.js"></script>
+<script type="text/javascript" src="datatables/1.10.20/time-elapsed-dhms.js"></script>
+
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="datatables/1.10.20/datatables.bootstrap4.min.js"></script>
+<link type="text/css" href="datatables/1.10.20/datatables.bootstrap4.min.css" rel="stylesheet" />
+
+<script>
+    jQuery.fn.dataTable.ext.type.order['time-elapsed-dhms-pre'] = function(data) {
+
+        var matches = data.match(/^(\d+(?:\.\d+)?)\s*([a-z]+)/i);
+        var multipliers = {
+            ms: 1,
+            s: 1000,
+            m: 60000,
+            h: 3600000,
+            d: 86400000
+        };
+
+        if (matches) {
+            var multiplier = multipliers[matches[2].toLowerCase()];
+            return parseFloat(matches[1]) * multiplier;
+        } else {
+            return -1;
+        };
+    };
+</script>
+<link rel="stylesheet" href="css/core.css"/>
+<link rel="stylesheet" href="css/link.css"/>
+<link type="text/css" media="screen" href="css/screen.css" rel="Stylesheet"/><!-- JQuery-UI -->
+<link type="text/css" href="jqueryui/1.11.2-start/jquery-ui.min.css" rel="Stylesheet" />
+<script type="text/javascript" src="jqueryui/1.11.2-start/jquery-ui.min.js"></script><!-- DataTables -->
+<link type="text/css" href="datatables/1.10.20/datatables.min.css" rel="stylesheet" />
+<script type="text/javascript" src="datatables/1.10.20/datatables.min.js"></script>
+<script type="text/javascript" src="datatables/1.10.20/time-elapsed-dhms.js"></script>
+
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="datatables/1.10.20/datatables.bootstrap4.min.js"></script>
+<link type="text/css" href="datatables/1.10.20/datatables.bootstrap4.min.css" rel="stylesheet" />
+
+<script>
+    jQuery.fn.dataTable.ext.type.order['time-elapsed-dhms-pre'] = function(data) {
+
+        var matches = data.match(/^(\d+(?:\.\d+)?)\s*([a-z]+)/i);
+        var multipliers = {
+            ms: 1,
+            s: 1000,
+            m: 60000,
+            h: 3600000,
+            d: 86400000
+        };
+
+        if (matches) {
+            var multiplier = multipliers[matches[2].toLowerCase()];
+            return parseFloat(matches[1]) * multiplier;
+        } else {
+            return -1;
+        };
+    };
+</script>
+
+
+
+
+    <script class="code" type="text/javascript">$(document).ready(function () {
+
+
+        $('.scenario-result-table').DataTable({
+
+            "order": [[0, "asc",], [3, "asc",]],
+            "pageLength": 25,
+            "language": {
+                searchPlaceholder: "Filter",
+                search: ""
+            }
+        });
+
+        // Results table
+        $('#test-results-table').DataTable({
+            "order": [[0, "asc",], [3, "asc",]],
+            "pageLength": 100,
+            "lengthMenu": [[25, 50, 100, 200, -1], [25, 50, 100, 200, "All"]]
+        });
+
+    })
+    ;
+    </script>
+</head>
+
+<body class="results-page">
+<div id="topheader">
+    <div id="topbanner">
+        <div id="logo"><a href="index.html"><img src="images/serenity-logo.png" border="0"/></a></div>
+        <div id="projectname-banner" style="float:right">
+            <span class="projectname">
+                <span class="projecttitle">MIS Automation</span>
+                <span class="projectsubtitle"></span>
+            </span>
+        </div>
+    </div>
+</div>
+
+<div class="middlecontent">
+
+
+    <div id="contenttop">
+        <div class="middlebg">
+        <span class="breadcrumbs"><a href="index.html">Home</a>
+                > Feature 
+                > <span
+                    class="truncate-60">MIS Leave Management &gt; View Request Status (Pending Tests)</span>
+        </span>
+        </div>
+        <div class="rightbg"></div>
+    </div>
+
+    <div class="clr"></div>
+    <!--/* starts second table*/-->
+<div>
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#"><i class="fa fa-check-square-o"></i> Overall Test Results</a>
+        </li>
+        <li >
+            <a href="capabilities.html"><i class="fa fa-book"></i> Requirements</a>
+        </li>
+        <li >
+            <a href="576946480b52ad056d6f5bddf874399c83582ecf90963cc074a14c70580e7d9f.html"><i class="fa fa-comments-o"></i> Features</a>
+        </li>
+    </ul>
+    <span class="date-and-time"><a href="build-info.html"><i class="fa fa-info-circle"></i></a> Report generated 22-12-2022 17:39</span>
+    <br style="clear:left"/>
+</div>
+    <div class="clr"></div>
+    <div id="beforetable"></div>
+    <div id="results-dashboard">
+        <div class="middlb">
+            <div class="table">
+
+                <h2><i class='fa fa-tags'></i> Feature: MIS Leave Management > View Request Status (Pending Tests)</h2>
+                <table class='overview'>
+                    <tr>
+                        <td width="375px" valign="top">
+                            <div class="test-count-summary">
+                                <div>
+
+                                65 tests
+                                    across 65 scenarios
+
+                                     |
+                                        <a href="5e7e19d5e986185d5759de2ee6ecdef3fa135a58f05f45bf4fbd475c0d7bbef8.csv" title="Download CSV"> <i class="fa fa-download"
+                                                                                        title="Download CSV"></i></a>
+
+                                    <p class="report-info"><i class="fas fa-info-circle"></i> Note that results include
+                                        data-driven scenarios containing tests ,
+                                        which may also contain results other than tests .</p>
+
+
+
+                                </div>
+                            </div>
+
+                            <div>
+                                <ul class="nav nav-tabs">
+                                    <li class="active">
+                                        <a data-toggle="tab" href="#summary"><i class="fas fa-home"></i> Summary</a>
+                                    </li>
+                                    <li>
+                                        <a data-toggle="tab" href="#tests"><i class="fas fa-tachometer-alt"></i> Test
+                                            Results</a>
+                                    </li>
+                                </ul>
+
+
+                                <div class="card border">
+                                    <div class="tab-content" id="pills-tabContent">
+                                        <div id="summary" class="tab-pane fade in active">
+                                            <div class="container-fluid">
+                                                <div class="row">
+                                                    <div class="col-sm-4">
+                                                            <div style="width:300px;"
+                                                                 class="chart-container automated-and-manual-results">
+                                                                <div class="ct-chart ct-square"></div>
+                                                            </div>
+                                                            <script>
+
+                                                                var labels = [' ', ' ', '100%', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '];
+                                                                // Our series array that contains series objects or in this case series data arrays
+
+                                                                var series = [{meta: 'Passing tests (automated)', value: 0}, {meta: 'Passing tests (manual)', value: 0}, {meta: 'Pending tests (automated)', value: 65}, {meta: 'Pending tests (manual)', value: 0}, {meta: 'Ignored tests (automated)', value: 0}, {meta: 'Ignored tests (manual)', value: 0}, {meta: 'Skipped tests (automated)', value: 0}, {meta: 'Skipped tests (manual)', value: 0}, {meta: 'Failing tests (automated)', value: 0}, {meta: 'Failing tests (manual)', value: 0}, {meta: 'Broken tests (automated)', value: 0}, {meta: 'Broken tests (manual)', value: 0}, {meta: 'Compromised tests (automated)', value: 0}, {meta: 'Compromised tests (manual)', value: 0}];
+
+                                                                // As options we currently only set a static size of 300x200 px. We can also omit this and use aspect ratio containers
+                                                                // as you saw in the previous example
+                                                                var options = {
+                                                                    width: 350,
+                                                                    height: 300
+                                                                };
+
+
+                                                                new Chartist.Pie('.ct-chart', {
+                                                                    series: series,
+                                                                    labels: labels
+                                                                }, {
+                                                                    plugins: [Chartist.plugins.tooltip()],
+                                                                    donut: true,
+                                                                    donutWidth: 60,
+                                                                    donutSolid: true,
+                                                                    startAngle: 270,
+                                                                    showLabel: true
+                                                                }, options);
+
+
+                                                                $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+                                                                    new Chartist.Pie('.ct-chart', {
+                                                                        series: series,
+                                                                        labels: labels
+                                                                    }, {
+                                                                        plugins: [Chartist.plugins.tooltip()],
+                                                                        donut: true,
+                                                                        donutWidth: 60,
+                                                                        donutSolid: true,
+                                                                        startAngle: 270,
+                                                                        showLabel: true
+                                                                    }, options);
+                                                                });
+
+
+                                                            </script>
+                                                    </div>
+                                                    <div class="col-sm-8">
+
+                                                        <table class="table">
+                                                            <thead>
+                                                            <tr>
+                                                                <th scope="col">Scenarios</th>
+                                                                <th scope="col" colspan="2" class="automated-stats">
+                                                                    Automated
+                                                                </th>
+                                                            </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                            <tr>
+                                                                    <td class="aggregate-result-count"><i
+                                                                            class='fa fa-check-circle-o success-icon'></i>&nbsp;Passing
+                                                                    </td>
+                                                                <td class="automated-stats">0</td>
+                                                                <td class="automated-stats"> </td>
+                                                            </tr>
+                                                            <tr>
+                                                                    <td class="aggregate-result-count">
+                                                                        <a href="3f01b865bc17daf48851cfea31abce8083491a71047adf6f41ee656eb44a8743.html"><i
+                                                                                class='fa fa-stop-circle-o pending-icon'></i>&nbsp;Pending</a>
+                                                                    </td>
+                                                                <td class="automated-stats">65</td>
+                                                                <td class="automated-stats">100%</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="aggregate-result-count"><i
+                                                                        class='fa fa-ban ignored-icon'></i>&nbsp;Ignored
+                                                                </td>
+                                                                <td class="automated-stats">0</td>
+                                                                <td class="automated-stats"> </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="aggregate-result-count"><i
+                                                                        class='fa fa-fast-forward skip-icon'></i>&nbsp;Skipped
+                                                                </td>
+                                                                <td class="automated-stats">0</td>
+                                                                <td class="automated-stats"> </td>
+                                                            </tr>
+                                                            <tr>
+                                                                            <td colspan="3"><i
+                                                                                class='fa fa-times failure-icon'></i>&nbsp;<em>Unsuccessful</em></a>
+                                                                            </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="aggregate-result-count indented-error-category">
+                                                                    <i
+                                                                            class='fa fa-times-circle failure-icon'></i>&nbsp;Failed
+                                                                </td>
+                                                                <td class="automated-stats">0</td>
+                                                                <td class="automated-stats"> </td>
+                                                            <tr>
+                                                                <td class="aggregate-result-count indented-error-category">
+                                                                    <i
+                                                                            class='fa fa-exclamation-triangle error-icon'></i>&nbsp;Broken
+                                                                </td>
+                                                                <td class="automated-stats">0</td>
+                                                                <td class="automated-stats"> </td>
+                                                            <tr>
+                                                                <td class="aggregate-result-count indented-error-category">
+                                                                    <i
+                                                                            class='fa fa-chain-broken compromised-icon'></i>&nbsp;Compromised
+                                                                </td>
+                                                                <td class="automated-stats">0</td>
+                                                                <td class="automated-stats"> </td>
+                                                            </tr>
+                                                            <tr class="summary-stats">
+                                                                <td class="aggregate-result-count">Total</td>
+                                                                <td class="automated-stats">65</td>
+                                                                <td class="automated-stats"></td>
+                                                            </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+                                        </div>
+                                        <div id="tests" class="tab-pane fade">
+                                            <div class="container-fluid">
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <h3><i class="fas fa-cogs"></i> Automated Tests</h3>
+
+                                            <table class="scenario-result-table table" id="scenario-results">
+                                                <thead>
+                                                <tr>
+                                                    <th>feature</th>
+                                                    <th class="test-name-column">Scenario</th>
+                                                    <th>Steps</th>
+                                                    <th>Started</th>
+                                                    <th>Duration</th>
+                                                    <th>Result</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr class="scenario-result PENDING">
+                                                    <td>
+                                                            <a href="e502137b5f45dbc06c1d8489933648e36fdfd994d07b50c3d454c40c658b4d4d.html">MIS Leave Management > View Request Status</a>
+                                                    </td>
+                                                    <td>
+                                                        <a href="48cc21b186181fbbb18527f68f417396490709e483765d51faf90b095606e9c1.html">Navigate to Leave Management > View Request Status tab > Change Request</a>
+                                                                   (1 example)
+                                                    </td>
+                                                    <td>4</td>
+                                                    <td>10:21:11</td>
+                                                    <td>008ms</td>
+                                                    <td><a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a> <span
+                                                            style="display:none">PENDING</span></td>
+                                                </tr>
+                                                <tr class="scenario-result PENDING">
+                                                    <td>
+                                                            <a href="e502137b5f45dbc06c1d8489933648e36fdfd994d07b50c3d454c40c658b4d4d.html">MIS Leave Management > View Request Status</a>
+                                                    </td>
+                                                    <td>
+                                                        <a href="b58e461950b651f3231e176a212f9b76d10f81e8f092c0d18e50d01a105a36ee.html">Verify Date Range field is present for Change Request</a>
+                                                                   (1 example)
+                                                    </td>
+                                                    <td>5</td>
+                                                    <td>10:21:11</td>
+                                                    <td>012ms</td>
+                                                    <td><a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a> <span
+                                                            style="display:none">PENDING</span></td>
+                                                </tr>
+                                                <tr class="scenario-result PENDING">
+                                                    <td>
+                                                            <a href="e502137b5f45dbc06c1d8489933648e36fdfd994d07b50c3d454c40c658b4d4d.html">MIS Leave Management > View Request Status</a>
+                                                    </td>
+                                                    <td>
+                                                        <a href="85a46fcc046125ed699b1cc8dad1048aa982e8ea0be74675c82a50d333d6644b.html">Enter Invalid Date Range for Change Request</a>
+                                                                   (1 example)
+                                                    </td>
+                                                    <td>8</td>
+                                                    <td>10:21:11</td>
+                                                    <td>012ms</td>
+                                                    <td><a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a> <span
+                                                            style="display:none">PENDING</span></td>
+                                                </tr>
+                                                <tr class="scenario-result PENDING">
+                                                    <td>
+                                                            <a href="e502137b5f45dbc06c1d8489933648e36fdfd994d07b50c3d454c40c658b4d4d.html">MIS Leave Management > View Request Status</a>
+                                                    </td>
+                                                    <td>
+                                                        <a href="5ff256e7b938d58ea826f7878e77582565629e0f16642868cde4619180555a7b.html">Enter Valid Date Range for Change Request</a>
+                                                                   (1 example)
+                                                    </td>
+                                                    <td>9</td>
+                                                    <td>10:21:11</td>
+                                                    <td>012ms</td>
+                                                    <td><a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a> <span
+                                                            style="display:none">PENDING</span></td>
+                                                </tr>
+                                                <tr class="scenario-result PENDING">
+                                                    <td>
+                                                            <a href="e502137b5f45dbc06c1d8489933648e36fdfd994d07b50c3d454c40c658b4d4d.html">MIS Leave Management > View Request Status</a>
+                                                    </td>
+                                                    <td>
+                                                        <a href="c44d1d0126db550eda88541b81c48d428baaa44d434736bf48fd15553432adbf.html">Click on Export Options Option for Change Request</a>
+                                                                   (1 example)
+                                                    </td>
+                                                    <td>6</td>
+                                                    <td>10:21:11</td>
+                                                    <td>010ms</td>
+                                                    <td><a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a> <span
+                                                            style="display:none">PENDING</span></td>
+                                                </tr>
+                                                <tr class="scenario-result PENDING">
+                                                    <td>
+                                                            <a href="e502137b5f45dbc06c1d8489933648e36fdfd994d07b50c3d454c40c658b4d4d.html">MIS Leave Management > View Request Status</a>
+                                                    </td>
+                                                    <td>
+                                                        <a href="7274f81e41c99de9cd2c3d50017998eb2a90adf103e4b1aa0fb51edaf22cff11.html">Click on Print Option for Change Request</a>
+                                                                   (1 example)
+                                                    </td>
+                                                    <td>8</td>
+                                                    <td>10:21:11</td>
+                                                    <td>014ms</td>
+                                                    <td><a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a> <span
+                                                            style="display:none">PENDING</span></td>
+                                                </tr>
+                                                <tr class="scenario-result PENDING">
+                                                    <td>
+                                                            <a href="e502137b5f45dbc06c1d8489933648e36fdfd994d07b50c3d454c40c658b4d4d.html">MIS Leave Management > View Request Status</a>
+                                                    </td>
+                                                    <td>
+                                                        <a href="c4b333e5fca7348d35d7730d3e22d55289073af19ae832449fceed8069f44cfa.html">Click on Copy Option for Change Request</a>
+                                                                   (1 example)
+                                                    </td>
+                                                    <td>8</td>
+                                                    <td>10:21:11</td>
+                                                    <td>010ms</td>
+                                                    <td><a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a> <span
+                                                            style="display:none">PENDING</span></td>
+                                                </tr>
+                                                <tr class="scenario-result PENDING">
+                                                    <td>
+                                                            <a href="e502137b5f45dbc06c1d8489933648e36fdfd994d07b50c3d454c40c658b4d4d.html">MIS Leave Management > View Request Status</a>
+                                                    </td>
+                                                    <td>
+                                                        <a href="87eee9ddf4b8bb92aa88aba156fb4c5e22e8e76b87ceb74a7499e88af9035ca8.html">Click on Excel Option for Change Request</a>
+                                                                   (1 example)
+                                                    </td>
+                                                    <td>8</td>
+                                                    <td>10:21:11</td>
+                                                    <td>022ms</td>
+                                                    <td><a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a> <span
+                                                            style="display:none">PENDING</span></td>
+                                                </tr>
+                                                <tr class="scenario-result PENDING">
+                                                    <td>
+                                                            <a href="e502137b5f45dbc06c1d8489933648e36fdfd994d07b50c3d454c40c658b4d4d.html">MIS Leave Management > View Request Status</a>
+                                                    </td>
+                                                    <td>
+                                                        <a href="d7bc27c432f8a3df195de869fb91eacf800f42598d2f638ee65df8cef13fba14.html">Verify PDF option for Change Request</a>
+                                                                   (1 example)
+                                                    </td>
+                                                    <td>8</td>
+                                                    <td>10:21:11</td>
+                                                    <td>016ms</td>
+                                                    <td><a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a> <span
+                                                            style="display:none">PENDING</span></td>
+                                                </tr>
+                                                <tr class="scenario-result PENDING">
+                                                    <td>
+                                                            <a href="e502137b5f45dbc06c1d8489933648e36fdfd994d07b50c3d454c40c658b4d4d.html">MIS Leave Management > View Request Status</a>
+                                                    </td>
+                                                    <td>
+                                                        <a href="d4873d933d50d1b0ac43555001ebaf6805790e609544521e5af6988a98fa1b45.html">Navigate to Leave Management > View Request Status tab > Comp Off</a>
+                                                                   (1 example)
+                                                    </td>
+                                                    <td>4</td>
+                                                    <td>10:21:11</td>
+                                                    <td>010ms</td>
+                                                    <td><a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a> <span
+                                                            style="display:none">PENDING</span></td>
+                                                </tr>
+                                                <tr class="scenario-result PENDING">
+                                                    <td>
+                                                            <a href="e502137b5f45dbc06c1d8489933648e36fdfd994d07b50c3d454c40c658b4d4d.html">MIS Leave Management > View Request Status</a>
+                                                    </td>
+                                                    <td>
+                                                        <a href="780ceee3699e522be53161eda8cb214fc215d3b77085bb9d5868a0d65697ca4e.html">Verify Date Range field is present for Comp Off Tab</a>
+                                                                   (1 example)
+                                                    </td>
+                                                    <td>5</td>
+                                                    <td>10:21:11</td>
+                                                    <td>009ms</td>
+                                                    <td><a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a> <span
+                                                            style="display:none">PENDING</span></td>
+                                                </tr>
+                                                <tr class="scenario-result PENDING">
+                                                    <td>
+                                                            <a href="e502137b5f45dbc06c1d8489933648e36fdfd994d07b50c3d454c40c658b4d4d.html">MIS Leave Management > View Request Status</a>
+                                                    </td>
+                                                    <td>
+                                                        <a href="d3a47bd9948f548ada5c135b0de22ef8d7157f13c28e17a8ef4570a38e97fcbc.html">Enter Invalid Date Range for Comp Off Tab</a>
+                                                                   (1 example)
+                                                    </td>
+                                                    <td>8</td>
+                                                    <td>10:21:11</td>
+                                                    <td>013ms</td>
+                                                    <td><a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a> <span
+                                                            style="display:none">PENDING</span></td>
+                                                </tr>
+                                                <tr class="scenario-result PENDING">
+                                                    <td>
+                                                            <a href="e502137b5f45dbc06c1d8489933648e36fdfd994d07b50c3d454c40c658b4d4d.html">MIS Leave Management > View Request Status</a>
+                                                    </td>
+                                                    <td>
+                                                        <a href="6975cfe900baaae0f44203bee4ac1f9df43366a0c51297471d4f9c06e82e6611.html">Enter Valid Date Range for Comp Off Tab</a>
+                                                                   (1 example)
+                                                    </td>
+                                                    <td>9</td>
+                                                    <td>10:21:11</td>
+                                                    <td>011ms</td>
+                                                    <td><a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a> <span
+                                                            style="display:none">PENDING</span></td>
+                                                </tr>
+                                                <tr class="scenario-result PENDING">
+                                                    <td>
+                                                            <a href="e502137b5f45dbc06c1d8489933648e36fdfd994d07b50c3d454c40c658b4d4d.html">MIS Leave Management > View Request Status</a>
+                                                    </td>
+                                                    <td>
+                                                        <a href="cbb5c357b46b097213fde6f9bff87b2729338c1fcbce8bae10bf28a5f7a4c6b2.html">Click on Export Options Option for Comp Off Tab</a>
+                                                                   (1 example)
+                                                    </td>
+                                                    <td>6</td>
+                                                    <td>10:21:11</td>
+                                                    <td>010ms</td>
+                                                    <td><a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a> <span
+                                                            style="display:none">PENDING</span></td>
+                                                </tr>
+                                                <tr class="scenario-result PENDING">
+                                                    <td>
+                                                            <a href="e502137b5f45dbc06c1d8489933648e36fdfd994d07b50c3d454c40c658b4d4d.html">MIS Leave Management > View Request Status</a>
+                                                    </td>
+                                                    <td>
+                                                        <a href="66cba8c6fef91e002bbdf681cc0755ab7e242badc6110c09bafaedc590de3b2a.html">Click on Print Option for Comp Off Tab</a>
+                                                                   (1 example)
+                                                    </td>
+                                                    <td>8</td>
+                                                    <td>10:21:11</td>
+                                                    <td>012ms</td>
+                                                    <td><a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a> <span
+                                                            style="display:none">PENDING</span></td>
+                                                </tr>
+                                                <tr class="scenario-result PENDING">
+                                                    <td>
+                                                            <a href="e502137b5f45dbc06c1d8489933648e36fdfd994d07b50c3d454c40c658b4d4d.html">MIS Leave Management > View Request Status</a>
+                                                    </td>
+                                                    <td>
+                                                        <a href="c975fa389aecf77669d74410ce77248aa4d010c8514e658456d200dec2b08912.html">Click on Copy Option for Comp Off Tab</a>
+                                                                   (1 example)
+                                                    </td>
+                                                    <td>8</td>
+                                                    <td>10:21:11</td>
+                                                    <td>013ms</td>
+                                                    <td><a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a> <span
+                                                            style="display:none">PENDING</span></td>
+                                                </tr>
+                                                <tr class="scenario-result PENDING">
+                                                    <td>
+                                                            <a href="e502137b5f45dbc06c1d8489933648e36fdfd994d07b50c3d454c40c658b4d4d.html">MIS Leave Management > View Request Status</a>
+                                                    </td>
+                                                    <td>
+                                                        <a href="ba9042bd00725ddf525d38e6c6cf16cccb4644086a93d65e5c490478fbee85db.html">Click on Excel Option for Comp Off Tab</a>
+                                                                   (1 example)
+                                                    </td>
+                                                    <td>8</td>
+                                                    <td>10:21:11</td>
+                                                    <td>021ms</td>
+                                                    <td><a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a> <span
+                                                            style="display:none">PENDING</span></td>
+                                                </tr>
+                                                <tr class="scenario-result PENDING">
+                                                    <td>
+                                                            <a href="e502137b5f45dbc06c1d8489933648e36fdfd994d07b50c3d454c40c658b4d4d.html">MIS Leave Management > View Request Status</a>
+                                                    </td>
+                                                    <td>
+                                                        <a href="467ec5bdaf58cb12c89a63e6d227646389723b7762e1eef66391b2ce4dc33994.html">Verify PDF option for Comp Off Tab</a>
+                                                                   (1 example)
+                                                    </td>
+                                                    <td>8</td>
+                                                    <td>10:21:11</td>
+                                                    <td>015ms</td>
+                                                    <td><a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a> <span
+                                                            style="display:none">PENDING</span></td>
+                                                </tr>
+                                                <tr class="scenario-result PENDING">
+                                                    <td>
+                                                            <a href="e502137b5f45dbc06c1d8489933648e36fdfd994d07b50c3d454c40c658b4d4d.html">MIS Leave Management > View Request Status</a>
+                                                    </td>
+                                                    <td>
+                                                        <a href="51716a6d9478aa42a0a322967cda484549024be24658c725aba87b671f91a18c.html">Enter Comp Off Period Name in Search Box for Comp Off Tab</a>
+                                                                   (1 example)
+                                                    </td>
+                                                    <td>6</td>
+                                                    <td>10:21:11</td>
+                                                    <td>013ms</td>
+                                                    <td><a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a> <span
+                                                            style="display:none">PENDING</span></td>
+                                                </tr>
+                                                <tr class="scenario-result PENDING">
+                                                    <td>
+                                                            <a href="e502137b5f45dbc06c1d8489933648e36fdfd994d07b50c3d454c40c658b4d4d.html">MIS Leave Management > View Request Status</a>
+                                                    </td>
+                                                    <td>
+                                                        <a href="d345e5c8afa84b3c8f127ae8d47b2c46e8a554dcae4e20294e463fc1f1bd9857.html">Sort columns for Comp Off Tab</a>
+                                                                   (1 example)
+                                                    </td>
+                                                    <td>6</td>
+                                                    <td>10:21:11</td>
+                                                    <td>010ms</td>
+                                                    <td><a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a> <span
+                                                            style="display:none">PENDING</span></td>
+                                                </tr>
+                                                <tr class="scenario-result PENDING">
+                                                    <td>
+                                                            <a href="e502137b5f45dbc06c1d8489933648e36fdfd994d07b50c3d454c40c658b4d4d.html">MIS Leave Management > View Request Status</a>
+                                                    </td>
+                                                    <td>
+                                                        <a href="9dee1f2f830e8196aed8f0861f3e99b3d5d09f945118edbc901ff59330912999.html">Expand Details of Comp Off</a>
+                                                                   (1 example)
+                                                    </td>
+                                                    <td>8</td>
+                                                    <td>10:21:11</td>
+                                                    <td>011ms</td>
+                                                    <td><a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a> <span
+                                                            style="display:none">PENDING</span></td>
+                                                </tr>
+                                                <tr class="scenario-result PENDING">
+                                                    <td>
+                                                            <a href="e502137b5f45dbc06c1d8489933648e36fdfd994d07b50c3d454c40c658b4d4d.html">MIS Leave Management > View Request Status</a>
+                                                    </td>
+                                                    <td>
+                                                        <a href="6c30e80fdc9197a3ef5201c9cce5b4f702ced5cb3ea785cdb1ff63de70cb8adc.html">Navigate to Leave Management > View Request Status tab > Leave Tab</a>
+                                                                   (1 example)
+                                                    </td>
+                                                    <td>3</td>
+                                                    <td>10:21:11</td>
+                                                    <td>005ms</td>
+                                                    <td><a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a> <span
+                                                            style="display:none">PENDING</span></td>
+                                                </tr>
+                                                <tr class="scenario-result PENDING">
+                                                    <td>
+                                                            <a href="e502137b5f45dbc06c1d8489933648e36fdfd994d07b50c3d454c40c658b4d4d.html">MIS Leave Management > View Request Status</a>
+                                                    </td>
+                                                    <td>
+                                                        <a href="417a59605989c0ca84b1ed69acf3eac5160acd464d2ef0c259a6fc2c7a6bf93a.html">Verify Date Range field is present for Leave Tab</a>
+                                                                   (1 example)
+                                                    </td>
+                                                    <td>4</td>
+                                                    <td>10:21:11</td>
+                                                    <td>006ms</td>
+                                                    <td><a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a> <span
+                                                            style="display:none">PENDING</span></td>
+                                                </tr>
+                                                <tr class="scenario-result PENDING">
+                                                    <td>
+                                                            <a href="e502137b5f45dbc06c1d8489933648e36fdfd994d07b50c3d454c40c658b4d4d.html">MIS Leave Management > View Request Status</a>
+                                                    </td>
+                                                    <td>
+                                                        <a href="450b9ba2f5f6b34a0e3cea25452f4f82b5e394dfc68b85c83ebe6c934cdd8b6e.html">Enter Invalid Date Range for Leave Tab</a>
+                                                                   (1 example)
+                                                    </td>
+                                                    <td>7</td>
+                                                    <td>10:21:11</td>
+                                                    <td>010ms</td>
+                                                    <td><a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a> <span
+                                                            style="display:none">PENDING</span></td>
+                                                </tr>
+                                                <tr class="scenario-result PENDING">
+                                                    <td>
+                                                            <a href="e502137b5f45dbc06c1d8489933648e36fdfd994d07b50c3d454c40c658b4d4d.html">MIS Leave Management > View Request Status</a>
+                                                    </td>
+                                                    <td>
+                                                        <a href="b729529f733c49305208a8bf6314ce9b07f583d4f275719dac8c0700b84b31a2.html">Enter Valid Date Range for Leave Tab</a>
+                                                                   (1 example)
+                                                    </td>
+                                                    <td>8</td>
+                                                    <td>10:21:11</td>
+                                                    <td>010ms</td>
+                                                    <td><a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a> <span
+                                                            style="display:none">PENDING</span></td>
+                                                </tr>
+                                                <tr class="scenario-result PENDING">
+                                                    <td>
+                                                            <a href="e502137b5f45dbc06c1d8489933648e36fdfd994d07b50c3d454c40c658b4d4d.html">MIS Leave Management > View Request Status</a>
+                                                    </td>
+                                                    <td>
+                                                        <a href="c3f1aaf1f3efb7cc614f8083cfa33bf6ba071a761dd24aec48b0a23b45e88e56.html">Verify Export Options for Leave Tab</a>
+                                                                   (1 example)
+                                                    </td>
+                                                    <td>5</td>
+                                                    <td>10:21:11</td>
+                                                    <td>008ms</td>
+                                                    <td><a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a> <span
+                                                            style="display:none">PENDING</span></td>
+                                                </tr>
+                                                <tr class="scenario-result PENDING">
+                                                    <td>
+                                                            <a href="e502137b5f45dbc06c1d8489933648e36fdfd994d07b50c3d454c40c658b4d4d.html">MIS Leave Management > View Request Status</a>
+                                                    </td>
+                                                    <td>
+                                                        <a href="5571e0049e910ed839bc358da99ccf16d7cb206cf9bea1e797ca9efd77aab866.html">Click on Print Option for Leave Tab</a>
+                                                                   (1 example)
+                                                    </td>
+                                                    <td>7</td>
+                                                    <td>10:21:11</td>
+                                                    <td>012ms</td>
+                                                    <td><a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a> <span
+                                                            style="display:none">PENDING</span></td>
+                                                </tr>
+                                                <tr class="scenario-result PENDING">
+                                                    <td>
+                                                            <a href="e502137b5f45dbc06c1d8489933648e36fdfd994d07b50c3d454c40c658b4d4d.html">MIS Leave Management > View Request Status</a>
+                                                    </td>
+                                                    <td>
+                                                        <a href="600a0f476bd3e198bff63adb638a83e778c47850d295bd2346997ce0c3378b67.html">Click on Excel Option for Leave Tab</a>
+                                                                   (1 example)
+                                                    </td>
+                                                    <td>7</td>
+                                                    <td>10:21:11</td>
+                                                    <td>010ms</td>
+                                                    <td><a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a> <span
+                                                            style="display:none">PENDING</span></td>
+                                                </tr>
+                                                <tr class="scenario-result PENDING">
+                                                    <td>
+                                                            <a href="e502137b5f45dbc06c1d8489933648e36fdfd994d07b50c3d454c40c658b4d4d.html">MIS Leave Management > View Request Status</a>
+                                                    </td>
+                                                    <td>
+                                                        <a href="c5ed5f16a35080947b676e9e33fcc1e7c1ce9a042e1a708d0c5164e4582d68dd.html">Click on Copy Option for Leave Tab</a>
+                                                                   (1 example)
+                                                    </td>
+                                                    <td>7</td>
+                                                    <td>10:21:11</td>
+                                                    <td>010ms</td>
+                                                    <td><a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a> <span
+                                                            style="display:none">PENDING</span></td>
+                                                </tr>
+                                                <tr class="scenario-result PENDING">
+                                                    <td>
+                                                            <a href="e502137b5f45dbc06c1d8489933648e36fdfd994d07b50c3d454c40c658b4d4d.html">MIS Leave Management > View Request Status</a>
+                                                    </td>
+                                                    <td>
+                                                        <a href="5e561fd64ea3f927c46dd1ac1c4a698f6b7d0578197c4c47ffec35790397efce.html">Verify PDF option for Leave Tab</a>
+                                                                   (1 example)
+                                                    </td>
+                                                    <td>7</td>
+                                                    <td>10:21:11</td>
+                                                    <td>010ms</td>
+                                                    <td><a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a> <span
+                                                            style="display:none">PENDING</span></td>
+                                                </tr>
+                                                <tr class="scenario-result PENDING">
+                                                    <td>
+                                                            <a href="e502137b5f45dbc06c1d8489933648e36fdfd994d07b50c3d454c40c658b4d4d.html">MIS Leave Management > View Request Status</a>
+                                                    </td>
+                                                    <td>
+                                                        <a href="24aa8d46de5980143bcf5bf4b3b57922fa8da43b35fd7c53571f149a41cb062d.html">Verify Number of Entries displayed for Leave Tab</a>
+                                                                   (1 example)
+                                                    </td>
+                                                    <td>12</td>
+                                                    <td>10:21:11</td>
+                                                    <td>014ms</td>
+                                                    <td><a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a> <span
+                                                            style="display:none">PENDING</span></td>
+                                                </tr>
+                                                <tr class="scenario-result PENDING">
+                                                    <td>
+                                                            <a href="e502137b5f45dbc06c1d8489933648e36fdfd994d07b50c3d454c40c658b4d4d.html">MIS Leave Management > View Request Status</a>
+                                                    </td>
+                                                    <td>
+                                                        <a href="f75894dbf4f80b3601acc4b8287e8e19bcfaea932069da5b34078d7f4261ffc2.html">Enter Leave Period Name in Search Box for Leave Tab</a>
+                                                                   (1 example)
+                                                    </td>
+                                                    <td>5</td>
+                                                    <td>10:21:11</td>
+                                                    <td>008ms</td>
+                                                    <td><a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a> <span
+                                                            style="display:none">PENDING</span></td>
+                                                </tr>
+                                                <tr class="scenario-result PENDING">
+                                                    <td>
+                                                            <a href="e502137b5f45dbc06c1d8489933648e36fdfd994d07b50c3d454c40c658b4d4d.html">MIS Leave Management > View Request Status</a>
+                                                    </td>
+                                                    <td>
+                                                        <a href="f9e885ed0abaf73bdda284c6c9bed02ea8e5434cb0f7b22b8daeef668bc52cf9.html">Sort columns for Leave Tab</a>
+                                                                   (1 example)
+                                                    </td>
+                                                    <td>4</td>
+                                                    <td>10:21:11</td>
+                                                    <td>007ms</td>
+                                                    <td><a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a> <span
+                                                            style="display:none">PENDING</span></td>
+                                                </tr>
+                                                <tr class="scenario-result PENDING">
+                                                    <td>
+                                                            <a href="e502137b5f45dbc06c1d8489933648e36fdfd994d07b50c3d454c40c658b4d4d.html">MIS Leave Management > View Request Status</a>
+                                                    </td>
+                                                    <td>
+                                                        <a href="b2e9b3d15cdce456cee58ecfe03ed9406455c86de76b1a44b5cd23af769abd57.html">Page Next for Leave Tab</a>
+                                                                   (1 example)
+                                                    </td>
+                                                    <td>10</td>
+                                                    <td>10:21:11</td>
+                                                    <td>012ms</td>
+                                                    <td><a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a> <span
+                                                            style="display:none">PENDING</span></td>
+                                                </tr>
+                                                <tr class="scenario-result PENDING">
+                                                    <td>
+                                                            <a href="e502137b5f45dbc06c1d8489933648e36fdfd994d07b50c3d454c40c658b4d4d.html">MIS Leave Management > View Request Status</a>
+                                                    </td>
+                                                    <td>
+                                                        <a href="a136d22a1bc95a82ae6d52dc623a4e5731943c47b13e8526cca9dbf1560d3b10.html">Page Previous for Leave Tab</a>
+                                                                   (1 example)
+                                                    </td>
+                                                    <td>12</td>
+                                                    <td>10:21:11</td>
+                                                    <td>018ms</td>
+                                                    <td><a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a> <span
+                                                            style="display:none">PENDING</span></td>
+                                                </tr>
+                                                <tr class="scenario-result PENDING">
+                                                    <td>
+                                                            <a href="e502137b5f45dbc06c1d8489933648e36fdfd994d07b50c3d454c40c658b4d4d.html">MIS Leave Management > View Request Status</a>
+                                                    </td>
+                                                    <td>
+                                                        <a href="3929bf8dd2577f2c4c8b31b37427b748219c350041b31cfcbedee4d23c2bb7f6.html">Cancel Leave for Leave Tab</a>
+                                                                   (1 example)
+                                                    </td>
+                                                    <td>16</td>
+                                                    <td>10:21:11</td>
+                                                    <td>023ms</td>
+                                                    <td><a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a> <span
+                                                            style="display:none">PENDING</span></td>
+                                                </tr>
+                                                <tr class="scenario-result PENDING">
+                                                    <td>
+                                                            <a href="e502137b5f45dbc06c1d8489933648e36fdfd994d07b50c3d454c40c658b4d4d.html">MIS Leave Management > View Request Status</a>
+                                                    </td>
+                                                    <td>
+                                                        <a href="987f139e6550381c34596f198cc538be44eeda8fb6ca856af028b2868766ee42.html">Navigate to Leave Management > View Request Status tab > Out Duty/Tour</a>
+                                                                   (1 example)
+                                                    </td>
+                                                    <td>4</td>
+                                                    <td>10:21:11</td>
+                                                    <td>006ms</td>
+                                                    <td><a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a> <span
+                                                            style="display:none">PENDING</span></td>
+                                                </tr>
+                                                <tr class="scenario-result PENDING">
+                                                    <td>
+                                                            <a href="e502137b5f45dbc06c1d8489933648e36fdfd994d07b50c3d454c40c658b4d4d.html">MIS Leave Management > View Request Status</a>
+                                                    </td>
+                                                    <td>
+                                                        <a href="cd817c4f0fa362dd2291b7be435bd290dff9874e28a1272feb588c7ca65e873a.html">Verify Date Range field is present for Out Duty/Tour</a>
+                                                                   (1 example)
+                                                    </td>
+                                                    <td>5</td>
+                                                    <td>10:21:11</td>
+                                                    <td>008ms</td>
+                                                    <td><a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a> <span
+                                                            style="display:none">PENDING</span></td>
+                                                </tr>
+                                                <tr class="scenario-result PENDING">
+                                                    <td>
+                                                            <a href="e502137b5f45dbc06c1d8489933648e36fdfd994d07b50c3d454c40c658b4d4d.html">MIS Leave Management > View Request Status</a>
+                                                    </td>
+                                                    <td>
+                                                        <a href="78f55b1d5f008a1430a5712d3f2f3456b0543f1d223167a42d7d722bfa87ec62.html">Enter Invalid Date Range for Out Duty/Tour</a>
+                                                                   (1 example)
+                                                    </td>
+                                                    <td>8</td>
+                                                    <td>10:21:11</td>
+                                                    <td>013ms</td>
+                                                    <td><a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a> <span
+                                                            style="display:none">PENDING</span></td>
+                                                </tr>
+                                                <tr class="scenario-result PENDING">
+                                                    <td>
+                                                            <a href="e502137b5f45dbc06c1d8489933648e36fdfd994d07b50c3d454c40c658b4d4d.html">MIS Leave Management > View Request Status</a>
+                                                    </td>
+                                                    <td>
+                                                        <a href="f52021a72650c2d32bf6be21c46b5b940e3df823697d46169c4d7a4e616d55e6.html">Enter Valid Date Range for Out Duty/Tour</a>
+                                                                   (1 example)
+                                                    </td>
+                                                    <td>9</td>
+                                                    <td>10:21:11</td>
+                                                    <td>012ms</td>
+                                                    <td><a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a> <span
+                                                            style="display:none">PENDING</span></td>
+                                                </tr>
+                                                <tr class="scenario-result PENDING">
+                                                    <td>
+                                                            <a href="e502137b5f45dbc06c1d8489933648e36fdfd994d07b50c3d454c40c658b4d4d.html">MIS Leave Management > View Request Status</a>
+                                                    </td>
+                                                    <td>
+                                                        <a href="43b8985ed781c73ec55d2a162a45f88f07d882756d7247421d98510db139f93a.html">Click on Export Options Option for Out Duty/Tour</a>
+                                                                   (1 example)
+                                                    </td>
+                                                    <td>6</td>
+                                                    <td>10:21:12</td>
+                                                    <td>009ms</td>
+                                                    <td><a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a> <span
+                                                            style="display:none">PENDING</span></td>
+                                                </tr>
+                                                <tr class="scenario-result PENDING">
+                                                    <td>
+                                                            <a href="e502137b5f45dbc06c1d8489933648e36fdfd994d07b50c3d454c40c658b4d4d.html">MIS Leave Management > View Request Status</a>
+                                                    </td>
+                                                    <td>
+                                                        <a href="33c8a0b21542148743c399b2319ebfe8d09ffddb86af004d5ef4141ff5481a75.html">Click on Print Option for Out Duty/Tour</a>
+                                                                   (1 example)
+                                                    </td>
+                                                    <td>8</td>
+                                                    <td>10:21:12</td>
+                                                    <td>013ms</td>
+                                                    <td><a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a> <span
+                                                            style="display:none">PENDING</span></td>
+                                                </tr>
+                                                <tr class="scenario-result PENDING">
+                                                    <td>
+                                                            <a href="e502137b5f45dbc06c1d8489933648e36fdfd994d07b50c3d454c40c658b4d4d.html">MIS Leave Management > View Request Status</a>
+                                                    </td>
+                                                    <td>
+                                                        <a href="ffa80968a270144a70190413bb68bbd81cafe1d9551a376525f1948b2b74fc98.html">Click on Copy Option for Out Duty/Tour</a>
+                                                                   (1 example)
+                                                    </td>
+                                                    <td>8</td>
+                                                    <td>10:21:12</td>
+                                                    <td>013ms</td>
+                                                    <td><a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a> <span
+                                                            style="display:none">PENDING</span></td>
+                                                </tr>
+                                                <tr class="scenario-result PENDING">
+                                                    <td>
+                                                            <a href="e502137b5f45dbc06c1d8489933648e36fdfd994d07b50c3d454c40c658b4d4d.html">MIS Leave Management > View Request Status</a>
+                                                    </td>
+                                                    <td>
+                                                        <a href="3a15ccd2b8d4116568ab56fff6cb4d2dd76aeee32389bc6f115685a679458f19.html">Click on Excel Option for Out Duty/Tour</a>
+                                                                   (1 example)
+                                                    </td>
+                                                    <td>8</td>
+                                                    <td>10:21:12</td>
+                                                    <td>009ms</td>
+                                                    <td><a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a> <span
+                                                            style="display:none">PENDING</span></td>
+                                                </tr>
+                                                <tr class="scenario-result PENDING">
+                                                    <td>
+                                                            <a href="e502137b5f45dbc06c1d8489933648e36fdfd994d07b50c3d454c40c658b4d4d.html">MIS Leave Management > View Request Status</a>
+                                                    </td>
+                                                    <td>
+                                                        <a href="02b14ba81a957a7d665e13796b69a067c5e38192924fd950344b7e885b1ba73b.html">Verify PDF option for Out Duty/Tour</a>
+                                                                   (1 example)
+                                                    </td>
+                                                    <td>8</td>
+                                                    <td>10:21:12</td>
+                                                    <td>010ms</td>
+                                                    <td><a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a> <span
+                                                            style="display:none">PENDING</span></td>
+                                                </tr>
+                                                <tr class="scenario-result PENDING">
+                                                    <td>
+                                                            <a href="e502137b5f45dbc06c1d8489933648e36fdfd994d07b50c3d454c40c658b4d4d.html">MIS Leave Management > View Request Status</a>
+                                                    </td>
+                                                    <td>
+                                                        <a href="41932adccb8a69ed72cf11f395a3890d2527d49e78d0ba11a79e51314a61b2d0.html">Sort columns for Out Duty/Tour</a>
+                                                                   (1 example)
+                                                    </td>
+                                                    <td>6</td>
+                                                    <td>10:21:12</td>
+                                                    <td>009ms</td>
+                                                    <td><a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a> <span
+                                                            style="display:none">PENDING</span></td>
+                                                </tr>
+                                                <tr class="scenario-result PENDING">
+                                                    <td>
+                                                            <a href="e502137b5f45dbc06c1d8489933648e36fdfd994d07b50c3d454c40c658b4d4d.html">MIS Leave Management > View Request Status</a>
+                                                    </td>
+                                                    <td>
+                                                        <a href="b5fe8907518da4504f8cdba01ab3a223dcf80a97fb1b95f142d64a3a8b8b1d16.html">Enter Out Duty/Tour Period in Search Box for Out Duty/Tour</a>
+                                                                   (1 example)
+                                                    </td>
+                                                    <td>6</td>
+                                                    <td>10:21:12</td>
+                                                    <td>009ms</td>
+                                                    <td><a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a> <span
+                                                            style="display:none">PENDING</span></td>
+                                                </tr>
+                                                <tr class="scenario-result PENDING">
+                                                    <td>
+                                                            <a href="e502137b5f45dbc06c1d8489933648e36fdfd994d07b50c3d454c40c658b4d4d.html">MIS Leave Management > View Request Status</a>
+                                                    </td>
+                                                    <td>
+                                                        <a href="69d42fd5727a3ae2178fb0a5ad2adf02a074937009760260e370d3a428c4c3fa.html">Verify Data is present for Out Duty/Tour</a>
+                                                                   (1 example)
+                                                    </td>
+                                                    <td>5</td>
+                                                    <td>10:21:12</td>
+                                                    <td>008ms</td>
+                                                    <td><a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a> <span
+                                                            style="display:none">PENDING</span></td>
+                                                </tr>
+                                                <tr class="scenario-result PENDING">
+                                                    <td>
+                                                            <a href="e502137b5f45dbc06c1d8489933648e36fdfd994d07b50c3d454c40c658b4d4d.html">MIS Leave Management > View Request Status</a>
+                                                    </td>
+                                                    <td>
+                                                        <a href="b7157f5b4ca47bc4c5ff413ddb66822247c531b9c9b487dfd410cd76a2947ecc.html">Click on View button for Out Duty/Tour</a>
+                                                                   (1 example)
+                                                    </td>
+                                                    <td>6</td>
+                                                    <td>10:21:12</td>
+                                                    <td>009ms</td>
+                                                    <td><a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a> <span
+                                                            style="display:none">PENDING</span></td>
+                                                </tr>
+                                                <tr class="scenario-result PENDING">
+                                                    <td>
+                                                            <a href="e502137b5f45dbc06c1d8489933648e36fdfd994d07b50c3d454c40c658b4d4d.html">MIS Leave Management > View Request Status</a>
+                                                    </td>
+                                                    <td>
+                                                        <a href="b9595bca5f6a6c21797be80ebf3d5421e781bdcf02d45a770c3e8e5e8b32b767.html">Verify Date in View Window for Out Duty/Tour</a>
+                                                                   (1 example)
+                                                    </td>
+                                                    <td>7</td>
+                                                    <td>10:21:12</td>
+                                                    <td>010ms</td>
+                                                    <td><a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a> <span
+                                                            style="display:none">PENDING</span></td>
+                                                </tr>
+                                                <tr class="scenario-result PENDING">
+                                                    <td>
+                                                            <a href="e502137b5f45dbc06c1d8489933648e36fdfd994d07b50c3d454c40c658b4d4d.html">MIS Leave Management > View Request Status</a>
+                                                    </td>
+                                                    <td>
+                                                        <a href="ec050fc27044df3336a57101bae3a5a5cac5ab79a44e17f5dbcd10df2325a1f6.html">Search in View Window for Out Duty/Tour</a>
+                                                                   (1 example)
+                                                    </td>
+                                                    <td>9</td>
+                                                    <td>10:21:12</td>
+                                                    <td>015ms</td>
+                                                    <td><a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a> <span
+                                                            style="display:none">PENDING</span></td>
+                                                </tr>
+                                                <tr class="scenario-result PENDING">
+                                                    <td>
+                                                            <a href="e502137b5f45dbc06c1d8489933648e36fdfd994d07b50c3d454c40c658b4d4d.html">MIS Leave Management > View Request Status</a>
+                                                    </td>
+                                                    <td>
+                                                        <a href="6bd58bad625510b811af678a139c5e4249ab14bce9ab35269c3877b8eeae8ba5.html">Navigate to Leave Management > View Request Status tab > Work From Home</a>
+                                                                   (1 example)
+                                                    </td>
+                                                    <td>4</td>
+                                                    <td>10:21:12</td>
+                                                    <td>006ms</td>
+                                                    <td><a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a> <span
+                                                            style="display:none">PENDING</span></td>
+                                                </tr>
+                                                <tr class="scenario-result PENDING">
+                                                    <td>
+                                                            <a href="e502137b5f45dbc06c1d8489933648e36fdfd994d07b50c3d454c40c658b4d4d.html">MIS Leave Management > View Request Status</a>
+                                                    </td>
+                                                    <td>
+                                                        <a href="c056eb3b01cfd95de01ebb7d49ff29109841cf15186f2f29e140e8fb74ba39c2.html">Verify Date Range field is present for WFH Tab</a>
+                                                                   (1 example)
+                                                    </td>
+                                                    <td>5</td>
+                                                    <td>10:21:12</td>
+                                                    <td>012ms</td>
+                                                    <td><a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a> <span
+                                                            style="display:none">PENDING</span></td>
+                                                </tr>
+                                                <tr class="scenario-result PENDING">
+                                                    <td>
+                                                            <a href="e502137b5f45dbc06c1d8489933648e36fdfd994d07b50c3d454c40c658b4d4d.html">MIS Leave Management > View Request Status</a>
+                                                    </td>
+                                                    <td>
+                                                        <a href="f61a8e47f60f2fb8687519cb173ae29eca7e88c2f1da8f7193bc6b637e8962cb.html">Enter Invalid Date Range for WFH Tab</a>
+                                                                   (1 example)
+                                                    </td>
+                                                    <td>8</td>
+                                                    <td>10:21:12</td>
+                                                    <td>010ms</td>
+                                                    <td><a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a> <span
+                                                            style="display:none">PENDING</span></td>
+                                                </tr>
+                                                <tr class="scenario-result PENDING">
+                                                    <td>
+                                                            <a href="e502137b5f45dbc06c1d8489933648e36fdfd994d07b50c3d454c40c658b4d4d.html">MIS Leave Management > View Request Status</a>
+                                                    </td>
+                                                    <td>
+                                                        <a href="f13252ae18c4afa683cd49f1101db17049a02186ee7f64cbf69c80918adc7865.html">Enter Valid Date Range for WFH Tab</a>
+                                                                   (1 example)
+                                                    </td>
+                                                    <td>9</td>
+                                                    <td>10:21:12</td>
+                                                    <td>011ms</td>
+                                                    <td><a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a> <span
+                                                            style="display:none">PENDING</span></td>
+                                                </tr>
+                                                <tr class="scenario-result PENDING">
+                                                    <td>
+                                                            <a href="e502137b5f45dbc06c1d8489933648e36fdfd994d07b50c3d454c40c658b4d4d.html">MIS Leave Management > View Request Status</a>
+                                                    </td>
+                                                    <td>
+                                                        <a href="336c46911a22fa5c0aa74f56566fb840d8bceab286dd0880b81f4fe8634e91c9.html">Click on Export Options Option for WFH Tab</a>
+                                                                   (1 example)
+                                                    </td>
+                                                    <td>6</td>
+                                                    <td>10:21:12</td>
+                                                    <td>008ms</td>
+                                                    <td><a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a> <span
+                                                            style="display:none">PENDING</span></td>
+                                                </tr>
+                                                <tr class="scenario-result PENDING">
+                                                    <td>
+                                                            <a href="e502137b5f45dbc06c1d8489933648e36fdfd994d07b50c3d454c40c658b4d4d.html">MIS Leave Management > View Request Status</a>
+                                                    </td>
+                                                    <td>
+                                                        <a href="c89f3ccbc2372553a9c1cbc28620351c75bc3de109b4644fe1a8415f16e0a9bf.html">Click on Print Option for WFH Tab</a>
+                                                                   (1 example)
+                                                    </td>
+                                                    <td>8</td>
+                                                    <td>10:21:12</td>
+                                                    <td>011ms</td>
+                                                    <td><a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a> <span
+                                                            style="display:none">PENDING</span></td>
+                                                </tr>
+                                                <tr class="scenario-result PENDING">
+                                                    <td>
+                                                            <a href="e502137b5f45dbc06c1d8489933648e36fdfd994d07b50c3d454c40c658b4d4d.html">MIS Leave Management > View Request Status</a>
+                                                    </td>
+                                                    <td>
+                                                        <a href="9bc718df21d5cef89e204d86b514e8c447871fcccfa8f8315ec6200b7f327ce1.html">Click on Copy Option for WFH Tab</a>
+                                                                   (1 example)
+                                                    </td>
+                                                    <td>8</td>
+                                                    <td>10:21:12</td>
+                                                    <td>009ms</td>
+                                                    <td><a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a> <span
+                                                            style="display:none">PENDING</span></td>
+                                                </tr>
+                                                <tr class="scenario-result PENDING">
+                                                    <td>
+                                                            <a href="e502137b5f45dbc06c1d8489933648e36fdfd994d07b50c3d454c40c658b4d4d.html">MIS Leave Management > View Request Status</a>
+                                                    </td>
+                                                    <td>
+                                                        <a href="eb1d39dc2e1aa06763848dd997c90eb0a48f036b6d1fc716b4936e10d9ee4cbc.html">Click on Excel Option for WFH Tab</a>
+                                                                   (1 example)
+                                                    </td>
+                                                    <td>8</td>
+                                                    <td>10:21:12</td>
+                                                    <td>011ms</td>
+                                                    <td><a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a> <span
+                                                            style="display:none">PENDING</span></td>
+                                                </tr>
+                                                <tr class="scenario-result PENDING">
+                                                    <td>
+                                                            <a href="e502137b5f45dbc06c1d8489933648e36fdfd994d07b50c3d454c40c658b4d4d.html">MIS Leave Management > View Request Status</a>
+                                                    </td>
+                                                    <td>
+                                                        <a href="0d54e194575cb3168410a3776a073287f5343ee054a3ddfb66d0455d905e09fc.html">Verify PDF option for WFH Tab</a>
+                                                                   (1 example)
+                                                    </td>
+                                                    <td>8</td>
+                                                    <td>10:21:12</td>
+                                                    <td>012ms</td>
+                                                    <td><a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a> <span
+                                                            style="display:none">PENDING</span></td>
+                                                </tr>
+                                                <tr class="scenario-result PENDING">
+                                                    <td>
+                                                            <a href="e502137b5f45dbc06c1d8489933648e36fdfd994d07b50c3d454c40c658b4d4d.html">MIS Leave Management > View Request Status</a>
+                                                    </td>
+                                                    <td>
+                                                        <a href="f8bf40a496bf9a09fec5bdcd7cffca7a8e6e0f0eca1147eb4ae41047dcfb57fa.html">Verify Number of Entries displayed for WFH Tab</a>
+                                                                   (1 example)
+                                                    </td>
+                                                    <td>7</td>
+                                                    <td>10:21:12</td>
+                                                    <td>011ms</td>
+                                                    <td><a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a> <span
+                                                            style="display:none">PENDING</span></td>
+                                                </tr>
+                                                <tr class="scenario-result PENDING">
+                                                    <td>
+                                                            <a href="e502137b5f45dbc06c1d8489933648e36fdfd994d07b50c3d454c40c658b4d4d.html">MIS Leave Management > View Request Status</a>
+                                                    </td>
+                                                    <td>
+                                                        <a href="f643c660d00efdc5ef06d320d9d3afd89fe4bfe177da30b9db5b900b71b877da.html">Enter WFH Period Name in Search Box for WFH Tab</a>
+                                                                   (1 example)
+                                                    </td>
+                                                    <td>6</td>
+                                                    <td>10:21:12</td>
+                                                    <td>011ms</td>
+                                                    <td><a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a> <span
+                                                            style="display:none">PENDING</span></td>
+                                                </tr>
+                                                <tr class="scenario-result PENDING">
+                                                    <td>
+                                                            <a href="e502137b5f45dbc06c1d8489933648e36fdfd994d07b50c3d454c40c658b4d4d.html">MIS Leave Management > View Request Status</a>
+                                                    </td>
+                                                    <td>
+                                                        <a href="3c86594fae2c0090f3b7067ecb9a738fb71113c75a63203ec4ba5eb66e1047bd.html">Sort columns for WFH Tab</a>
+                                                                   (1 example)
+                                                    </td>
+                                                    <td>6</td>
+                                                    <td>10:21:12</td>
+                                                    <td>011ms</td>
+                                                    <td><a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a> <span
+                                                            style="display:none">PENDING</span></td>
+                                                </tr>
+                                                <tr class="scenario-result PENDING">
+                                                    <td>
+                                                            <a href="e502137b5f45dbc06c1d8489933648e36fdfd994d07b50c3d454c40c658b4d4d.html">MIS Leave Management > View Request Status</a>
+                                                    </td>
+                                                    <td>
+                                                        <a href="10e5519195b08158ddef2fb33c847e2ba48aa6733f49766605279c91129ec60a.html">Page Next for WFH Tab</a>
+                                                                   (1 example)
+                                                    </td>
+                                                    <td>6</td>
+                                                    <td>10:21:12</td>
+                                                    <td>011ms</td>
+                                                    <td><a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a> <span
+                                                            style="display:none">PENDING</span></td>
+                                                </tr>
+                                                <tr class="scenario-result PENDING">
+                                                    <td>
+                                                            <a href="e502137b5f45dbc06c1d8489933648e36fdfd994d07b50c3d454c40c658b4d4d.html">MIS Leave Management > View Request Status</a>
+                                                    </td>
+                                                    <td>
+                                                        <a href="246cc936a3531346fe965f599ee62629a8518e6d6845eb99618eadbf8cff6896.html">Page Previous for WFH Tab</a>
+                                                                   (1 example)
+                                                    </td>
+                                                    <td>8</td>
+                                                    <td>10:21:12</td>
+                                                    <td>012ms</td>
+                                                    <td><a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a> <span
+                                                            style="display:none">PENDING</span></td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <h3><i class="fas fa-edit"></i> Manual Tests</h3>
+
+                                                No manual tests were recorded
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                        </td>
+
+                    </tr>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div id="beforefooter"></div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <span class="version">Serenity BDD version 2.6.0</span>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

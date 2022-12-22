@@ -1,0 +1,4 @@
+"Story","Title","Result","Date","Stability","Duration (s)"
+"Perform actions on TimeSheet of MIS website","Verify total tabs and active tab","PENDING","2022-12-16T10:21:10.9153082+05:30[Asia/Calcutta]","0.0","0.01"
+"Perform actions on TimeSheet of MIS website","Search a text using search box","PENDING","2022-12-16T10:21:10.9262939+05:30[Asia/Calcutta]","0.0","0.04"
+"Perform actions on TimeSheet of MIS website","Verify Save button is present and working","PENDING","2022-12-16T10:21:10.9682041+05:30[Asia/Calcutta]","0.0","0.01"
