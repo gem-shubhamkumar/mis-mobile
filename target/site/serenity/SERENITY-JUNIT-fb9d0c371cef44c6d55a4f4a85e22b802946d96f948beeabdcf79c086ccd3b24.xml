@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><testsuite errors="0" failures="1" name="Feedback" skipped="0" tests="1" time="43.3" timestamp="2022-12-16 08:13:08"><testcase name="Invalid Search a Feedback"><failure message="Button Submit not found" type="java.lang.AssertionError">Button Submit not found</failure><system-err>Button Submit not found&#13;
-com.gemini.mis.implementations.FeedbackImplementation.clickButton(FeedbackImplementation.java:235)&#13;
-com.gemini.mis.pages.FeedbackPage.clickButton(FeedbackPage.java:95)&#13;
-com.gemini.mis.stepdefinitions.MySkillsSteps.userClickOnButton(MySkillsSteps.java:33)&#13;
-✽.User should click on "Submit" button(file:///C:/MIS%20Training/mis-training/src/test/resources/features/Feedback.feature:81)&#13;
-</system-err></testcase></testsuite>

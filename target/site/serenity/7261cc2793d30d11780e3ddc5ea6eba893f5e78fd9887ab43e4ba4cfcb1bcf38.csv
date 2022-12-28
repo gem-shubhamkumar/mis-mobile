@@ -1,8 +1,0 @@
-"Story","Title","Result","Date","Stability","Duration (s)"
-"Automation of  View Document and view shared document Submenu in knowledge base menu in MIS Dashboard","check right click working","PENDING","2022-12-16T10:21:08.6165481+05:30[Asia/Calcutta]","0.0","0.01"
-"Automation of  View Document and view shared document Submenu in knowledge base menu in MIS Dashboard","check add new document after right click invalid doc type","PENDING","2022-12-16T10:21:08.6329838+05:30[Asia/Calcutta]","0.0","0.02"
-"Automation of  View Document and view shared document Submenu in knowledge base menu in MIS Dashboard","Upload a valid document after filling all the fields","PENDING","2022-12-16T10:21:08.6579178+05:30[Asia/Calcutta]","0.0","0.02"
-"Automation of  View Document and view shared document Submenu in knowledge base menu in MIS Dashboard","Filling all the fields and no documents attached","PENDING","2022-12-16T10:21:08.6912209+05:30[Asia/Calcutta]","0.0","0.03"
-"Automation of  View Document and view shared document Submenu in knowledge base menu in MIS Dashboard","Upload a file without filling all the fields","PENDING","2022-12-16T10:21:08.7251526+05:30[Asia/Calcutta]","0.0","0.03"
-"Automation of  View Document and view shared document Submenu in knowledge base menu in MIS Dashboard","Knowledge base view document check delete option from menulist","PENDING","2022-12-16T10:21:08.7626906+05:30[Asia/Calcutta]","0.0","0.02"
-"Automation of  View Document and view shared document Submenu in knowledge base menu in MIS Dashboard","verify menu list opening for subfolders","PENDING","2022-12-16T10:21:08.8075054+05:30[Asia/Calcutta]","0.0","0.01"

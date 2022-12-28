@@ -1,3 +1,0 @@
-"Story","Title","Result","Date","Stability","Duration (s)"
-"Login MIS Application Activities","User Enters Invalid Credentials","SUCCESS","2022-12-16T15:34:52.2531769+05:30[Asia/Calcutta]","0.0","16.46"
-"Login MIS Application Activities","User clicks on forgot password and enters invalid username.","ERROR","2022-12-16T19:16:39.5355439+05:30[Asia/Calcutta]","0.0","17.81"

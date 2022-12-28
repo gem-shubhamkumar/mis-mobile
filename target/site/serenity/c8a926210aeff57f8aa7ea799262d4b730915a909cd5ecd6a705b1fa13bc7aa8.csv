@@ -1,5 +1,0 @@
-"Story","Title","Result","Date","Stability","Duration (s)"
-"MIS Dashboard Profile module Scenarios","User enters invalid Pin code","ERROR","2022-12-17T21:15:23.9959203+05:30[Asia/Calcutta]","0.0","6.13"
-"MIS Dashboard Profile module Scenarios","User applies for lunch","ERROR","2022-12-17T22:24:09.1273968+05:30[Asia/Calcutta]","0.0","32.38"
-"Login MIS Application Activities","User clicks on forgot password and enters invalid username.","ERROR","2022-12-16T19:16:39.5355439+05:30[Asia/Calcutta]","0.0","17.81"
-"Perform actions on TimeSheet of MIS website","Verify the table heads and table data","ERROR","2022-12-22T10:25:05.9669455+05:30[Asia/Calcutta]","0.0","30.64"
