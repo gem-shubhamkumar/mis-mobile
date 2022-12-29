@@ -15,7 +15,7 @@ Feature: Reimbursement
 
       Examples:
         | mainScreen    | subsScreen      | buttonName  | type    | month      | FileName | FilePath                                  | Description | BillNo | Date       | reimbursementAmount | Amount |
-        | Reimbursement | MyReimbursement | New Request | Monthly | April 2022 | LOGOFILE | C:\Users\si.porwal\Downloads\LOGOFILE.png | Gemini wire | 1      | 04/20/2022 | 7500                | 7500   |
+        | Reimbursement | MyReimbursement | New Request | Monthly | June 2022 | err2.png | C:\Users\sa.chand\Pictures\err2.png | Gemini wive | 1     | 06/20/2022 | 7500                | 7500   |
 
   @ReimbursementTest02 @reb
 
@@ -57,7 +57,7 @@ Feature: Reimbursement
   Then Verify warning after file upload of "<FilePath>", "<type>", "<month>" is visible
   Examples:
     | mainScreen    | subsScreen      | FilePath                                                   | type    | month          |
-    | Reimbursement | MyReimbursement | C:\Users\si.porwal\Downloads\MicrosoftTeams-image (55).png | Monthly | September 2022 |
+    | Reimbursement | MyReimbursement | C:\Users\sa.chand\Pictures\farewell3.png | Monthly | September 2022 |
 
   @ReimbursementTest06 @reb
   Scenario Outline: Verify warning for more than one reimbursement in a month
@@ -67,7 +67,7 @@ Feature: Reimbursement
     Then Verify "<description>", "<billNo>", "<date>", "<reimbursementAmount>", "<amount>" save draft reimbursement for same month
     Examples:
       | mainScreen    | subsScreen      | buttonName  | FileName | FilePath                                  | type    | month          | description    | billNo | date       | reimbursementAmount | amount |
-      | Reimbursement | MyReimbursement | New Request | LOGOFILE | C:\Users\si.porwal\Downloads\LOGOFILE.png | Monthly | September 2022 | Gemini Desktop | 123    | 09/23/2022 | 12345               | 12345  |
+      | Reimbursement | MyReimbursement | New Request | err2 | C:\Users\sa.chand\Pictures\err2.png | Monthly | September 2022 | Gemini Desktop | 123    | 09/23/2022 | 12345               | 12345  |
 
   @ReimbursementTest07 @reb
   Scenario Outline: Verify total amount is correct
@@ -115,7 +115,7 @@ Feature: Reimbursement
     Then Validate cancel button for "<cancelButtonNo>", "<noOfElement>" functionality
     Examples:
       | mainScreen    | subsScreen      | cancelButtonNo | noOfElement |  |
-      | Reimbursement | MyReimbursement | 2              | 5           |  |
+      | Reimbursement | MyReimbursement | 1             |    1        |  |
 
 
   #Sometimes it throws null backend API exception while file upload
@@ -128,7 +128,7 @@ Feature: Reimbursement
     Then Validate "<Description>", "<BillNo>", "<Date>", "<ReimbursementAmount>", "<Amount>", "<FilePath>", "<FileName>" and click on save draft
     Examples:
       | mainScreen    | subsScreen      | buttonName  |  |  | FileName | FilePath                                  | Description | BillNo | Date       | ReimbursementAmount | Amount | type    | month     |
-      | Reimbursement | MyReimbursement | New Request |  |  | LOGOFILE | C:\Users\si.porwal\Downloads\LOGOFILE.png | Files       | 3      | 06/17/2022 | 7500                | 7500   | Monthly | June 2022 |
+      | Reimbursement | MyReimbursement | New Request |  |  | LOGO.png | C:\Users\sa.chand\Downloads\LOGO.png | Files       | 3      | 06/17/2022 | 7500                | 7500   | Monthly | June 2022 |
 
 
   @ReimbursementTest13 @reb
@@ -156,4 +156,4 @@ Feature: Reimbursement
     Then Verify wrong extension warning after file upload of "<FilePath>", "<type>", "<month>" is visible
     Examples:
       | mainScreen    | subsScreen      | FilePath                                                                                  | type    | month          |
-      | Reimbursement | MyReimbursement | C:\Users\si.porwal\OneDrive - Gemini Solutions\Desktop\Final MIS CODE\MISAutomationFinal\src\test\resources\FileUpload\Free CFA Level 1 Mock Exam (300Hours).pdf | Monthly | September 2022 |
+      | Reimbursement | MyReimbursement | C:\Users\sa.chand\Downloads\medical-record.pdf | Monthly | September 2022 |

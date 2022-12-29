@@ -6,7 +6,8 @@ import org.junit.runner.RunWith;
 
 @RunWith(CucumberSerenityRunner.class)
 @CucumberOptions(
-        features = "src/test/resources/features/MySkills.feature" , glue = "com/gemini/mis/stepdefinitions"
+        features = "src/test/resources/features/OtherPortals.feature" ,
+        glue = "com/gemini/mis/stepdefinitions"
 )
 
 public class TestSuiteRunner

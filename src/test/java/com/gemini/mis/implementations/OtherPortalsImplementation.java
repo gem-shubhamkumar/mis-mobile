@@ -1,11 +1,14 @@
 package com.gemini.mis.implementations;
 
+import com.gemini.mis.commonfunctions.CommonFunctions;
 import com.gemini.mis.selectors.MISPOM;
 import com.gemini.mis.selectors.ReimbursementPOM;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.slf4j.Logger;
@@ -82,20 +85,17 @@ public class OtherPortalsImplementation extends PageObject {
         }else{
             waitABit(7000);
             // verification for Parent tab
-            if (isElementVisible(MISPOM.screenNavigation(parentTabName)))
-            { waitABit(3000);
-                //clicks on parent tab
-                $(MISPOM.screenNavigation(parentTabName)).click();
+            By parentTab = MISPOM.screenNavigation(parentTabName);
+            if (isElementVisible(parentTab))
+            {
                 waitABit(3000);
+                //clicks on parent tab
+                $(parentTab).click();
                 // verifies sub tab available
-                if (isElementVisible(MISPOM.screenNavigation(childTabName)))
-                {  $(MISPOM.screenNavigation(childTabName)).click();
-                }
-
-                else{
-                    Assert.fail("Unable to locate child tab");
-                    logger.info("Unable to locate child tab");
-                }
+                By childTab = MISPOM.screenNavigation(childTabName);
+                waitABit(5000);
+                Actions act = new Actions(getDriver());
+                act.click($(childTab)).build().perform();
 
             }
 

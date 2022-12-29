@@ -7,11 +7,11 @@ Feature: LNSA
     When User Clicks on "Apply LNSA" tab of "LNSA" tab
     Then Verify Apply LNSA tab opens
 
-    @Test12
+  @Test12
   Scenario: Move to previous date
     When User Clicks on "Apply LNSA" tab of "LNSA" tab
     Then Verify Apply LNSA tab opens
-      And User should click on "previous date" button
+    And User should click on "previous date" button
     Then Verify previous date data is populated
 
 
@@ -22,7 +22,7 @@ Feature: LNSA
     And User should click on "next date" button
     Then Verify next date data is populated
 
-
+  @tag2
   Scenario: Select Week Checkbox
     When User Clicks on "Apply LNSA" tab of "LNSA" tab
     Then Verify Apply LNSA tab opens
@@ -36,7 +36,7 @@ Feature: LNSA
     Then Validate "Warning" Message
 
 
-  @tags
+
   Scenario: Cancel Submit Window
     When User Clicks on "Apply LNSA" tab of "LNSA" tab
     Then Verify Apply LNSA tab opens
@@ -72,7 +72,7 @@ Feature: LNSA
     When User Clicks on "View Request Status" tab of "LNSA" tab
     Then Verify View Request Status tab opens
 
-
+  @tag5
   Scenario: Export Data
     When User Clicks on "View Request Status" tab of "LNSA" tab
     Then Verify View Request Status tab opens
@@ -118,7 +118,7 @@ Feature: LNSA
       |childTab| parentTab| data |
       | View Request Status | LNSA | qqqqqqq |
 
-
+  @tag41
   Scenario: Sort the LNSA columns
     When User Clicks on "View Request Status" tab of "LNSA" tab
     Then Verify View Request Status tab opens
@@ -130,18 +130,18 @@ Feature: LNSA
     Then Verify "Till Date" row is in "descending" order
     When User clicks on "Till Date" row
     Then Verify "Till Date" row is in "ascending" order
-    When User clicks on "No of Days" row
-    Then Verify "No of Days" row is in "descending" order
-    When User clicks on "No of Days" row
-    Then Verify "No of Days" row is in "ascending" order
+    When User clicks on "No Of Days" row
+    Then Verify "No Of Days" row is in "descending" order
+    When User clicks on "No Of Days" row
+    Then Verify "No Of Days" row is in "ascending" order
     When User clicks on "Reason" row
     Then Verify "Reason" row is in "descending" order
     When User clicks on "Reason" row
     Then Verify "Reason" row is in "ascending" order
-    When User clicks on "Status" row
-    Then Verify "Status" row is in "descending" order
-    When User clicks on "Status" row
-    Then Verify "Status" row is in "ascending" order
+    When User clicks on "Status/Remark" row
+    Then Verify "Status/Remark" row is in "descending" order
+    When User clicks on "Status/Remark" row
+    Then Verify "Status/Remark" row is in "ascending" order
     When User clicks on "Requested On" row
     Then Verify "Requested On" row is in "descending" order
     When User clicks on "Requested On" row
@@ -157,12 +157,3 @@ Feature: LNSA
     Then Verify View Request Status tab opens
     When Click on status button
     Then "Remarks" Modal open
-
-
-
-
-
-
-
-
-
