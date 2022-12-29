@@ -16,7 +16,6 @@ import java.util.*;
 
 import java.time.LocalDate;
 import java.time.Month;
-import java.util.concurrent.TimeUnit;
 
 public class LeaveImplementation extends PageObject {
 
@@ -43,7 +42,7 @@ public class LeaveImplementation extends PageObject {
     //This function is to verify successful login
     public void verifySuccessfulLogin(String pageName)
     {
-        waitABit(4000);
+        waitABit(10000);
         String url="";
         if(pageName.equals("Dashboard Page"))
         {
@@ -55,14 +54,15 @@ public class LeaveImplementation extends PageObject {
     //Function verifies tab headings
     public void verifyTabDisplays(String actualHeading)
     {
-        waitABit(2000);
+        waitABit(5000);
+        waitABit(5000);
         String expectHeading = "";
         if(StringUtils.equals(actualHeading,"Out Duty/Tour Request Detail"))
         {
             expectHeading = textOf(XpathForLeaveManagementTab.newHeading);
         }
         else {
-             expectHeading = textOf(XpathForLeaveManagementTab.heading);
+            expectHeading = textOf(XpathForLeaveManagementTab.heading);
         }
         if(StringUtils.equals(actualHeading,expectHeading))
         {
@@ -106,53 +106,44 @@ public class LeaveImplementation extends PageObject {
                 isAutoPopulated = false;
             }
         }
-            if (isAutoPopulated) {
-                Assert.assertTrue("Field are auto populated by default", true);
-            } else {
-                Assert.fail("Fields are not auto populated");
-                log.info("Fields are not auto populated");
-            }
+        if (isAutoPopulated) {
+            Assert.assertTrue("Field are auto populated by default", true);
+        } else {
+            Assert.fail("Fields are not auto populated");
+            log.info("Fields are not auto populated");
+        }
     }
 
 
     //This function is for navigation for sub tabs
-    public void navigateToTab(String childTab, String parentTab) throws InterruptedException
+    public void navigateToTab(String childTab, String parentTab)
     {
-        TimeUnit.MICROSECONDS.sleep(1000);
-        $(XpathForLeaveManagementTab.leaveManagement).click();
-        TimeUnit.MICROSECONDS.sleep(1000);
-        $(XpathForLeaveManagementTab.leaveApply).click();
-        TimeUnit.MICROSECONDS.sleep(1000);
-
-
-
-
-//        if (isElementFoundInGivenTime(XpathForLeaveManagementTab.sideNav(parentTab)))
-//        {
-//            waitABit(5000);
-//            //clicks on parent tab
-//            clickOn(XpathForLeaveManagementTab.sideNav(parentTab));
-//            waitABit(2000);
-//            //verifies sub tab available
-//            if (isElementFoundInGivenTime(XpathForLeaveManagementTab.sideNav(childTab))) {
-//                if (StringUtils.equals(childTab,"View Request Status") && StringUtils.equals(parentTab,"LNSA")) {
-//                    String xpath = "(" + XpathForLeaveManagementTab.sideNav(childTab);
-//                    xpath = xpath + ")[2]";
-//                    WebElementFacade elementFacade = find(By.xpath(xpath));
-//                    elementFacade.click();
-//                } else {
-//                    clickOn(XpathForLeaveManagementTab.sideNav(childTab));
-//                }
-//            }
-//            else{
-//                Assert.fail("Unable to locate child tab");
-//                log.info("Unable to locate child tab");
-//            }
-//        }
-//        else {
-//            Assert.fail("Unable to locate parent tab");
-//            log.info("Unable to locate parent tab");
-//        }
+        if (isElementFoundInGivenTime(XpathForLeaveManagementTab.sideNav(parentTab)))
+        {
+            waitABit(5000);
+            //clicks on parent tab
+            clickOn(XpathForLeaveManagementTab.sideNav(parentTab));
+            waitABit(2000);
+            //verifies sub tab available
+            if (isElementFoundInGivenTime(XpathForLeaveManagementTab.sideNav(childTab))) {
+                if (StringUtils.equals(childTab,"View Request Status") && StringUtils.equals(parentTab,"LNSA")) {
+                    String xpath = "(" + XpathForLeaveManagementTab.sideNav(childTab);
+                    xpath = xpath + ")[2]";
+                    WebElementFacade elementFacade = find(By.xpath(xpath));
+                    elementFacade.click();
+                } else {
+                    clickOn(XpathForLeaveManagementTab.sideNav(childTab));
+                }
+            }
+            else{
+                Assert.fail("Unable to locate child tab");
+                log.info("Unable to locate child tab");
+            }
+        }
+        else {
+            Assert.fail("Unable to locate parent tab");
+            log.info("Unable to locate parent tab");
+        }
     }
 
     //This function is used to navigate tab
@@ -162,8 +153,7 @@ public class LeaveImplementation extends PageObject {
         {
             waitABit(1000);
             //clicks on parent tab
-            $(XpathForLeaveManagementTab.sideNav(tabName)).click();
-//            clickOn(XpathForLeaveManagementTab.sideNav(tabName));
+            clickOn(XpathForLeaveManagementTab.sideNav(tabName));
         }
         else {
             Assert.fail("Unable to locate parent tab");
@@ -273,7 +263,7 @@ public class LeaveImplementation extends PageObject {
     //This function to select leave type
     public void selectLeaveType(String leaveType)
     {
-        waitABit(3000);
+        waitABit(5000);
         leaveType = "1 "+leaveType;
         WebElementFacade elementFacade = find(XpathForLeaveManagementTab.dropdown("leaveType"));
         selectFromDropdown(elementFacade,leaveType);
@@ -297,38 +287,29 @@ public class LeaveImplementation extends PageObject {
     //Function used to verify popup
     public void verifyPopup(String popupText)
     {
-        if($(XpathForLeaveManagementTab.popUp).isDisplayed()){
-            if($(XpathForLeaveManagementTab.popupMessage).getText()==popupText){
+        if(isElementFoundInGivenTime(XpathForLeaveManagementTab.successAlertPopup("p")))
+        {
+            String popUpText = "";
+            if(StringUtils.contains("Request processed successfully",popupText))
+            {
+                popUpText = textOf(XpathForLeaveManagementTab.requestAlertPopup("p"));
+            }
+            else {
+                popUpText = textOf(XpathForLeaveManagementTab.successAlertPopup("p"));
+            }
+            if(StringUtils.equals(popUpText,popupText))
+            {
                 Assert.assertTrue("Popup verified",true);
-            }else{
+                if(popUpText.contains("successfully"))
+                    clickOn(XpathForLeaveManagementTab.btnType("OK"));
+            }
+            else
+            {
                 Assert.fail("Unable to verify popUp");
+                log.info("Unable to verify popUp");
+
             }
         }
-
-////        waitABit(5000);
-//        if(isElementFoundInGivenTime(XpathForLeaveManagementTab.successAlertPopup("p")))
-//        {
-//            String popUpText = "";
-//            if(StringUtils.contains("Request processed successfully",popupText))
-//            {
-//                popUpText = textOf(XpathForLeaveManagementTab.requestAlertPopup("p"));
-//            }
-//            else {
-//                popUpText = textOf(XpathForLeaveManagementTab.successAlertPopup("p"));
-//            }
-//            if(StringUtils.equals(popUpText,popupText))
-//            {
-//                Assert.assertTrue("Popup verified",true);
-//                if(popUpText.contains("successfully"))
-//                clickOn(XpathForLeaveManagementTab.btnType("OK"));
-//            }
-//            else
-//            {
-//                Assert.fail("Unable to verify popUp");
-//                log.info("Unable to verify popUp");
-//
-//            }
-//        }
     }
 
     //This function to select availability type
@@ -353,7 +334,6 @@ public class LeaveImplementation extends PageObject {
         WebElementFacade elementFacade = find(XpathForLeaveManagementTab.isTabActive(tabName));
         if (elementFacade.getAttribute("class").contains("active")) {
             Assert.assertTrue("Tab is active", true);
-//            log.info("Tab is active");
         } else {
             Assert.fail("Tab is not active");
             log.info("Tab is not active");
@@ -379,10 +359,6 @@ public class LeaveImplementation extends PageObject {
         else if(StringUtils.equals(currentMonth.toString(),("NOVEMBER")))
         {
             Month = "11";
-        }
-        else if(StringUtils.equals(currentMonth.toString(),("DECEMBER")))
-        {
-            Month = "12";
         }
         String dateToBeSelected = Month+"/"+dateArray[2]+"/2022";
         WebElementFacade elementFacade = find(loc);
@@ -497,7 +473,7 @@ public class LeaveImplementation extends PageObject {
 
     //This function to type into specific field
     public void type(String text, String fieldName) {
-            if(fieldName.contains(" "))
+        if(fieldName.contains(" "))
         {
             fieldName=fieldName.replaceAll(" ","");
         }
@@ -518,14 +494,15 @@ public class LeaveImplementation extends PageObject {
             isElementVisible(webElement);
             exists = true;
         } catch (NoSuchElementException e) {
-       }
+        }
         return exists;
     }
 
     //This function to click on element
     public void clickOn(By elementName) {
-        WebElementFacade element = find(elementName);
         waitABit(5000);
+        WebElementFacade element = find(elementName);
+        waitABit(3000);
         if (element.isDisplayed()) {
             element.click();
             Assert.assertTrue("Clicked on button successfully", true);
@@ -533,7 +510,6 @@ public class LeaveImplementation extends PageObject {
             Assert.fail("Unable to click on button");
             log.info("Unable to click on button");
         }
-//        waitABit(000);
     }
 
     //This function to click on login button
@@ -556,11 +532,11 @@ public class LeaveImplementation extends PageObject {
     //This function to verify mandatory fields
     public void mandatoryTextField(String field)
     {
-      if(field.contains(" "))
-      {
-          field = field.replaceAll(" ","");
-      }
-      WebElementFacade elementFacade= find(XpathForLeaveManagementTab.textArea(field));
+        if(field.contains(" "))
+        {
+            field = field.replaceAll(" ","");
+        }
+        WebElementFacade elementFacade= find(XpathForLeaveManagementTab.textArea(field));
         if (elementFacade.getAttribute("class").contains("error-validation"))
         {
             Assert.assertTrue("Field is mandatory", true);
@@ -573,8 +549,8 @@ public class LeaveImplementation extends PageObject {
     }
 
     //This function to verify mandatory dropdown
-    public void mandatoryDropdown(String field) throws InterruptedException {
-        TimeUnit.MICROSECONDS.sleep(9000);
+    public void mandatoryDropdown(String field)
+    {
         if(field.contains(" "))
         {
             if(StringUtils.equals(field,"from Date"))
@@ -583,8 +559,8 @@ public class LeaveImplementation extends PageObject {
             }
             field = field.replaceAll(" ","");
         }
-//        WebElementFacade elementFacade= $(XpathForLeaveManagementTab.dropdown(field));
-        if ($(XpathForLeaveManagementTab.dropdown(field)).getAttribute("class").contains("error-validation"))
+        WebElementFacade elementFacade= find(XpathForLeaveManagementTab.dropdown(field));
+        if (elementFacade.getAttribute("class").contains("error-validation"))
         {
             Assert.assertTrue("Field is mandatory", true);
         }

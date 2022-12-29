@@ -6,7 +6,7 @@ Feature: MIS Leave Management > View Request Status
 
   Scenario Outline: Navigate to Leave Management > View Request Status tab > Work From Home
     When User is on MIS Home Page
-    When User clicks on "<childTab>" sub tab of "<parentTab>" tab
+    When User clicks on "<childTab>" sub tab of "<parentTab>" tab in MIS
     When Click on "<tab>" tab
     And Verify "<tab>" displays
     Examples:
@@ -15,7 +15,7 @@ Feature: MIS Leave Management > View Request Status
 
   Scenario Outline: Verify Date Range field is present for WFH Tab
     When User is on MIS Home Page
-    When User clicks on "<childTab>" sub tab of "<parentTab>" tab
+    When User clicks on "<childTab>" sub tab of "<parentTab>" tab in MIS
     When Click on "<tab>" tab
     And Verify "<tab>" displays
     Then Verify Date Range field is present
@@ -25,7 +25,7 @@ Feature: MIS Leave Management > View Request Status
 
   Scenario Outline: Enter Invalid Date Range for WFH Tab
     When User is on MIS Home Page
-    When User clicks on "<childTab>" sub tab of "<parentTab>" tab
+    When User clicks on "<childTab>" sub tab of "<parentTab>" tab in MIS
     When Click on "<tab>" tab
     And Verify "<tab>" displays
     Then Verify Date Range field is present
@@ -38,7 +38,7 @@ Feature: MIS Leave Management > View Request Status
 
   Scenario Outline: Enter Valid Date Range for WFH Tab
     When User is on MIS Home Page
-    When User clicks on "<childTab>" sub tab of "<parentTab>" tab
+    When User clicks on "<childTab>" sub tab of "<parentTab>" tab in MIS
     When Click on "<tab>" tab
     And Verify "<tab>" displays
     Then Verify Date Range field is present
@@ -52,7 +52,7 @@ Feature: MIS Leave Management > View Request Status
 
   Scenario Outline: Click on Export Options Option for WFH Tab
     When User is on MIS Home Page
-    When User clicks on "<childTab>" sub tab of "<parentTab>" tab
+    When User clicks on "<childTab>" sub tab of "<parentTab>" tab in MIS
     When Click on "<tab>" tab
     And Verify "<tab>" displays
     When Click on "Export" button
@@ -63,7 +63,7 @@ Feature: MIS Leave Management > View Request Status
 
   Scenario Outline: Click on Print Option for WFH Tab
     When User is on MIS Home Page
-    When User clicks on "<childTab>" sub tab of "<parentTab>" tab
+    When User clicks on "<childTab>" sub tab of "<parentTab>" tab in MIS
     When Click on "<tab>" tab
     And Verify "<tab>" displays
     When Click on "Export" button
@@ -76,7 +76,7 @@ Feature: MIS Leave Management > View Request Status
 
   Scenario Outline: Click on Copy Option for WFH Tab
     When User is on MIS Home Page
-    When User clicks on "<childTab>" sub tab of "<parentTab>" tab
+    When User clicks on "<childTab>" sub tab of "<parentTab>" tab in MIS
     When Click on "<tab>" tab
     And Verify "<tab>" displays
     When Click on "Export" button
@@ -89,26 +89,26 @@ Feature: MIS Leave Management > View Request Status
 
   Scenario Outline: Click on Excel Option for WFH Tab
     When User is on MIS Home Page
-    When User clicks on "<childTab>" sub tab of "<parentTab>" tab
+    When User clicks on "<childTab>" sub tab of "<parentTab>" tab in MIS
     When Click on "<tab>" tab
     And Verify "<tab>" displays
     When Click on "Export" button
     Then Verify "Copy,Excel,PDF,Print" options are displayed
     When Click on "Excel" export option
-    And Verify "WFH History List.xlsx" file is downloaded
+    And Verify "WFH History List.xlsx" file is downloaded in MIS
     Examples:
       |      parentTab     |       childTab      |     tab          |
       | Leave Management   | View Request Status | Work From Home   |
 
   Scenario Outline: Verify PDF option for WFH Tab
     When User is on MIS Home Page
-    When User clicks on "<childTab>" sub tab of "<parentTab>" tab
+    When User clicks on "<childTab>" sub tab of "<parentTab>" tab in MIS
     When Click on "<tab>" tab
     And Verify "<tab>" displays
     When Click on "Export" button
     Then Verify "Copy,Excel,PDF,Print" options are displayed
     When Click on "PDF" export option
-    And Verify "WFH History List.pdf" file is downloaded
+    And Verify "WFH History List.pdf" file is downloaded in MIS
     Examples:
       |      parentTab     |       childTab      |     tab          |
       | Leave Management   | View Request Status | Work From Home   |
@@ -116,7 +116,7 @@ Feature: MIS Leave Management > View Request Status
   
   Scenario Outline: Verify Number of Entries displayed for WFH Tab
     When User is on MIS Home Page
-    When User clicks on "<childTab>" sub tab of "<parentTab>" tab
+    When User clicks on "<childTab>" sub tab of "<parentTab>" tab in MIS
     When Click on "<tab>" tab
     And Verify "<tab>" displays
     And Verify number of records displayed by default
@@ -126,10 +126,10 @@ Feature: MIS Leave Management > View Request Status
       |      parentTab     |       childTab      |     tab          |  noOfRecords |
       | Leave Management   | View Request Status | Work From Home   |  25          |
 
-  
+  @Test100
   Scenario Outline: Enter WFH Period Name in Search Box for WFH Tab
     When User is on MIS Home Page
-    When User clicks on "<childTab>" sub tab of "<parentTab>" tab
+    When User clicks on "<childTab>" sub tab of "<parentTab>" tab in MIS
     When Click on "<tab>" tab
     And Verify "<tab>" displays
     When User Enters "<wfhPeriod>" period in search box for "WFH" tab
@@ -141,7 +141,7 @@ Feature: MIS Leave Management > View Request Status
   
   Scenario Outline: Sort columns for WFH Tab
     When User is on MIS Home Page
-    When User clicks on "<childTab>" sub tab of "<parentTab>" tab
+    When User clicks on "<childTab>" sub tab of "<parentTab>" tab in MIS
     When Click on "<tab>" tab
     And Verify "<tab>" displays
     Then Sort "Duty Type" columns and verify sorting
@@ -153,7 +153,7 @@ Feature: MIS Leave Management > View Request Status
   
   Scenario Outline: Page Next for WFH Tab
     When User is on MIS Home Page
-    When User clicks on "<childTab>" sub tab of "<parentTab>" tab
+    When User clicks on "<childTab>" sub tab of "<parentTab>" tab in MIS
     When Click on "<tab>" tab
     And Verify "<tab>" displays
     Then Click on Next button for "WFH History" tab
@@ -164,7 +164,7 @@ Feature: MIS Leave Management > View Request Status
 
   Scenario Outline: Page Previous for WFH Tab
     When User is on MIS Home Page
-    When User clicks on "<childTab>" sub tab of "<parentTab>" tab
+    When User clicks on "<childTab>" sub tab of "<parentTab>" tab in MIS
     When Click on "<tab>" tab
     And Verify "<tab>" displays
     Then Click on Next button for "WFH History" tab

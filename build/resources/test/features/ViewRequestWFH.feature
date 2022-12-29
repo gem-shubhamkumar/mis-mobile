@@ -3,6 +3,7 @@ Feature: MIS Leave Management > View Request Status
 
   Background:
     Given User is logged into MIS
+
   Scenario Outline: Navigate to Leave Management > View Request Status tab > Work From Home
     When User is on MIS Home Page
     When User clicks on "<childTab>" sub tab of "<parentTab>" tab in MIS
@@ -125,7 +126,7 @@ Feature: MIS Leave Management > View Request Status
       |      parentTab     |       childTab      |     tab          |  noOfRecords |
       | Leave Management   | View Request Status | Work From Home   |  25          |
 
-
+  @Test100
   Scenario Outline: Enter WFH Period Name in Search Box for WFH Tab
     When User is on MIS Home Page
     When User clicks on "<childTab>" sub tab of "<parentTab>" tab in MIS
@@ -134,10 +135,10 @@ Feature: MIS Leave Management > View Request Status
     When User Enters "<wfhPeriod>" period in search box for "WFH" tab
     Then Verify "<wfhPeriod>" Period is filtered for "WFH" tab
     Examples:
-      | parentTab        | childTab            | wfhPeriod   | tab            |
-      | Leave Management | View Request Status | 27-Sep-2022 | Work From Home |
+      |      parentTab     |       childTab      | wfhPeriod   |       tab      |
+      | Leave Management   | View Request Status | 27-Sep-2022 | Work From Home |
 
-
+  
   Scenario Outline: Sort columns for WFH Tab
     When User is on MIS Home Page
     When User clicks on "<childTab>" sub tab of "<parentTab>" tab in MIS

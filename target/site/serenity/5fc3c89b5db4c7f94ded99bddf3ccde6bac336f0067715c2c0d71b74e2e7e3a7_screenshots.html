@@ -151,7 +151,7 @@
             <a href="576946480b52ad056d6f5bddf874399c83582ecf90963cc074a14c70580e7d9f.html"><i class="bi bi-chat-text"></i> Features</a>
         </li>
     </ul>
-    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 29-12-2022 19:34</span>
+    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 29-12-2022 23:19</span>
     <br style="clear:left"/>
 </div>
 
@@ -192,9 +192,9 @@
                 <table class="outcome-header">
                     <tr>
                         <td colspan="2" class="test-title-bar">
-                            <span class="outcome-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon fa-2x' title='SUCCESS'></i></a></span>
+                            <span class="outcome-icon"><a href='##beforetable'><i class='bi bi-exclamation-triangle-fill error-icon fa-2x' title='ERROR'></i></a></span>
                             <span class="test-case-title">
-                                <span class="success-color">Enter required data and click on Submit WFH
+                                <span class="error-color">Enter required data and click on Submit WFH
                                     <span class="related-issue-title"></span>
                                 </span>
                             </span>
@@ -215,6 +215,42 @@
 
     <div id="beforetable"></div>
     <div id="contenttilttle">
+            <div class="screenshotFailure panel panel-danger">
+    <div style="display:block">
+        <div class="table">
+            <div class="row">
+                <div class="col-sm-10" style="padding-left:1.5em; padding-top:0.5em; padding-bottom:0.5em;">
+                    <span class="error-message error-message-title">No such element exception: Cannot locate option with text: null/30/2022</span>
+                </div>
+                <div class="col-sm-2">
+                    <a class="btn btn-warning details-button" data-toggle="collapse" href="#stacktraceModal-overall"
+                       role="button" aria-expanded="false" aria-controls="multiCollapseExample1"><i class="bi bi-eye"></i> More details</a>
+                </div>
+             </div>
+        </div>
+    <div>
+
+    <!-- Details Section -->
+    <div class="row stacktrace-details">
+      <div class="col">
+        <div class="collapse multi-collapse" id="stacktraceModal-overall">
+            <div class="card">
+                <div class="card-header">
+                    <h4>org.openqa.selenium.NoSuchElementException </h4>
+                </div>
+                <div class="card-body">
+                    <div>
+                        <pre>com.gemini.mis.implementations.LeaveImplementation.selectDateFromDropdown(LeaveImplementation.java:365)<br />com.gemini.mis.implementations.LeaveImplementation.selectDate(LeaveImplementation.java:699)<br />com.gemini.mis.pages.LeaveManagementPage.selectDate(LeaveManagementPage.java:274)<br />com.gemini.mis.stepdefinitions.LeaveManagementSteps.selectDateFromDateDropdown(LeaveManagementSteps.java:145)<br />✽.Select date from "Work From Home" date dropdown(file:///C:/Users/ta.agarwal/Desktop/MISAutomation/src/test/resources/features/ApplyWFH.feature:99)<br /></pre>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+                <div class="panel-body">
+                    <a href="pagesource17882319273973225326.html" target="_blank" class="btn btn-info">HTML Source</a>
+                </div>
+            </div>
         <div class="slider-wrapper theme-default">
             <div id="slider">
                 <img src="56f3b1efccd01877517ad5257e9e0fbac668201f50220578e383a212bd5d976a.png" title=" 1: Enter required data and click on Submit WFH ({parentTab=Leave Management, childTab=Apply, defaultTab=Leave, tab=Work From Home, heading=Apply Leave / WFH / Comp Off / Out Duty / Change Request})" width="1920"/>
@@ -225,43 +261,33 @@
                 <img src="426f39c4553893bcf1794b02f67dfe75b66efcbd8c2450722b4352ccdfd28744.png" title=" Type into element: Gemini@123, password" width="1920"/>
                 <img src="f9e4161485f7dd438d202e19b4485fddec310bd5d90f181ee9b514477802f7c0.png" title=" Type into element: Gemini@123, password (completed)" width="1920"/>
                 <img src="f9e4161485f7dd438d202e19b4485fddec310bd5d90f181ee9b514477802f7c0.png" title=" Click on login button" width="1920"/>
-                <img src="d123cb9896d23690e79b4458a966887181481dcf105b418995223658e9803422.png" title=" Click on login button (completed)" width="1920"/>
-                <img src="d123cb9896d23690e79b4458a966887181481dcf105b418995223658e9803422.png" title=" Given User is logged into MIS (completed)" width="1920"/>
-                <img src="d123cb9896d23690e79b4458a966887181481dcf105b418995223658e9803422.png" title=" When User is on MIS Home Page" width="1920"/>
-                <img src="d123cb9896d23690e79b4458a966887181481dcf105b418995223658e9803422.png" title=" Verify page: Dashboard Page" width="1920"/>
-                <img src="a31217c838be3c528ff545b7365d4ec9f265879f50fc6454f1432686a1f9daac.png" title=" Verify page: Dashboard Page (completed)" width="1920"/>
-                <img src="a31217c838be3c528ff545b7365d4ec9f265879f50fc6454f1432686a1f9daac.png" title=" When User is on MIS Home Page (completed)" width="1920"/>
-                <img src="a31217c838be3c528ff545b7365d4ec9f265879f50fc6454f1432686a1f9daac.png" title=" When User clicks on &quot;Apply&quot; sub tab of &quot;Leave Management&quot; tab in MIS" width="1920"/>
-                <img src="a31217c838be3c528ff545b7365d4ec9f265879f50fc6454f1432686a1f9daac.png" title=" Navigate to sub tab: Apply, Leave Management" width="1920"/>
-                <img src="3b9ed818465690a1406e469669fff57c3e5765db6185c8b89f09d7e07d686764.png" title=" Navigate to sub tab: Apply, Leave Management (completed)" width="1920"/>
-                <img src="3b9ed818465690a1406e469669fff57c3e5765db6185c8b89f09d7e07d686764.png" title=" When User clicks on &quot;Apply&quot; sub tab of &quot;Leave Management&quot; tab in MIS (completed)" width="1920"/>
-                <img src="3b9ed818465690a1406e469669fff57c3e5765db6185c8b89f09d7e07d686764.png" title=" And Verify &quot;Apply Leave / WFH / Comp Off / Out Duty / Change Request&quot; of &quot;Apply&quot; tab" width="1920"/>
-                <img src="3b9ed818465690a1406e469669fff57c3e5765db6185c8b89f09d7e07d686764.png" title=" Verify tab displays: Apply Leave / WFH / Comp Off / Out Duty / Change Request" width="1920"/>
-                <img src="288fe2085ad56e08c121b091e03313ec72d7c89f05430392bd21098aada836d8.png" title=" Verify tab displays: Apply Leave / WFH / Comp Off / Out Duty / Change Request (completed)" width="1920"/>
-                <img src="288fe2085ad56e08c121b091e03313ec72d7c89f05430392bd21098aada836d8.png" title=" And Verify &quot;Apply Leave / WFH / Comp Off / Out Duty / Change Request&quot; of &quot;Apply&quot; tab (completed)" width="1920"/>
-                <img src="288fe2085ad56e08c121b091e03313ec72d7c89f05430392bd21098aada836d8.png" title=" And Verify &quot;Leave&quot; displays by default" width="1920"/>
-                <img src="288fe2085ad56e08c121b091e03313ec72d7c89f05430392bd21098aada836d8.png" title=" Verify tab displays by default" width="1920"/>
-                <img src="288fe2085ad56e08c121b091e03313ec72d7c89f05430392bd21098aada836d8.png" title=" When User clicks on &quot;Work From Home&quot; Tab" width="1920"/>
-                <img src="288fe2085ad56e08c121b091e03313ec72d7c89f05430392bd21098aada836d8.png" title=" Click on Tab" width="1920"/>
-                <img src="b32542ae308a48430abba1722cd9d53de3f15d95b010f18f430bee7a271d31bf.png" title=" Click on Tab (completed)" width="1920"/>
-                <img src="b32542ae308a48430abba1722cd9d53de3f15d95b010f18f430bee7a271d31bf.png" title=" When User clicks on &quot;Work From Home&quot; Tab (completed)" width="1920"/>
-                <img src="b32542ae308a48430abba1722cd9d53de3f15d95b010f18f430bee7a271d31bf.png" title=" And Verify &quot;Work From Home&quot; displays" width="1920"/>
-                <img src="b32542ae308a48430abba1722cd9d53de3f15d95b010f18f430bee7a271d31bf.png" title=" Verify tab is active: Work From Home" width="1920"/>
-                <img src="6fc0dd92d47b4a59a4e29479f1b8550ff92cdc07d76fe4ce74defc132082e6c5.png" title=" Verify tab is active: Work From Home (completed)" width="1920"/>
-                <img src="6fc0dd92d47b4a59a4e29479f1b8550ff92cdc07d76fe4ce74defc132082e6c5.png" title=" And Verify &quot;Work From Home&quot; displays (completed)" width="1920"/>
-                <img src="6fc0dd92d47b4a59a4e29479f1b8550ff92cdc07d76fe4ce74defc132082e6c5.png" title=" Then Select date from &quot;Work From Home&quot; date dropdown" width="1920"/>
-                <img src="6fc0dd92d47b4a59a4e29479f1b8550ff92cdc07d76fe4ce74defc132082e6c5.png" title=" Select date: Work From Home" width="1920"/>
-                <img src="81bcde0c44052431c59493df9244c3cf645d03bfa2e6cbe9a57930b277cdf99a.png" title=" Select date: Work From Home (completed)" width="1920"/>
-                <img src="81bcde0c44052431c59493df9244c3cf645d03bfa2e6cbe9a57930b277cdf99a.png" title=" Then Select date from &quot;Work From Home&quot; date dropdown (completed)" width="1920"/>
-                <img src="81bcde0c44052431c59493df9244c3cf645d03bfa2e6cbe9a57930b277cdf99a.png" title=" And Enter reason &quot;WFH Reason&quot; for leave" width="1920"/>
-                <img src="81bcde0c44052431c59493df9244c3cf645d03bfa2e6cbe9a57930b277cdf99a.png" title=" Enter text: By.xpath: //textarea[@id=&quot;WFHReason&quot;], WFHReason" width="1920"/>
-                <img src="4a7bb532673efcb297c1e068f72b66ea611fdafbd68428be55874d0001846ab4.png" title=" Enter text: By.xpath: //textarea[@id=&quot;WFHReason&quot;], WFHReason (completed)" width="1920"/>
-                <img src="4a7bb532673efcb297c1e068f72b66ea611fdafbd68428be55874d0001846ab4.png" title=" And Enter reason &quot;WFH Reason&quot; for leave (completed)" width="1920"/>
-                <img src="4a7bb532673efcb297c1e068f72b66ea611fdafbd68428be55874d0001846ab4.png" title=" Then Click on Submit button for WFH tab" width="1920"/>
-                <img src="4a7bb532673efcb297c1e068f72b66ea611fdafbd68428be55874d0001846ab4.png" title=" Click on WFH button" width="1920"/>
-                <img src="839989155b589616e7f02fe50607ce32c922cbe3b4a20ba7f9fffac78c8fd756.png" title=" Click on WFH button (completed)" width="1920"/>
-                <img src="839989155b589616e7f02fe50607ce32c922cbe3b4a20ba7f9fffac78c8fd756.png" title=" Then Click on Submit button for WFH tab (completed)" width="1920"/>
-                <img src="839989155b589616e7f02fe50607ce32c922cbe3b4a20ba7f9fffac78c8fd756.png" title=" 1: Enter required data and click on Submit WFH ({parentTab=Leave Management, childTab=Apply, defaultTab=Leave, tab=Work From Home, heading=Apply Leave / WFH / Comp Off / Out Duty / Change Request}) (completed): <span class='success-color'>SUCCESS</span>" width="1920"/>
+                <img src="6aa7a6c0afe2d472c5776c5b0b2c9d8c74370ca58b84c38df0807a22e52192b9.png" title=" Click on login button (completed)" width="1920"/>
+                <img src="6aa7a6c0afe2d472c5776c5b0b2c9d8c74370ca58b84c38df0807a22e52192b9.png" title=" Given User is logged into MIS (completed)" width="1920"/>
+                <img src="6aa7a6c0afe2d472c5776c5b0b2c9d8c74370ca58b84c38df0807a22e52192b9.png" title=" When User is on MIS Home Page" width="1920"/>
+                <img src="6aa7a6c0afe2d472c5776c5b0b2c9d8c74370ca58b84c38df0807a22e52192b9.png" title=" Verify page: Dashboard Page" width="1920"/>
+                <img src="ede2e4b7acb0d29270b2bd4213dd48048603bbae7e530fa6efda03de788ae5c7.png" title=" Verify page: Dashboard Page (completed)" width="1920"/>
+                <img src="ede2e4b7acb0d29270b2bd4213dd48048603bbae7e530fa6efda03de788ae5c7.png" title=" When User is on MIS Home Page (completed)" width="1920"/>
+                <img src="ede2e4b7acb0d29270b2bd4213dd48048603bbae7e530fa6efda03de788ae5c7.png" title=" When User clicks on &quot;Apply&quot; sub tab of &quot;Leave Management&quot; tab in MIS" width="1920"/>
+                <img src="ede2e4b7acb0d29270b2bd4213dd48048603bbae7e530fa6efda03de788ae5c7.png" title=" Navigate to sub tab: Apply, Leave Management" width="1920"/>
+                <img src="576e543f393b2d60306a25d3a77fdf5e8259193e315d5c60a23be242c1ab3160.png" title=" Navigate to sub tab: Apply, Leave Management (completed)" width="1920"/>
+                <img src="576e543f393b2d60306a25d3a77fdf5e8259193e315d5c60a23be242c1ab3160.png" title=" When User clicks on &quot;Apply&quot; sub tab of &quot;Leave Management&quot; tab in MIS (completed)" width="1920"/>
+                <img src="97027b3f4c316e784fab8b1918abbe5e31bf970e26fa95339e676cf469c96b1e.png" title=" And Verify &quot;Apply Leave / WFH / Comp Off / Out Duty / Change Request&quot; of &quot;Apply&quot; tab" width="1920"/>
+                <img src="97027b3f4c316e784fab8b1918abbe5e31bf970e26fa95339e676cf469c96b1e.png" title=" Verify tab displays: Apply Leave / WFH / Comp Off / Out Duty / Change Request" width="1920"/>
+                <img src="05815abed5c8fb9d74064cb8e6602e04a7b3d58965a9ca790275513ab216c3ce.png" title=" Verify tab displays: Apply Leave / WFH / Comp Off / Out Duty / Change Request (completed)" width="1920"/>
+                <img src="05815abed5c8fb9d74064cb8e6602e04a7b3d58965a9ca790275513ab216c3ce.png" title=" And Verify &quot;Apply Leave / WFH / Comp Off / Out Duty / Change Request&quot; of &quot;Apply&quot; tab (completed)" width="1920"/>
+                <img src="05815abed5c8fb9d74064cb8e6602e04a7b3d58965a9ca790275513ab216c3ce.png" title=" And Verify &quot;Leave&quot; displays by default" width="1920"/>
+                <img src="05815abed5c8fb9d74064cb8e6602e04a7b3d58965a9ca790275513ab216c3ce.png" title=" Verify tab displays by default" width="1920"/>
+                <img src="05815abed5c8fb9d74064cb8e6602e04a7b3d58965a9ca790275513ab216c3ce.png" title=" When User clicks on &quot;Work From Home&quot; Tab" width="1920"/>
+                <img src="05815abed5c8fb9d74064cb8e6602e04a7b3d58965a9ca790275513ab216c3ce.png" title=" Click on Tab" width="1920"/>
+                <img src="0662c38158938e297b7aa2e26847294a4cf3943395ba15d7268fab7b8192b7ce.png" title=" Click on Tab (completed)" width="1920"/>
+                <img src="0662c38158938e297b7aa2e26847294a4cf3943395ba15d7268fab7b8192b7ce.png" title=" When User clicks on &quot;Work From Home&quot; Tab (completed)" width="1920"/>
+                <img src="0662c38158938e297b7aa2e26847294a4cf3943395ba15d7268fab7b8192b7ce.png" title=" And Verify &quot;Work From Home&quot; displays" width="1920"/>
+                <img src="0662c38158938e297b7aa2e26847294a4cf3943395ba15d7268fab7b8192b7ce.png" title=" Verify tab is active: Work From Home" width="1920"/>
+                <img src="e5854712dd4c4c8b0da25e8cbe956694369a386236c9b16240687f8a760ef71b.png" title=" Verify tab is active: Work From Home (completed)" width="1920"/>
+                <img src="e5854712dd4c4c8b0da25e8cbe956694369a386236c9b16240687f8a760ef71b.png" title=" And Verify &quot;Work From Home&quot; displays (completed)" width="1920"/>
+                <img src="e5854712dd4c4c8b0da25e8cbe956694369a386236c9b16240687f8a760ef71b.png" title=" Then Select date from &quot;Work From Home&quot; date dropdown" width="1920"/>
+                <img src="b85d15a3d21e9b9867b8caa89557d34ccabfc71b0a0c474720e7c4c8b8721c12.png" title=" Select date: Work From Home" width="1920"/>
+                <img src="338b09f9f7bc1144a0e8b12d2436bb87136526e56e6536701ddf2ba29af07fee.png" title=" Select date: Work From Home (completed): <span class='error-color'>ERROR</span>" width="1920"/>
             </div>
         </div>
 

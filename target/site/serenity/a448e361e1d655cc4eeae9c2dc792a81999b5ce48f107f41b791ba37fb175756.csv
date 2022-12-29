@@ -1,2 +1,4 @@
 "Story","Title","Result","Date","Stability","Duration (s)"
-"MIS Leave Management Activities > Apply","Verify Date and Reason are mandatory fields for Comp Off","ERROR","2022-12-29T19:24:34.9059168+05:30[Asia/Calcutta]","0.0","14.87"
+"MIS Leave Management Activities > Apply","Select Date from WFH Date dropdown","ERROR","2022-12-29T23:17:01.6666667+05:30[Asia/Calcutta]","0.0","72.05"
+"MIS Leave Management Activities > Apply","Enter reason for WFH","ERROR","2022-12-29T23:18:13.7371467+05:30[Asia/Calcutta]","0.0","72.13"
+"MIS Leave Management Activities > Apply","Enter required data and click on Submit WFH","ERROR","2022-12-29T23:19:25.8799471+05:30[Asia/Calcutta]","0.0","72.08"
