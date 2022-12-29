@@ -51,7 +51,7 @@ public class LeaveManagementPage
     }
 
     @Step
-    public void navigateToSubTab(String childTab, String parentTab)
+    public void navigateToSubTab(String childTab, String parentTab) throws InterruptedException
     {
         implementation.navigateToTab(childTab,parentTab);
     }
@@ -173,7 +173,7 @@ public class LeaveManagementPage
     }
 
     @Step
-    public void verifyMandatoryDropdown(String field)
+    public void verifyMandatoryDropdown(String field) throws InterruptedException
     {
         if (field.contains(",")) {
             String[] fields = field.split(",");

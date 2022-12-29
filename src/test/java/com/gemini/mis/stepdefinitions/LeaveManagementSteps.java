@@ -64,8 +64,8 @@ public class LeaveManagementSteps
         LeaveManagementTab.verifyAutoPopulated(fieldName);
     }
 
-    @When("User clicks on {string} sub tab of {string} tab")
-    public void clickOnSubTabOfTab(String childTab, String parentTab)
+    @When("User clicks on {string} sub tab of {string} tab in MIS")
+    public void clickOnSubTabOfTab(String childTab, String parentTab) throws InterruptedException
     {
         LeaveManagementTab.navigateToSubTab(childTab,parentTab);
     }
@@ -313,7 +313,7 @@ public class LeaveManagementSteps
     }
 
     @Then("Verify {string} dropdown is mandatory field")
-    public void verifyDropdownIsMandatoryFieldFor(String field)
+    public void verifyDropdownIsMandatoryFieldFor(String field) throws InterruptedException
     {
         LeaveManagementTab.verifyMandatoryDropdown(field);
     }

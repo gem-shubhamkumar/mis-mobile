@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><testsuite errors="0" failures="1" name="MIS Leave Management Activities &gt; Apply" skipped="0" tests="1" time="100.22" timestamp="2022-12-29 03:39:46"><testcase name="Enter required data and click on Submit leave"><failure message="Unable to verify popUp" type="java.lang.AssertionError">Unable to verify popUp</failure><system-err>Unable to verify popUp&#13;
+com.gemini.mis.implementations.LeaveImplementation.verifyPopup(LeaveImplementation.java:305)&#13;
+com.gemini.mis.pages.LeaveManagementPage.verifyPopup(LeaveManagementPage.java:104)&#13;
+com.gemini.mis.stepdefinitions.LeaveManagementSteps.verifyLeaveIsSubmitted(LeaveManagementSteps.java:126)&#13;
+✽.Verify Leave is submitted and "Leave applied successfully" appears(file:///C:/Users/pr.verma1/Desktop/mis_train/mis-training/src/test/resources/features/ApplyLeave.feature:146)&#13;
+</system-err></testcase></testsuite>
