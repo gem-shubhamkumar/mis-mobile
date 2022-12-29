@@ -12,6 +12,9 @@ import net.thucydides.core.pages.PageObject;
 import org.slf4j.LoggerFactory;
 import org.slf4j.Logger;
 
+import java.io.File;
+import java.util.UUID;
+
 public class MISForms extends PageObject{
 
     @Steps
@@ -67,13 +70,43 @@ public class MISForms extends PageObject{
         }
 
 
+
     @Then("User downloads file and deletes {string}")
     public void userDownloadsFileAndDeletes(String fileName) {
         steps.click(XpathForFormPage.downloadBtn);
         steps.customWait(6000);
-        form.isFileDownloaded("C:\\Users\\ch.srivastava\\Downloads",fileName);
+        String downloadFolder = System.getProperty("user.home")+"\\Downloads";
+        form.isFileDownloaded(downloadFolder,fileName);
 
 
+    }
+
+    @And("And User uploads correct  file {string}")
+    public void uploadCorrectFile(String fileLoc) throws InterruptedException{
+        String userDirectory=System.getProperty("user.dir")+"\\";
+        File file=new File(userDirectory+fileLoc);
+        String renamePath= UUID.randomUUID().toString().replace("-", "")+".pdf"; //fileLoc.substring(0,fileLoc.lastIndexOf("."))+"_"+
+        File rename=new File(userDirectory+renamePath);
+        System.out.println(renamePath);
+        boolean flag=file.renameTo(rename);
+        if(flag){
+            andUserUploadsFile(renamePath);
+            rename.renameTo(file);
+        }
+        else{
+            andUserUploadsFile(fileLoc);
+        }
+
+    }
+
+    @Then("User clicks on row to expand the details")
+    public void expandDoc() throws Exception{
+        WebElementFacade ele=$(XpathForFormPage.expandRow);
+        if(ele.isVisible()){
+            steps.customWait(1000);
+            steps.click(XpathForFormPage.expandRow);
+            steps.customWait(1000);
+        }
     }
 
     @Then("User Clicks on upload Btn")
@@ -85,8 +118,9 @@ public class MISForms extends PageObject{
 
     @And("And User uploads  file {string}")
     public void andUserUploadsFile(String fileLoc) throws InterruptedException {
+        String path=System.getProperty("user.dir")+"\\"+fileLoc;
         steps.customWait(2000);
-        form.uploadFile(XpathForFormPage.chooseFile,fileLoc);
+        form.uploadFile(XpathForFormPage.chooseFile,path);
         steps.customWait(2000);
 
     }

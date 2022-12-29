@@ -11,6 +11,7 @@ public static By btnSignIn = By.xpath("//input[@type='button' and @id='btnLogin'
 public static By logoGemini = By.xpath("//div[@class='image-container flex items-center text-left']/figure");
 public static By logoGreytHR =By.xpath("//span[@class='gt-greytip-header-logo mb-4 block m-auto']");
 public static By textFieldGreytHRUsername = By.xpath("//input[@name='username']");
+public static By account_portal=By.xpath("//button[@class=\"dropdown-toggle\"]");
 public static By textFieldGreytHRPassword = By.xpath("//input[@name='password']");
 public static By textHelloThere = By.xpath("//header[@class='mb-12 text-center']/div");
 public static By textFieldMyMISUsername=By.xpath("//input[@type='text' and @placeholder='Username']");
@@ -32,7 +33,7 @@ public static By menuTabs(String tabName){
     return By.xpath("//span[contains(text(),'"+tabName+"')]");
 }
     public static By linkNumberOfLeave(String leaveType){
-        return By.xpath("//table[@class='tbl-typical text-left']/tbody/tr/td[text()='"+leaveType+"']//following-sibling::td/a");
+        return By.xpath("//table[@class='tbl-typical text-left']/tbody/tr/td[text()='WFH']//following-sibling::td/a");
     }
 
     public static By sideMenuBar= By.xpath("//div[@class='jspPane']/ul");

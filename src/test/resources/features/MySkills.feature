@@ -3,7 +3,7 @@ Feature: My Skills in Dashboard
   Background:
     Given User logins into MIS Beta application with username "ayush.garg" and password "Gemini@123"
 
-  @Test
+
   Scenario Outline: Verify My Skills are updating with Valid Data
     When "<Card>" card is present in dashboard
     Then Verify card is not empty

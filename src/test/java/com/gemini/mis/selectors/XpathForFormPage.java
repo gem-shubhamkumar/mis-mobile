@@ -33,4 +33,5 @@ public class XpathForFormPage {
     public static By departmentContainer=By.xpath("//span[@id='select2-formDepartment-container']");
     public static By formsType=By.xpath("//span[@class='select2-selection__rendered']");
     public static By saveBtn=By.xpath("//button[@id='btnSaveForm']");
+    public static By expandRow=By.xpath("//table[@id='tblMyForms']//tr[2]");
 }
