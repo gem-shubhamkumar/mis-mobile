@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><testsuite errors="2" failures="0" name="MIS Leave Management &gt; View Request Status" skipped="0" tests="2" time="16.02" timestamp="2022-12-27 11:00:32"><testcase name="Enter WFH Period Name in Search Box for WFH Tab"><error message="no such window: target window already closed&#10;from unknown error: web view not found&#10;  (Session info: chrome=108.0.5359.125)&#10;Build info: version: '4.1.4', revision: '535d840ee2'&#10;System info: host: 'GEMGN-220029', ip: '192.168.1.4', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.14.1'&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Command: [980327f5303c0edb75aa095841707682, get {url=https://mymis.geminisolutions.com}]&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 108.0.5359.125, chrome: {chromedriverVersion: 108.0.5359.71 (1e0e3868ee06..., userDataDir: C:\Users\TA6772~1.AGA\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:49727}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:49727/devtoo..., se:cdpVersion: 108.0.5359.125, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}&#10;Session ID: 980327f5303c0edb75aa095841707682&#10;Build info: version: '4.1.4', revision: '535d840ee2'&#10;System info: host: 'GEMGN-220029', ip: '192.168.1.4', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.14.1'&#10;Driver info: driver.version: unknown" type="org.openqa.selenium.NoSuchWindowException">no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=108.0.5359.125)
+Build info: version: '4.1.4', revision: '535d840ee2'
+System info: host: 'GEMGN-220029', ip: '192.168.1.4', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.14.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [980327f5303c0edb75aa095841707682, get {url=https://mymis.geminisolutions.com}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 108.0.5359.125, chrome: {chromedriverVersion: 108.0.5359.71 (1e0e3868ee06..., userDataDir: C:\Users\TA6772~1.AGA\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:49727}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:49727/devtoo..., se:cdpVersion: 108.0.5359.125, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 980327f5303c0edb75aa095841707682
+Build info: version: '4.1.4', revision: '535d840ee2'
+System info: host: 'GEMGN-220029', ip: '192.168.1.4', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.14.1'
+Driver info: driver.version: unknown</error><system-err>no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=108.0.5359.125)
+Build info: version: '4.1.4', revision: '535d840ee2'
+System info: host: 'GEMGN-220029', ip: '192.168.1.4', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.14.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [980327f5303c0edb75aa095841707682, get {url=https://mymis.geminisolutions.com}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 108.0.5359.125, chrome: {chromedriverVersion: 108.0.5359.71 (1e0e3868ee06..., userDataDir: C:\Users\TA6772~1.AGA\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:49727}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:49727/devtoo..., se:cdpVersion: 108.0.5359.125, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 980327f5303c0edb75aa095841707682
+Build info: version: '4.1.4', revision: '535d840ee2'
+System info: host: 'GEMGN-220029', ip: '192.168.1.4', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.14.1'
+Driver info: driver.version: unknown&#13;
+com.gemini.mis.implementations.LeaveImplementation.launchSite(LeaveImplementation.java:30)&#13;
+com.gemini.mis.pages.LeaveManagementPage.launchSite(LeaveManagementPage.java:21)&#13;
+com.gemini.mis.stepdefinitions.LeaveManagementSteps.userIsLoggedIn(LeaveManagementSteps.java:19)&#13;
+✽.User is logged into MIS(file:///C:/Users/ta.agarwal/Desktop/MISAutomation/src/test/resources/features/ViewRequestWFH.feature:5)&#13;
+</system-err></testcase><testcase name="Sort columns for WFH Tab"><error message="no such window: target window already closed&#10;from unknown error: web view not found&#10;  (Session info: chrome=108.0.5359.125)&#10;Build info: version: '4.1.4', revision: '535d840ee2'&#10;System info: host: 'GEMGN-220029', ip: '192.168.1.4', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.14.1'&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Command: [59c89ee079dd8bb0728a41de74fde593, sendKeysToElement {id=a3ce9693-f9b5-4cf0-914d-554813698fe0, value=[Ljava.lang.CharSequence;@23ed406}]&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 108.0.5359.125, chrome: {chromedriverVersion: 108.0.5359.71 (1e0e3868ee06..., userDataDir: C:\Users\TA6772~1.AGA\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:49758}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:49758/devtoo..., se:cdpVersion: 108.0.5359.125, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}&#10;Element: [[ChromeDriver: chrome on WINDOWS (59c89ee079dd8bb0728a41de74fde593)] -&gt; xpath: //input[@id=&quot;username&quot;]]&#10;Session ID: 59c89ee079dd8bb0728a41de74fde593&#10;Build info: version: '4.1.4', revision: '535d840ee2'&#10;System info: host: 'GEMGN-220029', ip: '192.168.1.4', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.14.1'&#10;Driver info: driver.version: unknown" type="org.openqa.selenium.NoSuchWindowException">no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=108.0.5359.125)
+Build info: version: '4.1.4', revision: '535d840ee2'
+System info: host: 'GEMGN-220029', ip: '192.168.1.4', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.14.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [59c89ee079dd8bb0728a41de74fde593, sendKeysToElement {id=a3ce9693-f9b5-4cf0-914d-554813698fe0, value=[Ljava.lang.CharSequence;@23ed406}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 108.0.5359.125, chrome: {chromedriverVersion: 108.0.5359.71 (1e0e3868ee06..., userDataDir: C:\Users\TA6772~1.AGA\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:49758}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:49758/devtoo..., se:cdpVersion: 108.0.5359.125, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on WINDOWS (59c89ee079dd8bb0728a41de74fde593)] -&gt; xpath: //input[@id="username"]]
+Session ID: 59c89ee079dd8bb0728a41de74fde593
+Build info: version: '4.1.4', revision: '535d840ee2'
+System info: host: 'GEMGN-220029', ip: '192.168.1.4', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.14.1'
+Driver info: driver.version: unknown</error><system-err>no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=108.0.5359.125)
+Build info: version: '4.1.4', revision: '535d840ee2'
+System info: host: 'GEMGN-220029', ip: '192.168.1.4', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.14.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [59c89ee079dd8bb0728a41de74fde593, sendKeysToElement {id=a3ce9693-f9b5-4cf0-914d-554813698fe0, value=[Ljava.lang.CharSequence;@23ed406}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 108.0.5359.125, chrome: {chromedriverVersion: 108.0.5359.71 (1e0e3868ee06..., userDataDir: C:\Users\TA6772~1.AGA\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:49758}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:49758/devtoo..., se:cdpVersion: 108.0.5359.125, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on WINDOWS (59c89ee079dd8bb0728a41de74fde593)] -&gt; xpath: //input[@id="username"]]
+Session ID: 59c89ee079dd8bb0728a41de74fde593
+Build info: version: '4.1.4', revision: '535d840ee2'
+System info: host: 'GEMGN-220029', ip: '192.168.1.4', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.14.1'
+Driver info: driver.version: unknown&#13;
+com.gemini.mis.implementations.LeaveImplementation.type(LeaveImplementation.java:482)&#13;
+com.gemini.mis.pages.LeaveManagementPage.typeIntoElement(LeaveManagementPage.java:27)&#13;
+com.gemini.mis.stepdefinitions.LeaveManagementSteps.userIsLoggedIn(LeaveManagementSteps.java:20)&#13;
+✽.User is logged into MIS(file:///C:/Users/ta.agarwal/Desktop/MISAutomation/src/test/resources/features/ViewRequestWFH.feature:5)&#13;
+</system-err></testcase></testsuite>
