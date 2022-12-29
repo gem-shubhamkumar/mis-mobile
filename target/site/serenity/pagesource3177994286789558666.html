@@ -1,0 +1,28 @@
+<html lang='en'><head><link href='prism/prism.css' rel='stylesheet' /></head><body><script src='prism/prism.js'></script><body><div><pre><code class='language-html'>&lt;html&gt;<br/>
+ &lt;head&gt;<br/>
+  &lt;script src="/Scripts/lib/jquery.min.js" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script language="javascript" type="text/javascript"&gt;<br/>
+    //if (window.location.hostname !== 'localhost') {<br/>
+    //    if (window.location.protocol !== 'https:') {<br/>
+    //        window.location = 'https://' + window.location.hostname + (window.location.port ? ':' + window.location.port : '') + window.location.pathname + window.location.hash;<br/>
+    //    }<br/>
+    //}<br/>
+    //Post login script<br/>
+    $(function () {<br/>
+        blockContainer('One moment please while we collect your information...');<br/>
+        misSession.authenticate();<br/>
+    });<br/>
+&lt;/script&gt; <br/>
+  &lt;script src="/Scripts/common/mis.basepath.js?v=6.1" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script src="/Scripts/common/mis.common.min.js?v=4.6" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script src="/Scripts/lib/jquery.blockUI.min.js?v=1.0" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script src="/Scripts/lib/sweetalert.min.js" type="text/javascript"&gt;&lt;/script&gt; <br/>
+ &lt;/head&gt;<br/>
+ &lt;body style=""&gt;<br/>
+  &lt;div class="blockUI" style="display:none"&gt;&lt;/div&gt;<br/>
+  &lt;div class="blockUI blockOverlay" style="z-index: 1050; border: none; margin: 0px; padding: 0px; width: 100%; height: 100%; top: 0px; left: 0px; background-color: rgb(0, 0, 0); opacity: 0.281163; cursor: wait; position: fixed;"&gt;&lt;/div&gt;<br/>
+  &lt;div class="blockUI blockMsg blockPage" style="z-index: 1051; position: fixed; padding: 0px; margin: 0px; width: 30%; top: 40%; left: 35%; text-align: center; color: rgb(255, 255, 255); cursor: wait; opacity: 0.468605;"&gt;<br/>
+   &lt;img style=" border-radius: 50%;width: 80px;height: 80px;" class="loading-image-round" src="../Images/loading.gif?v=1.0"&gt;<br/>
+  &lt;/div&gt;<br/>
+ &lt;/body&gt;<br/>
+&lt;/html&gt;</code></pre></div></body></html>

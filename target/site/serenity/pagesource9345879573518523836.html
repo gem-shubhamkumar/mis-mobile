@@ -1,0 +1,2270 @@
+<html lang='en'><head><link href='prism/prism.css' rel='stylesheet' /></head><body><script src='prism/prism.js'></script><body><div><pre><code class='language-html'>&lt;html class=" no-touch"&gt;<br/>
+ &lt;head&gt; <br/>
+  &lt;meta name="viewport" content="width=device-width"&gt; <br/>
+  &lt;title&gt;Gemini - MIS&lt;/title&gt; <br/>
+  &lt;link href="/favicon.ico?v=1.2" rel="shortcut icon" type="image/x-icon"&gt; <br/>
+  &lt;link href="/Content/lib/lobipanel.min.css?v=4.4" rel="stylesheet"&gt; <br/>
+  &lt;link href="/Content/lib/separate/vender/lobipanel.min.css?v=4.4" rel="stylesheet"&gt; <br/>
+  &lt;link href="/Content/lib/separate/widgets.min.css?v=4.4" rel="stylesheet"&gt; <br/>
+  &lt;link href="/Content/lib/jquery-ui.min.css?v=4.4" rel="stylesheet"&gt; <br/>
+  &lt;link href="/Content/lib/sweetalert.css?v=4.4" rel="stylesheet"&gt; <br/>
+  &lt;link href="/Content/lib/sweet-alert-animations.min.css?v=4.4" rel="stylesheet"&gt; <br/>
+  &lt;link href="/Content/lib/bootstrap.min.css?v=4.4" rel="stylesheet"&gt; <br/>
+  &lt;link href="/Content/lib/bootstrap-toggle.min.css?v=4.4" rel="stylesheet"&gt; <br/>
+  &lt;link href="/Content/lib/font-awesome.min.css?v=4.4" rel="stylesheet"&gt; <br/>
+  &lt;link href="/Content/lib/select2.min.css?v=4.4" rel="stylesheet"&gt; <br/>
+  &lt;link href="/Content/lib/main.css?v=1.9" rel="stylesheet"&gt; <br/>
+  &lt;link href="/Content/lib/datepicker.css?v=4.4" rel="stylesheet"&gt; <br/>
+  &lt;link href="/Content/lib/bootstrap-multiselect.css?v=4.4" rel="stylesheet"&gt; <br/>
+  &lt;link href="/Content/app/mis.common.css?v=1.11" rel="stylesheet"&gt; <br/>
+  &lt;link href="/Content/lib/datatable/jquery.dataTables.min.css" rel="stylesheet" asp-append-version="true"&gt; <br/>
+  &lt;link href="/Content/lib/datatable/buttons.dataTables.min.css" rel="stylesheet"&gt; <br/>
+  &lt;link href="/Content/lib/datatable/responsive.dataTables.min.css" rel="stylesheet"&gt; <br/>
+  &lt;link href="/Content/lib/datatable/datatables-net.min.css" rel="stylesheet"&gt; <br/>
+  &lt;script src="/Scripts/lib/jquery.min.js" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script src="/Scripts/lib/jquery-ui.min.js" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script src="/Scripts/lib/jquery.blockUI.min.js?v=1.0" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script src="/Scripts/lib/moment.min.js" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script src="/Scripts/common/mis.basepath.js?v=7.9" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script src="/Scripts/common/mis.common.min.js?v=5.1" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script type="text/javascript"&gt;<br/>
+        //if (window.location.hostname !== 'localhost') {<br/>
+        //    if (window.location.protocol !== 'https:') {<br/>
+        //        window.location = 'https://' + window.location.hostname + (window.location.port ? ':' + window.location.port : '') + window.location.pathname + window.location.hash;<br/>
+        //    }<br/>
+        //}<br/>
+        misSession.validateAccess();<br/>
+    &lt;/script&gt; <br/>
+ &lt;/head&gt; <br/>
+ &lt;body class="with-side-menu control-panel control-panel-compact chrome-browser" style=""&gt; <br/>
+  &lt;header class="site-header"&gt; <br/>
+   &lt;div class="container-fluid"&gt; &lt;span id="show-hide-sidebar" class="checkbox-toggle"&gt; &lt;input type="checkbox" checked&gt; &lt;button id="show-hide-sidebar-toggle" class="active toggle-menu"&gt; &lt;i class="fa fa-bars"&gt;&lt;/i&gt; &lt;/button&gt; &lt;label for="show-hide-sidebar-toggle"&gt;&lt;/label&gt; &lt;/span&gt; &lt;a href="javascript: void(0)" class="site-logo"&gt; &lt;img class="hidden-md-down" src="/img/GeminiLogo-Small-Black.png?v1.0" alt=""&gt; &lt;/a&gt; &lt;button class="hamburger hamburger--htla"&gt; &lt;span&gt;toggle menu&lt;/span&gt; &lt;/button&gt; <br/>
+    &lt;div class="site-header-content"&gt; <br/>
+     &lt;div class="site-header-content-in"&gt; <br/>
+      &lt;div class="site-header-shown"&gt; <br/>
+       &lt;div class="dropdown dropdown-typical"&gt; &lt;a class="ldap-link" href="https://ldap.geminisolutions.com" target="_blank"&gt;Change AD Password&lt;/a&gt; <br/>
+       &lt;/div&gt; <br/>
+       &lt;div class="dropdown user-menu"&gt; &lt;button class="dropdown-toggle" id="dd-user-menu" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"&gt; &lt;img src="http://mymisapi.geminisolutions.com:8700/Images/female-employee.png?v=4.7" alt="" id="userImage"&gt;&lt;span id="LoginUserName"&gt;&lt;/span&gt; &lt;/button&gt; <br/>
+        &lt;div class="dropdown-menu dropdown-menu-right" aria-labelledby="dd-user-menu"&gt; &lt;a class="dropdown-item" id="updateProfile"&gt;&lt;span class="font-icon glyphicon glyphicon-user"&gt;&lt;/span&gt;Profile&lt;/a&gt; &lt;a class="dropdown-item" id="dashBoardSettings"&gt;&lt;span class="font-icon glyphicon glyphicon-cog"&gt;&lt;/span&gt;Dashboard Settings&lt;/a&gt; &lt;a class="dropdown-item" id="skills"&gt;&lt;span class="font-icon glyphicon glyphicon-signal"&gt;&lt;/span&gt;Skills&lt;/a&gt; <br/>
+         &lt;div class="dropdown-divider"&gt;&lt;/div&gt; &lt;a class="dropdown-item" href="javascript:misSession.signoff();"&gt;&lt;span class="font-icon glyphicon glyphicon-log-out"&gt;&lt;/span&gt;Logout&lt;/a&gt; <br/>
+        &lt;/div&gt; <br/>
+       &lt;/div&gt; &lt;button type="button" class="burger-right"&gt; &lt;i class="font-icon-menu-addl"&gt;&lt;/i&gt; &lt;/button&gt; <br/>
+      &lt;/div&gt; <br/>
+      &lt;div class="mobile-menu-right-overlay"&gt;&lt;/div&gt; <br/>
+      &lt;div class="site-header-collapsed"&gt; <br/>
+      &lt;/div&gt; <br/>
+     &lt;/div&gt; <br/>
+     &lt;div id="divChangeADPassword" class="pull-right"&gt; <br/>
+      &lt;div class="container margin-top-10"&gt; <br/>
+       &lt;div class="row form-group"&gt; <br/>
+        &lt;div class="col-md-6"&gt;<br/>
+         &lt;label class="control-label lbl-right"&gt;Domain Username&lt;/label&gt;<br/>
+        &lt;/div&gt; <br/>
+        &lt;div class="col-md-6"&gt;<br/>
+         &lt;input type="text" autocomplete="off" disabled class="form-control validation-required" id="txtADUsername" name="txtADUsername"&gt;<br/>
+        &lt;/div&gt; <br/>
+       &lt;/div&gt; <br/>
+       &lt;div class="row form-group"&gt; <br/>
+        &lt;div class="col-md-6"&gt;<br/>
+         &lt;label class="control-label lbl-right"&gt;Current Password&lt;/label&gt;<br/>
+        &lt;/div&gt; <br/>
+        &lt;div class="col-md-6"&gt;<br/>
+         &lt;input type="password" autocomplete="off" class="form-control validation-required" id="txtCurrentPass"&gt;<br/>
+        &lt;/div&gt; <br/>
+       &lt;/div&gt; <br/>
+       &lt;div class="row form-group"&gt; <br/>
+        &lt;div class="col-md-6"&gt;<br/>
+         &lt;label class="control-label lbl-right"&gt;New Password&lt;/label&gt;<br/>
+        &lt;/div&gt; <br/>
+        &lt;div class="col-md-6"&gt;<br/>
+         &lt;input type="password" autocomplete="off" class="form-control validation-required" id="txtNewPass"&gt;<br/>
+        &lt;/div&gt; <br/>
+       &lt;/div&gt; <br/>
+       &lt;div class="row form-group"&gt; <br/>
+        &lt;div class="col-md-6"&gt;<br/>
+         &lt;label class="control-label lbl-right"&gt;Confirm New Password&lt;/label&gt;<br/>
+        &lt;/div&gt; <br/>
+        &lt;div class="col-md-6"&gt;<br/>
+         &lt;input type="password" autocomplete="off" class="form-control validation-required" id="txtConfirmNewPass"&gt;<br/>
+        &lt;/div&gt; <br/>
+       &lt;/div&gt; <br/>
+       &lt;div class="row form-group"&gt; <br/>
+        &lt;div class="col-md-12" id="divAlert" style="display:none;"&gt;<br/>
+         &lt;label class="text-danger"&gt;Your Domain Username is not available. Please contact to MIS Team.&lt;/label&gt;<br/>
+        &lt;/div&gt; <br/>
+        &lt;div class="col-md-12" id="divADChangeBtn" style="display:none;"&gt;<br/>
+         &lt;button type="button" id="btnChangeADPass" class="btn btn-outline-success pull-right"&gt;Submit&lt;/button&gt;<br/>
+        &lt;/div&gt; <br/>
+       &lt;/div&gt; <br/>
+       &lt;div class="row form-group"&gt; <br/>
+        &lt;div class="col-md-12" id="divAlertError" style="display:none;"&gt;<br/>
+         &lt;label class="text-danger"&gt;New password and confirm password does not match.&lt;/label&gt;<br/>
+        &lt;/div&gt; <br/>
+       &lt;/div&gt; <br/>
+      &lt;/div&gt; <br/>
+     &lt;/div&gt; <br/>
+    &lt;/div&gt; <br/>
+   &lt;/div&gt; <br/>
+  &lt;/header&gt; <br/>
+  &lt;div class="mobile-menu-left-overlay"&gt;&lt;/div&gt; <br/>
+  &lt;nav class="side-menu jspScrollable" tabindex="0" style="overflow: hidden; padding: 0px; width: 240px;"&gt; <br/>
+   &lt;div class="jspContainer" style="width: 239px; height: 564px;"&gt;<br/>
+    &lt;div class="jspPane" style="padding: 0px; top: 0px; left: 0px; width: 225px;"&gt;<br/>
+     &lt;ul class="side-menu-list"&gt;<br/>
+      &lt;li class="magenta"&gt;&lt;a href="https://mymis.geminisolutions.com/Dashboard/Index"&gt;&lt;i class="fa fa-tachometer"&gt;&lt;/i&gt;&lt;span class="lbl"&gt;Dashboard&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+      &lt;li class="magenta"&gt;&lt;a href="https://mymis.geminisolutions.com/Directory/EmployeeDirectory"&gt;&lt;i class="font-icon font-icon-contacts"&gt;&lt;/i&gt;&lt;span class="lbl"&gt;Employee Directory&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+      &lt;li class="magenta with-sub"&gt;&lt;span&gt;&lt;i class="font-icon fa fa-clock-o"&gt;&lt;/i&gt;&lt;span class="lbl"&gt;TimeSheet&lt;/span&gt;&lt;/span&gt;<br/>
+       &lt;ul&gt;<br/>
+        &lt;li&gt;&lt;a href="https://mymis.geminisolutions.com/Timesheet/ConfigureTimesheet"&gt;&lt;span class="lbl"&gt;Configure Timesheet&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+        &lt;li&gt;&lt;a href="https://mymis.geminisolutions.com/Timesheet/CreateTimesheet"&gt;&lt;span class="lbl"&gt;Create Timesheet&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+        &lt;li&gt;&lt;a href="https://mymis.geminisolutions.com/Timesheet/ManageTaskTemplates"&gt;&lt;span class="lbl"&gt;Manage Task Template&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;/ul&gt;&lt;/li&gt;<br/>
+      &lt;li class="magenta with-sub"&gt;&lt;span&gt;&lt;i class="font-icon fa fa-home"&gt;&lt;/i&gt;&lt;span class="lbl"&gt;Leave Management&lt;/span&gt;&lt;/span&gt;<br/>
+       &lt;ul&gt;<br/>
+        &lt;li&gt;&lt;a href="https://mymis.geminisolutions.com/LeaveManagement/Apply"&gt;&lt;span class="lbl"&gt;Apply&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+        &lt;li&gt;&lt;a href="https://mymis.geminisolutions.com/LeaveManagement/LeaveRequestStatus"&gt;&lt;span class="lbl"&gt;View Request Status&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;/ul&gt;&lt;/li&gt;<br/>
+      &lt;li class="magenta with-sub"&gt;&lt;span&gt;&lt;i class="font-icon glyphicon glyphicon-send"&gt;&lt;/i&gt;&lt;span class="lbl"&gt;LNSA&lt;/span&gt;&lt;/span&gt;<br/>
+       &lt;ul&gt;<br/>
+        &lt;li&gt;&lt;a href="https://mymis.geminisolutions.com/Lnsa/Apply"&gt;&lt;span class="lbl"&gt;Apply LNSA&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+        &lt;li&gt;&lt;a href="https://mymis.geminisolutions.com/Lnsa/ViewStatus"&gt;&lt;span class="lbl"&gt;View Request Status&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;/ul&gt;&lt;/li&gt;<br/>
+      &lt;li class="magenta with-sub"&gt;&lt;span&gt;&lt;i class="fa fa-folder-open"&gt;&lt;/i&gt;&lt;span class="lbl"&gt;Knowledge Base&lt;/span&gt;&lt;/span&gt;<br/>
+       &lt;ul&gt;<br/>
+        &lt;li&gt;&lt;a href="https://mymis.geminisolutions.com/KnowledgeBase/ViewDoc"&gt;&lt;span class="lbl"&gt;View Documents&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+        &lt;li&gt;&lt;a href="https://mymis.geminisolutions.com/KnowledgeBase/ViewSharedDoc"&gt;&lt;span class="lbl"&gt;View Shared Documents&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;/ul&gt;&lt;/li&gt;<br/>
+      &lt;li class="magenta with-sub"&gt;&lt;span&gt;&lt;i class="fa fa-file-text"&gt;&lt;/i&gt;&lt;span class="lbl"&gt;Policy&lt;/span&gt;&lt;/span&gt;<br/>
+       &lt;ul&gt;<br/>
+        &lt;li&gt;&lt;a href="https://mymis.geminisolutions.com/Policy/ViewPolicy"&gt;&lt;span class="lbl"&gt;View Policies&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;/ul&gt;&lt;/li&gt;<br/>
+      &lt;li class="magenta with-sub"&gt;&lt;span&gt;&lt;i class="font-icon fa fa-file-text"&gt;&lt;/i&gt;&lt;span class="lbl"&gt;Forms&lt;/span&gt;&lt;/span&gt;<br/>
+       &lt;ul&gt;<br/>
+        &lt;li&gt;&lt;a href="https://mymis.geminisolutions.com/Form/ViewForm"&gt;&lt;span class="lbl"&gt;View Form&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+        &lt;li&gt;&lt;a href="https://mymis.geminisolutions.com/Form/MyForm"&gt;&lt;span class="lbl"&gt;My Form&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;/ul&gt;&lt;/li&gt;<br/>
+      &lt;li class="magenta with-sub"&gt;&lt;span&gt;&lt;i class="fa fa-graduation-cap"&gt;&lt;/i&gt;&lt;span class="lbl"&gt;Appraisal Management&lt;/span&gt;&lt;/span&gt;<br/>
+       &lt;ul&gt;<br/>
+        &lt;li&gt;&lt;a href="https://mymis.geminisolutions.com/AppraisalManagement/SelfGoal"&gt;&lt;span class="lbl"&gt;Add Goals&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+        &lt;li&gt;&lt;a href="https://mymis.geminisolutions.com/AppraisalManagement/MyAchievement"&gt;&lt;span class="lbl"&gt;My Achievement&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;/ul&gt;&lt;/li&gt;<br/>
+      &lt;li class="magenta with-sub"&gt;&lt;span&gt;&lt;i class="fa fa-comments"&gt;&lt;/i&gt;&lt;span class="lbl"&gt;Feedback&lt;/span&gt;&lt;/span&gt;<br/>
+       &lt;ul&gt;<br/>
+        &lt;li&gt;&lt;a href="https://mymis.geminisolutions.com/Feedback/SubmitFeedback"&gt;&lt;span class="lbl"&gt;Submit Feedback&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;/ul&gt;&lt;/li&gt;<br/>
+      &lt;li class="magenta active"&gt;&lt;a href="https://mymis.geminisolutions.com/Organization/OrganizationStructure"&gt;&lt;i class="fa fa-sitemap"&gt;&lt;/i&gt;&lt;span class="lbl"&gt;Organization Structure&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+      &lt;li class="magenta with-sub"&gt;&lt;span&gt;&lt;i class="fa fa-inr"&gt;&lt;/i&gt;&lt;span class="lbl"&gt;Accounts Portal&lt;/span&gt;&lt;/span&gt;<br/>
+       &lt;ul&gt;<br/>
+        &lt;li&gt;&lt;a href="https://geminisolutions.greythr.com/" target="_blank"&gt;&lt;span class="lbl"&gt;My Account&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;/ul&gt;&lt;/li&gt;<br/>
+      &lt;li class="magenta with-sub"&gt;&lt;span&gt;&lt;i class="fa fa-inr"&gt;&lt;/i&gt;&lt;span class="lbl"&gt;Reimbursement&lt;/span&gt;&lt;/span&gt;<br/>
+       &lt;ul&gt;<br/>
+        &lt;li&gt;&lt;a href="https://mymis.geminisolutions.com/Reimbursement/MyReimbursement"&gt;&lt;span class="lbl"&gt;MyReimbursement&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;/ul&gt;&lt;/li&gt;<br/>
+      &lt;li class="magenta with-sub"&gt;&lt;span&gt;&lt;i class="fa fa-list"&gt;&lt;/i&gt;&lt;span class="lbl"&gt;Other Portals&lt;/span&gt;&lt;/span&gt;<br/>
+       &lt;ul&gt;<br/>
+        &lt;li&gt;&lt;a href="https://geminisolutions.talentlms.com/index" target="_blank"&gt;&lt;span class="lbl"&gt;L&amp;D Portal&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+        &lt;li&gt;&lt;a href="https://contripoint.geminisolutions.com/" target="_blank"&gt;&lt;span class="lbl"&gt;Contripoint&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+        &lt;li&gt;&lt;a href="https://gembook.geminisolutions.com/" target="_blank"&gt;&lt;span class="lbl"&gt;Gembook&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+        &lt;li&gt;&lt;a href="https://wiki.geminisolutions.com/login" target="_blank"&gt;&lt;span class="lbl"&gt;Gem Wiki&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+        &lt;li&gt;&lt;a href="https://github.com/Gemini-Solutions" target="_blank"&gt;&lt;span class="lbl"&gt;Github&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+        &lt;li&gt;&lt;a href="https://jenkins.geminisolutions.com/" target="_blank"&gt;&lt;span class="lbl"&gt;Jenkins&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+        &lt;li&gt;&lt;a href="https://athena.geminisolutions.com/login" target="_blank"&gt;&lt;span class="lbl"&gt;Athena&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+        &lt;li&gt;&lt;a href="https://servicedesk.geminisolutions.com/index.php" target="_blank"&gt;&lt;span class="lbl"&gt;Service Desk&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;/ul&gt;&lt;/li&gt;<br/>
+     &lt;/ul&gt;<br/>
+    &lt;/div&gt;<br/>
+    &lt;div class="jspVerticalBar"&gt;<br/>
+     &lt;div class="jspCap jspCapTop"&gt;&lt;/div&gt;<br/>
+     &lt;div class="jspTrack" style="height: 564px;"&gt;<br/>
+      &lt;div class="jspDrag" style="height: 502px;"&gt;<br/>
+       &lt;div class="jspDragTop"&gt;&lt;/div&gt;<br/>
+       &lt;div class="jspDragBottom"&gt;&lt;/div&gt;<br/>
+      &lt;/div&gt;<br/>
+     &lt;/div&gt;<br/>
+     &lt;div class="jspCap jspCapBottom"&gt;&lt;/div&gt;<br/>
+    &lt;/div&gt;<br/>
+   &lt;/div&gt;<br/>
+  &lt;/nav&gt; <br/>
+  &lt;div class="page-content"&gt; <br/>
+   &lt;script src="/Scripts/common/mis.org.str-min.js?v=1" type="text/javascript"&gt;&lt;/script&gt; <br/>
+   &lt;link href="/Content/app/mis.org.str-min.css?v=1" rel="stylesheet"&gt; <br/>
+   &lt;div id="orgStructure" style="height: 585px;"&gt;<br/>
+    &lt;div class="gem-gemOrgTheme gem-blue gem-org-str"&gt;<br/>
+     &lt;div class="gem-oc-tb"&gt;<br/>
+      &lt;div&gt;<br/>
+       &lt;div style="height:46px;"&gt;<br/>
+        &lt;input placeholder="Search" type="text" style="display: inherit;"&gt;&lt;a title="previous" class="gem-prev gem-disabled" href="javascript:void(0)" style="display: inherit;"&gt;&nbsp;&lt;/a&gt;&lt;a title="next" class="gem-next gem-disabled" href="javascript:void(0)" style="display: inherit;"&gt;&nbsp;&lt;/a&gt;&lt;a class="gem-minus" title="zoom out" href="javascript:void(0)" style="display: inherit;"&gt;&nbsp;&lt;/a&gt;&lt;a class="gem-plus" title="zoom in" href="javascript:void(0)" style="display: inherit;"&gt;&nbsp;&lt;/a&gt;&lt;a href="javascript:void(0)" class="gem-grid-view" title="grid view"&gt;&nbsp;&lt;/a&gt;&lt;a href="javascript:void(0)" class="gem-print" title="print"&gt;&nbsp;&lt;/a&gt;<br/>
+       &lt;/div&gt;<br/>
+       &lt;div style="height:46px;"&gt;<br/>
+        &lt;a title="previous page" class="gem-prev-page" href="javascript:void(0)"&gt;&nbsp;&lt;/a&gt;<br/>
+       &lt;/div&gt;<br/>
+       &lt;div style="height:46px;"&gt;<br/>
+        &lt;a title="previous page" class="gem-prev-page" href="javascript:void(0)"&gt;&nbsp;&lt;/a&gt;<br/>
+       &lt;/div&gt;<br/>
+      &lt;/div&gt;<br/>
+     &lt;/div&gt;<br/>
+     &lt;div class="gem-oc-c" style="height: 539px; top: 46px; left: 0px;"&gt;<br/>
+      &lt;svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewbox="-1410,2645.956730769231,6220,3208.086538461538"&gt;<br/>
+       &lt;defs&gt;<br/>
+        &lt;filter id="f1" x="0" y="0" width="200%" height="200%"&gt;<br/>
+         &lt;feoffset result="offOut" in="SourceAlpha" dx="5" dy="5"&gt;&lt;/feoffset&gt;<br/>
+         &lt;fegaussianblur result="blurOut" in="offOut" stddeviation="5"&gt;&lt;/fegaussianblur&gt;<br/>
+         &lt;feblend in="SourceGraphic" in2="blurOut" mode="normal"&gt;&lt;/feblend&gt;<br/>
+        &lt;/filter&gt;<br/>
+       &lt;/defs&gt;&lt;g&gt;<br/>
+        &lt;g data-node-id="1" class="gem-level-1 " transform="matrix(1,0,0,1,3425,100)"&gt;<br/>
+         &lt;filter id="f1" x="0" y="0" width="200%" height="200%"&gt;<br/>
+          &lt;feoffset result="offOut" in="SourceAlpha" dx="5" dy="5"&gt;&lt;/feoffset&gt;<br/>
+          &lt;fegaussianblur result="blurOut" in="offOut" stddeviation="5"&gt;&lt;/fegaussianblur&gt;<br/>
+          &lt;feblend in="SourceGraphic" in2="blurOut" mode="normal"&gt;&lt;/feblend&gt;<br/>
+         &lt;/filter&gt;<br/>
+         &lt;rect x="0" y="0" height="300" width="270" rx="10" ry="10" class="gemOrgTheme-box" filter="url(#f1)"&gt;&lt;/rect&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-0" x="135" y="45"&gt;<br/>
+          Vishal Malik<br/>
+         &lt;/text&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-1" x="135" y="75"&gt;<br/>
+          Chief Executive Officer<br/>
+         &lt;/text&gt;<br/>
+         &lt;clippath id="gemOrgClip"&gt;<br/>
+          &lt;circle cx="140" cy="185" r="100"&gt;&lt;/circle&gt;<br/>
+         &lt;/clippath&gt;<br/>
+         &lt;image preserveaspectratio="xMidYMid slice" clip-path="url(#gemOrgClip)" xlink:href="http://mymisapi.geminisolutions.com:8700/Images/male-employee.png?v=4.7" x="40" y="85" height="200" width="200"&gt;&lt;/image&gt;<br/>
+         &lt;circle cx="55" cy="120" r="20" class="reporters" display="block"&gt;&lt;/circle&gt;<br/>
+         &lt;text class="reporters-text" display="block" text-anchor="middle" width="100" x="55" y="125"&gt;<br/>
+          3<br/>
+         &lt;/text&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;path data-link-id="1" class="link" d="M3565,400 3565,450 760,450 L760,500"&gt;&lt;/path&gt;<br/>
+        &lt;g transform="matrix(1,0,0,1,3545,380)" data-btn-id="1" data-btn-action="expColl"&gt;<br/>
+         &lt;circle cx="20" cy="20" r="20" class="gem-btn"&gt;&lt;/circle&gt;<br/>
+         &lt;line x1="6.666666666666667" y1="20" x2="33.333333333333336" y2="20" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+         &lt;line style="display:none" x1="20" y1="6.666666666666667" x2="20" y2="33.333333333333336" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;path data-link-id="1" class="link" d="M3565,400 3565,450 3875,450 L3875,500"&gt;&lt;/path&gt;<br/>
+        &lt;g transform="matrix(1,0,0,1,3545,380)" data-btn-id="1" data-btn-action="expColl"&gt;<br/>
+         &lt;circle cx="20" cy="20" r="20" class="gem-btn"&gt;&lt;/circle&gt;<br/>
+         &lt;line x1="6.666666666666667" y1="20" x2="33.333333333333336" y2="20" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+         &lt;line style="display:none" x1="20" y1="6.666666666666667" x2="20" y2="33.333333333333336" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;path data-link-id="1" class="link" d="M3565,400 3565,450 6370,450 L6370,500"&gt;&lt;/path&gt;<br/>
+        &lt;g transform="matrix(1,0,0,1,3545,380)" data-btn-id="1" data-btn-action="expColl"&gt;<br/>
+         &lt;circle cx="20" cy="20" r="20" class="gem-btn"&gt;&lt;/circle&gt;<br/>
+         &lt;line x1="6.666666666666667" y1="20" x2="33.333333333333336" y2="20" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+         &lt;line style="display:none" x1="20" y1="6.666666666666667" x2="20" y2="33.333333333333336" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g data-node-id="2" class="gem-level-3 " transform="matrix(1,0,0,1,1560,900)"&gt;<br/>
+         &lt;filter id="f1" x="0" y="0" width="200%" height="200%"&gt;<br/>
+          &lt;feoffset result="offOut" in="SourceAlpha" dx="5" dy="5"&gt;&lt;/feoffset&gt;<br/>
+          &lt;fegaussianblur result="blurOut" in="offOut" stddeviation="5"&gt;&lt;/fegaussianblur&gt;<br/>
+          &lt;feblend in="SourceGraphic" in2="blurOut" mode="normal"&gt;&lt;/feblend&gt;<br/>
+         &lt;/filter&gt;<br/>
+         &lt;rect x="0" y="0" height="300" width="270" rx="10" ry="10" class="gemOrgTheme-box" filter="url(#f1)"&gt;&lt;/rect&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-0" x="135" y="45"&gt;<br/>
+          Prashank Chaud...<br/>
+         &lt;/text&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-1" x="135" y="75"&gt;<br/>
+          Senior Vice President<br/>
+         &lt;/text&gt;<br/>
+         &lt;clippath id="gemOrgClip"&gt;<br/>
+          &lt;circle cx="140" cy="185" r="100"&gt;&lt;/circle&gt;<br/>
+         &lt;/clippath&gt;<br/>
+         &lt;image preserveaspectratio="xMidYMid slice" clip-path="url(#gemOrgClip)" xlink:href="http://mymisapi.geminisolutions.com:8700/Images/male-employee.png?v=4.7" x="40" y="85" height="200" width="200"&gt;&lt;/image&gt;<br/>
+         &lt;circle cx="55" cy="120" r="20" class="reporters" display="block"&gt;&lt;/circle&gt;<br/>
+         &lt;text class="reporters-text" display="block" text-anchor="middle" width="100" x="55" y="125"&gt;<br/>
+          6<br/>
+         &lt;/text&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g transform="matrix(1,0,0,1,1680,1180)" data-btn-id="2" data-btn-action="expColl"&gt;<br/>
+         &lt;circle cx="20" cy="20" r="20" class="gem-btn"&gt;&lt;/circle&gt;<br/>
+         &lt;line x1="6.666666666666667" y1="20" x2="33.333333333333336" y2="20" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+         &lt;line style="display:block" x1="20" y1="6.666666666666667" x2="20" y2="33.333333333333336" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g transform="matrix(1,0,0,1,1680,1180)" data-btn-id="2" data-btn-action="expColl"&gt;<br/>
+         &lt;circle cx="20" cy="20" r="20" class="gem-btn"&gt;&lt;/circle&gt;<br/>
+         &lt;line x1="6.666666666666667" y1="20" x2="33.333333333333336" y2="20" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+         &lt;line style="display:block" x1="20" y1="6.666666666666667" x2="20" y2="33.333333333333336" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g transform="matrix(1,0,0,1,1680,1180)" data-btn-id="2" data-btn-action="expColl"&gt;<br/>
+         &lt;circle cx="20" cy="20" r="20" class="gem-btn"&gt;&lt;/circle&gt;<br/>
+         &lt;line x1="6.666666666666667" y1="20" x2="33.333333333333336" y2="20" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+         &lt;line style="display:block" x1="20" y1="6.666666666666667" x2="20" y2="33.333333333333336" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g transform="matrix(1,0,0,1,1680,1180)" data-btn-id="2" data-btn-action="expColl"&gt;<br/>
+         &lt;circle cx="20" cy="20" r="20" class="gem-btn"&gt;&lt;/circle&gt;<br/>
+         &lt;line x1="6.666666666666667" y1="20" x2="33.333333333333336" y2="20" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+         &lt;line style="display:block" x1="20" y1="6.666666666666667" x2="20" y2="33.333333333333336" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g transform="matrix(1,0,0,1,1680,1180)" data-btn-id="2" data-btn-action="expColl"&gt;<br/>
+         &lt;circle cx="20" cy="20" r="20" class="gem-btn"&gt;&lt;/circle&gt;<br/>
+         &lt;line x1="6.666666666666667" y1="20" x2="33.333333333333336" y2="20" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+         &lt;line style="display:block" x1="20" y1="6.666666666666667" x2="20" y2="33.333333333333336" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g transform="matrix(1,0,0,1,1680,1180)" data-btn-id="2" data-btn-action="expColl"&gt;<br/>
+         &lt;circle cx="20" cy="20" r="20" class="gem-btn"&gt;&lt;/circle&gt;<br/>
+         &lt;line x1="6.666666666666667" y1="20" x2="33.333333333333336" y2="20" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+         &lt;line style="display:block" x1="20" y1="6.666666666666667" x2="20" y2="33.333333333333336" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g data-node-id="11" class="gem-level-3 " transform="matrix(1,0,0,1,1870,900)"&gt;<br/>
+         &lt;filter id="f1" x="0" y="0" width="200%" height="200%"&gt;<br/>
+          &lt;feoffset result="offOut" in="SourceAlpha" dx="5" dy="5"&gt;&lt;/feoffset&gt;<br/>
+          &lt;fegaussianblur result="blurOut" in="offOut" stddeviation="5"&gt;&lt;/fegaussianblur&gt;<br/>
+          &lt;feblend in="SourceGraphic" in2="blurOut" mode="normal"&gt;&lt;/feblend&gt;<br/>
+         &lt;/filter&gt;<br/>
+         &lt;rect x="0" y="0" height="300" width="270" rx="10" ry="10" class="gemOrgTheme-box" filter="url(#f1)"&gt;&lt;/rect&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-0" x="135" y="45"&gt;<br/>
+          Lovish Sanghvi<br/>
+         &lt;/text&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-1" x="135" y="75"&gt;<br/>
+          Senior Vice President<br/>
+         &lt;/text&gt;<br/>
+         &lt;clippath id="gemOrgClip"&gt;<br/>
+          &lt;circle cx="140" cy="185" r="100"&gt;&lt;/circle&gt;<br/>
+         &lt;/clippath&gt;<br/>
+         &lt;image preserveaspectratio="xMidYMid slice" clip-path="url(#gemOrgClip)" xlink:href="http://mymisapi.geminisolutions.com:8700/Images/male-employee.png?v=4.7" x="40" y="85" height="200" width="200"&gt;&lt;/image&gt;<br/>
+         &lt;circle cx="55" cy="120" r="20" class="reporters" display="block"&gt;&lt;/circle&gt;<br/>
+         &lt;text class="reporters-text" display="block" text-anchor="middle" width="100" x="55" y="125"&gt;<br/>
+          8<br/>
+         &lt;/text&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;path data-link-id="11" class="link" d="M2010,1200 2010,1250 1390,1250 L1390,1300"&gt;&lt;/path&gt;<br/>
+        &lt;g transform="matrix(1,0,0,1,1990,1180)" data-btn-id="11" data-btn-action="expColl"&gt;<br/>
+         &lt;circle cx="20" cy="20" r="20" class="gem-btn"&gt;&lt;/circle&gt;<br/>
+         &lt;line x1="6.666666666666667" y1="20" x2="33.333333333333336" y2="20" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+         &lt;line style="display:none" x1="20" y1="6.666666666666667" x2="20" y2="33.333333333333336" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;path data-link-id="11" class="link" d="M2010,1200 2010,1250 1700,1250 L1700,1300"&gt;&lt;/path&gt;<br/>
+        &lt;g transform="matrix(1,0,0,1,1990,1180)" data-btn-id="11" data-btn-action="expColl"&gt;<br/>
+         &lt;circle cx="20" cy="20" r="20" class="gem-btn"&gt;&lt;/circle&gt;<br/>
+         &lt;line x1="6.666666666666667" y1="20" x2="33.333333333333336" y2="20" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+         &lt;line style="display:none" x1="20" y1="6.666666666666667" x2="20" y2="33.333333333333336" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;path data-link-id="11" class="link" d="M2010,1200 2010,1250 2010,1250 L2010,1300"&gt;&lt;/path&gt;<br/>
+        &lt;g transform="matrix(1,0,0,1,1990,1180)" data-btn-id="11" data-btn-action="expColl"&gt;<br/>
+         &lt;circle cx="20" cy="20" r="20" class="gem-btn"&gt;&lt;/circle&gt;<br/>
+         &lt;line x1="6.666666666666667" y1="20" x2="33.333333333333336" y2="20" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+         &lt;line style="display:none" x1="20" y1="6.666666666666667" x2="20" y2="33.333333333333336" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;path data-link-id="11" class="link" d="M2010,1200 2010,1250 2475,1250 2475,1450 L2460,1450"&gt;&lt;/path&gt;<br/>
+        &lt;g transform="matrix(1,0,0,1,1990,1180)" data-btn-id="11" data-btn-action="expColl"&gt;<br/>
+         &lt;circle cx="20" cy="20" r="20" class="gem-btn"&gt;&lt;/circle&gt;<br/>
+         &lt;line x1="6.666666666666667" y1="20" x2="33.333333333333336" y2="20" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+         &lt;line style="display:none" x1="20" y1="6.666666666666667" x2="20" y2="33.333333333333336" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;path data-link-id="11" class="link" d="M2010,1200 2010,1250 2630,1250 L2630,1300"&gt;&lt;/path&gt;<br/>
+        &lt;g transform="matrix(1,0,0,1,1990,1180)" data-btn-id="11" data-btn-action="expColl"&gt;<br/>
+         &lt;circle cx="20" cy="20" r="20" class="gem-btn"&gt;&lt;/circle&gt;<br/>
+         &lt;line x1="6.666666666666667" y1="20" x2="33.333333333333336" y2="20" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+         &lt;line style="display:none" x1="20" y1="6.666666666666667" x2="20" y2="33.333333333333336" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g data-node-id="14" class="gem-level-3 " transform="matrix(1,0,0,1,2340,900)"&gt;<br/>
+         &lt;filter id="f1" x="0" y="0" width="200%" height="200%"&gt;<br/>
+          &lt;feoffset result="offOut" in="SourceAlpha" dx="5" dy="5"&gt;&lt;/feoffset&gt;<br/>
+          &lt;fegaussianblur result="blurOut" in="offOut" stddeviation="5"&gt;&lt;/fegaussianblur&gt;<br/>
+          &lt;feblend in="SourceGraphic" in2="blurOut" mode="normal"&gt;&lt;/feblend&gt;<br/>
+         &lt;/filter&gt;<br/>
+         &lt;rect x="0" y="0" height="300" width="270" rx="10" ry="10" class="gemOrgTheme-box" filter="url(#f1)"&gt;&lt;/rect&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-0" x="135" y="45"&gt;<br/>
+          Neeraj Yadav<br/>
+         &lt;/text&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-1" x="135" y="75"&gt;<br/>
+          Senior Vice President<br/>
+         &lt;/text&gt;<br/>
+         &lt;clippath id="gemOrgClip"&gt;<br/>
+          &lt;circle cx="140" cy="185" r="100"&gt;&lt;/circle&gt;<br/>
+         &lt;/clippath&gt;<br/>
+         &lt;image preserveaspectratio="xMidYMid slice" clip-path="url(#gemOrgClip)" xlink:href="http://mymisapi.geminisolutions.com:8700/Images/male-employee.png?v=4.7" x="40" y="85" height="200" width="200"&gt;&lt;/image&gt;<br/>
+         &lt;circle cx="55" cy="120" r="20" class="reporters" display="block"&gt;&lt;/circle&gt;<br/>
+         &lt;text class="reporters-text" display="block" text-anchor="middle" width="100" x="55" y="125"&gt;<br/>
+          29<br/>
+         &lt;/text&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g transform="matrix(1,0,0,1,2460,1180)" data-btn-id="14" data-btn-action="expColl"&gt;<br/>
+         &lt;circle cx="20" cy="20" r="20" class="gem-btn"&gt;&lt;/circle&gt;<br/>
+         &lt;line x1="6.666666666666667" y1="20" x2="33.333333333333336" y2="20" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+         &lt;line style="display:block" x1="20" y1="6.666666666666667" x2="20" y2="33.333333333333336" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g transform="matrix(1,0,0,1,2460,1180)" data-btn-id="14" data-btn-action="expColl"&gt;<br/>
+         &lt;circle cx="20" cy="20" r="20" class="gem-btn"&gt;&lt;/circle&gt;<br/>
+         &lt;line x1="6.666666666666667" y1="20" x2="33.333333333333336" y2="20" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+         &lt;line style="display:block" x1="20" y1="6.666666666666667" x2="20" y2="33.333333333333336" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g transform="matrix(1,0,0,1,2460,1180)" data-btn-id="14" data-btn-action="expColl"&gt;<br/>
+         &lt;circle cx="20" cy="20" r="20" class="gem-btn"&gt;&lt;/circle&gt;<br/>
+         &lt;line x1="6.666666666666667" y1="20" x2="33.333333333333336" y2="20" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+         &lt;line style="display:block" x1="20" y1="6.666666666666667" x2="20" y2="33.333333333333336" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g transform="matrix(1,0,0,1,2460,1180)" data-btn-id="14" data-btn-action="expColl"&gt;<br/>
+         &lt;circle cx="20" cy="20" r="20" class="gem-btn"&gt;&lt;/circle&gt;<br/>
+         &lt;line x1="6.666666666666667" y1="20" x2="33.333333333333336" y2="20" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+         &lt;line style="display:block" x1="20" y1="6.666666666666667" x2="20" y2="33.333333333333336" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g transform="matrix(1,0,0,1,2460,1180)" data-btn-id="14" data-btn-action="expColl"&gt;<br/>
+         &lt;circle cx="20" cy="20" r="20" class="gem-btn"&gt;&lt;/circle&gt;<br/>
+         &lt;line x1="6.666666666666667" y1="20" x2="33.333333333333336" y2="20" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+         &lt;line style="display:block" x1="20" y1="6.666666666666667" x2="20" y2="33.333333333333336" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g transform="matrix(1,0,0,1,2460,1180)" data-btn-id="14" data-btn-action="expColl"&gt;<br/>
+         &lt;circle cx="20" cy="20" r="20" class="gem-btn"&gt;&lt;/circle&gt;<br/>
+         &lt;line x1="6.666666666666667" y1="20" x2="33.333333333333336" y2="20" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+         &lt;line style="display:block" x1="20" y1="6.666666666666667" x2="20" y2="33.333333333333336" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g transform="matrix(1,0,0,1,2460,1180)" data-btn-id="14" data-btn-action="expColl"&gt;<br/>
+         &lt;circle cx="20" cy="20" r="20" class="gem-btn"&gt;&lt;/circle&gt;<br/>
+         &lt;line x1="6.666666666666667" y1="20" x2="33.333333333333336" y2="20" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+         &lt;line style="display:block" x1="20" y1="6.666666666666667" x2="20" y2="33.333333333333336" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g transform="matrix(1,0,0,1,2460,1180)" data-btn-id="14" data-btn-action="expColl"&gt;<br/>
+         &lt;circle cx="20" cy="20" r="20" class="gem-btn"&gt;&lt;/circle&gt;<br/>
+         &lt;line x1="6.666666666666667" y1="20" x2="33.333333333333336" y2="20" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+         &lt;line style="display:block" x1="20" y1="6.666666666666667" x2="20" y2="33.333333333333336" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g transform="matrix(1,0,0,1,2460,1180)" data-btn-id="14" data-btn-action="expColl"&gt;<br/>
+         &lt;circle cx="20" cy="20" r="20" class="gem-btn"&gt;&lt;/circle&gt;<br/>
+         &lt;line x1="6.666666666666667" y1="20" x2="33.333333333333336" y2="20" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+         &lt;line style="display:block" x1="20" y1="6.666666666666667" x2="20" y2="33.333333333333336" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g transform="matrix(1,0,0,1,2460,1180)" data-btn-id="14" data-btn-action="expColl"&gt;<br/>
+         &lt;circle cx="20" cy="20" r="20" class="gem-btn"&gt;&lt;/circle&gt;<br/>
+         &lt;line x1="6.666666666666667" y1="20" x2="33.333333333333336" y2="20" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+         &lt;line style="display:block" x1="20" y1="6.666666666666667" x2="20" y2="33.333333333333336" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g transform="matrix(1,0,0,1,2460,1180)" data-btn-id="14" data-btn-action="expColl"&gt;<br/>
+         &lt;circle cx="20" cy="20" r="20" class="gem-btn"&gt;&lt;/circle&gt;<br/>
+         &lt;line x1="6.666666666666667" y1="20" x2="33.333333333333336" y2="20" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+         &lt;line style="display:block" x1="20" y1="6.666666666666667" x2="20" y2="33.333333333333336" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g transform="matrix(1,0,0,1,2460,1180)" data-btn-id="14" data-btn-action="expColl"&gt;<br/>
+         &lt;circle cx="20" cy="20" r="20" class="gem-btn"&gt;&lt;/circle&gt;<br/>
+         &lt;line x1="6.666666666666667" y1="20" x2="33.333333333333336" y2="20" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+         &lt;line style="display:block" x1="20" y1="6.666666666666667" x2="20" y2="33.333333333333336" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g transform="matrix(1,0,0,1,2460,1180)" data-btn-id="14" data-btn-action="expColl"&gt;<br/>
+         &lt;circle cx="20" cy="20" r="20" class="gem-btn"&gt;&lt;/circle&gt;<br/>
+         &lt;line x1="6.666666666666667" y1="20" x2="33.333333333333336" y2="20" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+         &lt;line style="display:block" x1="20" y1="6.666666666666667" x2="20" y2="33.333333333333336" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g transform="matrix(1,0,0,1,2460,1180)" data-btn-id="14" data-btn-action="expColl"&gt;<br/>
+         &lt;circle cx="20" cy="20" r="20" class="gem-btn"&gt;&lt;/circle&gt;<br/>
+         &lt;line x1="6.666666666666667" y1="20" x2="33.333333333333336" y2="20" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+         &lt;line style="display:block" x1="20" y1="6.666666666666667" x2="20" y2="33.333333333333336" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g transform="matrix(1,0,0,1,2460,1180)" data-btn-id="14" data-btn-action="expColl"&gt;<br/>
+         &lt;circle cx="20" cy="20" r="20" class="gem-btn"&gt;&lt;/circle&gt;<br/>
+         &lt;line x1="6.666666666666667" y1="20" x2="33.333333333333336" y2="20" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+         &lt;line style="display:block" x1="20" y1="6.666666666666667" x2="20" y2="33.333333333333336" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g transform="matrix(1,0,0,1,2460,1180)" data-btn-id="14" data-btn-action="expColl"&gt;<br/>
+         &lt;circle cx="20" cy="20" r="20" class="gem-btn"&gt;&lt;/circle&gt;<br/>
+         &lt;line x1="6.666666666666667" y1="20" x2="33.333333333333336" y2="20" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+         &lt;line style="display:block" x1="20" y1="6.666666666666667" x2="20" y2="33.333333333333336" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g transform="matrix(1,0,0,1,2460,1180)" data-btn-id="14" data-btn-action="expColl"&gt;<br/>
+         &lt;circle cx="20" cy="20" r="20" class="gem-btn"&gt;&lt;/circle&gt;<br/>
+         &lt;line x1="6.666666666666667" y1="20" x2="33.333333333333336" y2="20" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+         &lt;line style="display:block" x1="20" y1="6.666666666666667" x2="20" y2="33.333333333333336" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g transform="matrix(1,0,0,1,2460,1180)" data-btn-id="14" data-btn-action="expColl"&gt;<br/>
+         &lt;circle cx="20" cy="20" r="20" class="gem-btn"&gt;&lt;/circle&gt;<br/>
+         &lt;line x1="6.666666666666667" y1="20" x2="33.333333333333336" y2="20" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+         &lt;line style="display:block" x1="20" y1="6.666666666666667" x2="20" y2="33.333333333333336" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g transform="matrix(1,0,0,1,2460,1180)" data-btn-id="14" data-btn-action="expColl"&gt;<br/>
+         &lt;circle cx="20" cy="20" r="20" class="gem-btn"&gt;&lt;/circle&gt;<br/>
+         &lt;line x1="6.666666666666667" y1="20" x2="33.333333333333336" y2="20" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+         &lt;line style="display:block" x1="20" y1="6.666666666666667" x2="20" y2="33.333333333333336" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g data-node-id="16" class="gem-level-3  gem-gemOrgTheme gem-lightgreen" transform="matrix(1,0,0,1,2810,900)"&gt;<br/>
+         &lt;filter id="f1" x="0" y="0" width="200%" height="200%"&gt;<br/>
+          &lt;feoffset result="offOut" in="SourceAlpha" dx="5" dy="5"&gt;&lt;/feoffset&gt;<br/>
+          &lt;fegaussianblur result="blurOut" in="offOut" stddeviation="5"&gt;&lt;/fegaussianblur&gt;<br/>
+          &lt;feblend in="SourceGraphic" in2="blurOut" mode="normal"&gt;&lt;/feblend&gt;<br/>
+         &lt;/filter&gt;<br/>
+         &lt;rect x="0" y="0" height="300" width="270" rx="10" ry="10" class="gemOrgTheme-box" filter="url(#f1)"&gt;&lt;/rect&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-0" x="135" y="45"&gt;<br/>
+          Aprajita Kaur<br/>
+         &lt;/text&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-1" x="135" y="75"&gt;<br/>
+          Senior Business Analyst L1<br/>
+         &lt;/text&gt;<br/>
+         &lt;clippath id="gemOrgClip"&gt;<br/>
+          &lt;circle cx="140" cy="185" r="100"&gt;&lt;/circle&gt;<br/>
+         &lt;/clippath&gt;<br/>
+         &lt;image preserveaspectratio="xMidYMid slice" clip-path="url(#gemOrgClip)" xlink:href="http://mymisapi.geminisolutions.com:8700/Images/female-employee.png?v=4.7" x="40" y="85" height="200" width="200"&gt;&lt;/image&gt;<br/>
+         &lt;circle cx="55" cy="120" r="20" class="reporters" display="none"&gt;&lt;/circle&gt;<br/>
+         &lt;text class="reporters-text" display="none" text-anchor="middle" width="100" x="55" y="125"&gt;<br/>
+          0<br/>
+         &lt;/text&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;path data-link-id="16" class="link" d="M3090,1050 3105,1050 3105,1450 L3090,1450"&gt;&lt;/path&gt;<br/>
+        &lt;g data-node-id="18" class="gem-level-3 " transform="matrix(1,0,0,1,3120,900)"&gt;<br/>
+         &lt;filter id="f1" x="0" y="0" width="200%" height="200%"&gt;<br/>
+          &lt;feoffset result="offOut" in="SourceAlpha" dx="5" dy="5"&gt;&lt;/feoffset&gt;<br/>
+          &lt;fegaussianblur result="blurOut" in="offOut" stddeviation="5"&gt;&lt;/fegaussianblur&gt;<br/>
+          &lt;feblend in="SourceGraphic" in2="blurOut" mode="normal"&gt;&lt;/feblend&gt;<br/>
+         &lt;/filter&gt;<br/>
+         &lt;rect x="0" y="0" height="300" width="270" rx="10" ry="10" class="gemOrgTheme-box" filter="url(#f1)"&gt;&lt;/rect&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-0" x="135" y="45"&gt;<br/>
+          Aprajita Gupta<br/>
+         &lt;/text&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-1" x="135" y="75"&gt;<br/>
+          Technology Solutions Manag...<br/>
+         &lt;/text&gt;<br/>
+         &lt;clippath id="gemOrgClip"&gt;<br/>
+          &lt;circle cx="140" cy="185" r="100"&gt;&lt;/circle&gt;<br/>
+         &lt;/clippath&gt;<br/>
+         &lt;image preserveaspectratio="xMidYMid slice" clip-path="url(#gemOrgClip)" xlink:href="http://mymisapi.geminisolutions.com:8700/Images/female-employee.png?v=4.7" x="40" y="85" height="200" width="200"&gt;&lt;/image&gt;<br/>
+         &lt;circle cx="55" cy="120" r="20" class="reporters" display="block"&gt;&lt;/circle&gt;<br/>
+         &lt;text class="reporters-text" display="block" text-anchor="middle" width="100" x="55" y="125"&gt;<br/>
+          7<br/>
+         &lt;/text&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g transform="matrix(1,0,0,1,3240,1180)" data-btn-id="18" data-btn-action="expColl"&gt;<br/>
+         &lt;circle cx="20" cy="20" r="20" class="gem-btn"&gt;&lt;/circle&gt;<br/>
+         &lt;line x1="6.666666666666667" y1="20" x2="33.333333333333336" y2="20" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+         &lt;line style="display:block" x1="20" y1="6.666666666666667" x2="20" y2="33.333333333333336" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g transform="matrix(1,0,0,1,3240,1180)" data-btn-id="18" data-btn-action="expColl"&gt;<br/>
+         &lt;circle cx="20" cy="20" r="20" class="gem-btn"&gt;&lt;/circle&gt;<br/>
+         &lt;line x1="6.666666666666667" y1="20" x2="33.333333333333336" y2="20" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+         &lt;line style="display:block" x1="20" y1="6.666666666666667" x2="20" y2="33.333333333333336" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g transform="matrix(1,0,0,1,3240,1180)" data-btn-id="18" data-btn-action="expColl"&gt;<br/>
+         &lt;circle cx="20" cy="20" r="20" class="gem-btn"&gt;&lt;/circle&gt;<br/>
+         &lt;line x1="6.666666666666667" y1="20" x2="33.333333333333336" y2="20" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+         &lt;line style="display:block" x1="20" y1="6.666666666666667" x2="20" y2="33.333333333333336" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g data-node-id="35" class="gem-level-5 " transform="matrix(1,0,0,1,940,1700)"&gt;<br/>
+         &lt;filter id="f1" x="0" y="0" width="200%" height="200%"&gt;<br/>
+          &lt;feoffset result="offOut" in="SourceAlpha" dx="5" dy="5"&gt;&lt;/feoffset&gt;<br/>
+          &lt;fegaussianblur result="blurOut" in="offOut" stddeviation="5"&gt;&lt;/fegaussianblur&gt;<br/>
+          &lt;feblend in="SourceGraphic" in2="blurOut" mode="normal"&gt;&lt;/feblend&gt;<br/>
+         &lt;/filter&gt;<br/>
+         &lt;rect x="0" y="0" height="300" width="270" rx="10" ry="10" class="gemOrgTheme-box" filter="url(#f1)"&gt;&lt;/rect&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-0" x="135" y="45"&gt;<br/>
+          Kiran Malik<br/>
+         &lt;/text&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-1" x="135" y="75"&gt;<br/>
+          Technology Solutions Lead L2<br/>
+         &lt;/text&gt;<br/>
+         &lt;clippath id="gemOrgClip"&gt;<br/>
+          &lt;circle cx="140" cy="185" r="100"&gt;&lt;/circle&gt;<br/>
+         &lt;/clippath&gt;<br/>
+         &lt;image preserveaspectratio="xMidYMid slice" clip-path="url(#gemOrgClip)" xlink:href="http://mymisapi.geminisolutions.com:8700/Images/female-employee.png?v=4.7" x="40" y="85" height="200" width="200"&gt;&lt;/image&gt;<br/>
+         &lt;circle cx="55" cy="120" r="20" class="reporters" display="block"&gt;&lt;/circle&gt;<br/>
+         &lt;text class="reporters-text" display="block" text-anchor="middle" width="100" x="55" y="125"&gt;<br/>
+          5<br/>
+         &lt;/text&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g transform="matrix(1,0,0,1,1060,1980)" data-btn-id="35" data-btn-action="expColl"&gt;<br/>
+         &lt;circle cx="20" cy="20" r="20" class="gem-btn"&gt;&lt;/circle&gt;<br/>
+         &lt;line x1="6.666666666666667" y1="20" x2="33.333333333333336" y2="20" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+         &lt;line style="display:block" x1="20" y1="6.666666666666667" x2="20" y2="33.333333333333336" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g data-node-id="38" class="gem-level-3 " transform="matrix(1,0,0,1,3430,900)"&gt;<br/>
+         &lt;filter id="f1" x="0" y="0" width="200%" height="200%"&gt;<br/>
+          &lt;feoffset result="offOut" in="SourceAlpha" dx="5" dy="5"&gt;&lt;/feoffset&gt;<br/>
+          &lt;fegaussianblur result="blurOut" in="offOut" stddeviation="5"&gt;&lt;/fegaussianblur&gt;<br/>
+          &lt;feblend in="SourceGraphic" in2="blurOut" mode="normal"&gt;&lt;/feblend&gt;<br/>
+         &lt;/filter&gt;<br/>
+         &lt;rect x="0" y="0" height="300" width="270" rx="10" ry="10" class="gemOrgTheme-box" filter="url(#f1)"&gt;&lt;/rect&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-0" x="135" y="45"&gt;<br/>
+          Ritika Jain<br/>
+         &lt;/text&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-1" x="135" y="75"&gt;<br/>
+          Assistant Vice President<br/>
+         &lt;/text&gt;<br/>
+         &lt;clippath id="gemOrgClip"&gt;<br/>
+          &lt;circle cx="140" cy="185" r="100"&gt;&lt;/circle&gt;<br/>
+         &lt;/clippath&gt;<br/>
+         &lt;image preserveaspectratio="xMidYMid slice" clip-path="url(#gemOrgClip)" xlink:href="http://mymisapi.geminisolutions.com:8700/Images/female-employee.png?v=4.7" x="40" y="85" height="200" width="200"&gt;&lt;/image&gt;<br/>
+         &lt;circle cx="55" cy="120" r="20" class="reporters" display="block"&gt;&lt;/circle&gt;<br/>
+         &lt;text class="reporters-text" display="block" text-anchor="middle" width="100" x="55" y="125"&gt;<br/>
+          17<br/>
+         &lt;/text&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g transform="matrix(1,0,0,1,3550,1180)" data-btn-id="38" data-btn-action="expColl"&gt;<br/>
+         &lt;circle cx="20" cy="20" r="20" class="gem-btn"&gt;&lt;/circle&gt;<br/>
+         &lt;line x1="6.666666666666667" y1="20" x2="33.333333333333336" y2="20" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+         &lt;line style="display:block" x1="20" y1="6.666666666666667" x2="20" y2="33.333333333333336" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g transform="matrix(1,0,0,1,3550,1180)" data-btn-id="38" data-btn-action="expColl"&gt;<br/>
+         &lt;circle cx="20" cy="20" r="20" class="gem-btn"&gt;&lt;/circle&gt;<br/>
+         &lt;line x1="6.666666666666667" y1="20" x2="33.333333333333336" y2="20" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+         &lt;line style="display:block" x1="20" y1="6.666666666666667" x2="20" y2="33.333333333333336" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g transform="matrix(1,0,0,1,3550,1180)" data-btn-id="38" data-btn-action="expColl"&gt;<br/>
+         &lt;circle cx="20" cy="20" r="20" class="gem-btn"&gt;&lt;/circle&gt;<br/>
+         &lt;line x1="6.666666666666667" y1="20" x2="33.333333333333336" y2="20" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+         &lt;line style="display:block" x1="20" y1="6.666666666666667" x2="20" y2="33.333333333333336" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g transform="matrix(1,0,0,1,3550,1180)" data-btn-id="38" data-btn-action="expColl"&gt;<br/>
+         &lt;circle cx="20" cy="20" r="20" class="gem-btn"&gt;&lt;/circle&gt;<br/>
+         &lt;line x1="6.666666666666667" y1="20" x2="33.333333333333336" y2="20" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+         &lt;line style="display:block" x1="20" y1="6.666666666666667" x2="20" y2="33.333333333333336" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g data-node-id="42" class="gem-level-3 " transform="matrix(1,0,0,1,3740,900)"&gt;<br/>
+         &lt;filter id="f1" x="0" y="0" width="200%" height="200%"&gt;<br/>
+          &lt;feoffset result="offOut" in="SourceAlpha" dx="5" dy="5"&gt;&lt;/feoffset&gt;<br/>
+          &lt;fegaussianblur result="blurOut" in="offOut" stddeviation="5"&gt;&lt;/fegaussianblur&gt;<br/>
+          &lt;feblend in="SourceGraphic" in2="blurOut" mode="normal"&gt;&lt;/feblend&gt;<br/>
+         &lt;/filter&gt;<br/>
+         &lt;rect x="0" y="0" height="300" width="270" rx="10" ry="10" class="gemOrgTheme-box" filter="url(#f1)"&gt;&lt;/rect&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-0" x="135" y="45"&gt;<br/>
+          Priyanka Gubrele<br/>
+         &lt;/text&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-1" x="135" y="75"&gt;<br/>
+          Assistant Vice President<br/>
+         &lt;/text&gt;<br/>
+         &lt;clippath id="gemOrgClip"&gt;<br/>
+          &lt;circle cx="140" cy="185" r="100"&gt;&lt;/circle&gt;<br/>
+         &lt;/clippath&gt;<br/>
+         &lt;image preserveaspectratio="xMidYMid slice" clip-path="url(#gemOrgClip)" xlink:href="http://mymisapi.geminisolutions.com:8700/Images/female-employee.png?v=4.7" x="40" y="85" height="200" width="200"&gt;&lt;/image&gt;<br/>
+         &lt;circle cx="55" cy="120" r="20" class="reporters" display="block"&gt;&lt;/circle&gt;<br/>
+         &lt;text class="reporters-text" display="block" text-anchor="middle" width="100" x="55" y="125"&gt;<br/>
+          3<br/>
+         &lt;/text&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g transform="matrix(1,0,0,1,3860,1180)" data-btn-id="42" data-btn-action="expColl"&gt;<br/>
+         &lt;circle cx="20" cy="20" r="20" class="gem-btn"&gt;&lt;/circle&gt;<br/>
+         &lt;line x1="6.666666666666667" y1="20" x2="33.333333333333336" y2="20" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+         &lt;line style="display:block" x1="20" y1="6.666666666666667" x2="20" y2="33.333333333333336" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g data-node-id="43" class="gem-level-2 " transform="matrix(1,0,0,1,620,500)"&gt;<br/>
+         &lt;filter id="f1" x="0" y="0" width="200%" height="200%"&gt;<br/>
+          &lt;feoffset result="offOut" in="SourceAlpha" dx="5" dy="5"&gt;&lt;/feoffset&gt;<br/>
+          &lt;fegaussianblur result="blurOut" in="offOut" stddeviation="5"&gt;&lt;/fegaussianblur&gt;<br/>
+          &lt;feblend in="SourceGraphic" in2="blurOut" mode="normal"&gt;&lt;/feblend&gt;<br/>
+         &lt;/filter&gt;<br/>
+         &lt;rect x="0" y="0" height="300" width="270" rx="10" ry="10" class="gemOrgTheme-box" filter="url(#f1)"&gt;&lt;/rect&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-0" x="135" y="45"&gt;<br/>
+          Anil Pahal<br/>
+         &lt;/text&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-1" x="135" y="75"&gt;<br/>
+          Chief Information Officer<br/>
+         &lt;/text&gt;<br/>
+         &lt;clippath id="gemOrgClip"&gt;<br/>
+          &lt;circle cx="140" cy="185" r="100"&gt;&lt;/circle&gt;<br/>
+         &lt;/clippath&gt;<br/>
+         &lt;image preserveaspectratio="xMidYMid slice" clip-path="url(#gemOrgClip)" xlink:href="http://mymisapi.geminisolutions.com:8700/Images/male-employee.png?v=4.7" x="40" y="85" height="200" width="200"&gt;&lt;/image&gt;<br/>
+         &lt;circle cx="55" cy="120" r="20" class="reporters" display="block"&gt;&lt;/circle&gt;<br/>
+         &lt;text class="reporters-text" display="block" text-anchor="middle" width="100" x="55" y="125"&gt;<br/>
+          5<br/>
+         &lt;/text&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;path data-link-id="43" class="link" d="M760,800 760,850 140,850 L140,900"&gt;&lt;/path&gt;<br/>
+        &lt;g transform="matrix(1,0,0,1,740,780)" data-btn-id="43" data-btn-action="expColl"&gt;<br/>
+         &lt;circle cx="20" cy="20" r="20" class="gem-btn"&gt;&lt;/circle&gt;<br/>
+         &lt;line x1="6.666666666666667" y1="20" x2="33.333333333333336" y2="20" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+         &lt;line style="display:none" x1="20" y1="6.666666666666667" x2="20" y2="33.333333333333336" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;path data-link-id="43" class="link" d="M760,800 760,850 450,850 L450,900"&gt;&lt;/path&gt;<br/>
+        &lt;g transform="matrix(1,0,0,1,740,780)" data-btn-id="43" data-btn-action="expColl"&gt;<br/>
+         &lt;circle cx="20" cy="20" r="20" class="gem-btn"&gt;&lt;/circle&gt;<br/>
+         &lt;line x1="6.666666666666667" y1="20" x2="33.333333333333336" y2="20" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+         &lt;line style="display:none" x1="20" y1="6.666666666666667" x2="20" y2="33.333333333333336" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;path data-link-id="43" class="link" d="M760,800 760,850 760,850 L760,900"&gt;&lt;/path&gt;<br/>
+        &lt;g transform="matrix(1,0,0,1,740,780)" data-btn-id="43" data-btn-action="expColl"&gt;<br/>
+         &lt;circle cx="20" cy="20" r="20" class="gem-btn"&gt;&lt;/circle&gt;<br/>
+         &lt;line x1="6.666666666666667" y1="20" x2="33.333333333333336" y2="20" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+         &lt;line style="display:none" x1="20" y1="6.666666666666667" x2="20" y2="33.333333333333336" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;path data-link-id="43" class="link" d="M760,800 760,850 1070,850 L1070,900"&gt;&lt;/path&gt;<br/>
+        &lt;g transform="matrix(1,0,0,1,740,780)" data-btn-id="43" data-btn-action="expColl"&gt;<br/>
+         &lt;circle cx="20" cy="20" r="20" class="gem-btn"&gt;&lt;/circle&gt;<br/>
+         &lt;line x1="6.666666666666667" y1="20" x2="33.333333333333336" y2="20" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+         &lt;line style="display:none" x1="20" y1="6.666666666666667" x2="20" y2="33.333333333333336" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;path data-link-id="43" class="link" d="M760,800 760,850 1380,850 L1380,900"&gt;&lt;/path&gt;<br/>
+        &lt;g transform="matrix(1,0,0,1,740,780)" data-btn-id="43" data-btn-action="expColl"&gt;<br/>
+         &lt;circle cx="20" cy="20" r="20" class="gem-btn"&gt;&lt;/circle&gt;<br/>
+         &lt;line x1="6.666666666666667" y1="20" x2="33.333333333333336" y2="20" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+         &lt;line style="display:none" x1="20" y1="6.666666666666667" x2="20" y2="33.333333333333336" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g data-node-id="52" class="gem-level-2 " transform="matrix(1,0,0,1,3735,500)"&gt;<br/>
+         &lt;filter id="f1" x="0" y="0" width="200%" height="200%"&gt;<br/>
+          &lt;feoffset result="offOut" in="SourceAlpha" dx="5" dy="5"&gt;&lt;/feoffset&gt;<br/>
+          &lt;fegaussianblur result="blurOut" in="offOut" stddeviation="5"&gt;&lt;/fegaussianblur&gt;<br/>
+          &lt;feblend in="SourceGraphic" in2="blurOut" mode="normal"&gt;&lt;/feblend&gt;<br/>
+         &lt;/filter&gt;<br/>
+         &lt;rect x="0" y="0" height="300" width="270" rx="10" ry="10" class="gemOrgTheme-box" filter="url(#f1)"&gt;&lt;/rect&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-0" x="135" y="45"&gt;<br/>
+          Anil Singh<br/>
+         &lt;/text&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-1" x="135" y="75"&gt;<br/>
+          Managing Director<br/>
+         &lt;/text&gt;<br/>
+         &lt;clippath id="gemOrgClip"&gt;<br/>
+          &lt;circle cx="140" cy="185" r="100"&gt;&lt;/circle&gt;<br/>
+         &lt;/clippath&gt;<br/>
+         &lt;image preserveaspectratio="xMidYMid slice" clip-path="url(#gemOrgClip)" xlink:href="http://mymisapi.geminisolutions.com:8700/Images/male-employee.png?v=4.7" x="40" y="85" height="200" width="200"&gt;&lt;/image&gt;<br/>
+         &lt;circle cx="55" cy="120" r="20" class="reporters" display="block"&gt;&lt;/circle&gt;<br/>
+         &lt;text class="reporters-text" display="block" text-anchor="middle" width="100" x="55" y="125"&gt;<br/>
+          16<br/>
+         &lt;/text&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;path data-link-id="52" class="link" d="M3875,800 3875,850 1700,850 L1700,900"&gt;&lt;/path&gt;<br/>
+        &lt;g transform="matrix(1,0,0,1,3855,780)" data-btn-id="52" data-btn-action="expColl"&gt;<br/>
+         &lt;circle cx="20" cy="20" r="20" class="gem-btn"&gt;&lt;/circle&gt;<br/>
+         &lt;line x1="6.666666666666667" y1="20" x2="33.333333333333336" y2="20" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+         &lt;line style="display:none" x1="20" y1="6.666666666666667" x2="20" y2="33.333333333333336" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;path data-link-id="52" class="link" d="M3875,800 3875,850 2010,850 L2010,900"&gt;&lt;/path&gt;<br/>
+        &lt;g transform="matrix(1,0,0,1,3855,780)" data-btn-id="52" data-btn-action="expColl"&gt;<br/>
+         &lt;circle cx="20" cy="20" r="20" class="gem-btn"&gt;&lt;/circle&gt;<br/>
+         &lt;line x1="6.666666666666667" y1="20" x2="33.333333333333336" y2="20" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+         &lt;line style="display:none" x1="20" y1="6.666666666666667" x2="20" y2="33.333333333333336" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;path data-link-id="52" class="link" d="M3875,800 3875,850 2480,850 L2480,900"&gt;&lt;/path&gt;<br/>
+        &lt;g transform="matrix(1,0,0,1,3855,780)" data-btn-id="52" data-btn-action="expColl"&gt;<br/>
+         &lt;circle cx="20" cy="20" r="20" class="gem-btn"&gt;&lt;/circle&gt;<br/>
+         &lt;line x1="6.666666666666667" y1="20" x2="33.333333333333336" y2="20" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+         &lt;line style="display:none" x1="20" y1="6.666666666666667" x2="20" y2="33.333333333333336" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;path data-link-id="52" class="link" d="M3875,800 3875,850 3105,850 3105,1050 L3090,1050"&gt;&lt;/path&gt;<br/>
+        &lt;g transform="matrix(1,0,0,1,3855,780)" data-btn-id="52" data-btn-action="expColl"&gt;<br/>
+         &lt;circle cx="20" cy="20" r="20" class="gem-btn"&gt;&lt;/circle&gt;<br/>
+         &lt;line x1="6.666666666666667" y1="20" x2="33.333333333333336" y2="20" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+         &lt;line style="display:none" x1="20" y1="6.666666666666667" x2="20" y2="33.333333333333336" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;path data-link-id="52" class="link" d="M3875,800 3875,850 3260,850 L3260,900"&gt;&lt;/path&gt;<br/>
+        &lt;g transform="matrix(1,0,0,1,3855,780)" data-btn-id="52" data-btn-action="expColl"&gt;<br/>
+         &lt;circle cx="20" cy="20" r="20" class="gem-btn"&gt;&lt;/circle&gt;<br/>
+         &lt;line x1="6.666666666666667" y1="20" x2="33.333333333333336" y2="20" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+         &lt;line style="display:none" x1="20" y1="6.666666666666667" x2="20" y2="33.333333333333336" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;path data-link-id="52" class="link" d="M3875,800 3875,850 3570,850 L3570,900"&gt;&lt;/path&gt;<br/>
+        &lt;g transform="matrix(1,0,0,1,3855,780)" data-btn-id="52" data-btn-action="expColl"&gt;<br/>
+         &lt;circle cx="20" cy="20" r="20" class="gem-btn"&gt;&lt;/circle&gt;<br/>
+         &lt;line x1="6.666666666666667" y1="20" x2="33.333333333333336" y2="20" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+         &lt;line style="display:none" x1="20" y1="6.666666666666667" x2="20" y2="33.333333333333336" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;path data-link-id="52" class="link" d="M3875,800 3875,850 3880,850 L3880,900"&gt;&lt;/path&gt;<br/>
+        &lt;g transform="matrix(1,0,0,1,3855,780)" data-btn-id="52" data-btn-action="expColl"&gt;<br/>
+         &lt;circle cx="20" cy="20" r="20" class="gem-btn"&gt;&lt;/circle&gt;<br/>
+         &lt;line x1="6.666666666666667" y1="20" x2="33.333333333333336" y2="20" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+         &lt;line style="display:none" x1="20" y1="6.666666666666667" x2="20" y2="33.333333333333336" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;path data-link-id="52" class="link" d="M3875,800 3875,850 4190,850 L4190,900"&gt;&lt;/path&gt;<br/>
+        &lt;g transform="matrix(1,0,0,1,3855,780)" data-btn-id="52" data-btn-action="expColl"&gt;<br/>
+         &lt;circle cx="20" cy="20" r="20" class="gem-btn"&gt;&lt;/circle&gt;<br/>
+         &lt;line x1="6.666666666666667" y1="20" x2="33.333333333333336" y2="20" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+         &lt;line style="display:none" x1="20" y1="6.666666666666667" x2="20" y2="33.333333333333336" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;path data-link-id="52" class="link" d="M3875,800 3875,850 4500,850 L4500,900"&gt;&lt;/path&gt;<br/>
+        &lt;g transform="matrix(1,0,0,1,3855,780)" data-btn-id="52" data-btn-action="expColl"&gt;<br/>
+         &lt;circle cx="20" cy="20" r="20" class="gem-btn"&gt;&lt;/circle&gt;<br/>
+         &lt;line x1="6.666666666666667" y1="20" x2="33.333333333333336" y2="20" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+         &lt;line style="display:none" x1="20" y1="6.666666666666667" x2="20" y2="33.333333333333336" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;path data-link-id="52" class="link" d="M3875,800 3875,850 4810,850 L4810,900"&gt;&lt;/path&gt;<br/>
+        &lt;g transform="matrix(1,0,0,1,3855,780)" data-btn-id="52" data-btn-action="expColl"&gt;<br/>
+         &lt;circle cx="20" cy="20" r="20" class="gem-btn"&gt;&lt;/circle&gt;<br/>
+         &lt;line x1="6.666666666666667" y1="20" x2="33.333333333333336" y2="20" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+         &lt;line style="display:none" x1="20" y1="6.666666666666667" x2="20" y2="33.333333333333336" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;path data-link-id="52" class="link" d="M3875,800 3875,850 5120,850 L5120,900"&gt;&lt;/path&gt;<br/>
+        &lt;g transform="matrix(1,0,0,1,3855,780)" data-btn-id="52" data-btn-action="expColl"&gt;<br/>
+         &lt;circle cx="20" cy="20" r="20" class="gem-btn"&gt;&lt;/circle&gt;<br/>
+         &lt;line x1="6.666666666666667" y1="20" x2="33.333333333333336" y2="20" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+         &lt;line style="display:none" x1="20" y1="6.666666666666667" x2="20" y2="33.333333333333336" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;path data-link-id="52" class="link" d="M3875,800 3875,850 5430,850 L5430,900"&gt;&lt;/path&gt;<br/>
+        &lt;g transform="matrix(1,0,0,1,3855,780)" data-btn-id="52" data-btn-action="expColl"&gt;<br/>
+         &lt;circle cx="20" cy="20" r="20" class="gem-btn"&gt;&lt;/circle&gt;<br/>
+         &lt;line x1="6.666666666666667" y1="20" x2="33.333333333333336" y2="20" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+         &lt;line style="display:none" x1="20" y1="6.666666666666667" x2="20" y2="33.333333333333336" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;path data-link-id="52" class="link" d="M3875,800 3875,850 5740,850 L5740,900"&gt;&lt;/path&gt;<br/>
+        &lt;g transform="matrix(1,0,0,1,3855,780)" data-btn-id="52" data-btn-action="expColl"&gt;<br/>
+         &lt;circle cx="20" cy="20" r="20" class="gem-btn"&gt;&lt;/circle&gt;<br/>
+         &lt;line x1="6.666666666666667" y1="20" x2="33.333333333333336" y2="20" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+         &lt;line style="display:none" x1="20" y1="6.666666666666667" x2="20" y2="33.333333333333336" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;path data-link-id="52" class="link" d="M3875,800 3875,850 6050,850 L6050,900"&gt;&lt;/path&gt;<br/>
+        &lt;g transform="matrix(1,0,0,1,3855,780)" data-btn-id="52" data-btn-action="expColl"&gt;<br/>
+         &lt;circle cx="20" cy="20" r="20" class="gem-btn"&gt;&lt;/circle&gt;<br/>
+         &lt;line x1="6.666666666666667" y1="20" x2="33.333333333333336" y2="20" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+         &lt;line style="display:none" x1="20" y1="6.666666666666667" x2="20" y2="33.333333333333336" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g data-node-id="58" class="gem-level-4 " transform="matrix(1,0,0,1,1250,1300)"&gt;<br/>
+         &lt;filter id="f1" x="0" y="0" width="200%" height="200%"&gt;<br/>
+          &lt;feoffset result="offOut" in="SourceAlpha" dx="5" dy="5"&gt;&lt;/feoffset&gt;<br/>
+          &lt;fegaussianblur result="blurOut" in="offOut" stddeviation="5"&gt;&lt;/fegaussianblur&gt;<br/>
+          &lt;feblend in="SourceGraphic" in2="blurOut" mode="normal"&gt;&lt;/feblend&gt;<br/>
+         &lt;/filter&gt;<br/>
+         &lt;rect x="0" y="0" height="300" width="270" rx="10" ry="10" class="gemOrgTheme-box" filter="url(#f1)"&gt;&lt;/rect&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-0" x="135" y="45"&gt;<br/>
+          Abhinav Srivastava<br/>
+         &lt;/text&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-1" x="135" y="75"&gt;<br/>
+          Technology Solutions Manag...<br/>
+         &lt;/text&gt;<br/>
+         &lt;clippath id="gemOrgClip"&gt;<br/>
+          &lt;circle cx="140" cy="185" r="100"&gt;&lt;/circle&gt;<br/>
+         &lt;/clippath&gt;<br/>
+         &lt;image preserveaspectratio="xMidYMid slice" clip-path="url(#gemOrgClip)" xlink:href="http://mymisapi.geminisolutions.com:8700/Images/male-employee.png?v=4.7" x="40" y="85" height="200" width="200"&gt;&lt;/image&gt;<br/>
+         &lt;circle cx="55" cy="120" r="20" class="reporters" display="block"&gt;&lt;/circle&gt;<br/>
+         &lt;text class="reporters-text" display="block" text-anchor="middle" width="100" x="55" y="125"&gt;<br/>
+          25<br/>
+         &lt;/text&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;path data-link-id="58" class="link" d="M1390,1600 1390,1650 1080,1650 L1080,1700"&gt;&lt;/path&gt;<br/>
+        &lt;g transform="matrix(1,0,0,1,1370,1580)" data-btn-id="58" data-btn-action="expColl"&gt;<br/>
+         &lt;circle cx="20" cy="20" r="20" class="gem-btn"&gt;&lt;/circle&gt;<br/>
+         &lt;line x1="6.666666666666667" y1="20" x2="33.333333333333336" y2="20" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+         &lt;line style="display:none" x1="20" y1="6.666666666666667" x2="20" y2="33.333333333333336" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;path data-link-id="58" class="link" d="M1390,1600 1390,1650 1390,1650 L1390,1700"&gt;&lt;/path&gt;<br/>
+        &lt;g transform="matrix(1,0,0,1,1370,1580)" data-btn-id="58" data-btn-action="expColl"&gt;<br/>
+         &lt;circle cx="20" cy="20" r="20" class="gem-btn"&gt;&lt;/circle&gt;<br/>
+         &lt;line x1="6.666666666666667" y1="20" x2="33.333333333333336" y2="20" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+         &lt;line style="display:none" x1="20" y1="6.666666666666667" x2="20" y2="33.333333333333336" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;path data-link-id="58" class="link" d="M1390,1600 1390,1650 1855,1650 1855,1850 L1840,1850"&gt;&lt;/path&gt;<br/>
+        &lt;g transform="matrix(1,0,0,1,1370,1580)" data-btn-id="58" data-btn-action="expColl"&gt;<br/>
+         &lt;circle cx="20" cy="20" r="20" class="gem-btn"&gt;&lt;/circle&gt;<br/>
+         &lt;line x1="6.666666666666667" y1="20" x2="33.333333333333336" y2="20" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+         &lt;line style="display:none" x1="20" y1="6.666666666666667" x2="20" y2="33.333333333333336" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g data-node-id="59" class="gem-level-3 " transform="matrix(1,0,0,1,4050,900)"&gt;<br/>
+         &lt;filter id="f1" x="0" y="0" width="200%" height="200%"&gt;<br/>
+          &lt;feoffset result="offOut" in="SourceAlpha" dx="5" dy="5"&gt;&lt;/feoffset&gt;<br/>
+          &lt;fegaussianblur result="blurOut" in="offOut" stddeviation="5"&gt;&lt;/fegaussianblur&gt;<br/>
+          &lt;feblend in="SourceGraphic" in2="blurOut" mode="normal"&gt;&lt;/feblend&gt;<br/>
+         &lt;/filter&gt;<br/>
+         &lt;rect x="0" y="0" height="300" width="270" rx="10" ry="10" class="gemOrgTheme-box" filter="url(#f1)"&gt;&lt;/rect&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-0" x="135" y="45"&gt;<br/>
+          Pooja Sagar<br/>
+         &lt;/text&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-1" x="135" y="75"&gt;<br/>
+          Vice President<br/>
+         &lt;/text&gt;<br/>
+         &lt;clippath id="gemOrgClip"&gt;<br/>
+          &lt;circle cx="140" cy="185" r="100"&gt;&lt;/circle&gt;<br/>
+         &lt;/clippath&gt;<br/>
+         &lt;image preserveaspectratio="xMidYMid slice" clip-path="url(#gemOrgClip)" xlink:href="http://mymisapi.geminisolutions.com:8700/Images/female-employee.png?v=4.7" x="40" y="85" height="200" width="200"&gt;&lt;/image&gt;<br/>
+         &lt;circle cx="55" cy="120" r="20" class="reporters" display="block"&gt;&lt;/circle&gt;<br/>
+         &lt;text class="reporters-text" display="block" text-anchor="middle" width="100" x="55" y="125"&gt;<br/>
+          10<br/>
+         &lt;/text&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g transform="matrix(1,0,0,1,4170,1180)" data-btn-id="59" data-btn-action="expColl"&gt;<br/>
+         &lt;circle cx="20" cy="20" r="20" class="gem-btn"&gt;&lt;/circle&gt;<br/>
+         &lt;line x1="6.666666666666667" y1="20" x2="33.333333333333336" y2="20" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+         &lt;line style="display:block" x1="20" y1="6.666666666666667" x2="20" y2="33.333333333333336" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g transform="matrix(1,0,0,1,4170,1180)" data-btn-id="59" data-btn-action="expColl"&gt;<br/>
+         &lt;circle cx="20" cy="20" r="20" class="gem-btn"&gt;&lt;/circle&gt;<br/>
+         &lt;line x1="6.666666666666667" y1="20" x2="33.333333333333336" y2="20" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+         &lt;line style="display:block" x1="20" y1="6.666666666666667" x2="20" y2="33.333333333333336" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g data-node-id="64" class="gem-level-4 " transform="matrix(1,0,0,1,1560,1300)"&gt;<br/>
+         &lt;filter id="f1" x="0" y="0" width="200%" height="200%"&gt;<br/>
+          &lt;feoffset result="offOut" in="SourceAlpha" dx="5" dy="5"&gt;&lt;/feoffset&gt;<br/>
+          &lt;fegaussianblur result="blurOut" in="offOut" stddeviation="5"&gt;&lt;/fegaussianblur&gt;<br/>
+          &lt;feblend in="SourceGraphic" in2="blurOut" mode="normal"&gt;&lt;/feblend&gt;<br/>
+         &lt;/filter&gt;<br/>
+         &lt;rect x="0" y="0" height="300" width="270" rx="10" ry="10" class="gemOrgTheme-box" filter="url(#f1)"&gt;&lt;/rect&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-0" x="135" y="45"&gt;<br/>
+          Richa Khatri<br/>
+         &lt;/text&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-1" x="135" y="75"&gt;<br/>
+          Assistant Vice President<br/>
+         &lt;/text&gt;<br/>
+         &lt;clippath id="gemOrgClip"&gt;<br/>
+          &lt;circle cx="140" cy="185" r="100"&gt;&lt;/circle&gt;<br/>
+         &lt;/clippath&gt;<br/>
+         &lt;image preserveaspectratio="xMidYMid slice" clip-path="url(#gemOrgClip)" xlink:href="http://mymisapi.geminisolutions.com:8700/Images/female-employee.png?v=4.7" x="40" y="85" height="200" width="200"&gt;&lt;/image&gt;<br/>
+         &lt;circle cx="55" cy="120" r="20" class="reporters" display="block"&gt;&lt;/circle&gt;<br/>
+         &lt;text class="reporters-text" display="block" text-anchor="middle" width="100" x="55" y="125"&gt;<br/>
+          51<br/>
+         &lt;/text&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g transform="matrix(1,0,0,1,1680,1580)" data-btn-id="64" data-btn-action="expColl"&gt;<br/>
+         &lt;circle cx="20" cy="20" r="20" class="gem-btn"&gt;&lt;/circle&gt;<br/>
+         &lt;line x1="6.666666666666667" y1="20" x2="33.333333333333336" y2="20" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+         &lt;line style="display:block" x1="20" y1="6.666666666666667" x2="20" y2="33.333333333333336" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g transform="matrix(1,0,0,1,1680,1580)" data-btn-id="64" data-btn-action="expColl"&gt;<br/>
+         &lt;circle cx="20" cy="20" r="20" class="gem-btn"&gt;&lt;/circle&gt;<br/>
+         &lt;line x1="6.666666666666667" y1="20" x2="33.333333333333336" y2="20" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+         &lt;line style="display:block" x1="20" y1="6.666666666666667" x2="20" y2="33.333333333333336" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g data-node-id="68" class="gem-level-4 " transform="matrix(1,0,0,1,1870,1300)"&gt;<br/>
+         &lt;filter id="f1" x="0" y="0" width="200%" height="200%"&gt;<br/>
+          &lt;feoffset result="offOut" in="SourceAlpha" dx="5" dy="5"&gt;&lt;/feoffset&gt;<br/>
+          &lt;fegaussianblur result="blurOut" in="offOut" stddeviation="5"&gt;&lt;/fegaussianblur&gt;<br/>
+          &lt;feblend in="SourceGraphic" in2="blurOut" mode="normal"&gt;&lt;/feblend&gt;<br/>
+         &lt;/filter&gt;<br/>
+         &lt;rect x="0" y="0" height="300" width="270" rx="10" ry="10" class="gemOrgTheme-box" filter="url(#f1)"&gt;&lt;/rect&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-0" x="135" y="45"&gt;<br/>
+          Akshi Khattar<br/>
+         &lt;/text&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-1" x="135" y="75"&gt;<br/>
+          Assistant Vice President<br/>
+         &lt;/text&gt;<br/>
+         &lt;clippath id="gemOrgClip"&gt;<br/>
+          &lt;circle cx="140" cy="185" r="100"&gt;&lt;/circle&gt;<br/>
+         &lt;/clippath&gt;<br/>
+         &lt;image preserveaspectratio="xMidYMid slice" clip-path="url(#gemOrgClip)" xlink:href="http://mymisapi.geminisolutions.com:8700/Images/female-employee.png?v=4.7" x="40" y="85" height="200" width="200"&gt;&lt;/image&gt;<br/>
+         &lt;circle cx="55" cy="120" r="20" class="reporters" display="block"&gt;&lt;/circle&gt;<br/>
+         &lt;text class="reporters-text" display="block" text-anchor="middle" width="100" x="55" y="125"&gt;<br/>
+          7<br/>
+         &lt;/text&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g transform="matrix(1,0,0,1,1990,1580)" data-btn-id="68" data-btn-action="expColl"&gt;<br/>
+         &lt;circle cx="20" cy="20" r="20" class="gem-btn"&gt;&lt;/circle&gt;<br/>
+         &lt;line x1="6.666666666666667" y1="20" x2="33.333333333333336" y2="20" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+         &lt;line style="display:block" x1="20" y1="6.666666666666667" x2="20" y2="33.333333333333336" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g transform="matrix(1,0,0,1,1990,1580)" data-btn-id="68" data-btn-action="expColl"&gt;<br/>
+         &lt;circle cx="20" cy="20" r="20" class="gem-btn"&gt;&lt;/circle&gt;<br/>
+         &lt;line x1="6.666666666666667" y1="20" x2="33.333333333333336" y2="20" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+         &lt;line style="display:block" x1="20" y1="6.666666666666667" x2="20" y2="33.333333333333336" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g transform="matrix(1,0,0,1,1990,1580)" data-btn-id="68" data-btn-action="expColl"&gt;<br/>
+         &lt;circle cx="20" cy="20" r="20" class="gem-btn"&gt;&lt;/circle&gt;<br/>
+         &lt;line x1="6.666666666666667" y1="20" x2="33.333333333333336" y2="20" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+         &lt;line style="display:block" x1="20" y1="6.666666666666667" x2="20" y2="33.333333333333336" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g data-node-id="71" class="gem-level-3 " transform="matrix(1,0,0,1,4360,900)"&gt;<br/>
+         &lt;filter id="f1" x="0" y="0" width="200%" height="200%"&gt;<br/>
+          &lt;feoffset result="offOut" in="SourceAlpha" dx="5" dy="5"&gt;&lt;/feoffset&gt;<br/>
+          &lt;fegaussianblur result="blurOut" in="offOut" stddeviation="5"&gt;&lt;/fegaussianblur&gt;<br/>
+          &lt;feblend in="SourceGraphic" in2="blurOut" mode="normal"&gt;&lt;/feblend&gt;<br/>
+         &lt;/filter&gt;<br/>
+         &lt;rect x="0" y="0" height="300" width="270" rx="10" ry="10" class="gemOrgTheme-box" filter="url(#f1)"&gt;&lt;/rect&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-0" x="135" y="45"&gt;<br/>
+          Kritika Tayal<br/>
+         &lt;/text&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-1" x="135" y="75"&gt;<br/>
+          Manager HR L1<br/>
+         &lt;/text&gt;<br/>
+         &lt;clippath id="gemOrgClip"&gt;<br/>
+          &lt;circle cx="140" cy="185" r="100"&gt;&lt;/circle&gt;<br/>
+         &lt;/clippath&gt;<br/>
+         &lt;image preserveaspectratio="xMidYMid slice" clip-path="url(#gemOrgClip)" xlink:href="http://mymisapi.geminisolutions.com:8700/Images/female-employee.png?v=4.7" x="40" y="85" height="200" width="200"&gt;&lt;/image&gt;<br/>
+         &lt;circle cx="55" cy="120" r="20" class="reporters" display="block"&gt;&lt;/circle&gt;<br/>
+         &lt;text class="reporters-text" display="block" text-anchor="middle" width="100" x="55" y="125"&gt;<br/>
+          9<br/>
+         &lt;/text&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g transform="matrix(1,0,0,1,4480,1180)" data-btn-id="71" data-btn-action="expColl"&gt;<br/>
+         &lt;circle cx="20" cy="20" r="20" class="gem-btn"&gt;&lt;/circle&gt;<br/>
+         &lt;line x1="6.666666666666667" y1="20" x2="33.333333333333336" y2="20" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+         &lt;line style="display:block" x1="20" y1="6.666666666666667" x2="20" y2="33.333333333333336" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g data-node-id="81" class="gem-level-5 " transform="matrix(1,0,0,1,1250,1700)"&gt;<br/>
+         &lt;filter id="f1" x="0" y="0" width="200%" height="200%"&gt;<br/>
+          &lt;feoffset result="offOut" in="SourceAlpha" dx="5" dy="5"&gt;&lt;/feoffset&gt;<br/>
+          &lt;fegaussianblur result="blurOut" in="offOut" stddeviation="5"&gt;&lt;/fegaussianblur&gt;<br/>
+          &lt;feblend in="SourceGraphic" in2="blurOut" mode="normal"&gt;&lt;/feblend&gt;<br/>
+         &lt;/filter&gt;<br/>
+         &lt;rect x="0" y="0" height="300" width="270" rx="10" ry="10" class="gemOrgTheme-box" filter="url(#f1)"&gt;&lt;/rect&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-0" x="135" y="45"&gt;<br/>
+          Shruti Kukreja<br/>
+         &lt;/text&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-1" x="135" y="75"&gt;<br/>
+          Technology Solutions Lead L1<br/>
+         &lt;/text&gt;<br/>
+         &lt;clippath id="gemOrgClip"&gt;<br/>
+          &lt;circle cx="140" cy="185" r="100"&gt;&lt;/circle&gt;<br/>
+         &lt;/clippath&gt;<br/>
+         &lt;image preserveaspectratio="xMidYMid slice" clip-path="url(#gemOrgClip)" xlink:href="http://mymisapi.geminisolutions.com:8700/Images/female-employee.png?v=4.7" x="40" y="85" height="200" width="200"&gt;&lt;/image&gt;<br/>
+         &lt;circle cx="55" cy="120" r="20" class="reporters" display="block"&gt;&lt;/circle&gt;<br/>
+         &lt;text class="reporters-text" display="block" text-anchor="middle" width="100" x="55" y="125"&gt;<br/>
+          5<br/>
+         &lt;/text&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g transform="matrix(1,0,0,1,1370,1980)" data-btn-id="81" data-btn-action="expColl"&gt;<br/>
+         &lt;circle cx="20" cy="20" r="20" class="gem-btn"&gt;&lt;/circle&gt;<br/>
+         &lt;line x1="6.666666666666667" y1="20" x2="33.333333333333336" y2="20" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+         &lt;line style="display:block" x1="20" y1="6.666666666666667" x2="20" y2="33.333333333333336" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g data-node-id="83" class="gem-level-3 " transform="matrix(1,0,0,1,0,900)"&gt;<br/>
+         &lt;filter id="f1" x="0" y="0" width="200%" height="200%"&gt;<br/>
+          &lt;feoffset result="offOut" in="SourceAlpha" dx="5" dy="5"&gt;&lt;/feoffset&gt;<br/>
+          &lt;fegaussianblur result="blurOut" in="offOut" stddeviation="5"&gt;&lt;/fegaussianblur&gt;<br/>
+          &lt;feblend in="SourceGraphic" in2="blurOut" mode="normal"&gt;&lt;/feblend&gt;<br/>
+         &lt;/filter&gt;<br/>
+         &lt;rect x="0" y="0" height="300" width="270" rx="10" ry="10" class="gemOrgTheme-box" filter="url(#f1)"&gt;&lt;/rect&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-0" x="135" y="45"&gt;<br/>
+          Gaurav Sharma<br/>
+         &lt;/text&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-1" x="135" y="75"&gt;<br/>
+          Vice President<br/>
+         &lt;/text&gt;<br/>
+         &lt;clippath id="gemOrgClip"&gt;<br/>
+          &lt;circle cx="140" cy="185" r="100"&gt;&lt;/circle&gt;<br/>
+         &lt;/clippath&gt;<br/>
+         &lt;image preserveaspectratio="xMidYMid slice" clip-path="url(#gemOrgClip)" xlink:href="http://mymisapi.geminisolutions.com:8700/Images/male-employee.png?v=4.7" x="40" y="85" height="200" width="200"&gt;&lt;/image&gt;<br/>
+         &lt;circle cx="55" cy="120" r="20" class="reporters" display="block"&gt;&lt;/circle&gt;<br/>
+         &lt;text class="reporters-text" display="block" text-anchor="middle" width="100" x="55" y="125"&gt;<br/>
+          21<br/>
+         &lt;/text&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g transform="matrix(1,0,0,1,120,1180)" data-btn-id="83" data-btn-action="expColl"&gt;<br/>
+         &lt;circle cx="20" cy="20" r="20" class="gem-btn"&gt;&lt;/circle&gt;<br/>
+         &lt;line x1="6.666666666666667" y1="20" x2="33.333333333333336" y2="20" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+         &lt;line style="display:block" x1="20" y1="6.666666666666667" x2="20" y2="33.333333333333336" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g data-node-id="105" class="gem-level-5  gem-gemOrgTheme gem-darkcordovan" transform="matrix(1,0,0,1,1560,1700)"&gt;<br/>
+         &lt;filter id="f1" x="0" y="0" width="200%" height="200%"&gt;<br/>
+          &lt;feoffset result="offOut" in="SourceAlpha" dx="5" dy="5"&gt;&lt;/feoffset&gt;<br/>
+          &lt;fegaussianblur result="blurOut" in="offOut" stddeviation="5"&gt;&lt;/fegaussianblur&gt;<br/>
+          &lt;feblend in="SourceGraphic" in2="blurOut" mode="normal"&gt;&lt;/feblend&gt;<br/>
+         &lt;/filter&gt;<br/>
+         &lt;rect x="0" y="0" height="300" width="270" rx="10" ry="10" class="gemOrgTheme-box" filter="url(#f1)"&gt;&lt;/rect&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-0" x="135" y="45"&gt;<br/>
+          Kirti Malik<br/>
+         &lt;/text&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-1" x="135" y="75"&gt;<br/>
+          Senior Software Engineer L1<br/>
+         &lt;/text&gt;<br/>
+         &lt;clippath id="gemOrgClip"&gt;<br/>
+          &lt;circle cx="140" cy="185" r="100"&gt;&lt;/circle&gt;<br/>
+         &lt;/clippath&gt;<br/>
+         &lt;image preserveaspectratio="xMidYMid slice" clip-path="url(#gemOrgClip)" xlink:href="http://mymisapi.geminisolutions.com:8700/Images/female-employee.png?v=4.7" x="40" y="85" height="200" width="200"&gt;&lt;/image&gt;<br/>
+         &lt;circle cx="55" cy="120" r="20" class="reporters" display="none"&gt;&lt;/circle&gt;<br/>
+         &lt;text class="reporters-text" display="none" text-anchor="middle" width="100" x="55" y="125"&gt;<br/>
+          0<br/>
+         &lt;/text&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;path data-link-id="105" class="link" d="M1840,1850 1855,1850 1855,2250 L1840,2250"&gt;&lt;/path&gt;<br/>
+        &lt;g data-node-id="107" class="gem-level-3 " transform="matrix(1,0,0,1,310,900)"&gt;<br/>
+         &lt;filter id="f1" x="0" y="0" width="200%" height="200%"&gt;<br/>
+          &lt;feoffset result="offOut" in="SourceAlpha" dx="5" dy="5"&gt;&lt;/feoffset&gt;<br/>
+          &lt;fegaussianblur result="blurOut" in="offOut" stddeviation="5"&gt;&lt;/fegaussianblur&gt;<br/>
+          &lt;feblend in="SourceGraphic" in2="blurOut" mode="normal"&gt;&lt;/feblend&gt;<br/>
+         &lt;/filter&gt;<br/>
+         &lt;rect x="0" y="0" height="300" width="270" rx="10" ry="10" class="gemOrgTheme-box" filter="url(#f1)"&gt;&lt;/rect&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-0" x="135" y="45"&gt;<br/>
+          Naveen Balhara<br/>
+         &lt;/text&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-1" x="135" y="75"&gt;<br/>
+          Vice President<br/>
+         &lt;/text&gt;<br/>
+         &lt;clippath id="gemOrgClip"&gt;<br/>
+          &lt;circle cx="140" cy="185" r="100"&gt;&lt;/circle&gt;<br/>
+         &lt;/clippath&gt;<br/>
+         &lt;image preserveaspectratio="xMidYMid slice" clip-path="url(#gemOrgClip)" xlink:href="http://mymisapi.geminisolutions.com:8700/Images/male-employee.png?v=4.7" x="40" y="85" height="200" width="200"&gt;&lt;/image&gt;<br/>
+         &lt;circle cx="55" cy="120" r="20" class="reporters" display="block"&gt;&lt;/circle&gt;<br/>
+         &lt;text class="reporters-text" display="block" text-anchor="middle" width="100" x="55" y="125"&gt;<br/>
+          4<br/>
+         &lt;/text&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g transform="matrix(1,0,0,1,430,1180)" data-btn-id="107" data-btn-action="expColl"&gt;<br/>
+         &lt;circle cx="20" cy="20" r="20" class="gem-btn"&gt;&lt;/circle&gt;<br/>
+         &lt;line x1="6.666666666666667" y1="20" x2="33.333333333333336" y2="20" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+         &lt;line style="display:block" x1="20" y1="6.666666666666667" x2="20" y2="33.333333333333336" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g transform="matrix(1,0,0,1,430,1180)" data-btn-id="107" data-btn-action="expColl"&gt;<br/>
+         &lt;circle cx="20" cy="20" r="20" class="gem-btn"&gt;&lt;/circle&gt;<br/>
+         &lt;line x1="6.666666666666667" y1="20" x2="33.333333333333336" y2="20" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+         &lt;line style="display:block" x1="20" y1="6.666666666666667" x2="20" y2="33.333333333333336" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g data-node-id="115" class="gem-level-3 " transform="matrix(1,0,0,1,620,900)"&gt;<br/>
+         &lt;filter id="f1" x="0" y="0" width="200%" height="200%"&gt;<br/>
+          &lt;feoffset result="offOut" in="SourceAlpha" dx="5" dy="5"&gt;&lt;/feoffset&gt;<br/>
+          &lt;fegaussianblur result="blurOut" in="offOut" stddeviation="5"&gt;&lt;/fegaussianblur&gt;<br/>
+          &lt;feblend in="SourceGraphic" in2="blurOut" mode="normal"&gt;&lt;/feblend&gt;<br/>
+         &lt;/filter&gt;<br/>
+         &lt;rect x="0" y="0" height="300" width="270" rx="10" ry="10" class="gemOrgTheme-box" filter="url(#f1)"&gt;&lt;/rect&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-0" x="135" y="45"&gt;<br/>
+          Akansha Yadav<br/>
+         &lt;/text&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-1" x="135" y="75"&gt;<br/>
+          Senior Project Manager L1<br/>
+         &lt;/text&gt;<br/>
+         &lt;clippath id="gemOrgClip"&gt;<br/>
+          &lt;circle cx="140" cy="185" r="100"&gt;&lt;/circle&gt;<br/>
+         &lt;/clippath&gt;<br/>
+         &lt;image preserveaspectratio="xMidYMid slice" clip-path="url(#gemOrgClip)" xlink:href="http://mymisapi.geminisolutions.com:8700/Images/female-employee.png?v=4.7" x="40" y="85" height="200" width="200"&gt;&lt;/image&gt;<br/>
+         &lt;circle cx="55" cy="120" r="20" class="reporters" display="block"&gt;&lt;/circle&gt;<br/>
+         &lt;text class="reporters-text" display="block" text-anchor="middle" width="100" x="55" y="125"&gt;<br/>
+          1<br/>
+         &lt;/text&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g transform="matrix(1,0,0,1,740,1180)" data-btn-id="115" data-btn-action="expColl"&gt;<br/>
+         &lt;circle cx="20" cy="20" r="20" class="gem-btn"&gt;&lt;/circle&gt;<br/>
+         &lt;line x1="6.666666666666667" y1="20" x2="33.333333333333336" y2="20" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+         &lt;line style="display:block" x1="20" y1="6.666666666666667" x2="20" y2="33.333333333333336" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g data-node-id="135" class="gem-level-3 " transform="matrix(1,0,0,1,4670,900)"&gt;<br/>
+         &lt;filter id="f1" x="0" y="0" width="200%" height="200%"&gt;<br/>
+          &lt;feoffset result="offOut" in="SourceAlpha" dx="5" dy="5"&gt;&lt;/feoffset&gt;<br/>
+          &lt;fegaussianblur result="blurOut" in="offOut" stddeviation="5"&gt;&lt;/fegaussianblur&gt;<br/>
+          &lt;feblend in="SourceGraphic" in2="blurOut" mode="normal"&gt;&lt;/feblend&gt;<br/>
+         &lt;/filter&gt;<br/>
+         &lt;rect x="0" y="0" height="300" width="270" rx="10" ry="10" class="gemOrgTheme-box" filter="url(#f1)"&gt;&lt;/rect&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-0" x="135" y="45"&gt;<br/>
+          Soumendra Nath...<br/>
+         &lt;/text&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-1" x="135" y="75"&gt;<br/>
+          Vice President<br/>
+         &lt;/text&gt;<br/>
+         &lt;clippath id="gemOrgClip"&gt;<br/>
+          &lt;circle cx="140" cy="185" r="100"&gt;&lt;/circle&gt;<br/>
+         &lt;/clippath&gt;<br/>
+         &lt;image preserveaspectratio="xMidYMid slice" clip-path="url(#gemOrgClip)" xlink:href="http://mymisapi.geminisolutions.com:8700/Images/male-employee.png?v=4.7" x="40" y="85" height="200" width="200"&gt;&lt;/image&gt;<br/>
+         &lt;circle cx="55" cy="120" r="20" class="reporters" display="block"&gt;&lt;/circle&gt;<br/>
+         &lt;text class="reporters-text" display="block" text-anchor="middle" width="100" x="55" y="125"&gt;<br/>
+          13<br/>
+         &lt;/text&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g transform="matrix(1,0,0,1,4790,1180)" data-btn-id="135" data-btn-action="expColl"&gt;<br/>
+         &lt;circle cx="20" cy="20" r="20" class="gem-btn"&gt;&lt;/circle&gt;<br/>
+         &lt;line x1="6.666666666666667" y1="20" x2="33.333333333333336" y2="20" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+         &lt;line style="display:block" x1="20" y1="6.666666666666667" x2="20" y2="33.333333333333336" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g transform="matrix(1,0,0,1,4790,1180)" data-btn-id="135" data-btn-action="expColl"&gt;<br/>
+         &lt;circle cx="20" cy="20" r="20" class="gem-btn"&gt;&lt;/circle&gt;<br/>
+         &lt;line x1="6.666666666666667" y1="20" x2="33.333333333333336" y2="20" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+         &lt;line style="display:block" x1="20" y1="6.666666666666667" x2="20" y2="33.333333333333336" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g transform="matrix(1,0,0,1,4790,1180)" data-btn-id="135" data-btn-action="expColl"&gt;<br/>
+         &lt;circle cx="20" cy="20" r="20" class="gem-btn"&gt;&lt;/circle&gt;<br/>
+         &lt;line x1="6.666666666666667" y1="20" x2="33.333333333333336" y2="20" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+         &lt;line style="display:block" x1="20" y1="6.666666666666667" x2="20" y2="33.333333333333336" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g data-node-id="191" class="gem-level-27  gem-gemOrgTheme gem-darkcordovan" transform="matrix(1,0,0,1,1560,10500)"&gt;<br/>
+         &lt;filter id="f1" x="0" y="0" width="200%" height="200%"&gt;<br/>
+          &lt;feoffset result="offOut" in="SourceAlpha" dx="5" dy="5"&gt;&lt;/feoffset&gt;<br/>
+          &lt;fegaussianblur result="blurOut" in="offOut" stddeviation="5"&gt;&lt;/fegaussianblur&gt;<br/>
+          &lt;feblend in="SourceGraphic" in2="blurOut" mode="normal"&gt;&lt;/feblend&gt;<br/>
+         &lt;/filter&gt;<br/>
+         &lt;rect x="0" y="0" height="300" width="270" rx="10" ry="10" class="gemOrgTheme-box" filter="url(#f1)"&gt;&lt;/rect&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-0" x="135" y="45"&gt;<br/>
+          Vivekanand Tiwari<br/>
+         &lt;/text&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-1" x="135" y="75"&gt;<br/>
+          Senior Software Engineer L2<br/>
+         &lt;/text&gt;<br/>
+         &lt;clippath id="gemOrgClip"&gt;<br/>
+          &lt;circle cx="140" cy="185" r="100"&gt;&lt;/circle&gt;<br/>
+         &lt;/clippath&gt;<br/>
+         &lt;image preserveaspectratio="xMidYMid slice" clip-path="url(#gemOrgClip)" xlink:href="http://mymisapi.geminisolutions.com:8700/Images/male-employee.png?v=4.7" x="40" y="85" height="200" width="200"&gt;&lt;/image&gt;<br/>
+         &lt;circle cx="55" cy="120" r="20" class="reporters" display="none"&gt;&lt;/circle&gt;<br/>
+         &lt;text class="reporters-text" display="none" text-anchor="middle" width="100" x="55" y="125"&gt;<br/>
+          0<br/>
+         &lt;/text&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g data-node-id="229" class="gem-level-26  gem-gemOrgTheme gem-darkcordovan" transform="matrix(1,0,0,1,1560,10100)"&gt;<br/>
+         &lt;filter id="f1" x="0" y="0" width="200%" height="200%"&gt;<br/>
+          &lt;feoffset result="offOut" in="SourceAlpha" dx="5" dy="5"&gt;&lt;/feoffset&gt;<br/>
+          &lt;fegaussianblur result="blurOut" in="offOut" stddeviation="5"&gt;&lt;/fegaussianblur&gt;<br/>
+          &lt;feblend in="SourceGraphic" in2="blurOut" mode="normal"&gt;&lt;/feblend&gt;<br/>
+         &lt;/filter&gt;<br/>
+         &lt;rect x="0" y="0" height="300" width="270" rx="10" ry="10" class="gemOrgTheme-box" filter="url(#f1)"&gt;&lt;/rect&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-0" x="135" y="45"&gt;<br/>
+          Ayush Agarwal<br/>
+         &lt;/text&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-1" x="135" y="75"&gt;<br/>
+          Senior Software Engineer L1<br/>
+         &lt;/text&gt;<br/>
+         &lt;clippath id="gemOrgClip"&gt;<br/>
+          &lt;circle cx="140" cy="185" r="100"&gt;&lt;/circle&gt;<br/>
+         &lt;/clippath&gt;<br/>
+         &lt;image preserveaspectratio="xMidYMid slice" clip-path="url(#gemOrgClip)" xlink:href="http://mymisapi.geminisolutions.com:8700/Images/male-employee.png?v=4.7" x="40" y="85" height="200" width="200"&gt;&lt;/image&gt;<br/>
+         &lt;circle cx="55" cy="120" r="20" class="reporters" display="none"&gt;&lt;/circle&gt;<br/>
+         &lt;text class="reporters-text" display="none" text-anchor="middle" width="100" x="55" y="125"&gt;<br/>
+          0<br/>
+         &lt;/text&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;path data-link-id="229" class="link" d="M1840,10250 1855,10250 1855,10650 L1840,10650"&gt;&lt;/path&gt;<br/>
+        &lt;g data-node-id="248" class="gem-level-5  gem-gemOrgTheme gem-lightgreen" transform="matrix(1,0,0,1,2810,1700)"&gt;<br/>
+         &lt;filter id="f1" x="0" y="0" width="200%" height="200%"&gt;<br/>
+          &lt;feoffset result="offOut" in="SourceAlpha" dx="5" dy="5"&gt;&lt;/feoffset&gt;<br/>
+          &lt;fegaussianblur result="blurOut" in="offOut" stddeviation="5"&gt;&lt;/fegaussianblur&gt;<br/>
+          &lt;feblend in="SourceGraphic" in2="blurOut" mode="normal"&gt;&lt;/feblend&gt;<br/>
+         &lt;/filter&gt;<br/>
+         &lt;rect x="0" y="0" height="300" width="270" rx="10" ry="10" class="gemOrgTheme-box" filter="url(#f1)"&gt;&lt;/rect&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-0" x="135" y="45"&gt;<br/>
+          Agrim Arora<br/>
+         &lt;/text&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-1" x="135" y="75"&gt;<br/>
+          Assistant Vice President<br/>
+         &lt;/text&gt;<br/>
+         &lt;clippath id="gemOrgClip"&gt;<br/>
+          &lt;circle cx="140" cy="185" r="100"&gt;&lt;/circle&gt;<br/>
+         &lt;/clippath&gt;<br/>
+         &lt;image preserveaspectratio="xMidYMid slice" clip-path="url(#gemOrgClip)" xlink:href="http://mymisapi.geminisolutions.com:8700/Images/male-employee.png?v=4.7" x="40" y="85" height="200" width="200"&gt;&lt;/image&gt;<br/>
+         &lt;circle cx="55" cy="120" r="20" class="reporters" display="none"&gt;&lt;/circle&gt;<br/>
+         &lt;text class="reporters-text" display="none" text-anchor="middle" width="100" x="55" y="125"&gt;<br/>
+          0<br/>
+         &lt;/text&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g data-node-id="258" class="gem-level-3 " transform="matrix(1,0,0,1,4980,900)"&gt;<br/>
+         &lt;filter id="f1" x="0" y="0" width="200%" height="200%"&gt;<br/>
+          &lt;feoffset result="offOut" in="SourceAlpha" dx="5" dy="5"&gt;&lt;/feoffset&gt;<br/>
+          &lt;fegaussianblur result="blurOut" in="offOut" stddeviation="5"&gt;&lt;/fegaussianblur&gt;<br/>
+          &lt;feblend in="SourceGraphic" in2="blurOut" mode="normal"&gt;&lt;/feblend&gt;<br/>
+         &lt;/filter&gt;<br/>
+         &lt;rect x="0" y="0" height="300" width="270" rx="10" ry="10" class="gemOrgTheme-box" filter="url(#f1)"&gt;&lt;/rect&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-0" x="135" y="45"&gt;<br/>
+          Ankush Soni<br/>
+         &lt;/text&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-1" x="135" y="75"&gt;<br/>
+          Assistant Vice President<br/>
+         &lt;/text&gt;<br/>
+         &lt;clippath id="gemOrgClip"&gt;<br/>
+          &lt;circle cx="140" cy="185" r="100"&gt;&lt;/circle&gt;<br/>
+         &lt;/clippath&gt;<br/>
+         &lt;image preserveaspectratio="xMidYMid slice" clip-path="url(#gemOrgClip)" xlink:href="http://mymisapi.geminisolutions.com:8700/Images/male-employee.png?v=4.7" x="40" y="85" height="200" width="200"&gt;&lt;/image&gt;<br/>
+         &lt;circle cx="55" cy="120" r="20" class="reporters" display="block"&gt;&lt;/circle&gt;<br/>
+         &lt;text class="reporters-text" display="block" text-anchor="middle" width="100" x="55" y="125"&gt;<br/>
+          2<br/>
+         &lt;/text&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g transform="matrix(1,0,0,1,5100,1180)" data-btn-id="258" data-btn-action="expColl"&gt;<br/>
+         &lt;circle cx="20" cy="20" r="20" class="gem-btn"&gt;&lt;/circle&gt;<br/>
+         &lt;line x1="6.666666666666667" y1="20" x2="33.333333333333336" y2="20" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+         &lt;line style="display:block" x1="20" y1="6.666666666666667" x2="20" y2="33.333333333333336" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g data-node-id="263" class="gem-level-3 " transform="matrix(1,0,0,1,5290,900)"&gt;<br/>
+         &lt;filter id="f1" x="0" y="0" width="200%" height="200%"&gt;<br/>
+          &lt;feoffset result="offOut" in="SourceAlpha" dx="5" dy="5"&gt;&lt;/feoffset&gt;<br/>
+          &lt;fegaussianblur result="blurOut" in="offOut" stddeviation="5"&gt;&lt;/fegaussianblur&gt;<br/>
+          &lt;feblend in="SourceGraphic" in2="blurOut" mode="normal"&gt;&lt;/feblend&gt;<br/>
+         &lt;/filter&gt;<br/>
+         &lt;rect x="0" y="0" height="300" width="270" rx="10" ry="10" class="gemOrgTheme-box" filter="url(#f1)"&gt;&lt;/rect&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-0" x="135" y="45"&gt;<br/>
+          Palak Aggarwal<br/>
+         &lt;/text&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-1" x="135" y="75"&gt;<br/>
+          Manager HR L1<br/>
+         &lt;/text&gt;<br/>
+         &lt;clippath id="gemOrgClip"&gt;<br/>
+          &lt;circle cx="140" cy="185" r="100"&gt;&lt;/circle&gt;<br/>
+         &lt;/clippath&gt;<br/>
+         &lt;image preserveaspectratio="xMidYMid slice" clip-path="url(#gemOrgClip)" xlink:href="http://mymisapi.geminisolutions.com:8700/Images/female-employee.png?v=4.7" x="40" y="85" height="200" width="200"&gt;&lt;/image&gt;<br/>
+         &lt;circle cx="55" cy="120" r="20" class="reporters" display="block"&gt;&lt;/circle&gt;<br/>
+         &lt;text class="reporters-text" display="block" text-anchor="middle" width="100" x="55" y="125"&gt;<br/>
+          8<br/>
+         &lt;/text&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g transform="matrix(1,0,0,1,5410,1180)" data-btn-id="263" data-btn-action="expColl"&gt;<br/>
+         &lt;circle cx="20" cy="20" r="20" class="gem-btn"&gt;&lt;/circle&gt;<br/>
+         &lt;line x1="6.666666666666667" y1="20" x2="33.333333333333336" y2="20" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+         &lt;line style="display:block" x1="20" y1="6.666666666666667" x2="20" y2="33.333333333333336" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g transform="matrix(1,0,0,1,5410,1180)" data-btn-id="263" data-btn-action="expColl"&gt;<br/>
+         &lt;circle cx="20" cy="20" r="20" class="gem-btn"&gt;&lt;/circle&gt;<br/>
+         &lt;line x1="6.666666666666667" y1="20" x2="33.333333333333336" y2="20" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+         &lt;line style="display:block" x1="20" y1="6.666666666666667" x2="20" y2="33.333333333333336" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g data-node-id="266" class="gem-level-4  gem-gemOrgTheme gem-lightgreen" transform="matrix(1,0,0,1,2810,1300)"&gt;<br/>
+         &lt;filter id="f1" x="0" y="0" width="200%" height="200%"&gt;<br/>
+          &lt;feoffset result="offOut" in="SourceAlpha" dx="5" dy="5"&gt;&lt;/feoffset&gt;<br/>
+          &lt;fegaussianblur result="blurOut" in="offOut" stddeviation="5"&gt;&lt;/fegaussianblur&gt;<br/>
+          &lt;feblend in="SourceGraphic" in2="blurOut" mode="normal"&gt;&lt;/feblend&gt;<br/>
+         &lt;/filter&gt;<br/>
+         &lt;rect x="0" y="0" height="300" width="270" rx="10" ry="10" class="gemOrgTheme-box" filter="url(#f1)"&gt;&lt;/rect&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-0" x="135" y="45"&gt;<br/>
+          Deepak Grover<br/>
+         &lt;/text&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-1" x="135" y="75"&gt;<br/>
+          Technology Solutions Archite...<br/>
+         &lt;/text&gt;<br/>
+         &lt;clippath id="gemOrgClip"&gt;<br/>
+          &lt;circle cx="140" cy="185" r="100"&gt;&lt;/circle&gt;<br/>
+         &lt;/clippath&gt;<br/>
+         &lt;image preserveaspectratio="xMidYMid slice" clip-path="url(#gemOrgClip)" xlink:href="http://mymisapi.geminisolutions.com:8700/Images/male-employee.png?v=4.7" x="40" y="85" height="200" width="200"&gt;&lt;/image&gt;<br/>
+         &lt;circle cx="55" cy="120" r="20" class="reporters" display="none"&gt;&lt;/circle&gt;<br/>
+         &lt;text class="reporters-text" display="none" text-anchor="middle" width="100" x="55" y="125"&gt;<br/>
+          0<br/>
+         &lt;/text&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;path data-link-id="266" class="link" d="M3090,1450 3105,1450 3105,1850 L3090,1850"&gt;&lt;/path&gt;<br/>
+        &lt;g data-node-id="286" class="gem-level-25  gem-gemOrgTheme gem-darkcordovan" transform="matrix(1,0,0,1,1560,9700)"&gt;<br/>
+         &lt;filter id="f1" x="0" y="0" width="200%" height="200%"&gt;<br/>
+          &lt;feoffset result="offOut" in="SourceAlpha" dx="5" dy="5"&gt;&lt;/feoffset&gt;<br/>
+          &lt;fegaussianblur result="blurOut" in="offOut" stddeviation="5"&gt;&lt;/fegaussianblur&gt;<br/>
+          &lt;feblend in="SourceGraphic" in2="blurOut" mode="normal"&gt;&lt;/feblend&gt;<br/>
+         &lt;/filter&gt;<br/>
+         &lt;rect x="0" y="0" height="300" width="270" rx="10" ry="10" class="gemOrgTheme-box" filter="url(#f1)"&gt;&lt;/rect&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-0" x="135" y="45"&gt;<br/>
+          Anshul Gandotra<br/>
+         &lt;/text&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-1" x="135" y="75"&gt;<br/>
+          Software Engineer L2<br/>
+         &lt;/text&gt;<br/>
+         &lt;clippath id="gemOrgClip"&gt;<br/>
+          &lt;circle cx="140" cy="185" r="100"&gt;&lt;/circle&gt;<br/>
+         &lt;/clippath&gt;<br/>
+         &lt;image preserveaspectratio="xMidYMid slice" clip-path="url(#gemOrgClip)" xlink:href="http://mymisapi.geminisolutions.com:8700/Images/male-employee.png?v=4.7" x="40" y="85" height="200" width="200"&gt;&lt;/image&gt;<br/>
+         &lt;circle cx="55" cy="120" r="20" class="reporters" display="none"&gt;&lt;/circle&gt;<br/>
+         &lt;text class="reporters-text" display="none" text-anchor="middle" width="100" x="55" y="125"&gt;<br/>
+          0<br/>
+         &lt;/text&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;path data-link-id="286" class="link" d="M1840,9850 1855,9850 1855,10250 L1840,10250"&gt;&lt;/path&gt;<br/>
+        &lt;g data-node-id="290" class="gem-level-24  gem-gemOrgTheme gem-darkcordovan" transform="matrix(1,0,0,1,1560,9300)"&gt;<br/>
+         &lt;filter id="f1" x="0" y="0" width="200%" height="200%"&gt;<br/>
+          &lt;feoffset result="offOut" in="SourceAlpha" dx="5" dy="5"&gt;&lt;/feoffset&gt;<br/>
+          &lt;fegaussianblur result="blurOut" in="offOut" stddeviation="5"&gt;&lt;/fegaussianblur&gt;<br/>
+          &lt;feblend in="SourceGraphic" in2="blurOut" mode="normal"&gt;&lt;/feblend&gt;<br/>
+         &lt;/filter&gt;<br/>
+         &lt;rect x="0" y="0" height="300" width="270" rx="10" ry="10" class="gemOrgTheme-box" filter="url(#f1)"&gt;&lt;/rect&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-0" x="135" y="45"&gt;<br/>
+          Hitesh Ahuja<br/>
+         &lt;/text&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-1" x="135" y="75"&gt;<br/>
+          Software Engineer L2<br/>
+         &lt;/text&gt;<br/>
+         &lt;clippath id="gemOrgClip"&gt;<br/>
+          &lt;circle cx="140" cy="185" r="100"&gt;&lt;/circle&gt;<br/>
+         &lt;/clippath&gt;<br/>
+         &lt;image preserveaspectratio="xMidYMid slice" clip-path="url(#gemOrgClip)" xlink:href="http://mymisapi.geminisolutions.com:8700/Images/male-employee.png?v=4.7" x="40" y="85" height="200" width="200"&gt;&lt;/image&gt;<br/>
+         &lt;circle cx="55" cy="120" r="20" class="reporters" display="none"&gt;&lt;/circle&gt;<br/>
+         &lt;text class="reporters-text" display="none" text-anchor="middle" width="100" x="55" y="125"&gt;<br/>
+          0<br/>
+         &lt;/text&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;path data-link-id="290" class="link" d="M1840,9450 1855,9450 1855,9850 L1840,9850"&gt;&lt;/path&gt;<br/>
+        &lt;g data-node-id="318" class="gem-level-3 " transform="matrix(1,0,0,1,5600,900)"&gt;<br/>
+         &lt;filter id="f1" x="0" y="0" width="200%" height="200%"&gt;<br/>
+          &lt;feoffset result="offOut" in="SourceAlpha" dx="5" dy="5"&gt;&lt;/feoffset&gt;<br/>
+          &lt;fegaussianblur result="blurOut" in="offOut" stddeviation="5"&gt;&lt;/fegaussianblur&gt;<br/>
+          &lt;feblend in="SourceGraphic" in2="blurOut" mode="normal"&gt;&lt;/feblend&gt;<br/>
+         &lt;/filter&gt;<br/>
+         &lt;rect x="0" y="0" height="300" width="270" rx="10" ry="10" class="gemOrgTheme-box" filter="url(#f1)"&gt;&lt;/rect&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-0" x="135" y="45"&gt;<br/>
+          Sushant Gupta<br/>
+         &lt;/text&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-1" x="135" y="75"&gt;<br/>
+          Vice President<br/>
+         &lt;/text&gt;<br/>
+         &lt;clippath id="gemOrgClip"&gt;<br/>
+          &lt;circle cx="140" cy="185" r="100"&gt;&lt;/circle&gt;<br/>
+         &lt;/clippath&gt;<br/>
+         &lt;image preserveaspectratio="xMidYMid slice" clip-path="url(#gemOrgClip)" xlink:href="http://mymisapi.geminisolutions.com:8700/Images/male-employee.png?v=4.7" x="40" y="85" height="200" width="200"&gt;&lt;/image&gt;<br/>
+         &lt;circle cx="55" cy="120" r="20" class="reporters" display="block"&gt;&lt;/circle&gt;<br/>
+         &lt;text class="reporters-text" display="block" text-anchor="middle" width="100" x="55" y="125"&gt;<br/>
+          2<br/>
+         &lt;/text&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g transform="matrix(1,0,0,1,5720,1180)" data-btn-id="318" data-btn-action="expColl"&gt;<br/>
+         &lt;circle cx="20" cy="20" r="20" class="gem-btn"&gt;&lt;/circle&gt;<br/>
+         &lt;line x1="6.666666666666667" y1="20" x2="33.333333333333336" y2="20" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+         &lt;line style="display:block" x1="20" y1="6.666666666666667" x2="20" y2="33.333333333333336" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g data-node-id="366" class="gem-level-4  gem-gemOrgTheme gem-cordovan" transform="matrix(1,0,0,1,2180,1300)"&gt;<br/>
+         &lt;filter id="f1" x="0" y="0" width="200%" height="200%"&gt;<br/>
+          &lt;feoffset result="offOut" in="SourceAlpha" dx="5" dy="5"&gt;&lt;/feoffset&gt;<br/>
+          &lt;fegaussianblur result="blurOut" in="offOut" stddeviation="5"&gt;&lt;/fegaussianblur&gt;<br/>
+          &lt;feblend in="SourceGraphic" in2="blurOut" mode="normal"&gt;&lt;/feblend&gt;<br/>
+         &lt;/filter&gt;<br/>
+         &lt;rect x="0" y="0" height="300" width="270" rx="10" ry="10" class="gemOrgTheme-box" filter="url(#f1)"&gt;&lt;/rect&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-0" x="135" y="45"&gt;<br/>
+          Anshika Chaudhary<br/>
+         &lt;/text&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-1" x="135" y="75"&gt;<br/>
+          Software Engineer L2<br/>
+         &lt;/text&gt;<br/>
+         &lt;clippath id="gemOrgClip"&gt;<br/>
+          &lt;circle cx="140" cy="185" r="100"&gt;&lt;/circle&gt;<br/>
+         &lt;/clippath&gt;<br/>
+         &lt;image preserveaspectratio="xMidYMid slice" clip-path="url(#gemOrgClip)" xlink:href="http://mymisapi.geminisolutions.com:8700/Images/female-employee.png?v=4.7" x="40" y="85" height="200" width="200"&gt;&lt;/image&gt;<br/>
+         &lt;circle cx="55" cy="120" r="20" class="reporters" display="none"&gt;&lt;/circle&gt;<br/>
+         &lt;text class="reporters-text" display="none" text-anchor="middle" width="100" x="55" y="125"&gt;<br/>
+          0<br/>
+         &lt;/text&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;path data-link-id="366" class="link" d="M2460,1450 2475,1450 2475,1850 L2460,1850"&gt;&lt;/path&gt;<br/>
+        &lt;g data-node-id="401" class="gem-level-23  gem-gemOrgTheme gem-darkcordovan" transform="matrix(1,0,0,1,1560,8900)"&gt;<br/>
+         &lt;filter id="f1" x="0" y="0" width="200%" height="200%"&gt;<br/>
+          &lt;feoffset result="offOut" in="SourceAlpha" dx="5" dy="5"&gt;&lt;/feoffset&gt;<br/>
+          &lt;fegaussianblur result="blurOut" in="offOut" stddeviation="5"&gt;&lt;/fegaussianblur&gt;<br/>
+          &lt;feblend in="SourceGraphic" in2="blurOut" mode="normal"&gt;&lt;/feblend&gt;<br/>
+         &lt;/filter&gt;<br/>
+         &lt;rect x="0" y="0" height="300" width="270" rx="10" ry="10" class="gemOrgTheme-box" filter="url(#f1)"&gt;&lt;/rect&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-0" x="135" y="45"&gt;<br/>
+          Nikhil Sehgal<br/>
+         &lt;/text&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-1" x="135" y="75"&gt;<br/>
+          Technical Trainee<br/>
+         &lt;/text&gt;<br/>
+         &lt;clippath id="gemOrgClip"&gt;<br/>
+          &lt;circle cx="140" cy="185" r="100"&gt;&lt;/circle&gt;<br/>
+         &lt;/clippath&gt;<br/>
+         &lt;image preserveaspectratio="xMidYMid slice" clip-path="url(#gemOrgClip)" xlink:href="http://mymisapi.geminisolutions.com:8700/Images/male-employee.png?v=4.7" x="40" y="85" height="200" width="200"&gt;&lt;/image&gt;<br/>
+         &lt;circle cx="55" cy="120" r="20" class="reporters" display="none"&gt;&lt;/circle&gt;<br/>
+         &lt;text class="reporters-text" display="none" text-anchor="middle" width="100" x="55" y="125"&gt;<br/>
+          0<br/>
+         &lt;/text&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;path data-link-id="401" class="link" d="M1840,9050 1855,9050 1855,9450 L1840,9450"&gt;&lt;/path&gt;<br/>
+        &lt;g data-node-id="409" class="gem-level-22  gem-gemOrgTheme gem-darkcordovan" transform="matrix(1,0,0,1,1560,8500)"&gt;<br/>
+         &lt;filter id="f1" x="0" y="0" width="200%" height="200%"&gt;<br/>
+          &lt;feoffset result="offOut" in="SourceAlpha" dx="5" dy="5"&gt;&lt;/feoffset&gt;<br/>
+          &lt;fegaussianblur result="blurOut" in="offOut" stddeviation="5"&gt;&lt;/fegaussianblur&gt;<br/>
+          &lt;feblend in="SourceGraphic" in2="blurOut" mode="normal"&gt;&lt;/feblend&gt;<br/>
+         &lt;/filter&gt;<br/>
+         &lt;rect x="0" y="0" height="300" width="270" rx="10" ry="10" class="gemOrgTheme-box" filter="url(#f1)"&gt;&lt;/rect&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-0" x="135" y="45"&gt;<br/>
+          Akshay Ahuja<br/>
+         &lt;/text&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-1" x="135" y="75"&gt;<br/>
+          Technical Trainee<br/>
+         &lt;/text&gt;<br/>
+         &lt;clippath id="gemOrgClip"&gt;<br/>
+          &lt;circle cx="140" cy="185" r="100"&gt;&lt;/circle&gt;<br/>
+         &lt;/clippath&gt;<br/>
+         &lt;image preserveaspectratio="xMidYMid slice" clip-path="url(#gemOrgClip)" xlink:href="http://mymisapi.geminisolutions.com:8700/Images/male-employee.png?v=4.7" x="40" y="85" height="200" width="200"&gt;&lt;/image&gt;<br/>
+         &lt;circle cx="55" cy="120" r="20" class="reporters" display="none"&gt;&lt;/circle&gt;<br/>
+         &lt;text class="reporters-text" display="none" text-anchor="middle" width="100" x="55" y="125"&gt;<br/>
+          0<br/>
+         &lt;/text&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;path data-link-id="409" class="link" d="M1840,8650 1855,8650 1855,9050 L1840,9050"&gt;&lt;/path&gt;<br/>
+        &lt;g data-node-id="410" class="gem-level-21  gem-gemOrgTheme gem-darkcordovan" transform="matrix(1,0,0,1,1560,8100)"&gt;<br/>
+         &lt;filter id="f1" x="0" y="0" width="200%" height="200%"&gt;<br/>
+          &lt;feoffset result="offOut" in="SourceAlpha" dx="5" dy="5"&gt;&lt;/feoffset&gt;<br/>
+          &lt;fegaussianblur result="blurOut" in="offOut" stddeviation="5"&gt;&lt;/fegaussianblur&gt;<br/>
+          &lt;feblend in="SourceGraphic" in2="blurOut" mode="normal"&gt;&lt;/feblend&gt;<br/>
+         &lt;/filter&gt;<br/>
+         &lt;rect x="0" y="0" height="300" width="270" rx="10" ry="10" class="gemOrgTheme-box" filter="url(#f1)"&gt;&lt;/rect&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-0" x="135" y="45"&gt;<br/>
+          Jasleen Kaur Mul...<br/>
+         &lt;/text&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-1" x="135" y="75"&gt;<br/>
+          Technical Trainee<br/>
+         &lt;/text&gt;<br/>
+         &lt;clippath id="gemOrgClip"&gt;<br/>
+          &lt;circle cx="140" cy="185" r="100"&gt;&lt;/circle&gt;<br/>
+         &lt;/clippath&gt;<br/>
+         &lt;image preserveaspectratio="xMidYMid slice" clip-path="url(#gemOrgClip)" xlink:href="http://mymisapi.geminisolutions.com:8700/Images/female-employee.png?v=4.7" x="40" y="85" height="200" width="200"&gt;&lt;/image&gt;<br/>
+         &lt;circle cx="55" cy="120" r="20" class="reporters" display="none"&gt;&lt;/circle&gt;<br/>
+         &lt;text class="reporters-text" display="none" text-anchor="middle" width="100" x="55" y="125"&gt;<br/>
+          0<br/>
+         &lt;/text&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;path data-link-id="410" class="link" d="M1840,8250 1855,8250 1855,8650 L1840,8650"&gt;&lt;/path&gt;<br/>
+        &lt;g data-node-id="470" class="gem-level-20  gem-gemOrgTheme gem-darkcordovan" transform="matrix(1,0,0,1,1560,7700)"&gt;<br/>
+         &lt;filter id="f1" x="0" y="0" width="200%" height="200%"&gt;<br/>
+          &lt;feoffset result="offOut" in="SourceAlpha" dx="5" dy="5"&gt;&lt;/feoffset&gt;<br/>
+          &lt;fegaussianblur result="blurOut" in="offOut" stddeviation="5"&gt;&lt;/fegaussianblur&gt;<br/>
+          &lt;feblend in="SourceGraphic" in2="blurOut" mode="normal"&gt;&lt;/feblend&gt;<br/>
+         &lt;/filter&gt;<br/>
+         &lt;rect x="0" y="0" height="300" width="270" rx="10" ry="10" class="gemOrgTheme-box" filter="url(#f1)"&gt;&lt;/rect&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-0" x="135" y="45"&gt;<br/>
+          Sparsh Sondhi<br/>
+         &lt;/text&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-1" x="135" y="75"&gt;<br/>
+          Software Engineer L1<br/>
+         &lt;/text&gt;<br/>
+         &lt;clippath id="gemOrgClip"&gt;<br/>
+          &lt;circle cx="140" cy="185" r="100"&gt;&lt;/circle&gt;<br/>
+         &lt;/clippath&gt;<br/>
+         &lt;image preserveaspectratio="xMidYMid slice" clip-path="url(#gemOrgClip)" xlink:href="http://mymisapi.geminisolutions.com:8700/Images/male-employee.png?v=4.7" x="40" y="85" height="200" width="200"&gt;&lt;/image&gt;<br/>
+         &lt;circle cx="55" cy="120" r="20" class="reporters" display="none"&gt;&lt;/circle&gt;<br/>
+         &lt;text class="reporters-text" display="none" text-anchor="middle" width="100" x="55" y="125"&gt;<br/>
+          0<br/>
+         &lt;/text&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;path data-link-id="470" class="link" d="M1840,7850 1855,7850 1855,8250 L1840,8250"&gt;&lt;/path&gt;<br/>
+        &lt;g data-node-id="508" class="gem-level-19  gem-gemOrgTheme gem-darkcordovan" transform="matrix(1,0,0,1,1560,7300)"&gt;<br/>
+         &lt;filter id="f1" x="0" y="0" width="200%" height="200%"&gt;<br/>
+          &lt;feoffset result="offOut" in="SourceAlpha" dx="5" dy="5"&gt;&lt;/feoffset&gt;<br/>
+          &lt;fegaussianblur result="blurOut" in="offOut" stddeviation="5"&gt;&lt;/fegaussianblur&gt;<br/>
+          &lt;feblend in="SourceGraphic" in2="blurOut" mode="normal"&gt;&lt;/feblend&gt;<br/>
+         &lt;/filter&gt;<br/>
+         &lt;rect x="0" y="0" height="300" width="270" rx="10" ry="10" class="gemOrgTheme-box" filter="url(#f1)"&gt;&lt;/rect&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-0" x="135" y="45"&gt;<br/>
+          Arihant Jain<br/>
+         &lt;/text&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-1" x="135" y="75"&gt;<br/>
+          Technical Trainee<br/>
+         &lt;/text&gt;<br/>
+         &lt;clippath id="gemOrgClip"&gt;<br/>
+          &lt;circle cx="140" cy="185" r="100"&gt;&lt;/circle&gt;<br/>
+         &lt;/clippath&gt;<br/>
+         &lt;image preserveaspectratio="xMidYMid slice" clip-path="url(#gemOrgClip)" xlink:href="http://mymisapi.geminisolutions.com:8700/Images/male-employee.png?v=4.7" x="40" y="85" height="200" width="200"&gt;&lt;/image&gt;<br/>
+         &lt;circle cx="55" cy="120" r="20" class="reporters" display="none"&gt;&lt;/circle&gt;<br/>
+         &lt;text class="reporters-text" display="none" text-anchor="middle" width="100" x="55" y="125"&gt;<br/>
+          0<br/>
+         &lt;/text&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;path data-link-id="508" class="link" d="M1840,7450 1855,7450 1855,7850 L1840,7850"&gt;&lt;/path&gt;<br/>
+        &lt;g data-node-id="511" class="gem-level-18  gem-gemOrgTheme gem-darkcordovan" transform="matrix(1,0,0,1,1560,6900)"&gt;<br/>
+         &lt;filter id="f1" x="0" y="0" width="200%" height="200%"&gt;<br/>
+          &lt;feoffset result="offOut" in="SourceAlpha" dx="5" dy="5"&gt;&lt;/feoffset&gt;<br/>
+          &lt;fegaussianblur result="blurOut" in="offOut" stddeviation="5"&gt;&lt;/fegaussianblur&gt;<br/>
+          &lt;feblend in="SourceGraphic" in2="blurOut" mode="normal"&gt;&lt;/feblend&gt;<br/>
+         &lt;/filter&gt;<br/>
+         &lt;rect x="0" y="0" height="300" width="270" rx="10" ry="10" class="gemOrgTheme-box" filter="url(#f1)"&gt;&lt;/rect&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-0" x="135" y="45"&gt;<br/>
+          Abhinav Chauhan<br/>
+         &lt;/text&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-1" x="135" y="75"&gt;<br/>
+          Technical Trainee<br/>
+         &lt;/text&gt;<br/>
+         &lt;clippath id="gemOrgClip"&gt;<br/>
+          &lt;circle cx="140" cy="185" r="100"&gt;&lt;/circle&gt;<br/>
+         &lt;/clippath&gt;<br/>
+         &lt;image preserveaspectratio="xMidYMid slice" clip-path="url(#gemOrgClip)" xlink:href="http://mymisapi.geminisolutions.com:8700/Images/male-employee.png?v=4.7" x="40" y="85" height="200" width="200"&gt;&lt;/image&gt;<br/>
+         &lt;circle cx="55" cy="120" r="20" class="reporters" display="none"&gt;&lt;/circle&gt;<br/>
+         &lt;text class="reporters-text" display="none" text-anchor="middle" width="100" x="55" y="125"&gt;<br/>
+          0<br/>
+         &lt;/text&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;path data-link-id="511" class="link" d="M1840,7050 1855,7050 1855,7450 L1840,7450"&gt;&lt;/path&gt;<br/>
+        &lt;g data-node-id="537" class="gem-level-17  gem-gemOrgTheme gem-darkcordovan" transform="matrix(1,0,0,1,1560,6500)"&gt;<br/>
+         &lt;filter id="f1" x="0" y="0" width="200%" height="200%"&gt;<br/>
+          &lt;feoffset result="offOut" in="SourceAlpha" dx="5" dy="5"&gt;&lt;/feoffset&gt;<br/>
+          &lt;fegaussianblur result="blurOut" in="offOut" stddeviation="5"&gt;&lt;/fegaussianblur&gt;<br/>
+          &lt;feblend in="SourceGraphic" in2="blurOut" mode="normal"&gt;&lt;/feblend&gt;<br/>
+         &lt;/filter&gt;<br/>
+         &lt;rect x="0" y="0" height="300" width="270" rx="10" ry="10" class="gemOrgTheme-box" filter="url(#f1)"&gt;&lt;/rect&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-0" x="135" y="45"&gt;<br/>
+          Harvesh Kumar<br/>
+         &lt;/text&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-1" x="135" y="75"&gt;<br/>
+          Senior Software Engineer L2<br/>
+         &lt;/text&gt;<br/>
+         &lt;clippath id="gemOrgClip"&gt;<br/>
+          &lt;circle cx="140" cy="185" r="100"&gt;&lt;/circle&gt;<br/>
+         &lt;/clippath&gt;<br/>
+         &lt;image preserveaspectratio="xMidYMid slice" clip-path="url(#gemOrgClip)" xlink:href="http://mymisapi.geminisolutions.com:8700/Images/male-employee.png?v=4.7" x="40" y="85" height="200" width="200"&gt;&lt;/image&gt;<br/>
+         &lt;circle cx="55" cy="120" r="20" class="reporters" display="none"&gt;&lt;/circle&gt;<br/>
+         &lt;text class="reporters-text" display="none" text-anchor="middle" width="100" x="55" y="125"&gt;<br/>
+          0<br/>
+         &lt;/text&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;path data-link-id="537" class="link" d="M1840,6650 1855,6650 1855,7050 L1840,7050"&gt;&lt;/path&gt;<br/>
+        &lt;g data-node-id="545" class="gem-level-3 " transform="matrix(1,0,0,1,6230,900)"&gt;<br/>
+         &lt;filter id="f1" x="0" y="0" width="200%" height="200%"&gt;<br/>
+          &lt;feoffset result="offOut" in="SourceAlpha" dx="5" dy="5"&gt;&lt;/feoffset&gt;<br/>
+          &lt;fegaussianblur result="blurOut" in="offOut" stddeviation="5"&gt;&lt;/fegaussianblur&gt;<br/>
+          &lt;feblend in="SourceGraphic" in2="blurOut" mode="normal"&gt;&lt;/feblend&gt;<br/>
+         &lt;/filter&gt;<br/>
+         &lt;rect x="0" y="0" height="300" width="270" rx="10" ry="10" class="gemOrgTheme-box" filter="url(#f1)"&gt;&lt;/rect&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-0" x="135" y="45"&gt;<br/>
+          Satish Kumar<br/>
+         &lt;/text&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-1" x="135" y="75"&gt;<br/>
+          Assistant Manager HR L1<br/>
+         &lt;/text&gt;<br/>
+         &lt;clippath id="gemOrgClip"&gt;<br/>
+          &lt;circle cx="140" cy="185" r="100"&gt;&lt;/circle&gt;<br/>
+         &lt;/clippath&gt;<br/>
+         &lt;image preserveaspectratio="xMidYMid slice" clip-path="url(#gemOrgClip)" xlink:href="http://mymisapi.geminisolutions.com:8700/Images/male-employee.png?v=4.7" x="40" y="85" height="200" width="200"&gt;&lt;/image&gt;<br/>
+         &lt;circle cx="55" cy="120" r="20" class="reporters" display="none"&gt;&lt;/circle&gt;<br/>
+         &lt;text class="reporters-text" display="none" text-anchor="middle" width="100" x="55" y="125"&gt;<br/>
+          0<br/>
+         &lt;/text&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g data-node-id="589" class="gem-level-2 " transform="matrix(1,0,0,1,6230,500)"&gt;<br/>
+         &lt;filter id="f1" x="0" y="0" width="200%" height="200%"&gt;<br/>
+          &lt;feoffset result="offOut" in="SourceAlpha" dx="5" dy="5"&gt;&lt;/feoffset&gt;<br/>
+          &lt;fegaussianblur result="blurOut" in="offOut" stddeviation="5"&gt;&lt;/fegaussianblur&gt;<br/>
+          &lt;feblend in="SourceGraphic" in2="blurOut" mode="normal"&gt;&lt;/feblend&gt;<br/>
+         &lt;/filter&gt;<br/>
+         &lt;rect x="0" y="0" height="300" width="270" rx="10" ry="10" class="gemOrgTheme-box" filter="url(#f1)"&gt;&lt;/rect&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-0" x="135" y="45"&gt;<br/>
+          Aman Bansal<br/>
+         &lt;/text&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-1" x="135" y="75"&gt;<br/>
+          Consultant<br/>
+         &lt;/text&gt;<br/>
+         &lt;clippath id="gemOrgClip"&gt;<br/>
+          &lt;circle cx="140" cy="185" r="100"&gt;&lt;/circle&gt;<br/>
+         &lt;/clippath&gt;<br/>
+         &lt;image preserveaspectratio="xMidYMid slice" clip-path="url(#gemOrgClip)" xlink:href="http://mymisapi.geminisolutions.com:8700/Images/male-employee.png?v=4.7" x="40" y="85" height="200" width="200"&gt;&lt;/image&gt;<br/>
+         &lt;circle cx="55" cy="120" r="20" class="reporters" display="block"&gt;&lt;/circle&gt;<br/>
+         &lt;text class="reporters-text" display="block" text-anchor="middle" width="100" x="55" y="125"&gt;<br/>
+          1<br/>
+         &lt;/text&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;path data-link-id="589" class="link" d="M6370,800 6370,850 6370,850 L6370,900"&gt;&lt;/path&gt;<br/>
+        &lt;g transform="matrix(1,0,0,1,6350,780)" data-btn-id="589" data-btn-action="expColl"&gt;<br/>
+         &lt;circle cx="20" cy="20" r="20" class="gem-btn"&gt;&lt;/circle&gt;<br/>
+         &lt;line x1="6.666666666666667" y1="20" x2="33.333333333333336" y2="20" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+         &lt;line style="display:none" x1="20" y1="6.666666666666667" x2="20" y2="33.333333333333336" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g data-node-id="611" class="gem-level-7  gem-gemOrgTheme gem-cordovan" transform="matrix(1,0,0,1,2180,2500)"&gt;<br/>
+         &lt;filter id="f1" x="0" y="0" width="200%" height="200%"&gt;<br/>
+          &lt;feoffset result="offOut" in="SourceAlpha" dx="5" dy="5"&gt;&lt;/feoffset&gt;<br/>
+          &lt;fegaussianblur result="blurOut" in="offOut" stddeviation="5"&gt;&lt;/fegaussianblur&gt;<br/>
+          &lt;feblend in="SourceGraphic" in2="blurOut" mode="normal"&gt;&lt;/feblend&gt;<br/>
+         &lt;/filter&gt;<br/>
+         &lt;rect x="0" y="0" height="300" width="270" rx="10" ry="10" class="gemOrgTheme-box" filter="url(#f1)"&gt;&lt;/rect&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-0" x="135" y="45"&gt;<br/>
+          Kriti Kaushal<br/>
+         &lt;/text&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-1" x="135" y="75"&gt;<br/>
+          Technical Trainee<br/>
+         &lt;/text&gt;<br/>
+         &lt;clippath id="gemOrgClip"&gt;<br/>
+          &lt;circle cx="140" cy="185" r="100"&gt;&lt;/circle&gt;<br/>
+         &lt;/clippath&gt;<br/>
+         &lt;image preserveaspectratio="xMidYMid slice" clip-path="url(#gemOrgClip)" xlink:href="http://mymisapi.geminisolutions.com:8700/Images/female-employee.png?v=4.7" x="40" y="85" height="200" width="200"&gt;&lt;/image&gt;<br/>
+         &lt;circle cx="55" cy="120" r="20" class="reporters" display="none"&gt;&lt;/circle&gt;<br/>
+         &lt;text class="reporters-text" display="none" text-anchor="middle" width="100" x="55" y="125"&gt;<br/>
+          0<br/>
+         &lt;/text&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g data-node-id="612" class="gem-level-6  gem-gemOrgTheme gem-cordovan" transform="matrix(1,0,0,1,2180,2100)"&gt;<br/>
+         &lt;filter id="f1" x="0" y="0" width="200%" height="200%"&gt;<br/>
+          &lt;feoffset result="offOut" in="SourceAlpha" dx="5" dy="5"&gt;&lt;/feoffset&gt;<br/>
+          &lt;fegaussianblur result="blurOut" in="offOut" stddeviation="5"&gt;&lt;/fegaussianblur&gt;<br/>
+          &lt;feblend in="SourceGraphic" in2="blurOut" mode="normal"&gt;&lt;/feblend&gt;<br/>
+         &lt;/filter&gt;<br/>
+         &lt;rect x="0" y="0" height="300" width="270" rx="10" ry="10" class="gemOrgTheme-box" filter="url(#f1)"&gt;&lt;/rect&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-0" x="135" y="45"&gt;<br/>
+          Jaspriya Arora<br/>
+         &lt;/text&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-1" x="135" y="75"&gt;<br/>
+          Technical Trainee<br/>
+         &lt;/text&gt;<br/>
+         &lt;clippath id="gemOrgClip"&gt;<br/>
+          &lt;circle cx="140" cy="185" r="100"&gt;&lt;/circle&gt;<br/>
+         &lt;/clippath&gt;<br/>
+         &lt;image preserveaspectratio="xMidYMid slice" clip-path="url(#gemOrgClip)" xlink:href="http://mymisapi.geminisolutions.com:8700/Images/female-employee.png?v=4.7" x="40" y="85" height="200" width="200"&gt;&lt;/image&gt;<br/>
+         &lt;circle cx="55" cy="120" r="20" class="reporters" display="none"&gt;&lt;/circle&gt;<br/>
+         &lt;text class="reporters-text" display="none" text-anchor="middle" width="100" x="55" y="125"&gt;<br/>
+          0<br/>
+         &lt;/text&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;path data-link-id="612" class="link" d="M2460,2250 2475,2250 2475,2650 L2460,2650"&gt;&lt;/path&gt;<br/>
+        &lt;g data-node-id="622" class="gem-level-16  gem-gemOrgTheme gem-darkcordovan" transform="matrix(1,0,0,1,1560,6100)"&gt;<br/>
+         &lt;filter id="f1" x="0" y="0" width="200%" height="200%"&gt;<br/>
+          &lt;feoffset result="offOut" in="SourceAlpha" dx="5" dy="5"&gt;&lt;/feoffset&gt;<br/>
+          &lt;fegaussianblur result="blurOut" in="offOut" stddeviation="5"&gt;&lt;/fegaussianblur&gt;<br/>
+          &lt;feblend in="SourceGraphic" in2="blurOut" mode="normal"&gt;&lt;/feblend&gt;<br/>
+         &lt;/filter&gt;<br/>
+         &lt;rect x="0" y="0" height="300" width="270" rx="10" ry="10" class="gemOrgTheme-box" filter="url(#f1)"&gt;&lt;/rect&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-0" x="135" y="45"&gt;<br/>
+          Pranjal Singh<br/>
+         &lt;/text&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-1" x="135" y="75"&gt;<br/>
+          Technical Trainee<br/>
+         &lt;/text&gt;<br/>
+         &lt;clippath id="gemOrgClip"&gt;<br/>
+          &lt;circle cx="140" cy="185" r="100"&gt;&lt;/circle&gt;<br/>
+         &lt;/clippath&gt;<br/>
+         &lt;image preserveaspectratio="xMidYMid slice" clip-path="url(#gemOrgClip)" xlink:href="http://mymisapi.geminisolutions.com:8700/Images/male-employee.png?v=4.7" x="40" y="85" height="200" width="200"&gt;&lt;/image&gt;<br/>
+         &lt;circle cx="55" cy="120" r="20" class="reporters" display="none"&gt;&lt;/circle&gt;<br/>
+         &lt;text class="reporters-text" display="none" text-anchor="middle" width="100" x="55" y="125"&gt;<br/>
+          0<br/>
+         &lt;/text&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;path data-link-id="622" class="link" d="M1840,6250 1855,6250 1855,6650 L1840,6650"&gt;&lt;/path&gt;<br/>
+        &lt;g data-node-id="626" class="gem-level-3 " transform="matrix(1,0,0,1,5910,900)"&gt;<br/>
+         &lt;filter id="f1" x="0" y="0" width="200%" height="200%"&gt;<br/>
+          &lt;feoffset result="offOut" in="SourceAlpha" dx="5" dy="5"&gt;&lt;/feoffset&gt;<br/>
+          &lt;fegaussianblur result="blurOut" in="offOut" stddeviation="5"&gt;&lt;/fegaussianblur&gt;<br/>
+          &lt;feblend in="SourceGraphic" in2="blurOut" mode="normal"&gt;&lt;/feblend&gt;<br/>
+         &lt;/filter&gt;<br/>
+         &lt;rect x="0" y="0" height="300" width="270" rx="10" ry="10" class="gemOrgTheme-box" filter="url(#f1)"&gt;&lt;/rect&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-0" x="135" y="45"&gt;<br/>
+          Anju Suri<br/>
+         &lt;/text&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-1" x="135" y="75"&gt;<br/>
+          Assistant Vice President<br/>
+         &lt;/text&gt;<br/>
+         &lt;clippath id="gemOrgClip"&gt;<br/>
+          &lt;circle cx="140" cy="185" r="100"&gt;&lt;/circle&gt;<br/>
+         &lt;/clippath&gt;<br/>
+         &lt;image preserveaspectratio="xMidYMid slice" clip-path="url(#gemOrgClip)" xlink:href="http://mymisapi.geminisolutions.com:8700/Images/female-employee.png?v=4.7" x="40" y="85" height="200" width="200"&gt;&lt;/image&gt;<br/>
+         &lt;circle cx="55" cy="120" r="20" class="reporters" display="block"&gt;&lt;/circle&gt;<br/>
+         &lt;text class="reporters-text" display="block" text-anchor="middle" width="100" x="55" y="125"&gt;<br/>
+          7<br/>
+         &lt;/text&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g transform="matrix(1,0,0,1,6030,1180)" data-btn-id="626" data-btn-action="expColl"&gt;<br/>
+         &lt;circle cx="20" cy="20" r="20" class="gem-btn"&gt;&lt;/circle&gt;<br/>
+         &lt;line x1="6.666666666666667" y1="20" x2="33.333333333333336" y2="20" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+         &lt;line style="display:block" x1="20" y1="6.666666666666667" x2="20" y2="33.333333333333336" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g transform="matrix(1,0,0,1,6030,1180)" data-btn-id="626" data-btn-action="expColl"&gt;<br/>
+         &lt;circle cx="20" cy="20" r="20" class="gem-btn"&gt;&lt;/circle&gt;<br/>
+         &lt;line x1="6.666666666666667" y1="20" x2="33.333333333333336" y2="20" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+         &lt;line style="display:block" x1="20" y1="6.666666666666667" x2="20" y2="33.333333333333336" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g data-node-id="673" class="gem-level-15  gem-gemOrgTheme gem-darkcordovan" transform="matrix(1,0,0,1,1560,5700)"&gt;<br/>
+         &lt;filter id="f1" x="0" y="0" width="200%" height="200%"&gt;<br/>
+          &lt;feoffset result="offOut" in="SourceAlpha" dx="5" dy="5"&gt;&lt;/feoffset&gt;<br/>
+          &lt;fegaussianblur result="blurOut" in="offOut" stddeviation="5"&gt;&lt;/fegaussianblur&gt;<br/>
+          &lt;feblend in="SourceGraphic" in2="blurOut" mode="normal"&gt;&lt;/feblend&gt;<br/>
+         &lt;/filter&gt;<br/>
+         &lt;rect x="0" y="0" height="300" width="270" rx="10" ry="10" class="gemOrgTheme-box" filter="url(#f1)"&gt;&lt;/rect&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-0" x="135" y="45"&gt;<br/>
+          Ayush Garg<br/>
+         &lt;/text&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-1" x="135" y="75"&gt;<br/>
+          Technical Trainee<br/>
+         &lt;/text&gt;<br/>
+         &lt;clippath id="gemOrgClip"&gt;<br/>
+          &lt;circle cx="140" cy="185" r="100"&gt;&lt;/circle&gt;<br/>
+         &lt;/clippath&gt;<br/>
+         &lt;image preserveaspectratio="xMidYMid slice" clip-path="url(#gemOrgClip)" xlink:href="http://mymisapi.geminisolutions.com:8700/Images/male-employee.png?v=4.7" x="40" y="85" height="200" width="200"&gt;&lt;/image&gt;<br/>
+         &lt;circle cx="55" cy="120" r="20" class="reporters" display="none"&gt;&lt;/circle&gt;<br/>
+         &lt;text class="reporters-text" display="none" text-anchor="middle" width="100" x="55" y="125"&gt;<br/>
+          0<br/>
+         &lt;/text&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;path data-link-id="673" class="link" d="M1840,5850 1855,5850 1855,6250 L1840,6250"&gt;&lt;/path&gt;<br/>
+        &lt;g data-node-id="682" class="gem-level-14  gem-gemOrgTheme gem-darkcordovan" transform="matrix(1,0,0,1,1560,5300)"&gt;<br/>
+         &lt;filter id="f1" x="0" y="0" width="200%" height="200%"&gt;<br/>
+          &lt;feoffset result="offOut" in="SourceAlpha" dx="5" dy="5"&gt;&lt;/feoffset&gt;<br/>
+          &lt;fegaussianblur result="blurOut" in="offOut" stddeviation="5"&gt;&lt;/fegaussianblur&gt;<br/>
+          &lt;feblend in="SourceGraphic" in2="blurOut" mode="normal"&gt;&lt;/feblend&gt;<br/>
+         &lt;/filter&gt;<br/>
+         &lt;rect x="0" y="0" height="300" width="270" rx="10" ry="10" class="gemOrgTheme-box" filter="url(#f1)"&gt;&lt;/rect&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-0" x="135" y="45"&gt;<br/>
+          Akhil Singh Rajput<br/>
+         &lt;/text&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-1" x="135" y="75"&gt;<br/>
+          Technical Trainee<br/>
+         &lt;/text&gt;<br/>
+         &lt;clippath id="gemOrgClip"&gt;<br/>
+          &lt;circle cx="140" cy="185" r="100"&gt;&lt;/circle&gt;<br/>
+         &lt;/clippath&gt;<br/>
+         &lt;image preserveaspectratio="xMidYMid slice" clip-path="url(#gemOrgClip)" xlink:href="http://mymisapi.geminisolutions.com:8700/Images/male-employee.png?v=4.7" x="40" y="85" height="200" width="200"&gt;&lt;/image&gt;<br/>
+         &lt;circle cx="55" cy="120" r="20" class="reporters" display="none"&gt;&lt;/circle&gt;<br/>
+         &lt;text class="reporters-text" display="none" text-anchor="middle" width="100" x="55" y="125"&gt;<br/>
+          0<br/>
+         &lt;/text&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;path data-link-id="682" class="link" d="M1840,5450 1855,5450 1855,5850 L1840,5850"&gt;&lt;/path&gt;<br/>
+        &lt;g data-node-id="709" class="gem-level-13  gem-gemOrgTheme gem-darkcordovan" transform="matrix(1,0,0,1,1560,4900)"&gt;<br/>
+         &lt;filter id="f1" x="0" y="0" width="200%" height="200%"&gt;<br/>
+          &lt;feoffset result="offOut" in="SourceAlpha" dx="5" dy="5"&gt;&lt;/feoffset&gt;<br/>
+          &lt;fegaussianblur result="blurOut" in="offOut" stddeviation="5"&gt;&lt;/fegaussianblur&gt;<br/>
+          &lt;feblend in="SourceGraphic" in2="blurOut" mode="normal"&gt;&lt;/feblend&gt;<br/>
+         &lt;/filter&gt;<br/>
+         &lt;rect x="0" y="0" height="300" width="270" rx="10" ry="10" class="gemOrgTheme-box" filter="url(#f1)"&gt;&lt;/rect&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-0" x="135" y="45"&gt;<br/>
+          Vipra Sagar<br/>
+         &lt;/text&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-1" x="135" y="75"&gt;<br/>
+          Technical Trainee<br/>
+         &lt;/text&gt;<br/>
+         &lt;clippath id="gemOrgClip"&gt;<br/>
+          &lt;circle cx="140" cy="185" r="100"&gt;&lt;/circle&gt;<br/>
+         &lt;/clippath&gt;<br/>
+         &lt;image preserveaspectratio="xMidYMid slice" clip-path="url(#gemOrgClip)" xlink:href="http://mymisapi.geminisolutions.com:8700/Images/female-employee.png?v=4.7" x="40" y="85" height="200" width="200"&gt;&lt;/image&gt;<br/>
+         &lt;circle cx="55" cy="120" r="20" class="reporters" display="none"&gt;&lt;/circle&gt;<br/>
+         &lt;text class="reporters-text" display="none" text-anchor="middle" width="100" x="55" y="125"&gt;<br/>
+          0<br/>
+         &lt;/text&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;path data-link-id="709" class="link" d="M1840,5050 1855,5050 1855,5450 L1840,5450"&gt;&lt;/path&gt;<br/>
+        &lt;g data-node-id="723" class="gem-level-12  gem-gemOrgTheme gem-darkcordovan" transform="matrix(1,0,0,1,1560,4500)"&gt;<br/>
+         &lt;filter id="f1" x="0" y="0" width="200%" height="200%"&gt;<br/>
+          &lt;feoffset result="offOut" in="SourceAlpha" dx="5" dy="5"&gt;&lt;/feoffset&gt;<br/>
+          &lt;fegaussianblur result="blurOut" in="offOut" stddeviation="5"&gt;&lt;/fegaussianblur&gt;<br/>
+          &lt;feblend in="SourceGraphic" in2="blurOut" mode="normal"&gt;&lt;/feblend&gt;<br/>
+         &lt;/filter&gt;<br/>
+         &lt;rect x="0" y="0" height="300" width="270" rx="10" ry="10" class="gemOrgTheme-box" filter="url(#f1)"&gt;&lt;/rect&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-0" x="135" y="45"&gt;<br/>
+          Rushil Matta<br/>
+         &lt;/text&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-1" x="135" y="75"&gt;<br/>
+          Technical Trainee<br/>
+         &lt;/text&gt;<br/>
+         &lt;clippath id="gemOrgClip"&gt;<br/>
+          &lt;circle cx="140" cy="185" r="100"&gt;&lt;/circle&gt;<br/>
+         &lt;/clippath&gt;<br/>
+         &lt;image preserveaspectratio="xMidYMid slice" clip-path="url(#gemOrgClip)" xlink:href="http://mymisapi.geminisolutions.com:8700/Images/male-employee.png?v=4.7" x="40" y="85" height="200" width="200"&gt;&lt;/image&gt;<br/>
+         &lt;circle cx="55" cy="120" r="20" class="reporters" display="none"&gt;&lt;/circle&gt;<br/>
+         &lt;text class="reporters-text" display="none" text-anchor="middle" width="100" x="55" y="125"&gt;<br/>
+          0<br/>
+         &lt;/text&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;path data-link-id="723" class="link" d="M1840,4650 1855,4650 1855,5050 L1840,5050"&gt;&lt;/path&gt;<br/>
+        &lt;g data-node-id="724" class="gem-level-11  gem-gemOrgTheme gem-darkcordovan" transform="matrix(1.0006165332533743,0,0,1.0006165332533743,1559.9136853445275,4099.907520011994)"&gt;<br/>
+         &lt;filter id="f1" x="0" y="0" width="200%" height="200%"&gt;<br/>
+          &lt;feoffset result="offOut" in="SourceAlpha" dx="5" dy="5"&gt;&lt;/feoffset&gt;<br/>
+          &lt;fegaussianblur result="blurOut" in="offOut" stddeviation="5"&gt;&lt;/fegaussianblur&gt;<br/>
+          &lt;feblend in="SourceGraphic" in2="blurOut" mode="normal"&gt;&lt;/feblend&gt;<br/>
+         &lt;/filter&gt;<br/>
+         &lt;rect x="0" y="0" height="300" width="270" rx="10" ry="10" class="gemOrgTheme-box" filter="url(#f1)"&gt;&lt;/rect&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-0" x="135" y="45"&gt;<br/>
+          Amisha Srivastava<br/>
+         &lt;/text&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-1" x="135" y="75"&gt;<br/>
+          Technical Trainee<br/>
+         &lt;/text&gt;<br/>
+         &lt;clippath id="gemOrgClip"&gt;<br/>
+          &lt;circle cx="140" cy="185" r="100"&gt;&lt;/circle&gt;<br/>
+         &lt;/clippath&gt;<br/>
+         &lt;image preserveaspectratio="xMidYMid slice" clip-path="url(#gemOrgClip)" xlink:href="http://mymisapi.geminisolutions.com:8700/Images/female-employee.png?v=4.7" x="40" y="85" height="200" width="200"&gt;&lt;/image&gt;<br/>
+         &lt;circle cx="55" cy="120" r="20" class="reporters" display="none"&gt;&lt;/circle&gt;<br/>
+         &lt;text class="reporters-text" display="none" text-anchor="middle" width="100" x="55" y="125"&gt;<br/>
+          0<br/>
+         &lt;/text&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;path data-link-id="724" class="link" d="M1840,4250 1855,4250 1855,4650 L1840,4650"&gt;&lt;/path&gt;<br/>
+        &lt;g data-node-id="730" class="gem-level-10  gem-gemOrgTheme gem-darkcordovan" transform="matrix(1,0,0,1,1560,3700)"&gt;<br/>
+         &lt;filter id="f1" x="0" y="0" width="200%" height="200%"&gt;<br/>
+          &lt;feoffset result="offOut" in="SourceAlpha" dx="5" dy="5"&gt;&lt;/feoffset&gt;<br/>
+          &lt;fegaussianblur result="blurOut" in="offOut" stddeviation="5"&gt;&lt;/fegaussianblur&gt;<br/>
+          &lt;feblend in="SourceGraphic" in2="blurOut" mode="normal"&gt;&lt;/feblend&gt;<br/>
+         &lt;/filter&gt;<br/>
+         &lt;rect x="0" y="0" height="300" width="270" rx="10" ry="10" class="gemOrgTheme-box" filter="url(#f1)"&gt;&lt;/rect&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-0" x="135" y="45"&gt;<br/>
+          Siddhanshi Porwal<br/>
+         &lt;/text&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-1" x="135" y="75"&gt;<br/>
+          Technical Trainee<br/>
+         &lt;/text&gt;<br/>
+         &lt;clippath id="gemOrgClip"&gt;<br/>
+          &lt;circle cx="140" cy="185" r="100"&gt;&lt;/circle&gt;<br/>
+         &lt;/clippath&gt;<br/>
+         &lt;image preserveaspectratio="xMidYMid slice" clip-path="url(#gemOrgClip)" xlink:href="http://mymisapi.geminisolutions.com:8700/Images/female-employee.png?v=4.7" x="40" y="85" height="200" width="200"&gt;&lt;/image&gt;<br/>
+         &lt;circle cx="55" cy="120" r="20" class="reporters" display="none"&gt;&lt;/circle&gt;<br/>
+         &lt;text class="reporters-text" display="none" text-anchor="middle" width="100" x="55" y="125"&gt;<br/>
+          0<br/>
+         &lt;/text&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;path data-link-id="730" class="link" d="M1840,3850 1855,3850 1855,4250 L1840,4250"&gt;&lt;/path&gt;<br/>
+        &lt;g data-node-id="734" class="gem-level-3 " transform="matrix(1,0,0,1,930,900)"&gt;<br/>
+         &lt;filter id="f1" x="0" y="0" width="200%" height="200%"&gt;<br/>
+          &lt;feoffset result="offOut" in="SourceAlpha" dx="5" dy="5"&gt;&lt;/feoffset&gt;<br/>
+          &lt;fegaussianblur result="blurOut" in="offOut" stddeviation="5"&gt;&lt;/fegaussianblur&gt;<br/>
+          &lt;feblend in="SourceGraphic" in2="blurOut" mode="normal"&gt;&lt;/feblend&gt;<br/>
+         &lt;/filter&gt;<br/>
+         &lt;rect x="0" y="0" height="300" width="270" rx="10" ry="10" class="gemOrgTheme-box" filter="url(#f1)"&gt;&lt;/rect&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-0" x="135" y="45"&gt;<br/>
+          Sudhanshu Malh...<br/>
+         &lt;/text&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-1" x="135" y="75"&gt;<br/>
+          Vice President<br/>
+         &lt;/text&gt;<br/>
+         &lt;clippath id="gemOrgClip"&gt;<br/>
+          &lt;circle cx="140" cy="185" r="100"&gt;&lt;/circle&gt;<br/>
+         &lt;/clippath&gt;<br/>
+         &lt;image preserveaspectratio="xMidYMid slice" clip-path="url(#gemOrgClip)" xlink:href="http://mymisapi.geminisolutions.com:8700/Images/male-employee.png?v=4.7" x="40" y="85" height="200" width="200"&gt;&lt;/image&gt;<br/>
+         &lt;circle cx="55" cy="120" r="20" class="reporters" display="none"&gt;&lt;/circle&gt;<br/>
+         &lt;text class="reporters-text" display="none" text-anchor="middle" width="100" x="55" y="125"&gt;<br/>
+          0<br/>
+         &lt;/text&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g data-node-id="777" class="gem-level-9  gem-gemOrgTheme gem-darkcordovan" transform="matrix(1,0,0,1,1560,3300)"&gt;<br/>
+         &lt;filter id="f1" x="0" y="0" width="200%" height="200%"&gt;<br/>
+          &lt;feoffset result="offOut" in="SourceAlpha" dx="5" dy="5"&gt;&lt;/feoffset&gt;<br/>
+          &lt;fegaussianblur result="blurOut" in="offOut" stddeviation="5"&gt;&lt;/fegaussianblur&gt;<br/>
+          &lt;feblend in="SourceGraphic" in2="blurOut" mode="normal"&gt;&lt;/feblend&gt;<br/>
+         &lt;/filter&gt;<br/>
+         &lt;rect x="0" y="0" height="300" width="270" rx="10" ry="10" class="gemOrgTheme-box" filter="url(#f1)"&gt;&lt;/rect&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-0" x="135" y="45"&gt;<br/>
+          Charu Srivastava<br/>
+         &lt;/text&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-1" x="135" y="75"&gt;<br/>
+          GET<br/>
+         &lt;/text&gt;<br/>
+         &lt;clippath id="gemOrgClip"&gt;<br/>
+          &lt;circle cx="140" cy="185" r="100"&gt;&lt;/circle&gt;<br/>
+         &lt;/clippath&gt;<br/>
+         &lt;image preserveaspectratio="xMidYMid slice" clip-path="url(#gemOrgClip)" xlink:href="http://mymisapi.geminisolutions.com:8700/Images/female-employee.png?v=4.7" x="40" y="85" height="200" width="200"&gt;&lt;/image&gt;<br/>
+         &lt;circle cx="55" cy="120" r="20" class="reporters" display="none"&gt;&lt;/circle&gt;<br/>
+         &lt;text class="reporters-text" display="none" text-anchor="middle" width="100" x="55" y="125"&gt;<br/>
+          0<br/>
+         &lt;/text&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;path data-link-id="777" class="link" d="M1840,3450 1855,3450 1855,3850 L1840,3850"&gt;&lt;/path&gt;<br/>
+        &lt;g data-node-id="805" class="gem-level-8  gem-gemOrgTheme gem-darkcordovan" transform="matrix(1,0,0,1,1560,2900)"&gt;<br/>
+         &lt;filter id="f1" x="0" y="0" width="200%" height="200%"&gt;<br/>
+          &lt;feoffset result="offOut" in="SourceAlpha" dx="5" dy="5"&gt;&lt;/feoffset&gt;<br/>
+          &lt;fegaussianblur result="blurOut" in="offOut" stddeviation="5"&gt;&lt;/fegaussianblur&gt;<br/>
+          &lt;feblend in="SourceGraphic" in2="blurOut" mode="normal"&gt;&lt;/feblend&gt;<br/>
+         &lt;/filter&gt;<br/>
+         &lt;rect x="0" y="0" height="300" width="270" rx="10" ry="10" class="gemOrgTheme-box" filter="url(#f1)"&gt;&lt;/rect&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-0" x="135" y="45"&gt;<br/>
+          Lakshay Sindhu<br/>
+         &lt;/text&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-1" x="135" y="75"&gt;<br/>
+          GET<br/>
+         &lt;/text&gt;<br/>
+         &lt;clippath id="gemOrgClip"&gt;<br/>
+          &lt;circle cx="140" cy="185" r="100"&gt;&lt;/circle&gt;<br/>
+         &lt;/clippath&gt;<br/>
+         &lt;image preserveaspectratio="xMidYMid slice" clip-path="url(#gemOrgClip)" xlink:href="http://mymisapi.geminisolutions.com:8700/Images/male-employee.png?v=4.7" x="40" y="85" height="200" width="200"&gt;&lt;/image&gt;<br/>
+         &lt;circle cx="55" cy="120" r="20" class="reporters" display="none"&gt;&lt;/circle&gt;<br/>
+         &lt;text class="reporters-text" display="none" text-anchor="middle" width="100" x="55" y="125"&gt;<br/>
+          0<br/>
+         &lt;/text&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;path data-link-id="805" class="link" d="M1840,3050 1855,3050 1855,3450 L1840,3450"&gt;&lt;/path&gt;<br/>
+        &lt;g data-node-id="824" class="gem-level-5  gem-gemOrgTheme gem-cordovan" transform="matrix(1,0,0,1,2180,1700)"&gt;<br/>
+         &lt;filter id="f1" x="0" y="0" width="200%" height="200%"&gt;<br/>
+          &lt;feoffset result="offOut" in="SourceAlpha" dx="5" dy="5"&gt;&lt;/feoffset&gt;<br/>
+          &lt;fegaussianblur result="blurOut" in="offOut" stddeviation="5"&gt;&lt;/fegaussianblur&gt;<br/>
+          &lt;feblend in="SourceGraphic" in2="blurOut" mode="normal"&gt;&lt;/feblend&gt;<br/>
+         &lt;/filter&gt;<br/>
+         &lt;rect x="0" y="0" height="300" width="270" rx="10" ry="10" class="gemOrgTheme-box" filter="url(#f1)"&gt;&lt;/rect&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-0" x="135" y="45"&gt;<br/>
+          Yusuf Gultekin<br/>
+         &lt;/text&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-1" x="135" y="75"&gt;<br/>
+          SDET L1<br/>
+         &lt;/text&gt;<br/>
+         &lt;clippath id="gemOrgClip"&gt;<br/>
+          &lt;circle cx="140" cy="185" r="100"&gt;&lt;/circle&gt;<br/>
+         &lt;/clippath&gt;<br/>
+         &lt;image preserveaspectratio="xMidYMid slice" clip-path="url(#gemOrgClip)" xlink:href="http://mymisapi.geminisolutions.com:8700/Images/male-employee.png?v=4.7" x="40" y="85" height="200" width="200"&gt;&lt;/image&gt;<br/>
+         &lt;circle cx="55" cy="120" r="20" class="reporters" display="none"&gt;&lt;/circle&gt;<br/>
+         &lt;text class="reporters-text" display="none" text-anchor="middle" width="100" x="55" y="125"&gt;<br/>
+          0<br/>
+         &lt;/text&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;path data-link-id="824" class="link" d="M2460,1850 2475,1850 2475,2250 L2460,2250"&gt;&lt;/path&gt;<br/>
+        &lt;g data-node-id="826" class="gem-level-7  gem-gemOrgTheme gem-darkcordovan" transform="matrix(1,0,0,1,1560,2500)"&gt;<br/>
+         &lt;filter id="f1" x="0" y="0" width="200%" height="200%"&gt;<br/>
+          &lt;feoffset result="offOut" in="SourceAlpha" dx="5" dy="5"&gt;&lt;/feoffset&gt;<br/>
+          &lt;fegaussianblur result="blurOut" in="offOut" stddeviation="5"&gt;&lt;/fegaussianblur&gt;<br/>
+          &lt;feblend in="SourceGraphic" in2="blurOut" mode="normal"&gt;&lt;/feblend&gt;<br/>
+         &lt;/filter&gt;<br/>
+         &lt;rect x="0" y="0" height="300" width="270" rx="10" ry="10" class="gemOrgTheme-box" filter="url(#f1)"&gt;&lt;/rect&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-0" x="135" y="45"&gt;<br/>
+          Savitra Marathe<br/>
+         &lt;/text&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-1" x="135" y="75"&gt;<br/>
+          Technical Trainee<br/>
+         &lt;/text&gt;<br/>
+         &lt;clippath id="gemOrgClip"&gt;<br/>
+          &lt;circle cx="140" cy="185" r="100"&gt;&lt;/circle&gt;<br/>
+         &lt;/clippath&gt;<br/>
+         &lt;image preserveaspectratio="xMidYMid slice" clip-path="url(#gemOrgClip)" xlink:href="http://mymisapi.geminisolutions.com:8700/Images/male-employee.png?v=4.7" x="40" y="85" height="200" width="200"&gt;&lt;/image&gt;<br/>
+         &lt;circle cx="55" cy="120" r="20" class="reporters" display="none"&gt;&lt;/circle&gt;<br/>
+         &lt;text class="reporters-text" display="none" text-anchor="middle" width="100" x="55" y="125"&gt;<br/>
+          0<br/>
+         &lt;/text&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;path data-link-id="826" class="link" d="M1840,2650 1855,2650 1855,3050 L1840,3050"&gt;&lt;/path&gt;<br/>
+        &lt;g data-node-id="851" class="gem-level-6  gem-gemOrgTheme gem-darkcordovan" transform="matrix(1,0,0,1,1560,2100)"&gt;<br/>
+         &lt;filter id="f1" x="0" y="0" width="200%" height="200%"&gt;<br/>
+          &lt;feoffset result="offOut" in="SourceAlpha" dx="5" dy="5"&gt;&lt;/feoffset&gt;<br/>
+          &lt;fegaussianblur result="blurOut" in="offOut" stddeviation="5"&gt;&lt;/fegaussianblur&gt;<br/>
+          &lt;feblend in="SourceGraphic" in2="blurOut" mode="normal"&gt;&lt;/feblend&gt;<br/>
+         &lt;/filter&gt;<br/>
+         &lt;rect x="0" y="0" height="300" width="270" rx="10" ry="10" class="gemOrgTheme-box" filter="url(#f1)"&gt;&lt;/rect&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-0" x="135" y="45"&gt;<br/>
+          Pasupulati Siva Puja<br/>
+         &lt;/text&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-1" x="135" y="75"&gt;<br/>
+          Technical Intern<br/>
+         &lt;/text&gt;<br/>
+         &lt;clippath id="gemOrgClip"&gt;<br/>
+          &lt;circle cx="140" cy="185" r="100"&gt;&lt;/circle&gt;<br/>
+         &lt;/clippath&gt;<br/>
+         &lt;image preserveaspectratio="xMidYMid slice" clip-path="url(#gemOrgClip)" xlink:href="http://mymisapi.geminisolutions.com:8700/Images/female-employee.png?v=4.7" x="40" y="85" height="200" width="200"&gt;&lt;/image&gt;<br/>
+         &lt;circle cx="55" cy="120" r="20" class="reporters" display="none"&gt;&lt;/circle&gt;<br/>
+         &lt;text class="reporters-text" display="none" text-anchor="middle" width="100" x="55" y="125"&gt;<br/>
+          0<br/>
+         &lt;/text&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;path data-link-id="851" class="link" d="M1840,2250 1855,2250 1855,2650 L1840,2650"&gt;&lt;/path&gt;<br/>
+        &lt;g data-node-id="986" class="gem-level-4 " transform="matrix(1,0,0,1,2490,1300)"&gt;<br/>
+         &lt;filter id="f1" x="0" y="0" width="200%" height="200%"&gt;<br/>
+          &lt;feoffset result="offOut" in="SourceAlpha" dx="5" dy="5"&gt;&lt;/feoffset&gt;<br/>
+          &lt;fegaussianblur result="blurOut" in="offOut" stddeviation="5"&gt;&lt;/fegaussianblur&gt;<br/>
+          &lt;feblend in="SourceGraphic" in2="blurOut" mode="normal"&gt;&lt;/feblend&gt;<br/>
+         &lt;/filter&gt;<br/>
+         &lt;rect x="0" y="0" height="300" width="270" rx="10" ry="10" class="gemOrgTheme-box" filter="url(#f1)"&gt;&lt;/rect&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-0" x="135" y="45"&gt;<br/>
+          Sajith J<br/>
+         &lt;/text&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-1" x="135" y="75"&gt;<br/>
+          Assistant Vice President<br/>
+         &lt;/text&gt;<br/>
+         &lt;clippath id="gemOrgClip"&gt;<br/>
+          &lt;circle cx="140" cy="185" r="100"&gt;&lt;/circle&gt;<br/>
+         &lt;/clippath&gt;<br/>
+         &lt;image preserveaspectratio="xMidYMid slice" clip-path="url(#gemOrgClip)" xlink:href="http://mymisapi.geminisolutions.com:8700/Images/male-employee.png?v=4.7" x="40" y="85" height="200" width="200"&gt;&lt;/image&gt;<br/>
+         &lt;circle cx="55" cy="120" r="20" class="reporters" display="block"&gt;&lt;/circle&gt;<br/>
+         &lt;text class="reporters-text" display="block" text-anchor="middle" width="100" x="55" y="125"&gt;<br/>
+          3<br/>
+         &lt;/text&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g transform="matrix(1,0,0,1,2610,1580)" data-btn-id="986" data-btn-action="expColl"&gt;<br/>
+         &lt;circle cx="20" cy="20" r="20" class="gem-btn"&gt;&lt;/circle&gt;<br/>
+         &lt;line x1="6.666666666666667" y1="20" x2="33.333333333333336" y2="20" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+         &lt;line style="display:block" x1="20" y1="6.666666666666667" x2="20" y2="33.333333333333336" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g data-node-id="1000" class="gem-level-3 " transform="matrix(1,0,0,1,1240,900)"&gt;<br/>
+         &lt;filter id="f1" x="0" y="0" width="200%" height="200%"&gt;<br/>
+          &lt;feoffset result="offOut" in="SourceAlpha" dx="5" dy="5"&gt;&lt;/feoffset&gt;<br/>
+          &lt;fegaussianblur result="blurOut" in="offOut" stddeviation="5"&gt;&lt;/fegaussianblur&gt;<br/>
+          &lt;feblend in="SourceGraphic" in2="blurOut" mode="normal"&gt;&lt;/feblend&gt;<br/>
+         &lt;/filter&gt;<br/>
+         &lt;rect x="0" y="0" height="300" width="270" rx="10" ry="10" class="gemOrgTheme-box" filter="url(#f1)"&gt;&lt;/rect&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-0" x="135" y="45"&gt;<br/>
+          Nitin Kapoor<br/>
+         &lt;/text&gt;<br/>
+         &lt;text text-anchor="middle" width="270" class="gem-text gem-text-1" x="135" y="75"&gt;<br/>
+          Head of Finance<br/>
+         &lt;/text&gt;<br/>
+         &lt;clippath id="gemOrgClip"&gt;<br/>
+          &lt;circle cx="140" cy="185" r="100"&gt;&lt;/circle&gt;<br/>
+         &lt;/clippath&gt;<br/>
+         &lt;image preserveaspectratio="xMidYMid slice" clip-path="url(#gemOrgClip)" xlink:href="http://mymisapi.geminisolutions.com:8700/Images/male-employee.png?v=4.7" x="40" y="85" height="200" width="200"&gt;&lt;/image&gt;<br/>
+         &lt;circle cx="55" cy="120" r="20" class="reporters" display="block"&gt;&lt;/circle&gt;<br/>
+         &lt;text class="reporters-text" display="block" text-anchor="middle" width="100" x="55" y="125"&gt;<br/>
+          2<br/>
+         &lt;/text&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g transform="matrix(1,0,0,1,1360,1180)" data-btn-id="1000" data-btn-action="expColl"&gt;<br/>
+         &lt;circle cx="20" cy="20" r="20" class="gem-btn"&gt;&lt;/circle&gt;<br/>
+         &lt;line x1="6.666666666666667" y1="20" x2="33.333333333333336" y2="20" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+         &lt;line style="display:block" x1="20" y1="6.666666666666667" x2="20" y2="33.333333333333336" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g transform="matrix(1,0,0,1,1360,1180)" data-btn-id="1000" data-btn-action="expColl"&gt;<br/>
+         &lt;circle cx="20" cy="20" r="20" class="gem-btn"&gt;&lt;/circle&gt;<br/>
+         &lt;line x1="6.666666666666667" y1="20" x2="33.333333333333336" y2="20" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+         &lt;line style="display:block" x1="20" y1="6.666666666666667" x2="20" y2="33.333333333333336" class="gem-btn gem-btn-line"&gt;&lt;/line&gt;<br/>
+        &lt;/g&gt;<br/>
+        &lt;g style="display:none;" class="gem-btn" data-btn-id="[id]" data-btn-action="details" transform="matrix(0.14,0,0,0.14,0,0)"&gt;<br/>
+         &lt;rect style="opacity:0" x="0" y="0" height="300" width="300"&gt;&lt;/rect&gt;<br/>
+         &lt;path fill="#686868" d="M139.414,96.193c-22.673,0-41.056,18.389-41.056,41.062c0,22.678,18.383,41.062,41.056,41.062 c22.678,0,41.059-18.383,41.059-41.062C180.474,114.582,162.094,96.193,139.414,96.193z M159.255,146.971h-12.06v12.06 c0,4.298-3.483,7.781-7.781,7.781c-4.298,0-7.781-3.483-7.781-7.781v-12.06h-12.06c-4.298,0-7.781-3.483-7.781-7.781 c0-4.298,3.483-7.781,7.781-7.781h12.06v-12.063c0-4.298,3.483-7.781,7.781-7.781c4.298,0,7.781,3.483,7.781,7.781v12.063h12.06 c4.298,0,7.781,3.483,7.781,7.781C167.036,143.488,163.555,146.971,159.255,146.971z"&gt;&lt;/path&gt;<br/>
+         &lt;path stroke="#686868" fill="#686868" d="M149.997,0C67.157,0,0.001,67.158,0.001,149.995s67.156,150.003,149.995,150.003s150-67.163,150-150.003 S232.836,0,149.997,0z M225.438,221.254c-2.371,2.376-5.48,3.561-8.59,3.561s-6.217-1.185-8.593-3.561l-34.145-34.147 c-9.837,6.863-21.794,10.896-34.697,10.896c-33.548,0-60.742-27.196-60.742-60.744c0-33.548,27.194-60.742,60.742-60.742 c33.548,0,60.744,27.194,60.744,60.739c0,11.855-3.408,22.909-9.28,32.256l34.56,34.562 C230.185,208.817,230.185,216.512,225.438,221.254z"&gt;&lt;/path&gt;<br/>
+        &lt;/g&gt;,<br/>
+        &lt;g style="display:none;" class="gem-btn" data-btn-id="[id]" data-btn-action="edit" transform="matrix(0.14,0,0,0.14,0,0)"&gt;<br/>
+         &lt;rect style="opacity:0" x="0" y="0" height="300" width="300"&gt;&lt;/rect&gt;<br/>
+         &lt;path fill="#686868" d="M149.996,0C67.157,0,0.001,67.161,0.001,149.997S67.157,300,149.996,300s150.003-67.163,150.003-150.003 S232.835,0,149.996,0z M221.302,107.945l-14.247,14.247l-29.001-28.999l-11.002,11.002l29.001,29.001l-71.132,71.126 l-28.999-28.996L84.92,186.328l28.999,28.999l-7.088,7.088l-0.135-0.135c-0.786,1.294-2.064,2.238-3.582,2.575l-27.043,6.03 c-0.405,0.091-0.817,0.135-1.224,0.135c-1.476,0-2.91-0.581-3.973-1.647c-1.364-1.359-1.932-3.322-1.512-5.203l6.027-27.035 c0.34-1.517,1.286-2.798,2.578-3.582l-0.137-0.137L192.3,78.941c1.678-1.675,4.404-1.675,6.082,0.005l22.922,22.917 C222.982,103.541,222.982,106.267,221.302,107.945z"&gt;&lt;/path&gt;<br/>
+        &lt;/g&gt;,<br/>
+        &lt;g style="display:none;" class="gem-btn" data-btn-id="[id]" data-btn-action="add" transform="matrix(0.14,0,0,0.14,0,0)"&gt;<br/>
+         &lt;rect style="opacity:0" x="0" y="0" height="300" width="300"&gt;&lt;/rect&gt;<br/>
+         &lt;path fill="#686868" d="M149.996,0C67.157,0,0.001,67.158,0.001,149.997c0,82.837,67.156,150,149.995,150s150-67.163,150-150 C299.996,67.156,232.835,0,149.996,0z M149.996,59.147c25.031,0,45.326,20.292,45.326,45.325 c0,25.036-20.292,45.328-45.326,45.328s-45.325-20.292-45.325-45.328C104.671,79.439,124.965,59.147,149.996,59.147z M168.692,212.557h-0.001v16.41v2.028h-18.264h-0.864H83.86c0-44.674,24.302-60.571,40.245-74.843 c7.724,4.15,16.532,6.531,25.892,6.601c9.358-0.07,18.168-2.451,25.887-6.601c7.143,6.393,15.953,13.121,23.511,22.606h-7.275 v10.374v13.051h-13.054h-10.374V212.557z M218.902,228.967v23.425h-16.41v-23.425h-23.428v-16.41h23.428v-23.425H218.9v23.425 h23.423v16.41H218.902z"&gt;&lt;/path&gt;<br/>
+        &lt;/g&gt;,<br/>
+        &lt;g style="display:none;" class="gem-btn" data-btn-id="[id]" data-btn-action="del" transform="matrix(0.14,0,0,0.14,0,0)"&gt;<br/>
+         &lt;rect style="opacity:0" x="0" y="0" height="300" width="300"&gt;&lt;/rect&gt;<br/>
+         &lt;path fill="#686868" d="M112.782,205.804c10.644,7.166,23.449,11.355,37.218,11.355c36.837,0,66.808-29.971,66.808-66.808 c0-13.769-4.189-26.574-11.355-37.218L112.782,205.804z"&gt;&lt;/path&gt; <br/>
+         &lt;path stroke="#686868" fill="#686868" d="M150,83.542c-36.839,0-66.808,29.969-66.808,66.808c0,15.595,5.384,29.946,14.374,41.326l93.758-93.758 C179.946,88.926,165.595,83.542,150,83.542z"&gt;&lt;/path&gt;<br/>
+         &lt;path stroke="#686868" fill="#686868" d="M149.997,0C67.158,0,0.003,67.161,0.003,149.997S67.158,300,149.997,300s150-67.163,150-150.003S232.837,0,149.997,0z M150,237.907c-48.28,0-87.557-39.28-87.557-87.557c0-48.28,39.277-87.557,87.557-87.557c48.277,0,87.557,39.277,87.557,87.557 C237.557,198.627,198.277,237.907,150,237.907z"&gt;&lt;/path&gt;<br/>
+        &lt;/g&gt;<br/>
+       &lt;/g&gt;<br/>
+      &lt;/svg&gt;<br/>
+     &lt;/div&gt;<br/>
+     &lt;div class="gem-oc-v" style="height: 539px; top: -9999px; left: -9999px;"&gt;<br/>
+      &lt;div class="gem-image-pane"&gt;&lt;/div&gt;<br/>
+      &lt;div class="gem-data-pane"&gt;&lt;/div&gt;<br/>
+     &lt;/div&gt;<br/>
+     &lt;div class="gem-oc-g" style="height: 539px; top: -9999px; left: -9999px;"&gt;&lt;/div&gt;<br/>
+     &lt;div class="gem-left" style="display: inherit;"&gt;<br/>
+      &lt;div class="gem-left-icon"&gt;&lt;/div&gt;<br/>
+     &lt;/div&gt;<br/>
+     &lt;div class="gem-right" style="display: inherit;"&gt;<br/>
+      &lt;div class="gem-right-icon"&gt;&lt;/div&gt;<br/>
+     &lt;/div&gt;<br/>
+     &lt;div class="gem-up" style="display: inherit;"&gt;<br/>
+      &lt;div class="gem-up-icon"&gt;&lt;/div&gt;<br/>
+     &lt;/div&gt;<br/>
+     &lt;div class="gem-down" style="display: inherit;"&gt;<br/>
+      &lt;div class="gem-down-icon"&gt;&lt;/div&gt;<br/>
+     &lt;/div&gt;<br/>
+    &lt;/div&gt;<br/>
+   &lt;/div&gt; <br/>
+   &lt;script type="text/javascript"&gt;<br/>
+    bindOrgStructure();<br/>
+    //$(document).ready(function () {<br/>
+    //    $('#tblOrganizationStructure').DataTable({<br/>
+    //        "responsive": true,<br/>
+    //        "autoWidth": false,<br/>
+    //        "paging": false,<br/>
+    //        "bDestroy": true,<br/>
+    //        "searching": false,<br/>
+    //        "ordering": false,<br/>
+    //        "info": false,<br/>
+    //        "deferRender": true,<br/>
+    //    });<br/>
+    //});<br/>
+<br/>
+    //function viewDocumentInPopup(formName) {<br/>
+    //    var extention = 'pdf';<br/>
+    //    var formTitle = 'Organization Structure';<br/>
+    //    calltoAjax(misApiUrl.fetchOrganizationStructurePdf, "POST", '',<br/>
+    //        function (resultData) {<br/>
+    //            if (resultData != null && resultData != '') {<br/>
+    //                if (extention == "pdf") {<br/>
+    //                    //$("#objViewPdf").attr("data", resultData);<br/>
+    //                    $("#objViewPdf").attr("src", (misApiFormsUrl + resultData + '#zoom=100&scrollbar=1&toolbar=0&navpanes=0&scrollbar=0'));<br/>
+    //                    $("#modalTitle").html(formTitle);<br/>
+    //                    $("#viewDocumentModal").modal("show");<br/>
+    //                }<br/>
+    //                else {<br/>
+    //                    downloadFileFromBase64(formTitle, resultData);<br/>
+    //                }<br/>
+    //            }<br/>
+    //            else {<br/>
+    //                misAlert('The file you have requested does not exist. Please try after some time or contact to MIS team for further assistance.', 'Oops...', 'info');<br/>
+    //            }<br/>
+    //        });<br/>
+    //}<br/>
+&lt;/script&gt; <br/>
+  &lt;/div&gt; <br/>
+  &lt;div id="myModalDashBoardSettings" class="modal fade" role="dialog" aria-labelledby="myModalDashBoardSettings" aria-hidden="true"&gt; <br/>
+   &lt;div class="modal-dialog modal-lg" id="DashBoardSettings"&gt; <br/>
+   &lt;/div&gt; <br/>
+  &lt;/div&gt; <br/>
+  &lt;div id="mypopupUpdateSkills" class="modal fade" role="dialog" aria-labelledby="mypopupUpdateSkills" aria-hidden="true"&gt; <br/>
+   &lt;div class="modal-dialog" id="skillsSettings"&gt; <br/>
+   &lt;/div&gt; <br/>
+  &lt;/div&gt; <br/>
+  &lt;div id="mypopupHelpDoc" class="modal fade" role="dialog" aria-labelledby="mypopupHelpDoc" aria-hidden="true"&gt; <br/>
+   &lt;div class="modal-dialog  modal-lg" id="helpDocument"&gt; <br/>
+   &lt;/div&gt; <br/>
+  &lt;/div&gt; <br/>
+  &lt;div id="mypopupEditSkills" class="modal fade" role="dialog" aria-labelledby="mypopupEditSkills" aria-hidden="true"&gt; <br/>
+   &lt;input type="hidden" name="name" value="" id="hdnSkillDetailId"&gt; <br/>
+   &lt;input type="hidden" name="name" value="" id="hdnSkillTypeId"&gt; <br/>
+   &lt;div class="modal-dialog" id="skillsSettingsEdit"&gt; <br/>
+   &lt;/div&gt; <br/>
+  &lt;/div&gt; <br/>
+  &lt;div id="mypopupUpdateProfile" class="modal fade" role="dialog" aria-labelledby="mypopupUpdateProfile" aria-hidden="true"&gt; <br/>
+   &lt;div class="modal-dialog" id="divUpdateProfile"&gt; <br/>
+   &lt;/div&gt; <br/>
+  &lt;/div&gt; <br/>
+  &lt;div id="popupApplyForLunch" class="modal fade" role="dialog" aria-labelledby="mypopup" aria-hidden="true"&gt; <br/>
+   &lt;div class="modal-dialog modal-lg" id="divApplyForLunch"&gt; <br/>
+   &lt;/div&gt; <br/>
+  &lt;/div&gt; <br/>
+  &lt;div id="editLunchDatePopup" class="modal fade" role="dialog" aria-labelledby="editLunchDatePopup" aria-hidden="true"&gt; <br/>
+   &lt;div class="modal-dialog modal-lg"&gt; <br/>
+    &lt;div class="modal-content"&gt; <br/>
+     &lt;div class="modal-header"&gt; &lt;button type="button" class="close" data-dismiss="modal" aria-label="Close"&gt;&lt;span aria-hidden="true"&gt;×&lt;/span&gt;&lt;/button&gt; <br/>
+      &lt;h4 id="modalTitle" class="modal-title"&gt;Edit Lunch Dates&lt;/h4&gt; <br/>
+     &lt;/div&gt; <br/>
+     &lt;div class="modal-body" id="divEditApplyForLunch"&gt; <br/>
+      &lt;input type="hidden" id="hdnSeqIdId"&gt; <br/>
+      &lt;div class="row"&gt; <br/>
+       &lt;div class="col-md-4"&gt; <br/>
+        &lt;div class="form-group"&gt; &lt;label class="control-label"&gt;From Date&lt;span class="spnError"&gt;*&lt;/span&gt;&lt;/label&gt; <br/>
+         &lt;div class="inputGroupContainer date date-picker" id="fromEditDate"&gt; <br/>
+          &lt;div class="input-group"&gt; <br/>
+           &lt;input type="text" class="form-control validation-required" readonly placeholder="Enter start date" name="fromEditDate" id="fromEditDateEmp"&gt; &lt;span class=" input-group-btn"&gt; &lt;button class="btn default" type="button"&gt;&lt;i class="fa fa-calendar"&gt;&lt;/i&gt;&lt;/button&gt; &lt;/span&gt; <br/>
+          &lt;/div&gt; <br/>
+         &lt;/div&gt; <br/>
+        &lt;/div&gt; <br/>
+       &lt;/div&gt; <br/>
+       &lt;div class="col-md-4"&gt; <br/>
+        &lt;div class="form-group"&gt; &lt;label class="control-label"&gt;Till Date&lt;span class="spnError"&gt;*&lt;/span&gt;&lt;/label&gt; <br/>
+         &lt;div class="inputGroupContainer date date-picker" id="tillEditDate"&gt; <br/>
+          &lt;div class="input-group"&gt; <br/>
+           &lt;input type="text" class="form-control validation-required" readonly placeholder="Enter end date" name="tillEditDate" id="tillEditDateEmp"&gt; &lt;span class=" input-group-btn"&gt; &lt;button class="btn default" type="button"&gt;&lt;i class="fa fa-calendar"&gt;&lt;/i&gt;&lt;/button&gt; &lt;/span&gt; <br/>
+          &lt;/div&gt; <br/>
+         &lt;/div&gt; <br/>
+        &lt;/div&gt; <br/>
+       &lt;/div&gt; <br/>
+       &lt;div class="form-group col-md-4"&gt; &lt;label&gt;Location&lt;span class="spnError"&gt;*&lt;/span&gt;&lt;/label&gt; &lt;select style="width: 100%;" id="Editlocation" class="form-control select2 select2-hidden-accessible validation-required" tabindex="-1" aria-hidden="true"&gt;&lt;/select&gt;&lt;span class="select2 select2-container select2-container--default" dir="ltr" style="width: 100%;"&gt;&lt;span class="selection"&gt;&lt;span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="1" aria-labelledby="select2-Editlocation-container"&gt;&lt;span class="select2-selection__rendered" id="select2-Editlocation-container"&gt;&lt;/span&gt;&lt;span class="select2-selection__arrow" role="presentation"&gt;&lt;b role="presentation"&gt;&lt;/b&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="dropdown-wrapper" aria-hidden="true"&gt;&lt;/span&gt;&lt;/span&gt; <br/>
+       &lt;/div&gt; <br/>
+      &lt;/div&gt; <br/>
+     &lt;/div&gt; <br/>
+     &lt;div class="modal-footer"&gt; &lt;button id="BtnEditDateforLunch" type="button" class="btn btn-success" onclick="if (!window.__cfRLUnblockHandlers) return false; updateLunchDatePopup()"&gt;&lt;i class="fa fa-save"&gt;&lt;/i&gt;&nbsp;Update&lt;/button&gt; &lt;button id="btnEditClose" type="button" class="btn btn-default"&gt;&lt;i class="fa fa-times"&gt;&lt;/i&gt;&nbsp;Close&lt;/button&gt; <br/>
+     &lt;/div&gt; <br/>
+    &lt;/div&gt; <br/>
+   &lt;/div&gt; <br/>
+  &lt;/div&gt; <br/>
+  &lt;div id="mypopupUserDelegation" class="modal fade" role="dialog" aria-labelledby="mypopupUserDelegation" aria-hidden="true"&gt; <br/>
+   &lt;div class="modal-dialog" id="divUserDelegation"&gt; <br/>
+   &lt;/div&gt; <br/>
+  &lt;/div&gt; <br/>
+  &lt;script src="/Scripts/lib/tether.min.js?v=1.2" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script src="/Scripts/lib/bootstrap.js?v=1.2" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script src="/Scripts/lib/plugins.js?v=1.2" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script src="/Scripts/lib/jquery.ui.position.min.js?v=1.2" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script src="/Scripts/lib/lobipanel.min.js?v=1.2" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script src="/Scripts/lib/jquery.matchHeight.js?v=1.2" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script src="/Scripts/lib/app.js?v=1.2" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script src="/Scripts/lib/sweetalert.min.js?v=1.2" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script src="/Scripts/lib/bootstrap-datepicker.min.js?v=1.2" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script src="/Scripts/lib/bootstrap-toggle.min.js?v=1.2" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script src="/Scripts/lib/datatable/datatables.min.js?v=1.3" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script src="/Scripts/lib/datatable/jquery.dataTables.min.js?v=1.3" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script src="/Scripts/lib/datatable/dataTables.buttons.min.js?v=1.2" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script src="/Scripts/lib/datatable/pdfmake.min.js?v=1.2" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script src="/Scripts/lib/datatable/vfs_fonts.js?v=1.2" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script src="/Scripts/lib/datatable/buttons.html5.min.js?v=1.2" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script src="/Scripts/lib/datatable/buttons.print.min.js?v=1.2" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script src="/Scripts/lib/datatable/dataTables.responsive.min.js?v=1.2" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script src="/Scripts/lib/datatable/dataTables.bootstrap.min.js?v=1.2" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script src="/Scripts/lib/datatable/buttons.colVis.js?v=1.2" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script src="/Scripts/lib/bootstrap-multiselect.js?v=1.2" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script src="/Scripts/lib/select2.min.js?v=1.2" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script src="/Scripts/common/mis.layout.js?v=2.8" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script src="/Scripts/lib/underscore-min.js?v=1.2" type="text/javascript"&gt;&lt;/script&gt; <br/>
+  &lt;script type="text/javascript"&gt;<br/>
+        $(document).ready(function () {<br/>
+            //$(document).ajaxStart($.blockUI).ajaxError($.unblockUI).ajaxStop($.unblockUI);<br/>
+            $(document).ajaxError($.unblockUI).ajaxStop($.unblockUI);<br/>
+            misLayout.init();<br/>
+<br/>
+            $("#lblChangeADPassword").click(function () {<br/>
+                $('#divChangeADPassword').toggle("slow");<br/>
+                $("#txtADUsername").val("");<br/>
+                $("#txtCurrentPass").val("");<br/>
+                $("#txtNewPass").val("");<br/>
+                $("#txtConfirmNewPass").val("");<br/>
+                getADUserName();<br/>
+            });<br/>
+        });<br/>
+<br/>
+        function getADUserName() {<br/>
+            calltoAjax(misApiUrl.getADUserName, "POST", "",<br/>
+                function (result) {<br/>
+                    if (result !== null && result !== "") {<br/>
+<br/>
+                        $("#txtADUsername").val("");<br/>
+                        $("#txtADUsername").val(result);<br/>
+                        $("#txtADUsername").attr("disabled", true);<br/>
+                        $("#divADChangeBtn").show();<br/>
+                        $("#divAlert").hide();<br/>
+                    }<br/>
+                    else {<br/>
+                        $("#divADChangeBtn").hide();<br/>
+                        $("#divAlert").show();<br/>
+                    }<br/>
+                });<br/>
+        }<br/>
+<br/>
+        $("#btnChangeADPass").click(function () {<br/>
+            if (!validateControls('divChangeADPassword')) {<br/>
+                return false;<br/>
+            }<br/>
+            var newPass = $("#txtNewPass").val();<br/>
+            var confirmNewPass = $("#txtConfirmNewPass").val();<br/>
+<br/>
+            if (!confirmADPassword(newPass, confirmNewPass)) {<br/>
+                return false;<br/>
+            }<br/>
+            var jsonObject = {<br/>
+                currntADPassword: $("#txtCurrentPass").val(),<br/>
+                newADPassword: $("#txtNewPass").val()<br/>
+            }<br/>
+            calltoAjax(misApiUrl.changeADPassword, "POST", jsonObject, function (result) {<br/>
+                if (result.IsSuccessful) {<br/>
+                    $("#mypopupUpdateProfile").modal("hide");<br/>
+                    misAlert('Your Domain password has been changed successfully.', 'Success', 'success');<br/>
+                }<br/>
+                else//error<br/>
+                {<br/>
+                    misAlert(result.Message, "Error", "error");<br/>
+                }<br/>
+            });<br/>
+        });<br/>
+<br/>
+        function confirmADPassword(newPass, confirmNewPass) {<br/>
+            if (newPass != confirmNewPass) {<br/>
+                $("#divAlertError").show();<br/>
+                return false;<br/>
+            }<br/>
+            else {<br/>
+                $("#divAlertError").hide();<br/>
+            }<br/>
+            return true;<br/>
+        }<br/>
+<br/>
+    &lt;/script&gt; <br/>
+  &lt;div class="responsive-bootstrap-toolkit"&gt;<br/>
+   &lt;div class="device-xs visible-xs visible-xs-block"&gt;&lt;/div&gt;<br/>
+   &lt;div class="device-sm visible-sm visible-sm-block"&gt;&lt;/div&gt;<br/>
+   &lt;div class="device-md visible-md visible-md-block"&gt;&lt;/div&gt;<br/>
+   &lt;div class="device-lg visible-lg visible-lg-block"&gt;&lt;/div&gt;<br/>
+  &lt;/div&gt;<br/>
+ &lt;/body&gt;<br/>
+&lt;/html&gt;</code></pre></div></body></html>
