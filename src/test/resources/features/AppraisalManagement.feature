@@ -7,109 +7,110 @@ Feature: Automation of appraisal management screen in beta mis
     When User logins into application with username "arpit.mishra" and password "Gemini@123"
     Then Verify beta-mis Dashboard page opens
 
-  @app1
+  @app1 @Fail1
   Scenario: Navigate to add goal page and verify Add goal window
     Then Click on "Add Goals" Sub Tab inside "Appraisal Management" tab.
-    Then Click on "Add/Update goal button" button
+    Then Click on "Add/Update goal button" button.
     And Verify Add goal window opens.
-    Then Click on "Close add goal button" button
+    Then Click on "Close add goal button" button.
     And Verify add goal window is closed.
 
+  @Fail2
   Scenario: Verify financial year dropdown
     Then Click on "Add Goals" Sub Tab inside "Appraisal Management" tab.
     And Verify that "Add My Goal/Team Goal" text is present on the current page.
-    Then Click on "Financial year dropdown" button
+    Then Click on "Financial year dropdown" button.
     And Verify all elements are available in dropdown.
     Then Choose current financial year.
     And Verify that "Add My Goal/Team Goal" text is present on the current page.
 
-
+  @Fail3
   Scenario: Verify link for list of KRAs and KPIs
     Then Click on "Add Goals" Sub Tab inside "Appraisal Management" tab.
     And Verify that "Add My Goal/Team Goal" text is present on the current page.
-    Then Click on "List of KRAs and KPIs link" button
+    Then Click on "List of KRAs and KPIs link" button.
     Then Verify link is open on the same tab.
 
-
+  @Fail4
   Scenario: Add new KPI/KRA mapping in add goal window and validate add KPI button
     Then Click on "Add Goals" Sub Tab inside "Appraisal Management" tab.
     And Verify that "Add My Goal/Team Goal" text is present on the current page.
-    Then Click on "Financial year dropdown" button
+    Then Click on "Financial year dropdown" button.
     And Verify all elements are available in dropdown.
     Then Choose current financial year.
     And Verify that "Add My Goal/Team Goal" text is present on the current page.
-    When Click on "Add KPI/KRA button" button
+    When Click on "Add KPI/KRA button" button.
     Then Select "Creative" from Goal type dropdown.
-    Then Enter "KRADemo" in "KRA" text field
-    When Click on "Add KPI button" button
-    Then Verify "Add KPI description text field" is visible on the current screen
-    Then Enter "Demo" in "KPI description" text field
-    And Click on "Submit add button" button
+    Then Enter "KRADemo" in "KRA" text field.
+    When Click on "Add KPI button" button.
+    Then Verify "Add KPI description text field" is visible on the current screen Appraisal.
+    Then Enter "Demo" in "KPI description" text field.
+    And Click on "Submit add button" button.
 
-
+  @Fail5
   Scenario: Verify warning popup appears when KPI/KRA fields are left empty
     Then Click on "Add Goals" Sub Tab inside "Appraisal Management" tab.
     And Verify that "Add My Goal/Team Goal" text is present on the current page.
-    Then Click on "Financial year dropdown" button
+    Then Click on "Financial year dropdown" button.
     And Verify all elements are available in dropdown.
     Then Choose current financial year.
     And Verify that "Add My Goal/Team Goal" text is present on the current page.
-    When Click on "Add KPI/KRA button" button
+    When Click on "Add KPI/KRA button" button.
     Then Select "Creative" from Goal type dropdown.
-    Then Enter "KRADemo" in "KRA" text field
-    And Click on "Submit add button" button
+    Then Enter "KRADemo" in "KRA" text field.
+    And Click on "Submit add button" button.
     Then Verify Warning popup appear which says "No KPI's have been added.".
-    When Click on "Add KPI button" button
+    When Click on "Add KPI button" button.
     Then Verify "Add KPI description text field" is visible on the current screen Appraisal.
-    Then Enter "Demo" in "KPI description" text field
-    And Click on "Submit add button" button
+    Then Enter "Demo" in "KPI description" text field.
+    And Click on "Submit add button" button.
     Then Verify Success pop appears which says "KPI's are added successfully!"
 
-    Scenario: Verify adding data in each field
-      When Click on "Add Goals" Sub Tab inside "Appraisal Management" tab.
-      Then Verify Add Goals tab opens
-      Then User Clicks on "add goals" button
-      And User selects "Defect Rate - x%" in KPI
-      And enters "Active Project" value in project
-      And enters "Active Goal Desc" value in goal description
-      Then User clicks on "Engineering" nav tab
-      And selects "QA" in Primary Skill
-     Then User clicks on "Behavioural" nav tab
-      Then Fill a field in "Behavioural" tag
-     Then User clicks on "Creative" nav tab
-      Then Fill a field in "Creative" tag
-      Then User Clicks on "draft" button
-      Then Verify "Success" Message.
-      Then User Clicks on "close" button
+  Scenario: Verify adding data in each field
+    When Click on "Add Goals" Sub Tab inside "Appraisal Management" tab.
+    Then Verify Add Goals tab opens
+    Then User Clicks on "add goals" button
+    And User selects "Defect Rate - x%" in KPI
+    And enters "Active Project" value in project
+    And enters "Active Goal Desc" value in goal description
+    Then User clicks on "Engineering" nav tab
+    And selects "QA" in Primary Skill
+    Then User clicks on "Behavioural" nav tab
+    Then Fill a field in "Behavioural" tag
+    Then User clicks on "Creative" nav tab
+    Then Fill a field in "Creative" tag
+    Then User Clicks on "draft" button
+    Then Verify "Success" Message.
+    Then User Clicks on "close" button
 
 
-    Scenario: Verify Add/Delete of new KPI Row
-      When Click on "Add Goals" Sub Tab inside "Appraisal Management" tab.
-      Then Verify Add Goals tab opens
-      Then User Clicks on "add goals" button
-      Then User clicks on "Engineering" nav tab
-      Then click on "Add" option in add new KPI row.
-      And verify KPI row added.
-      Then click on "Delete" option in add new KPI row.
-      And verify KPI row removed.
+  Scenario: Verify Add/Delete of new KPI Row
+    When Click on "Add Goals" Sub Tab inside "Appraisal Management" tab.
+    Then Verify Add Goals tab opens
+    Then User Clicks on "add goals" button
+    Then User clicks on "Engineering" nav tab
+    Then click on "Add" option in add new KPI row.
+    And verify KPI row added.
+    Then click on "Delete" option in add new KPI row.
+    And verify KPI row removed.
 
-        Scenario: Verify entry counts
-        When Click on "Add Goals" Sub Tab inside "Appraisal Management" tab.
-        Then Verify Add Goals tab opens
-        Then Select "25" from the rows dropdown.
-        And verify number of rows from lower left.
+  Scenario: Verify entry counts
+    When Click on "Add Goals" Sub Tab inside "Appraisal Management" tab.
+    Then Verify Add Goals tab opens
+    Then Select "25" from the rows dropdown.
+    And verify number of rows from lower left.
 
-        Scenario: Verify page navigation
-        When Click on "Add Goals" Sub Tab inside "Appraisal Management" tab.
-        Then Verify Add Goals tab opens
-        Then verify number of pages in lower right corner.
-        Then click on next to check navigation and verify.
+  Scenario: Verify page navigation
+    When Click on "Add Goals" Sub Tab inside "Appraisal Management" tab.
+    Then Verify Add Goals tab opens
+    Then verify number of pages in lower right corner.
+    Then click on next to check navigation and verify.
 
-
+  @Fail6
   Scenario: verify export button functionality
     When Click on "Add Goals" Sub Tab inside "Appraisal Management" tab.
     Then Verify Add Goals tab opens
-    And  Click on "export in add goals" button
+    And  Click on "export in add goals" button.
     Then verify "Copy" option clickable and present.
     Then verify "PDF" option clickable and present.
     Then verify "Excel" option clickable and present.
@@ -122,7 +123,7 @@ Feature: Automation of appraisal management screen in beta mis
     And click on sorting button on first.
     Then verify sorting performed.
 
-    @search
+  @search
   Scenario Outline: Verify searches
     When Click on "Add Goals" Sub Tab inside "Appraisal Management" tab.
     Then Verify Add Goals tab opens
@@ -140,32 +141,32 @@ Feature: Automation of appraisal management screen in beta mis
 
 
     Examples:
-    |projName|goalDesc|searchQuery|
-    |Active Project|Active Goal|Active Project|
-    |Active Project|Active Goal|****|
+      |projName|goalDesc|searchQuery|
+      |Active Project|Active Goal|Active Project|
+      |Active Project|Active Goal|****|
 
-    @DeleteWithoutRemark
+  @DeleteWithoutRemark
   Scenario: check delete with remark and without remark
-   When Click on "Add Goals" Sub Tab inside "Appraisal Management" tab.
-   Then Verify Add Goals tab opens
-   Then User Clicks on "add goals" button
+    When Click on "Add Goals" Sub Tab inside "Appraisal Management" tab.
+    Then Verify Add Goals tab opens
+    Then User Clicks on "add goals" button
     And User selects "Defect Rate - x%" in KPI
-   And enters "Active Project" value in project
-   And enters "Active Goal" value in goal description
-   Then User clicks on "Engineering" nav tab
-   And selects "QA" in Primary Skill
-   Then User Clicks on "draft" button
-   Then Verify "Success" Message.
-   Then User Clicks on "close" button
-   And verify "Active Project" and "Active Goal" present
-   Then User Clicks on "delete" button
-   And clicks on submit button "without remark"
-   Then verify error in submission
-   And clicks on submit button "with some remark"
-   Then verify submitted successfully
+    And enters "Active Project" value in project
+    And enters "Active Goal" value in goal description
+    Then User clicks on "Engineering" nav tab
+    And selects "QA" in Primary Skill
+    Then User Clicks on "draft" button
+    Then Verify "Success" Message.
+    Then User Clicks on "close" button
+    And verify "Active Project" and "Active Goal" present
+    Then User Clicks on "delete" button
+    And clicks on submit button "without remark"
+    Then verify error in submission
+    And clicks on submit button "with some remark"
+    Then verify submitted successfully
 
 
-   @SubmitGoals
+  @SubmitGoals @Fail7
   Scenario: Submit Goals
     When Click on "Add Goals" Sub Tab inside "Appraisal Management" tab.
     Then Verify Add Goals tab opens
@@ -182,18 +183,18 @@ Feature: Automation of appraisal management screen in beta mis
 
 
   Scenario: click on draft without filling any fields
-       When Click on "Add Goals" Sub Tab inside "Appraisal Management" tab.
-       Then Verify Add Goals tab opens
-       Then User Clicks on "add goals" button
-       Then User clicks on "Engineering" nav tab
-       And selects "Select" in Primary Skill
-       Then User Clicks on "draft" button
-       And verify warning and click ok
-       Then User clicks on "Engineering" nav tab
-       And selects "QA" in Primary Skill
-       Then User Clicks on "draft" button
-       Then Verify "Success" Message.
-       Then User Clicks on "close" button
+    When Click on "Add Goals" Sub Tab inside "Appraisal Management" tab.
+    Then Verify Add Goals tab opens
+    Then User Clicks on "add goals" button
+    Then User clicks on "Engineering" nav tab
+    And selects "Select" in Primary Skill
+    Then User Clicks on "draft" button
+    And verify warning and click ok
+    Then User clicks on "Engineering" nav tab
+    And selects "QA" in Primary Skill
+    Then User Clicks on "draft" button
+    Then Verify "Success" Message.
+    Then User Clicks on "close" button
 
 
 

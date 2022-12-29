@@ -118,7 +118,7 @@ public class KnowledgeBaseStepDefinition extends PageObject {
 
     @Then("^right click on \"(.*?)\"$")
     public void rightClick(String elemName) {
-        waitABit(3000);
+        waitABit(4000);
         steps.rightClickOnElement(elemName);
     }
 

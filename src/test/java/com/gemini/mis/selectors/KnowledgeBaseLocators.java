@@ -56,7 +56,7 @@ public class KnowledgeBaseLocators {
 
     //folders
     public static By newFolder = By.xpath("//*[@id=\"DocumentGrouptree\"]/ul/li[2]/span/span[1]");
-    public static By newFolder123 = By.xpath("//*[@id=\"DocumentGrouptree\"]/ul/li[9]/span/a");
+    public static By newFolder123 = By.xpath("//a[contains(text(),'New Folder123')]");
     public static By subFolder  = By.xpath("//*[@id=\"DocumentGrouptree\"]/ul/li[2]/ul/li/span/span[1]");
     public static By newFolderOnViewDoc  = By.xpath("//*[@id=\"DocumentGrouptree\"]/ul/li[2]/span/span[1]");
     public static By isDuplicateFolder  = By.xpath("/html/body/div[13]/p");
