@@ -6,7 +6,7 @@ Feature: MIS Leave Management Activities > Apply
 
   Scenario Outline: Navigate to Leave Management > Out of Duty/Tour tab
     When User is on MIS Home Page
-    When User clicks on "<childTab>" sub tab of "<parentTab>" tab
+    When User clicks on "<childTab>" sub tab of "<parentTab>" tab in MIS
     And Verify "<heading>" of "<childTab>" tab
     And Verify "<defaultTab>" displays by default
     When User clicks on "<tab>" Tab
@@ -18,7 +18,7 @@ Feature: MIS Leave Management Activities > Apply
 
   Scenario Outline: Verify From,Till,Type,Primary Contact Number and Reason for outing are mandatory fields
     When User is on MIS Home Page
-    When User clicks on "<childTab>" sub tab of "<parentTab>" tab
+    When User clicks on "<childTab>" sub tab of "<parentTab>" tab in MIS
     And Verify "<heading>" of "<childTab>" tab
     When User clicks on "<tab>" Tab
     And Verify "<tab>" displays
@@ -30,7 +30,7 @@ Feature: MIS Leave Management Activities > Apply
 
   Scenario Outline: Select From and Till Leave date from Calendar
     When User is on MIS Home Page
-    When User clicks on "<childTab>" sub tab of "<parentTab>" tab
+    When User clicks on "<childTab>" sub tab of "<parentTab>" tab in MIS
     When User clicks on "<tab>" Tab
     And Verify "<tab>" displays
     Then Select "<fromDate>" From date and "<toDate>" till Leave dates for Out Duty Tour
@@ -40,7 +40,7 @@ Feature: MIS Leave Management Activities > Apply
 
   Scenario Outline: Select type for Out Duty
     When User is on MIS Home Page
-    When User clicks on "<childTab>" sub tab of "<parentTab>" tab
+    When User clicks on "<childTab>" sub tab of "<parentTab>" tab in MIS
     When User clicks on "<tab>" Tab
     And Verify "<tab>" displays
     Then Select "<fromDate>" From date and "<toDate>" till Leave dates for Out Duty Tour
@@ -51,7 +51,7 @@ Feature: MIS Leave Management Activities > Apply
 
   Scenario Outline: Enter Reason for Out Duty
     When User is on MIS Home Page
-    When User clicks on "<childTab>" sub tab of "<parentTab>" tab
+    When User clicks on "<childTab>" sub tab of "<parentTab>" tab in MIS
     When User clicks on "<tab>" Tab
     And Verify "<tab>" displays
     Then Select "<fromDate>" From date and "<toDate>" till Leave dates for Out Duty Tour
@@ -63,7 +63,7 @@ Feature: MIS Leave Management Activities > Apply
 
   Scenario Outline: Enter Primary Contact Number for Out Duty
     When User is on MIS Home Page
-    When User clicks on "<childTab>" sub tab of "<parentTab>" tab
+    When User clicks on "<childTab>" sub tab of "<parentTab>" tab in MIS
     When User clicks on "<tab>" Tab
     And Verify "<tab>" displays
     Then Select "<fromDate>" From date and "<toDate>" till Leave dates for Out Duty Tour
@@ -75,7 +75,7 @@ Feature: MIS Leave Management Activities > Apply
 
   Scenario Outline: Enter Data and Click on Submit for Out of Duty tab
     When User is on MIS Home Page
-    When User clicks on "<childTab>" sub tab of "<parentTab>" tab
+    When User clicks on "<childTab>" sub tab of "<parentTab>" tab in MIS
     When User clicks on "<tab>" Tab
     And Verify "<tab>" displays
     Then Select "<fromDate>" From date and "<toDate>" till Leave dates for Out Duty Tour
@@ -87,3 +87,4 @@ Feature: MIS Leave Management Activities > Apply
     Examples:
       |      parentTab     |       childTab  |      tab       |   fromDate |    toDate  |       outOfDutyType      |  enterReason   |  contactNumber |
       | Leave Management   |          Apply  | Out Duty/Tour  |  29/09/2022 | 29/09/2022 |  Out Duty (Client Visit) |   client visit |   8888888888   |
+
