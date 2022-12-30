@@ -64,7 +64,7 @@ public class LeaveManagementSteps
         LeaveManagementTab.verifyAutoPopulated(fieldName);
     }
 
-    @When("User clicks on {string} sub tab of {string} tab")
+    @When("User clicks on {string} sub tab of {string} tab in MIS")
     public void clickOnSubTabOfTab(String childTab, String parentTab)
     {
         LeaveManagementTab.navigateToSubTab(childTab,parentTab);
@@ -342,7 +342,7 @@ public class LeaveManagementSteps
         LeaveManagementTab.clickOnBtn(btnName,XpathForLeaveManagementTab.exportOptions(btnName));
     }
 
-    @And("Verify {string} file is downloaded")
+    @And("Verify {string} file is downloaded in MIS")
     public void verifyFileIsDownloaded(String fileName)
     {
          String username = System.getProperty("user.name");   //fetch system username
