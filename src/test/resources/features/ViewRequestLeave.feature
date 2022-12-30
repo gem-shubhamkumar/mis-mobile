@@ -194,3 +194,4 @@ Feature: MIS Leave Management > View Request Status
       |      parentTab     |       childTab  | defaultTab |  fromDate  |   toDate    |  leaveType |     anotherTab      |
       | Leave Management   |          Apply  |    Leave   | 24/11/2022 |  24/11/2022 |     CL     | View Request Status |
 
+
