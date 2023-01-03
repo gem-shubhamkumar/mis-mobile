@@ -6,7 +6,7 @@ Feature: MIS Leave Management > View Request Status
 
   Scenario Outline: Navigate to Leave Management > View Request Status tab > Leave Tab
     When User is on MIS Home Page
-    When User clicks on "<childTab>" sub tab of "<parentTab>" tab
+    When User clicks on "<childTab>" sub tab of "<parentTab>" tab in MIS
     And Verify "<defaultTab>" displays by default
     Examples:
       |      parentTab     |       childTab      | defaultTab |
@@ -14,7 +14,7 @@ Feature: MIS Leave Management > View Request Status
 
   Scenario Outline: Verify Date Range field is present for Leave Tab
     When User is on MIS Home Page
-    When User clicks on "<childTab>" sub tab of "<parentTab>" tab
+    When User clicks on "<childTab>" sub tab of "<parentTab>" tab in MIS
     And Verify "<defaultTab>" displays by default
     Then Verify Date Range field is present
     Examples:
@@ -23,7 +23,7 @@ Feature: MIS Leave Management > View Request Status
 
   Scenario Outline: Enter Invalid Date Range for Leave Tab
     When User is on MIS Home Page
-    When User clicks on "<childTab>" sub tab of "<parentTab>" tab
+    When User clicks on "<childTab>" sub tab of "<parentTab>" tab in MIS
     And Verify "<defaultTab>" displays by default
     Then Verify Date Range field is present
     And Click "Date Range" dropdown
@@ -36,7 +36,7 @@ Feature: MIS Leave Management > View Request Status
 
   Scenario Outline: Enter Valid Date Range for Leave Tab
     When User is on MIS Home Page
-    When User clicks on "<childTab>" sub tab of "<parentTab>" tab
+    When User clicks on "<childTab>" sub tab of "<parentTab>" tab in MIS
     And Verify "<defaultTab>" displays by default
     Then Verify Date Range field is present
     And Click "Date Range" dropdown
@@ -49,7 +49,7 @@ Feature: MIS Leave Management > View Request Status
 
   Scenario Outline: Verify Export Options for Leave Tab
     When User is on MIS Home Page
-    When User clicks on "<childTab>" sub tab of "<parentTab>" tab
+    When User clicks on "<childTab>" sub tab of "<parentTab>" tab in MIS
     And Verify "<defaultTab>" displays by default
     When Click on "Export" button on Leave tab
     Then Verify "Copy,Excel,PDF,Print" options are displayed
@@ -59,7 +59,7 @@ Feature: MIS Leave Management > View Request Status
 
   Scenario Outline: Click on Print Option for Leave Tab
     When User is on MIS Home Page
-    When User clicks on "<childTab>" sub tab of "<parentTab>" tab
+    When User clicks on "<childTab>" sub tab of "<parentTab>" tab in MIS
     And Verify "<defaultTab>" displays by default
     When Click on "Export" button on Leave tab
     Then Verify "Copy,Excel,PDF,Print" options are displayed
@@ -71,19 +71,19 @@ Feature: MIS Leave Management > View Request Status
 
   Scenario Outline: Click on Excel Option for Leave Tab
     When User is on MIS Home Page
-    When User clicks on "<childTab>" sub tab of "<parentTab>" tab
+    When User clicks on "<childTab>" sub tab of "<parentTab>" tab in MIS
     And Verify "<defaultTab>" displays by default
     When Click on "Export" button on Leave tab
     Then Verify "Copy,Excel,PDF,Print" options are displayed
     When Click on "Excel" export option
-    And Verify "Leave History List.xlsx" file is downloaded
+    And Verify "Leave History List.xlsx" file is downloaded in MIS
     Examples:
       |      parentTab     |       childTab      | defaultTab |
       | Leave Management   | View Request Status |    Leave   |
 
   Scenario Outline: Click on Copy Option for Leave Tab
     When User is on MIS Home Page
-    When User clicks on "<childTab>" sub tab of "<parentTab>" tab
+    When User clicks on "<childTab>" sub tab of "<parentTab>" tab in MIS
     And Verify "<defaultTab>" displays by default
     When Click on "Export" button on Leave tab
     Then Verify "Copy,Excel,PDF,Print" options are displayed
@@ -95,19 +95,19 @@ Feature: MIS Leave Management > View Request Status
 
   Scenario Outline: Verify PDF option for Leave Tab
     When User is on MIS Home Page
-    When User clicks on "<childTab>" sub tab of "<parentTab>" tab
+    When User clicks on "<childTab>" sub tab of "<parentTab>" tab in MIS
     And Verify "<defaultTab>" displays by default
     When Click on "Export" button on Leave tab
     Then Verify "Copy,Excel,PDF,Print" options are displayed
     When Click on "PDF" export option
-    And Verify "Leave History List.pdf" file is downloaded
+    And Verify "Leave History List.pdf" file is downloaded in MIS
     Examples:
       |      parentTab     |       childTab      | defaultTab |
       | Leave Management   | View Request Status |    Leave   |
 
   Scenario Outline: Verify Number of Entries displayed for Leave Tab
     When User is on MIS Home Page
-    When User clicks on "<childTab>" sub tab of "<parentTab>" tab
+    When User clicks on "<childTab>" sub tab of "<parentTab>" tab in MIS
     And Verify "<defaultTab>" displays by default
     Then Verify Date Range field is present
     Then Verify Date Range field is present
@@ -124,7 +124,7 @@ Feature: MIS Leave Management > View Request Status
 
   Scenario Outline: Enter Leave Period Name in Search Box for Leave Tab
     When User is on MIS Home Page
-    When User clicks on "<childTab>" sub tab of "<parentTab>" tab
+    When User clicks on "<childTab>" sub tab of "<parentTab>" tab in MIS
     And Verify "<defaultTab>" displays by default
     When User Enters "<leavePeriod>" period in search box for "Leave" tab
     Then Verify "<leavePeriod>" Period is filtered for "Leave" tab
@@ -134,7 +134,7 @@ Feature: MIS Leave Management > View Request Status
 
   Scenario Outline: Sort columns for Leave Tab
     When User is on MIS Home Page
-    When User clicks on "<childTab>" sub tab of "<parentTab>" tab
+    When User clicks on "<childTab>" sub tab of "<parentTab>" tab in MIS
     And Verify "<defaultTab>" displays by default
     Then Sort "Period,Type,Reason,Remarks" columns and verify sorting
     Examples:
@@ -143,7 +143,7 @@ Feature: MIS Leave Management > View Request Status
 
   Scenario Outline: Page Next for Leave Tab
     When User is on MIS Home Page
-    When User clicks on "<childTab>" sub tab of "<parentTab>" tab
+    When User clicks on "<childTab>" sub tab of "<parentTab>" tab in MIS
     And Verify "<defaultTab>" displays by default
     Then Verify Date Range field is present
     And Click "Date Range" dropdown
@@ -158,7 +158,7 @@ Feature: MIS Leave Management > View Request Status
 
   Scenario Outline: Page Previous for Leave Tab
     When User is on MIS Home Page
-    When User clicks on "<childTab>" sub tab of "<parentTab>" tab
+    When User clicks on "<childTab>" sub tab of "<parentTab>" tab in MIS
     And Verify "<defaultTab>" displays by default
     Then Verify Date Range field is present
     And Click "Date Range" dropdown
@@ -175,7 +175,7 @@ Feature: MIS Leave Management > View Request Status
 
   Scenario Outline: Cancel Leave for Leave Tab
     When User is on MIS Home Page
-    When User clicks on "<childTab>" sub tab of "<parentTab>" tab
+    When User clicks on "<childTab>" sub tab of "<parentTab>" tab in MIS
     And Verify "<defaultTab>" displays by default
     Then Select "<fromDate>" From date and "<toDate>" till Leave dates from Calendar
     And Select "<leaveType>" from Leave Type dropdown
@@ -193,4 +193,5 @@ Feature: MIS Leave Management > View Request Status
     Examples:
       |      parentTab     |       childTab  | defaultTab |  fromDate  |   toDate    |  leaveType |     anotherTab      |
       | Leave Management   |          Apply  |    Leave   | 24/11/2022 |  24/11/2022 |     CL     | View Request Status |
+
 

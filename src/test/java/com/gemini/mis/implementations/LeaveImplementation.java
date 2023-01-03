@@ -62,7 +62,7 @@ public class LeaveImplementation extends PageObject {
             expectHeading = textOf(XpathForLeaveManagementTab.newHeading);
         }
         else {
-             expectHeading = textOf(XpathForLeaveManagementTab.heading);
+            expectHeading = textOf(XpathForLeaveManagementTab.heading);
         }
         if(StringUtils.equals(actualHeading,expectHeading))
         {
@@ -106,12 +106,12 @@ public class LeaveImplementation extends PageObject {
                 isAutoPopulated = false;
             }
         }
-            if (isAutoPopulated) {
-                Assert.assertTrue("Field are auto populated by default", true);
-            } else {
-                Assert.fail("Fields are not auto populated");
-                log.info("Fields are not auto populated");
-            }
+        if (isAutoPopulated) {
+            Assert.assertTrue("Field are auto populated by default", true);
+        } else {
+            Assert.fail("Fields are not auto populated");
+            log.info("Fields are not auto populated");
+        }
     }
 
 
@@ -301,7 +301,7 @@ public class LeaveImplementation extends PageObject {
             {
                 Assert.assertTrue("Popup verified",true);
                 if(popUpText.contains("successfully"))
-                clickOn(XpathForLeaveManagementTab.btnType("OK"));
+                    clickOn(XpathForLeaveManagementTab.btnType("OK"));
             }
             else
             {
@@ -348,19 +348,55 @@ public class LeaveImplementation extends PageObject {
         LocalDate currentDate = LocalDate.now();
         Month currentMonth = currentDate.getMonth();
         String Month = null;
-        if(StringUtils.equals(currentMonth.toString(),("SEPTEMBER")))   //is used to assign numeric value to months
+        if(StringUtils.equals(dateArray[1],"Feb"))   //is used to assign numeric value to months
         {
-            Month= "09";
+            Month= "02";
         }
-        else if(StringUtils.equals(currentMonth.toString(),("OCTOBER")))
+        else if(StringUtils.equals(dateArray[1],"Jan"))
         {
-            Month= "10";
+            Month= "01";
         }
-        else if(StringUtils.equals(currentMonth.toString(),("NOVEMBER")))
+        else if(StringUtils.equals(dateArray[1],"Mar"))
+        {
+            Month = "03";
+        }
+        else if(StringUtils.equals(dateArray[1],"Dec"))
+        {
+            Month = "12";
+        }
+        else if(StringUtils.equals(dateArray[1],"Sep"))
+        {
+            Month = "09";
+        }
+        else if(StringUtils.equals(dateArray[1],"Oct"))
+        {
+            Month = "10";
+        }
+        else if(StringUtils.equals(dateArray[1],"Nov"))
         {
             Month = "11";
         }
-        String dateToBeSelected = Month+"/"+dateArray[2]+"/2022";
+        else if(StringUtils.equals(dateArray[1],"Aug"))
+        {
+            Month = "08";
+        }
+        else if(StringUtils.equals(dateArray[1],"Jul"))
+        {
+            Month = "07";
+        }
+        else if(StringUtils.equals(dateArray[1],"Jun"))
+        {
+            Month = "06";
+        }
+        else if(StringUtils.equals(dateArray[1],"May"))
+        {
+            Month = "05";
+        }
+        else if(StringUtils.equals(dateArray[1],"Apr"))
+        {
+            Month = "04";
+        }
+        String dateToBeSelected = Month+"/"+dateArray[2]+"/2023";
         WebElementFacade elementFacade = find(loc);
         selectFromDropdown(elementFacade,dateToBeSelected);
     }
@@ -473,7 +509,7 @@ public class LeaveImplementation extends PageObject {
 
     //This function to type into specific field
     public void type(String text, String fieldName) {
-            if(fieldName.contains(" "))
+        if(fieldName.contains(" "))
         {
             fieldName=fieldName.replaceAll(" ","");
         }
@@ -494,7 +530,7 @@ public class LeaveImplementation extends PageObject {
             isElementVisible(webElement);
             exists = true;
         } catch (NoSuchElementException e) {
-       }
+        }
         return exists;
     }
 
@@ -532,11 +568,11 @@ public class LeaveImplementation extends PageObject {
     //This function to verify mandatory fields
     public void mandatoryTextField(String field)
     {
-      if(field.contains(" "))
-      {
-          field = field.replaceAll(" ","");
-      }
-      WebElementFacade elementFacade= find(XpathForLeaveManagementTab.textArea(field));
+        if(field.contains(" "))
+        {
+            field = field.replaceAll(" ","");
+        }
+        WebElementFacade elementFacade= find(XpathForLeaveManagementTab.textArea(field));
         if (elementFacade.getAttribute("class").contains("error-validation"))
         {
             Assert.assertTrue("Field is mandatory", true);
@@ -695,8 +731,13 @@ public class LeaveImplementation extends PageObject {
         Calendar calendar = Calendar.getInstance();
         calendar.add(Calendar.DAY_OF_YEAR, 1);
         Date tomorrow = calendar.getTime();
+        String[] dateArray = tomorrow.toString().split(" ");
+        if(StringUtils.equals(dateArray[0],"Sat")){
+            calendar.add(Calendar.DAY_OF_YEAR, 2);
+        }
+        Date dateNow =  calendar.getTime();
         if(StringUtils.equals(tab,"Work From Home"))
-            selectDateFromDropdown(tomorrow, XpathForLeaveManagementTab.dropdown("WorkFromHomeDate"));
+            selectDateFromDropdown(dateNow, XpathForLeaveManagementTab.dropdown("WorkFromHomeDate"));
     }
 
     //Function verifies copy text

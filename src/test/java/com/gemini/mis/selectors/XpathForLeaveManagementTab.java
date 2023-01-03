@@ -49,7 +49,7 @@ public class XpathForLeaveManagementTab
     }
     public static By successAlertPopup(String tag)
     {
-        return By.xpath("//div[@class='sweet-alert  showSweetAlert visible']/"+tag+"");
+        return By.xpath("//div[@class='sweet-alert  showSweetAlert visible']");
     }
 
     public static By requestAlertPopup(String tag)
@@ -160,5 +160,9 @@ public class XpathForLeaveManagementTab
     public static By detailBox = By.xpath("//td[@class='child']");
     public static By calNext = By.xpath("//th[@class='next']");
     public static By dataIsPresent = By.xpath("(//tr[@role='row'])[13]");
+    public static By leaveManagement = By.xpath("(//span[@class='lbl'])[7]");
+    public static By leaveApply = By.xpath("//span[text()='Apply']");
+    public static By popUp = By.xpath("//div[@class='sweet-alert  showSweetAlert visible']");
+    public static By popupMessage = By.xpath("//div[@class='sweet-alert  showSweetAlert visible']/p");
 
 }

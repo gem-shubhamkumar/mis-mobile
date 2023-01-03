@@ -6,7 +6,7 @@ Feature: MIS Leave Management > View Request Status
 
   Scenario Outline: Navigate to Leave Management > View Request Status tab > Change Request
     When User is on MIS Home Page
-    When User clicks on "<childTab>" sub tab of "<parentTab>" tab
+    When User clicks on "<childTab>" sub tab of "<parentTab>" tab in MIS
     When User clicks on "<tab>" Tab
     And Verify "<tab>" displays
     Examples:
@@ -15,7 +15,7 @@ Feature: MIS Leave Management > View Request Status
 
   Scenario Outline: Verify Date Range field is present for Change Request
     When User is on MIS Home Page
-    When User clicks on "<childTab>" sub tab of "<parentTab>" tab
+    When User clicks on "<childTab>" sub tab of "<parentTab>" tab in MIS
     When User clicks on "<tab>" Tab
     And Verify "<tab>" displays
     Then Verify Date Range field is present
@@ -25,7 +25,7 @@ Feature: MIS Leave Management > View Request Status
 
   Scenario Outline: Enter Invalid Date Range for Change Request
     When User is on MIS Home Page
-    When User clicks on "<childTab>" sub tab of "<parentTab>" tab
+    When User clicks on "<childTab>" sub tab of "<parentTab>" tab in MIS
     When User clicks on "<tab>" Tab
     And Verify "<tab>" displays
     Then Verify Date Range field is present
@@ -38,7 +38,7 @@ Feature: MIS Leave Management > View Request Status
 
   Scenario Outline: Enter Valid Date Range for Change Request
     When User is on MIS Home Page
-    When User clicks on "<childTab>" sub tab of "<parentTab>" tab
+    When User clicks on "<childTab>" sub tab of "<parentTab>" tab in MIS
     When User clicks on "<tab>" Tab
     And Verify "<tab>" displays
     Then Verify Date Range field is present
@@ -52,7 +52,7 @@ Feature: MIS Leave Management > View Request Status
 
   Scenario Outline: Click on Export Options Option for Change Request
     When User is on MIS Home Page
-    When User clicks on "<childTab>" sub tab of "<parentTab>" tab
+    When User clicks on "<childTab>" sub tab of "<parentTab>" tab in MIS
     When User clicks on "<tab>" Tab
     And Verify "<tab>" displays
     When Click on "Export" button
@@ -63,7 +63,7 @@ Feature: MIS Leave Management > View Request Status
 
   Scenario Outline: Click on Print Option for Change Request
     When User is on MIS Home Page
-    When User clicks on "<childTab>" sub tab of "<parentTab>" tab
+    When User clicks on "<childTab>" sub tab of "<parentTab>" tab in MIS
     When User clicks on "<tab>" Tab
     And Verify "<tab>" displays
     When Click on "Export" button
@@ -76,7 +76,7 @@ Feature: MIS Leave Management > View Request Status
 
   Scenario Outline: Click on Copy Option for Change Request
     When User is on MIS Home Page
-    When User clicks on "<childTab>" sub tab of "<parentTab>" tab
+    When User clicks on "<childTab>" sub tab of "<parentTab>" tab in MIS
     When User clicks on "<tab>" Tab
     And Verify "<tab>" displays
     When Click on "Export" button
@@ -89,26 +89,26 @@ Feature: MIS Leave Management > View Request Status
 
   Scenario Outline: Click on Excel Option for Change Request
     When User is on MIS Home Page
-    When User clicks on "<childTab>" sub tab of "<parentTab>" tab
+    When User clicks on "<childTab>" sub tab of "<parentTab>" tab in MIS
     When User clicks on "<tab>" Tab
     And Verify "<tab>" displays
     When Click on "Export" button
     Then Verify "Copy,Excel,PDF,Print" options are displayed
     When Click on "Excel" export option
-    And Verify "Leave History List.xlsx" file is downloaded
+    And Verify "Leave History List.xlsx" file is downloaded in MIS
     Examples:
       |      parentTab     |       childTab      |        tab      |
       | Leave Management   | View Request Status |  Change Request |
 
   Scenario Outline: Verify PDF option for Change Request
     When User is on MIS Home Page
-    When User clicks on "<childTab>" sub tab of "<parentTab>" tab
+    When User clicks on "<childTab>" sub tab of "<parentTab>" tab in MIS
     When User clicks on "<tab>" Tab
     And Verify "<tab>" displays
     When Click on "Export" button
     Then Verify "Copy,Excel,PDF,Print" options are displayed
     When Click on "PDF" export option
-    And Verify "Leave History List.pdf" file is downloaded
+    And Verify "Leave History List.pdf" file is downloaded in MIS
     Examples:
       |      parentTab     |       childTab      |        tab      |
       | Leave Management   | View Request Status |  Change Request |
