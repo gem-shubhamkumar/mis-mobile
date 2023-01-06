@@ -193,7 +193,7 @@ Scenario Outline: User applies for lunch
     Then User closes the lunch pop up
     Examples:
       | elementOne |Date1|Date2|element|Location|
-      |Apply for Lunch|6| 10|Dates Added successfully|Austin, Texas|
+      |Apply for Lunch|6| 10|Dates Added successfully|Canaan Tower|
 
 
 #14
@@ -209,7 +209,7 @@ Scenario Outline: User applies for lunch for already applied date
     Then User closes the lunch pop up
     Examples:
       | elementOne |Date1|Date2|Warning Message|Location|
-      |Apply for Lunch|22| 23|You have already applied for these dates.|Austin, Texas|
+      |Apply for Lunch|22| 23|You have already applied for these dates.|Canaan Tower|
 
 
 #15
@@ -222,7 +222,7 @@ Scenario Outline: User leave a field blank in Apply lunch
     Then User verifies blank field "<Field Name>"
     Examples:
       | elementOne | Date1 | Field Name |Location|
-      |Apply for Lunch|22 |tillDateEmp |Austin, Texas|
+      |Apply for Lunch|22 |tillDateEmp |Canaan Tower|
 
 #16
   @Download
