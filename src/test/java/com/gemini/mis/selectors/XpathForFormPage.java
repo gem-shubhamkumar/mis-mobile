@@ -20,7 +20,8 @@ public class XpathForFormPage {
     }
     public static By searchBox=By.xpath("//input[@type='search']");
     public static By eyeBtn=By.xpath("//button[@data-target='#mypopupViewDocModal']");
-    public static By downloadBtn=By.xpath("//button[@data-toggle='tooltip']");
+    public static By downloadBtn=By.xpath("//tr[@class='child']//button[@class='btn btn-sm teal']");
+    public static By downloadButton=By.xpath("//button[@title='Download']");
     public static By uploadBtn=By.xpath("//*[text()='Upload Form']");
     public static By chooseFile=By.xpath("//input[@type='file']");
 
@@ -28,10 +29,11 @@ public class XpathForFormPage {
 
         return By.xpath("//ul[@class='select2-results__options']/*[text()='"+formTye+"']");
     }
-    public static By deactivateBtn=By.xpath("//button[@class='btn btn-sm btn-success']");
+    public static By deactivateBtn=By.xpath("//tr[@class='child']//button[@class='btn btn-sm btn-success']");
+    public static By deactivateButton=By.xpath("//button[@class='btn btn-sm btn-success']");
     public static By confirmYes=By.xpath("//button[@class='confirm btn btn-lg btn-danger']");
     public static By departmentContainer=By.xpath("//span[@id='select2-formDepartment-container']");
     public static By formsType=By.xpath("//span[@class='select2-selection__rendered']");
     public static By saveBtn=By.xpath("//button[@id='btnSaveForm']");
-    public static By expandRow=By.xpath("//table[@id='tblMyForms']//tr[2]");
+    public static By expandRow=By.xpath("//table[@id='tblMyForms']//tbody//tr");
 }

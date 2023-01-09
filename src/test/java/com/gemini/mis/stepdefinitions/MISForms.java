@@ -9,10 +9,12 @@ import net.serenitybdd.core.pages.WebElementFacade;
 import com.gemini.mis.selectors.XpathForDashboardProfilePage;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.pages.PageObject;
+import org.openqa.selenium.By;
 import org.slf4j.LoggerFactory;
 import org.slf4j.Logger;
 
 import java.io.File;
+import java.util.List;
 import java.util.UUID;
 
 public class MISForms extends PageObject{
@@ -73,7 +75,7 @@ public class MISForms extends PageObject{
 
     @Then("User downloads file and deletes {string}")
     public void userDownloadsFileAndDeletes(String fileName) {
-        steps.click(XpathForFormPage.downloadBtn);
+        steps.click(XpathForFormPage.downloadButton);
         steps.customWait(6000);
         String downloadFolder = System.getProperty("user.home")+"\\Downloads";
         form.isFileDownloaded(downloadFolder,fileName);
@@ -142,15 +144,22 @@ public class MISForms extends PageObject{
     @Then("User hover over deactivate button and clicks it")
     public void userHoverOverDeactivateButtonAndClicksIt() throws Exception {
         WebElementFacade ele=$(XpathForFormPage.deactivateBtn);
+        WebElementFacade ele1=$(XpathForFormPage.deactivateButton);
         if (ele.isVisible()) {
             steps.customWait(1000);
-            form.hoverOver(XpathForFormPage.deactivateBtn);
             steps.click(XpathForFormPage.deactivateBtn);
+            steps.customWait(2000);
             steps.isElementExist(XpathForDashboardProfilePage.myElement("Are you sure you want to deactive this form?"));
             steps.click(XpathForFormPage.confirmYes);
             steps.isElementExist(XpathForDashboardProfilePage.myElement("Success"));
-            steps.isElementExist(XpathForDashboardProfilePage.myElement("Sign In"));
-
+        }
+        else if(ele1.isVisible()){
+            steps.customWait(1000);
+            steps.click(XpathForFormPage.deactivateButton);
+            steps.customWait(2000);
+            steps.isElementExist(XpathForDashboardProfilePage.myElement("Are you sure you want to deactive this form?"));
+            steps.click(XpathForFormPage.confirmYes);
+            steps.isElementExist(XpathForDashboardProfilePage.myElement("Success"));
         }
         else
         {
@@ -165,13 +174,20 @@ public class MISForms extends PageObject{
 
     @Then("User verifies element {string} downloads file and deletes {string}")
     public void userVerifiesElementDownloadsFileAndDeletes(String coloumnName, String fileName) {
-        WebElementFacade ele=$(XpathForDashboardProfilePage.myElement(coloumnName));
+        WebElementFacade ele=$(XpathForFormPage.downloadBtn);
+        WebElementFacade ele1=$(XpathForFormPage.downloadButton);
                 if(ele.isVisible()){
+                    steps.customWait(2000);
                     steps.click(XpathForFormPage.downloadBtn);
-                    steps.customWait(5000);
-                    form.isFileDownloaded("C:\\Users\\ch.srivastava\\Downloads",fileName);
-
-        }
+                    String downloadFolder = System.getProperty("user.home")+"\\Downloads";
+                    form.isFileDownloaded(downloadFolder,fileName);
+                }
+                else if(ele1.isVisible()){
+                    steps.customWait(2000);
+                    steps.click(XpathForFormPage.downloadButton);
+                    String downloadFolder = System.getProperty("user.home")+"\\Downloads";
+                    form.isFileDownloaded(downloadFolder,fileName);
+                }
                 else{
                    log.info("Download button is not present");
 
