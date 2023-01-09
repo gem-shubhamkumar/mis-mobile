@@ -74,7 +74,7 @@ public class AccountPortalImplementation extends PageObject {
 
     //click
     public void clickOnElement(String eleName) {
-        waitABit(1000);
+        waitABit(2000);
         switch (eleName) {
             case "Profile button":
                 clickOn(AccountPortalSelectors.account_portal);
@@ -126,8 +126,11 @@ public class AccountPortalImplementation extends PageObject {
         getDriver().switchTo().window(browserTabs.get(1));
         System.out.println("*******************" + browserTabs.size());
         if (browserTabs.size() == 2) {
+            System.out.println("INHERE");
+            System.out.println("TITLE: " + getDriver().getTitle());
             Assert.assertTrue(StringUtils.contains(getDriver().getTitle(), newTabPageHeading));
         } else {
+            System.out.println("FAILED");
             Assert.fail("Only one tab is open");
         }
     }

@@ -22,10 +22,10 @@ Feature: NavBar
     And Verify "Side navigation bar" is present on the current page
 
   @Navbar3
-  Scenario: Click on Change AD Password and verify  new tab is open
+  Scenario: Click on Change AD Password and verify new tab is open
     Then Verify navigation to landing page is successful after log in
     Then Click on "Change AD password button"
-    But Verify new tab is open "ldap" as page heading
+    But Verify new tab is open "RD Web Access" as page heading
 
   @Navbar4
   Scenario: Click on profile menu and verify all items are present
