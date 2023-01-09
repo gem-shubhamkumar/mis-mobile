@@ -229,7 +229,11 @@ public class AppraisalManagementAddGoalsPages extends PageObject {
     public void verifySortingisDone() {
         appraisalManagementPageImplementation.verifySortingisDone();
     }
-
+    
+    @Step("Verify popup appears")
+    public void verifyPopupAppears(String type) {
+        appraisalManagementPageImplementation.verifyPopupAppears(type);
+    }
 
 }
 
