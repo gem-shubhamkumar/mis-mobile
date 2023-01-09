@@ -74,4 +74,7 @@ public class AppraisalManagementAddGoalsLocators {
     public static By addUpdateGoal = By.xpath("//button[text()='Add/Update Goals']");
     public static By successMessage = By.xpath("/html/body/div[14]/p");
     public static By successOkay = By.xpath("/html/body/div[14]/div[7]/div/button");
+    public static By message(String type){
+        return By.xpath("//h2[contains(text(),"+"'"+type+"'"+")]//following-sibling::p");
+    }
 }

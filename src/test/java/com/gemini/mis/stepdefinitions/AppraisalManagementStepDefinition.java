@@ -222,4 +222,10 @@ public class AppraisalManagementStepDefinition extends PageObject {
     public void verifyWarningClickOk(){
        goalPages.verifyWarningClickOk();
     }
+    
+    @Then("^Verify \"(.*?)\" popup appears$")
+    public void verifyPopupAppears(String type) {
+        goalPages.verifyPopupAppears(type);
+
+    }
 }

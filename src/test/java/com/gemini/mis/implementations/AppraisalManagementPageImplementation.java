@@ -609,5 +609,11 @@ public class AppraisalManagementPageImplementation extends PageObject {
             Assert.fail(elementName+" isn not visible on the current page");
         }
     }
+    
+    public void verifyPopupAppears(String type) {
+        WebElementFacade message = $(AppraisalManagementAddGoalsLocators.message(type));
+        Assert.assertTrue("Popup msg not found",message.isVisible());
+        $(AppraisalManagementAddGoalsLocators.warningOk).click();
+    }
 
 }
