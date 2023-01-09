@@ -22,7 +22,7 @@ public class KnowledgeBaseLocators {
     public static By folderNameCloseButton = xpath("//*[@id=\"btnCloseGroup\"]");
     public static By refreshDocs = xpath("//a[@id='imgAllDocument']");
     public static By emptyGridInAddNewDocs = xpath("//table[@id='tbldocumentGridViewList']/tbody/tr/td");
-    public static By warningPopUpOk = xpath("/html/body/div[14]/div[7]/div/button");
+    public static By warningPopUpOk = xpath("//button[@class='confirm btn btn-lg btn-primary']");
     public static By tagAddedPopupOk = xpath("/html/body/div[13]/div[7]/div/button");
     public static By inputFolderName = xpath("//*[@id=\"groupName\"]");
     public static By warningPopUpText = xpath("//p[@class='lead text-muted ']");
