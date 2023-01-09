@@ -2,6 +2,7 @@ package com.gemini.mis.implementations;
 
 import com.gemini.mis.selectors.ApplyToAnyCardLocators;
 import com.gemini.mis.selectors.AppraisalManagementAddGoalsLocators;
+import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.pages.PageObject;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.Assert;
