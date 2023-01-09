@@ -3,6 +3,7 @@ package com.gemini.mis.implementations;
 import com.gemini.mis.commonfunctions.CommonFunctions;
 import com.gemini.mis.selectors.XpathForLeaveManagementTab;
 import com.gemini.mis.selectors.XpathforPolicyTab;
+import org.openqa.selenium.support.ui.Select;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import net.serenitybdd.core.pages.PageObject;
@@ -54,8 +55,8 @@ public class LeaveImplementation extends PageObject {
     //Function verifies tab headings
     public void verifyTabDisplays(String actualHeading)
     {
-        waitABit(5000);
-        waitABit(5000);
+        waitABit(2000);
+//        waitABit(5000);
         String expectHeading = "";
         if(StringUtils.equals(actualHeading,"Out Duty/Tour Request Detail"))
         {
@@ -120,7 +121,7 @@ public class LeaveImplementation extends PageObject {
     {
         if (isElementFoundInGivenTime(XpathForLeaveManagementTab.sideNav(parentTab)))
         {
-            waitABit(5000);
+            waitABit(1000);
             //clicks on parent tab
             clickOn(XpathForLeaveManagementTab.sideNav(parentTab));
             waitABit(2000);
@@ -132,8 +133,23 @@ public class LeaveImplementation extends PageObject {
                     WebElementFacade elementFacade = find(By.xpath(xpath));
                     elementFacade.click();
                 } else {
-                    clickOn(XpathForLeaveManagementTab.sideNav(childTab));
+                    if(StringUtils.equals(parentTab,"Leave Management")) {
+                        if(StringUtils.equals(childTab,"Apply")) {
+                            clickOn(XpathForLeaveManagementTab.ApplyButton(childTab, 2));
+                        }else{
+                            clickOn(XpathForLeaveManagementTab.ApplyButton(childTab,1));
+                        }
+                    } else{
+                        if(StringUtils.equals(childTab,"Apply")){
+                            clickOn(XpathForLeaveManagementTab.ApplyButton(childTab,3));
+                        }else{
+                            clickOn(XpathForLeaveManagementTab.ApplyButton(childTab,2));
+                        }
+
+
+                    }
                 }
+                waitABit(2000);
             }
             else{
                 Assert.fail("Unable to locate child tab");
@@ -410,8 +426,10 @@ public class LeaveImplementation extends PageObject {
         {
             WebElementFacade elementFacade = find(XpathForLeaveManagementTab.dropdown("CompOffDate"));
             elementFacade.click();
-            elementFacade.sendKeys(Keys.DOWN);
-            elementFacade.sendKeys(Keys.ENTER);
+            Select date = new Select(elementFacade);
+            date.selectByIndex(1);
+//            elementFacade.sendKeys(Keys.DOWN);
+//            elementFacade.sendKeys(Keys.ENTER);
             if(StringUtils.equals(elementFacade.getText(),(" ")))
             {
                 Assert.fail("No date present");

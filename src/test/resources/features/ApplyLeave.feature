@@ -90,7 +90,7 @@ Feature: MIS Leave Management Activities > Apply
     And Verify "<halfDayOptions>" half day options are available
     Examples:
       |      parentTab     |       childTab  | defaultTab |  fromDate  |   toDate    |            halfDayOptions          |                     heading                             |
-      | Leave Management   |          Apply  |    Leave   | 29/12/2023 | 29/12/2023  | First half leave,Second half leave |Apply Leave / WFH / Comp Off / Out Duty / Change Request |
+      | Leave Management   |          Apply  |    Leave   | 28/10/2023 | 28/10/2023  | First half leave,Second half leave |Apply Leave / WFH / Comp Off / Out Duty / Change Request |
 
   @Tag6
   Scenario Outline: Choose leave type
@@ -102,7 +102,7 @@ Feature: MIS Leave Management Activities > Apply
     And Select "<leaveType>" from Leave Type dropdown
     Examples:
       |      parentTab     |       childTab  | defaultTab |  fromDate  |   toDate    |  leaveType |                    heading                              |
-      | Leave Management   |          Apply  |    Leave   | 30/10/2023 |  30/10/2023 |     CL     |Apply Leave / WFH / Comp Off / Out Duty / Change Request |
+      | Leave Management   |          Apply  |    Leave   | 28/10/2023 |  28/10/2023 |     CL     |Apply Leave / WFH / Comp Off / Out Duty / Change Request |
 
 
   @Tag6
@@ -115,7 +115,7 @@ Feature: MIS Leave Management Activities > Apply
     And Enter reason "leave Reason" for leave
     Examples:
       |      parentTab     |       childTab  | defaultTab |  fromDate  |   toDate    |                         heading                          |
-      | Leave Management   |          Apply  |    Leave   | 19/10/2023 |  19/10/2023 | Apply Leave / WFH / Comp Off / Out Duty / Change Request |
+      | Leave Management   |          Apply  |    Leave   | 28/10/2023 |  28/10/2023 | Apply Leave / WFH / Comp Off / Out Duty / Change Request |
 
 
 
@@ -132,7 +132,7 @@ Feature: MIS Leave Management Activities > Apply
     And choose "Mobile" as Availability
     Examples:
       |      parentTab     |       childTab  | defaultTab |  fromDate  |   toDate    |                        heading                          |
-      | Leave Management   |          Apply  |    Leave   | 30/10/2023 |  30/10/2023 |Apply Leave / WFH / Comp Off / Out Duty / Change Request |
+      | Leave Management   |          Apply  |    Leave   | 28/10/2023 |  28/10/2023 |Apply Leave / WFH / Comp Off / Out Duty / Change Request |
 
 
 
@@ -154,4 +154,4 @@ Feature: MIS Leave Management Activities > Apply
 #    And Verify Leave is submitted and "Leave applied successfully" appears
     Examples:
       |      parentTab     |       childTab  | defaultTab |  fromDate  |   toDate    |  leaveType |                       heading                           |
-      | Leave Management   |          Apply  |    Leave   | 28/10/2023 |  28/10/2023 |     EL     |Apply Leave / WFH / Comp Off / Out Duty / Change Request |
+      | Leave Management   |          Apply  |    Leave   | 28/10/2023 |  28/10/2023 |     CL     |Apply Leave / WFH / Comp Off / Out Duty / Change Request |

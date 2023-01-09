@@ -31,6 +31,8 @@ public class XpathForLeaveManagementTab
     {
         return By.xpath("//span[contains(text(),\""+sideNav+"\")]");
     }
+    public static By ApplyButton(String ApplyButton,int n) {return By.xpath("(//span[contains(text(),\""+ApplyButton+"\")])["+n+"]");
+    }
     public static By dropdownOptions(String num)
     {
         return By.xpath("(//li[@class='magenta with-sub opened']/ul/li/a/span)["+num+"]");
