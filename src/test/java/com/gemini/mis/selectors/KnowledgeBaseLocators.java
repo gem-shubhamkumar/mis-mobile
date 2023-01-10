@@ -10,7 +10,7 @@ public class KnowledgeBaseLocators {
 
     //view documents xpaths
     public static By viewDocumentMenu = xpath("/html/body/nav/div/div[1]/ul/li[6]/ul/li[1]/a/span");
-    public static By addNewDocument = xpath("//div[@id='viewDocument-leftContainer']/div/a[1]");
+    public static By addNewDocument = xpath("//a[@id=\"popupAddNewDocumentTag\"]");
     public static By addNewFolder = xpath("//a[@id='popupAddNewDocGroup']");
     public static By tagNameInputBox =xpath("//input[@id='txtTagName']");
     public static By tagNameSaveButton = xpath("//button[@id='btnSaveDocumentTag']");
@@ -22,7 +22,7 @@ public class KnowledgeBaseLocators {
     public static By folderNameCloseButton = xpath("//*[@id=\"btnCloseGroup\"]");
     public static By refreshDocs = xpath("//a[@id='imgAllDocument']");
     public static By emptyGridInAddNewDocs = xpath("//table[@id='tbldocumentGridViewList']/tbody/tr/td");
-    public static By warningPopUpOk = xpath("//button[@class='confirm btn btn-lg btn-primary']");
+    public static By warningPopUpOk = xpath("//button[@class=\"confirm btn btn-lg btn-primary\"]");
     public static By tagAddedPopupOk = xpath("/html/body/div[13]/div[7]/div/button");
     public static By inputFolderName = xpath("//*[@id=\"groupName\"]");
     public static By warningPopUpText = xpath("//p[@class='lead text-muted ']");
@@ -31,7 +31,7 @@ public class KnowledgeBaseLocators {
     public static By nextButton = xpath("(//a[@aria-controls='tbldocumentGridViewList'])[2]");
     public static By prevButton = xpath("(//a[@aria-controls='tbldocumentGridViewList'])[1]");
     public static By dropDown = xpath("//*[@id=\"tbldocumentGridViewList_length\"]/label/select");
-//    public static By listOfFolders = xpath("//div[@id='DocumentGrouptree']/ul/li[]/span/a");
+    //    public static By listOfFolders = xpath("//div[@id='DocumentGrouptree']/ul/li[]/span/a");
     public static By warnignOkOnFolderPopup = xpath("/html/body/div[13]/div[7]/div/button");
     public static By crossButtonLocator = By.xpath("//*[@id=\"mypopupWindowAddNewDocumentModal\"]/div/div/div[1]/button/span");
 
