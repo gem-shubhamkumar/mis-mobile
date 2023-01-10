@@ -19,7 +19,8 @@ buildscript {
         }
     }
     dependencies {
-        classpath "net.serenity-bdd:serenity-gradle-plugin:2.6.0"
+        classpath("net.serenity-bdd:serenity-gradle-plugin:2.6.0")
+        classpath("net.serenity-bdd:serenity-single-page-report:2.6.0")
     }
 }
 
@@ -28,6 +29,10 @@ version '1.0-SNAPSHOT'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
+
+serenity {
+    reports = ["single-page-html"]
+}
 
 ext {
     slf4jVersion = '2.0.3'
