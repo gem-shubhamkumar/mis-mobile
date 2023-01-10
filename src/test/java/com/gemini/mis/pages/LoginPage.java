@@ -54,6 +54,10 @@ public class LoginPage {
       login.changeFocus();
 
   }
+  @Step("Delete already applied dates")
+    public void deleteDatesInLunch(){
+        login.deleteLunchDates();
+  }
 
 
 }
