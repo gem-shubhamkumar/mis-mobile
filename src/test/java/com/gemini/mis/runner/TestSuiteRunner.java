@@ -6,7 +6,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(CucumberSerenityRunner.class)
 @CucumberOptions(
-        features = "src/test/resources/features/" , glue = "com/gemini/mis/stepdefinitions" , tags = "@lunch"
+        features = "src/test/resources/features/" , glue = "com/gemini/mis/stepdefinitions"
 
 
 )
