@@ -4,6 +4,7 @@ Feature: MIS Leave Management > View Request Status
   Background:
     Given User is logged into MIS
 
+  @Tag5
   Scenario Outline: Navigate to Leave Management > View Request Status tab > Leave Tab
     When User is on MIS Home Page
     When User clicks on "<childTab>" sub tab of "<parentTab>" tab in MIS
@@ -12,6 +13,8 @@ Feature: MIS Leave Management > View Request Status
       |      parentTab     |       childTab      | defaultTab |
       | Leave Management   | View Request Status |    Leave   |
 
+
+  @Tag5
   Scenario Outline: Verify Date Range field is present for Leave Tab
     When User is on MIS Home Page
     When User clicks on "<childTab>" sub tab of "<parentTab>" tab in MIS
@@ -21,6 +24,8 @@ Feature: MIS Leave Management > View Request Status
       |      parentTab     |       childTab      | defaultTab |
       | Leave Management   | View Request Status |    Leave   |
 
+
+  @Tag5
   Scenario Outline: Enter Invalid Date Range for Leave Tab
     When User is on MIS Home Page
     When User clicks on "<childTab>" sub tab of "<parentTab>" tab in MIS
@@ -34,6 +39,8 @@ Feature: MIS Leave Management > View Request Status
       | Leave Management   | View Request Status |    Leave   |
 
 
+
+  @Tag5
   Scenario Outline: Enter Valid Date Range for Leave Tab
     When User is on MIS Home Page
     When User clicks on "<childTab>" sub tab of "<parentTab>" tab in MIS
@@ -47,6 +54,8 @@ Feature: MIS Leave Management > View Request Status
       |      parentTab     |       childTab      | defaultTab |       dateRange           |
       | Leave Management   | View Request Status |    Leave   | 01 Apr 2022 - 31 Mar 2023 |
 
+
+  @Tag5
   Scenario Outline: Verify Export Options for Leave Tab
     When User is on MIS Home Page
     When User clicks on "<childTab>" sub tab of "<parentTab>" tab in MIS
@@ -57,6 +66,8 @@ Feature: MIS Leave Management > View Request Status
       |      parentTab     |       childTab      | defaultTab |
       | Leave Management   | View Request Status |    Leave   |
 
+
+  @Tag5
   Scenario Outline: Click on Print Option for Leave Tab
     When User is on MIS Home Page
     When User clicks on "<childTab>" sub tab of "<parentTab>" tab in MIS
@@ -69,6 +80,8 @@ Feature: MIS Leave Management > View Request Status
       |      parentTab     |       childTab      | defaultTab |
       | Leave Management   | View Request Status |    Leave   |
 
+
+  @Tag5
   Scenario Outline: Click on Excel Option for Leave Tab
     When User is on MIS Home Page
     When User clicks on "<childTab>" sub tab of "<parentTab>" tab in MIS
@@ -81,6 +94,8 @@ Feature: MIS Leave Management > View Request Status
       |      parentTab     |       childTab      | defaultTab |
       | Leave Management   | View Request Status |    Leave   |
 
+
+  @Tag5
   Scenario Outline: Click on Copy Option for Leave Tab
     When User is on MIS Home Page
     When User clicks on "<childTab>" sub tab of "<parentTab>" tab in MIS
@@ -93,6 +108,8 @@ Feature: MIS Leave Management > View Request Status
       |      parentTab     |       childTab      | defaultTab |
       | Leave Management   | View Request Status |    Leave   |
 
+
+  @Tag5
   Scenario Outline: Verify PDF option for Leave Tab
     When User is on MIS Home Page
     When User clicks on "<childTab>" sub tab of "<parentTab>" tab in MIS
@@ -105,6 +122,8 @@ Feature: MIS Leave Management > View Request Status
       |      parentTab     |       childTab      | defaultTab |
       | Leave Management   | View Request Status |    Leave   |
 
+
+  @Tag5
   Scenario Outline: Verify Number of Entries displayed for Leave Tab
     When User is on MIS Home Page
     When User clicks on "<childTab>" sub tab of "<parentTab>" tab in MIS
@@ -122,6 +141,8 @@ Feature: MIS Leave Management > View Request Status
       |      parentTab     |       childTab      |         dateRange          |   noOfRecords |
       | Leave Management   | View Request Status |  01 Apr 2021 - 31 Mar 2022 |       25      |
 
+
+  @Tag5
   Scenario Outline: Enter Leave Period Name in Search Box for Leave Tab
     When User is on MIS Home Page
     When User clicks on "<childTab>" sub tab of "<parentTab>" tab in MIS
@@ -132,6 +153,8 @@ Feature: MIS Leave Management > View Request Status
       |      parentTab     |       childTab      |        leavePeriod         |
       | Leave Management   | View Request Status | 25-Sep-2022 to 26-Sep-2022 |
 
+
+  @Tag5
   Scenario Outline: Sort columns for Leave Tab
     When User is on MIS Home Page
     When User clicks on "<childTab>" sub tab of "<parentTab>" tab in MIS
@@ -141,6 +164,8 @@ Feature: MIS Leave Management > View Request Status
       |      parentTab     |       childTab      |
       | Leave Management   | View Request Status |
 
+
+  @Tag5
   Scenario Outline: Page Next for Leave Tab
     When User is on MIS Home Page
     When User clicks on "<childTab>" sub tab of "<parentTab>" tab in MIS
@@ -156,6 +181,7 @@ Feature: MIS Leave Management > View Request Status
       |      parentTab     |       childTab      |          dateRange         |
       | Leave Management   | View Request Status |  01 Apr 2021 - 31 Mar 2022 |
 
+  @Tag5
   Scenario Outline: Page Previous for Leave Tab
     When User is on MIS Home Page
     When User clicks on "<childTab>" sub tab of "<parentTab>" tab in MIS
@@ -173,6 +199,8 @@ Feature: MIS Leave Management > View Request Status
       |      parentTab     |       childTab      |          dateRange         |
       | Leave Management   | View Request Status |  01 Apr 2021 - 31 Mar 2022 |
 
+
+  @Tag5
   Scenario Outline: Cancel Leave for Leave Tab
     When User is on MIS Home Page
     When User clicks on "<childTab>" sub tab of "<parentTab>" tab in MIS
