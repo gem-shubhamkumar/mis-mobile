@@ -746,16 +746,21 @@ public class LeaveImplementation extends PageObject {
     //This function to select Date
     public void selectDate(String tab)
     {
-        Calendar calendar = Calendar.getInstance();
-        calendar.add(Calendar.DAY_OF_YEAR, 1);
-        Date tomorrow = calendar.getTime();
-        String[] dateArray = tomorrow.toString().split(" ");
-        if(StringUtils.equals(dateArray[0],"Sat")){
-            calendar.add(Calendar.DAY_OF_YEAR, 2);
+//        Calendar calendar = Calendar.getInstance();
+//        calendar.add(Calendar.DAY_OF_YEAR, 1);
+//        Date tomorrow = calendar.getTime();
+//        String[] dateArray = tomorrow.toString().split(" ");
+//        if(StringUtils.equals(dateArray[0],"Sat")){
+//            calendar.add(Calendar.DAY_OF_YEAR, 2);
+//        }
+////        Date dateNow =  calendar.getTime();
+        if(StringUtils.equals(tab,"Work From Home")) {
+//            selectDateFromDropdown(dateNow, XpathForLeaveManagementTab.dropdown("WorkFromHomeDate"));
+            WebElementFacade element = find(XpathForLeaveManagementTab.dropdown("WorkFromHomeDate"));
+//            element.click();
+            Select wfh = new Select(element);
+            wfh.selectByIndex(0);
         }
-        Date dateNow =  calendar.getTime();
-        if(StringUtils.equals(tab,"Work From Home"))
-            selectDateFromDropdown(dateNow, XpathForLeaveManagementTab.dropdown("WorkFromHomeDate"));
     }
 
     //Function verifies copy text

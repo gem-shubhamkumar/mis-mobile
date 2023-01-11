@@ -88,7 +88,7 @@ Feature: MIS Leave Management Activities > Apply
 
 
 
-  @Tag6
+  @Tag5
   Scenario Outline: Enter required data and click on Submit WFH
     When User is on MIS Home Page
     When User clicks on "<childTab>" sub tab of "<parentTab>" tab in MIS
