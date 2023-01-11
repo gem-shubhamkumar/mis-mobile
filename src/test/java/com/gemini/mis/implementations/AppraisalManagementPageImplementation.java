@@ -612,6 +612,7 @@ public class AppraisalManagementPageImplementation extends PageObject {
     }
     
     public void verifyPopupAppears(String type) {
+        waitABit(6000);
         WebElementFacade message = $(AppraisalManagementAddGoalsLocators.message(type));
         Assert.assertTrue("Popup msg not found",message.isVisible());
         $(AppraisalManagementAddGoalsLocators.warningOk).click();
