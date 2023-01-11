@@ -180,10 +180,11 @@ Scenario Outline:User leaves Pin Code field blank
       |Update Profile|Update Address|presentPincode|presentPincode|
 
 #13
-  @lunch
+
 Scenario Outline: User applies for lunch
     Given User clicks on Lunch Btn
     Then User verifies element "<elementOne>"
+    And Delete already applied dates
     And User clicks on FromDate Calendar Selects Date "<Date1>"
     Then User clicks on To Date Calendar Selects Date "<Date2>"
     Then User Selects location from dropdown "<Location>"
@@ -197,6 +198,7 @@ Scenario Outline: User applies for lunch
 
 
 #14
+@lunch
 Scenario Outline: User applies for lunch for already applied date
     Given User clicks on Lunch Btn
     Then User verifies element "<elementOne>"

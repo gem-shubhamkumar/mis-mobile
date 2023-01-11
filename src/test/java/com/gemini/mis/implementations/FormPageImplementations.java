@@ -16,7 +16,7 @@ public class FormPageImplementations extends PageObject {
 
 
     public void navigateTabs(String parentTab, String childTab){
-        waitABit(2000);
+        waitABit(3000);
         if (isElementFound(XpathForLoginPage.sideNavigation(parentTab))) {
             waitABit(1000);
             click(XpathForLoginPage.sideNavigation(parentTab));

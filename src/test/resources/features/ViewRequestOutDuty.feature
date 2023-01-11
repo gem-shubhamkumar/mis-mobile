@@ -168,7 +168,7 @@ Feature: MIS Leave Management > View Request Status
     And Verify "<outDutyPeriod>" date
     Examples:
       |      parentTab     |       childTab      | outDutyPeriod  |        tab      |
-      | Leave Management   | View Request Status | 29 Nov 2022    |   Out Duty/Tour |
+      | Leave Management   | View Request Status | 29 Dec 2022    |   Out Duty/Tour |
 
   Scenario Outline: Search in View Window for Out Duty/Tour
     When User is on MIS Home Page
@@ -182,5 +182,5 @@ Feature: MIS Leave Management > View Request Status
     Then Verify "<outDutyPeriod>" Period is filtered for "Out Duty Details" tab
     Examples:
       |      parentTab     |       childTab      | outDutyPeriod |      tab      |
-      | Leave Management   | View Request Status |   29 Nov 2022 | Out Duty/Tour |
+      | Leave Management   | View Request Status |   29 Dec 2022 | Out Duty/Tour |
 

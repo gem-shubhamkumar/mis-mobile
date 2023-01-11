@@ -4,6 +4,7 @@ import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.pages.PageObject;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -70,4 +71,34 @@ public class LoginPageImplementations extends PageObject {
      String prntw = String.valueOf(i.next());
      getDriver().switchTo().window(prntw);
  }
+
+    public void deleteLunchDates() {
+
+        WebElementFacade deleteButton = $(By.xpath("//*[@id='tblApplyForLunch']//tbody//tr[1]//td[4]//button[2]"));
+        WebElementFacade okButton = $(By.xpath("//*[contains(text(),\"OK\")]"));
+
+        int rowCount = getDriver().findElements(By.xpath("//*[@id='tblApplyForLunch']//tbody//tr")).size();
+
+
+        for(int i=1;i<=rowCount;i++){
+
+            getDriver().findElement(By.xpath("//*[@id='tblApplyForLunch']//tbody//tr[1]//td[4]//button[2]")).click();
+            customWait(1000);
+           okButton.click();
+            customWait(1000);
+
+        }
+//
+//        while(deleteButton.isDisplayed()){
+//
+//            deleteButton.click();
+//            //waitTillElementPresence((By) okButton);
+//            customWait(1000);
+//            okButton.click();
+//            customWait(2000);
+//
+//        }
+        Assert.assertTrue(!deleteButton.isVisible());
+
+    }
 }

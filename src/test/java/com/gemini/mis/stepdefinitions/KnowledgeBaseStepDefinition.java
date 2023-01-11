@@ -15,6 +15,7 @@ public class KnowledgeBaseStepDefinition extends PageObject {
 
     @When("^Goto \"(.*?)\" and click on \"(.*?)\"$")
     public void clickOnMenuItem(String menuItem, String subItem) {
+        waitABit(2000);
         steps.gotoMenuItemAndSubItem(menuItem, subItem);
     }
 
@@ -35,6 +36,7 @@ public class KnowledgeBaseStepDefinition extends PageObject {
 
     @Then("^click on \"(.*?)\"$")
     public void clickOnItem(String elemName) {
+        waitABit(6000);
         steps.clickOnElement(elemName);
     }
 
@@ -71,7 +73,7 @@ public class KnowledgeBaseStepDefinition extends PageObject {
     @And("^Put \"(.*?)\" and click on \"(.*?)\"$")
     public void putInvalidFolderName(String folderName, String buttonName) {
         steps.enterFolderName(folderName);
-        waitABit(2000);
+        waitABit(6000);
         steps.clickOnButton(buttonName);
     }
 
@@ -118,7 +120,7 @@ public class KnowledgeBaseStepDefinition extends PageObject {
 
     @Then("^right click on \"(.*?)\"$")
     public void rightClick(String elemName) {
-        waitABit(4000);
+        waitABit(6000);
         steps.rightClickOnElement(elemName);
     }
 

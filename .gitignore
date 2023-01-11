@@ -2,3 +2,6 @@
 .gradle
 .gitignore
 target
+gradlew
+build
+gradle

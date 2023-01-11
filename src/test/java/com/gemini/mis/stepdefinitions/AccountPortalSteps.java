@@ -34,6 +34,7 @@ public class AccountPortalSteps extends PageObject {
      @But("^Verify new tab is open \"(.*?)\" as page heading$")
     public void verifyNewTabOpened(String newTabHeading){
          accountPages.verifyNewWindowTabIsOpen(newTabHeading);
+         waitABit(1500);
      }
      @When("^On new tab : \"(.*?)\"$")
     public void verifyPageTitle(String currentPageTitle){

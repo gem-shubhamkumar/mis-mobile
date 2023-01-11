@@ -11,6 +11,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.File;
 import java.util.Random;
 
 public class KnowledgeBasePageImplementation extends PageObject {
@@ -72,8 +73,8 @@ public class KnowledgeBasePageImplementation extends PageObject {
         if (testString.equals("")){
             $(selector.searchBarSharedDoc).clear();
         }else{
-        $(selector.searchBarSharedDoc).sendKeys(testString);
-    }}
+            $(selector.searchBarSharedDoc).sendKeys(testString);
+        }}
 
     public void verifyRecordAvailability(String str) {
         waitABit(1000);
@@ -175,7 +176,7 @@ public class KnowledgeBasePageImplementation extends PageObject {
     }
 
     public void clickOnSpecifiedButton(String btnName) {
-        waitABit(2500);
+        waitABit(6000);
         LOGGER.info("Clicking on {} button",btnName);
         switch (btnName) {
             case "crossButton":
@@ -200,11 +201,11 @@ public class KnowledgeBasePageImplementation extends PageObject {
                 $(By.xpath("(//ul[@id='myMenu']/li)[1]")).click();
                 break;
             case "yesButton":
-                $(By.xpath("/html/body/div[13]/div[7]/div/button"));
+                $(By.xpath("//button[@class=\"confirm btn btn-lg btn-danger\"]"));
                 Assert.assertTrue("clicked on yes", true);
                 break;
             case "noButton":
-                $(By.xpath("/html/body/div[13]/div[7]/button")).click();
+                $(By.xpath("//button[@class=\"cancel btn btn-lg btn-default\"]")).click();
                 Assert.assertTrue("clicked on no", true);
                 break;
             default:
@@ -278,7 +279,9 @@ public class KnowledgeBasePageImplementation extends PageObject {
                     break;
                 case "AddNewFolder":
                     LOGGER.info("Clicked on add new folder.");
+                    waitABit(2000);
                     $(selector.addNewFolder).click();
+                    waitABit(2000);
                     Assert.assertTrue("Successfully clicked on " + elemName, true);
                     break;
                 case "newFolder":
@@ -522,12 +525,17 @@ public class KnowledgeBasePageImplementation extends PageObject {
         switch (fileType) {
             case "htmlFile":
                 LOGGER.info("Uploading invalid type file(html File)");
-                $(selector.docUpload).sendKeys("C:\\Users\\dell\\Desktop\\Sample.html");
+                File file = new File("src/test/resources/FileUpload/Sample.html");
+//                yourElement.sendKeys(file.getAbsolutePath());
+                $(selector.docUpload).sendKeys(file.getAbsolutePath());
 //                break;
 
             case "validFile":
                 LOGGER.info("Uploading valid excel file.");
-                $(selector.docUpload).sendKeys("C:\\Users\\dell\\Desktop\\Sample.xlsx");
+                File file_1 = new File("src/test/resources/FileUpload/Sample.xlsx");
+//                yourElement.sendKeys(file.getAbsolutePath());
+                $(selector.docUpload).sendKeys(file_1.getAbsolutePath());
+//                $(selector.docUpload).sendKeys("src/test/resources/FileUpload/Sample.xlsx");
 //                break;
 
             case "title":

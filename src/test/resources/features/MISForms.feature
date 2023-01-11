@@ -120,7 +120,7 @@ Feature: MIS Forms- View Forms scenarios
     Given User clicks on tab "<parent Tab>" and "<child Tab>"
     Then User Clicks on upload Btn
     And User Selects form Type "<Form Type>"
-    And And User uploads correct  file "<fileLoc>"
+    And And User uploads  file "<fileLoc>"
     Then User saves the file
     Then User verifies element "<Success Message>"
     And User closes appeared popup
@@ -178,6 +178,7 @@ Feature: MIS Forms- View Forms scenarios
 #16
   Scenario Outline: User downloads from My Forms page
     Given User clicks on tab "<parent Tab>" and "<child Tab>"
+    Then User clicks on row to expand the details
     Then User verifies element "<ColumnName>" downloads file and deletes "<fileName>"
     And User closes application
     Examples:

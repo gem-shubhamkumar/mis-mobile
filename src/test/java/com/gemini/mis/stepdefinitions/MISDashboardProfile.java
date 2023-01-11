@@ -192,6 +192,11 @@ public class MISDashboardProfile extends PageObject {
      steps.customWait(1000);
      Assert.assertTrue($(By.xpath(XpathForDashboardProfilePage.userCard)).isPresent());
     }
+
+    @And("Delete already applied dates")
+    public void deleteAlreadyAppliedDates(){
+        steps.deleteDatesInLunch();
+    }
 }
 
 

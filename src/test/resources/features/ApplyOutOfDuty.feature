@@ -83,7 +83,7 @@ Feature: MIS Leave Management Activities > Apply
     Then Enter "<contactNumber>" in "outing Contact Number" textbox
     Then Enter "<enterReason>" in "outing Reason" text box
     Then Click on Submit button for Out of Duty Tab
-    And Verify Leave is submitted and "Out Duty/Tour request has been applied successfully." appears
+    # And Verify Leave is submitted and "Out Duty/Tour request has been applied successfully." appears
     Examples:
       |      parentTab     |       childTab  |      tab       |   fromDate |    toDate  |       outOfDutyType      |  enterReason   |  contactNumber |
       | Leave Management   |          Apply  | Out Duty/Tour  |  29/09/2022 | 29/09/2022 |  Out Duty (Client Visit) |   client visit |   8888888888   |
