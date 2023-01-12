@@ -1,4 +1,4 @@
-Feature: OtherPortals
+Feature: MIS OtherPortals L&DPortal
 
 
   Background:
