@@ -1,4 +1,4 @@
-Feature: MIS Forms- View Forms scenarios
+Feature: MIS Forms
 
   Background: User verifies Login Page Elements Before Login
     Given User opens MIS Beta page "https://mymis.geminisolutions.com/"
