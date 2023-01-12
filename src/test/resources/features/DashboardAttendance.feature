@@ -1,4 +1,4 @@
-Feature: Perform actions on Dashboard of MIS website
+Feature: MIS Dashboard Attendance
 
   Background:
     Given Navigate to MIS Beta Application
