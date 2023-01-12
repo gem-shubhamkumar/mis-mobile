@@ -1,5 +1,5 @@
 @AddGoalsAppraisalManagement
-Feature: Automation of appraisal management screen in beta mis
+Feature: MIS AppraisalManagement
 
 
   Background:
