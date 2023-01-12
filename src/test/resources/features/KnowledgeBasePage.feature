@@ -1,5 +1,5 @@
 @KnowledgeBaseTest
-Feature: Automation of  View Document and view shared document Submenu in knowledge base menu in MIS Dashboard
+Feature: MIS KnowledgeBase
 
 
   Background:
