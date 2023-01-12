@@ -1,4 +1,4 @@
-Feature: My Skills in Dashboard
+Feature: MIS Dashboard MySkills
 
   Background:
     Given User logins into MIS Beta application with username "ayush.garg" and password "Gemini@123"
