@@ -1,4 +1,4 @@
-Feature: MIS Leave Management > View Request Status
+Feature: MIS LeaveManagement ViewRequestStatus CompOff
   This tests are for View Request Status module of MIS Beta
 
   Background:
