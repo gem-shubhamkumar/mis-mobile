@@ -1,4 +1,4 @@
-Feature: DashboardReferral
+Feature: MIS Dashboard Referral
 
   Background:
     Given MIS Beta is opened and verify application opens successfully
