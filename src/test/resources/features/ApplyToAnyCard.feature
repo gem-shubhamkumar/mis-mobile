@@ -1,5 +1,5 @@
 @applytoanycard
-Feature: Apply to any card maximizing and minimizing cards.
+Feature: MIS Cards Management
 
 
   Background:
