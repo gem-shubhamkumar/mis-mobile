@@ -1,4 +1,4 @@
-Feature: MIS LeaveManagement ViewRequestStatus
+Feature: MIS LeaveManagement ViewRequestStatus ChangeRequest
   This tests are for View Request Status module of MIS Beta
 
   Background:
