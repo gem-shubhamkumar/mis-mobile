@@ -1,4 +1,4 @@
-Feature: Perform actions on Organization Structure of MIS website
+Feature: MIS OrganizationStructure Actions
 
   Background:
     Given Navigate to MIS Beta Application
