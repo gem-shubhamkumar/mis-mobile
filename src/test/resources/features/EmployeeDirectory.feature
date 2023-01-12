@@ -1,4 +1,4 @@
-Feature: EmployeeDirectory
+Feature: MIS EmployeeDirectory
 
   Background:
     Given MIS Beta is opened and verify application opens successfully
