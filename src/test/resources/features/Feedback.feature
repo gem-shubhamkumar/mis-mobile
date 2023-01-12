@@ -1,5 +1,5 @@
 @TagAll
-Feature: Feedback
+Feature: MIS Feedback SubmitFeedback
 
   Background:
     Given User logins into MIS Beta application with username "ayush.garg" and password "Gemini@123"
