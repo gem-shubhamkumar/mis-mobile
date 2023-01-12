@@ -1,4 +1,4 @@
-Feature: Login MIS Application Activities
+Feature: MIS SignIn
 
   Background: User verifies Login Page Elements Before Login
     Given User opens MIS Beta page "https://mymis.geminisolutions.com/"
