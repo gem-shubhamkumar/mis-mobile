@@ -1,5 +1,5 @@
 @ProfileModule
-Feature: MIS Dashboard Profile module Scenarios
+Feature: MIS Dashboard PersonalProfileCard
 
 
   Background: User verifies Login Page Elements Before Login
