@@ -1,5 +1,5 @@
 @MISAutomation
-Feature: Accounts Portal
+Feature: MIS AccountsPortal
 
   Background:
     Given User has login to myMIS beta
