@@ -1,5 +1,5 @@
 @MISAutomation @LeaveBalance
-Feature: Leave Balance
+Feature: MIS Dashboard LeaveBalanceCard
 
   Background:
     Given User has login to myMIS beta
