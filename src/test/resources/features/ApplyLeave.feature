@@ -1,4 +1,4 @@
-Feature: MIS Leave Management Activities > Apply
+Feature: MIS Leave Management Apply Leave
   This tests are for Apply module of MIS Beta
 
   Background:
