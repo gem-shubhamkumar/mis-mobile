@@ -1,4 +1,4 @@
-Feature: Reimbursement
+Feature: MIS Reimbursement MyReimbursement
 
   Background:
     Given MIS Beta is opened and verify application opens successfully
