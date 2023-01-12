@@ -1,4 +1,4 @@
-Feature: Policy Activities
+Feature: MIS Policy ViewPolicies
   This tests are for Policy module of MIS Beta
 
   Background:
