@@ -1,4 +1,4 @@
-Feature: Perform actions on TimeSheet of MIS website
+Feature: MIS TimeSheet PerformActions
 
   Background:
     Given Navigate to MIS Beta Application
