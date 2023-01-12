@@ -1,4 +1,4 @@
-Feature: LNSA
+Feature: MIS LNSA
 
   Background:
     Given User logins into MIS Beta application with username "jasleen.multani" and password "Gemini@123"
