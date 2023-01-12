@@ -1,4 +1,4 @@
-Feature: MIS Leave Management Activities > Apply
+Feature: MIS LeaveManagement Apply CompOff
   This tests are for Apply module of MIS Beta
 
   Background:
