@@ -5,6 +5,7 @@ import com.gemini.mis.pages.TimeSheetPage;
 import com.gemini.mis.selectors.DashboardAttendanceSelectors;
 import com.gemini.mis.selectors.TimeSheetSelectors;
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Then;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.Steps;
@@ -116,20 +117,20 @@ public class TimeSheet extends PageObject {
     @And("^Add a new valid task template with \"(.*?)\" \"(.*?)\" \"(.*?)\" \"(.*?)\"$")
     public void addNewValidTemplate(String Name, String Description, String Team, String Task) {
         WebElementFacade searchBox = $(ds.txtSearch);
-        if(searchBox.isDisplayed()) {
+        if (searchBox.isDisplayed()) {
             log.info("Search box displayed");
             searchBox.typeAndEnter(Name);
-            if($(ts.txtTemplateData1).getText().equals(Name)) {
+            if ($(ts.txtTemplateData1).getText().equals(Name)) {
                 log.info("Searched item present");
                 time.clickDeleteTemplate(Name);
                 dashAtd.verifyAndAcceptConfirmation();
                 time.clickAddNewTemplate();
                 time.AddValidTemplate(Name, Description, Team, Task);
-            }else {
+            } else {
                 time.clickAddNewTemplate();
                 time.AddValidTemplate(Name, Description, Team, Task);
             }
-        }else {
+        } else {
             Assert.fail("Search box not displayed");
         }
     }
@@ -139,6 +140,23 @@ public class TimeSheet extends PageObject {
         time.clickEditTemplate(txtUniqueIdentifier);
         time.verifyEditTemplate(Name, Description, Team, Task);
     }
+
+    @Then("^Delete edited template with \"(.*?)\" \"(.*?)\" \"(.*?)\" \"(.*?)\"$")
+    public void deleteTemplate(String Name, String Description, String Team, String Task) {
+        if (!(Name.equals(""))) {
+            WebElementFacade searchBox = $(ds.txtSearch);
+            if (searchBox.isDisplayed()) {
+                log.info("Search box displayed");
+                searchBox.typeAndEnter(Name);
+                if ($(ts.txtTemplateData1).getText().equals(Name)) {
+                    log.info("Searched item present");
+                    time.clickDeleteTemplate(Name);
+                    dashAtd.verifyAndAcceptConfirmation();
+                }
+            }
+        }
+    }
+
 
     @And("^Click on Delete button for a task template \"(.*?)\"$")
     public void deleteTemplate(String txtUniqueIdentifier) {
