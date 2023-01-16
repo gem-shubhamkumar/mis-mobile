@@ -1,4 +1,4 @@
-Feature: MIS TimeSheet PerformActions
+Feature: Perform actions on TimeSheet of MIS website
 
   Background:
     Given Navigate to MIS Beta Application
@@ -107,10 +107,10 @@ Feature: MIS TimeSheet PerformActions
     And Perform valid search for "<ValidText>" using search box when records are displayed
     Then Logout from MIS
     Examples:
-      | Name | Description   | Team |   Task   | InvalidText | ValidText |
-      | abc  |   123@##      |  QA  | Learning |    mnop     |    abc    |
-      | XYZ  |   /;[=[++     |  QA  | Testing  |    @#$%     |  /;[=[++  |
-      | pqr  |   batman      |  QA  | Reporting|    1234     |    QA     |
+      | Name | Description | Team | Task      | InvalidText | ValidText |
+      | abc  | 123@##      | QA   | Learning  | mnop        | abc       |
+      | XYZ  | /;[=[++     | QA   | Testing   | @#$%        | /;[=[++   |
+      | pqr  | batman      | QA   | Reporting | 1234        | QA        |
 
   @Test @TC11 @TimeSheet @ManageTaskTemplate
   Scenario Outline: Add an invalid task template
@@ -120,13 +120,13 @@ Feature: MIS TimeSheet PerformActions
     And Add a new invalid task template with "<Name>" "<Description>" "<Team>" "<Task>"
     Then Logout from MIS
     Examples:
-      | Name | Description   | Team |   Task   |
-      |      |               |      |          |
-      | abcd |               |      |          |
-      |      | FirstTemplate |      |          |
-      |      |               |  QA  |          |
-      | abcd | FirstTemplate |      |          |
-      | abcd | FirstTemplate |  QA  |          |
+      | Name | Description   | Team | Task |
+      |      |               |      |      |
+      | abcd |               |      |      |
+      |      | FirstTemplate |      |      |
+      |      |               | QA   |      |
+      | abcd | FirstTemplate |      |      |
+      | abcd | FirstTemplate | QA   |      |
 
   @Test @TC12 @TimeSheet @ManageTaskTemplate
   Scenario Outline: Delete and Add a valid task template
@@ -136,8 +136,8 @@ Feature: MIS TimeSheet PerformActions
     And Add a new valid task template with "<Name>" "<Description>" "<Team>" "<Task>"
     Then Logout from MIS
     Examples:
-      | Name | Description   | Team |   Task   |
-      | abcd | FirstTemplate |  QA  | Learning |
+      | Name | Description   | Team | Task     |
+      | abcd | FirstTemplate | QA   | Learning |
 
   @Test @TC13 @TimeSheet @ManageTaskTemplate
   Scenario Outline: Add a duplicate task template
@@ -148,7 +148,7 @@ Feature: MIS TimeSheet PerformActions
     And Add a new duplicate task template with "<Name>" "<Description>" "<Team>" "<Task>"
     Then Logout from MIS
     Examples:
-      | Name | Description | Team |   Task    |
+      | Name | Description | Team | Task      |
       | TUV  | Automation  | FES  | Debugging |
 
   @Test @TC14 @TimeSheet @ManageTaskTemplate
@@ -158,17 +158,18 @@ Feature: MIS TimeSheet PerformActions
     And Verify "Manage Task Template" page of type "Sub"
     And Add a new valid task template with "<Name>" "<Description>" "<Team>" "<Task>"
     And Edit a task template "<Name>" with "<EName>" "<EDescription>" "<ETeam>" "<ETask>"
+    Then Delete edited template with "<EName>" "<EDescription>" "<ETeam>" "<ETask>"
     Then Logout from MIS
     Examples:
-      | Name | Description |  Team  |   Task    | EName | EDescription | ETeam |   ETask   |
-      | Lmno |    njuik    | Gemini | Reporting |       |              |       |           |
-      | Lmno |    njuik    | Gemini | Reporting | wxyz  |              |       |           |
-      | Lmno |    njuik    | Gemini | Reporting |       |  MyTemplate  |       |           |
-      | Lmno |    njuik    | Gemini | Reporting |       |              |  FES  |           |
-      | Lmno |    njuik    | Gemini | Reporting |       |              |       |  Learning |
-      | Lmno |    njuik    | Gemini | Reporting | wxyz  |  MyTemplate  |       |           |
-      | Lmno |    njuik    | Gemini | Reporting | wxyz  |  MyTemplate  |  FES  |           |
-      | Lmno |    njuik    | Gemini | Reporting | wxyz  |  MyTemplate  |  FES  |  Testing  |
+      | Name | Description | Team   | Task      | EName | EDescription | ETeam | ETask    |
+      | lmno | njuik       | Gemini | Reporting |       |              |       |          |
+      | lmno | njuik       | Gemini | Reporting | wxyz  |              |       |          |
+      | lmno | njuik       | Gemini | Reporting |       | MyTemplate   |       |          |
+      | lmno | njuik       | Gemini | Reporting |       |              | FES   |          |
+      | lmno | njuik       | Gemini | Reporting |       |              |       | Learning |
+      | lmno | njuik       | Gemini | Reporting | wxyz  | MyTemplate   |       |          |
+      | lmno | njuik       | Gemini | Reporting | wxyz  | MyTemplate   | FES   |          |
+      | lmno | njuik       | Gemini | Reporting | wxyz  | MyTemplate   | FES   | Testing  |
 
   @Test @TC15 @TimeSheet @ManageTaskTemplate
   Scenario Outline: Verify rejecting a delete action for a task template
@@ -180,5 +181,5 @@ Feature: MIS TimeSheet PerformActions
     Then Verify and reject confirmation popup
     Then Logout from MIS
     Examples:
-      | Name | Description | Team |    Task     |
-      | del  |    Test     |  ETL | Development |
+      | Name | Description | Team | Task        |
+      | del  | Test        | ETL  | Development |
