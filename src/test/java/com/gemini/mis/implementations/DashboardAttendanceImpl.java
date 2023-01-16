@@ -23,24 +23,24 @@ public class DashboardAttendanceImpl extends PageObject {
     /*----------------------------FUNCTIONS SPECIFIC TO DASHBOARD ATTENDANCE CARD--------------------------------*/
 
     public void scrollToCard(String Card) {
-        WebElement element = getDriver().findElement(By.xpath("//section[@id='"+Card+"']"));
+        WebElement element = getDriver().findElement(By.xpath("//section[@id='" + Card + "']"));
         cf.scrollToElement(element);
         waitABit(3000);
     }
 
     public void selectMonthFromDropdown(WebElement Element, String MMMMYYYY) {
         Element.click();
-        if(Element.getAttribute("aria-expanded").equals("true")) {
+        if (Element.getAttribute("aria-expanded").equals("true")) {
             log.info("Month dropdown menu opened successfully");
-            WebElement dropdownItem = getDriver().findElement(By.xpath("//li[@role='treeitem' and text()='"+MMMMYYYY+"']"));
-            if(dropdownItem.isDisplayed()) {
+            WebElement dropdownItem = getDriver().findElement(By.xpath("//li[@role='treeitem' and text()='" + MMMMYYYY + "']"));
+            if (dropdownItem.isDisplayed()) {
                 log.info("Required month exists in dropdown menu");
                 dropdownItem.click();
                 waitABit(5000);
-            }else {
+            } else {
                 Assert.fail("Required month does not exist in dropdown menu");
             }
-        }else {
+        } else {
             Assert.fail("Month dropdown menu not opened");
         }
     }
@@ -51,9 +51,9 @@ public class DashboardAttendanceImpl extends PageObject {
         String[] date = $(ds.txtFirstDate_Attendance).getText().split("\\(");
         String[] actDate = cf.formatDate("dd MMM yyyy", date[0]);
         String[] expDate = cf.formatDate("MMM yyyy", MMMMYYYY);
-        if(cf.validateText(actDate[1]+actDate[5], "equals", expDate[1]+expDate[5])) {
+        if (cf.validateText(actDate[1] + actDate[5], "equals", expDate[1] + expDate[5])) {
             log.info("Required month selected successfully");
-        }else {
+        } else {
             Assert.fail("Required month not selected");
         }
     }
@@ -75,8 +75,9 @@ public class DashboardAttendanceImpl extends PageObject {
         $(ds.txtPassword).type(Password);
         waitABit(9000);
         $(ds.btnSignIn).click();
-        try{waitForLoaderToDisappear();}
-        catch (Exception e){
+        try {
+            waitForLoaderToDisappear();
+        } catch (Exception e) {
 
         }
         waitABit(12000);
@@ -93,58 +94,59 @@ public class DashboardAttendanceImpl extends PageObject {
 
     public void optUserMenuAction(String Action) {
         $(ds.btnuser).waitUntilVisible().click();
-        if($(ds.dropdownMenu).isDisplayed()) {
+        // if($(ds.dropdownMenu).isDisplayed())
+        if ($(By.xpath("//*[@aria-labelledby=\"dd-user-menu\"]")).isDisplayed()) {
             log.info("Dropdown menu is displayed");
-            if(cf.validateText(Action, "equals", "Logout")) {
+            if (cf.validateText(Action, "equals", "Logout")) {
                 $(By.xpath("//div[contains(@class,'dropdown-menu')]//a[text()='" + Action + "']")).click();
                 if ($(ds.geminiLogo).isDisplayed() && $(ds.loginMsg).isDisplayed() && $(ds.loginForm).isDisplayed()) {
                     log.info("Logout from MIS successful");
                 } else {
                     Assert.fail("Logout from MIS failed");
                 }
-            }else {
-                $(By.xpath("//div[contains(@class,'dropdown-menu')]//a[text()='"+Action+"']")).click();
+            } else {
+                $(By.xpath("//div[contains(@class,'dropdown-menu')]//a[text()='" + Action + "']")).click();
                 waitABit(1000);
-                String actionWord = Action.substring(0,4);
-                if($(By.xpath("//div[@class='modal fade in' and contains(@id,'"+actionWord+"')])")).isDisplayed()) {
+                String actionWord = Action.substring(0, 4);
+                if ($(By.xpath("//div[@class='modal fade in' and contains(@id,'" + actionWord + "')])")).isDisplayed()) {
                     log.info(Action + " dialog window opened successfully");
                 } else {
                     Assert.fail(Action + " dialog window not opened");
                 }
             }
-        }else {
+        } else {
             Assert.fail("Dropdown menu is not displayed");
         }
     }
 
     public void navigateToPage(String PageOption) {
         waitABit(1000);
-        WebElementFacade Page = $(By.xpath("//ul[@class='side-menu-list']//span[text()='"+PageOption+"']"));
+        WebElementFacade Page = $(By.xpath("//ul[@class='side-menu-list']//span[text()='" + PageOption + "']"));
         waitForLoaderToDisappear();
-        if(Page.isDisplayed()) {
+        if (Page.isDisplayed()) {
             log.info(PageOption + " is displayed in side menu list");
             Page.click();
-        }else {
+        } else {
             Assert.fail(PageOption + " is not displayed in side menu list");
         }
     }
 
     public void navigateToPage(String PageOption, String ModuleOption) {
         waitABit(1000);
-        WebElementFacade Module = $(By.xpath("//ul[@class='side-menu-list']//span[text()='"+ModuleOption+"']"));
-        if(Module.isDisplayed()) {
+        WebElementFacade Module = $(By.xpath("//ul[@class='side-menu-list']//span[text()='" + ModuleOption + "']"));
+        if (Module.isDisplayed()) {
             log.info(ModuleOption + " is displayed in side menu list");
             Module.click();
             //waitABit(1000);
-            WebElementFacade Page = $(By.xpath("//ul[@class='side-menu-list']//span[text()='"+PageOption+"']"));
+            WebElementFacade Page = $(By.xpath("//ul[@class='side-menu-list']//span[text()='" + PageOption + "']"));
             waitForLoaderToDisappear();
-            if(Page.isDisplayed()) {
+            if (Page.isDisplayed()) {
                 log.info(PageOption + " is displayed in side menu list");
                 Page.click();
-            }else {
+            } else {
                 Assert.fail(PageOption + " is not displayed in side menu list");
             }
-        }else {
+        } else {
             Assert.fail(ModuleOption + " is not displayed in side menu list");
         }
     }
@@ -154,7 +156,7 @@ public class DashboardAttendanceImpl extends PageObject {
         waitForLoaderToDisappear();
         String identifier = "";
         String title = "";
-        if(StringUtils.equalsIgnoreCase(PageType, "Main")) {
+        if (StringUtils.equalsIgnoreCase(PageType, "Main")) {
             if (StringUtils.equalsIgnoreCase(Page, "DashboardAttendance")) {
                 identifier = "profileContainer";
             }
@@ -170,23 +172,23 @@ public class DashboardAttendanceImpl extends PageObject {
             } else {
                 Assert.fail(Page + " is not opened");
             }
-        }else if(PageType.equalsIgnoreCase("Sub")) {
-            if(StringUtils.equalsIgnoreCase(Page, "Configure Timesheet")) {
+        } else if (PageType.equalsIgnoreCase("Sub")) {
+            if (StringUtils.equalsIgnoreCase(Page, "Configure Timesheet")) {
                 title = "Manage Projects";
             }
-            if(StringUtils.equalsIgnoreCase(Page, "Create Timesheet")) {
+            if (StringUtils.equalsIgnoreCase(Page, "Create Timesheet")) {
                 title = "Create TimeSheet";
             }
-            if(StringUtils.equalsIgnoreCase(Page, "Manage Task Template")) {
+            if (StringUtils.equalsIgnoreCase(Page, "Manage Task Template")) {
                 title = "Manage Task Templates";
             }
-            WebElementFacade myPage = $(By.xpath("//h5[text()='"+title+"']"));
-            if(myPage.isDisplayed()) {
+            WebElementFacade myPage = $(By.xpath("//h5[text()='" + title + "']"));
+            if (myPage.isDisplayed()) {
                 log.info(Page + " is opened successfully");
-            }else {
+            } else {
                 Assert.fail(Page + " is not opened");
             }
-        }else {
+        } else {
             Assert.fail("Page type is not defined. Valid types: Main & Sub");
         }
     }
@@ -194,8 +196,8 @@ public class DashboardAttendanceImpl extends PageObject {
     public String[] getTableHeads() {
         int cols = getDriver().findElements(ds.tableHeads).size();
         String[] tableHeads = new String[cols];
-        for(int i=0; i<cols; i++) {
-            tableHeads[i] = getDriver().findElement(By.xpath("(//table//th)["+(i+1)+"]")).getText();
+        for (int i = 0; i < cols; i++) {
+            tableHeads[i] = getDriver().findElement(By.xpath("(//table//th)[" + (i + 1) + "]")).getText();
         }
         return tableHeads;
     }
@@ -203,52 +205,52 @@ public class DashboardAttendanceImpl extends PageObject {
     public void verifyTableData() {
         if ($(ds.tableData).getText().equalsIgnoreCase("No data available in table")) {
             log.info("No data found in the table");
-        }else {
+        } else {
             log.info("Following data is present in the table:\n" + $(ds.tableData).getText());
         }
     }
 
     public void searchTextForNoRecords(String Text) {
         WebElementFacade searchBox = $(ds.txtSearch);
-        if(searchBox.isDisplayed()) {
+        if (searchBox.isDisplayed()) {
             log.info("Search box displayed");
             searchBox.typeAndEnter(Text);
-            if($(ds.tableData).getText().equalsIgnoreCase("No data available in table")) {
+            if ($(ds.tableData).getText().equalsIgnoreCase("No data available in table")) {
                 log.info("Can't perform search.No records present");
-            }else {
+            } else {
                 Assert.fail("Search failed.");
             }
-        }else {
+        } else {
             Assert.fail("Search box not displayed");
         }
     }
 
     public void searchTextForNonMatchingRecords(String Text) {
         WebElementFacade searchBox = $(ds.txtSearch);
-        if(searchBox.isDisplayed()) {
+        if (searchBox.isDisplayed()) {
             log.info("Search box displayed");
             searchBox.typeAndEnter(Text);
             if (getDriver().findElement(By.xpath("//tbody//td[text()='No matching records found']")).isDisplayed()) {
                 log.info("Invalid search. Searched item not displayed.");
-            }else {
+            } else {
                 Assert.fail("Search failed.");
             }
-        }else {
+        } else {
             Assert.fail("Search box not displayed");
         }
     }
 
     public void searchTextForMatchingRecords(String Text) {
         WebElementFacade searchBox = $(ds.txtSearch);
-        if(searchBox.isDisplayed()) {
+        if (searchBox.isDisplayed()) {
             log.info("Search box displayed");
             searchBox.typeAndEnter(Text);
             if (getDriver().findElement(By.xpath("(//tbody//td[text()='" + Text + "'])[1]")).isDisplayed()) {
                 log.info("Search successful. Searched item displayed in first row.");
-            }else {
+            } else {
                 Assert.fail("Search failed.");
             }
-        }else {
+        } else {
             Assert.fail("Search box not displayed");
         }
     }
@@ -256,22 +258,22 @@ public class DashboardAttendanceImpl extends PageObject {
     public void verifyAndAcceptSuccessPopup() {
         waitABit(1000);
         WebElement success = getDriver().findElement(ds.successPopup);
-        if($(ds.successPopup).isDisplayed()) {
+        if ($(ds.successPopup).isDisplayed()) {
             log.info("Success popup displayed");
             waitABit(1000);
-            if($(ds.successIcon).isDisplayed() && $(ds.successMessage).isDisplayed() && $(ds.btnOk).isDisplayed()) {
+            if ($(ds.successIcon).isDisplayed() && $(ds.successMessage).isDisplayed() && $(ds.btnOk).isDisplayed()) {
                 log.info("All required elements displayed in success popup");
                 $(ds.btnOk).click();
                 waitABit(1000);
-                if(!($(ds.successPopup).isDisplayed())) {
+                if (!($(ds.successPopup).isDisplayed())) {
                     log.info("Success popup accepted");
-                }else {
+                } else {
                     Assert.fail("Success popup not accepted");
                 }
-            }else {
+            } else {
                 Assert.fail("All required elements not displayed in success popup");
             }
-        }else {
+        } else {
             Assert.fail("Success popup not displayed");
         }
     }
@@ -279,22 +281,22 @@ public class DashboardAttendanceImpl extends PageObject {
     public void verifyAndAcceptWarningPopup() {
         waitABit(1000);
         WebElement warning = getDriver().findElement(ds.warningPopup);
-        if($(ds.warningPopup).isPresent()) {
+        if ($(ds.warningPopup).isPresent()) {
             log.info("Warning popup displayed");
             waitABit(1000);
-            if($(ds.warningIcon).isDisplayed() && $(ds.warningMessage).isDisplayed() && $(ds.btnOk).isDisplayed()) {
+            if ($(ds.warningIcon).isDisplayed() && $(ds.warningMessage).isDisplayed() && $(ds.btnOk).isDisplayed()) {
                 log.info("All required elements displayed in warning popup");
                 $(ds.btnOk).click();
                 waitABit(1000);
-                if(!($(ds.warningPopup).isDisplayed())) {
+                if (!($(ds.warningPopup).isDisplayed())) {
                     log.info("Warning popup accepted");
-                }else {
+                } else {
                     Assert.fail("Warning popup not accepted");
                 }
-            }else {
+            } else {
                 Assert.fail("All required elements not displayed in warning popup");
             }
-        }else {
+        } else {
             Assert.fail("Warning popup not displayed");
         }
     }
@@ -304,12 +306,12 @@ public class DashboardAttendanceImpl extends PageObject {
         if ($(ds.confirmationPopup).isDisplayed()) {
             log.info("Confirmation popup displayed");
             waitABit(1000);
-            if($(ds.warningIcon).isDisplayed() && $(ds.confirmationMessage).isDisplayed() && $(ds.btnNo).isDisplayed() && $(ds.btnYes).isDisplayed()) {
+            if ($(ds.warningIcon).isDisplayed() && $(ds.confirmationMessage).isDisplayed() && $(ds.btnNo).isDisplayed() && $(ds.btnYes).isDisplayed()) {
                 log.info("All required elements displayed in confirmation popup");
                 $(ds.btnYes).click();
                 waitABit(1000);
                 verifyAndAcceptSuccessPopup();
-            }else {
+            } else {
                 Assert.fail("All required elements not displayed in confirmation popup");
             }
         } else {
@@ -322,16 +324,16 @@ public class DashboardAttendanceImpl extends PageObject {
         if ($(ds.confirmationPopup).isDisplayed()) {
             log.info("Confirmation popup displayed");
             waitABit(1000);
-            if($(ds.warningIcon).isDisplayed() && $(ds.confirmationMessage).isDisplayed() && $(ds.btnNo).isDisplayed() && $(ds.btnYes).isDisplayed()) {
+            if ($(ds.warningIcon).isDisplayed() && $(ds.confirmationMessage).isDisplayed() && $(ds.btnNo).isDisplayed() && $(ds.btnYes).isDisplayed()) {
                 log.info("All required elements displayed in confirmation popup");
                 $(ds.btnNo).click();
                 waitABit(1000);
-                if(!($(ds.confirmationPopup).isDisplayed())) {
+                if (!($(ds.confirmationPopup).isDisplayed())) {
                     log.info("Confirmation popup rejected");
-                }else {
+                } else {
                     Assert.fail("Confirmation popup not rejected");
                 }
-            }else {
+            } else {
                 Assert.fail("All required elements not displayed in confirmation popup");
             }
         } else {
