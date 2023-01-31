@@ -21,7 +21,6 @@ public class KnowledgeBasePageImplementation extends PageObject {
     private static Logger LOGGER = LoggerFactory.getLogger(KnowledgeBasePageImplementation.class);
 
 
-
     public void verifyFolderCreated(String folderName) {
         waitABit(1000);
         LOGGER.info("Verify folder created.");
@@ -68,30 +67,31 @@ public class KnowledgeBasePageImplementation extends PageObject {
 
     public void clickOnSearchAndInput(String testString) {
         waitABit(2000);
-        LOGGER.info("Click on search and input string {}",testString);
+        LOGGER.info("Click on search and input string {}", testString);
         waitABit(1000);
-        if (testString.equals("")){
+        if (testString.equals("")) {
             $(selector.searchBarSharedDoc).clear();
-        }else{
+        } else {
             $(selector.searchBarSharedDoc).sendKeys(testString);
-        }}
+        }
+    }
 
     public void verifyRecordAvailability(String str) {
         waitABit(1000);
         LOGGER.info("Verifying record availability after searching.");
         switch (str) {
             case "perl":
-                LOGGER.info("Verified for search query {}",str);
+                LOGGER.info("Verified for search query {}", str);
                 String colOneText = $(selector.colOneText).getText();
                 Assert.assertTrue("with alphabetical string ", colOneText.contains("Modern Perl"));
                 break;
             case "perl123":
-                LOGGER.info("Verified for search query {}",str);
+                LOGGER.info("Verified for search query {}", str);
                 String textInsideGrid = $(selector.textInGrid).getText();
                 Assert.assertTrue("With alphanumeric string in the grid satisfied, input: 'perl123'", textInsideGrid.contains("No matching"));
                 break;
             case "***":
-                LOGGER.info("Verified for search query {}",str);
+                LOGGER.info("Verified for search query {}", str);
                 String textInGrid = $(selector.textInGrid).getText();
                 Assert.assertTrue("With no string matching in the grid satisfied and input '***'", textInGrid.contains("No matching"));
                 break;
@@ -160,11 +160,11 @@ public class KnowledgeBasePageImplementation extends PageObject {
 
     public void enterSearchBarText(String str) {
         waitABit(1500);
-        LOGGER.info("Enter search query {} in search bar.",str);
-        if(str.isEmpty()){
+        LOGGER.info("Enter search query {} in search bar.", str);
+        if (str.isEmpty()) {
             $(selector.searchBarInAddDoc).clear();
 
-        }else
+        } else
             $(selector.searchBarInAddDoc).sendKeys(str);
     }
 
@@ -177,7 +177,7 @@ public class KnowledgeBasePageImplementation extends PageObject {
 
     public void clickOnSpecifiedButton(String btnName) {
         waitABit(6000);
-        LOGGER.info("Clicking on {} button",btnName);
+        LOGGER.info("Clicking on {} button", btnName);
         switch (btnName) {
             case "crossButton":
                 $(selector.crossButtonLocator).click();
@@ -247,9 +247,15 @@ public class KnowledgeBasePageImplementation extends PageObject {
     public void gotoMenuItemAndSubItem(String menuItem, String subMenuItem) {
         try {
             waitABit(1000);
-            LOGGER.info("Clicking on menutItem {} and subMenuItem {}",menuItem,subMenuItem);
+            // added by shubham.kumar
+            // clicks on hamburger-menu button
+            clickOn(find(By.xpath("//button[contains(@class,'hamburger')]")));
+            waitABit(3000);
+
+            LOGGER.info("Clicking on menutItem {} and subMenuItem {}", menuItem, subMenuItem);
             switch (menuItem) {
                 case "knowledge base":
+                    ((JavascriptExecutor) getDriver()).executeScript("arguments[0].setAttribute('style', 'background: yellow; border: 2px solid red;');", getDriver().findElement(selector.knowledgeBaseMenu));
                     getDriver().findElement(selector.knowledgeBaseMenu).click();
                     if (subMenuItem.equals("view document")) {
                         getDriver().findElement(selector.viewDocumentMenu).click();
@@ -265,6 +271,7 @@ public class KnowledgeBasePageImplementation extends PageObject {
                     break;
             }
         } catch (Exception e) {
+            e.printStackTrace();
             Assert.fail("Not able to navigate to submenu");
         }
     }
@@ -475,7 +482,7 @@ public class KnowledgeBasePageImplementation extends PageObject {
     }
 
     public void isButtonVisible(String buttonName) {
-        LOGGER.info("Verifying button {} visible.",buttonName);
+        LOGGER.info("Verifying button {} visible.", buttonName);
         boolean eyeButtonDisplayed = $(selector.eyeButton).isCurrentlyVisible();
         Assert.assertTrue("Button is now hidden in the view port", eyeButtonDisplayed);
     }
@@ -496,7 +503,7 @@ public class KnowledgeBasePageImplementation extends PageObject {
 
     public void rightClickOnElement(String elemName) {
         Actions actions = new Actions(getDriver());
-        LOGGER.info("Right clicking on {}",elemName);
+        LOGGER.info("Right clicking on {}", elemName);
 
         switch (elemName) {
 

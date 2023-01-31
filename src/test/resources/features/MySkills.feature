@@ -3,7 +3,7 @@ Feature: MIS Dashboard MySkills
   Background:
     Given User logins into MIS Beta application with username "ayush.garg" and password "Gemini@123"
 
-
+  @web_test_30
   Scenario Outline: Verify My Skills are updating with Valid Data
     When "<Card>" card is present in dashboard
     Then Verify card is not empty
@@ -17,9 +17,8 @@ Feature: MIS Dashboard MySkills
 
 
     Examples:
-    | Card | level | type | experience | skill |
-    | My Skills |  Beginner | Secondary | 5 | JAVA |
-
+      | Card      | level    | type      | experience | skill |
+      | My Skills | Beginner | Secondary | 5          | JAVA  |
 
 
   Scenario Outline: Verify My Skills are not updating with InValid Data
@@ -36,10 +35,10 @@ Feature: MIS Dashboard MySkills
 
 
     Examples:
-      | Card | level | type | experience | skill | inputBox |
-      | My Skills |  Beginner | Select | 5 | JAVA | skill   |
-      | My Skills |  Beginner | Secondary | experience | JAVA | experience |
-      | My Skills |  Beginner | Secondary | | JAVA | experience |
+      | Card      | level    | type      | experience | skill | inputBox   |
+      | My Skills | Beginner | Select    | 5          | JAVA  | skill      |
+      | My Skills | Beginner | Secondary | experience | JAVA  | experience |
+      | My Skills | Beginner | Secondary |            | JAVA  | experience |
 
 
 

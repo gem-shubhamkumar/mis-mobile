@@ -14,7 +14,7 @@ public class LeaveBalanceImplementation extends PageObject {
         String entries = text.substring(19, 21);
         System.out.println(entries);
         String entriesOnLeaveCard = $(AccountPortalSelectors.linkNumberOfLeave("WFH")).getText();
-        if (StringUtils.equals(entries,entriesOnLeaveCard)) {
+        if (StringUtils.equals(entries, entriesOnLeaveCard)) {
             System.out.println("records are same as mentioned on leave card");
         } else {
             Assert.fail("number of records are different");
@@ -39,15 +39,12 @@ public class LeaveBalanceImplementation extends PageObject {
     }
 
     public void verifyLeaveHistoryWindowCloses() {
-        if(!$(LeaveBalanceSelectors.btnLeaveHistoryClose).isVisible()){
+        if (!$(LeaveBalanceSelectors.btnLeaveHistoryClose).isVisible()) {
             System.out.println("Leave window closes successfully");
-        }else{
+        } else {
             Assert.fail("Leave window is open");
         }
     }
-
-
-
 
 
 }

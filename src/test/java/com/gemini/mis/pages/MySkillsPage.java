@@ -92,4 +92,5 @@ public class MySkillsPage {
     public void clickOnUpdateButton() {
         feedbackImplementation.clickOn(MySkillsLocators.homePageXpath("btnUpdateSkills"));
     }
+
 }

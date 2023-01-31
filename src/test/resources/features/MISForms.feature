@@ -1,3 +1,4 @@
+@web_test_30
 Feature: MIS Forms
 
   Background: User verifies Login Page Elements Before Login
@@ -7,7 +8,7 @@ Feature: MIS Forms
     Then User clicks on sign in
     And User Verifies Landing Page
 
- #1
+  @formCHeck
   Scenario Outline: Open View Forms Page
     Given User clicks on tab "<parent Tab>" and "<child Tab>"
     Then User verifies element "<elementOne>"
@@ -18,7 +19,6 @@ Feature: MIS Forms
       | parent Tab | child Tab | elementOne | elementTwo | elementThree |
       | Forms      | View Form | View Forms | Form Name  | Action       |
 
-#2
   @First
   Scenario Outline: Check presence of Previous and Next Btn
     Given User clicks on tab "<parent Tab>" and "<child Tab>"
@@ -30,7 +30,6 @@ Feature: MIS Forms
       | parent Tab | child Tab | elementOne | elementTwo | elementThree |
       | Forms      | View Form | Previous   | Next       | 1            |
 
-#3
   Scenario Outline: User selects a department
     Given User clicks on tab "<parent Tab>" and "<child Tab>"
     And User click on field
@@ -41,7 +40,6 @@ Feature: MIS Forms
       | parent Tab | child Tab | elementOne        | elementTwo        |
       | Forms      | View Form | Quality Assurance | Quality Assurance |
 
-#4
   Scenario Outline: User select number of entries
     Given User clicks on tab "<parent Tab>" and "<child Tab>"
     Then User selects number of entries "<element>"
@@ -50,7 +48,6 @@ Feature: MIS Forms
       | parent Tab | child Tab | element |
       | Forms      | View Form | 25      |
 
-#5
   Scenario Outline: User enters valid value in search field
     Given User clicks on tab "<parent Tab>" and "<child Tab>"
     Then User verifies search field and enters value "<value>"
@@ -60,7 +57,6 @@ Feature: MIS Forms
       | parent Tab | child Tab | value | element            |
       | Forms      | View Form | Rei   | Reimbursement Form |
 
-#6
   Scenario Outline: User enters invalid value in search field
     Given User clicks on tab "<parent Tab>" and "<child Tab>"
     Then User verifies search field and enters value "<value>"
@@ -70,7 +66,6 @@ Feature: MIS Forms
       | parent Tab | child Tab | value | element                   |
       | Forms      | View Form | hii   | No matching records found |
 
-#7
   Scenario Outline: User clicks on eye button to view policy
     Given User clicks on tab "<parent Tab>" and "<child Tab>"
     Then User clicks on eye button and view policy
@@ -79,7 +74,6 @@ Feature: MIS Forms
       | parent Tab | child Tab |
       | Forms      | View Form |
 
-#8
   Scenario Outline: User downloads document
     Given User clicks on tab "<parent Tab>" and "<child Tab>"
     Then User downloads file and deletes "<fileName>"
@@ -89,10 +83,6 @@ Feature: MIS Forms
       | Forms      | View Form | Loyalty Redemption Form |
 
 
-
-########################################### MY FORMS ####################################################
-
-#9
   Scenario Outline: User opens My Forms page
     Given User clicks on tab "<parent Tab>" and "<child Tab>"
     Then User verifies element "<elementOne>"
@@ -102,7 +92,6 @@ Feature: MIS Forms
       | parent Tab | child Tab | elementOne | elementTwo | elementThree | elementFour | elementFive | elementSix |
       | Forms      | My Form   | My Form    | Form       | My Form      | Status      | Uploaded On | Action     |
 
- #10
   Scenario Outline: User uploads Incorrect File
     Given User clicks on tab "<parent Tab>" and "<child Tab>"
     Then User Clicks on upload Btn
@@ -115,7 +104,6 @@ Feature: MIS Forms
       | parent Tab | child Tab | fileLoc                                        | Warning Message                                                 |
       | Forms      | My Form   | src\\test\\resources\\FileUpload\\LOGOFILE.png | Invalid file selected. Supported extensions are .xlsx,.xls,.pdf |
 
-#11
   Scenario Outline: User Uploads correct File
     Given User clicks on tab "<parent Tab>" and "<child Tab>"
     Then User Clicks on upload Btn
@@ -129,7 +117,7 @@ Feature: MIS Forms
       | parent Tab | child Tab | Form Type            | fileLoc                                                       | Success Message                          |
       | Forms      | My Form   | Employee Achievement | src\\test\\resources\\FileUpload\\Loyalty Redemption Form.pdf | Your form has been uploaded successfully |
 
-#12
+  @Rerun_form
   Scenario Outline: User uploads file and selects number of entries
     Given User clicks on tab "<parent Tab>" and "<child Tab>"
     Then User Clicks on upload Btn
@@ -144,7 +132,7 @@ Feature: MIS Forms
       | Forms      | My Form   | Employee Achievement | src\\test\\resources\\FileUpload\\Loyalty Redemption Form.pdf | File with same name already exists |
 
 
-#13
+  @Rerun_form
   Scenario Outline: User enters valid value in My forms search field
     Given User clicks on tab "<parent Tab>" and "<child Tab>"
     Then User verifies search field and enters value "<value>"
@@ -154,7 +142,7 @@ Feature: MIS Forms
       | parent Tab | child Tab | value    | element                                |
       | Forms      | My Form   | Employee | Employee Achievement Form FY 2018.docx |
 
-#14
+  @Rerun_form
   Scenario Outline: User enters an invalid value in My Forms search field
     Given User clicks on tab "<parent Tab>" and "<child Tab>"
     Then User verifies search field and enters value "<value>"
@@ -164,7 +152,7 @@ Feature: MIS Forms
       | parent Tab | child Tab | value | element                   |
       | Forms      | My Form   | Hello | No matching records found |
 
-#15
+  @Rerun_form
   Scenario Outline: User hover over and clicks on deactivate Button
     Given User clicks on tab "<parent Tab>" and "<child Tab>"
     Then User clicks on row to expand the details
@@ -175,7 +163,7 @@ Feature: MIS Forms
       | parent Tab | child Tab |
       | Forms      | My Form   |
 
-#16
+  @Rerun_form
   Scenario Outline: User downloads from My Forms page
     Given User clicks on tab "<parent Tab>" and "<child Tab>"
     Then User clicks on row to expand the details

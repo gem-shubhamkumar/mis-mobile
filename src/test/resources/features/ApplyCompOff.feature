@@ -5,8 +5,7 @@ Feature: MIS LeaveManagement Apply CompOff
     Given User is logged into MIS
 
 
-
-  @Tag6
+  @Tag6 @apply_comp_off @chromeTest
   Scenario Outline: Navigate to Leave Management > Comp Off tab
     When User is on MIS Home Page
     When User clicks on "<childTab>" sub tab of "<parentTab>" tab in MIS
@@ -15,9 +14,8 @@ Feature: MIS LeaveManagement Apply CompOff
     When User clicks on "<tab>" Tab
     And Verify "<tab>" displays
     Examples:
-      |      parentTab     |  childTab  | defaultTab |     tab        |                         heading                           |
-      | Leave Management   |     Apply  |    Leave   |    Comp Off    |   Apply Leave / WFH / Comp Off / Out Duty / Change Request |
-
+      | parentTab        | childTab | defaultTab | tab      | heading                                                  |
+      | Leave Management | Apply    | Leave      | Comp Off | Apply Leave / WFH / Comp Off / Out Duty / Change Request |
 
 
   @Tag6
@@ -31,10 +29,8 @@ Feature: MIS LeaveManagement Apply CompOff
     Then Verify "Comp Off Reason" text box is mandatory field
     Then Verify "Comp Off Date" dropdown is mandatory field
     Examples:
-      |      parentTab     |  childTab  |     tab        |                         heading                           |
-      | Leave Management   |     Apply  |    Comp Off    |   Apply Leave / WFH / Comp Off / Out Duty / Change Request |
-
-
+      | parentTab        | childTab | tab      | heading                                                  |
+      | Leave Management | Apply    | Comp Off | Apply Leave / WFH / Comp Off / Out Duty / Change Request |
 
 
   @Tag6
@@ -46,10 +42,8 @@ Feature: MIS LeaveManagement Apply CompOff
     And Verify "<tab>" displays
     Then Select date from date dropdown
     Examples:
-      |      parentTab     |  childTab  |     tab        |                         heading                           |
-      | Leave Management   |     Apply  |    Comp Off    |   Apply Leave / WFH / Comp Off / Out Duty / Change Request |
-
-
+      | parentTab        | childTab | tab      | heading                                                  |
+      | Leave Management | Apply    | Comp Off | Apply Leave / WFH / Comp Off / Out Duty / Change Request |
 
 
   @Tag6
@@ -61,17 +55,13 @@ Feature: MIS LeaveManagement Apply CompOff
     And Verify "<tab>" displays
     Then Enter "weekend testing" as reason
     Examples:
-      |      parentTab     |  childTab  |     tab        |                         heading                           |
-      | Leave Management   |     Apply  |    Comp Off    |   Apply Leave / WFH / Comp Off / Out Duty / Change Request |
+      | parentTab        | childTab | tab      | heading                                                  |
+      | Leave Management | Apply    | Comp Off | Apply Leave / WFH / Comp Off / Out Duty / Change Request |
 
 
   # will only work if there is a date in date dropdown , which is not there at times
 
-
-
-
-
-  @Tag6
+  @Tag6 @23_Jan_B2
   Scenario Outline: Enter Data and submit Comp off
     When User is on MIS Home Page
     When User clicks on "<childTab>" sub tab of "<parentTab>" tab in MIS
@@ -83,5 +73,5 @@ Feature: MIS LeaveManagement Apply CompOff
     When User clicks on Submit button for Comp off Tab
 #    And Verify Leave is submitted and "Request processed successfully" appears
     Examples:
-      |      parentTab     |  childTab  |     tab        |                         heading                           |
-      | Leave Management   |     Apply  |    Comp Off    |   Apply Leave / WFH / Comp Off / Out Duty / Change Request |
+      | parentTab        | childTab | tab      | heading                                                  |
+      | Leave Management | Apply    | Comp Off | Apply Leave / WFH / Comp Off / Out Duty / Change Request |

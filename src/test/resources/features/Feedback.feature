@@ -1,15 +1,15 @@
-@TagAll
+@web_test
 Feature: MIS Feedback SubmitFeedback
 
   Background:
     Given User logins into MIS Beta application with username "ayush.garg" and password "Gemini@123"
 
-@tag1
+  @tag1
   Scenario: Open Submit Feedback Page
     When User Clicks on "Submit Feedback" tab of "Feedback" tab
     Then Verify Submit Feedback tab opens
 
-@tag2
+  @tag2 @buttonError
   Scenario Outline: Submit a Feedback
     When User Clicks on "<childTab>" tab of "<parentTab>" tab
     Then Verify Submit Feedback tab opens
@@ -22,10 +22,10 @@ Feature: MIS Feedback SubmitFeedback
     And Verify data "<data>" is added in "<parentTab>" tab
 
     Examples:
-    |childTab| parentTab| data |
-    | Submit Feedback | Feedback | Feedback |
+      | childTab        | parentTab | data     |
+      | Submit Feedback | Feedback  | Feedback |
 
-@tag3
+  @tag3
   Scenario Outline: Submit a Blank Feedback
     When User Clicks on "<childTab>" tab of "<parentTab>" tab
     Then Verify Submit Feedback tab opens
@@ -37,10 +37,10 @@ Feature: MIS Feedback SubmitFeedback
 
 
     Examples:
-      |childTab| parentTab| data |
-      | Submit Feedback | Feedback | |
+      | childTab        | parentTab | data |
+      | Submit Feedback | Feedback  |      |
 
-@tag4
+  @tag4
   Scenario Outline: Verify Page Navigation
     When User Clicks on "<childTab>" tab of "<parentTab>" tab
     Then Verify Submit Feedback tab opens
@@ -48,11 +48,11 @@ Feature: MIS Feedback SubmitFeedback
 
 
     Examples:
-      |childTab| parentTab|
-      | Submit Feedback | Feedback |
+      | childTab        | parentTab |
+      | Submit Feedback | Feedback  |
 
 
-@tag5
+  @tag5 @rerun_web
   Scenario Outline: Valid Search a Feedback
     When User Clicks on "<childTab>" tab of "<parentTab>" tab
     Then Verify Submit Feedback tab opens
@@ -68,11 +68,11 @@ Feature: MIS Feedback SubmitFeedback
 
 
     Examples:
-      |childTab| parentTab| data |
-      | Submit Feedback | Feedback | Random Data |
+      | childTab        | parentTab | data        |
+      | Submit Feedback | Feedback  | Random Data |
 
 
-@tag6
+  @tag6 @rerun_web
   Scenario Outline: Invalid Search a Feedback
     When User Clicks on "<childTab>" tab of "<parentTab>" tab
     Then Verify Submit Feedback tab opens
@@ -88,10 +88,10 @@ Feature: MIS Feedback SubmitFeedback
 
 
     Examples:
-      |childTab| parentTab| data | wrongData |
-      | Submit Feedback | Feedback | Random Data | wrong |
+      | childTab        | parentTab | data        | wrongData |
+      | Submit Feedback | Feedback  | Random Data | wrong     |
 
-@tag7
+  @tag7 @rerun_web
   Scenario Outline: Verify number of rows data
     When User Clicks on "<childTab>" tab of "<parentTab>" tab
     Then Verify Submit Feedback tab opens
@@ -105,9 +105,10 @@ Feature: MIS Feedback SubmitFeedback
 
 
     Examples:
-      |childTab| parentTab| data | number |
-      | Submit Feedback | Feedback | Random Data | 25 |
-@tag8
+      | childTab        | parentTab | data        | number |
+      | Submit Feedback | Feedback  | Random Data | 25     |
+
+  @tag8 @rerun_web
   Scenario Outline: Sort the Feedback column
     When User Clicks on "<childTab>" tab of "<parentTab>" tab
     Then Verify Submit Feedback tab opens
@@ -123,9 +124,10 @@ Feature: MIS Feedback SubmitFeedback
 
 
     Examples:
-      |childTab| parentTab| data |
-      | Submit Feedback | Feedback | Random Data |
-@tag9
+      | childTab        | parentTab | data        |
+      | Submit Feedback | Feedback  | Random Data |
+
+  @tag9 @rerun_web
   Scenario Outline: View a Feedback
     When User Clicks on "<childTab>" tab of "<parentTab>" tab
     Then Verify Submit Feedback tab opens
@@ -144,10 +146,10 @@ Feature: MIS Feedback SubmitFeedback
 
 
     Examples:
-      |childTab| parentTab| data |
-      | Submit Feedback | Feedback | Random Data |
+      | childTab        | parentTab | data        |
+      | Submit Feedback | Feedback  | Random Data |
 
-
+  @rerun_web
   Scenario Outline: Export Data
     When User Clicks on "<childTab>" tab of "<parentTab>" tab
     Then Verify Submit Feedback tab opens
@@ -170,8 +172,8 @@ Feature: MIS Feedback SubmitFeedback
 
 
     Examples:
-      |childTab| parentTab| data |
-      | Submit Feedback | Feedback | Random Data |
+      | childTab        | parentTab | data        |
+      | Submit Feedback | Feedback  | Random Data |
 
 
 

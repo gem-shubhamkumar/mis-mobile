@@ -5,9 +5,7 @@ Feature: MIS Leave Management Apply LWPChangeRequest
     Given User is logged into MIS
 
 
-
-
-  @Tag6
+  @Tag6 @23_Jan_B2
   Scenario Outline: Navigate to Leave Management > LWP Change Request tab
     When User is on MIS Home Page
     When User clicks on "<childTab>" sub tab of "<parentTab>" tab in MIS
@@ -15,9 +13,8 @@ Feature: MIS Leave Management Apply LWPChangeRequest
     When User clicks on "<tab>" Tab
     And Verify "<tab>" displays
     Examples:
-      |      parentTab     |  childTab  |           tab           |  heading |
-      | Leave Management   |     Apply  |    LWP Change Request   |Apply Leave / WFH / Comp Off / Out Duty / Change Request |
-
+      | parentTab        | childTab | tab                | heading                                                  |
+      | Leave Management | Apply    | LWP Change Request | Apply Leave / WFH / Comp Off / Out Duty / Change Request |
 
 
   @Tag6
@@ -31,6 +28,6 @@ Feature: MIS Leave Management Apply LWPChangeRequest
     Then Verify "legitimate Reason" text box is mandatory field
     Then Verify "legitimate Type,from Date" dropdown is mandatory field
     Examples:
-      |      parentTab     |  childTab  |           tab           |  heading |
-      | Leave Management   |     Apply  |    LWP Change Request   |Apply Leave / WFH / Comp Off / Out Duty / Change Request |
+      | parentTab        | childTab | tab                | heading                                                  |
+      | Leave Management | Apply    | LWP Change Request | Apply Leave / WFH / Comp Off / Out Duty / Change Request |
 

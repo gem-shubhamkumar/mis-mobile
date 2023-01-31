@@ -8,8 +8,18 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.List;
+
+import com.google.common.collect.ImmutableMap;
+import io.appium.java_client.AppiumBy;
+import io.appium.java_client.PerformsTouchActions;
+import io.appium.java_client.TouchAction;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.touch.offset.PointOption;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.SerenityActions;
+import net.thucydides.core.environment.SystemEnvironmentVariables;
+import net.thucydides.core.util.EnvironmentVariables;
+import net.thucydides.core.webdriver.WebDriverFacade;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.text.PDFTextStripper;
@@ -19,11 +29,44 @@ import org.openqa.selenium.support.ui.Select;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import static io.appium.java_client.touch.WaitOptions.waitOptions;
+import static java.time.Duration.ofMillis;
+
 public class CommonFunctions extends PageObject {
 
     //declaration
     private final static Logger log = LoggerFactory.getLogger("SampleLogger");
     /*-------------------------------------------------------------------------------------------------------*/
+
+    // added by shubham.kumar
+    // create driver
+    public WebDriver getMISDriver() {
+        EnvironmentVariables objEnvVar = SystemEnvironmentVariables.createEnvironmentVariables();
+        String driverType = objEnvVar.getProperty("webdriver.driver");
+        System.out.println(driverType); // chrome | appium
+        AndroidDriver appiumDriver = (AndroidDriver) ((WebDriverFacade) getDriver()).getProxiedDriver();
+        WebDriver webDriver = getDriver();
+        return driverType.equalsIgnoreCase("appium") ? appiumDriver : webDriver;
+    }
+
+    // added by shubham.kumar
+    public String getDriverType() {
+        EnvironmentVariables objEnvVar = SystemEnvironmentVariables.createEnvironmentVariables();
+        return objEnvVar.getProperty("webdriver.driver");
+    }
+
+    public void scrollToText() {
+        AndroidDriver driver = (AndroidDriver) ((WebDriverFacade) getDriver()).getProxiedDriver();
+//        driver.findElement(AppiumBy.androidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView" +
+//                "(text(\"" + text + "\"));"));
+
+        ((JavascriptExecutor) driver).executeScript("mobile: swipeGesture", ImmutableMap.of(
+                "left", 100, "top", 100, "width", 200, "height", 200,
+                "direction", "up",
+                "percent", 0.75
+        ));
+
+    }
 
     public void scrollByPixels(String pixels) {
         JavascriptExecutor js = (JavascriptExecutor) getDriver();
@@ -39,6 +82,7 @@ public class CommonFunctions extends PageObject {
         SerenityActions action = new SerenityActions(getDriver());
         action.clickAndHold(FromElement).moveToElement(ToElement).release(ToElement).build().perform();
     }
+
     public void copyPaste(String TextToCopy, WebElement PasteToElement) {
         StringSelection stringSelection = new StringSelection(TextToCopy);
         Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
@@ -58,11 +102,10 @@ public class CommonFunctions extends PageObject {
         action.moveToElement(element).perform();
     }
 
-    public  void hover(WebElement element) throws Exception {
+    public void hover(WebElement element) throws Exception {
         try {
             withAction().moveToElement(element);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             log.info(e.getMessage());
         }
     }
@@ -76,6 +119,7 @@ public class CommonFunctions extends PageObject {
         }
         return optionTexts;
     }
+
     //Returns the last modified file
     public File getLastModifiedFile(String directoryFilePath) {
         File directory = new File(directoryFilePath);
@@ -103,9 +147,9 @@ public class CommonFunctions extends PageObject {
         //Retrieve text from PDF document
         String text = pdfStripper.getText(document);
         //Close the document
-        if (text.contains(comparingString)){
-            Assert.assertTrue("The pdf which is downloaded is correct",true);
-        }else{
+        if (text.contains(comparingString)) {
+            Assert.assertTrue("The pdf which is downloaded is correct", true);
+        } else {
             Assert.fail("The pdf which is downloaded is not correct");
         }
         document.close();
@@ -113,27 +157,28 @@ public class CommonFunctions extends PageObject {
 
     //Defining validation type for validating text
     public enum ValidationType {
-        EQUALS{
+        EQUALS {
             @Override
-            public boolean doProcessRequest(String actualText,String expectedText) {
+            public boolean doProcessRequest(String actualText, String expectedText) {
                 boolean conditionValidation = false;
-                if (StringUtils.equalsIgnoreCase(actualText,expectedText)) {
+                if (StringUtils.equalsIgnoreCase(actualText, expectedText)) {
                     conditionValidation = true;
                 }
                 return conditionValidation;
             }
         },
-        CONTAINS{
+        CONTAINS {
             @Override
-            public boolean doProcessRequest(String actualText,String expectedText) {
+            public boolean doProcessRequest(String actualText, String expectedText) {
                 boolean conditionValidation = false;
-                if (StringUtils.containsIgnoreCase(actualText,expectedText)) {
+                if (StringUtils.containsIgnoreCase(actualText, expectedText)) {
                     conditionValidation = true;
                 }
                 return conditionValidation;
             }
         };
-        public abstract boolean doProcessRequest(String actualText,String expectedText);
+
+        public abstract boolean doProcessRequest(String actualText, String expectedText);
     }
 
     //Validating equals or contains text
@@ -142,8 +187,9 @@ public class CommonFunctions extends PageObject {
         if (null == command) {
             log.info("Unknown Request Type");
         }
-        return command.doProcessRequest(ActualText,ExpectedText);
+        return command.doProcessRequest(ActualText, ExpectedText);
     }
+
     public boolean isFileDownloaded(String downloadPath, String fileName) {
         File folder = new File(downloadPath);
         File[] folderContent = folder.listFiles();
@@ -156,8 +202,8 @@ public class CommonFunctions extends PageObject {
         }
         return false;
     }
-    public void changeFocusOfElement(WebElement element)
-    {
+
+    public void changeFocusOfElement(WebElement element) {
         JavascriptExecutor executor = (JavascriptExecutor) getDriver();
         executor.executeScript("arguments[0].focus();", element);
     }

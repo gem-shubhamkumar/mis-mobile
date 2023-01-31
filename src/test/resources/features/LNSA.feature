@@ -14,7 +14,7 @@ Feature: MIS LNSA
     And User should click on "previous date" button
     Then Verify previous date data is populated
 
-
+  @buildRerun1
   Scenario: Move to next date
     When User Clicks on "Apply LNSA" tab of "LNSA" tab
     Then Verify Apply LNSA tab opens
@@ -29,6 +29,7 @@ Feature: MIS LNSA
     And Click on week checkbox
     Then Verify week is active
 
+  @buildRerun
   Scenario: Submit LNSA without selecting date
     When User Clicks on "Apply LNSA" tab of "LNSA" tab
     Then Verify Apply LNSA tab opens
@@ -36,7 +37,7 @@ Feature: MIS LNSA
     Then Validate "Warning" Message
 
 
-
+  @buildRerun
   Scenario: Cancel Submit Window
     When User Clicks on "Apply LNSA" tab of "LNSA" tab
     Then Verify Apply LNSA tab opens
@@ -45,7 +46,7 @@ Feature: MIS LNSA
     And User should click on "Submit" button
     Then Click on Close button
 
-  @tags
+  @tags @buildRerun
   Scenario: Submit Blank LNSA
     When User Clicks on "Apply LNSA" tab of "LNSA" tab
     Then Verify Apply LNSA tab opens
@@ -55,7 +56,7 @@ Feature: MIS LNSA
     And User should click on "Submit Reason" button
     Then Verify "Reason" input select has error
 
-  @tags
+  @tags @buildRerun
   Scenario: Submit Valid LNSA
     When User Clicks on "Apply LNSA" tab of "LNSA" tab
     Then Verify Apply LNSA tab opens
@@ -93,7 +94,7 @@ Feature: MIS LNSA
     When User selects "25" of rows to show for "LNSA" tab
     Then Verify total rows are 25
 
-
+  @buildRerun
   Scenario Outline: Valid Search a LNSA Request
     When User Clicks on "<childTab>" tab of "<parentTab>" tab
     Then Verify View Request Status tab opens
@@ -118,7 +119,7 @@ Feature: MIS LNSA
       |childTab| parentTab| data |
       | View Request Status | LNSA | qqqqqqq |
 
-  @tag41
+  @tag41 @buildRerun
   Scenario: Sort the LNSA columns
     When User Clicks on "View Request Status" tab of "LNSA" tab
     Then Verify View Request Status tab opens
@@ -151,7 +152,7 @@ Feature: MIS LNSA
     When User clicks on "Action" row
     Then Verify "Action" row is in "ascending" order
 
-
+  @buildRerun
   Scenario: View Status
     When User Clicks on "View Request Status" tab of "LNSA" tab
     Then Verify View Request Status tab opens

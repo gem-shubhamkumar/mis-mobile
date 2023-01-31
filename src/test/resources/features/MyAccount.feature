@@ -4,7 +4,6 @@ Feature: MIS AccountsPortal
   Background:
     Given User has login to myMIS beta
 
-
   Scenario: Verify elements loaded on My Account page
     Then Click "My Account" sub-tab inside "Accounts Portal" tab
     But Verify new tab is open "greytHR IDP" as page heading
@@ -14,6 +13,7 @@ Feature: MIS AccountsPortal
     Then Verify "greytHR username text field" is present on the current page
     Then Verify "gerytHR password text field" is present on the current page
     And Verify "Hello there!" text is present on the current page
+
 
   Scenario: Verify login to GreytHR portal and verify View Info list
     Then Click "My Account" sub-tab inside "Accounts Portal" tab
@@ -37,6 +37,7 @@ Feature: MIS AccountsPortal
     Then Enter credentials to "greytHR portal" using username as "priyanshu.prajapati@Geminisolutions.com" and password as "Nishu@greytHR"
     Then Verify all element on greytHR landing page are visible
 
+#  @web_test_30
   Scenario: Verify profile details in greytHR portal
     Then Click "My Account" sub-tab inside "Accounts Portal" tab
     But Verify new tab is open "greytHR IDP" as page heading

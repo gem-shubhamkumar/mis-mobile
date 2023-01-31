@@ -1,4 +1,4 @@
-@ProfileModule
+
 Feature: MIS Dashboard PersonalProfileCard
 
 
@@ -11,7 +11,7 @@ Feature: MIS Dashboard PersonalProfileCard
 
 
 #1
-Scenario Outline: User Updates Mobile and Extn Number
+  Scenario Outline: User Updates Mobile and Extn Number
     Given User clicks on edit button
     Then User verifies element "<element>"
     And User edits value "<LocationOne>" as "<value1>"
@@ -19,47 +19,47 @@ Scenario Outline: User Updates Mobile and Extn Number
     Then User verifies element "<elementOne>" and element Two "<ElementTwo>" and Update Details
     And User closes the pop up
     Examples:
-      | element | LocationOne | value1 | LocationTwo | value2 | elementOne |ElementTwo|
-      |Update Profile|contactNo  |1234567890|extnNo     |123     |Your profile update request has been sent successfully and pending for approval.|Your profile update request is pending for approval.|
+      | element        | LocationOne | value1     | LocationTwo | value2 | elementOne                                                                       | ElementTwo                                           |
+      | Update Profile | contactNo   | 1234567890 | extnNo      | 123    | Your profile update request has been sent successfully and pending for approval. | Your profile update request is pending for approval. |
 
 
 #2
-Scenario Outline: User enters invalid Phone number
-  Given User clicks on edit button
-  Then User verifies element "<element>"
-  And User edits value "<LocationOne>" as "<value1>"
-  And User edits value "<LocationTwo>" as "<value2>"
-  Then User verifies element "<elementOne>" and element Two "<elementTwo>" and Update Details
-  And User closes the pop up
+  Scenario Outline: User enters invalid Phone number
+    Given User clicks on edit button
+    Then User verifies element "<element>"
+    And User edits value "<LocationOne>" as "<value1>"
+    And User edits value "<LocationTwo>" as "<value2>"
+    Then User verifies element "<elementOne>" and element Two "<elementTwo>" and Update Details
+    And User closes the pop up
 
-  Examples:
-    | element | value1 | value2 |elementOne|LocationOne|LocationTwo|elementTwo|
-    |Update Profile|12345|123   |Please put 10 digit mobile number.|contactNo|extnNo|Your profile update request is pending for approval.|
+    Examples:
+      | element        | value1 | value2 | elementOne                         | LocationOne | LocationTwo | elementTwo                                           |
+      | Update Profile | 12345  | 123    | Please put 10 digit mobile number. | contactNo   | extnNo      | Your profile update request is pending for approval. |
 
 #3
-Scenario Outline: User not fills a field in Mobile Number section
+  Scenario Outline: User not fills a field in Mobile Number section
     Given User clicks on edit button
     Then User verifies element "<element>"
     And User deletes value "<LocationOne>"
     Then User edits value "<LocationTwo>" as "<Extn Number>"
     Then User clicks on Update details "<elementOne>" and verifies "<Field Name>"
     Examples:
-      | element| LocationOne |LocationTwo|Extn Number|Field Name|elementOne|
-      |Update Profile|contactNo  |extnNo     |123        |contactNo |Your profile update request is pending for approval.|
+      | element        | LocationOne | LocationTwo | Extn Number | Field Name | elementOne                                           |
+      | Update Profile | contactNo   | extnNo      | 123         | contactNo  | Your profile update request is pending for approval. |
 
 #4
-Scenario Outline: User not fills a field in Extension number section
+  Scenario Outline: User not fills a field in Extension number section
     Given User clicks on edit button
     Then User verifies element "<elementOne>"
     And User deletes value "<LocationOne>"
     Then User edits value "<LocationTwo>" as "<Mobile Number>"
     Then User clicks on Update details "<elementOne>" and verifies "<Field Name>"
     Examples:
-      | elementOne | LocationOne | LocationTwo|Mobile Number |Field Name|
-      |Update Profile|extnNo   |contactNo      |1234567890     |extnNo  |
+      | elementOne     | LocationOne | LocationTwo | Mobile Number | Field Name |
+      | Update Profile | extnNo      | contactNo   | 1234567890    | extnNo     |
 
 #5
-Scenario Outline: User enters invalid Extension Number
+  Scenario Outline: User enters invalid Extension Number
     Given User clicks on edit button
     Then User verifies element "<element>"
     And User edits value "<LocationOne>" as "<value1>"
@@ -67,12 +67,12 @@ Scenario Outline: User enters invalid Extension Number
     Then User verifies element "<elementOne>" and element Two "<elementTwo>" and Update Details
     And User closes the pop up
     Examples:
-      | element| value1 | value2 |elementOne|LocationOne|LocationTwo|elementTwo|
-      |Update Profile|1234567890|12  |Extention number should only be 3 digits.|contactNo|extnNo|Your profile update request is pending for approval.|
+      | element        | value1     | value2 | elementOne                                | LocationOne | LocationTwo | elementTwo                                           |
+      | Update Profile | 1234567890 | 12     | Extention number should only be 3 digits. | contactNo   | extnNo      | Your profile update request is pending for approval. |
 
 
 #6
-Scenario Outline: User enters invalid Pin code
+  Scenario Outline: User enters invalid Pin code
     Given User clicks on edit button
     Then User verifies element "<elementOne>"
     Then User clicks on field "<Update Address>"
@@ -82,12 +82,12 @@ Scenario Outline: User enters invalid Pin code
     Then User closes appeared popup
     And User closes the pop up
     Examples:
-      | elementOne | PinCode| element |Update Address|Location|
-      |Update Profile| 123  |Pin code should only be 6 digits.|Update Address|presentPincode|
+      | elementOne     | PinCode | element                           | Update Address | Location       |
+      | Update Profile | 123     | Pin code should only be 6 digits. | Update Address | presentPincode |
 
 
 #7
-Scenario Outline: User enters Incorrect Password
+  Scenario Outline: User enters Incorrect Password
     Given User clicks on edit button
     Then User verifies element "<elementOne>"
     Then User clicks on field "<Change Password>"
@@ -99,12 +99,12 @@ Scenario Outline: User enters Incorrect Password
     Then User closes appeared popup
     And User closes the pop up
     Examples:
-      | elementOne | Change Password | Old Password | New Password | Confirm Password | element |LocationOne|LocationTwo|LocationThree|
-      |Update Profile|Change Password|1234          |1234#         |1234#             |The old password you entered is not valid. Please try again with correct password.|txtOldPassword|txtNewPassword|txtconfirmPassword|
+      | elementOne     | Change Password | Old Password | New Password | Confirm Password | element                                                                            | LocationOne    | LocationTwo    | LocationThree      |
+      | Update Profile | Change Password | 1234         | 1234#        | 1234#            | The old password you entered is not valid. Please try again with correct password. | txtOldPassword | txtNewPassword | txtconfirmPassword |
 
 
 #8
-Scenario Outline: User enters Different Password in Confirm Password
+  Scenario Outline: User enters Different Password in Confirm Password
     Given User clicks on edit button
     Then User verifies element "<elementOne>"
     Then User clicks on field "<Change Password>"
@@ -115,13 +115,13 @@ Scenario Outline: User enters Different Password in Confirm Password
     Then User verifies element "<element>"
     And User closes the pop up
     Examples:
-      | elementOne | Change Password | LocationOne | Old Password | LocationTwo | New Password | LocationThree | Confirm Password | element |
-      |Update Profile|Change Password|txtOldPassword|Gemini@1234  |txtNewPassword|1234#        |txtconfirmPassword|12345#         |Password and confirm password does not match.|
+      | elementOne     | Change Password | LocationOne    | Old Password | LocationTwo    | New Password | LocationThree      | Confirm Password | element                                       |
+      | Update Profile | Change Password | txtOldPassword | Gemini@1234  | txtNewPassword | 1234#        | txtconfirmPassword | 12345#           | Password and confirm password does not match. |
 
 
 #9 Once password changes it will fail all test cases ,so commented
 
-Scenario Outline: User Changes Password Successfully
+  Scenario Outline: User Changes Password Successfully
     Given User clicks on edit button
     Then User verifies element "<elementOne>"
     Then User clicks on field "<Change Password>"
@@ -135,12 +135,12 @@ Scenario Outline: User Changes Password Successfully
     And User closes the pop up
 
     Examples:
-      | elementOne | Change Password | LocationOne | Old Password | LocationTwo | New Password | LocationThree | Confirm Password | element |
-    |Update Profile|Change Password|txtOldPassword|Gemini@12345|txtNewPassword|Gemini@1234|txtconfirmPassword|Gemini@1234  |Success  |
+      | elementOne     | Change Password | LocationOne    | Old Password | LocationTwo    | New Password | LocationThree      | Confirm Password | element |
+      | Update Profile | Change Password | txtOldPassword | Gemini@12345 | txtNewPassword | Gemini@1234  | txtconfirmPassword | Gemini@1234      | Success |
 
 
 #10
-Scenario Outline: User not fills a field in Change Password section
+  Scenario Outline: User not fills a field in Change Password section
     Given User clicks on edit button
     Then User verifies element "<elementOne>"
     Then User clicks on field "<Change Password>"
@@ -149,12 +149,12 @@ Scenario Outline: User not fills a field in Change Password section
     And User clicks on Update Password Btn
     Then User verifies blank field "<Field Name>"
     Examples:
-      | elementOne | Change Password | LocationOne | Old Password | LocationTwo | New Password |Field Name|
-      |Update Profile|Change Password|txtOldPassword|Gemini@12345 |txtNewPassword|Gemini@1234  |txtconfirmPassword|
+      | elementOne     | Change Password | LocationOne    | Old Password | LocationTwo    | New Password | Field Name         |
+      | Update Profile | Change Password | txtOldPassword | Gemini@12345 | txtNewPassword | Gemini@1234  | txtconfirmPassword |
 
 
 #11
-Scenario Outline: User Updates Address
+  Scenario Outline: User Updates Address
     Given User clicks on edit button
     Then User verifies element "<elementOne>"
     Then User clicks on field "<Update Address>"
@@ -164,11 +164,11 @@ Scenario Outline: User Updates Address
     Then User closes appeared popup
     And User closes the pop up
     Examples:
-      | elementOne | Update Address | Location | PinCode | element |
-      |Update Profile|Update Address|presentPincode|123456|Your address detail has been updated successfully.|
+      | elementOne     | Update Address | Location       | PinCode | element                                            |
+      | Update Profile | Update Address | presentPincode | 123456  | Your address detail has been updated successfully. |
 
 #12
-Scenario Outline:User leaves Pin Code field blank
+  Scenario Outline:User leaves Pin Code field blank
     Given User clicks on edit button
     Then User verifies element "<elementOne>"
     Then User clicks on field "<Update Address>"
@@ -176,12 +176,12 @@ Scenario Outline:User leaves Pin Code field blank
     And User clicks on Update Btn
     Then User verifies blank field "<Field Name>"
     Examples:
-      | elementOne | Update Address | LocationOne |Field Name|
-      |Update Profile|Update Address|presentPincode|presentPincode|
+      | elementOne     | Update Address | LocationOne    | Field Name     |
+      | Update Profile | Update Address | presentPincode | presentPincode |
 
 #13
 
-Scenario Outline: User applies for lunch
+  Scenario Outline: User applies for lunch
     Given User clicks on Lunch Btn
     Then User verifies element "<elementOne>"
     And Delete already applied dates
@@ -193,13 +193,13 @@ Scenario Outline: User applies for lunch
     And User closes appeared popup
     Then User closes the lunch pop up
     Examples:
-      | elementOne |Date1|Date2|element|Location|
-      |Apply for Lunch|6| 10|Dates Added successfully|Canaan Tower|
+      | elementOne      | Date1 | Date2 | element                  | Location     |
+      | Apply for Lunch | 6     | 10    | Dates Added successfully | Canaan Tower |
 
 
 #14
-@lunch
-Scenario Outline: User applies for lunch for already applied date
+  @lunch
+  Scenario Outline: User applies for lunch for already applied date
     Given User clicks on Lunch Btn
     Then User verifies element "<elementOne>"
     And User clicks on FromDate Calendar Selects Date "<Date1>"
@@ -210,12 +210,12 @@ Scenario Outline: User applies for lunch for already applied date
     And User closes appeared popup
     Then User closes the lunch pop up
     Examples:
-      | elementOne |Date1|Date2|Warning Message|Location|
-      |Apply for Lunch|22| 23|You have already applied for these dates.|Canaan Tower|
+      | elementOne      | Date1 | Date2 | Warning Message                           | Location     |
+      | Apply for Lunch | 22    | 23    | You have already applied for these dates. | Canaan Tower |
 
 
 #15
-Scenario Outline: User leave a field blank in Apply lunch
+  Scenario Outline: User leave a field blank in Apply lunch
     Given User clicks on Lunch Btn
     Then User verifies element "<elementOne>"
     And User clicks on FromDate Calendar Selects Date "<Date1>"
@@ -223,8 +223,8 @@ Scenario Outline: User leave a field blank in Apply lunch
     Then User Clicks On Add Btn
     Then User verifies blank field "<Field Name>"
     Examples:
-      | elementOne | Date1 | Field Name |Location|
-      |Apply for Lunch|22 |tillDateEmp |Canaan Tower|
+      | elementOne      | Date1 | Field Name  | Location     |
+      | Apply for Lunch | 22    | tillDateEmp | Canaan Tower |
 
 #16
   @Download
@@ -233,5 +233,5 @@ Scenario Outline: User leave a field blank in Apply lunch
     Then User clicks on download card button
     And Verify file is downloaded "<fileName>"
     Examples:
-      |fileName|
-      |card.jpg  |
+      | fileName |
+      | card.jpg |

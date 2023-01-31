@@ -15,7 +15,7 @@ Feature: MIS AppraisalManagement
     Then Click on "Close add goal button" button.
     And Verify add goal window is closed.
 
-    @Fail2
+  @Fail2 @rerun_web
   Scenario: Verify financial year dropdown
     Then Click on "Add Goals" Sub Tab inside "Appraisal Management" tab.
     And Verify that "Add My Goal/Team Goal" text is present on the current page.
@@ -24,14 +24,14 @@ Feature: MIS AppraisalManagement
     Then Choose current financial year.
     And Verify that "Add My Goal/Team Goal" text is present on the current page.
 
-   @Fail3
+  @Fail3
   Scenario: Verify link for list of KRAs and KPIs
     Then Click on "Add Goals" Sub Tab inside "Appraisal Management" tab.
     And Verify that "Add My Goal/Team Goal" text is present on the current page.
     Then Click on "List of KRAs and KPIs link" button.
     Then Verify link is open on the same tab.
 
-    @Fail4
+  @Fail4 @rerun_web
   Scenario: Add new KPI/KRA mapping in add goal window and validate add KPI button
     Then Click on "Add Goals" Sub Tab inside "Appraisal Management" tab.
     And Verify that "Add My Goal/Team Goal" text is present on the current page.
@@ -47,7 +47,7 @@ Feature: MIS AppraisalManagement
     Then Enter "Demo" in "KPI description" text field.
     And Click on "Submit add button" button.
 
-  @Fail5
+  @Fail5 @rerun_web
   Scenario: Verify warning popup appears when KPI/KRA fields are left empty
     Then Click on "Add Goals" Sub Tab inside "Appraisal Management" tab.
     And Verify that "Add My Goal/Team Goal" text is present on the current page.
@@ -66,48 +66,50 @@ Feature: MIS AppraisalManagement
     And Click on "Submit add button" button.
     Then Verify Success pop appears which says "KPI's are added successfully!"
 
-    @new_fail
-    Scenario: Verify adding data in each field
-      When Click on "Add Goals" Sub Tab inside "Appraisal Management" tab.
-      Then Verify Add Goals tab opens
-      Then User Clicks on "add goals" button
-      And User selects "Defect Rate - x%" in KPI
-      And enters "Active Project" value in project
-      And enters "Active Goal Desc" value in goal description
-      Then User clicks on "Engineering" nav tab
-      And selects "QA" in Primary Skill
-     Then User clicks on "Behavioural" nav tab
-      Then Fill a field in "Behavioural" tag
-     Then User clicks on "Creative" nav tab
-      Then Fill a field in "Creative" tag
-      Then User Clicks on "draft" button
-      Then Verify "Success" popup appears
-      Then User Clicks on "close" button
+  @new_fail @rerun_web
+  Scenario: Verify adding data in each field
+    When Click on "Add Goals" Sub Tab inside "Appraisal Management" tab.
+    Then Verify Add Goals tab opens
+    Then User Clicks on "add goals" button
+    And User selects "Defect Rate - x%" in KPI
+    And enters "Active Project" value in project
+    And enters "Active Goal Desc" value in goal description
+    Then User clicks on "Engineering" nav tab
+    And selects "QA" in Primary Skill
+    Then User clicks on "Behavioural" nav tab
+    Then Fill a field in "Behavioural" tag
+    Then User clicks on "Creative" nav tab
+    Then Fill a field in "Creative" tag
+    Then User Clicks on "draft" button
+    Then Verify "Success" popup appears
+    Then User Clicks on "close" button
 
+  @23_Jan_B2
+  Scenario: Verify Add/Delete of new KPI Row
+    When Click on "Add Goals" Sub Tab inside "Appraisal Management" tab.
+    Then Verify Add Goals tab opens
+    Then User Clicks on "add goals" button
+    Then User clicks on "Engineering" nav tab
+    Then click on "Add" option in add new KPI row.
+    And verify KPI row added.
+    Then click on "Delete" option in add new KPI row.
+    And verify KPI row removed.
 
-    Scenario: Verify Add/Delete of new KPI Row
-      When Click on "Add Goals" Sub Tab inside "Appraisal Management" tab.
-      Then Verify Add Goals tab opens
-      Then User Clicks on "add goals" button
-      Then User clicks on "Engineering" nav tab
-      Then click on "Add" option in add new KPI row.
-      And verify KPI row added.
-      Then click on "Delete" option in add new KPI row.
-      And verify KPI row removed.
+  @23_Jan_B2
+  Scenario: Verify entry counts
+    When Click on "Add Goals" Sub Tab inside "Appraisal Management" tab.
+    Then Verify Add Goals tab opens
+    Then Select "25" from the rows dropdown.
+    And verify number of rows from lower left.
 
-        Scenario: Verify entry counts
-        When Click on "Add Goals" Sub Tab inside "Appraisal Management" tab.
-        Then Verify Add Goals tab opens
-        Then Select "25" from the rows dropdown.
-        And verify number of rows from lower left.
+  @rerun_web
+  Scenario: Verify page navigation
+    When Click on "Add Goals" Sub Tab inside "Appraisal Management" tab.
+    Then Verify Add Goals tab opens
+    Then verify number of pages in lower right corner.
+    Then click on next to check navigation and verify.
 
-        Scenario: Verify page navigation
-        When Click on "Add Goals" Sub Tab inside "Appraisal Management" tab.
-        Then Verify Add Goals tab opens
-        Then verify number of pages in lower right corner.
-        Then click on next to check navigation and verify.
-
-  @Fail6
+  @Fail6 @rerun_web
   Scenario: verify export button functionality
     When Click on "Add Goals" Sub Tab inside "Appraisal Management" tab.
     Then Verify Add Goals tab opens
@@ -117,15 +119,15 @@ Feature: MIS AppraisalManagement
     Then verify "Excel" option clickable and present.
     Then verify "Print" option clickable and present.
 
-  @TestColSorting
+  @TestColSorting @rerun_web
   Scenario: verify column sorting working or not
     When Click on "Add Goals" Sub Tab inside "Appraisal Management" tab.
     Then Verify Add Goals tab opens
     And click on sorting button on first.
     Then verify sorting performed.
 
-    @search     @new_fail2
-    Scenario Outline: Verify searches
+  @search     @new_fail2 @rerun_web
+  Scenario Outline: Verify searches
     When Click on "Add Goals" Sub Tab inside "Appraisal Management" tab.
     Then Verify Add Goals tab opens
     Then User Clicks on "add goals" button
@@ -142,32 +144,32 @@ Feature: MIS AppraisalManagement
 
 
     Examples:
-    |projName|goalDesc|searchQuery|
-    |Active Project|Active Goal|Active Project|
-    |Active Project|Active Goal|****|
+      | projName       | goalDesc    | searchQuery    |
+      | Active Project | Active Goal | Active Project |
+      | Active Project | Active Goal | ****           |
 
-    @DeleteWithoutRemark     @new_fail3
-    Scenario: check delete with remark and without remark
-   When Click on "Add Goals" Sub Tab inside "Appraisal Management" tab.
-   Then Verify Add Goals tab opens
-   Then User Clicks on "add goals" button
+  @DeleteWithoutRemark    @rerun_web
+  Scenario: check delete with remark and without remark
+    When Click on "Add Goals" Sub Tab inside "Appraisal Management" tab.
+    Then Verify Add Goals tab opens
+    Then User Clicks on "add goals" button
     And User selects "Defect Rate - x%" in KPI
-   And enters "Active Project" value in project
-   And enters "Active Goal" value in goal description
-   Then User clicks on "Engineering" nav tab
-   And selects "QA" in Primary Skill
-   Then User Clicks on "draft" button
-   Then Verify "Success" popup appears
-   Then User Clicks on "close" button
-   And verify "Active Project" and "Active Goal" present
-   Then User Clicks on "delete" button
-   And clicks on submit button "without remark"
-   Then verify error in submission
-   And clicks on submit button "with some remark"
-   Then verify submitted successfully
+    And enters "Active Project" value in project
+    And enters "Active Goal" value in goal description
+    Then User clicks on "Engineering" nav tab
+    And selects "QA" in Primary Skill
+    Then User Clicks on "draft" button
+    Then Verify "Success" popup appears
+    Then User Clicks on "close" button
+    And verify "Active Project" and "Active Goal" present
+    Then User Clicks on "delete" button
+    And clicks on submit button "without remark"
+    Then verify error in submission
+    And clicks on submit button "with some remark"
+    Then verify submitted successfully
 
 
-   @SubmitGoals @Fail7 @new_fail4
+  @SubmitGoals @Fail7 @new_fail4 @rerun_web
   Scenario: Submit Goals
     When Click on "Add Goals" Sub Tab inside "Appraisal Management" tab.
     Then Verify Add Goals tab opens
@@ -182,17 +184,17 @@ Feature: MIS AppraisalManagement
     Then User Clicks on "close" button
     Then User Clicks on "submit goal" button
 
-   @new_fail5
+  @new_fail5 @rerun_web
   Scenario: click on draft without filling any fields
-       When Click on "Add Goals" Sub Tab inside "Appraisal Management" tab.
-       Then Verify Add Goals tab opens
-       Then User Clicks on "add goals" button
-       Then User clicks on "Engineering" nav tab
-       And selects "Select" in Primary Skill
-       Then User Clicks on "draft" button
-       Then Verify "Warning" popup appears
-       Then User clicks on "Engineering" nav tab
-       And selects "QA" in Primary Skill
-       Then User Clicks on "draft" button
-       Then Verify "Success" popup appears
-       Then User Clicks on "close" button
+    When Click on "Add Goals" Sub Tab inside "Appraisal Management" tab.
+    Then Verify Add Goals tab opens
+    Then User Clicks on "add goals" button
+    Then User clicks on "Engineering" nav tab
+    And selects "Select" in Primary Skill
+    Then User Clicks on "draft" button
+    Then Verify "Warning" popup appears
+    Then User clicks on "Engineering" nav tab
+    And selects "QA" in Primary Skill
+    Then User Clicks on "draft" button
+    Then Verify "Success" popup appears
+    Then User Clicks on "close" button

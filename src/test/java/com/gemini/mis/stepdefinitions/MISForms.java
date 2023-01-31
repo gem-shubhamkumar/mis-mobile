@@ -17,13 +17,13 @@ import java.io.File;
 import java.util.List;
 import java.util.UUID;
 
-public class MISForms extends PageObject{
+public class MISForms extends PageObject {
 
     @Steps
     FormsPage form;
     @Steps
     LoginPage steps;
-    Logger log= LoggerFactory.getLogger("SampleLogger");
+    Logger log = LoggerFactory.getLogger("SampleLogger");
 
     @Then("User closes application")
     public void userClosesApplication() {
@@ -61,7 +61,7 @@ public class MISForms extends PageObject{
     @Then("User verifies search field and enters value {string}")
     public void userVerifiesSearchFieldAndEntersValue(String value) {
         steps.isElementExist(XpathForFormPage.searchBox);
-        steps.enterValues(XpathForFormPage.searchBox,value);
+        steps.enterValues(XpathForFormPage.searchBox, value);
         steps.customWait(1000);
     }
 
@@ -69,42 +69,40 @@ public class MISForms extends PageObject{
     public void userClicksOnEyeButtonAndViewPolicy() {
         steps.click(XpathForFormPage.eyeBtn);
         steps.customWait(3000);
-        }
-
+    }
 
 
     @Then("User downloads file and deletes {string}")
     public void userDownloadsFileAndDeletes(String fileName) {
         steps.click(XpathForFormPage.downloadButton);
         steps.customWait(6000);
-        String downloadFolder = System.getProperty("user.home")+"\\Downloads";
-        form.isFileDownloaded(downloadFolder,fileName);
+        String downloadFolder = System.getProperty("user.home") + "\\Downloads";
+        form.isFileDownloaded(downloadFolder, fileName);
 
 
     }
 
     @And("And User uploads correct  file {string}")
-    public void uploadCorrectFile(String fileLoc) throws InterruptedException{
-        String userDirectory=System.getProperty("user.dir")+"\\";
-        File file=new File(userDirectory+fileLoc);
-        String renamePath= UUID.randomUUID().toString().replace("-", "")+".pdf"; //fileLoc.substring(0,fileLoc.lastIndexOf("."))+"_"+
-        File rename=new File(userDirectory+renamePath);
+    public void uploadCorrectFile(String fileLoc) throws InterruptedException {
+        String userDirectory = System.getProperty("user.dir") + "\\";
+        File file = new File(userDirectory + fileLoc);
+        String renamePath = UUID.randomUUID().toString().replace("-", "") + ".pdf"; //fileLoc.substring(0,fileLoc.lastIndexOf("."))+"_"+
+        File rename = new File(userDirectory + renamePath);
         System.out.println(renamePath);
-        boolean flag=file.renameTo(rename);
-        if(flag){
+        boolean flag = file.renameTo(rename);
+        if (flag) {
             andUserUploadsFile(renamePath);
             rename.renameTo(file);
-        }
-        else{
+        } else {
             andUserUploadsFile(fileLoc);
         }
 
     }
 
     @Then("User clicks on row to expand the details")
-    public void expandDoc() throws Exception{
-        WebElementFacade ele=$(XpathForFormPage.expandRow);
-        if(ele.isVisible()){
+    public void expandDoc() throws Exception {
+        WebElementFacade ele = $(XpathForFormPage.expandRow);
+        if (ele.isVisible()) {
             steps.customWait(1000);
             steps.click(XpathForFormPage.expandRow);
             steps.customWait(1000);
@@ -115,14 +113,14 @@ public class MISForms extends PageObject{
     public void userClicksOnUploadBtn() {
         steps.click(XpathForFormPage.uploadBtn);
         steps.customWait(1000);
-        
+
     }
 
     @And("And User uploads  file {string}")
     public void andUserUploadsFile(String fileLoc) throws InterruptedException {
-        String path=System.getProperty("user.dir")+"\\"+fileLoc;
+        String path = System.getProperty("user.dir") + "\\" + fileLoc;
         steps.customWait(2000);
-        form.uploadFile(XpathForFormPage.chooseFile,path);
+        form.uploadFile(XpathForFormPage.chooseFile, path);
         steps.customWait(2000);
 
     }
@@ -143,8 +141,8 @@ public class MISForms extends PageObject{
 
     @Then("User hover over deactivate button and clicks it")
     public void userHoverOverDeactivateButtonAndClicksIt() throws Exception {
-        WebElementFacade ele=$(XpathForFormPage.deactivateBtn);
-        WebElementFacade ele1=$(XpathForFormPage.deactivateButton);
+        WebElementFacade ele = $(XpathForFormPage.deactivateBtn);
+        WebElementFacade ele1 = $(XpathForFormPage.deactivateButton);
         if (ele.isVisible()) {
             steps.customWait(1000);
             steps.click(XpathForFormPage.deactivateBtn);
@@ -152,20 +150,18 @@ public class MISForms extends PageObject{
             steps.isElementExist(XpathForDashboardProfilePage.myElement("Are you sure you want to deactive this form?"));
             steps.click(XpathForFormPage.confirmYes);
             steps.isElementExist(XpathForDashboardProfilePage.myElement("Success"));
-        }
-        else if(ele1.isVisible()){
+        } else if (ele1.isVisible()) {
             steps.customWait(1000);
             steps.click(XpathForFormPage.deactivateButton);
             steps.customWait(2000);
             steps.isElementExist(XpathForDashboardProfilePage.myElement("Are you sure you want to deactive this form?"));
             steps.click(XpathForFormPage.confirmYes);
             steps.isElementExist(XpathForDashboardProfilePage.myElement("Success"));
-        }
-        else
-        {
+        } else {
             log.info("Deactivate button is not present");
         }
     }
+
     @Then("User confirms deactivation")
     public void userConfirmsDeactivation() {
 
@@ -174,24 +170,22 @@ public class MISForms extends PageObject{
 
     @Then("User verifies element {string} downloads file and deletes {string}")
     public void userVerifiesElementDownloadsFileAndDeletes(String coloumnName, String fileName) {
-        WebElementFacade ele=$(XpathForFormPage.downloadBtn);
-        WebElementFacade ele1=$(XpathForFormPage.downloadButton);
-                if(ele.isVisible()){
-                    steps.customWait(2000);
-                    steps.click(XpathForFormPage.downloadBtn);
-                    String downloadFolder = System.getProperty("user.home")+"\\Downloads";
-                    form.isFileDownloaded(downloadFolder,fileName);
-                }
-                else if(ele1.isVisible()){
-                    steps.customWait(2000);
-                    steps.click(XpathForFormPage.downloadButton);
-                    String downloadFolder = System.getProperty("user.home")+"\\Downloads";
-                    form.isFileDownloaded(downloadFolder,fileName);
-                }
-                else{
-                   log.info("Download button is not present");
+        WebElementFacade ele = $(XpathForFormPage.downloadBtn);
+        WebElementFacade ele1 = $(XpathForFormPage.downloadButton);
+        if (ele.isVisible()) {
+            steps.customWait(2000);
+            steps.click(XpathForFormPage.downloadBtn);
+            String downloadFolder = System.getProperty("user.home") + "\\Downloads";
+            form.isFileDownloaded(downloadFolder, fileName);
+        } else if (ele1.isVisible()) {
+            steps.customWait(2000);
+            steps.click(XpathForFormPage.downloadButton);
+            String downloadFolder = System.getProperty("user.home") + "\\Downloads";
+            form.isFileDownloaded(downloadFolder, fileName);
+        } else {
+            log.info("Download button is not present");
 
-                }
+        }
 
     }
 }

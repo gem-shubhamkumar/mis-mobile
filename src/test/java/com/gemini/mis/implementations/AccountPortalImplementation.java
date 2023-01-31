@@ -1,5 +1,6 @@
 package com.gemini.mis.implementations;
 
+import com.gemini.mis.commonfunctions.CommonFunctions;
 import com.gemini.mis.selectors.AccountPortalSelectors;
 import com.gemini.mis.selectors.LeaveBalanceSelectors;
 import com.gemini.mis.selectors.NavBarSelectors;
@@ -14,6 +15,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AccountPortalImplementation extends PageObject {
+
+    CommonFunctions genFunc;
 
 
     //Login to mis beta with username as :priyanshu.prajapati and password as Gemini#123
@@ -51,6 +54,12 @@ public class AccountPortalImplementation extends PageObject {
     }
 
     public void verifyEleAreAvailableOnViewMyInfo() {
+        // added by shubham.kumar
+        waitABit(2000);
+        if (genFunc.getDriverType().equalsIgnoreCase("Appium")) {
+            // clicks on hamburger-menu button to close
+            clickOn(By.xpath("(//div[contains(@class,'image-drawer')])[2]"));
+        }
         String[] array = {"Personal", "Accounts & Statutory", "Family", "Employment & Job", "Assets"};
         List<WebElement> listItems =
                 getDriver().findElements(AccountPortalSelectors.listViewMyInfo);
@@ -74,19 +83,33 @@ public class AccountPortalImplementation extends PageObject {
 
     //click
     public void clickOnElement(String eleName) {
-        waitABit(2000);
+        waitABit(3000);
         switch (eleName) {
             case "Profile button":
                 clickOn(AccountPortalSelectors.account_portal);
                 break;
             case "View My Info link":
-                clickOn(AccountPortalSelectors.linkViewMyInfo);
+                // added by shubham.kumar
+                if (genFunc.getDriverType().equalsIgnoreCase("Appium")) {
+                    // clicks on hamburger-menu button
+                    clickOn(By.xpath("(//a[@class='text-5 text-primary-400 text-regular'])[2]"));
+                } else {
+                    clickOn(AccountPortalSelectors.linkViewMyInfo);
+                }
+//                clickOn(AccountPortalSelectors.linkViewMyInfo);
                 break;
             case "Accounts & Statutory":
                 clickOn(AccountPortalSelectors.linkAccountAndStatutory);
                 break;
             case "Settings link":
-                clickOn(AccountPortalSelectors.linkSettings);
+                // added by shubham.kumar
+//                clickOn(AccountPortalSelectors.linkSettings);
+                waitABit(3000);
+                if (genFunc.getDriverType().equalsIgnoreCase("Appium")) {
+                    clickOn(By.xpath("(//a[@routerlinkactive='is-active']/span)[2]"));
+                } else {
+                    clickOn(AccountPortalSelectors.linkSettings);
+                }
                 break;
             case "View login history link":
                 clickOn(AccountPortalSelectors.linkViewLoginHistory);
@@ -151,9 +174,24 @@ public class AccountPortalImplementation extends PageObject {
                 isElementFound(AccountPortalSelectors.textFieldGreytHRPassword);
                 break;
             case "Settings link":
-                isElementFound(AccountPortalSelectors.linkSettings);
+                // added by shubham.kumar
+                waitABit(3000);
+                if (genFunc.getDriverType().equalsIgnoreCase("Appium")) {
+                    // clicks on hamburger-menu button
+                    clickOn(By.xpath("//div[contains(@class,'hamburger')]"));
+                    waitABit(2000);
+                    isElementFound(By.xpath("(//a[@routerlinkactive='is-active']/span)[2]"));
+                } else {
+                    isElementFound(AccountPortalSelectors.linkSettings);
+                }
                 break;
             case "View login history link":
+                // add by shubham.kumar
+                waitABit(2000);
+                if (genFunc.getDriverType().equalsIgnoreCase("Appium")) {
+                    // clicks on hamburger-menu button to close
+                    clickOn(By.xpath("(//div[contains(@class,'image-drawer')])[2]"));
+                }
                 isElementFound(AccountPortalSelectors.linkViewLoginHistory);
                 break;
             case "Profile card":
@@ -185,8 +223,19 @@ public class AccountPortalImplementation extends PageObject {
                 isTextFound(AccountPortalSelectors.textHelloThere, text);
                 break;
             case "Priyanshu":
-                text = "Hi " + text;
-                isTextFound(AccountPortalSelectors.textUsername, text);
+                // added by shubham.kumar
+                waitABit(3000);
+                if (genFunc.getDriverType().equalsIgnoreCase("Appium")) {
+                    // clicks on hamburger-menu button
+                    clickOn(By.xpath("//div[contains(@class,'hamburger')]"));
+                    text = "Hi " + text;
+                    isTextFound(By.xpath("(//div[@class='flex-1']/p)[2]"), text);
+                } else {
+                    text = "Hi " + text;
+                    isTextFound(AccountPortalSelectors.textUsername, text);
+                }
+//                text = "Hi " + text;
+//                isTextFound(AccountPortalSelectors.textUsername, text);
                 break;
             case "Yes Bank":
                 isTextFound(AccountPortalSelectors.textBankNAme, text);
@@ -284,6 +333,12 @@ public class AccountPortalImplementation extends PageObject {
 
     //Navigate to parent tab > child tab
     public void navigateToTab(String childTabName, String parentTabName) {
+        // added by shubham.kumar
+        waitABit(3000);
+        if (genFunc.getDriverType().equalsIgnoreCase("Appium")) {
+            // clicks on hamburger-menu button
+            clickOn(By.xpath("//button[contains(@class,'hamburger')]"));
+        }
         waitFor(ExpectedConditions.presenceOfElementLocated((AccountPortalSelectors.menuTabs(parentTabName))));
         if ($(AccountPortalSelectors.menuTabs(parentTabName)).isVisible()) {
             $(AccountPortalSelectors.menuTabs(parentTabName)).click();

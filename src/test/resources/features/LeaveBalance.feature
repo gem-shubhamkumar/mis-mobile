@@ -1,4 +1,4 @@
-@MISAutomation @LeaveBalance
+@LeaveBalance
 Feature: MIS Dashboard LeaveBalanceCard
 
   Background:

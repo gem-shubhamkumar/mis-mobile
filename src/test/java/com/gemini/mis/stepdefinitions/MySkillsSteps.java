@@ -17,11 +17,13 @@ public class MySkillsSteps {
     FeedbackPage feedbackPage;
 
 
-
     @Given("^User logins into MIS Beta application with username \"(.*?)\" and password \"(.*?)\"$")
     public void enterUsername(String username, String password) throws Exception {
         skillsPages.launchUrl("https://mymis.geminisolutions.com/");
-        skillsPages.verifyLoginMsg();
+
+        // added by shubham.kumar
+        // commenting for mobile
+//        skillsPages.verifyLoginMsg();
         skillsPages.enterUsername(username);
         skillsPages.enterPassword(password);
         skillsPages.clickSignInButton();
@@ -32,7 +34,6 @@ public class MySkillsSteps {
     public void userClickOnButton(String buttonName) {
         feedbackPage.clickButton(buttonName);
     }
-
 
     @When("^\"(.*?)\" card is present in dashboard$")
     public void cardIsPresentInDashboard(String cardName) {

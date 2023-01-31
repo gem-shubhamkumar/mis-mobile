@@ -36,7 +36,7 @@ serenity {
 
 ext {
     slf4jVersion = '2.0.3'
-    serenityCoreVersion = '2.6.0'
+    serenityCoreVersion = '3.3.7'
     ioCucumberVersion = '6.10.4'
     junitVersion = '4.13.2'
     assertJVersion = '3.23.1'
@@ -54,13 +54,20 @@ dependencies {
             "org.assertj:assertj-core:${assertJVersion}",
             "net.serenity-bdd:serenity-core:${serenityCoreVersion}",
             "net.serenity-bdd:serenity-junit:${serenityCoreVersion}",
-            "net.serenity-bdd:serenity-cucumber6:${serenityCoreVersion}",
+//            "net.serenity-bdd:serenity-cucumber6:${serenityCoreVersion}",
             "net.serenity-bdd:serenity-screenplay:${serenityCoreVersion}",
             "net.serenity-bdd:serenity-screenplay-rest:${serenityCoreVersion}",
             "net.serenity-bdd:serenity-screenplay-webdriver:${serenityCoreVersion}",
-            "net.serenity-bdd:serenity-rest-assured:${serenityCoreVersion}",
-            "io.cucumber:cucumber-java:${ioCucumberVersion}",
-            "io.cucumber:cucumber-junit:${ioCucumberVersion}"
+            "net.serenity-bdd:serenity-rest-assured:${serenityCoreVersion}"
+//            "io.cucumber:cucumber-java:${ioCucumberVersion}",
+//            "io.cucumber:cucumber-junit:${ioCucumberVersion}"
+    implementation 'io.appium:java-client:8.1.1'
+    implementation 'org.seleniumhq.selenium:selenium-java:4.4.0'
+    implementation 'org.seleniumhq.selenium:selenium-remote-driver:4.4.0'
+    implementation 'org.seleniumhq.selenium:selenium-api:4.2.2'
+    implementation 'io.cucumber:cucumber-junit:7.0.0'
+    implementation 'io.cucumber:cucumber-java:7.3.4'
+    implementation 'net.serenity-bdd:serenity-cucumber:3.3.7'
 }
 
 test {

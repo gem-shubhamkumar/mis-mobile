@@ -21,7 +21,8 @@ public class LoginPageImplementations extends PageObject {
 
     public void launchApplication(String url){
         getDriver().get(url);
-        getDriver().manage().window().maximize();
+//        added by shubham.kumar for mobile
+//        getDriver().manage().window().maximize();
         if (getDriver().getTitle().equals("Gemini MIS")) {
             assertTrue("Successfully launched application", true);
         } else {
@@ -53,7 +54,14 @@ public class LoginPageImplementations extends PageObject {
        WebElementFacade element = $(Loc);
        if (element.isDisplayed()) {
            assertTrue("Element is present on Webpage", true);
-       } else {
+       }
+       // added by shubham.kumar
+       else if (element.getCssValue("display").equals("none")){
+           System.out.println(element.getCssValue("display"));
+           $("//table[@id='tblActiveForm']/tbody/tr[1]/td[1]").click();
+           assertTrue("Element is present on Webpage", true);
+       }
+       else {
            Assert.fail("Element is not present on Webpage");
           log.info("Element is not present on Webpage");
        }

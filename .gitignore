@@ -1,7 +1,8 @@
 .idea
 .gradle
 .gitignore
-target
+target-de
 gradlew
 build
 gradle
+target*

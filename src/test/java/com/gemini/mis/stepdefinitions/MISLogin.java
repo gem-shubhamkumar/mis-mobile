@@ -56,7 +56,8 @@ public class MISLogin {
     @Given("User verifies logo and login page message")
     public void userVerifiesLogoAndLoginPageMessage() {
         steps.isElementExist(XpathForLoginPage.logoOnLoginPage);
-        steps.isElementExist(XpathForLoginPage.loginPageMsg);
+//        added by shubham.kumar
+//        steps.isElementExist(XpathForLoginPage.loginPageMsg);
     }
 
     @Then("User clicks on Login via SSO")

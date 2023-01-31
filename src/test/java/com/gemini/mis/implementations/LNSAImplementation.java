@@ -61,7 +61,9 @@ import java.util.List;
 
     
     public void verifyNextDateData() throws ParseException {
-        waitABit(1500);
+        // added by shubham.kumar
+        waitABit(5000);
+//        waitABit(1500);
         String date = $(By.id("endDate")).getText();
         date = date.replaceAll(" ", "-");
         SimpleDateFormat format = new SimpleDateFormat("dd-MMM-yyyy");
